@@ -6,7 +6,7 @@ const state = {
   selectedBanks: new Set(),
   selectedCardTypes: new Set(),
   bankSearchTerm: "",
-  orderValue: 4000,
+  orderValue: 10000,
   searchTerm: "",
 };
 
@@ -116,7 +116,7 @@ function bindEvents() {
     state.selectedCardTypes = new Set();
     state.bankSearchTerm = "";
     state.searchTerm = "";
-    state.orderValue = 4000;
+    state.orderValue = 10000;
     elements.bankSearch.value = "";
     elements.orderValue.value = String(state.orderValue);
     elements.restaurantSearch.value = "";
@@ -526,18 +526,32 @@ function computeRecommendations() {
 }
 
 function renderTopPick(result) {
+  const coveragePct = Math.round(result.coverage * 100);
+  const daysFitPct = Math.round(result.avgDayFit * 100);
   elements.topPick.classList.remove("hidden");
   elements.topPick.innerHTML = `
     <article class="pick-card">
       <div class="pick-header">
-        <div>
-          <p class="pick-kicker">Top Match</p>
+        <div class="pick-copy">
+          <div class="pick-badge-row">
+            <span class="pick-kicker">Top Match</span>
+          </div>
           <h2>${escapeHtml(result.card)}</h2>
           <p class="pick-bank">${escapeHtml(result.bank)}</p>
         </div>
-        <div class="score-badge">
-          <strong>${formatScore(result.score)}</strong>
-          <span>Fit Score</span>
+        <div class="score-wrap">
+          <div class="score-badge">
+            <strong>${formatScore(result.score)}</strong>
+            <span class="score-label">
+              Fit Score
+              <span class="tooltip-wrap">
+                <button class="info-dot" type="button" aria-label="Fit score info">i</button>
+                <span class="tooltip-card" role="tooltip">
+                  Fit Score is a blended ranking out of 100 using expected savings, coverage, and day fit.
+                </span>
+              </span>
+            </span>
+          </div>
         </div>
       </div>
 
@@ -563,26 +577,36 @@ function renderTopPick(result) {
       <div class="pick-details">
         <div class="detail-box">
           <h3>Why it ranks first</h3>
-          <ul>
-            <li>It gives the strongest overall savings for the cities, places, and days you picked.</li>
-            <li>It covers ${result.coveredVenueCount} of your ${result.totalVenueCount} restaurant options.</li>
-            <li>Its matched offers average ${Math.round(result.averageDiscount)}% off before cap effects.</li>
-          </ul>
+          <div class="detail-list">
+            <article class="detail-row">
+              <strong>${formatCurrency(result.avgExpectedSaving)} expected value</strong>
+              <span>Best projected savings per outing after discount and cap effects.</span>
+            </article>
+            <article class="detail-row">
+              <strong>${coveragePct}% venue coverage</strong>
+              <span>Works at ${result.coveredVenueCount} of the ${result.totalVenueCount} restaurants that match your filters.</span>
+            </article>
+            <article class="detail-row">
+              <strong>${daysFitPct}% day fit</strong>
+              <span>Its offers line up with your selected going-out days more often than the alternatives.</span>
+            </article>
+          </div>
         </div>
         <div class="detail-box">
           <h3>Best matching places</h3>
-          <ul>
+          <div class="detail-list">
             ${result.topMatches
+              .slice(0, 3)
               .map(
                 (match) => `
-                  <li>
-                    <strong>${escapeHtml(match.restaurant)} (${escapeHtml(match.city)})</strong><br />
-                    ${escapeHtml(match.discountLabel)} | ${escapeHtml(match.daysLabel)} | ${formatCurrency(match.expectedSaving)} expected
-                  </li>
+                  <article class="detail-row">
+                    <strong>${escapeHtml(match.restaurant)} <span class="subtle">(${escapeHtml(match.city)})</span></strong>
+                    <span>${escapeHtml(match.discountLabel)} | ${escapeHtml(match.daysLabel)}</span>
+                  </article>
                 `,
               )
               .join("")}
-          </ul>
+          </div>
         </div>
       </div>
     </article>
