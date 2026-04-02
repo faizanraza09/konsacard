@@ -820,6 +820,11 @@ input[type="range"] {
     position: relative;
     top: auto;
     z-index: auto;
+    order: 1;
+  }
+
+  .results {
+    order: 2;
   }
 
   .filters-shell {
