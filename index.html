@@ -43,7 +43,12 @@
       <main class="app-layout">
         <aside class="controls">
           <details id="filters-shell" class="filters-shell" open>
-            <summary class="filters-toggle">Filters</summary>
+            <summary class="filters-toggle">
+              <span class="filters-toggle-copy">
+                <strong>Customize Results</strong>
+                <span>Open filters for cities, restaurants, banks, and bill</span>
+              </span>
+            </summary>
             <section class="panel">
               <div class="panel-head">
                 <h2>Your Filters</h2>
@@ -126,25 +131,6 @@
         </aside>
 
         <section class="results">
-          <section class="summary-strip panel">
-            <div class="summary-item">
-              <span>Selected restaurants</span>
-              <strong id="summary-brands">All available</strong>
-            </div>
-            <div class="summary-item">
-              <span>Selected cities</span>
-              <strong id="summary-cities">3 cities</strong>
-            </div>
-            <div class="summary-item">
-              <span>Selected days</span>
-              <strong id="summary-days">7 days</strong>
-            </div>
-            <div class="summary-item">
-              <span>Best expected saving</span>
-              <strong id="summary-best">-</strong>
-            </div>
-          </section>
-
           <section id="empty-state" class="panel empty-state hidden">
             <h2>No matching offers</h2>
             <p>

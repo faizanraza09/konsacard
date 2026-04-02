@@ -152,6 +152,23 @@ body::before {
   display: none;
 }
 
+.filters-toggle-copy {
+  display: grid;
+  gap: 2px;
+}
+
+.filters-toggle-copy strong {
+  font-size: 0.9rem;
+  line-height: 1.05;
+}
+
+.filters-toggle-copy span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
 .controls,
 .results {
   display: grid;
@@ -847,6 +864,10 @@ input[type="range"] {
     font-size: 0.9rem;
     font-weight: 700;
     list-style: none;
+  }
+
+  .filters-toggle-copy {
+    max-width: calc(100% - 56px);
   }
 
   .filters-toggle::-webkit-details-marker {

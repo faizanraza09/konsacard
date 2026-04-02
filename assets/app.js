@@ -352,6 +352,14 @@ function renderRestaurantSearch() {
 }
 
 function renderSummary() {
+  if (
+    !elements.summaryCities ||
+    !elements.summaryDays ||
+    !elements.summaryBrands ||
+    !elements.summaryBest
+  ) {
+    return;
+  }
   const cityCount = getEffectiveCityCount();
   const dayCount = getEffectiveDayCount();
   elements.summaryCities.textContent =
@@ -377,12 +385,16 @@ function renderRecommendations() {
     elements.emptyState.classList.remove("hidden");
     elements.topPick.classList.add("hidden");
     elements.resultsGrid.innerHTML = "";
-    elements.summaryBest.textContent = "-";
+    if (elements.summaryBest) {
+      elements.summaryBest.textContent = "-";
+    }
     return;
   }
 
   elements.emptyState.classList.add("hidden");
-  elements.summaryBest.textContent = `${formatCurrency(results[0].avgExpectedSaving)} / outing`;
+  if (elements.summaryBest) {
+    elements.summaryBest.textContent = `${formatCurrency(results[0].avgExpectedSaving)} / outing`;
+  }
   renderTopPick(results[0]);
   renderResultCards(results.slice(0, 10));
 }
