@@ -12,7 +12,6 @@ const state = {
 
 const elements = {
   filtersShell: document.getElementById("filters-shell"),
-  filtersToggleButton: document.getElementById("filters-toggle-button"),
   cityPills: document.getElementById("city-pills"),
   dayPills: document.getElementById("day-pills"),
   cardTypePills: document.getElementById("card-type-pills"),
@@ -71,16 +70,6 @@ async function init() {
 
 function bindEvents() {
   window.addEventListener("resize", syncFiltersShellForViewport);
-
-  if (elements.filtersToggleButton) {
-    elements.filtersToggleButton.addEventListener("click", () => {
-      if (!elements.filtersShell) {
-        return;
-      }
-      elements.filtersShell.open = !elements.filtersShell.open;
-      updateFiltersToggleState();
-    });
-  }
 
   elements.clearCities.addEventListener("click", () => {
     state.selectedCities = new Set();
@@ -718,17 +707,6 @@ function syncFiltersShellForViewport() {
   } else {
     elements.filtersShell.open = true;
   }
-  updateFiltersToggleState();
-}
-
-function updateFiltersToggleState() {
-  if (!elements.filtersToggleButton || !elements.filtersShell) {
-    return;
-  }
-  elements.filtersToggleButton.setAttribute(
-    "aria-expanded",
-    elements.filtersShell.open ? "true" : "false",
-  );
 }
 
 function cityMatches(city) {

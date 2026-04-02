@@ -150,10 +150,6 @@ body::before {
 
 .filters-toggle {
   display: none;
-  width: 100%;
-  border: 0;
-  background: transparent;
-  text-align: left;
 }
 
 .filters-toggle-copy {
@@ -868,6 +864,10 @@ input[type="range"] {
     font-size: 0.9rem;
     font-weight: 700;
     list-style: none;
+  }
+
+  .filters-toggle::-webkit-details-marker {
+    display: none;
   }
 
   .filters-toggle-copy {
