@@ -16,6 +16,12 @@ const elements = {
   cityPills: document.getElementById("city-pills"),
   dayPills: document.getElementById("day-pills"),
   cardTypePills: document.getElementById("card-type-pills"),
+  citiesSummary: document.getElementById("cities-summary"),
+  restaurantsSummary: document.getElementById("restaurants-summary"),
+  daysSummary: document.getElementById("days-summary"),
+  billSummary: document.getElementById("bill-summary"),
+  banksSummary: document.getElementById("banks-summary"),
+  cardTypesSummary: document.getElementById("card-types-summary"),
   bankSearch: document.getElementById("bank-search"),
   bankResults: document.getElementById("bank-results"),
   selectedBanks: document.getElementById("selected-banks"),
@@ -166,8 +172,50 @@ function render() {
   renderCardTypePills();
   renderSelectedRestaurants();
   renderRestaurantSearch();
+  renderFilterSummaries();
   renderSummary();
   renderRecommendations();
+}
+
+function renderFilterSummaries() {
+  if (elements.citiesSummary) {
+    elements.citiesSummary.textContent = state.selectedCities.size
+      ? `${state.selectedCities.size} selected`
+      : "All cities";
+  }
+
+  if (elements.restaurantsSummary) {
+    elements.restaurantsSummary.textContent = state.selectedRestaurants.size
+      ? `${state.selectedRestaurants.size} selected`
+      : "All restaurants";
+  }
+
+  if (elements.daysSummary) {
+    elements.daysSummary.textContent = state.selectedDays.size
+      ? Array.from(state.selectedDays)
+          .sort((a, b) => a - b)
+          .map((day) => DAY_SHORT[day])
+          .join(", ")
+      : "All days";
+  }
+
+  if (elements.billSummary) {
+    elements.billSummary.textContent = formatCurrency(state.orderValue);
+  }
+
+  if (elements.banksSummary) {
+    elements.banksSummary.textContent = state.selectedBanks.size
+      ? `${state.selectedBanks.size} selected`
+      : "All banks";
+  }
+
+  if (elements.cardTypesSummary) {
+    elements.cardTypesSummary.textContent = state.selectedCardTypes.size
+      ? Array.from(state.selectedCardTypes)
+          .map((type) => CARD_TYPE_OPTIONS.find((option) => option.value === type)?.label || type)
+          .join(", ")
+      : "All card types";
+  }
 }
 
 function getAvailableBanks() {
@@ -589,7 +637,7 @@ function computeRecommendations() {
           discountLabel: strongestMatch.discountLabel,
           offerTitle: strongestMatch.offerTitle,
           daysLabel: coveredDayCount === totalSelectedDays
-            ? "All selected days"
+            ? "Matches all your chosen days"
             : bestByDay.map(([day]) => DAY_SHORT[day]).join(", "),
           capPkr: caps.length ? Math.max(...caps) : null,
           fixedDiscountPkr: strongestMatch.fixedDiscountPkr,
@@ -843,14 +891,21 @@ function syncFiltersShellForViewport() {
   if (!elements.filtersShell) {
     return;
   }
+  const filterGroups = Array.from(document.querySelectorAll(".filter-group"));
   if (window.innerWidth <= 720) {
     if (elements.filtersShell.dataset.mobileInitialized !== "true") {
       elements.filtersShell.open = false;
+      filterGroups.forEach((group) => {
+        group.open = group.dataset.mobileOpen === "true";
+      });
       elements.filtersShell.dataset.mobileInitialized = "true";
     }
     document.body.classList.toggle("filters-open", elements.filtersShell.open);
   } else {
     elements.filtersShell.open = true;
+    filterGroups.forEach((group) => {
+      group.open = true;
+    });
     elements.filtersShell.dataset.mobileInitialized = "false";
     document.body.classList.remove("filters-open");
   }

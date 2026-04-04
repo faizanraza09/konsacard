@@ -96,77 +96,125 @@
                 <button id="reset-filters" class="ghost-button" type="button">Reset</button>
               </div>
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Cities</label>
-                  <button id="clear-cities" class="text-button" type="button">Use all</button>
+              <details class="field filter-group" data-mobile-open="true" open>
+                <summary class="filter-summary">
+                  <span class="filter-summary-copy">
+                    <strong>Cities</strong>
+                    <span id="cities-summary">All cities</span>
+                  </span>
+                </summary>
+                <div class="filter-group-body">
+                  <div class="field-head">
+                    <label>Cities</label>
+                    <button id="clear-cities" class="text-button" type="button">Use all</button>
+                  </div>
+                  <div id="city-pills" class="pill-grid"></div>
                 </div>
-                <div id="city-pills" class="pill-grid"></div>
-              </div>
+              </details>
 
-              <div class="field">
-                <div class="field-head">
-                  <label for="restaurant-search">Restaurants</label>
-                  <button id="clear-restaurants" class="text-button" type="button">Use all</button>
+              <details class="field filter-group" data-mobile-open="false">
+                <summary class="filter-summary">
+                  <span class="filter-summary-copy">
+                    <strong>Restaurants</strong>
+                    <span id="restaurants-summary">All restaurants</span>
+                  </span>
+                </summary>
+                <div class="filter-group-body">
+                  <div class="field-head">
+                    <label for="restaurant-search">Restaurants</label>
+                    <button id="clear-restaurants" class="text-button" type="button">Use all</button>
+                  </div>
+                  <input
+                    id="restaurant-search"
+                    class="search-input"
+                    type="search"
+                    placeholder="Search for BBQ Tonight, Cafe Aylanto, PF Chang's..."
+                    autocomplete="off"
+                  />
+                  <div id="restaurant-results" class="search-results"></div>
+                  <div id="selected-restaurants" class="selected-chips"></div>
+                  <p class="helper">
+                    Leave this empty if you want a broad recommendation across all restaurants
+                    in your selected cities.
+                  </p>
                 </div>
-                <input
-                  id="restaurant-search"
-                  class="search-input"
-                  type="search"
-                  placeholder="Search for BBQ Tonight, Cafe Aylanto, PF Chang's..."
-                  autocomplete="off"
-                />
-                <div id="restaurant-results" class="search-results"></div>
-                <div id="selected-restaurants" class="selected-chips"></div>
-                <p class="helper">
-                  Leave this empty if you want a broad recommendation across all restaurants
-                  in your selected cities.
-                </p>
-              </div>
+              </details>
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Going-Out Days</label>
-                  <button id="clear-days" class="text-button" type="button">Use all</button>
+              <details class="field filter-group" data-mobile-open="true" open>
+                <summary class="filter-summary">
+                  <span class="filter-summary-copy">
+                    <strong>Going-Out Days</strong>
+                    <span id="days-summary">All days</span>
+                  </span>
+                </summary>
+                <div class="filter-group-body">
+                  <div class="field-head">
+                    <label>Going-Out Days</label>
+                    <button id="clear-days" class="text-button" type="button">Use all</button>
+                  </div>
+                  <div id="day-pills" class="pill-grid compact"></div>
                 </div>
-                <div id="day-pills" class="pill-grid compact"></div>
-              </div>
+              </details>
 
-              <div class="field field-emphasis">
-                <div class="field-head">
-                  <label for="order-value">Typical Bill</label>
-                  <strong id="order-value-label">PKR 10,000</strong>
+              <details class="field field-emphasis filter-group" data-mobile-open="true" open>
+                <summary class="filter-summary">
+                  <span class="filter-summary-copy">
+                    <strong>Typical Bill</strong>
+                    <span id="bill-summary">PKR 10,000</span>
+                  </span>
+                </summary>
+                <div class="filter-group-body">
+                  <div class="field-head">
+                    <label for="order-value">Typical Bill</label>
+                    <strong id="order-value-label">PKR 10,000</strong>
+                  </div>
+                  <input id="order-value" type="range" min="1000" max="50000" step="500" value="10000" />
+                  <div class="range-scale">
+                    <span>PKR 1,000</span>
+                    <span>PKR 50,000</span>
+                  </div>
                 </div>
-                <input id="order-value" type="range" min="1000" max="50000" step="500" value="10000" />
-                <div class="range-scale">
-                  <span>PKR 1,000</span>
-                  <span>PKR 50,000</span>
-                </div>
-              </div>
+              </details>
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Banks</label>
-                  <button id="clear-banks" class="text-button" type="button">Use all</button>
+              <details class="field filter-group" data-mobile-open="false">
+                <summary class="filter-summary">
+                  <span class="filter-summary-copy">
+                    <strong>Banks</strong>
+                    <span id="banks-summary">All banks</span>
+                  </span>
+                </summary>
+                <div class="filter-group-body">
+                  <div class="field-head">
+                    <label>Banks</label>
+                    <button id="clear-banks" class="text-button" type="button">Use all</button>
+                  </div>
+                  <input
+                    id="bank-search"
+                    class="search-input"
+                    type="search"
+                    placeholder="Search banks..."
+                    autocomplete="off"
+                  />
+                  <div id="bank-results" class="search-results compact-results"></div>
+                  <div id="selected-banks" class="selected-chips"></div>
                 </div>
-                <input
-                  id="bank-search"
-                  class="search-input"
-                  type="search"
-                  placeholder="Search banks..."
-                  autocomplete="off"
-                />
-                <div id="bank-results" class="search-results compact-results"></div>
-                <div id="selected-banks" class="selected-chips"></div>
-              </div>
+              </details>
 
-              <div class="field">
-                <div class="field-head">
-                  <label>Card Type</label>
-                  <button id="clear-card-types" class="text-button" type="button">Use all</button>
+              <details class="field filter-group" data-mobile-open="false">
+                <summary class="filter-summary">
+                  <span class="filter-summary-copy">
+                    <strong>Card Type</strong>
+                    <span id="card-types-summary">All card types</span>
+                  </span>
+                </summary>
+                <div class="filter-group-body">
+                  <div class="field-head">
+                    <label>Card Type</label>
+                    <button id="clear-card-types" class="text-button" type="button">Use all</button>
+                  </div>
+                  <div id="card-type-pills" class="pill-grid"></div>
                 </div>
-                <div id="card-type-pills" class="pill-grid"></div>
-              </div>
+              </details>
 
               <div class="mobile-filter-actions">
                 <button id="mobile-reset-filters" class="ghost-button" type="button">Reset</button>
