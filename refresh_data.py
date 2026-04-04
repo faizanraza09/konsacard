@@ -72,6 +72,55 @@ DAY_ORDER = [
     "Sunday",
 ]
 
+DINING_NAME_KEYWORDS = {
+    "restaurant",
+    "cafe",
+    "coffee",
+    "grill",
+    "bbq",
+    "barbecue",
+    "bistro",
+    "kitchen",
+    "steak",
+    "steakhouse",
+    "diner",
+    "pizza",
+    "burger",
+    "pavilion",
+    "pavillion",
+    "bakery",
+    "tea",
+    "wok",
+    "sushi",
+    "lounge",
+    "food",
+    "eatery",
+}
+
+NON_DINING_TITLE_KEYWORDS = {
+    "rack rate",
+    "rack rates",
+    "room",
+    "rooms",
+    "laundry",
+    "gym",
+    "business centre",
+    "business center",
+    "hall rental",
+    "rent a car",
+    "banquet",
+    "wedding",
+}
+
+GENERIC_VENUE_KEYWORDS = {
+    "hotel",
+    "suites",
+    "suite",
+    "inn",
+    "resort",
+    "club",
+}
+
 
 original_getaddrinfo = socket.getaddrinfo
 
@@ -119,12 +168,76 @@ def extract_discount(entity: dict) -> str | None:
     return entity.get("discount")
 
 
-def parse_discount_pct(*parts: str | None) -> float | None:
+def extract_percent_values(*parts: str | None) -> list[float]:
     text = " ".join(str(part or "") for part in parts)
-    matches = re.findall(r"(\d+(?:\.\d+)?)\s*%", text)
+    return [float(value) for value in re.findall(r"(\d+(?:\.\d+)?)\s*%", text)]
+
+
+def parse_discount_pct(*parts: str | None) -> float | None:
+    matches = extract_percent_values(*parts)
     if not matches:
         return None
-    return max(float(value) for value in matches)
+    return max(matches)
+
+
+def parse_fixed_discount_amount(*parts: str | None) -> int | None:
+    text = " ".join(str(part or "") for part in parts)
+    patterns = [
+        r"(?:pkr|rs\.?)\s*:?\s*([0-9,]+)\s*off",
+        r"([0-9,]+)\s*(?:pkr|rs\.?)\s*off",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, text, flags=re.IGNORECASE)
+        if match:
+            return int(match.group(1).replace(",", ""))
+    return None
+
+
+def build_discount_fields(discount_label: str | None, offer_title: str | None) -> dict:
+    label_text = normalize_text(discount_label)
+    title_text = normalize_text(offer_title)
+    label_pct = parse_discount_pct(discount_label)
+    title_pct = parse_discount_pct(offer_title)
+    fixed_amount = parse_fixed_discount_amount(offer_title)
+
+    if title_pct is not None and "up to" not in title_text and "upto" not in title_text:
+        return {
+            "discountPct": title_pct,
+            "maxHeadlinePct": label_pct,
+            "fixedDiscountPkr": fixed_amount,
+            "discountKind": "percent_exact",
+        }
+
+    if fixed_amount is not None:
+        return {
+            "discountPct": label_pct,
+            "maxHeadlinePct": label_pct,
+            "fixedDiscountPkr": fixed_amount,
+            "discountKind": "percent_with_fixed_cap" if label_pct is not None else "fixed_amount",
+        }
+
+    if title_pct is not None:
+        return {
+            "discountPct": title_pct,
+            "maxHeadlinePct": label_pct,
+            "fixedDiscountPkr": None,
+            "discountKind": "percent_upto",
+        }
+
+    if label_pct is not None:
+        return {
+            "discountPct": label_pct,
+            "maxHeadlinePct": label_pct,
+            "fixedDiscountPkr": None,
+            "discountKind": "percent_upto" if "up to" in label_text or "upto" in label_text else "percent_exact",
+        }
+
+    return {
+        "discountPct": None,
+        "maxHeadlinePct": None,
+        "fixedDiscountPkr": fixed_amount,
+        "discountKind": "fixed_amount" if fixed_amount is not None else "unknown",
+    }
 
 
 def parse_discount_cap(text: str | None) -> int | None:
@@ -150,16 +263,10 @@ def extract_weekdays(title: str | None, description: str | None) -> list[str]:
         return DAY_ORDER.copy()
 
     lowered = text.lower()
-    if any(
-        pattern in lowered
-        for pattern in ["everyday", "every day", "all days", "monday till sunday", "monday to sunday"]
-    ):
-        return DAY_ORDER.copy()
-
     day_index = {day.lower(): idx for idx, day in enumerate(DAY_ORDER)}
     found = set()
     range_matches = re.findall(
-        r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s*(?:to|till|&|-)\s*(monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
+        r"(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s*(?:to|till|-)\s*(monday|tuesday|wednesday|thursday|friday|saturday|sunday)",
         lowered,
         flags=re.IGNORECASE,
     )
@@ -174,7 +281,16 @@ def extract_weekdays(title: str | None, description: str | None) -> list[str]:
         if day.lower() in lowered:
             found.add(day)
 
-    return [day for day in DAY_ORDER if day in found] or DAY_ORDER.copy()
+    if found:
+        return [day for day in DAY_ORDER if day in found]
+
+    if any(
+        pattern in lowered
+        for pattern in ["everyday", "every day", "all days", "monday till sunday", "monday to sunday"]
+    ):
+        return DAY_ORDER.copy()
+
+    return DAY_ORDER.copy()
 
 
 def extract_schedule_label(title: str | None, description: str | None) -> str:
@@ -247,6 +363,41 @@ def extract_order_types(text: str | None) -> list[str]:
     if "takeaway" in lowered or "take away" in lowered:
         values.append("Takeaway")
     return values
+
+
+def normalize_text(value: str | None) -> str:
+    return re.sub(r"\s+", " ", str(value or "").strip().lower())
+
+
+def is_dining_title(title: str | None) -> bool:
+    lowered = normalize_text(title)
+    if not lowered:
+        return True
+    return not any(keyword in lowered for keyword in NON_DINING_TITLE_KEYWORDS)
+
+
+def looks_like_dining_venue(name: str | None) -> bool:
+    lowered = normalize_text(name)
+    if not lowered:
+        return False
+    return any(keyword in lowered for keyword in DINING_NAME_KEYWORDS)
+
+
+def is_generic_lodging_venue(name: str | None) -> bool:
+    lowered = normalize_text(name)
+    if not lowered:
+        return False
+    return any(keyword in lowered for keyword in GENERIC_VENUE_KEYWORDS)
+
+
+def is_dining_entity_offer(entity_name: str | None, deal_title: str | None) -> bool:
+    if deal_title and not is_dining_title(deal_title):
+        return False
+    if looks_like_dining_venue(entity_name):
+        return True
+    if is_generic_lodging_venue(entity_name):
+        return False
+    return True
 
 
 def get_entity_deals(city_name: str, city_meta: dict, entity_id: str | int) -> list[dict]:
@@ -379,8 +530,10 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
             matched_deals = [deal for deal in entity_deals if deal_matches_card(deal, bank, card)]
 
             if not matched_deals:
+                if not is_dining_entity_offer(entity.get("name"), None):
+                    continue
                 discount_label = extract_discount(entity)
-                discount_pct = parse_discount_pct(discount_label)
+                discount_fields = build_discount_fields(discount_label, None)
                 if discount_label:
                     offers.append(
                         {
@@ -390,8 +543,11 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                             "card": card["typeName"],
                             "cardCategory": infer_card_category(card["typeName"]),
                             "cardKey": f"{bank['name']} || {card['typeName']}",
-                            "discountPct": discount_pct,
+                            "discountPct": discount_fields["discountPct"],
                             "discountLabel": discount_label,
+                            "discountKind": discount_fields["discountKind"],
+                            "maxHeadlinePct": discount_fields["maxHeadlinePct"],
+                            "fixedDiscountPkr": discount_fields["fixedDiscountPkr"],
                             "offerTitle": None,
                             "days": list(range(7)),
                             "daysLabel": "All Days",
@@ -406,8 +562,10 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                 continue
 
             for deal in matched_deals:
+                if not is_dining_entity_offer(entity.get("name"), deal.get("title")):
+                    continue
                 discount_label = extract_discount(entity)
-                discount_pct = parse_discount_pct(discount_label, deal.get("title"))
+                discount_fields = build_discount_fields(discount_label, deal.get("title"))
                 if not discount_label:
                     continue
                 days = extract_weekdays(deal.get("title"), deal.get("description"))
@@ -419,8 +577,11 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                         "card": card["typeName"],
                         "cardCategory": infer_card_category(card["typeName"]),
                         "cardKey": f"{bank['name']} || {card['typeName']}",
-                        "discountPct": discount_pct,
+                        "discountPct": discount_fields["discountPct"],
                         "discountLabel": discount_label,
+                        "discountKind": discount_fields["discountKind"],
+                        "maxHeadlinePct": discount_fields["maxHeadlinePct"],
+                        "fixedDiscountPkr": discount_fields["fixedDiscountPkr"],
                         "offerTitle": deal.get("title"),
                         "days": [DAY_ORDER.index(day) for day in days],
                         "daysLabel": extract_schedule_label(deal.get("title"), deal.get("description")),

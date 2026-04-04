@@ -3,10 +3,26 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pakistan Dining Card Finder | Compare Card Offers</title>
+    <title>foodcard.pk | Compare Pakistan Bank Card Dining Deals</title>
     <meta
       name="description"
-      content="Compare Pakistani bank cards for dining offers across Karachi, Lahore, and Islamabad."
+      content="Compare 195 Pakistan bank card dining discounts across Karachi, Lahore & Islamabad restaurants. Find your best food card in seconds - foodcard.pk."
+    />
+    <link rel="canonical" href="https://foodcard.pk/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://foodcard.pk/" />
+    <meta property="og:title" content="foodcard.pk | Compare Pakistan Bank Card Dining Deals" />
+    <meta
+      property="og:description"
+      content="Compare Pakistan bank card dining deals across Karachi, Lahore, and Islamabad. Find restaurant discounts, bank offers, and the best card for how you dine."
+    />
+    <meta property="og:site_name" content="foodcard.pk" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="foodcard.pk | Compare Pakistan Bank Card Dining Deals" />
+    <meta
+      name="twitter:description"
+      content="Compare Pakistan bank card dining deals across Karachi, Lahore, and Islamabad. Find restaurant discounts, bank offers, and the best card for how you dine."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,13 +32,38 @@
     />
     <link rel="stylesheet" href="./assets/styles.css" />
     <script defer src="./assets/app.js"></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "foodcard.pk",
+        "url": "https://foodcard.pk/",
+        "description": "Compare Pakistan bank card dining discounts across Karachi, Lahore and Islamabad.",
+        "applicationCategory": "FinanceApplication",
+        "areaServed": ["Karachi", "Lahore", "Islamabad"],
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "PKR"
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="page-shell">
-      <header class="app-bar">
+      <header class="app-bar" role="banner">
         <div class="app-bar-copy">
+          <p class="hero-kicker">Pakistan's Card Dining Matcher</p>
           <h1>Find the card that fits how you dine in Pakistan</h1>
-          <p class="hero-subline">Matched to your restaurants, your cities, your bill</p>
+          <p class="hero-intro">
+            foodcard.pk compares restaurant discount cards across Karachi, Lahore, and
+            Islamabad so you can quickly find the best card for your favorite restaurants
+            and your typical bill size.
+          </p>
+        </div>
+        <div class="hero-badges" aria-label="Cities and major banks covered">
+          <span class="hero-badge">Karachi · Lahore · Islamabad</span>
+          <span class="hero-badge">HBL · MCB · Askari · UBL · Meezan</span>
         </div>
         <div class="app-bar-stats">
           <div class="mini-metric">
@@ -126,6 +167,11 @@
                 </div>
                 <div id="card-type-pills" class="pill-grid"></div>
               </div>
+
+              <div class="mobile-filter-actions">
+                <button id="mobile-reset-filters" class="ghost-button" type="button">Reset</button>
+                <button id="mobile-apply-filters" class="apply-button" type="button">Show Results</button>
+              </div>
             </section>
           </details>
         </aside>
@@ -152,6 +198,93 @@
           </section>
         </section>
       </main>
+
+      <section class="seo-stack">
+        <section class="panel seo-panel">
+          <h2>How Foodcard Works</h2>
+          <p>
+            foodcard.pk compares dining offers on Pakistani bank cards by city, restaurant,
+            bank, card type, day, and bill size. Instead of showing a flat list, it estimates
+            which card is likely to save you the most for the way you actually dine.
+          </p>
+        </section>
+
+        <section class="panel seo-panel">
+          <h2>Cities Covered</h2>
+          <p>
+            The current comparison covers dining deals in Karachi, Lahore, and Islamabad. You
+            can filter offers by city to focus on restaurant discounts that are relevant to your
+            location instead of scanning generic bank offer pages.
+          </p>
+        </section>
+
+        <section class="panel seo-panel">
+          <h2>Banks and Restaurant Deals</h2>
+          <p>
+            foodcard.pk brings together bank card dining deals from major Pakistani banks and
+            compares them against restaurant offers in one place. This makes it easier to see
+            which card works best for cafes, grills, buffets, pizza chains, and everyday dining.
+          </p>
+          <p>
+            The homepage compares offers from banks such as HBL, Bank Alfalah, Askari Bank,
+            Meezan Bank, UBL, Allied Bank, Bank AL Habib, Faysal Bank, BankIslami, JS Bank,
+            Habib Metro, MCB, MCB Islamic, and Bank of Punjab.
+          </p>
+        </section>
+
+        <section class="panel seo-panel">
+          <h2>How We Rank Cards</h2>
+          <p>
+            Cards are ranked by estimated savings on your bill, restaurant coverage, and how
+            well the offer days match your selected going-out days. Where a restaurant has
+            different discounts on different days, the calculator blends the best available offer
+            by day instead of forcing a single row to represent the whole week.
+          </p>
+        </section>
+
+        <section class="panel seo-panel faq-panel">
+          <h2>Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <details>
+              <summary>What is foodcard.pk?</summary>
+              <p>
+                foodcard.pk is a one-page comparison website for Pakistan bank card dining deals.
+                It helps you compare restaurant discounts by city, bank, card type, day, and bill
+                size.
+              </p>
+            </details>
+            <details>
+              <summary>Which cities are covered?</summary>
+              <p>
+                The website currently covers Karachi, Lahore, and Islamabad.
+              </p>
+            </details>
+            <details>
+              <summary>Does foodcard.pk rank the best dining card automatically?</summary>
+              <p>
+                Yes. The app estimates expected savings based on your selected filters and ranks
+                cards according to projected value, restaurant coverage, and day fit.
+              </p>
+            </details>
+            <details>
+              <summary>How do you handle “Up to” discounts?</summary>
+              <p>
+                When a deal has a general “Up to” headline but a more specific offer title, the
+                specific deal is preferred for calculations. This helps keep the rankings closer
+                to the actual discount a user can expect.
+              </p>
+            </details>
+            <details>
+              <summary>Is foodcard.pk for food delivery only?</summary>
+              <p>
+                No. The website focuses on dining-related bank card offers, including restaurant
+                and food partner discounts, and filters out obvious non-dining hotel service
+                offers from the comparison dataset.
+              </p>
+            </details>
+          </div>
+        </section>
+      </section>
     </div>
   </body>
 </html>

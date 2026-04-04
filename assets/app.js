@@ -30,6 +30,8 @@ const elements = {
   orderValueLabel: document.getElementById("order-value-label"),
   resetFilters: document.getElementById("reset-filters"),
   clearRestaurants: document.getElementById("clear-restaurants"),
+  mobileApplyFilters: document.getElementById("mobile-apply-filters"),
+  mobileResetFilters: document.getElementById("mobile-reset-filters"),
   resultsGrid: document.getElementById("results-grid"),
   topPick: document.getElementById("top-pick"),
   emptyState: document.getElementById("empty-state"),
@@ -71,7 +73,9 @@ async function init() {
 
 function bindEvents() {
   window.addEventListener("resize", syncFiltersShellForViewport);
+  elements.filtersShell?.addEventListener("toggle", syncFiltersShellForViewport);
   bindFiltersToggleTouchGuard();
+  bindMobileFilterActions();
 
   elements.clearCities.addEventListener("click", () => {
     state.selectedCities = new Set();
@@ -111,18 +115,7 @@ function bindEvents() {
   });
 
   elements.resetFilters.addEventListener("click", () => {
-    state.selectedCities = new Set();
-    state.selectedDays = new Set();
-    state.selectedRestaurants = new Set();
-    state.selectedBanks = new Set();
-    state.selectedCardTypes = new Set();
-    state.bankSearchTerm = "";
-    state.searchTerm = "";
-    state.orderValue = 10000;
-    elements.bankSearch.value = "";
-    elements.orderValue.value = String(state.orderValue);
-    elements.restaurantSearch.value = "";
-    render();
+    resetFilters();
   });
 
   elements.clearRestaurants.addEventListener("click", () => {
@@ -131,6 +124,36 @@ function bindEvents() {
     elements.restaurantSearch.value = "";
     render();
   });
+}
+
+function bindMobileFilterActions() {
+  if (elements.mobileApplyFilters) {
+    elements.mobileApplyFilters.addEventListener("click", () => {
+      if (window.innerWidth <= 720 && elements.filtersShell) {
+        elements.filtersShell.open = false;
+        syncFiltersShellForViewport();
+      }
+    });
+  }
+
+  if (elements.mobileResetFilters) {
+    elements.mobileResetFilters.addEventListener("click", resetFilters);
+  }
+}
+
+function resetFilters() {
+  state.selectedCities = new Set();
+  state.selectedDays = new Set();
+  state.selectedRestaurants = new Set();
+  state.selectedBanks = new Set();
+  state.selectedCardTypes = new Set();
+  state.bankSearchTerm = "";
+  state.searchTerm = "";
+  state.orderValue = 10000;
+  elements.bankSearch.value = "";
+  elements.orderValue.value = String(state.orderValue);
+  elements.restaurantSearch.value = "";
+  render();
 }
 
 function render() {
@@ -484,72 +507,111 @@ function computeRecommendations() {
   const cardMap = new Map();
 
   desiredOffers.forEach((offer) => {
-    const discountPct = getOfferDiscountPct(offer);
-    if (!Number.isFinite(discountPct) || discountPct <= 0) {
+    const offerSaving = getOfferSavingValue(offer, state.orderValue);
+    if (!Number.isFinite(offerSaving) || offerSaving <= 0) {
       return;
     }
 
-    const overlapCount = offer.days.reduce(
-      (count, day) => count + (selectedDays.has(day) ? 1 : 0),
-      0,
-    );
-    if (!overlapCount) {
-      return;
-    }
-
-    const rawSaving = Math.min(
-      (state.orderValue * discountPct) / 100,
-      offer.capPkr ?? Number.POSITIVE_INFINITY,
-    );
-    const dayFit = overlapCount / totalSelectedDays;
-    const expectedSaving = rawSaving * dayFit;
     const venueKey = `${offer.city} || ${offer.restaurant}`;
 
     if (!cardMap.has(offer.cardKey)) {
       cardMap.set(offer.cardKey, {
         bank: offer.bank,
         card: offer.card,
-        venueBest: new Map(),
+        venueDailyBest: new Map(),
       });
     }
 
     const cardRecord = cardMap.get(offer.cardKey);
-    const current = cardRecord.venueBest.get(venueKey);
-    const candidate = {
-      venueKey,
-      city: offer.city,
-      restaurant: offer.restaurant,
-      rawSaving,
-      expectedSaving,
-      dayFit,
-      discountPct,
-      discountLabel: offer.discountLabel,
-      offerTitle: offer.offerTitle,
-      daysLabel: offer.daysLabel,
-      capPkr: offer.capPkr,
-      orderTypes: offer.orderTypes,
-    };
-
-    if (
-      !current ||
-      candidate.expectedSaving > current.expectedSaving ||
-      (candidate.expectedSaving === current.expectedSaving && candidate.rawSaving > current.rawSaving)
-    ) {
-      cardRecord.venueBest.set(venueKey, candidate);
+    if (!cardRecord.venueDailyBest.has(venueKey)) {
+      cardRecord.venueDailyBest.set(venueKey, new Map());
     }
+
+    const dayMap = cardRecord.venueDailyBest.get(venueKey);
+    selectedDays.forEach((day) => {
+      if (!offer.days.includes(day)) {
+        return;
+      }
+      const current = dayMap.get(day);
+      const candidate = {
+        city: offer.city,
+        restaurant: offer.restaurant,
+        saving: offerSaving,
+        discountPct: getOfferDiscountPct(offer),
+        discountLabel: offer.discountLabel,
+        offerTitle: offer.offerTitle,
+        daysLabel: offer.daysLabel,
+        capPkr: offer.capPkr,
+        fixedDiscountPkr: offer.fixedDiscountPkr ?? null,
+        discountKind: offer.discountKind ?? "unknown",
+        orderTypes: offer.orderTypes,
+      };
+
+      if (!current || candidate.saving > current.saving) {
+        dayMap.set(day, candidate);
+      }
+    });
   });
 
   const aggregates = Array.from(cardMap.values()).map((cardRecord) => {
-    const matches = Array.from(cardRecord.venueBest.values());
+    const venueSummaries = Array.from(cardRecord.venueDailyBest.entries())
+      .map(([venueKey, dayMap]) => {
+        if (!dayMap.size) {
+          return null;
+        }
+
+        const bestByDay = Array.from(dayMap.entries()).sort((a, b) => a[0] - b[0]);
+        const totalExpectedSaving = bestByDay.reduce((sum, [, match]) => sum + match.saving, 0);
+        const coveredDayCount = bestByDay.length;
+        const expectedSaving = totalExpectedSaving / totalSelectedDays;
+        const dayFit = coveredDayCount / totalSelectedDays;
+        const strongestMatch = bestByDay.reduce((best, [, match]) => (
+          !best || match.saving > best.saving ? match : best
+        ), null);
+        const averageDiscount = average(
+          bestByDay
+            .map(([, match]) => match.discountPct)
+            .filter((value) => Number.isFinite(value)),
+        );
+        const caps = bestByDay
+          .map(([, match]) => match.capPkr ?? match.fixedDiscountPkr)
+          .filter((value) => Number.isFinite(value));
+
+        return {
+          venueKey,
+          city: strongestMatch.city,
+          restaurant: strongestMatch.restaurant,
+          rawSaving: strongestMatch.saving,
+          expectedSaving,
+          dayFit,
+          coveredDayCount,
+          discountPct: averageDiscount,
+          discountLabel: strongestMatch.discountLabel,
+          offerTitle: strongestMatch.offerTitle,
+          daysLabel: coveredDayCount === totalSelectedDays
+            ? "All selected days"
+            : bestByDay.map(([day]) => DAY_SHORT[day]).join(", "),
+          capPkr: caps.length ? Math.max(...caps) : null,
+          fixedDiscountPkr: strongestMatch.fixedDiscountPkr,
+          discountKind: strongestMatch.discountKind,
+          orderTypes: strongestMatch.orderTypes,
+        };
+      })
+      .filter(Boolean);
+
+    const matches = venueSummaries;
     const coveredVenueCount = matches.length;
     const coverage = coveredVenueCount / totalVenueCount;
     const totalExpectedSaving = matches.reduce((sum, match) => sum + match.expectedSaving, 0);
     const totalDayFit = matches.reduce((sum, match) => sum + match.dayFit, 0);
     const avgExpectedSaving = totalExpectedSaving / totalVenueCount;
     const avgDayFit = totalDayFit / totalVenueCount;
-    const averageDiscount =
-      matches.reduce((sum, match) => sum + match.discountPct, 0) / coveredVenueCount;
-    const caps = matches.map((match) => match.capPkr).filter((value) => Number.isFinite(value));
+    const averageDiscount = average(
+      matches.map((match) => match.discountPct).filter((value) => Number.isFinite(value)),
+    );
+    const caps = matches
+      .map((match) => match.capPkr ?? match.fixedDiscountPkr)
+      .filter((value) => Number.isFinite(value));
     const medianCap = caps.length ? median(caps) : null;
     const topMatches = matches
       .sort((a, b) => b.expectedSaving - a.expectedSaving)
@@ -585,6 +647,25 @@ function computeRecommendations() {
     }
     return b.coverage - a.coverage;
   });
+}
+
+function getOfferSavingValue(offer, orderValue) {
+  const discountPct = getOfferDiscountPct(offer);
+  const fixedDiscountPkr = Number.isFinite(offer.fixedDiscountPkr) ? offer.fixedDiscountPkr : null;
+  const capPkr = Number.isFinite(offer.capPkr) ? offer.capPkr : null;
+
+  if (Number.isFinite(discountPct) && discountPct > 0) {
+    return Math.min(
+      (orderValue * discountPct) / 100,
+      fixedDiscountPkr ?? capPkr ?? Number.POSITIVE_INFINITY,
+    );
+  }
+
+  if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) {
+    return fixedDiscountPkr;
+  }
+
+  return null;
 }
 
 function renderTopPick(result) {
@@ -636,41 +717,44 @@ function renderTopPick(result) {
         </div>
       </div>
 
-      <div class="pick-details">
-        <div class="detail-box">
-          <h3>Why it ranks first</h3>
-          <div class="detail-list">
-            <article class="detail-row">
-              <strong>${formatCurrency(result.avgExpectedSaving)} expected value</strong>
-              <span>Best projected savings per outing after discount and cap effects.</span>
-            </article>
-            <article class="detail-row">
-              <strong>${coveragePct}% venue coverage</strong>
-              <span>Works at ${result.coveredVenueCount} of the ${result.totalVenueCount} restaurants that match your filters.</span>
-            </article>
-            <article class="detail-row">
-              <strong>${daysFitPct}% day fit</strong>
-              <span>Its offers line up with your selected going-out days more often than the alternatives.</span>
-            </article>
+      <details class="pick-more-details">
+        <summary>See why this card matches</summary>
+        <div class="pick-details">
+          <div class="detail-box">
+            <h3>Why it ranks first</h3>
+            <div class="detail-list">
+              <article class="detail-row">
+                <strong>${formatCurrency(result.avgExpectedSaving)} expected value</strong>
+                <span>Best projected savings per outing after discount and cap effects.</span>
+              </article>
+              <article class="detail-row">
+                <strong>${coveragePct}% venue coverage</strong>
+                <span>Works at ${result.coveredVenueCount} of the ${result.totalVenueCount} restaurants that match your filters.</span>
+              </article>
+              <article class="detail-row">
+                <strong>${daysFitPct}% day fit</strong>
+                <span>Its offers line up with your selected going-out days more often than the alternatives.</span>
+              </article>
+            </div>
+          </div>
+          <div class="detail-box">
+            <h3>Best matching places</h3>
+            <div class="detail-list">
+              ${result.topMatches
+                .slice(0, 3)
+                .map(
+                  (match) => `
+                    <article class="detail-row">
+                      <strong>${escapeHtml(match.restaurant)} <span class="subtle">(${escapeHtml(match.city)})</span></strong>
+                      <span>${escapeHtml(match.discountLabel)} | ${escapeHtml(match.daysLabel)}</span>
+                    </article>
+                  `,
+                )
+                .join("")}
+            </div>
           </div>
         </div>
-        <div class="detail-box">
-          <h3>Best matching places</h3>
-          <div class="detail-list">
-            ${result.topMatches
-              .slice(0, 3)
-              .map(
-                (match) => `
-                  <article class="detail-row">
-                    <strong>${escapeHtml(match.restaurant)} <span class="subtle">(${escapeHtml(match.city)})</span></strong>
-                    <span>${escapeHtml(match.discountLabel)} | ${escapeHtml(match.daysLabel)}</span>
-                  </article>
-                `,
-              )
-              .join("")}
-          </div>
-        </div>
-      </div>
+      </details>
     </article>
   `;
 }
@@ -688,7 +772,7 @@ function renderResultCards(results) {
               </div>
               <div>
                 <strong>${formatCurrency(match.expectedSaving)}</strong>
-                <span>${match.capPkr !== null ? `Cap ${formatCurrency(match.capPkr)}` : "No cap listed"}</span>
+                <span>${match.capPkr !== null ? `Cap ${formatCurrency(match.capPkr)}` : match.fixedDiscountPkr !== null ? `Fixed ${formatCurrency(match.fixedDiscountPkr)}` : "No cap listed"}</span>
               </div>
             </div>
           `,
@@ -748,14 +832,27 @@ function median(values) {
   return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
 }
 
+function average(values) {
+  if (!values.length) {
+    return null;
+  }
+  return values.reduce((sum, value) => sum + value, 0) / values.length;
+}
+
 function syncFiltersShellForViewport() {
   if (!elements.filtersShell) {
     return;
   }
   if (window.innerWidth <= 720) {
-    elements.filtersShell.open = false;
+    if (elements.filtersShell.dataset.mobileInitialized !== "true") {
+      elements.filtersShell.open = false;
+      elements.filtersShell.dataset.mobileInitialized = "true";
+    }
+    document.body.classList.toggle("filters-open", elements.filtersShell.open);
   } else {
     elements.filtersShell.open = true;
+    elements.filtersShell.dataset.mobileInitialized = "false";
+    document.body.classList.remove("filters-open");
   }
 }
 
