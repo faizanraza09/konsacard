@@ -1069,6 +1069,7 @@ input[type="range"] {
   gap: 18px;
   margin-top: 14px;
   padding-top: 18px;
+  min-height: 420px;
   border-top: 1px solid rgba(22, 33, 25, 0.08);
 }
 
@@ -1440,6 +1441,10 @@ input[type="range"] {
   .seo-meta-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .seo-stack {
+    min-height: 760px;
   }
 
   .pick-card {
