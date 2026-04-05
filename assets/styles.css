@@ -122,12 +122,16 @@ body::before {
   justify-items: end;
   gap: 10px;
   align-self: start;
+  min-width: 268px;
+  min-height: 70px;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   min-height: 30px;
+  min-width: 194px;
   padding: 0 14px;
   border-radius: 12px;
   border: 1px solid rgba(217, 162, 76, 0.18);
@@ -153,6 +157,7 @@ body::before {
   display: flex;
   gap: 8px;
   align-items: center;
+  min-height: 58px;
 }
 
 .mini-metric {
@@ -167,9 +172,12 @@ body::before {
 }
 
 .mini-metric strong {
+  display: block;
+  min-width: 6ch;
   font-family: "Space Grotesk", sans-serif;
   font-size: 0.94rem;
   color: #fff7ea;
+  font-variant-numeric: tabular-nums;
 }
 
 .mini-metric span {
@@ -494,6 +502,7 @@ input[type="range"] {
 
 .top-pick {
   display: grid;
+  min-height: 286px;
 }
 
 .pick-context {
@@ -582,8 +591,10 @@ input[type="range"] {
 
 .score-badge strong {
   display: block;
+  min-width: 4ch;
   font-family: "Space Grotesk", sans-serif;
   font-size: 1.15rem;
+  font-variant-numeric: tabular-nums;
 }
 
 .score-scale-row {
@@ -728,6 +739,7 @@ input[type="range"] {
 .results-grid {
   display: grid;
   gap: 8px;
+  min-height: 372px;
 }
 
 .results-note {
@@ -879,6 +891,111 @@ input[type="range"] {
 
 .hidden {
   display: none !important;
+}
+
+.results-panel {
+  min-height: 470px;
+}
+
+.skeleton-line,
+.skeleton-chip,
+.skeleton-title,
+.skeleton-subtitle,
+.skeleton-tile {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.skeleton-line::after,
+.skeleton-chip::after,
+.skeleton-title::after,
+.skeleton-subtitle::after,
+.skeleton-tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+.pick-card-skeleton {
+  min-height: 286px;
+}
+
+.pick-card-skeleton .pick-kicker {
+  color: transparent;
+}
+
+.skeleton-title {
+  width: min(320px, 78%);
+  height: 26px;
+  margin-top: 2px;
+  border-radius: 10px;
+}
+
+.skeleton-subtitle {
+  width: min(180px, 48%);
+  height: 14px;
+  margin-top: 8px;
+  border-radius: 999px;
+}
+
+.skeleton-line {
+  width: 132px;
+  height: 12px;
+  border-radius: 999px;
+}
+
+.skeleton-line-lg {
+  width: 220px;
+  height: 16px;
+}
+
+.skeleton-line-sm {
+  width: 126px;
+  height: 11px;
+  margin-top: 8px;
+}
+
+.skeleton-stack {
+  min-width: 220px;
+}
+
+.skeleton-chip {
+  min-width: 108px;
+  min-height: 24px;
+  border-color: transparent;
+  color: transparent;
+}
+
+.skeleton-tile {
+  min-height: 58px;
+  border-radius: 12px;
+}
+
+.score-badge-skeleton strong,
+.result-card-skeleton .rank-pill,
+.result-card-skeleton .result-side strong,
+.result-card-skeleton .result-side span {
+  color: rgba(255, 247, 234, 0.55);
+}
+
+.result-card-skeleton {
+  min-height: 104px;
+}
+
+.result-card-skeleton .metric-chip {
+  min-width: 108px;
+  min-height: 22px;
+  color: transparent;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 .mobile-filter-actions {
