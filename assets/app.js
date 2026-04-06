@@ -847,7 +847,7 @@ function renderResultCards(results) {
               <span class="metric-chip">${result.medianCap !== null ? `Median cap ${formatCurrency(result.medianCap)}` : "No cap listed"}</span>
             </div>
             <details class="result-details">
-              <summary>View best matching places</summary>
+              <summary>View matching restaurants</summary>
               <div class="match-list">${topMatches}</div>
             </details>
           </div>
