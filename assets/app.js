@@ -85,6 +85,7 @@ function bindEvents() {
   elements.filtersShell?.addEventListener("toggle", syncFiltersShellForViewport);
   bindDetailsSummaryTouchGuard(elements.filtersToggle);
   bindMobileFilterActions();
+  bindTooltipActions();
 
   elements.clearCities.addEventListener("click", () => {
     state.selectedCities = new Set();
@@ -148,6 +149,35 @@ function bindMobileFilterActions() {
   if (elements.mobileResetFilters) {
     elements.mobileResetFilters.addEventListener("click", resetFilters);
   }
+}
+
+function bindTooltipActions() {
+  document.addEventListener("click", (event) => {
+    const infoDot = event.target.closest(".info-dot");
+    const allTooltips = Array.from(document.querySelectorAll(".tooltip-card"));
+
+    if (!infoDot) {
+      allTooltips.forEach((tooltip) => {
+        tooltip.style.cssText = "";
+      });
+      return;
+    }
+
+    event.stopPropagation();
+    const tooltipWrap = infoDot.closest(".tooltip-wrap");
+    const tooltip = tooltipWrap?.querySelector(".tooltip-card");
+    const isVisible = tooltip?.style.opacity === "1";
+
+    allTooltips.forEach((card) => {
+      card.style.cssText = "";
+    });
+
+    if (tooltip && !isVisible) {
+      tooltip.style.opacity = "1";
+      tooltip.style.pointerEvents = "auto";
+      tooltip.style.transform = "translateY(0)";
+    }
+  });
 }
 
 function resetFilters() {
@@ -750,7 +780,7 @@ function getOfferSavingValue(offer, orderValue) {
 function renderTopPick(result) {
   const coveragePct = Math.round(result.coverage * 100);
   const daysFitPct = Math.round(result.avgDayFit * 100);
-  const filterContext = `${getTopPickCitiesLabel()} · ${getTopPickDaysLabel()}`;
+  const filterContext = `${getTopPickCitiesLabel()} - ${getTopPickDaysLabel()}`;
   elements.topPick.classList.remove("hidden");
   elements.topPick.innerHTML = `
     <article class="pick-card">
@@ -776,6 +806,7 @@ function renderTopPick(result) {
               </span>
             </span>
           </div>
+          <p class="score-hint">savings - coverage - day fit</p>
         </div>
       </div>
 

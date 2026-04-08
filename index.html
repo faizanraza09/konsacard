@@ -69,6 +69,17 @@
     <div class="page-shell">
       <header class="app-bar" role="banner">
         <div class="app-bar-copy">
+          <div class="mobile-nav-wrap">
+            <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+              <span></span><span></span><span></span>
+            </button>
+            <nav class="utility-nav" id="main-nav" aria-label="Site links">
+              <a class="utility-link" href="#tool">Tool</a>
+              <a class="utility-link" href="#how-it-works">How It Works</a>
+              <a class="utility-link" href="#methodology-note">Sources</a>
+              <a class="utility-link" href="#banks-covered">Banks Covered</a>
+            </nav>
+          </div>
           <p class="hero-kicker">Pakistan's Dining Card Matcher</p>
           <h1>Find the card that fits how you dine in Pakistan</h1>
           <p class="hero-intro">
@@ -78,8 +89,8 @@
           </p>
         </div>
         <div class="hero-badges" aria-label="Cities and major banks covered">
-          <span class="hero-badge">Karachi · Lahore · Islamabad</span>
-          <span class="hero-badge">HBL · MCB · Askari · UBL · Meezan</span>
+          <span class="hero-badge">Karachi - Lahore - Islamabad</span>
+          <span class="hero-badge">HBL - MCB - Askari - UBL - Meezan</span>
         </div>
         <div class="app-bar-stats">
           <div class="mini-metric">
@@ -97,7 +108,7 @@
         </div>
       </header>
 
-      <main class="app-layout">
+      <main id="tool" class="app-layout">
         <aside class="controls">
           <details id="filters-shell" class="filters-shell" open>
             <summary class="filters-toggle">
@@ -253,6 +264,24 @@
         </aside>
 
         <section class="results">
+          <section class="panel summary-strip">
+            <article class="summary-item">
+              <span>Matching banks</span>
+              <strong id="summary-brands">-</strong>
+            </article>
+            <article class="summary-item">
+              <span>Selected cities</span>
+              <strong id="summary-cities">-</strong>
+            </article>
+            <article class="summary-item">
+              <span>Going-out days</span>
+              <strong id="summary-days">-</strong>
+            </article>
+            <article class="summary-item summary-item-wide">
+              <span>Best projected savings</span>
+              <strong id="summary-best">-</strong>
+            </article>
+          </section>
           <section id="empty-state" class="panel empty-state hidden">
             <h2>No matching offers</h2>
             <p>
@@ -286,6 +315,13 @@
               </div>
             </article>
           </section>
+
+          <div class="scroll-cue" aria-hidden="true">
+            <span>More cards below</span>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
 
           <section class="panel results-panel">
             <div class="panel-head">
@@ -363,7 +399,7 @@
           </section>
 
           <section class="seo-stack" aria-label="How Konsacard works and what it covers">
-            <section class="seo-block seo-how">
+            <section id="how-it-works" class="seo-block seo-how">
               <h2>How it works</h2>
               <div class="how-grid">
                 <article class="how-card">
@@ -401,7 +437,7 @@
                 </p>
               </section>
 
-              <section class="seo-block seo-panel">
+              <section id="methodology-note" class="seo-block seo-panel">
                 <h2>No sponsored rankings</h2>
                 <p>
                   Cards are ranked by estimated PKR savings, restaurant coverage, and day fit.
@@ -410,7 +446,7 @@
               </section>
             </div>
 
-            <section class="seo-block seo-panel seo-banks">
+            <section id="banks-covered" class="seo-block seo-panel seo-banks">
               <h2>Banks we cover</h2>
               <p>
                 Konsacard supports restaurant discount cards from 18 Pakistani banks and
@@ -441,5 +477,31 @@
         </section>
       </main>
     </div>
+    <script>
+      const navToggle = document.getElementById("nav-toggle");
+      const mainNav = document.getElementById("main-nav");
+      if (navToggle && mainNav) {
+        navToggle.addEventListener("click", () => {
+          const open = mainNav.classList.toggle("nav-open");
+          navToggle.setAttribute("aria-expanded", String(open));
+        });
+        document.addEventListener("click", (event) => {
+          if (!mainNav.classList.contains("nav-open")) {
+            return;
+          }
+          if (mainNav.contains(event.target) || navToggle.contains(event.target)) {
+            return;
+          }
+          mainNav.classList.remove("nav-open");
+          navToggle.setAttribute("aria-expanded", "false");
+        });
+        mainNav.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            mainNav.classList.remove("nav-open");
+            navToggle.setAttribute("aria-expanded", "false");
+          });
+        });
+      }
+    </script>
   </body>
 </html>
