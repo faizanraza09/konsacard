@@ -1,0 +1,29 @@
+{
+  "generatedAt": "2026-04-07",
+  "completedBanks": [
+    "Al Baraka Bank",
+    "Allied Bank",
+    "Askari Bank Limited",
+    "Bank AL Habib",
+    "Bank Alfalah",
+    "Bank of Punjab",
+    "BankIslami",
+    "Faysal Bank Limited",
+    "HBL Islamic Bank Limited",
+    "Habib Bank Limited",
+    "Habib Metro Bank",
+    "JS Bank",
+    "MCB Bank Limited",
+    "MCB Islamic Bank Ltd",
+    "Meezan Bank",
+    "Standard Chartered Bank",
+    "United Bank Limited (UBL)"
+  ],
+  "remainingBanks": [],
+  "notes": [
+    "Coverage is complete at the pilot-file level under data/card-requirements/work.",
+    "Completeness of fields varies materially by bank because public sources differ a lot in quality.",
+    "Several banks expose strong debit-card data but weak or missing public credit-card requirement detail.",
+    "Some pilot files rely on weaker public sources where official fee/eligibility PDFs were not surfaced cleanly."
+  ]
+}

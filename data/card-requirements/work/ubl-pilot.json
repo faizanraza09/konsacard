@@ -1,0 +1,300 @@
+{
+  "bank_slug": "ubl",
+  "bank_name": "United Bank Limited (UBL)",
+  "retrieved_note": "Pilot agent extraction from official public pages, fee-reversal page, summary boxes, and debit-card product pages. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "UBL Credit Card Classic",
+      "card_type": "credit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 6000,
+        "supplementary_annual_fee_pkr": 3000,
+        "annual_fee_waiver_rule": "Spend PKR 50,000 in 60 days.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+        "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Annual fee changed from PKR 5,000 in Jul-Dec 2025 to PKR 6,000 in Jan-Jun 2026.",
+        "Supplementary annual fee changed from PKR 2,500 to PKR 3,000."
+      ]
+    },
+    {
+      "card_name": "UBL Credit Card Gold",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 12000,
+        "supplementary_annual_fee_pkr": 6000,
+        "annual_fee_waiver_rule": "Spend PKR 100,000 in 60 days.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+        "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Annual fee changed from PKR 10,000 in Jul-Dec 2025 to PKR 12,000 in Jan-Jun 2026.",
+        "Supplementary annual fee changed from PKR 5,000 to PKR 6,000."
+      ]
+    },
+    {
+      "card_name": "UBL Visa Platinum Credit Card",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 20000,
+        "supplementary_annual_fee_pkr": 10000,
+        "annual_fee_waiver_rule": "Spend PKR 300,000 in 60 days.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+        "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Annual fee stayed at PKR 20,000 across the two surfaced summary-box periods."
+      ]
+    },
+    {
+      "card_name": "UBL Visa Premium Debit Card",
+      "card_type": "debit",
+      "tier": "premium",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2800,
+        "supplementary_annual_fee_pkr": 1500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Premium-Visa-Debit-Card",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Premium-Visa-Debit-Card/FAQ"
+      ],
+      "confidence": "high",
+      "notes": [
+        "All existing and new account holders can apply."
+      ]
+    },
+    {
+      "card_name": "UBL PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2000,
+        "supplementary_annual_fee_pkr": 1200,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Paypak-Debit-Card",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Paypak-Debit-Card/Frequently-Ask-Questions",
+        "https://www.ubldigital.com/ublpay/DebitCard"
+      ],
+      "confidence": "high",
+      "notes": [
+        "All existing and new account holders can apply.",
+        "Omni Paypak variant is for digital wallet account holders who do not have a UBL card."
+      ]
+    },
+    {
+      "card_name": "UBL Visa Infinite Debit Card",
+      "card_type": "debit",
+      "tier": "infinite",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Free annual fee and replacement fee on surfaced product page.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Visa-Infinite-Debit-Card"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Product is tied to Priority Banking rather than a mass-market debit-card flow."
+      ]
+    },
+    {
+      "card_name": "UBL Mastercard Signature Debit Card",
+      "card_type": "debit",
+      "tier": "signature",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Free annual, supplementary, and replacement fees on the surfaced product page.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/CardsProducts/UBLSignatureDebitMasterCard"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public page positions it as a relationship-tier debit product, but no numeric threshold was surfaced publicly."
+      ]
+    },
+    {
+      "card_name": "UBL Ameen Premium Debit MasterCard",
+      "card_type": "debit",
+      "tier": "premium",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking/AmeenPremiumDebitMasterCard",
+        "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Official product exists, but the surfaced public pages did not provide a clean fee table or numeric eligibility threshold."
+      ]
+    },
+    {
+      "card_name": "UBL Wiz Virtual Prepaid Card",
+      "card_type": "prepaid",
+      "tier": "virtual",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "joining_fee_pkr": 300,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "No annual fee surfaced; issuance fee is PKR 300 plus FED.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Virtual-Card/UBL-Virtual-Card-FAQs",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Virtual-Card/Fee-Structure"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Virtual prepaid card with PKR 100,000 max balance/load at a time.",
+        "Public fee page also lists refund and international transaction charges."
+      ]
+    },
+    {
+      "card_name": "UBL UnionPay International Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2300,
+        "supplementary_annual_fee_pkr": 1500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-UNION-PAY-INTERNATIONAL-DEBIT-CARD",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-UNION-PAY-INTERNATIONAL-DEBIT-CARD/FAQs",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-UNION-PAY-INTERNATIONAL-DEBIT-CARD/Features-Benefits"
+      ],
+      "confidence": "high",
+      "notes": [
+        "All new and existing account holders can apply according to public FAQ and features pages."
+      ]
+    },
+    {
+      "card_name": "UBL Visa Urooj Debit Card",
+      "card_type": "debit",
+      "tier": "urooj",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-Urooj-Debit-Card"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Official product page exists, but the surfaced public page did not provide a clean numeric fee or eligibility table in this pass."
+      ]
+    },
+    {
+      "card_name": "UBL Visa Freelancer Debit Card",
+      "card_type": "debit",
+      "tier": "freelancer",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-Freelancer-Debit-Card"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Official product page exists, but the surfaced public page did not provide a clean numeric fee or eligibility table in this pass."
+      ]
+    },
+    {
+      "card_name": "UBL Visa FCY Business Debit Card",
+      "card_type": "debit",
+      "tier": "business-fcy",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Offered to UBL ESFC account holders.",
+        "Public page lists annual charges in foreign currencies rather than PKR, so the current normalized requirement fields do not capture the full fee detail."
+      ]
+    }
+  ],
+  "gaps": [
+    "Credit-card salary and age criteria were weakly surfaced in public pages reviewed.",
+    "Credit-card fees changed across official summary-box periods, so source period must be preserved.",
+    "Debit-card eligibility is mostly account-linked rather than salary-gated."
+  ]
+}

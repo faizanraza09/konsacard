@@ -1,0 +1,122 @@
+{
+  "bank_slug": "standard-chartered",
+  "bank_name": "Standard Chartered Bank Pakistan",
+  "retrieved_note": "Pilot extraction from official public pages and official MID / annual-fee criteria PDFs. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "Mastercard Platinum Credit Card",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 19000,
+        "supplementary_annual_fee_pkr": 7500,
+        "annual_fee_waiver_rule": "Second year onwards: 1.5x credit limit in 3 months after fee charge, capped at PKR 800,000 and floored at PKR 200,000. First-year fee may be reversed on digital acquisition or spend promotion.",
+        "minimum_age_years": 21,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.sc.com/pk/credit-cards/",
+        "https://www.sc.com/pk/credit-cards/compare/",
+        "https://av.sc.com/pk/content/docs/pk-personal-installment-finance-cc.pdf",
+        "https://av.sc.com/pk/content/docs/pk-annual-fee-reversal-criteria.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Self-employed minimum age is 25 on public pages."
+      ]
+    },
+    {
+      "card_name": "Mastercard World Credit Card",
+      "card_type": "credit",
+      "tier": "world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 26000,
+        "supplementary_annual_fee_pkr": 9000,
+        "annual_fee_waiver_rule": "Second year onwards: 1.5x credit limit in 3 months after fee charge, capped at PKR 900,000 and floored at PKR 600,000. First-year fee can be reversed based on spend promotion.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.sc.com/pk/credit-cards/",
+        "https://av.sc.com/pk/content/docs/pk-personal-installment-finance-cc.pdf",
+        "https://av.sc.com/pk/content/docs/pk-annual-fee-reversal-criteria.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public landing page did not expose a clean income threshold for World in the surfaced crawl."
+      ]
+    },
+    {
+      "card_name": "Mastercard Titanium Credit Card",
+      "card_type": "credit",
+      "tier": "titanium",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Annual fee reversal is available under the 2026 criteria, but the annual fee amount itself was not surfaced cleanly in the official pages reviewed.",
+        "minimum_age_years": 21,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.sc.com/pk/credit-cards/",
+        "https://av.sc.com/pk/content/docs/pk-annual-fee-reversal-criteria.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Self-employed minimum age is 25 on public pages."
+      ]
+    },
+    {
+      "card_name": "Easy Credit",
+      "card_type": "credit",
+      "tier": "easy-credit",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 7500,
+        "supplementary_annual_fee_pkr": 1000,
+        "annual_fee_waiver_rule": "Second year onwards: 200,000 or 70% of card limit for primary; 100,000 or 70% of card limit for supplementary within 3 months after fee charge.",
+        "minimum_age_years": 21,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.sc.com/pk/credit-cards/",
+        "https://av.sc.com/pk/content/docs/pk-personal-installment-finance-cc.pdf",
+        "https://av.sc.com/pk/content/docs/pk-annual-fee-reversal-criteria.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Self-employed minimum age is 25 on public pages."
+      ]
+    },
+    {
+      "card_name": "Saadiq Mastercard Platinum Credit Card",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 19000,
+        "supplementary_annual_fee_pkr": 6000,
+        "annual_fee_waiver_rule": "First-year annual fee waiver at PKR 200,000 or 70% of card limit for primary and PKR 100,000 or 70% for supplementary; annual fee applies if Priority criteria are not maintained.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.sc.com/pk/credit-cards/",
+        "https://av.sc.com/pk/content/docs/pk-saadiq-credit-card-mid.pdf"
+      ],
+      "confidence": "medium",
+      "notes": []
+    }
+  ],
+  "gaps": [
+    "No clean public debit-card fee/eligibility pages were surfaced in this pass.",
+    "Some credit-card products on the landing page expose eligibility while others do not."
+  ]
+}

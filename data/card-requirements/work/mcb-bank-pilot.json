@@ -1,0 +1,74 @@
+{
+  "bank_slug": "mcb-bank",
+  "bank_name": "MCB Bank Limited",
+  "retrieved_note": "Pilot agent extraction from publicly surfaced MCB-controlled references. Source quality is weaker than other banks because detailed public fee and eligibility pages were not surfaced.",
+  "cards": [
+    {
+      "card_name": "MCB Visa Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.linkedin.com/company/mcbbankpk",
+        "https://www.linkedin.com/posts/mcbbankpk_signaturemove-mcbbank-bank4life-activity-7197861037218402304-upE-"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Official LinkedIn indicates this is an active debit-card product.",
+        "Later official post states ATM withdrawals up to PKR 350,000/day and POS/online spending up to PKR 800,000/day."
+      ]
+    },
+    {
+      "card_name": "MCB Visa Signature Debit Card",
+      "card_type": "debit",
+      "tier": "signature",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.linkedin.com/posts/mcbbankpk_signaturemove-mcbbank-bank4life-activity-7197861037218402304-upE-"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Official LinkedIn indicates the card is actively marketed."
+      ]
+    },
+    {
+      "card_name": "PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Free for Sohni Dharti Remittance Current Account customers.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.linkedin.com/company/mcbbankpk"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Official LinkedIn states SDRA includes a free PayPak Debit Card."
+      ]
+    }
+  ],
+  "gaps": [
+    "No clean official MCB product page or official PDF was surfaced with card-by-card salary, balance, annual fee, waiver, or age data.",
+    "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
+    "Source quality here is materially weaker than most other banks because the surfaced official public pages were thin."
+  ]
+}

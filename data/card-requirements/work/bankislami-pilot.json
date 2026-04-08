@@ -1,0 +1,78 @@
+{
+  "bank_slug": "bankislami",
+  "bank_name": "BankIslami",
+  "retrieved_note": "Pilot agent extraction from official public pages and SOC PDF. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "Classic Debit Mastercard",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 1000,
+        "annual_fee_waiver_rule": "Mashal Women account gives 50% discount on debit-card annual fee and 100% waiver at PKR 100,000 average balance for Classic and PayPak.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://bankislami.com.pk/digital-channel/debitcards/classic-debit-mastercard/",
+        "https://bankislami.com.pk/schedule-of-charges/",
+        "https://bankislami.com.pk/wp-content/uploads/2026/01/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
+        "https://bankislami.com.pk/mashal-women-/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Fee logic depends partly on the underlying account relationship."
+      ]
+    },
+    {
+      "card_name": "PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 1000,
+        "annual_fee_waiver_rule": "Mashal Women account gives 50% discount on annual fee and 100% waiver at PKR 100,000 average balance for Classic and PayPak.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://bankislami.com.pk/digital-channel/debitcards/paypak-debit-card/",
+        "https://bankislami.com.pk/schedule-of-charges/",
+        "https://bankislami.com.pk/wp-content/uploads/2026/01/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
+        "https://bankislami.com.pk/mashal-women-/"
+      ],
+      "confidence": "medium",
+      "notes": []
+    },
+    {
+      "card_name": "Titanium Debit Mastercard",
+      "card_type": "debit",
+      "tier": "titanium",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Priority Banking page indicates issuance and replacement fee waivers for the Priority Titanium Debit Mastercard.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://bankislami.com.pk/titanium-debit-mastercard/",
+        "https://bankislami.com.pk/wp-content/uploads/2022/07/FAQs-Titanium-Debit-Mastercard.pdf",
+        "https://bankislami.com.pk/prioritybanking/"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Priority Titanium appears to be a distinct premium variant and should be modeled separately later."
+      ]
+    }
+  ],
+  "gaps": [
+    "No clear public consumer credit-card catalogue was found in this pass.",
+    "Public pages do not clearly publish salary, age, or balance thresholds for ordinary debit cards.",
+    "The cleanest fee source is the 2026 SOC PDF."
+  ]
+}

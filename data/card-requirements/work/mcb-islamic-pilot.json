@@ -1,0 +1,124 @@
+{
+  "bank_slug": "mcb-islamic",
+  "bank_name": "MCB Islamic Bank Ltd",
+  "retrieved_note": "Pilot agent extraction from official public pages and account pages. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "MCB Islamic Qadar Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2600,
+        "annual_fee_waiver_rule": "Shandaar Account says first issuance of debit card is free for all variants except UnionPay Platinum.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
+        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Annual fee is PKR 2,600 plus FED."
+      ]
+    },
+    {
+      "card_name": "MCB Islamic Qadar Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3200,
+        "annual_fee_waiver_rule": "Shandaar Account first issuance free rule applies.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
+        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Annual fee is PKR 3,200 plus FED."
+      ]
+    },
+    {
+      "card_name": "MCB Islamic Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 7750,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
+        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Annual fee is PKR 7,750 plus FED.",
+        "Shandaar Account explicitly excludes UnionPay Platinum from first-issuance-free rule."
+      ]
+    },
+    {
+      "card_name": "MCB Islamic PayPak Classic Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_deposit_pkr": 100,
+        "annual_fee_pkr": 2200,
+        "annual_fee_waiver_rule": "Shandaar Account first issuance free rule applies.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
+        "https://www.mcbislamicbank.com/personal/products/current-accounts/asaan-current-account/",
+        "https://www.mcbislamicbank.com/personal/products/personal-digital-account/mcb-islamic-asaan-digital-current-account/",
+        "https://www.mcbislamicbank.com/personal/products/current-accounts/asaan-remittance-current-account/",
+        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Annual fee is PKR 2,200 plus FED.",
+        "Asaan Current and Asaan Digital Current accounts show PKR 100 initial deposit and no minimum balance.",
+        "Asaan Remittance Current Account shows nil initial deposit and no minimum balance."
+      ]
+    },
+    {
+      "card_name": "MCB Islamic Visa Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Shandaar Account says first issuance free.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/visa-cards/visa-classic/",
+        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Visa product pages did not expose fee numbers as cleanly as UnionPay pages.",
+        "Eligibility note says all singly operated PKR accounts for individual, joint (primary), and sole proprietor customers."
+      ]
+    }
+  ],
+  "gaps": [
+    "No official public consumer credit-card catalogue was found in this pass.",
+    "Public debit-card pages are weak on salary, age, and numeric balance thresholds.",
+    "Visa-card fee numbers were not surfaced as cleanly as UnionPay-card fee numbers."
+  ]
+}

@@ -1,0 +1,314 @@
+{
+  "bank_slug": "bank-al-habib",
+  "bank_name": "Bank AL Habib",
+  "retrieved_note": "Pilot agent extraction from official public pages and SOC documents. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "AL Habib Gold Credit Card",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 20000,
+        "minimum_relationship_balance_pkr": 25000,
+        "annual_fee_pkr": 6000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 21,
+        "maximum_age_years": 65
+      },
+      "sources": [
+        "https://www.bankalhabib.com/credit-cards",
+        "https://www.bankalhabib.com/alhabib-gold-credit-card-soc",
+        "https://www.bankalhabib.com/files/download/reports/SOC-Credit-Card.pdf",
+        "https://www.bankalhabib.com/files/download/reports/CREDIT-CARD-SUMMARY-BOX-2025.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Eligibility page clearly exposes salary and age criteria.",
+        "Annual fee conflicts across official documents: summary box says PKR 6,500, latest SOC surfaced says PKR 6,000.",
+        "Supplementary annual fee appears as PKR 3,000."
+      ]
+    },
+    {
+      "card_name": "AL Habib Green Credit Card",
+      "card_type": "credit",
+      "tier": "green",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 20000,
+        "minimum_relationship_balance_pkr": 25000,
+        "annual_fee_pkr": 4000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 21,
+        "maximum_age_years": 65
+      },
+      "sources": [
+        "https://www.bankalhabib.com/credit-cards",
+        "https://www.bankalhabib.com/files/download/reports/SOC-Credit-Card.pdf",
+        "https://www.bankalhabib.com/files/download/reports/CREDIT-CARD-SUMMARY-BOX-2025.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Annual fee conflicts across official documents: summary box says PKR 4,500, latest SOC surfaced says PKR 4,000.",
+        "Supplementary annual fee appears as PKR 2,000."
+      ]
+    },
+    {
+      "card_name": "Signature Debit Card",
+      "card_type": "debit",
+      "tier": "signature",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 750000,
+        "minimum_deposit_pkr": 2000000,
+        "minimum_average_balance_pkr": 2000000,
+        "annual_fee_pkr": 22000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/schedule-of-charges/alhabib-signature-debit-card",
+        "https://www.bankalhabib.com/ur/debit-cards"
+      ],
+      "confidence": "high",
+      "notes": [
+        "New customers: PKR 2,000,000 deposit.",
+        "Existing customers: PKR 2,000,000 average monthly balance for 180 days.",
+        "Supplementary annual fee appears as PKR 22,000."
+      ]
+    },
+    {
+      "card_name": "Visa Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 150000,
+        "minimum_deposit_pkr": 200000,
+        "minimum_average_balance_pkr": 200000,
+        "annual_fee_pkr": 9000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/debit-cards",
+        "https://www.bankalhabib.com/ur/debit-cards",
+        "https://new.bankalhabib.com/card-detail/visa-platinum-debit-card"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Existing customers: PKR 200,000 monthly average deposit.",
+        "New customers: PKR 200,000 deposit at issuance.",
+        "Supplementary annual fee appears as PKR 6,500."
+      ]
+    },
+    {
+      "card_name": "Visa Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 4500,
+        "supplementary_annual_fee_pkr": 3500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/debit-cards"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Official public product exists, but no public salary or balance threshold was surfaced."
+      ]
+    },
+    {
+      "card_name": "Visa Silver Debit Card",
+      "card_type": "debit",
+      "tier": "silver",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3700,
+        "supplementary_annual_fee_pkr": 2700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/debit-cards"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Official public product exists, but no public salary or balance threshold was surfaced."
+      ]
+    },
+    {
+      "card_name": "AL Habib Digital Account Gold Debit Card",
+      "card_type": "debit",
+      "tier": "digital-gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 4500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/debit-cards",
+        "https://www.bankalhabib.com/alhabib-digital-account",
+        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Underlying digital account public pages say no minimum balance or initial deposit.",
+        "Dedicated debit-card page and digital-account KFS show conflicting fee context, so this fee should be treated as unresolved public-source conflict."
+      ]
+    },
+    {
+      "card_name": "AL Habib Digital Account Classic Debit Card",
+      "card_type": "debit",
+      "tier": "digital-classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/debit-cards",
+        "https://www.bankalhabib.com/alhabib-digital-account",
+        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Public naming is Classic rather than Silver on BAHL's own site.",
+        "Underlying digital account public pages say no minimum balance or initial deposit.",
+        "The debit-cards page appears mislabeled on the Classic fee block, so the exact fee was not cleanly recoverable."
+      ]
+    },
+    {
+      "card_name": "AL Habib Remit Debit Card",
+      "card_type": "debit",
+      "tier": "remit",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3700,
+        "supplementary_annual_fee_pkr": 2700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/debit-cards",
+        "https://www.bankalhabib.com/files/documents/Asaan-Remittance-Saving-Account-KFS.pdf",
+        "https://www.bankalhabib.com/files/documents/Asaan-Remittance-Account-KFS.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Good fee recovery from the debit-cards page, but card-specific eligibility remains weak."
+      ]
+    },
+    {
+      "card_name": "AL Habib Woman Debit Card",
+      "card_type": "debit",
+      "tier": "woman",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3700,
+        "supplementary_annual_fee_pkr": 2700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/debit-cards",
+        "https://www.bankalhabib.com/ur/alhabib-woman-debit-card",
+        "https://www.bankalhabib.com/files/documents/Woman-Current-Account-KFS.pdf",
+        "https://www.bankalhabib.com/files/download/documents/AL-Habib-Woman-Current-Account-KFS.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "The age threshold comes from the underlying woman account eligibility, not a separate card-only age rule."
+      ]
+    },
+    {
+      "card_name": "BAHL UnionPay Apna Debit Card",
+      "card_type": "debit",
+      "tier": "unionpay-apna",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 25000,
+        "annual_fee_pkr": 3000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/cards",
+        "https://www.bankalhabib.com/accounts/current",
+        "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Recovered from account-level KFS rather than a clean standalone card SOC.",
+        "The PKR 25,000 threshold is the surfaced Apna account average-balance condition tied to account/card fee context."
+      ]
+    },
+    {
+      "card_name": "BAHL UnionPay Debit Card",
+      "card_type": "debit",
+      "tier": "unionpay",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 1250,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bankalhabib.com/cards",
+        "https://www.bankalhabib.com/files/download/reports/Current%20Account.pdf",
+        "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
+        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Public fees differ by account/KFS context, so this is not a single settled universal UnionPay fee."
+      ]
+    },
+    {
+      "card_name": "PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 25000,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Often the default free card when the surfaced account-level average-balance condition is maintained.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://new.bankalhabib.com/card-detail/paypak-debit-card/",
+        "https://www.bankalhabib.com/files/download/reports/Current%20Account.pdf",
+        "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
+        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Recovered from account-level KFS context rather than one clean universal card-fee schedule."
+      ]
+    }
+  ],
+  "gaps": [
+    "No public fee-waiver rule for credit cards was found in this pass.",
+    "Debit-card age criteria were not clearly surfaced in standalone card pages.",
+    "UnionPay and PayPak fee evidence varies by underlying account/KFS context and should be treated carefully."
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "bank_slug": "askari-bank",
+  "bank_name": "Askari Bank Limited",
+  "retrieved_note": "Pilot agent extraction from official public pages and SOC PDF. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "Askari Mastercard Classic Credit Card",
+      "card_type": "credit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_relationship_balance_pkr": 150000,
+        "annual_fee_pkr": 5000,
+        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "minimum_age_years": 21,
+        "maximum_age_years": 70
+      },
+      "sources": [
+        "https://askaribank.com/personal/cards/mastercard-credit-cards",
+        "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Shared eligibility grid across Classic, Gold, and Platinum.",
+        "Different salary thresholds are shown for approved companies, non-approved companies, and GOP/Semi-Govt/Autonomous categories.",
+        "SEB/SEP threshold is described as PKR 150,000 average balance."
+      ]
+    },
+    {
+      "card_name": "Askari Mastercard Gold Credit Card",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_relationship_balance_pkr": 150000,
+        "annual_fee_pkr": 11000,
+        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "minimum_age_years": 21,
+        "maximum_age_years": 70
+      },
+      "sources": [
+        "https://askaribank.com/personal/cards/mastercard-credit-cards",
+        "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Eligibility comes from the shared Mastercard page, not a card-specific page."
+      ]
+    },
+    {
+      "card_name": "Askari Mastercard Platinum Credit Card",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_relationship_balance_pkr": 150000,
+        "annual_fee_pkr": 19500,
+        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "minimum_age_years": 21,
+        "maximum_age_years": 70
+      },
+      "sources": [
+        "https://askaribank.com/personal/cards/mastercard-credit-cards",
+        "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Eligibility comes from the shared Mastercard page, not a card-specific page."
+      ]
+    },
+    {
+      "card_name": "Askari World Mastercard Credit Card",
+      "card_type": "credit",
+      "tier": "world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 1000000,
+        "minimum_relationship_balance_pkr": 2000000,
+        "annual_fee_pkr": 23000,
+        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "minimum_age_years": 21,
+        "maximum_age_years": 70
+      },
+      "sources": [
+        "https://askaribank.com/personal/cards/askari-world-mastercard-credit-card",
+        "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Product page directly exposes the higher World eligibility thresholds."
+      ]
+    },
+    {
+      "card_name": "Askari Visa Debit Card Classic",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 3000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://askaribank.com/personal/cards/askari-visa-debit-card",
+        "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Card page says no minimum balance requirement for issuance or retention."
+      ]
+    },
+    {
+      "card_name": "Askari Visa Signature Debit Card",
+      "card_type": "debit",
+      "tier": "signature",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_relationship_balance_pkr": 5000000,
+        "annual_fee_pkr": 18000,
+        "annual_fee_waiver_rule": "Waived if the required minimum average quarterly balance is maintained.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://askaribank.com/personal/cards/askari-visa-debit-card",
+        "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Page frames the card as free for eligible relationship customers, while the SOC lists a standard PKR 18,000 fee."
+      ]
+    },
+    {
+      "card_name": "Askari PayPak Debit Card Gold",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "joining_fee_pkr": 2400,
+        "annual_fee_pkr": 2400,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://askaribank.com/personal/cards/paypak-debit-card",
+        "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": []
+    }
+  ],
+  "gaps": [
+    "Debit-card pages do not clearly publish age criteria.",
+    "Debit cards are mostly account-linked, so salary requirements are usually absent.",
+    "Some shared credit-card eligibility values need later refinement by applicant category rather than one single threshold."
+  ]
+}

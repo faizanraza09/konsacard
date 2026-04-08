@@ -1,0 +1,247 @@
+{
+  "bank_slug": "allied-bank",
+  "bank_name": "Allied Bank",
+  "retrieved_note": "Pilot agent extraction from official public pages and SOC PDF. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "Allied Visa Gold Credit Card",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2500,
+        "annual_fee_waiver_rule": "Spend PKR 25,000 within 3 months.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Current official pages did not cleanly expose salary, balance, or age criteria."
+      ]
+    },
+    {
+      "card_name": "Allied Visa Platinum Credit Card",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 5000,
+        "annual_fee_waiver_rule": "Spend PKR 50,000 within 3 months.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "medium",
+      "notes": []
+    },
+    {
+      "card_name": "Allied UnionPay & PayPak Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 41667,
+        "minimum_account_balance_pkr": 100000,
+        "annual_fee_pkr": 2900,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/debit-cards/allied-unionpay-paypak-gold-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Product page states PKR 500,000 annual income and PKR 100,000 account balance."
+      ]
+    },
+    {
+      "card_name": "Allied Visa Premium Debit Card",
+      "card_type": "debit",
+      "tier": "premium",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 416667,
+        "minimum_deposit_pkr": 2000000,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Eligible if maintaining PKR 500,000 daily average in current account or PKR 1,000,000 in savings over the last 11 months.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/debit-cards/visa-premium-debit-card/",
+        "https://www.abl.com/ur/personal/cards/debit-cards/visa-premium-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Salary threshold comes from the Urdu page and is expressed as PKR 5 million annual income.",
+        "Surfaced SOC excerpt was not explicit enough to assign an annual fee with high confidence."
+      ]
+    },
+    {
+      "card_name": "Allied Visa Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 83333,
+        "minimum_account_balance_pkr": 300000,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal-banking/credit-debit-cards/allied-visa-platinum-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Product page states PKR 1 million annual income and PKR 300,000 account balance."
+      ]
+    },
+    {
+      "card_name": "Allied Visa Infinite Debit Card",
+      "card_type": "debit",
+      "tier": "infinite",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 5000000,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "If required balance is not maintained, PKR 8,000 per month is charged; after 3 consecutive months of non-maintenance the card is downgraded.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/debit-cards/visa-infinite-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Conventional route says PKR 5m current or PKR 10m savings/term deposit.",
+        "Islamic route says PKR 10m current or PKR 10m savings/term deposit."
+      ]
+    },
+    {
+      "card_name": "Allied Visa Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/debit-cards/allied-visa-classic-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Eligibility is account-holder based rather than salary-gated on the surfaced public page.",
+        "Public page also lists current daily ATM, POS/e-commerce, and funds-transfer limits."
+      ]
+    },
+    {
+      "card_name": "Allied UnionPay PayPak Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/debit-cards/allied-unionpay-paypak-classic-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Product page distinguishes Regular and Asaan account-holder limits.",
+        "Public sources did not expose salary or age thresholds."
+      ]
+    },
+    {
+      "card_name": "Allied UPI & PayPak Classic Plus",
+      "card_type": "debit",
+      "tier": "classic-plus",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2800,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/debit-cards/temporary-limit-enhancement-on-abl-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Recovered from SOC plus current official debit-limit grouping rather than a clean standalone product page."
+      ]
+    },
+    {
+      "card_name": "Allied Basic Debit Card",
+      "card_type": "debit",
+      "tier": "basic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 1750,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.abl.com/personal/cards/debit-cards/allied-basic-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Product is targeted to photo-account / shaky-signature style eligibility and specific account categories."
+      ]
+    },
+    {
+      "card_name": "Allied Youth Visa Debit Card",
+      "card_type": "debit",
+      "tier": "youth",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 10000,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Youth account fee-exemption grid surfaces first-year debit-card relief; exact youth-card pricing line is not separately published.",
+        "minimum_age_years": 18,
+        "maximum_age_years": 35
+      },
+      "sources": [
+        "https://www.abl.com/personal/accounts/exclusive-account/allied-youth-account/",
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Public account page says the youth account includes a youth-branded Visa debit card.",
+        "SOC shows youth-account balance thresholds of PKR 10,000 for ages 18-25 and PKR 50,000 for ages 26-35."
+      ]
+    }
+  ],
+  "gaps": [
+    "Credit-card salary, balance, and age thresholds were not cleanly exposed on the official pages found.",
+    "Some debit-card annual fees are visible in the SOC, but not every row could be assigned to a named card with high confidence.",
+    "Ages are mostly missing for Allied debit cards."
+  ]
+}

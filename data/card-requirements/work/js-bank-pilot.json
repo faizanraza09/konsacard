@@ -1,0 +1,117 @@
+{
+  "bank_slug": "js-bank",
+  "bank_name": "JS Bank",
+  "retrieved_note": "Pilot agent extraction from official public pages, account pages, and SOC PDF. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "JS Credit Card Classic",
+      "card_type": "credit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 70000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 5000,
+        "annual_fee_waiver_rule": "Reduced fee of PKR 1,200 on spending PKR 25,000 within 1 month of activation.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.jsbl.com/js-credit-card/",
+        "https://www.jsbl.com/personal/credit-card/",
+        "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Shared product table shows a PKR 70,000 monthly salary threshold across surfaced credit-card variants."
+      ]
+    },
+    {
+      "card_name": "JS Credit Card Platinum",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 70000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 15000,
+        "annual_fee_waiver_rule": "Reduced fee of PKR 3,100 on spending PKR 100,000 within 1 month of activation.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.jsbl.com/js-credit-card/",
+        "https://www.jsbl.com/personal/credit-card/",
+        "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+      ],
+      "confidence": "medium",
+      "notes": []
+    },
+    {
+      "card_name": "PayPak Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_deposit_pkr": 100,
+        "annual_fee_pkr": 1000,
+        "annual_fee_waiver_rule": "Annual fee waived for JS Inclusive Current Account.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.jsbl.com/personal/accounts/current-accounts/js-asaan/",
+        "https://www.jsbl.com/js-inclusive-current-account/",
+        "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "JS Asaan Current Account has no minimum monthly average balance and low initial deposit of PKR 100."
+      ]
+    },
+    {
+      "card_name": "Mastercard Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_average_balance_pkr": 100000,
+        "annual_fee_pkr": 2500,
+        "annual_fee_waiver_rule": "JS Current Account annual fee waiver at PKR 100,000 average balance; JS Elite Plus Current Account lists annual fee free.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.jsbl.com/personal/accounts/current-accounts/js-current-account/",
+        "https://www.jsbl.com/js-current-accounts/",
+        "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+      ],
+      "confidence": "medium",
+      "notes": []
+    },
+    {
+      "card_name": "Mastercard World Debit Card",
+      "card_type": "debit",
+      "tier": "world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 3000000,
+        "annual_fee_pkr": 17000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.jsbl.com/js-priority-banking/",
+        "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "JS Priority Banking threshold appears as PKR 3 million for current account or PKR 8 million for savings account based on 3-month average balance."
+      ]
+    }
+  ],
+  "gaps": [
+    "Public pages did not cleanly expose age criteria for either debit or credit cards.",
+    "Debit-card eligibility is often account-product dependent rather than card-page driven.",
+    "The shared credit-card salary threshold may be simplified and should be verified variant-by-variant later."
+  ]
+}

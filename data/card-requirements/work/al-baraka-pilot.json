@@ -1,0 +1,98 @@
+{
+  "bank_slug": "al-baraka",
+  "bank_name": "Al Baraka Bank",
+  "retrieved_note": "Pilot agent extraction from official public pages and SOC PDFs. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "UnionPay Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2200,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
+        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Jul-Dec 2025 SOC shows PKR 2,200; Jan-Jun 2025 SOC showed PKR 2,000."
+      ]
+    },
+    {
+      "card_name": "UnionPay Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
+        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Jul-Dec 2025 SOC shows PKR 2,700; Jan-Jun 2025 SOC showed PKR 2,500."
+      ]
+    },
+    {
+      "card_name": "Mastercard Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 8000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
+        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Jul-Dec 2025 SOC shows PKR 8,000; Jan-Jun 2025 SOC showed PKR 7,500."
+      ]
+    },
+    {
+      "card_name": "PayPak Standard Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
+        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": []
+    }
+  ],
+  "gaps": [
+    "No public consumer credit-card catalogue was found in this pass.",
+    "Public debit-card sources did not expose clear salary, age, or account-balance eligibility thresholds.",
+    "SOC values changed across periods, so effective period must be preserved in normalization."
+  ]
+}

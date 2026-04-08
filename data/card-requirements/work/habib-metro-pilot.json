@@ -1,0 +1,128 @@
+{
+  "bank_slug": "habib-metro",
+  "bank_name": "Habib Metro Bank",
+  "retrieved_note": "Pilot extraction from official public card pages. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "Visa Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_average_balance_pkr": 3000000,
+        "annual_fee_pkr": 7500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Page states PKR 3mn last 3 months average balance for Platinum."
+      ]
+    },
+    {
+      "card_name": "Visa Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 4400,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Page states no minimum balance."
+      ]
+    },
+    {
+      "card_name": "Visa Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 3300,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "card_name": "Visa Infinite Debit Card",
+      "card_type": "debit",
+      "tier": "infinite",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_relationship_balance_pkr": 100000000,
+        "annual_fee_pkr": 35000,
+        "annual_fee_waiver_rule": "Annual fee for additional spouse card is waived for Priority Banking customers.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.habibmetro.com/digital-banking/cards/visa-infinite-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Card is offered on invitation basis only."
+      ]
+    },
+    {
+      "card_name": "PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 2200,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.habibmetro.com/digital-banking/cards/paypak-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": []
+    },
+    {
+      "card_name": "Foreign Currency Visa Debit Card",
+      "card_type": "debit",
+      "tier": "fcy",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3300,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.habibmetro.com/digital-banking/cards/fcy-debit-card/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Classic annual fee is PKR 3,300; Gold PKR 4,400; Platinum PKR 7,500.",
+        "Card is available with Freelancer and Exporters Special Foreign Currency Account."
+      ]
+    }
+  ],
+  "gaps": [
+    "No clean public consumer credit-card catalogue was found in this pass.",
+    "Public debit-card pages did not expose age criteria."
+  ]
+}

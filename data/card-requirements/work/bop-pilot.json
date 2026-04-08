@@ -1,0 +1,311 @@
+{
+  "bank_slug": "bank-of-punjab",
+  "bank_name": "Bank of Punjab",
+  "retrieved_note": "Pilot agent extraction from official public pages and surfaced SOC snippets. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "BOP Mastercard Gold Credit Card",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 6250,
+        "supplementary_annual_fee_pkr": 3125,
+        "annual_fee_waiver_rule": "Spend PKR 40,000 within 60 days to reverse annual fee by calling the helpline.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bop.com.pk/BOPCreditCards",
+        "https://www.bop.com.pk/view.aspx?id=3373"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Current public pages were strong on fees and reversal rules, weak on eligibility thresholds."
+      ]
+    },
+    {
+      "card_name": "BOP World Credit Card",
+      "card_type": "credit",
+      "tier": "world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 25000,
+        "supplementary_annual_fee_pkr": 12500,
+        "annual_fee_waiver_rule": "Spend PKR 1,500,000 within 12 months to reverse annual fee by calling the helpline.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bop.com.pk/BOPCreditCards",
+        "https://www.bop.com.pk/view.aspx?id=3373"
+      ],
+      "confidence": "medium",
+      "notes": []
+    },
+    {
+      "card_name": "BOP World Debit Card",
+      "card_type": "debit",
+      "tier": "world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 15000,
+        "supplementary_annual_fee_pkr": 9000,
+        "annual_fee_waiver_rule": "Specially discounted World Debit Card pricing for KHAAS/Priority customers.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bop.com.pk/view.aspx?id=3526",
+        "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20%28Latest%20%E2%80%93%20w.e.f%2001-07-2024%29.pdf",
+        "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Non-priority pricing appears at PKR 15,000 annual fee and PKR 9,000 supplementary.",
+        "KHAAS/Priority current and saving customers have subsidized fee tiers."
+      ]
+    },
+    {
+      "card_name": "BOP KHAAS Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 500000,
+        "minimum_account_balance_pkr": 2000000,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Free annual fee for KHAAS customers marked as Priority.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction",
+        "https://www.bop.com.pk/BOP%20KHAAS%20Monthly%20Saving%20Account",
+        "https://www.bop.com.pk/view.aspx?id=3360"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "KHAAS current account threshold appears as PKR 2,000,000 for individuals/sole proprietors.",
+        "KHAAS saving eligibility also mentions PKR 500,000 monthly salary and PKR 500,000 initial deposit."
+      ]
+    },
+    {
+      "card_name": "BOP Lahore Qalandars Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2500,
+        "supplementary_annual_fee_pkr": 1300,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bop.com.pk/view.aspx?id=3381",
+        "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20%28Latest%20%E2%80%93%20w.e.f%2001-07-2024%29.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "New customers must open an account first; no numeric threshold was surfaced."
+      ]
+    },
+    {
+      "card_name": "BOP Mastercard Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3300,
+        "supplementary_annual_fee_pkr": 1500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
+      ]
+    },
+    {
+      "card_name": "BOP Mastercard Platinum Credit Card",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 12500,
+        "supplementary_annual_fee_pkr": 6250,
+        "annual_fee_waiver_rule": "Spend PKR 100,000 within 60 days to reverse annual fee by calling the helpline.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bop.com.pk/BOPCreditCards",
+        "https://www.bop.com.pk/view.aspx?id=3373",
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public pages were strong on fees and reversal rules, but weak on eligibility thresholds."
+      ]
+    },
+    {
+      "card_name": "BOP Mastercard Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
+      ]
+    },
+    {
+      "card_name": "BOP Mastercard Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/REVISED%20BOP%20DMC%20Application-Sep%20%2716.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Current forms use Classic where older BOP forms used Silver, so this is the best current alias target for Mastercard Silver Debit Card.",
+        "A clean current SOC fee row for the classic tier was not surfaced in this pass."
+      ]
+    },
+    {
+      "card_name": "BOP Taqwa Platinum Islamic Debit Card",
+      "card_type": "debit",
+      "tier": "taqwa-platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 300000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20BOP%20at%20Work%20Saving%20%20Account%20%28Form%2030%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "This is an Islamic account-linked Platinum tier rather than a standalone retail product page.",
+        "PKR 300,000 salary threshold is the surfaced Taqwa BOP@Work route rather than a universal card rule."
+      ]
+    },
+    {
+      "card_name": "BOP Taqwa KHAAS Platinum Islamic Debit Card",
+      "card_type": "debit",
+      "tier": "taqwa-khaas-platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 300000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": 3000,
+        "annual_fee_waiver_rule": "Free for priority-marked Taqwa KHAAS customers; non-priority fee tiers also appear in the Islamic SOBC.",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20BOP%20at%20Work%20Saving%20%20Account%20%28Form%2030%29.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Islamic/KHAAS wrapper around the KHAAS platinum concept, distinct from the conventional KHAAS Platinum record."
+      ]
+    },
+    {
+      "card_name": "BOP Taqwa World Islamic Debit Card",
+      "card_type": "debit",
+      "tier": "taqwa-world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 15000,
+        "annual_fee_waiver_rule": "Priority-marked customers receive subsidized fee tiers in surfaced Islamic SOBC/KFS materials.",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Recovered as an Islamic account-linked World tier rather than from a standalone card landing page."
+      ]
+    },
+    {
+      "card_name": "BOP Naaz Debit Card",
+      "card_type": "debit",
+      "tier": "naaz",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 1000,
+        "annual_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": 1100,
+        "annual_fee_waiver_rule": "Issued free on surfaced Naaz account documents; renewal/replacement fees apply by account context.",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/BOPNaaz",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/RBG/English/BOP%20NAAZ%20%28Current%20Account%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20Naaz%20Account%20-%20Saving.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Women-account-linked card marketed as Naaz Debit Card.",
+        "The PKR 1,000 threshold comes from the surfaced Taqwa Naaz Saving opening amount rather than a universal card rule."
+      ]
+    }
+  ],
+  "gaps": [
+    "Credit-card salary, balance, and age criteria were not cleanly surfaced on the official pages found.",
+    "Debit-card fee data is fragmented across card pages and SOC snippets.",
+    "Age criteria were not clearly surfaced for the consumer cards found."
+  ]
+}

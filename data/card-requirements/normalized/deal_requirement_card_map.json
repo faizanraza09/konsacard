@@ -1,0 +1,1757 @@
+[
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Mastercard Gold Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Mastercard Platinum Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "al-baraka--mastercard-platinum-debit-card",
+    "requirement_card_name": "Mastercard Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Mastercard Silver Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Nexgen Habib University PayPak Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Nexgen IVS PayPak Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Nexgen Riphah University PayPak Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Nexgen Student PayPak Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "al-baraka--paypak-standard-debit-card",
+    "requirement_card_name": "PayPak Standard Debit Card"
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "UnionPay Gold Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "al-baraka--unionpay-gold-debit-card",
+    "requirement_card_name": "UnionPay Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "UnionPay Silver Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Cash+Shop Classic Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-visa-classic-debit-card",
+    "requirement_card_name": "Allied Visa Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Cash+Shop Sapphire 200 Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-visa-platinum-debit-card",
+    "requirement_card_name": "Allied Visa Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Cash+Shop Sapphire Visa Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Classic Plus UPI & PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-upi-paypak-classic-plus",
+    "requirement_card_name": "Allied UPI & PayPak Classic Plus"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Classic UPI & PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-unionpay-paypak-classic-debit-card",
+    "requirement_card_name": "Allied UnionPay PayPak Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Gold UPI & PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-unionpay-paypak-gold-debit-card",
+    "requirement_card_name": "Allied UnionPay & PayPak Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Islamic Banking VISA DebitCard",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Khanum Classic Plus UPI & PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-upi-paypak-classic-plus",
+    "requirement_card_name": "Allied UPI & PayPak Classic Plus"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "UPI & Paypak myWallet Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "UnionPay PayPak Basic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-basic-debit-card",
+    "requirement_card_name": "Allied Basic Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "UnionPay PayPak Prepaid Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Visa Gold Credit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied-bank--allied-visa-gold-credit-card",
+    "requirement_card_name": "Allied Visa Gold Credit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Visa Infinite Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied-bank--allied-visa-infinite-debit-card",
+    "requirement_card_name": "Allied Visa Infinite Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Visa Platinum Credit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied-bank--allied-visa-platinum-credit-card",
+    "requirement_card_name": "Allied Visa Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Visa Platinum Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied-bank--allied-visa-platinum-debit-card",
+    "requirement_card_name": "Allied Visa Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Visa Premium Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied-bank--allied-visa-premium-debit-card",
+    "requirement_card_name": "Allied Visa Premium Debit Card"
+  },
+  {
+    "deal_bank_name": "Allied Bank",
+    "requirement_bank_name": "Allied Bank",
+    "deal_card_name": "Youth VISA DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-youth-visa-debit-card",
+    "requirement_card_name": "Allied Youth Visa Debit Card"
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Classic Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-mastercard-classic-credit-card",
+    "requirement_card_name": "Askari Mastercard Classic Credit Card"
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Corporate Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Gold Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-mastercard-gold-credit-card",
+    "requirement_card_name": "Askari Mastercard Gold Credit Card"
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari PayPak Classic Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari PayPak Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-paypak-debit-card-gold",
+    "requirement_card_name": "Askari PayPak Debit Card Gold"
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari PayPak Little Champs Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Platinum Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-mastercard-platinum-credit-card",
+    "requirement_card_name": "Askari Mastercard Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Sahar Visa Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Visa Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-visa-debit-card-classic",
+    "requirement_card_name": "Askari Visa Debit Card Classic"
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Visa Gold Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Visa Platinum Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari Visa Signature Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "askari-bank--askari-visa-signature-debit-card",
+    "requirement_card_name": "Askari Visa Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "Askari Bank Limited",
+    "requirement_bank_name": "Askari Bank Limited",
+    "deal_card_name": "Askari World Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-world-mastercard-credit-card",
+    "requirement_card_name": "Askari World Mastercard Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Digital Visa Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-digital-account-gold-debit-card",
+    "requirement_card_name": "AL Habib Digital Account Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Digital Visa Silver Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-digital-account-classic-debit-card",
+    "requirement_card_name": "AL Habib Digital Account Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Remit Visa Silver Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-remit-debit-card",
+    "requirement_card_name": "AL Habib Remit Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Woman Visa Silver Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-woman-debit-card",
+    "requirement_card_name": "AL Habib Woman Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "BAHL UnionPay Apna Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--bahl-unionpay-apna-debit-card",
+    "requirement_card_name": "BAHL UnionPay Apna Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "BAHL UnionPay Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--bahl-unionpay-debit-card",
+    "requirement_card_name": "BAHL UnionPay Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "Mastercard Gold Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-gold-credit-card",
+    "requirement_card_name": "AL Habib Gold Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "Mastercard Green Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-green-credit-card",
+    "requirement_card_name": "AL Habib Green Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--paypak-debit-card",
+    "requirement_card_name": "PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "Visa Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--visa-gold-debit-card",
+    "requirement_card_name": "Visa Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "Visa Platinum Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-al-habib--visa-platinum-debit-card",
+    "requirement_card_name": "Visa Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "Visa Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--signature-debit-card",
+    "requirement_card_name": "Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "Visa Silver Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--visa-silver-debit-card",
+    "requirement_card_name": "Visa Silver Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah American Express Gold Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-american-express-gold-credit-card",
+    "requirement_card_name": "Bank Alfalah American Express Gold Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Islamic Power Pack Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-islamic-power-pack-signature-debit-card",
+    "requirement_card_name": "Bank Alfalah Islamic Power Pack Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Islamic Premier Visa Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-islamic-premier-visa-signature-debit-card",
+    "requirement_card_name": "Bank Alfalah Islamic Premier Visa Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Islamic Women Power Pack Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-islamic-power-pack-women-debit-card",
+    "requirement_card_name": "Bank Alfalah Islamic Power Pack Women Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Islamic Women Visa Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-islamic-gold-women-debit-card",
+    "requirement_card_name": "Bank Alfalah Islamic Gold Women Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Mastercard Optimus Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-mastercard-optimus-credit-card",
+    "requirement_card_name": "Bank Alfalah Mastercard Optimus Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Mastercard Titanium Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah PayPak Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-paypak-classic-debit-card",
+    "requirement_card_name": "Bank Alfalah PayPak Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah PayPak Islamic Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-paypak-islamic-classic-debit-card",
+    "requirement_card_name": "Bank Alfalah PayPak Islamic Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Pehchaan Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-pehchaan-debit-card",
+    "requirement_card_name": "Bank Alfalah Pehchaan Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Premier Visa Infinite Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Premier Visa Infinite Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Premier Visa Platinum Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-premier-visa-platinum-credit-card",
+    "requirement_card_name": "Bank Alfalah Premier Visa Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Premier Visa Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-premier-visa-signature-debit-card",
+    "requirement_card_name": "Bank Alfalah Premier Visa Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Ultra Visa Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-ultra-cashback-card",
+    "requirement_card_name": "Bank Alfalah Visa Ultra Cashback Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Classic Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--visa-classic-credit-card",
+    "requirement_card_name": "Visa Classic Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--visa-classic-debit-card",
+    "requirement_card_name": "Visa Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Corporate Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-corporate-credit-card",
+    "requirement_card_name": "Bank Alfalah Visa Corporate Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Gold Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--visa-gold-credit-card",
+    "requirement_card_name": "Visa Gold Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--visa-gold-debit-card",
+    "requirement_card_name": "Visa Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Islamic Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-islamic-classic-debit-card",
+    "requirement_card_name": "Bank Alfalah Visa Islamic Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Islamic Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-islamic-gold-debit-card",
+    "requirement_card_name": "Bank Alfalah Visa Islamic Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Islamic Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-islamic-signature-debit-card",
+    "requirement_card_name": "Bank Alfalah Visa Islamic Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Platinum Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-platinum-credit-card",
+    "requirement_card_name": "Bank Alfalah Visa Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--visa-platinum-debit-card",
+    "requirement_card_name": "Visa Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank Alfalah",
+    "requirement_bank_name": "Bank Alfalah",
+    "deal_card_name": "Bank Alfalah Visa Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--visa-signature-debit-card",
+    "requirement_card_name": "Visa Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "KHAAS Platinum Mastercard Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-khaas-platinum-debit-card",
+    "requirement_card_name": "BOP KHAAS Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Lahore Qalandar's Mastercard Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-lahore-qalandars-debit-card",
+    "requirement_card_name": "BOP Lahore Qalandars Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Lahore Qalandars Gold Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Gold Credit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-of-punjab--bop-mastercard-gold-credit-card",
+    "requirement_card_name": "BOP Mastercard Gold Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-mastercard-gold-debit-card",
+    "requirement_card_name": "BOP Mastercard Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Platinum Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-mastercard-platinum-credit-card",
+    "requirement_card_name": "BOP Mastercard Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-mastercard-platinum-debit-card",
+    "requirement_card_name": "BOP Mastercard Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Silver Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-mastercard-classic-debit-card",
+    "requirement_card_name": "BOP Mastercard Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Taqwa KHAAS Platinum Islamic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-taqwa-khaas-platinum-islamic-debit-card",
+    "requirement_card_name": "BOP Taqwa KHAAS Platinum Islamic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Taqwa Platinum Islamic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-taqwa-platinum-islamic-debit-card",
+    "requirement_card_name": "BOP Taqwa Platinum Islamic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Taqwa World Islamic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-taqwa-world-islamic-debit-card",
+    "requirement_card_name": "BOP Taqwa World Islamic Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard Women Naaz Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-naaz-debit-card",
+    "requirement_card_name": "BOP Naaz Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard World Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-world-credit-card",
+    "requirement_card_name": "BOP World Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "Mastercard World Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-world-debit-card",
+    "requirement_card_name": "BOP World Debit Card"
+  },
+  {
+    "deal_bank_name": "BankIslami",
+    "requirement_bank_name": "BankIslami",
+    "deal_card_name": "Mastercard Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bankislami--classic-debit-mastercard",
+    "requirement_card_name": "Classic Debit Mastercard"
+  },
+  {
+    "deal_bank_name": "BankIslami",
+    "requirement_bank_name": "BankIslami",
+    "deal_card_name": "Mastercard Titanium Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bankislami--titanium-debit-mastercard",
+    "requirement_card_name": "Titanium Debit Mastercard"
+  },
+  {
+    "deal_bank_name": "BankIslami",
+    "requirement_bank_name": "BankIslami",
+    "deal_card_name": "PayPak Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bankislami--paypak-debit-card",
+    "requirement_card_name": "PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Amal Mastercard Gold Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Amal Mastercard Platinum Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Mastercard Classic Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Mastercard Gold Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Noor Flexi Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Noor Gold  Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-noor-gold-card",
+    "requirement_card_name": "Faysal Islami Noor Gold Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Noor Platinum  Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Noor Titanium  Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-noor-titanium-card",
+    "requirement_card_name": "Faysal Islami Noor Titanium Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Noor Velocity Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Noor World  Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-noor-world-card",
+    "requirement_card_name": "Faysal Islami Noor World Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Priority Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--priority-platinum-debit-card",
+    "requirement_card_name": "Priority Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Priority World Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--priority-world-debit-card",
+    "requirement_card_name": "Priority World Debit Card"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic Classic Business DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-business-debitcard",
+    "requirement_card_name": "HBL Islamic Business DebitCard"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic Classic DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
+    "requirement_card_name": "HBL Islamic Mastercard Standard Debit Card"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic Gold DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-mastercard-gold-debit-card",
+    "requirement_card_name": "HBL Islamic Mastercard Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic Titanium DebitCard",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic World Business DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl-islamic--hbl-world-islamic-business-debitcard",
+    "requirement_card_name": "HBL World Islamic Business DebitCard"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic World DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-world-debit-card",
+    "requirement_card_name": "HBL Islamic World Debit Card"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic World Elite DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-prestige-world-elite-debitcard",
+    "requirement_card_name": "HBL Islamic Prestige World Elite DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Classic Business DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-business-debitcard",
+    "requirement_card_name": "HBL Business DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-classic-debitcard",
+    "requirement_card_name": "HBL Classic DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Gold CreditCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-gold-creditcard",
+    "requirement_card_name": "HBL Gold CreditCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Gold DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-gold-debitcard",
+    "requirement_card_name": "HBL Gold DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Green CreditCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-green-creditcard",
+    "requirement_card_name": "HBL Green CreditCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Nisa DebitCard",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Platinum CreditCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-platinum-creditcard",
+    "requirement_card_name": "HBL Platinum CreditCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Titanium DebitCard",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL World Business DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-world-business-debitcard",
+    "requirement_card_name": "HBL World Business DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL World DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-world-debitcard",
+    "requirement_card_name": "HBL World DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL World Elite DebitCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-prestige-world-elite-debitcard",
+    "requirement_card_name": "HBL Prestige World Elite DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Metro Bank",
+    "requirement_bank_name": "Habib Metro Bank",
+    "deal_card_name": "Visa Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "habib-metro--visa-classic-debit-card",
+    "requirement_card_name": "Visa Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Habib Metro Bank",
+    "requirement_bank_name": "Habib Metro Bank",
+    "deal_card_name": "Visa Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "habib-metro--visa-gold-debit-card",
+    "requirement_card_name": "Visa Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Habib Metro Bank",
+    "requirement_bank_name": "Habib Metro Bank",
+    "deal_card_name": "Visa Ladies Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Habib Metro Bank",
+    "requirement_bank_name": "Habib Metro Bank",
+    "deal_card_name": "Visa Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "habib-metro--visa-platinum-debit-card",
+    "requirement_card_name": "Visa Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Mastercard Gold Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "js-bank--mastercard-gold-debit-card",
+    "requirement_card_name": "Mastercard Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Mastercard Her Titanium Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Mastercard Platinum Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Mastercard Titanium Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Mastercard World Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "js-bank--mastercard-world-debit-card",
+    "requirement_card_name": "Mastercard World Debit Card"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Private Banking Visa Signature Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Classic Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "js-bank--js-credit-card-classic",
+    "requirement_card_name": "JS Credit Card Classic"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Gold Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Platinum Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "js-bank--js-credit-card-platinum",
+    "requirement_card_name": "JS Credit Card Platinum"
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Mastercard Classic Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Nayab Visa Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "PayPak Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-bank--paypak-debit-card",
+    "requirement_card_name": "PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "PayPak Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-bank--paypak-debit-card",
+    "requirement_card_name": "PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Classic Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Fun Club Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Gold Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Gold Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Platinum Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-bank--mcb-visa-platinum-debit-card",
+    "requirement_card_name": "MCB Visa Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-bank--mcb-visa-signature-debit-card",
+    "requirement_card_name": "MCB Visa Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Bank Limited",
+    "requirement_bank_name": "MCB Bank Limited",
+    "deal_card_name": "Visa Silver Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "PayPak Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-paypak-classic-debit-card",
+    "requirement_card_name": "MCB Islamic PayPak Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "UnionPay Platinum Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "UnionPay Qadar Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-qadar-classic-debit-card",
+    "requirement_card_name": "MCB Islamic Qadar Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "UnionPay Qadar Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-qadar-gold-debit-card",
+    "requirement_card_name": "MCB Islamic Qadar Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "Visa Classic Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-visa-classic-debit-card",
+    "requirement_card_name": "MCB Islamic Visa Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "Visa FCY Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "Visa Gold Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "Visa Junior Club Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "Visa Niswan Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "Visa Platinum Business Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-platinum-debit-card",
+    "requirement_card_name": "MCB Islamic Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "MCB Islamic Bank Ltd",
+    "requirement_bank_name": "MCB Islamic Bank Ltd",
+    "deal_card_name": "Visa Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-platinum-debit-card",
+    "requirement_card_name": "MCB Islamic Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Classic Mastercard Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-master-classic-debit-card",
+    "requirement_card_name": "Meezan Master Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Classic Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-visa-silver-debit-card",
+    "requirement_card_name": "Meezan Visa Silver Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Gold Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-visa-gold-debit-card",
+    "requirement_card_name": "Meezan Visa Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Kids Club Visa Debit Card - Boys",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-kids-teens-card",
+    "requirement_card_name": "Meezan Kids & Teens Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Kids Club Visa Debit Card - Girls",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-kids-teens-card",
+    "requirement_card_name": "Meezan Kids & Teens Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Mastercard World Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-world-debit-card",
+    "requirement_card_name": "Meezan World Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-paypak-debit-card",
+    "requirement_card_name": "Meezan PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Platinum Mastercard Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-platinum-mastercard-debit-card",
+    "requirement_card_name": "Meezan Platinum MasterCard Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Platinum Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-visa-platinum-debit-card",
+    "requirement_card_name": "Meezan Visa Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Titanium Mastercard Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-titanium-mastercard-debit-card",
+    "requirement_card_name": "Meezan Titanium MasterCard Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Visa Infinite Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-visa-infinite-debit-card",
+    "requirement_card_name": "Meezan Visa Infinite Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Visa Student Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-visa-student-debit-card",
+    "requirement_card_name": "Meezan Visa Student Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Visa Women First Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-women-first-debit-card",
+    "requirement_card_name": "Meezan Women First Debit Card"
+  },
+  {
+    "deal_bank_name": "Standard Chartered Bank",
+    "requirement_bank_name": "Standard Chartered Bank Pakistan",
+    "deal_card_name": "Mastercard Platinum Credit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "standard-chartered--mastercard-platinum-credit-card",
+    "requirement_card_name": "Mastercard Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Standard Chartered Bank",
+    "requirement_bank_name": "Standard Chartered Bank Pakistan",
+    "deal_card_name": "Mastercard World Credit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "standard-chartered--mastercard-world-credit-card",
+    "requirement_card_name": "Mastercard World Credit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "Mastercard Signature Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "ubl--ubl-mastercard-signature-debit-card",
+    "requirement_card_name": "UBL Mastercard Signature Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Ameen PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-paypak-debit-card",
+    "requirement_card_name": "UBL PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Ameen Premium Debit Mastercard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-ameen-premium-debit-mastercard",
+    "requirement_card_name": "UBL Ameen Premium Debit MasterCard"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Ameen VISA Premium Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-premium-debit-card",
+    "requirement_card_name": "UBL Visa Premium Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Mastercard Premium Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Mastercard WIZ Virtual Prepaid Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-wiz-virtual-prepaid-card",
+    "requirement_card_name": "UBL Wiz Virtual Prepaid Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Pay Pak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-paypak-debit-card",
+    "requirement_card_name": "UBL PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Union Pay Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-unionpay-international-debit-card",
+    "requirement_card_name": "UBL UnionPay International Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Urooj Visa Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-urooj-debit-card",
+    "requirement_card_name": "UBL Visa Urooj Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL VISA Premium Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-premium-debit-card",
+    "requirement_card_name": "UBL Visa Premium Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Visa Classic Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-credit-card-classic",
+    "requirement_card_name": "UBL Credit Card Classic"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Visa Freelancer Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-freelancer-debit-card",
+    "requirement_card_name": "UBL Visa Freelancer Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Visa Gold Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-credit-card-gold",
+    "requirement_card_name": "UBL Credit Card Gold"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Visa Infinite Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-infinite-debit-card",
+    "requirement_card_name": "UBL Visa Infinite Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Visa Platinum Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-platinum-credit-card",
+    "requirement_card_name": "UBL Visa Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "UBL Visa Premium Plus Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-premium-debit-card",
+    "requirement_card_name": "UBL Visa Premium Debit Card"
+  },
+  {
+    "deal_bank_name": "United Bank Limited (UBL)",
+    "requirement_bank_name": "United Bank Limited (UBL)",
+    "deal_card_name": "Visa FCY Business Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "ubl--ubl-visa-fcy-business-debit-card",
+    "requirement_card_name": "UBL Visa FCY Business Debit Card"
+  }
+]

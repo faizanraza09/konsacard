@@ -1,0 +1,168 @@
+{
+  "bank_slug": "hbl-islamic",
+  "bank_name": "HBL Islamic Bank Limited",
+  "retrieved_note": "Pilot extraction from official public pages and Islamic schedule of bank charges PDF. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "HBL Islamic PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 1700,
+        "supplementary_annual_fee_pkr": 500,
+        "annual_fee_waiver_rule": "First-year free issuance for HBL Uraan, HBL Islamic Rutba, all Islamic Asaan accounts, HBL Islamic Mahana Amdan, and Freelancer Digital Account. Second year onwards annual fees apply.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-paypak-debitcard",
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "https://www.hbl.com/assets/documents/ISOBC_July_to_December_2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Overview page confirms issuance through account-opening form or additional request form.",
+        "ISOBC shows primary fee Rs. 1,700 and supplementary fee Rs. 500."
+      ]
+    },
+    {
+      "card_name": "HBL Islamic Mastercard Standard Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2500,
+        "supplementary_annual_fee_pkr": 700,
+        "annual_fee_waiver_rule": "Issuance charges for Mastercard Standard are waived for first year for HBL Islamic Nisa Tawfir account holders. Free debit card for HBL @ Work Islamic customers.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-classic-debitcard-mastercard-visa-unionpay",
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "https://www.hbl.com/assets/documents/ISOBC_July_to_December_2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public page shows product availability and limits; fees come from ISOBC."
+      ]
+    },
+    {
+      "card_name": "HBL Islamic Mastercard Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3300,
+        "supplementary_annual_fee_pkr": 1000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "https://www.hbl.com/assets/documents/ISOBC_July_to_December_2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": []
+    },
+    {
+      "card_name": "HBL Islamic World Debit Card",
+      "card_type": "debit",
+      "tier": "world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 17000,
+        "supplementary_annual_fee_pkr": 1700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-world-debitcard",
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "https://www.hbl.com/assets/documents/ISOBC_July_to_December_2024.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public page shows card limits and application flow; fees come from ISOBC."
+      ]
+    },
+    {
+      "card_name": "HBL Islamic Business DebitCard",
+      "card_type": "debit",
+      "tier": "business",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Recovered as the current official public business debit-card product rather than a separate Classic Business tier."
+      ]
+    },
+    {
+      "card_name": "HBL World Islamic Business DebitCard",
+      "card_type": "debit",
+      "tier": "world-business",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Recovered as the current official public world business debit-card product."
+      ]
+    },
+    {
+      "card_name": "HBL Islamic Prestige World Elite DebitCard",
+      "card_type": "debit",
+      "tier": "world-elite",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 5000000,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Free issuance, renewal, and replacement for HBL Islamic Prestige members.",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.hbl.com/prestige/prestige-experience",
+        "https://www.hbl.com/prestige/islamic-prestige/islamic-prestige-cards/hbl-islamic-world-elite-debitcard",
+        "https://www.hbl.com/prestige/islamic-prestige/islamic-prestige-saving-accounts/hbl-al-mukhtar"
+      ],
+      "confidence": "high",
+      "notes": [
+        "The PKR 5,000,000 threshold reflects surfaced Islamic Prestige account eligibility.",
+        "RDA route of USD 50,000 equivalent also appears publicly, but the normalized fields currently store the PKR current/saving threshold only."
+      ]
+    }
+  ],
+  "gaps": [
+    "Public pages did not expose salary or age thresholds for most consumer debit cards.",
+    "HBL Islamic Titanium DebitCard remains unresolved.",
+    "No public HBL Islamic consumer credit-card catalogue was found in this pass."
+  ]
+}

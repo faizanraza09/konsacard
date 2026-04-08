@@ -1,0 +1,490 @@
+{
+  "generatedAt": "2026-04-07",
+  "scope": "Pilot dataset for source-backed card eligibility and fee requirements. This is intentionally incomplete and should be treated as reviewable evidence, not final truth.",
+  "notes": [
+    "Only fields clearly supported by an official bank page or official schedule document are populated.",
+    "Null does not mean not applicable; it means not yet verified from the current source pass.",
+    "Fee waiver and reversal rules are stored separately from annual fees because many banks publish those on different pages."
+  ],
+  "records": [
+    {
+      "bank": "HBL",
+      "cardName": "HBL Platinum CreditCard",
+      "cardType": "credit",
+      "tier": "Platinum",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": 400000,
+        "selfEmployedAvgBalancePkr": 1000000,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": 21,
+        "ageMaxSalaried": 60,
+        "ageMaxSelfEmployed": 65,
+        "notes": "Supplementary card age shown as 18+ on the overview page."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": null,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": "Current public overview page exposes eligibility clearly but not the fee amount in crawlable text."
+      },
+      "sources": [
+        {
+          "url": "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview",
+          "kind": "product_overview",
+          "notes": "Eligibility criteria table for Platinum, Gold, and Green credit cards."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "HBL",
+      "cardName": "HBL Gold CreditCard",
+      "cardType": "credit",
+      "tier": "Gold",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": 100000,
+        "selfEmployedAvgBalancePkr": 300000,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": 21,
+        "ageMaxSalaried": 60,
+        "ageMaxSelfEmployed": 65,
+        "notes": "Supplementary card age shown as 18+ on the overview page."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": null,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": "Current public overview page exposes eligibility clearly but not the fee amount in crawlable text."
+      },
+      "sources": [
+        {
+          "url": "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview",
+          "kind": "product_overview",
+          "notes": "Eligibility criteria table for Platinum, Gold, and Green credit cards."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "HBL",
+      "cardName": "HBL Green CreditCard",
+      "cardType": "credit",
+      "tier": "Green",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": 35000,
+        "selfEmployedAvgBalancePkr": 105000,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": 21,
+        "ageMaxSalaried": 60,
+        "ageMaxSelfEmployed": 65,
+        "notes": "Supplementary card age shown as 18+ on the overview page."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": null,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": "Current public overview page exposes eligibility clearly but not the fee amount in crawlable text."
+      },
+      "sources": [
+        {
+          "url": "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview",
+          "kind": "product_overview",
+          "notes": "Eligibility criteria table for Platinum, Gold, and Green credit cards."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "HBL",
+      "cardName": "HBL FuelSaver Gold CreditCard",
+      "cardType": "credit",
+      "tier": "FuelSaver Gold",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": null,
+        "selfEmployedAvgBalancePkr": null,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "Current page exposes fee economics in a spend-benefit table, not a direct eligibility table."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": 7200,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": "Annual fee shown in the current benefit table on the product page."
+      },
+      "sources": [
+        {
+          "url": "https://www.hbl.com/personal/cards/credit-cards/fuel-saver-credit-card",
+          "kind": "product_page",
+          "notes": "Current public page shows FuelSaver Gold annual fee in the benefit table."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "HBL",
+      "cardName": "HBL FuelSaver Green CreditCard",
+      "cardType": "credit",
+      "tier": "FuelSaver Green",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": null,
+        "selfEmployedAvgBalancePkr": null,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "Current page exposes fee economics in a spend-benefit table, not a direct eligibility table."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": 3600,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": "Annual fee shown in the current benefit table on the product page."
+      },
+      "sources": [
+        {
+          "url": "https://www.hbl.com/personal/cards/credit-cards/fuel-saver-credit-card",
+          "kind": "product_page",
+          "notes": "Current public page shows FuelSaver Green annual fee in the benefit table."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "Bank Alfalah",
+      "cardName": "Bank Alfalah Visa Gold Credit Card",
+      "cardType": "credit",
+      "tier": "Gold",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": 50000,
+        "selfEmployedAvgBalancePkr": 75000,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": 21,
+        "ageMaxSalaried": 60,
+        "ageMaxSelfEmployed": 70,
+        "notes": "Product page spells this as minimum gross income; general eligibility page uses average-balance wording for self-employed applicants."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": null,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": "Basic: PKR 150,000 all-retail or PKR 110,000 international/e-commerce spend within 2 months after annual fee charge. Supplementary: PKR 75,000 all-retail or PKR 55,000 international/e-commerce spend.",
+        "notes": null
+      },
+      "sources": [
+        {
+          "url": "https://www.bankalfalah.com/personal-banking/credit-cards/visa-gold-credit-card",
+          "kind": "product_page",
+          "notes": "Eligibility table."
+        },
+        {
+          "url": "https://www.bankalfalah.com/info/loans/eligibility-criteria-7/",
+          "kind": "eligibility_page",
+          "notes": "Cross-check for the same threshold family."
+        },
+        {
+          "url": "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/",
+          "kind": "fee_reversal_page",
+          "notes": null
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "bank": "Bank Alfalah",
+      "cardName": "Bank Alfalah Mastercard Optimus Credit Card",
+      "cardType": "credit",
+      "tier": "Optimus",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": 50000,
+        "selfEmployedAvgBalancePkr": 75000,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": 21,
+        "ageMaxSalaried": 60,
+        "ageMaxSelfEmployed": 70,
+        "notes": "Eligibility wording on the product page is shared across multiple retail credit-card variants."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": null,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": "Basic: PKR 200,000 all-retail or PKR 150,000 international/e-commerce spend within 2 months after annual fee charge. Supplementary: PKR 100,000 all-retail or PKR 75,000 international/e-commerce spend.",
+        "notes": null
+      },
+      "sources": [
+        {
+          "url": "https://www.bankalfalah.com/personal-banking/credit-cards/mastercard-optimus-credit-card",
+          "kind": "product_page",
+          "notes": "Eligibility wording mirrors the standard retail credit-card criteria."
+        },
+        {
+          "url": "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/",
+          "kind": "fee_reversal_page",
+          "notes": null
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "bank": "Bank Alfalah",
+      "cardName": "Bank Alfalah Visa Signature Debit Card",
+      "cardType": "debit",
+      "tier": "Signature",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": null,
+        "selfEmployedAvgBalancePkr": null,
+        "minimumDepositPkr": 1000000,
+        "minimumMonthlyAverageBalancePkr": 1000000,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "New customers: open account with minimum PKR 1 million deposit. Existing customers: average 12-month balance should equal PKR 1 million."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": 18000,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": "Premier version separately advertises zero annual and issuance fee for Premier clients."
+      },
+      "sources": [
+        {
+          "url": "https://www.bankalfalah.com/personal-banking/cards/debit-cards/signature-debit-card/",
+          "kind": "product_page",
+          "notes": "Eligibility and card-limit text."
+        },
+        {
+          "url": "https://www.bankalfalah.com/personal-banking/cards/debit-cards/compare-debit-cards",
+          "kind": "compare_page",
+          "notes": "Annual fee and deposit requirement."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "Bank Alfalah",
+      "cardName": "Bank Alfalah Visa Gold Debit Card",
+      "cardType": "debit",
+      "tier": "Gold",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": 0,
+        "selfEmployedAvgBalancePkr": 0,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "Current product page says no minimum income requirement."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": 4000,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": null
+      },
+      "sources": [
+        {
+          "url": "https://www.bankalfalah.com/digital-banking/debit-cards/visa-gold-debit",
+          "kind": "product_page",
+          "notes": "Current public product page says no minimum income requirement."
+        },
+        {
+          "url": "https://www.bankalfalah.com/personal-banking/cards/debit-cards/compare-debit-cards",
+          "kind": "compare_page",
+          "notes": "Annual fee confirmation."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "Bank Alfalah",
+      "cardName": "Bank Alfalah Visa Classic Debit Card",
+      "cardType": "debit",
+      "tier": "Classic",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": 0,
+        "selfEmployedAvgBalancePkr": 0,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "Current product page says no minimum income or balance required."
+      },
+      "fees": {
+        "issuanceFeePkr": null,
+        "annualFeePkr": 2900,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": null,
+        "notes": null
+      },
+      "sources": [
+        {
+          "url": "https://www.bankalfalah.com/digital-banking/debit-cards/visa-classic-debit-card",
+          "kind": "product_page",
+          "notes": "Current product page says no minimum income or balance required."
+        },
+        {
+          "url": "https://www.bankalfalah.com/personal-banking/cards/debit-cards/compare-debit-cards",
+          "kind": "compare_page",
+          "notes": "Annual fee confirmation."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "Meezan Bank",
+      "cardName": "Meezan Visa Silver Debit Card",
+      "cardType": "debit",
+      "tier": "Visa Silver",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": null,
+        "selfEmployedAvgBalancePkr": null,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "Specific public income or deposit gate was not surfaced during this pass."
+      },
+      "fees": {
+        "issuanceFeePkr": 3500,
+        "annualFeePkr": 3500,
+        "replacementFeePkr": 3500,
+        "annualFeeWaiverRule": "Meezan Plus account holders maintaining PKR 200,000 monthly average balance can receive annual fee waiver on supported primary debit cards.",
+        "notes": null
+      },
+      "sources": [
+        {
+          "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
+          "kind": "schedule_of_charges_pdf",
+          "notes": "ADC Services table lists issuance, annual, and replacement charges; a later section states waiver logic for Meezan Plus account holders."
+        },
+        {
+          "url": "https://www.meezanbank.com/visa-debit-card/",
+          "kind": "product_page",
+          "notes": "Visa Silver/Gold product family page."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "Meezan Bank",
+      "cardName": "Meezan Visa Infinite Debit Card",
+      "cardType": "debit",
+      "tier": "Visa Infinite",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": null,
+        "selfEmployedAvgBalancePkr": null,
+        "minimumDepositPkr": 15000000,
+        "minimumMonthlyAverageBalancePkr": 15000000,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "Premium criteria page states bank accounts PKR 15 million+, term deposits PKR 20 million+, or combined PKR 20 million+. SOC also states Visa Infinite is only issued to customers with at least PKR 1,000,000 initial deposit or average monthly balance. This should be reviewed manually."
+      },
+      "fees": {
+        "issuanceFeePkr": 42500,
+        "annualFeePkr": 42500,
+        "replacementFeePkr": null,
+        "annualFeeWaiverRule": "Free for eligible Premium customers. SOC also notes replacement is complimentary for Premium customers.",
+        "notes": "This card has a clear contradiction between the premium-only public page and broader SOC issuance language."
+      },
+      "sources": [
+        {
+          "url": "https://www.meezanbank.com/visa-infinite-debit-card/",
+          "kind": "product_page",
+          "notes": "Premium-customer criteria and free pricing for eligible premium segment."
+        },
+        {
+          "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
+          "kind": "schedule_of_charges_pdf",
+          "notes": "ADC Services pricing and separate issuance-gate wording."
+        }
+      ],
+      "confidence": "medium"
+    },
+    {
+      "bank": "Meezan Bank",
+      "cardName": "Meezan World Debit Card",
+      "cardType": "debit",
+      "tier": "Mastercard World",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": null,
+        "selfEmployedAvgBalancePkr": null,
+        "minimumDepositPkr": 500000,
+        "minimumMonthlyAverageBalancePkr": 500000,
+        "ageMin": null,
+        "ageMaxSalaried": null,
+        "ageMaxSelfEmployed": null,
+        "notes": "SOC says Mastercard World Debit Card is issued to customers with at least PKR 500,000 initial deposit or average monthly balance."
+      },
+      "fees": {
+        "issuanceFeePkr": 27500,
+        "annualFeePkr": 27500,
+        "replacementFeePkr": 27500,
+        "annualFeeWaiverRule": null,
+        "notes": null
+      },
+      "sources": [
+        {
+          "url": "https://www.meezanbank.com/world-debit-card/",
+          "kind": "product_page",
+          "notes": "Current product page."
+        },
+        {
+          "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
+          "kind": "schedule_of_charges_pdf",
+          "notes": "ADC Services table plus issuance note."
+        }
+      ],
+      "confidence": "high"
+    },
+    {
+      "bank": "Meezan Bank",
+      "cardName": "Meezan Visa Student Debit Card",
+      "cardType": "debit",
+      "tier": "Student",
+      "eligibility": {
+        "salariedMinMonthlyIncomePkr": null,
+        "selfEmployedAvgBalancePkr": null,
+        "minimumDepositPkr": null,
+        "minimumMonthlyAverageBalancePkr": null,
+        "ageMin": 18,
+        "ageMaxSalaried": 24,
+        "ageMaxSelfEmployed": 24,
+        "notes": "Only customers with Meezan Asaan Student Account can avail this card."
+      },
+      "fees": {
+        "issuanceFeePkr": 0,
+        "annualFeePkr": 0,
+        "replacementFeePkr": 500,
+        "annualFeeWaiverRule": null,
+        "notes": null
+      },
+      "sources": [
+        {
+          "url": "https://www.meezanbank.com/student-debit-card/",
+          "kind": "product_page",
+          "notes": "Current product page clearly exposes age and fee structure."
+        }
+      ],
+      "confidence": "high"
+    }
+  ]
+}

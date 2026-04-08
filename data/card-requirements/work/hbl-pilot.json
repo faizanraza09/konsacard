@@ -1,0 +1,248 @@
+{
+  "bank_slug": "hbl",
+  "bank_name": "HBL",
+  "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI.",
+  "cards": [
+    {
+      "card_name": "HBL Platinum CreditCard",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 400000,
+        "minimum_relationship_balance_pkr": 1000000,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 21,
+        "maximum_age_years": 65
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Salaried age cap appears to be 60; self-employed appears to extend to 65.",
+        "Supplementary card age appears as 18+ on the overview page.",
+        "Annual fee was not cleanly surfaced in the current crawlable source pass."
+      ]
+    },
+    {
+      "card_name": "HBL Gold CreditCard",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 100000,
+        "minimum_relationship_balance_pkr": 300000,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 21,
+        "maximum_age_years": 65
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Salaried age cap appears to be 60; self-employed appears to extend to 65.",
+        "Annual fee was not cleanly surfaced in the current crawlable source pass."
+      ]
+    },
+    {
+      "card_name": "HBL Green CreditCard",
+      "card_type": "credit",
+      "tier": "green",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 35000,
+        "minimum_relationship_balance_pkr": 105000,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 21,
+        "maximum_age_years": 65
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Salaried age cap appears to be 60; self-employed appears to extend to 65.",
+        "Annual fee was not cleanly surfaced in the current crawlable source pass."
+      ]
+    },
+    {
+      "card_name": "HBL FuelSaver Gold CreditCard",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_relationship_balance_pkr": null,
+        "annual_fee_pkr": 7200,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/credit-cards/fuel-saver-credit-card"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "The current public page surfaced annual fee economics, but not a clean eligibility table."
+      ]
+    },
+    {
+      "card_name": "HBL FuelSaver Green CreditCard",
+      "card_type": "credit",
+      "tier": "green",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_relationship_balance_pkr": null,
+        "annual_fee_pkr": 3600,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/credit-cards/fuel-saver-credit-card"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "The current public page surfaced annual fee economics, but not a clean eligibility table."
+      ]
+    },
+    {
+      "card_name": "HBL Classic DebitCard",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-classic-debitcard"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "HBL uses HBL DebitCard as an umbrella label on overview pages and HBL Classic DebitCard as the concrete product page.",
+        "No clean public fee or age table was surfaced in this pass."
+      ]
+    },
+    {
+      "card_name": "HBL Gold DebitCard",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public page confirms it is a distinct product for new and existing customers.",
+        "Limit enhancement PDF shows daily withdrawal PKR 200,000 and purchase/e-commerce / funds-transfer limits of PKR 500,000.",
+        "No clean current fee table was surfaced publicly in this pass."
+      ]
+    },
+    {
+      "card_name": "HBL Business DebitCard",
+      "card_type": "debit",
+      "tier": "business",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public page confirms it is a distinct business debit-card product for new and existing customers.",
+        "Public page surfaced product limits but not a clean fee or age table."
+      ]
+    },
+    {
+      "card_name": "HBL World Business DebitCard",
+      "card_type": "debit",
+      "tier": "world-business",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public page confirms it is a distinct world business debit-card product for new and existing customers.",
+        "Public page surfaced product limits but not a clean fee or age table."
+      ]
+    },
+    {
+      "card_name": "HBL World DebitCard",
+      "card_type": "debit",
+      "tier": "world",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Public page positions it for high-net-worth customers.",
+        "Limit enhancement PDF shows daily withdrawal PKR 500,000 and purchase/e-commerce / funds-transfer limits of PKR 3,000,000.",
+        "No clean public fee table was surfaced in this pass."
+      ]
+    },
+    {
+      "card_name": "HBL Prestige World Elite DebitCard",
+      "card_type": "debit",
+      "tier": "world-elite",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Free issuance, renewal, and replacement for HBL Prestige members.",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/prestige/prestige-exclusive/prestige-cards/hbl-prestige-world-elite-debitcard",
+        "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Exclusive to HBL Prestige members.",
+        "Issued instantly from Prestige lounges according to the public page.",
+        "Limit enhancement PDF shows daily withdrawal PKR 1,000,000 and purchase/e-commerce / funds-transfer limits of PKR 5,000,000."
+      ]
+    }
+  ],
+  "gaps": [
+    "Fee amounts and waiver rules are still missing for HBL's standard credit-card tiers in this source pass.",
+    "Most HBL debit-card pages still do not expose clean public fee or age tables."
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Konsacard Card Requirements Pilot Schema",
+  "type": "object",
+  "required": ["generatedAt", "scope", "records"],
+  "properties": {
+    "generatedAt": { "type": "string" },
+    "scope": { "type": "string" },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["bank", "cardName", "cardType", "eligibility", "fees", "sources", "confidence"],
+        "properties": {
+          "bank": { "type": "string" },
+          "cardName": { "type": "string" },
+          "cardType": {
+            "type": "string",
+            "enum": ["credit", "debit", "prepaid", "other"]
+          },
+          "tier": { "type": ["string", "null"] },
+          "eligibility": {
+            "type": "object",
+            "properties": {
+              "salariedMinMonthlyIncomePkr": { "type": ["number", "null"] },
+              "selfEmployedAvgBalancePkr": { "type": ["number", "null"] },
+              "minimumDepositPkr": { "type": ["number", "null"] },
+              "minimumMonthlyAverageBalancePkr": { "type": ["number", "null"] },
+              "ageMin": { "type": ["number", "null"] },
+              "ageMaxSalaried": { "type": ["number", "null"] },
+              "ageMaxSelfEmployed": { "type": ["number", "null"] },
+              "notes": { "type": ["string", "null"] }
+            }
+          },
+          "fees": {
+            "type": "object",
+            "properties": {
+              "issuanceFeePkr": { "type": ["number", "null"] },
+              "annualFeePkr": { "type": ["number", "null"] },
+              "replacementFeePkr": { "type": ["number", "null"] },
+              "annualFeeWaiverRule": { "type": ["string", "null"] },
+              "notes": { "type": ["string", "null"] }
+            }
+          },
+          "sources": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["url", "kind"],
+              "properties": {
+                "url": { "type": "string" },
+                "kind": { "type": "string" },
+                "notes": { "type": ["string", "null"] }
+              }
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": ["high", "medium", "low"]
+          }
+        }
+      }
+    }
+  }
+}
