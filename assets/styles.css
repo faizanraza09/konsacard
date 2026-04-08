@@ -70,6 +70,8 @@ body::before {
 }
 
 .app-bar {
+  position: relative;
+  z-index: 15;
   border-radius: 24px;
   padding: 16px 18px;
   background: linear-gradient(180deg, #3b2d1c 0%, #2c2217 100%);
@@ -90,6 +92,33 @@ body::before {
   font-size: clamp(1.28rem, 2vw, 1.9rem);
   line-height: 1.02;
   color: #fff7ea;
+}
+
+.brand-logo-link,
+.content-brand-link,
+.footer-logo-link {
+  display: inline-flex;
+  width: fit-content;
+  text-decoration: none;
+}
+
+.brand-logo-main {
+  display: block;
+  width: clamp(176px, 24vw, 244px);
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.content-brand-logo {
+  display: block;
+  width: clamp(170px, 24vw, 228px);
+  height: auto;
+}
+
+.footer-logo {
+  display: block;
+  width: clamp(170px, 22vw, 230px);
+  height: auto;
 }
 
 .hero-kicker {
@@ -1357,6 +1386,10 @@ input[type="range"] {
   font-size: 0.96rem;
 }
 
+.footer-logo-link {
+  margin-bottom: 8px;
+}
+
 .footer-block p,
 .footer-block li {
   color: var(--muted);
@@ -1400,6 +1433,10 @@ input[type="range"] {
   background: linear-gradient(180deg, #3b2d1c 0%, #2c2217 100%);
   border: 1px solid rgba(59, 45, 28, 0.9);
   color: #fff7ea;
+}
+
+.content-brand-link {
+  margin-bottom: 2px;
 }
 
 .content-hero h1 {
@@ -1575,16 +1612,46 @@ input[type="range"] {
   }
 
   .hero-badges {
-    justify-items: start;
+    display: none;
   }
 
   .app-bar-stats {
     flex-wrap: wrap;
+    margin-top: 8px;
   }
 
   .summary-strip,
   .pick-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .summary-item.is-empty-mobile {
+    display: none;
+  }
+
+  .summary-item {
+    padding: 10px 12px;
+  }
+
+  .summary-item span {
+    font-size: 0.72rem;
+  }
+
+  .summary-item strong {
+    font-size: 1rem;
+    margin-top: 2px;
+  }
+
+  .summary-item-wide {
+    grid-column: auto;
+    background: rgba(31, 107, 84, 0.08);
+    border-color: rgba(31, 107, 84, 0.14);
+  }
+
+  .summary-item-wide strong {
+    font-size: 1rem;
+    color: var(--accent);
+    white-space: nowrap;
   }
 
   .guide-grid,
@@ -1624,16 +1691,17 @@ input[type="range"] {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 56px;
-    padding: 12px 16px;
+    min-height: 60px;
+    padding: 14px 16px;
     cursor: pointer;
     touch-action: pan-y;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 700;
     list-style: none;
     border-radius: 16px;
-    background: linear-gradient(135deg, rgba(189, 91, 61, 0.14), rgba(203, 123, 85, 0.08));
+    background: linear-gradient(135deg, rgba(189, 91, 61, 0.2), rgba(203, 123, 85, 0.12));
+    border-bottom: 2px solid rgba(189, 91, 61, 0.25);
   }
 
   .filters-toggle-icon {
@@ -1675,6 +1743,11 @@ input[type="range"] {
     gap: 2px;
     min-width: 0;
     max-width: none;
+    transform: translateY(5px);
+  }
+
+  .filters-toggle-icon {
+    align-self: center;
   }
 
   .mobile-filter-chip {
@@ -1694,15 +1767,16 @@ input[type="range"] {
     content: "\2192";
     display: inline-grid;
     place-items: center;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     color: #fff7ea;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 700;
     border-radius: 50%;
     border: 1px solid rgba(189, 91, 61, 0.18);
     background: linear-gradient(135deg, var(--brand), #cb7b55);
+    align-self: center;
   }
 
   .filters-shell[open] .filters-toggle::after {
@@ -1818,6 +1892,180 @@ input[type="range"] {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     border-top: 1px solid rgba(22, 33, 25, 0.08);
+  }
+
+  .pick-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: start;
+  }
+
+  .pick-context {
+    margin-bottom: 6px;
+  }
+
+  .score-wrap {
+    margin-top: -18px;
+  }
+
+  .score-badge {
+    min-width: 76px;
+    padding: 8px 10px;
+    border-radius: 13px;
+  }
+
+  .score-badge strong {
+    font-size: 1.28rem;
+  }
+
+  .score-scale {
+    font-size: 0.68rem;
+  }
+
+  .score-hint {
+    display: block;
+    max-width: 80px;
+    margin-top: 1px;
+    font-size: 0.52rem;
+    line-height: 1.15;
+    text-align: center;
+  }
+
+  .info-dot {
+    width: 32px;
+    height: 32px;
+    font-size: 0.7rem;
+    border-radius: 50%;
+  }
+
+  .tooltip-wrap {
+    padding: 6px;
+    margin: -6px;
+  }
+
+  .tooltip-card {
+    right: 0;
+    left: auto;
+    width: min(190px, calc(100vw - 48px));
+    font-size: 0.7rem;
+  }
+
+  .result-card {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .result-side {
+    text-align: left;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-inline {
+    display: block;
+    min-width: auto;
+    text-align: right;
+  }
+
+  .result-title-row {
+    align-items: center;
+  }
+
+  .match-item {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .result-metrics {
+    gap: 6px;
+  }
+
+  .metric-chip:nth-child(n + 3) {
+    display: none;
+  }
+
+  .result-main p {
+    font-size: 0.82rem;
+  }
+
+  .result-main h3 {
+    font-size: 1.05rem;
+    line-height: 1.1;
+  }
+
+  .rank-pill {
+    width: 36px;
+    height: 36px;
+    font-size: 0.85rem;
+  }
+
+  .mobile-nav-wrap {
+    position: relative;
+    z-index: 40;
+    margin-bottom: 8px;
+  }
+
+  .hamburger-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: 6px;
+    background: rgba(255, 247, 234, 0.08);
+    border: 1px solid rgba(255, 247, 234, 0.14);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  .hamburger-btn span {
+    display: block;
+    width: 18px;
+    height: 2px;
+    background: rgba(244, 231, 209, 0.86);
+    border-radius: 2px;
+  }
+
+  .utility-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    z-index: 30;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: rgba(44, 34, 23, 0.97);
+    border: 1px solid rgba(255, 247, 234, 0.12);
+    border-radius: 14px;
+    backdrop-filter: blur(14px);
+    min-width: 180px;
+    margin-bottom: 0;
+  }
+
+  .utility-nav.nav-open {
+    display: flex;
+  }
+
+  .utility-link {
+    min-height: 44px;
+    padding: 0 14px;
+    font-size: 0.88rem;
+    border-radius: 10px;
+  }
+
+  .hero-subline,
+  .hero-intro {
+    display: none;
+  }
+
+  .hero-kicker {
+    margin-bottom: 4px;
+    font-size: 0.72rem;
   }
 }
 
