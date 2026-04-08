@@ -6,32 +6,32 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://konsacard.pk/about.html</loc>
+    <loc>https://konsacard.pk/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://konsacard.pk/privacy-policy.html</loc>
+    <loc>https://konsacard.pk/privacy-policy</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://konsacard.pk/contact.html</loc>
+    <loc>https://konsacard.pk/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://konsacard.pk/methodology.html</loc>
+    <loc>https://konsacard.pk/methodology</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://konsacard.pk/best-debit-cards-pakistan.html</loc>
+    <loc>https://konsacard.pk/best-debit-cards-pakistan</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://konsacard.pk/how-discount-caps-work.html</loc>
+    <loc>https://konsacard.pk/how-discount-caps-work</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
