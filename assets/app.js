@@ -53,6 +53,8 @@ const elements = {
 };
 
 const DAY_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const COLLAPSIBLE_FILTER_BREAKPOINT = 1080;
+
 const CARD_TYPE_OPTIONS = [
   { value: "debit", label: "Debit" },
   { value: "credit", label: "Credit" },
@@ -136,7 +138,7 @@ function bindEvents() {
 function bindMobileFilterActions() {
   if (elements.mobileApplyFilters) {
     elements.mobileApplyFilters.addEventListener("click", () => {
-      if (window.innerWidth <= 720 && elements.filtersShell) {
+      if (window.innerWidth <= COLLAPSIBLE_FILTER_BREAKPOINT && elements.filtersShell) {
         elements.filtersShell.open = false;
         syncFiltersShellForViewport();
       }
@@ -937,7 +939,7 @@ function syncFiltersShellForViewport() {
     return;
   }
   const filterGroups = Array.from(document.querySelectorAll(".filter-group"));
-  if (window.innerWidth <= 720) {
+  if (window.innerWidth <= COLLAPSIBLE_FILTER_BREAKPOINT) {
     if (elements.filtersShell.dataset.mobileInitialized !== "true") {
       elements.filtersShell.open = false;
       filterGroups.forEach((group) => {
