@@ -1026,15 +1026,25 @@ input[type="range"] {
   }
 
   .panel {
-    padding: 16px;
+    padding: 18px;
+  }
+
+  .field {
+    margin-top: 12px;
+    padding: 13px;
+    border-radius: 16px;
+  }
+
+  .field-head {
+    gap: 16px;
   }
 
   .summary-strip {
-    gap: 10px;
+    gap: 12px;
   }
 
   .summary-item {
-    padding: 11px 14px;
+    padding: 13px 16px;
     border-radius: 14px;
   }
 
@@ -1082,13 +1092,13 @@ input[type="range"] {
   }
 
   .results-grid {
-    gap: 12px;
+    gap: 14px;
   }
 
   .result-card {
     gap: 12px;
     border-radius: 20px;
-    padding: 13px 14px;
+    padding: 15px 16px;
   }
 
   .result-main h3 {
