@@ -926,6 +926,111 @@ input[type="range"] {
   min-height: 470px;
 }
 
+@media (min-width: 1200px) {
+  .page-shell {
+    width: min(1480px, calc(100vw - 56px));
+    padding: 18px 0 28px;
+  }
+
+  .app-bar {
+    margin-bottom: 16px;
+    padding: 22px 24px;
+  }
+
+  .app-layout {
+    gap: 20px;
+  }
+
+  .controls,
+  .results {
+    gap: 14px;
+  }
+
+  .panel {
+    padding: 16px;
+  }
+
+  .summary-strip {
+    gap: 10px;
+  }
+
+  .summary-item {
+    padding: 11px 14px;
+    border-radius: 14px;
+  }
+
+  .summary-item span {
+    font-size: 0.74rem;
+  }
+
+  .summary-item strong {
+    margin-top: 5px;
+    font-size: 0.92rem;
+  }
+
+  .pick-card {
+    padding: 18px 20px;
+  }
+
+  .pick-context {
+    margin-bottom: 14px;
+  }
+
+  .pick-header {
+    gap: 18px;
+  }
+
+  .pick-copy {
+    gap: 9px;
+  }
+
+  .pick-stats {
+    gap: 10px;
+    margin-top: 12px;
+  }
+
+  .stat-tile {
+    padding: 11px 13px;
+  }
+
+  .stat-tile strong {
+    margin-top: 5px;
+    font-size: 0.94rem;
+  }
+
+  .results-note {
+    margin: 6px 0 12px;
+  }
+
+  .results-grid {
+    gap: 12px;
+  }
+
+  .result-card {
+    gap: 12px;
+    border-radius: 20px;
+    padding: 13px 14px;
+  }
+
+  .result-main h3 {
+    font-size: 0.98rem;
+  }
+
+  .result-main p {
+    margin-top: 5px;
+    font-size: 0.8rem;
+  }
+
+  .result-metrics {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .metric-chip {
+    padding: 5px 8px;
+  }
+}
+
 .skeleton-line,
 .skeleton-chip,
 .skeleton-title,

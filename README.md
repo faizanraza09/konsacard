@@ -27,7 +27,7 @@ data/offers.json
 From this folder:
 
 ```powershell
-python -m http.server 8000 --bind 0.0.0.0
+python scripts/local_dev_server.py --host 0.0.0.0 --port 8000
 ```
 
 Then open:
@@ -36,13 +36,16 @@ Then open:
 http://localhost:8000
 ```
 
+This local server supports the same clean URLs used in production, so routes like
+`/about` and `/contact` work locally instead of breaking back to `.html`.
+
 ## Local test flow
 
 Use this sequence before deploying:
 
 ```powershell
 python refresh_data.py
-python -m http.server 8000 --bind 0.0.0.0
+python scripts/local_dev_server.py --host 0.0.0.0 --port 8000
 ```
 
 Then open `http://localhost:8000` and test:
