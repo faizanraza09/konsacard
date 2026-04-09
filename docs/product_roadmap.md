@@ -138,7 +138,7 @@ The project works now, but the data layer is still evolving.
 
 The offers pipeline already has:
 
-- `python scripts/refresh_all_offers.py`
+- `python scripts/offers/refresh_all_offers.py`
 
 The next step is one higher-level entrypoint such as:
 

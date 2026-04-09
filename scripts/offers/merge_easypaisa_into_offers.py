@@ -3,9 +3,9 @@ from datetime import datetime
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OFFERS_PATH = ROOT / "data" / "offers.json"
-DEFAULT_EASYPAISA_PATH = ROOT / "data" / "easypaisa-discountworld-food.json"
+DEFAULT_EASYPAISA_PATH = ROOT / "data" / "sources" / "easypaisa" / "discountworld-food.json"
 
 DAY_ORDER = [
     "Monday",

@@ -7,10 +7,10 @@ from pathlib import Path
 from merge_easypaisa_into_offers import merge_easypaisa_into_offers
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 PEEKABOO_REFRESH = ROOT / "refresh_data.py"
-EASYPAISA_REFRESH = ROOT / "scripts" / "extract_easypaisa_discountworld.py"
-OFFERS_VALIDATION = ROOT / "scripts" / "validate_offers_dataset.py"
+EASYPAISA_REFRESH = ROOT / "scripts" / "offers" / "extract_easypaisa_discountworld.py"
+OFFERS_VALIDATION = ROOT / "scripts" / "offers" / "validate_offers_dataset.py"
 
 
 def run_step(label: str, command: list[str]) -> None:

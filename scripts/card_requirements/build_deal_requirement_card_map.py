@@ -4,7 +4,7 @@ from collections import defaultdict
 from pathlib import Path
 
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 OFFERS_PATH = ROOT / "data" / "offers.json"
 CARDS_PATH = ROOT / "data" / "card-requirements" / "normalized" / "cards.json"
 OUT_DIR = ROOT / "data" / "card-requirements" / "normalized"
@@ -228,7 +228,7 @@ def main() -> None:
     summary = []
 
     for deal_bank in sorted(deal_cards_by_bank):
-        req_bank = BANK_NAME_MAP[deal_bank]
+        req_bank = BANK_NAME_MAP.get(deal_bank)
         matched = 0
         unmatched = []
         manual_aliases = MANUAL_ALIASES.get(deal_bank, {})
@@ -244,30 +244,33 @@ def main() -> None:
                 "requirement_card_name": None,
             }
 
-            alias_target = manual_aliases.get(deal_card_name)
-            if alias_target:
-                card = req_card_by_bank_and_name.get((req_bank, alias_target))
-                if card:
-                    mapping.update(
-                        {
-                            "matched": True,
-                            "match_method": "manual_alias",
-                            "requirement_card_id": card["card_id"],
-                            "requirement_card_name": card["card_name"],
-                        }
-                    )
+            if req_bank is None:
+                mapping["match_method"] = "unmapped_bank"
             else:
-                candidates = req_canon_by_bank[req_bank].get(canon(deal_card_name), [])
-                if len(candidates) == 1:
-                    card = candidates[0]
-                    mapping.update(
-                        {
-                            "matched": True,
-                            "match_method": "canonical_exact",
-                            "requirement_card_id": card["card_id"],
-                            "requirement_card_name": card["card_name"],
-                        }
-                    )
+                alias_target = manual_aliases.get(deal_card_name)
+                if alias_target:
+                    card = req_card_by_bank_and_name.get((req_bank, alias_target))
+                    if card:
+                        mapping.update(
+                            {
+                                "matched": True,
+                                "match_method": "manual_alias",
+                                "requirement_card_id": card["card_id"],
+                                "requirement_card_name": card["card_name"],
+                            }
+                        )
+                else:
+                    candidates = req_canon_by_bank[req_bank].get(canon(deal_card_name), [])
+                    if len(candidates) == 1:
+                        card = candidates[0]
+                        mapping.update(
+                            {
+                                "matched": True,
+                                "match_method": "canonical_exact",
+                                "requirement_card_id": card["card_id"],
+                                "requirement_card_name": card["card_name"],
+                            }
+                        )
 
             if mapping["matched"]:
                 matched += 1

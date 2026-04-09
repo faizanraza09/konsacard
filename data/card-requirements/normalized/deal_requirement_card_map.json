@@ -29,6 +29,15 @@
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
+    "deal_card_name": "Mastercard World Elite Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Al Baraka Bank",
+    "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Nexgen Habib University PayPak Debit Card",
     "matched": false,
     "match_method": null,
@@ -871,6 +880,33 @@
     "match_method": "canonical_exact",
     "requirement_card_id": "bankislami--paypak-debit-card",
     "requirement_card_name": "PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "Easypaisa",
+    "requirement_bank_name": null,
+    "deal_card_name": "Easy Paisa DebitCard",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Easypaisa",
+    "requirement_bank_name": null,
+    "deal_card_name": "Easy Paisa Pay Pak Debit Card",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Easypaisa",
+    "requirement_bank_name": null,
+    "deal_card_name": "Easy Paisa Union Pay Debit Card",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
   },
   {
     "deal_bank_name": "Faysal Bank Limited",

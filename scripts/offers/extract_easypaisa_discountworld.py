@@ -8,8 +8,8 @@ from urllib.parse import urljoin
 import requests
 
 
-ROOT = Path(__file__).resolve().parents[1]
-OUT_PATH = ROOT / "data" / "easypaisa-discountworld-food.json"
+ROOT = Path(__file__).resolve().parents[2]
+OUT_PATH = ROOT / "data" / "sources" / "easypaisa" / "discountworld-food.json"
 BASE = "https://discovery.discountworld.net"
 COFFEE_PAGE_API = "https://easypaisa.com.pk/wp-json/wp/v2/pages/54677"
 COFFEE_PAGE_URL = "https://easypaisa.com.pk/coffee-house-partners/"
@@ -221,6 +221,7 @@ def parse_coffee_partner_page(html: str) -> list[dict]:
 
 
 def main() -> None:
+    OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     session = requests.Session()
     results = []
 

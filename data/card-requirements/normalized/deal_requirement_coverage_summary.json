@@ -3,11 +3,12 @@
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "matched_cards": 3,
-    "total_deal_cards": 10,
-    "coverage_pct": 30.0,
+    "total_deal_cards": 11,
+    "coverage_pct": 27.3,
     "unmatched_deal_cards": [
       "Mastercard Gold Debit Card",
       "Mastercard Silver Debit Card",
+      "Mastercard World Elite Debit Card",
       "Nexgen Habib University PayPak Debit Card",
       "Nexgen IVS PayPak Debit Card",
       "Nexgen Riphah University PayPak Debit Card",
@@ -81,6 +82,18 @@
     "total_deal_cards": 3,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
+  },
+  {
+    "deal_bank_name": "Easypaisa",
+    "requirement_bank_name": null,
+    "matched_cards": 0,
+    "total_deal_cards": 3,
+    "coverage_pct": 0.0,
+    "unmatched_deal_cards": [
+      "Easy Paisa DebitCard",
+      "Easy Paisa Pay Pak Debit Card",
+      "Easy Paisa Union Pay Debit Card"
+    ]
   },
   {
     "deal_bank_name": "Faysal Bank Limited",

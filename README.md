@@ -8,6 +8,22 @@ The app is driven by `data/offers.json` and now combines:
 - the existing Peekaboo-backed offers pipeline
 - a public-source Easypaisa offers pipeline
 
+## Repo Structure
+
+```text
+assets/                     Frontend CSS, JS, and logo assets
+data/
+  offers.json               Final app dataset used by the frontend
+  sources/                  Intermediate/source-specific datasets
+  card-requirements/        Requirements research workspace and normalized outputs
+docs/                       Process notes, pipeline docs, and roadmap
+scripts/
+  offers/                   Offers refresh, merge, and validation scripts
+  card_requirements/        Requirements normalization and mapping builders
+  dev/                      Local development utilities
+refresh_data.py             Compatibility entrypoint for Peekaboo-only refresh
+```
+
 ## Main Data Outputs
 
 Primary app dataset:
@@ -19,7 +35,7 @@ data/offers.json
 Easypaisa intermediate dataset:
 
 ```text
-data/easypaisa-discountworld-food.json
+data/sources/easypaisa/discountworld-food.json
 ```
 
 Card requirements research workspace:
@@ -42,15 +58,15 @@ PEEKABOO_TOKEN=PASTE_TOKEN_HERE
 Then run the full offers rebuild with:
 
 ```powershell
-python scripts/refresh_all_offers.py
+python scripts/offers/refresh_all_offers.py
 ```
 
 That orchestrates:
 
 1. `refresh_data.py`
-2. `scripts/extract_easypaisa_discountworld.py`
-3. `scripts/merge_easypaisa_into_offers.py`
-4. `scripts/validate_offers_dataset.py`
+2. `scripts/offers/extract_easypaisa_discountworld.py`
+3. `scripts/offers/merge_easypaisa_into_offers.py`
+4. `scripts/offers/validate_offers_dataset.py`
 
 For more detail, see:
 
@@ -73,8 +89,8 @@ data/card-requirements/normalized/deal_requirement_coverage_summary.json
 Main builders:
 
 ```powershell
-python scripts/build_card_requirements_normalized.py
-python scripts/build_deal_requirement_card_map.py
+python scripts/card_requirements/build_card_requirements_normalized.py
+python scripts/card_requirements/build_deal_requirement_card_map.py
 ```
 
 Documentation:
@@ -88,7 +104,7 @@ Documentation:
 From the repo root:
 
 ```powershell
-python scripts/local_dev_server.py --host 0.0.0.0 --port 8000
+python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8000
 ```
 
 Then open:
@@ -105,8 +121,8 @@ This local server supports the same clean URLs used in production, so routes lik
 Before deploying:
 
 ```powershell
-python scripts/refresh_all_offers.py
-python scripts/local_dev_server.py --host 0.0.0.0 --port 8000
+python scripts/offers/refresh_all_offers.py
+python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8000
 ```
 
 Then verify:

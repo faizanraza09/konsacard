@@ -2,8 +2,8 @@
 
 This repo now has a pilot dataset for card eligibility and fee requirements in:
 
-- `data/card_requirements_pilot.json`
-- `data/card_requirements_schema.json`
+- `data/card-requirements/meta/pilot-schema-example.json`
+- `data/card-requirements/meta/schema.json`
 
 The right long-term shape is not a single scraper. It is a reviewable multi-step pipeline.
 

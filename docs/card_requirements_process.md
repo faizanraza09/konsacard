@@ -19,8 +19,8 @@ The current data artifacts live in:
 
 The main build scripts are:
 
-- `scripts/build_card_requirements_normalized.py`
-- `scripts/build_deal_requirement_card_map.py`
+- `scripts/card_requirements/build_card_requirements_normalized.py`
+- `scripts/card_requirements/build_deal_requirement_card_map.py`
 
 ## Why this was not a simple scraper
 
@@ -152,7 +152,7 @@ Current pilot bank files include:
 
 ### 4. Normalization
 
-Normalization was done by `scripts/build_card_requirements_normalized.py`.
+Normalization was done by `scripts/card_requirements/build_card_requirements_normalized.py`.
 
 The output schema separates:
 
@@ -245,7 +245,7 @@ The restaurant-deals dataset and the requirement dataset do not use perfectly
 aligned card names.
 
 That mismatch was handled in a separate step by
-`scripts/build_deal_requirement_card_map.py`.
+`scripts/card_requirements/build_deal_requirement_card_map.py`.
 
 ### Why a separate matching layer was needed
 
@@ -354,8 +354,8 @@ If continuing this work, the recommended order is:
 4. Use account-linked inference only when the bank’s own product structure
    clearly supports it.
 5. Re-run:
-   - `python scripts/build_card_requirements_normalized.py`
-   - `python scripts/build_deal_requirement_card_map.py`
+   - `python scripts/card_requirements/build_card_requirements_normalized.py`
+   - `python scripts/card_requirements/build_deal_requirement_card_map.py`
 6. Review coverage changes and unresolved cards again.
 
 ## Important rule
