@@ -1,5 +1,6 @@
 const state = {
   data: null,
+  requirements: null,
   selectedCities: new Set(),
   selectedDays: new Set(),
   selectedRestaurants: new Set(),
@@ -8,6 +9,9 @@ const state = {
   bankSearchTerm: "",
   orderValue: 10000,
   searchTerm: "",
+  useEligibility: false,
+  monthlySalary: null,
+  accountBalance: null,
 };
 
 const elements = {
@@ -23,18 +27,23 @@ const elements = {
   billSummary: document.getElementById("bill-summary"),
   banksSummary: document.getElementById("banks-summary"),
   cardTypesSummary: document.getElementById("card-types-summary"),
+  eligibilitySummary: document.getElementById("eligibility-summary"),
   bankSearch: document.getElementById("bank-search"),
   bankResults: document.getElementById("bank-results"),
   selectedBanks: document.getElementById("selected-banks"),
   clearCities: document.getElementById("clear-cities"),
   clearDays: document.getElementById("clear-days"),
   clearCardTypes: document.getElementById("clear-card-types"),
+  clearEligibility: document.getElementById("clear-eligibility"),
   restaurantSearch: document.getElementById("restaurant-search"),
   restaurantResults: document.getElementById("restaurant-results"),
   selectedRestaurants: document.getElementById("selected-restaurants"),
   clearBanks: document.getElementById("clear-banks"),
   orderValue: document.getElementById("order-value"),
   orderValueLabel: document.getElementById("order-value-label"),
+  useEligibility: document.getElementById("use-eligibility"),
+  monthlySalary: document.getElementById("monthly-salary"),
+  accountBalance: document.getElementById("account-balance"),
   resetFilters: document.getElementById("reset-filters"),
   clearRestaurants: document.getElementById("clear-restaurants"),
   mobileApplyFilters: document.getElementById("mobile-apply-filters"),
@@ -42,6 +51,8 @@ const elements = {
   resultsGrid: document.getElementById("results-grid"),
   topPick: document.getElementById("top-pick"),
   emptyState: document.getElementById("empty-state"),
+  emptyStateTitle: document.getElementById("empty-state-title"),
+  emptyStateMessage: document.getElementById("empty-state-message"),
   resultCount: document.getElementById("result-count"),
   summaryBrands: document.getElementById("summary-brands"),
   summaryCities: document.getElementById("summary-cities"),
@@ -62,14 +73,26 @@ const CARD_TYPE_OPTIONS = [
 ];
 
 async function init() {
-  const response = await fetch("./data/offers.json");
-  const payload = await response.json();
+  const [payload, requirements] = await Promise.all([
+    fetchJson("./data/offers.json"),
+    loadRequirementsContext(),
+  ]);
   state.data = payload;
+  state.requirements = requirements;
   state.selectedCities = new Set();
   state.selectedDays = new Set();
   state.selectedBanks = new Set();
   state.selectedCardTypes = new Set();
   elements.orderValue.value = String(state.orderValue);
+  if (elements.useEligibility) {
+    elements.useEligibility.checked = false;
+  }
+  if (elements.monthlySalary) {
+    elements.monthlySalary.value = "";
+  }
+  if (elements.accountBalance) {
+    elements.accountBalance.value = "";
+  }
 
   elements.statOffers.textContent = formatNumber(payload.stats.offers);
   elements.statCards.textContent = formatNumber(payload.stats.cards);
@@ -78,6 +101,41 @@ async function init() {
   bindEvents();
   syncFiltersShellForViewport();
   render();
+}
+
+async function fetchJson(path) {
+  const response = await fetch(path);
+  if (!response.ok) {
+    throw new Error(`Failed to load ${path}: ${response.status}`);
+  }
+  return response.json();
+}
+
+async function loadRequirementsContext() {
+  try {
+    const [requirementsPayload, mappingPayload] = await Promise.all([
+      fetchJson("./data/card-requirements/normalized/card_requirements.json"),
+      fetchJson("./data/card-requirements/normalized/deal_requirement_card_map.json"),
+    ]);
+
+    return {
+      available: true,
+      byCardId: new Map(requirementsPayload.map((row) => [row.card_id, row])),
+      mappingByDealKey: new Map(
+        mappingPayload.map((row) => [
+          buildDealCardKey(row.deal_bank_name, row.deal_card_name),
+          row,
+        ]),
+      ),
+    };
+  } catch (error) {
+    console.warn("Requirements data could not be loaded.", error);
+    return {
+      available: false,
+      byCardId: new Map(),
+      mappingByDealKey: new Map(),
+    };
+  }
 }
 
 function bindEvents() {
@@ -119,6 +177,27 @@ function bindEvents() {
     render();
   });
 
+  if (elements.useEligibility) {
+    elements.useEligibility.addEventListener("change", (event) => {
+      state.useEligibility = event.target.checked;
+      render();
+    });
+  }
+
+  if (elements.monthlySalary) {
+    elements.monthlySalary.addEventListener("input", (event) => {
+      state.monthlySalary = parseOptionalNumber(event.target.value);
+      render();
+    });
+  }
+
+  if (elements.accountBalance) {
+    elements.accountBalance.addEventListener("input", (event) => {
+      state.accountBalance = parseOptionalNumber(event.target.value);
+      render();
+    });
+  }
+
   elements.restaurantSearch.addEventListener("input", (event) => {
     state.searchTerm = event.target.value.trim();
     renderRestaurantSearch();
@@ -132,6 +211,22 @@ function bindEvents() {
     state.selectedRestaurants = new Set();
     state.searchTerm = "";
     elements.restaurantSearch.value = "";
+    render();
+  });
+
+  elements.clearEligibility?.addEventListener("click", () => {
+    state.useEligibility = false;
+    state.monthlySalary = null;
+    state.accountBalance = null;
+    if (elements.useEligibility) {
+      elements.useEligibility.checked = false;
+    }
+    if (elements.monthlySalary) {
+      elements.monthlySalary.value = "";
+    }
+    if (elements.accountBalance) {
+      elements.accountBalance.value = "";
+    }
     render();
   });
 }
@@ -189,9 +284,21 @@ function resetFilters() {
   state.bankSearchTerm = "";
   state.searchTerm = "";
   state.orderValue = 10000;
+  state.useEligibility = false;
+  state.monthlySalary = null;
+  state.accountBalance = null;
   elements.bankSearch.value = "";
   elements.orderValue.value = String(state.orderValue);
   elements.restaurantSearch.value = "";
+  if (elements.useEligibility) {
+    elements.useEligibility.checked = false;
+  }
+  if (elements.monthlySalary) {
+    elements.monthlySalary.value = "";
+  }
+  if (elements.accountBalance) {
+    elements.accountBalance.value = "";
+  }
   render();
 }
 
@@ -250,6 +357,20 @@ function renderFilterSummaries() {
       : "All card types";
   }
 
+  if (elements.eligibilitySummary) {
+    const parts = [];
+    if (state.useEligibility) {
+      parts.push("On");
+    }
+    if (state.monthlySalary !== null) {
+      parts.push("salary");
+    }
+    if (state.accountBalance !== null) {
+      parts.push("balance");
+    }
+    elements.eligibilitySummary.textContent = parts.length ? parts.join(" · ") : "Off";
+  }
+
   if (elements.mobileFiltersApplied) {
     const applied = [];
     if (state.selectedCities.size > 0) {
@@ -273,6 +394,9 @@ function renderFilterSummaries() {
     }
     if (state.orderValue !== 10000) {
       applied.push(formatCurrency(state.orderValue));
+    }
+    if (state.useEligibility || state.monthlySalary !== null || state.accountBalance !== null) {
+      applied.push("eligibility");
     }
 
     elements.mobileFiltersApplied.innerHTML = applied
@@ -524,6 +648,7 @@ function renderRecommendations() {
   elements.resultCount.textContent = `${results.length} ${results.length === 1 ? "card" : "cards"}`;
 
   if (results.length === 0) {
+    setEmptyStateCopy();
     elements.emptyState.classList.remove("hidden");
     elements.topPick.classList.add("hidden");
     elements.resultsGrid.innerHTML = "";
@@ -746,13 +871,24 @@ function computeRecommendations() {
     };
   });
 
+  aggregates.forEach((item) => {
+    item.requirementStatus = evaluateEligibility(item.bank, item.card);
+  });
+
   const bestExpected = Math.max(...aggregates.map((item) => item.avgExpectedSaving), 1);
   aggregates.forEach((item) => {
     item.score =
       ((item.avgExpectedSaving / bestExpected) * 70) + item.coverage * 20 + item.avgDayFit * 10;
   });
 
-  return aggregates.sort((a, b) => {
+  const visibleAggregates = state.useEligibility
+    ? aggregates.filter((item) => item.requirementStatus.status !== "ineligible")
+    : aggregates;
+
+  return visibleAggregates.sort((a, b) => {
+    if (state.useEligibility && b.requirementStatus.sortRank !== a.requirementStatus.sortRank) {
+      return b.requirementStatus.sortRank - a.requirementStatus.sortRank;
+    }
     if (b.score !== a.score) {
       return b.score - a.score;
     }
@@ -782,10 +918,202 @@ function getOfferSavingValue(offer, orderValue) {
   return null;
 }
 
+function setEmptyStateCopy() {
+  if (!elements.emptyStateTitle || !elements.emptyStateMessage) {
+    return;
+  }
+
+  if (state.useEligibility) {
+    elements.emptyStateTitle.textContent = "No cards passed your current eligibility filter";
+    elements.emptyStateMessage.textContent =
+      "Try turning off eligibility mode, increasing your salary or balance inputs, or broadening your city, bank, or restaurant filters.";
+    return;
+  }
+
+  elements.emptyStateTitle.textContent = "No matching offers";
+  elements.emptyStateMessage.textContent =
+    "Try adding another city, loosening the restaurant list, or choosing more days.";
+}
+
+function isEligibilityContextActive() {
+  return state.useEligibility || state.monthlySalary !== null || state.accountBalance !== null;
+}
+
+function evaluateEligibility(bank, card) {
+  if (!state.requirements?.available) {
+    return {
+      status: "unavailable",
+      label: "Requirements unavailable",
+      tone: "unclear",
+      sortRank: 1,
+      detail: "Requirements data could not be loaded in this session.",
+      criteria: [],
+      annualFeePkr: null,
+      annualFeeWaiverRule: null,
+    };
+  }
+
+  const mapping = state.requirements.mappingByDealKey.get(buildDealCardKey(bank, card));
+  if (!mapping?.matched || !mapping.requirement_card_id) {
+    return {
+      status: "unclear",
+      label: "Requirements unclear",
+      tone: "unclear",
+      sortRank: 1,
+      detail: "This deal-side card is not yet mapped to a verified requirements record.",
+      criteria: [],
+      annualFeePkr: null,
+      annualFeeWaiverRule: null,
+    };
+  }
+
+  const record = state.requirements.byCardId.get(mapping.requirement_card_id);
+  if (!record) {
+    return {
+      status: "unclear",
+      label: "Requirements unclear",
+      tone: "unclear",
+      sortRank: 1,
+      detail: "A mapped requirements record could not be loaded.",
+      criteria: [],
+      annualFeePkr: null,
+      annualFeeWaiverRule: null,
+    };
+  }
+
+  const requirements = record.requirements || {};
+  const salaryReq = normalizeRequirementNumber(requirements.minimum_monthly_salary_pkr);
+  const balanceReq = normalizeRequirementNumber(requirements.minimum_account_balance_pkr);
+  const annualFeePkr = normalizeRequirementNumber(requirements.annual_fee_pkr);
+  const annualFeeWaiverRule = requirements.annual_fee_waiver_rule || null;
+
+  const criteria = [];
+  const blockers = [];
+  let missingInput = false;
+
+  if (salaryReq !== null) {
+    criteria.push(`Salary at least ${formatCurrency(salaryReq)} / month`);
+    if (state.monthlySalary === null) {
+      missingInput = true;
+    } else if (state.monthlySalary < salaryReq) {
+      blockers.push(`Needs salary of at least ${formatCurrency(salaryReq)} / month`);
+    }
+  }
+
+  if (balanceReq !== null) {
+    criteria.push(`Balance at least ${formatCurrency(balanceReq)}`);
+    if (state.accountBalance === null) {
+      missingInput = true;
+    } else if (state.accountBalance < balanceReq) {
+      blockers.push(`Needs account balance of at least ${formatCurrency(balanceReq)}`);
+    }
+  }
+
+  if (annualFeePkr !== null) {
+    criteria.push(`Annual fee ${formatCurrency(annualFeePkr)}`);
+  }
+
+  if (blockers.length) {
+    return {
+      status: "ineligible",
+      label: "Likely ineligible",
+      tone: "ineligible",
+      sortRank: 0,
+      detail: blockers[0],
+      criteria,
+      annualFeePkr,
+      annualFeeWaiverRule,
+    };
+  }
+
+  if (salaryReq === null && balanceReq === null) {
+    return {
+      status: "unclear",
+      label: "Requirements unclear",
+      tone: "unclear",
+      sortRank: 1,
+      detail: "No public salary or balance threshold was captured for this card.",
+      criteria,
+      annualFeePkr,
+      annualFeeWaiverRule,
+    };
+  }
+
+  if (missingInput) {
+    return {
+      status: "needs_input",
+      label: "Add salary/balance to confirm",
+      tone: "needs-input",
+      sortRank: 2,
+      detail: "Public thresholds exist, but you have not filled all the needed inputs yet.",
+      criteria,
+      annualFeePkr,
+      annualFeeWaiverRule,
+    };
+  }
+
+  return {
+    status: "eligible",
+    label: "Likely eligible",
+    tone: "eligible",
+    sortRank: 3,
+    detail: "Your salary and balance inputs meet the public thresholds captured for this card.",
+    criteria,
+    annualFeePkr,
+    annualFeeWaiverRule,
+  };
+}
+
+function buildDealCardKey(bank, card) {
+  return `${normalizeDealCardFragment(bank)} || ${normalizeDealCardFragment(card)}`;
+}
+
+function normalizeRequirementNumber(value) {
+  if (value === null || value === undefined || value === "") {
+    return null;
+  }
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function normalizeDealCardFragment(value) {
+  return String(value || "")
+    .trim()
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+}
+
+function parseOptionalNumber(value) {
+  const trimmed = String(value ?? "").trim();
+  if (!trimmed) {
+    return null;
+  }
+  const parsed = Number(trimmed);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+function renderEligibilityBadge(status) {
+  return `<span class="status-badge status-badge--${escapeHtml(status.tone)}">${escapeHtml(status.label)}</span>`;
+}
+
+function renderEligibilityMeta(status) {
+  const bits = [];
+  if (status.annualFeePkr !== null) {
+    bits.push(`Annual fee ${formatCurrency(status.annualFeePkr)}`);
+  }
+  if (status.annualFeeWaiverRule) {
+    bits.push(status.annualFeeWaiverRule);
+  }
+  return bits;
+}
+
 function renderTopPick(result) {
   const coveragePct = Math.round(result.coverage * 100);
   const daysFitPct = Math.round(result.avgDayFit * 100);
   const filterContext = `${getTopPickCitiesLabel()} - ${getTopPickDaysLabel()}`;
+  const eligibilityMeta = renderEligibilityMeta(result.requirementStatus);
+  const showEligibility = isEligibilityContextActive();
+  const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
   elements.topPick.classList.remove("hidden");
   elements.topPick.innerHTML = `
     <article class="pick-card">
@@ -794,12 +1122,18 @@ function renderTopPick(result) {
         <div class="pick-copy">
           <div class="pick-badge-row">
             <span class="pick-kicker">Top Match</span>
+            ${showEligibility ? renderEligibilityBadge(result.requirementStatus) : ""}
           </div>
           <h2>${escapeHtml(result.card)}</h2>
           <p class="pick-bank">${escapeHtml(result.bank)}</p>
+          ${
+            showEligibility
+              ? `<p class="pick-requirement-note">${escapeHtml(result.requirementStatus.detail)}</p>`
+              : ""
+          }
         </div>
         <div class="score-wrap">
-          <div class="score-badge">
+          <div class="score-badge" style="--score-pct: ${scorePct}%;">
             <strong>${formatScore(result.score)}</strong>
             <span class="score-scale-row">
               <span class="score-scale">/ 100</span>
@@ -852,6 +1186,36 @@ function renderTopPick(result) {
                 <strong>${daysFitPct}% day fit</strong>
                 <span>Its offers line up with your selected going-out days more often than the alternatives.</span>
               </article>
+              ${
+                showEligibility
+                  ? `
+                    <article class="detail-row">
+                      <strong>${escapeHtml(result.requirementStatus.label)}</strong>
+                      <span>${escapeHtml(result.requirementStatus.detail)}</span>
+                    </article>
+                    ${
+                      result.requirementStatus.criteria.length
+                        ? `
+                          <article class="detail-row">
+                            <strong>Known public requirements</strong>
+                            <span>${escapeHtml(result.requirementStatus.criteria.join(" | "))}</span>
+                          </article>
+                        `
+                        : ""
+                    }
+                    ${
+                      eligibilityMeta.length
+                        ? `
+                          <article class="detail-row">
+                            <strong>Fees and notes</strong>
+                            <span>${escapeHtml(eligibilityMeta.join(" | "))}</span>
+                          </article>
+                        `
+                        : ""
+                    }
+                  `
+                  : ""
+              }
             </div>
           </div>
           <div class="detail-box">
@@ -877,8 +1241,10 @@ function renderTopPick(result) {
 }
 
 function renderResultCards(results) {
+  const showEligibility = isEligibilityContextActive();
   elements.resultsGrid.innerHTML = results
     .map((result, index) => {
+      const eligibilityMeta = renderEligibilityMeta(result.requirementStatus);
       const topMatches = result.topMatches
         .map(
           (match) => `
@@ -904,6 +1270,16 @@ function renderResultCards(results) {
               <div>
                 <h3>${escapeHtml(result.card)}</h3>
                 <p>${escapeHtml(result.bank)}</p>
+                ${
+                  showEligibility
+                    ? `
+                      <div class="result-status-row">
+                        ${renderEligibilityBadge(result.requirementStatus)}
+                        <span class="result-status-text">${escapeHtml(result.requirementStatus.detail)}</span>
+                      </div>
+                    `
+                    : ""
+                }
               </div>
               <div class="result-side mobile-inline">
                 <strong>${formatScore(result.score)}</strong>
@@ -918,6 +1294,25 @@ function renderResultCards(results) {
             </div>
             <details class="result-details">
               <summary>View matching restaurants</summary>
+              ${
+                showEligibility && (result.requirementStatus.criteria.length || eligibilityMeta.length)
+                  ? `
+                    <div class="requirements-inline">
+                      <strong>${escapeHtml(result.requirementStatus.label)}</strong>
+                      ${
+                        result.requirementStatus.criteria.length
+                          ? `<span>${escapeHtml(result.requirementStatus.criteria.join(" | "))}</span>`
+                          : `<span>${escapeHtml(result.requirementStatus.detail)}</span>`
+                      }
+                      ${
+                        eligibilityMeta.length
+                          ? `<span>${escapeHtml(eligibilityMeta.join(" | "))}</span>`
+                          : ""
+                      }
+                    </div>
+                  `
+                  : ""
+              }
               <div class="match-list">${topMatches}</div>
             </details>
           </div>
@@ -983,12 +1378,13 @@ function syncFiltersShellForViewport() {
       });
       elements.filtersShell.dataset.mobileInitialized = "true";
     }
+    elements.filtersShell.dataset.desktopInitialized = "false";
     document.body.classList.toggle("filters-open", elements.filtersShell.open);
   } else {
-    elements.filtersShell.open = true;
-    filterGroups.forEach((group) => {
-      group.open = true;
-    });
+    if (elements.filtersShell.dataset.desktopInitialized !== "true") {
+      elements.filtersShell.open = true;
+      elements.filtersShell.dataset.desktopInitialized = "true";
+    }
     elements.filtersShell.dataset.mobileInitialized = "false";
     document.body.classList.remove("filters-open");
   }

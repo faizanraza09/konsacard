@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Source+Sans+3:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D8HRYPVY6"></script>
@@ -71,8 +71,9 @@
   </head>
   <body>
     <div class="page-shell">
-      <header class="app-bar" role="banner">
-        <div class="app-bar-copy">
+      <nav class="app-bar" role="banner">
+        <div class="top-nav">
+          <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span>.pk</a>
           <div class="mobile-nav-wrap">
             <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
               <span></span><span></span><span></span>
@@ -85,37 +86,39 @@
               <a class="utility-link" href="./contact">Contact</a>
             </nav>
           </div>
+          <span class="nav-badge">Karachi - Lahore - Islamabad</span>
+        </div>
+      </nav>
+
+      <header class="hero">
+        <div class="hero-left app-bar-copy">
           <p class="hero-kicker">Pakistan Restaurant Discount Card Finder</p>
-          <h1>Find the best card for restaurant discounts in Pakistan</h1>
+          <h1>Find the best card for <em>restaurant discounts</em> in Pakistan</h1>
           <p class="hero-intro">
             konsacard.pk compares restaurant discounts, food deals, and bank card offers
             across Karachi, Lahore, and Islamabad so you can quickly find the best credit
             card, debit card, or wallet for your usual restaurants and bill size.
           </p>
-        </div>
-        <div class="hero-badges" aria-label="Cities and major banks covered">
-          <span class="hero-badge">Karachi - Lahore - Islamabad</span>
-          <span class="hero-badge">18 issuers - debit, credit, and wallet programs</span>
-        </div>
-        <div class="app-bar-stats">
-          <div class="mini-metric">
-            <strong id="stat-offers">0</strong>
-            <span>Offers</span>
-          </div>
-          <div class="mini-metric">
-            <strong id="stat-cards">0</strong>
-            <span>Cards</span>
-          </div>
-          <div class="mini-metric">
-            <strong id="stat-restaurants">0</strong>
-            <span>Restaurants</span>
+          <div class="app-bar-stats">
+            <div class="mini-metric">
+              <strong id="stat-offers">0</strong>
+              <span>Offers</span>
+            </div>
+            <div class="mini-metric">
+              <strong id="stat-cards">0</strong>
+              <span>Cards</span>
+            </div>
+            <div class="mini-metric">
+              <strong id="stat-restaurants">0</strong>
+              <span>Restaurants</span>
+            </div>
           </div>
         </div>
       </header>
 
       <main id="tool" class="app-layout">
         <aside class="controls">
-          <details id="filters-shell" class="filters-shell" open>
+          <details id="filters-shell" class="filters-shell">
             <summary class="filters-toggle">
               <span class="filters-toggle-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" role="presentation" focusable="false">
@@ -136,11 +139,11 @@
             </summary>
             <section class="panel">
               <div class="panel-head">
-                <h2>Your Filters</h2>
+                <h2>Customize Results</h2>
                 <button id="reset-filters" class="ghost-button" type="button">Reset</button>
               </div>
 
-              <details class="field filter-group" data-mobile-open="false" open>
+              <details class="field filter-group" data-mobile-open="false">
                 <summary class="filter-summary">
                   <span class="filter-summary-copy">
                     <strong>Cities</strong>
@@ -184,7 +187,7 @@
                 </div>
               </details>
 
-              <details class="field filter-group" data-mobile-open="false" open>
+              <details class="field filter-group" data-mobile-open="false">
                 <summary class="filter-summary">
                   <span class="filter-summary-copy">
                     <strong>Going-Out Days</strong>
@@ -200,7 +203,7 @@
                 </div>
               </details>
 
-              <details class="field filter-group" data-mobile-open="false" open>
+              <details class="field filter-group" data-mobile-open="false">
                 <summary class="filter-summary">
                   <span class="filter-summary-copy">
                     <strong>Typical Bill</strong>
@@ -260,6 +263,55 @@
                 </div>
               </details>
 
+              <details class="field filter-group" data-mobile-open="false">
+                <summary class="filter-summary">
+                  <span class="filter-summary-copy">
+                    <strong>Eligibility</strong>
+                    <span id="eligibility-summary">Off</span>
+                  </span>
+                </summary>
+                <div class="filter-group-body">
+                  <div class="field-head">
+                    <label for="use-eligibility">Eligibility</label>
+                    <button id="clear-eligibility" class="text-button" type="button">Clear</button>
+                  </div>
+                  <label class="checkbox-row" for="use-eligibility">
+                    <input id="use-eligibility" type="checkbox" />
+                    <span>Use salary and balance to hide clearly ineligible cards</span>
+                  </label>
+                  <div class="eligibility-grid">
+                    <label class="stacked-input" for="monthly-salary">
+                      <span>Monthly salary</span>
+                      <input
+                        id="monthly-salary"
+                        class="search-input"
+                        type="number"
+                        inputmode="numeric"
+                        min="0"
+                        step="1000"
+                        placeholder="e.g. 100000"
+                      />
+                    </label>
+                    <label class="stacked-input" for="account-balance">
+                      <span>Account balance</span>
+                      <input
+                        id="account-balance"
+                        class="search-input"
+                        type="number"
+                        inputmode="numeric"
+                        min="0"
+                        step="1000"
+                        placeholder="e.g. 250000"
+                      />
+                    </label>
+                  </div>
+                  <p class="helper">
+                    Uses public card requirement data where available. Cards with missing
+                    or unmapped requirements stay visible and are labeled clearly.
+                  </p>
+                </div>
+              </details>
+
               <div class="mobile-filter-actions">
                 <button id="mobile-reset-filters" class="ghost-button" type="button">Reset</button>
                 <button id="mobile-apply-filters" class="apply-button" type="button">Show Results</button>
@@ -288,8 +340,8 @@
             </article>
           </section>
           <section id="empty-state" class="panel empty-state hidden">
-            <h2>No matching offers</h2>
-            <p>
+            <h2 id="empty-state-title">No matching offers</h2>
+            <p id="empty-state-message">
               Try adding another city, loosening the restaurant list, or choosing more days.
             </p>
           </section>
