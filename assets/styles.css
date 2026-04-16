@@ -2003,23 +2003,35 @@ input[type="range"] {
   }
 
   .filters-toggle::after {
-    content: "\2192";
+    content: "";
     display: inline-grid;
     place-items: center;
     width: 40px;
     height: 40px;
     color: #fff7ea;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1;
     border-radius: 50%;
     border: 1px solid rgba(189, 91, 61, 0.18);
-    background: linear-gradient(135deg, var(--brand), #cb7b55);
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12H18M13 7L18 12L13 17' stroke='%23fff7ea' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+      linear-gradient(135deg, var(--brand), #cb7b55);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px, auto;
     align-self: center;
   }
 
   .filters-shell[open] .filters-toggle::after {
     content: "\00D7";
+    color: var(--brand);
+    font-size: 1.8rem;
+    font-weight: 900;
+    background: #fff7f2;
+    background-image: none;
+    border-color: #ead8cf;
   }
 
   .filters-shell > .panel {
@@ -2413,22 +2425,34 @@ input[type="range"] {
   }
 
   .filters-toggle::after {
-    content: "\2192";
+    content: "";
     display: inline-grid;
     place-items: center;
     width: 36px;
     height: 36px;
     color: #fff7ea;
     font-family: "Space Grotesk", sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: 1.15rem;
+    font-weight: 900;
+    line-height: 1;
     border-radius: 50%;
     border: 1px solid rgba(189, 91, 61, 0.18);
-    background: linear-gradient(135deg, var(--brand), #cb7b55);
+    background-image:
+      url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 12H18M13 7L18 12L13 17' stroke='%23fff7ea' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"),
+      linear-gradient(135deg, var(--brand), #cb7b55);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 22px 22px, auto;
   }
 
   .filters-shell[open] .filters-toggle::after {
     content: "\00D7";
+    color: var(--brand);
+    font-size: 1.6rem;
+    font-weight: 900;
+    background: #fff7f2;
+    background-image: none;
+    border-color: #ead8cf;
   }
 
   .filters-shell > .panel {
@@ -3708,7 +3732,12 @@ body::before {
 }
 
 .results-note {
+  margin: 0;
+  padding: 18px 20px 20px;
+  border-bottom: 1px solid var(--line);
   color: var(--muted);
+  font-size: 14px;
+  line-height: 1.65;
 }
 
 .result-card {
@@ -3936,21 +3965,13 @@ body::before {
     font-size: 2rem;
   }
 
-  .app-bar-stats,
   .pick-stats,
   .summary-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .app-bar-stats {
-    display: grid;
-  }
-
-  .mini-metric,
-  .mini-metric:first-child,
-  .mini-metric:last-child {
-    min-width: 0;
-    border-radius: 12px;
+    display: none;
   }
 
   .app-layout {
@@ -4135,18 +4156,20 @@ body::before {
   }
 
   body.filters-open .filters-shell > .panel {
-    display: block;
-    padding-bottom: 88px;
+    display: flex;
+    min-height: calc(100dvh - 94px);
+    flex-direction: column;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 
   body.filters-open .filters-shell .panel-head {
-    position: sticky;
+    position: absolute;
     top: 21px;
-    right: auto;
-    float: right;
+    right: 72px;
     z-index: 5;
     width: fit-content;
-    margin: -54px 66px 0 0;
+    margin: 0;
   }
 
   .filter-summary {
@@ -4159,9 +4182,30 @@ body::before {
   }
 
   .mobile-filter-actions {
-    margin: 18px -20px 0;
-    padding: 12px 20px;
+    grid-template-columns: minmax(96px, 0.38fr) minmax(0, 1fr);
+    gap: 12px;
+    margin: auto 0 0;
+    padding: 14px 20px;
     background: rgba(255, 255, 255, 0.96);
+  }
+
+  .mobile-filter-actions .ghost-button,
+  .mobile-filter-actions .apply-button {
+    min-height: 52px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .mobile-filter-actions .ghost-button {
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--brand);
+    font-weight: 700;
+  }
+
+  .mobile-filter-actions .apply-button {
+    background: var(--brand);
+    color: #ffffff;
   }
 
   .pick-card {
