@@ -50,7 +50,7 @@
               <a class="utility-link" href="./">Home</a>
               <a class="utility-link" href="./about">About</a>
               <a class="utility-link" href="./methodology">Methodology</a>
-              <a class="utility-link" href="./best-debit-cards-pakistan">Best Debit Cards</a>
+              <a class="utility-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
               <a class="utility-link" href="./privacy-policy">Privacy</a>
               <a class="utility-link" href="./contact">Contact</a>
             </nav>
@@ -83,14 +83,16 @@
               When multiple public sources describe the same offer with conflicting details,
               the most specific source takes precedence — a specific discount cap listed on
               a bank's official offer page overrides a vague description on an aggregator.
-              Where sources genuinely conflict without a clear hierarchy, the more conservative
-              number is used and the uncertainty is noted.
+              Where sources still conflict without a clear hierarchy, the more conservative number
+              is used internally. The site does not yet expose every unresolved conflict inline on
+              each offer, so ambiguous cases should still be treated cautiously.
             </p>
             <ul>
               <li>City names are standardized to Karachi, Lahore, and Islamabad. Sub-city references like "DHA" or "Gulberg" are mapped to the parent city unless an offer is explicitly restricted to a neighborhood.</li>
               <li>Card labels are normalized so the same card referenced under slightly different names across sources maps to a single comparable entry.</li>
               <li>Discount caps are included when published. When they aren't, the cap field is left blank rather than assumed to be unlimited.</li>
               <li>Day restrictions are included at the offer level. A card with different terms on weekdays versus weekends is represented as separate offer rows so the ranking reflects the day filter correctly.</li>
+              <li>Some bank pages use vague language such as "weekdays" without spelling out the exact valid days. In those cases the day mapping is standardized conservatively and may carry residual uncertainty.</li>
             </ul>
           </article>
 
