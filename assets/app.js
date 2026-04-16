@@ -46,6 +46,7 @@ const elements = {
   accountBalance: document.getElementById("account-balance"),
   resetFilters: document.getElementById("reset-filters"),
   clearRestaurants: document.getElementById("clear-restaurants"),
+  mobileHeaderResetFilters: document.getElementById("mobile-header-reset-filters"),
   mobileApplyFilters: document.getElementById("mobile-apply-filters"),
   mobileResetFilters: document.getElementById("mobile-reset-filters"),
   resultsGrid: document.getElementById("results-grid"),
@@ -243,6 +244,14 @@ function bindMobileFilterActions() {
 
   if (elements.mobileResetFilters) {
     elements.mobileResetFilters.addEventListener("click", resetFilters);
+  }
+
+  if (elements.mobileHeaderResetFilters) {
+    elements.mobileHeaderResetFilters.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      resetFilters();
+    });
   }
 }
 

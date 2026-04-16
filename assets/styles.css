@@ -157,26 +157,6 @@ body::before {
   display: none;
 }
 
-.utility-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.utility-link {
-  display: inline-flex;
-  align-items: center;
-  min-height: 32px;
-  padding: 0 10px;
-  border-radius: 999px;
-  background: rgba(255, 247, 234, 0.08);
-  border: 1px solid rgba(255, 247, 234, 0.14);
-  color: rgba(244, 231, 209, 0.86);
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-decoration: none;
-}
-
 .hero-badges {
   display: grid;
   justify-items: end;
@@ -285,7 +265,8 @@ body::before {
 }
 
 .filters-toggle-icon,
-.mobile-filters-applied {
+.mobile-filters-applied,
+.filters-header-reset {
   display: none;
 }
 
@@ -3922,6 +3903,10 @@ body::before {
 }
 
 @media (max-width: 720px) {
+  .top-nav {
+    padding: 0 14px;
+  }
+
   .utility-nav {
     display: none;
   }
@@ -3946,23 +3931,13 @@ body::before {
   .mobile-nav-wrap {
     margin-left: auto;
   }
-}
-
-@media (max-width: 720px) {
-  .top-nav {
-    padding: 0 14px;
-  }
 
   .nav-badge {
     display: none;
   }
 
   .hero {
-    padding: 28px 14px 22px;
-  }
-
-  .hero h1 {
-    font-size: 2rem;
+    padding: 28px 14px 18px;
   }
 
   .pick-stats,
@@ -4023,26 +3998,6 @@ body::before {
   padding: 4px 0;
 }
 
-@media (max-width: 720px) {
-  .filter-summary {
-    display: flex;
-  }
-
-  body.filters-open .filters-shell > .filters-toggle {
-    padding-right: 126px;
-  }
-
-  body.filters-open .filters-shell .panel-head {
-    position: absolute;
-    top: 18px;
-    right: 58px;
-    z-index: 3;
-    padding: 0;
-    border-bottom: 0;
-  }
-
-}
-
 .pick-more-details summary,
 .result-details summary {
   color: var(--brand);
@@ -4064,28 +4019,9 @@ body::before {
 }
 
 @media (max-width: 720px) {
-  .hero {
-    padding-bottom: 18px;
-  }
-
   .hero h1 {
     margin-bottom: 16px;
     font-size: clamp(2rem, 10vw, 2.5rem);
-  }
-
-  .app-bar-stats {
-    width: 100%;
-    justify-self: stretch;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0;
-  }
-
-  .mini-metric {
-    padding: 13px 8px;
-  }
-
-  .mini-metric strong {
-    font-size: 1.55rem;
   }
 
   .app-layout {
@@ -4098,6 +4034,10 @@ body::before {
     gap: 12px;
     min-height: 74px;
     padding: 12px 16px;
+  }
+
+  body.filters-open .filters-toggle {
+    grid-template-columns: 34px minmax(0, 1fr) auto 44px;
   }
 
   .filters-toggle::after {
@@ -4140,19 +4080,20 @@ body::before {
   }
 
   body.filters-open .filters-shell > .filters-toggle {
-    display: flex;
+    display: grid;
     position: sticky;
     top: 0;
     z-index: 4;
     border-radius: 0;
-    padding-right: 118px;
+    grid-template-columns: 34px minmax(0, 1fr) auto 44px;
+    gap: 8px;
+    padding-right: 16px;
   }
 
   body.filters-open .filters-shell > .filters-toggle::after {
-    position: absolute;
-    top: 50%;
-    right: 16px;
-    transform: translateY(-50%);
+    position: static;
+    grid-column: 4;
+    transform: none;
   }
 
   body.filters-open .filters-shell > .panel {
@@ -4164,12 +4105,36 @@ body::before {
   }
 
   body.filters-open .filters-shell .panel-head {
-    position: absolute;
-    top: 21px;
-    right: 72px;
-    z-index: 5;
-    width: fit-content;
-    margin: 0;
+    display: none;
+  }
+
+  body.filters-open .filters-header-reset {
+    display: inline-flex;
+    grid-column: 3;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 8px;
+    background: #fff2ec;
+    color: var(--brand);
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  body.filters-open .filters-toggle-copy {
+    min-width: 0;
+  }
+
+  body.filters-open .filters-toggle-copy strong,
+  body.filters-open .filters-toggle-copy span:first-of-type {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .filter-summary {
@@ -4412,10 +4377,6 @@ body::before {
 @media (max-width: 360px) {
   body.filters-open .filters-shell > .filters-toggle {
     padding-right: 100px;
-  }
-
-  body.filters-open .filters-shell .panel-head {
-    margin-right: 58px;
   }
 
   .summary-item strong {
