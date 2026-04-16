@@ -64,7 +64,7 @@ const elements = {
 };
 
 const DAY_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const COLLAPSIBLE_FILTER_BREAKPOINT = 1080;
+const COLLAPSIBLE_FILTER_BREAKPOINT = 720;
 
 const CARD_TYPE_OPTIONS = [
   { value: "debit", label: "Debit" },
@@ -1135,17 +1135,16 @@ function renderTopPick(result) {
         <div class="score-wrap">
           <div class="score-badge" style="--score-pct: ${scorePct}%;">
             <strong>${formatScore(result.score)}</strong>
-            <span class="score-scale-row">
-              <span class="score-scale">/ 100</span>
-              <span class="tooltip-wrap">
-                <button class="info-dot" type="button" aria-label="Fit score info">i</button>
-                <span class="tooltip-card" role="tooltip">
-                  Fit Score is a blended ranking out of 100 using expected savings, coverage, and day fit.
-                </span>
+          </div>
+          <p class="score-hint">
+            <span>Fit Score / 100</span>
+            <span class="tooltip-wrap">
+              <button class="info-dot" type="button" aria-label="Fit score info">i</button>
+              <span class="tooltip-card" role="tooltip">
+                Fit Score is a blended ranking out of 100 using expected savings, coverage, and day fit.
               </span>
             </span>
-          </div>
-          <p class="score-hint">savings - coverage - day fit</p>
+          </p>
         </div>
       </div>
 
@@ -1290,7 +1289,7 @@ function renderResultCards(results) {
               <span class="metric-chip">${formatCurrency(result.avgExpectedSaving)} expected per outing</span>
               <span class="metric-chip">${result.coveredVenueCount}/${result.totalVenueCount} restaurants covered</span>
               <span class="metric-chip">${Math.round(result.avgDayFit * 100)}% days fit</span>
-              <span class="metric-chip">${result.medianCap !== null ? `Median cap ${formatCurrency(result.medianCap)}` : "No cap listed"}</span>
+              <span class="metric-chip">${result.medianCap !== null ? `Median cap: ${formatCurrency(result.medianCap)}` : "No cap listed"}</span>
             </div>
             <details class="result-details">
               <summary>View matching restaurants</summary>
@@ -1315,10 +1314,6 @@ function renderResultCards(results) {
               }
               <div class="match-list">${topMatches}</div>
             </details>
-          </div>
-          <div class="result-side desktop-only">
-            <strong>${formatScore(result.score)}</strong>
-            <span>Fit Score / 100</span>
           </div>
         </article>
       `;
