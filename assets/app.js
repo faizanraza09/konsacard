@@ -1239,29 +1239,21 @@ function renderQuiz() {
       </div>
       <p class="q-hint" style="margin-top:14px;margin-bottom:0">Optional, but this gives the ranking much better signal.</p>
     `;
-  } else if (current.id === "options") {
-    bodyHtml = `
-      <div class="quiz-panel" style="padding:0;border:none;background:transparent">
-        <label class="s-check-row">
-          <input id="quiz-use-eligibility" type="checkbox" ${quizState.useEligibility ? "checked" : ""} />
-          <span>Use salary and balance to hide clearly ineligible cards</span>
-        </label>
-      </div>
-    `;
   } else if (current.id === "eligibility") {
-    canNext = !quizState.useEligibility || quizState.monthlySalary !== null || quizState.accountBalance !== null;
+    canNext = true;
     bodyHtml = `
       <div class="quiz-inline-grid">
         <div>
           <div class="quiz-field-label">Monthly salary</div>
-          <input id="quiz-monthly-salary" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 100000" value="${quizState.monthlySalary ?? ""}" />
+          <input id="quiz-monthly-salary" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 100,000" value="${quizState.monthlySalary ?? ""}" />
+          <p class="q-hint" style="margin-top:6px;margin-bottom:0">Leave blank for no restriction</p>
         </div>
         <div>
           <div class="quiz-field-label">Account balance</div>
-          <input id="quiz-account-balance" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 250000" value="${quizState.accountBalance ?? ""}" />
+          <input id="quiz-account-balance" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 250,000" value="${quizState.accountBalance ?? ""}" />
+          <p class="q-hint" style="margin-top:6px;margin-bottom:0">Leave blank for no restriction</p>
         </div>
       </div>
-      <p class="q-hint" style="margin-top:14px;margin-bottom:0">Enter one or both if you want eligibility filtering.</p>
     `;
   }
 
@@ -1374,14 +1366,6 @@ function renderQuiz() {
       renderQuiz();
     });
   });
-  inner.querySelector("#quiz-use-eligibility")?.addEventListener("change", (e) => {
-    quizState.useEligibility = e.target.checked;
-    if (!quizState.useEligibility) {
-      quizState.monthlySalary = null;
-      quizState.accountBalance = null;
-    }
-    renderQuiz();
-  });
   inner.querySelector("#quiz-monthly-salary")?.addEventListener("input", (e) => {
     quizState.monthlySalary = parseOptionalNumber(e.target.value);
   });
@@ -1391,19 +1375,15 @@ function renderQuiz() {
 }
 
 function getQuizSteps() {
-  const steps = [
-    { id: "city", title: "Which city do you usually dine in?", hint: "We’ll focus the ranking on where you actually use the card." },
-    { id: "bill", title: "What’s your typical restaurant bill?", hint: "Per outing — caps and savings change a lot with bill size." },
-    { id: "days", title: "What days do you usually go out?", hint: "Optional. We’ll keep all days if your pattern varies." },
-    { id: "types", title: "What type of card can you get?", hint: "Select one or more. This one matters, so pick at least one." },
-    { id: "banks", title: "Do you want to limit this to certain banks?", hint: "Optional. Add banks only if you want to narrow the shortlist." },
-    { id: "restaurants", title: "Which restaurants should we prioritize?", hint: "Optional, but this produces much better recommendations." },
-    { id: "options", title: "Any special filters?", hint: "Eligibility filtering lives here." },
+  return [
+    { id: "city",        title: "Which city do you usually dine in?",          hint: "We’ll focus the ranking on where you actually use the card." },
+    { id: "bill",        title: "What’s your typical restaurant bill?",         hint: "Per outing — caps and savings change a lot with bill size." },
+    { id: "days",        title: "What days do you usually go out?",             hint: "Optional. We’ll keep all days if your pattern varies." },
+    { id: "types",       title: "What type of card can you get?",               hint: "Select one or more. This one matters, so pick at least one." },
+    { id: "banks",       title: "Do you want to limit this to certain banks?",  hint: "Optional. Add banks only if you want to narrow the shortlist." },
+    { id: "restaurants", title: "Which restaurants should we prioritize?",      hint: "Optional, but this produces much better recommendations." },
+    { id: "eligibility", title: "What’s your monthly salary and balance?",      hint: "Optional — helps us hide cards you likely won’t qualify for." },
   ];
-  if (quizState?.useEligibility) {
-    steps.push({ id: "eligibility", title: "What salary or balance should we use?", hint: "Enter one or both so we can hide clearly ineligible cards." });
-  }
-  return steps;
 }
 
 function handleQuizDone(ans) {
@@ -1413,9 +1393,9 @@ function handleQuizDone(ans) {
   state.selectedCardTypes = new Set(ans.types || []);
   state.selectedBanks = new Set(ans.banks || []);
   state.selectedRestaurants = new Set(ans.restaurants || []);
-  state.useEligibility = Boolean(ans.useEligibility);
-  state.monthlySalary = state.useEligibility ? parseOptionalNumber(ans.monthlySalary) : null;
-  state.accountBalance = state.useEligibility ? parseOptionalNumber(ans.accountBalance) : null;
+  state.monthlySalary = parseOptionalNumber(ans.monthlySalary);
+  state.accountBalance = parseOptionalNumber(ans.accountBalance);
+  state.useEligibility = state.monthlySalary !== null || state.accountBalance !== null;
   state.bankSearchTerm = "";
   state.restSearchTerm = "";
 
