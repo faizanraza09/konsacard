@@ -1119,6 +1119,35 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 }
 .chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 30px rgba(189,91,61,.5); }
 
+/* Find My Card FAB */
+.find-card-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 24px rgba(189,91,61,0.4);
+  cursor: pointer;
+  z-index: 240;
+  transition: transform .2s, box-shadow .2s;
+  font-size: 21px;
+  border: none;
+  display: none;
+}
+
+.find-card-fab:hover { transform: scale(1.08); box-shadow: 0 6px 30px rgba(189,91,61,.5); }
+
+@media (max-width: 768px) {
+  .find-card-fab { display: flex; }
+  .chat-fab { bottom: 76px; }
+}
+
 .chat-panel {
   position: fixed;
   bottom: 16px;
@@ -2164,3 +2193,47 @@ body.content-page {
   vertical-align: middle;
   margin-left: 2px;
 }
+
+/* ── LANDING SCREEN ── */
+.landing-screen { position: fixed; inset: 0; background: #fff; z-index: 500; display: flex; flex-direction: column; overflow-y: auto; }
+.landing-s-nav { height: 56px; display: flex; align-items: center; padding: 0 40px; border-bottom: 1px solid var(--line); flex-shrink: 0; gap: 16px; }
+.landing-s-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 40px 24px; }
+.landing-inner { max-width: 560px; width: 100%; text-align: center; animation: fadeUp .4s ease both; }
+.landing-badge { display: inline-flex; align-items: center; gap: 7px; padding: 6px 14px; background: var(--brand-light); color: var(--brand); border-radius: 99px; font-size: 12px; font-weight: 700; letter-spacing: .04em; margin-bottom: 28px; }
+.landing-h1 { font-size: clamp(32px,5vw,52px); font-weight: 800; color: var(--ink); line-height: 1.1; letter-spacing: -.03em; margin-bottom: 16px; }
+.landing-sub { font-size: 16px; color: var(--muted); line-height: 1.7; max-width: 420px; margin: 0 auto 36px; }
+.landing-cta { display: inline-flex; align-items: center; gap: 8px; padding: 16px 36px; background: var(--brand); color: #fff; border-radius: 12px; font-size: 16px; font-weight: 800; border: none; cursor: pointer; transition: all .2s; letter-spacing: -.01em; }
+.landing-cta:hover { background: var(--brand-dark); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(189,91,61,0.3); }
+.landing-skip { display: block; margin: 16px auto 0; font-size: 13px; color: var(--muted); cursor: pointer; background: none; border: none; font-family: inherit; font-weight: 500; }
+.landing-skip:hover { color: var(--ink); }
+.landing-stats { display: flex; justify-content: center; gap: 32px; margin-top: 52px; padding-top: 36px; border-top: 1px solid var(--line); }
+.landing-stat-v { font-size: 28px; font-weight: 800; color: var(--ink); line-height: 1; letter-spacing: -.03em; }
+.landing-stat-l { font-size: 11px; font-weight: 600; color: var(--muted); margin-top: 4px; letter-spacing: .04em; text-transform: uppercase; }
+.landing-features { margin-top: 40px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+.landing-feat { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); font-weight: 500; }
+
+/* ── ONBOARDING SCREEN ── */
+.ob-screen { position: fixed; inset: 0; background: #fff; z-index: 500; display: flex; flex-direction: column; }
+.ob-s-nav { height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 32px; border-bottom: 1px solid var(--line); flex-shrink: 0; }
+.ob-s-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px 24px; overflow-y: auto; }
+.ob-prog { display: flex; gap: 6px; margin-bottom: 36px; }
+.ob-prog-bar { height: 3px; flex: 1; border-radius: 99px; background: var(--line); transition: background .3s; }
+.ob-prog-bar.done { background: var(--brand); }
+.ob-step-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--brand); margin-bottom: 10px; }
+.ob-q { font-size: clamp(22px,3vw,30px); font-weight: 800; color: var(--ink); margin-bottom: 8px; line-height: 1.2; letter-spacing: -.02em; }
+.ob-hint { font-size: 13.5px; color: var(--muted); margin-bottom: 28px; line-height: 1.6; }
+.ob-opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.ob-opt { display: flex; align-items: center; gap: 12px; padding: 16px 18px; border-radius: 12px; border: 2px solid var(--line); background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; text-align: left; transition: all .18s; cursor: pointer; width: 100%; }
+.ob-opt:hover { border-color: var(--brand-mid); background: var(--brand-light); }
+.ob-opt.sel { border-color: var(--brand); background: var(--brand-light); color: var(--brand); }
+.ob-opt-icon { font-size: 24px; flex-shrink: 0; display: flex; align-items: center; }
+.ob-opt-icon img { width: 28px; height: 28px; object-fit: contain; opacity: .86; display: block; }
+.ob-opt.sel .ob-opt-icon img { opacity: 1; }
+.ob-opt-check { margin-left: auto; font-size: 14px; font-weight: 800; color: var(--brand); }
+.ob-nav-row { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; }
+.ob-back { padding: 11px 22px; border-radius: 10px; border: 1.5px solid var(--line); color: var(--muted); font-size: 13.5px; font-weight: 600; background: transparent; cursor: pointer; font-family: inherit; transition: border-color .15s, color .15s; }
+.ob-back:hover { border-color: var(--brand-mid); color: var(--ink); }
+.ob-next-btn { padding: 12px 32px; border-radius: 10px; background: var(--brand); color: #fff; font-size: 14px; font-weight: 800; border: none; cursor: pointer; font-family: inherit; transition: all .15s; display: inline-flex; align-items: center; gap: 8px; }
+.ob-next-btn:disabled { opacity: .3; cursor: not-allowed; }
+.ob-next-btn:not(:disabled):hover { background: var(--brand-dark); }
+.ob-slider-val { font-size: 44px; font-weight: 800; color: var(--ink); letter-spacing: -.04em; text-align: center; margin-bottom: 24px; }

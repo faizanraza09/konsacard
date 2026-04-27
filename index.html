@@ -250,7 +250,7 @@
               </div>
             </div>
             <div class="footer-fine">
-              Offers can change — always confirm terms directly with your bank.
+              Offers can change. Always confirm terms directly with your bank.
             </div>
           </footer>
 
@@ -330,6 +330,54 @@
     <div class="modal-bg" id="restaurant-detail-modal" style="display:none">
       <div class="modal modal-detail" id="restaurant-detail-inner">
         <!-- rendered by JS -->
+      </div>
+    </div>
+
+    <!-- ── LANDING SCREEN ── -->
+    <div id="landing-screen" class="landing-screen" style="display:none">
+      <nav class="landing-s-nav">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+        <div style="flex:1"></div>
+        <button id="landing-skip-nav-btn" type="button" style="font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;font-family:inherit">Skip to app →</button>
+      </nav>
+      <div class="landing-s-body">
+        <div class="landing-inner">
+          <h1 class="landing-h1">Stop guessing.<br>Find the card that <span style="color:var(--brand)">actually saves you money</span> at restaurants.</h1>
+          <button id="landing-start-btn" class="landing-cta" type="button">Get Started <span style="font-size:18px">→</span></button>
+          <button id="landing-skip-btn" class="landing-skip" type="button">Already know what you want? Skip to browse all cards</button>
+          <div class="landing-stats">
+            <div style="text-align:center">
+              <div class="landing-stat-v">18</div>
+              <div class="landing-stat-l">Banks Covered</div>
+            </div>
+            <div style="text-align:center">
+              <div class="landing-stat-v">967+</div>
+              <div class="landing-stat-l">Restaurants</div>
+            </div>
+            <div style="text-align:center">
+              <div class="landing-stat-v">3 Cities</div>
+              <div class="landing-stat-l">KHI · LHR · ISB</div>
+            </div>
+          </div>
+          <div class="landing-features">
+            <div class="landing-feat"><span>🏙️</span> Karachi, Lahore &amp; Islamabad</div>
+            <div class="landing-feat"><span>🏦</span> 18 banks &amp; wallets</div>
+            <div class="landing-feat"><span>📊</span> Ranked by real savings</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ONBOARDING SCREEN ── -->
+    <div id="onboarding-screen" class="ob-screen" style="display:none">
+      <nav class="ob-s-nav">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+        <button id="ob-skip-btn" type="button" style="font-size:13px;font-weight:600;color:var(--muted);background:none;border:none;cursor:pointer;font-family:inherit">Skip →</button>
+      </nav>
+      <div class="ob-s-body">
+        <div id="ob-inner">
+          <!-- rendered by JS -->
+        </div>
       </div>
     </div>
 

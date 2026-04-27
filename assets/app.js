@@ -240,6 +240,8 @@ function bindEvents() {
   const openQuizBtn = document.getElementById("btn-open-quiz");
   if (openQuizBtn) openQuizBtn.addEventListener("click", () => openQuiz());
 
+  // Find My Card FAB (mobile)
+
   // Compare tray
   const cmpClear = document.getElementById("btn-cmp-clear");
   if (cmpClear) cmpClear.addEventListener("click", () => {
@@ -1045,7 +1047,7 @@ function openCompareModal() {
       <div class="cmp-grid">
         <div class="cmp-head-cell" style="background:var(--surface2);display:flex;align-items:center;justify-content:center">
           <div style="text-align:center">
-            <div class="cmp-tally">${wins[0]}<span style="color:var(--muted2);font-size:18px;margin:0 4px">—</span>${wins[1]}</div>
+            <div class="cmp-tally">${wins[0]}<span style="color:var(--muted2);font-size:14px;margin:0 6px;font-weight:400">vs</span>${wins[1]}</div>
             <div style="font-size:9px;font-weight:600;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-top:2px">categories</div>
           </div>
         </div>
@@ -1121,6 +1123,328 @@ function closeCompareModal() {
 /* ── QUIZ ── */
 let quizState = null;
 
+/* ── LANDING + ONBOARDING SCREENS ── */
+const OB_STEP_DEFS = [
+  { id: "city", q: "Which city do you usually dine in?",      hint: "We'll focus the ranking on where you actually use the card." },
+  { id: "bill", q: "What's your typical restaurant bill?",    hint: "Per outing for your group. This directly affects your estimated savings." },
+  { id: "type", q: "Which card types work for you?",          hint: "Pick all that apply. We'll only show cards you can actually get." },
+];
+
+let obState = { step: 0, city: null, type: [], bill: 8000 };
+
+function checkFirstVisitAndShowQuickQuiz() {
+  const visited = localStorage.getItem("konsacard_visited");
+  if (!visited) {
+    localStorage.setItem("konsacard_visited", "true");
+    showLandingScreen();
+  }
+}
+
+function showLandingScreen() {
+  const el = document.getElementById("landing-screen");
+  if (!el) return;
+  el.style.display = "";
+  document.getElementById("landing-start-btn")?.addEventListener("click", showOnboardingScreen, { once: true });
+  document.getElementById("landing-skip-btn")?.addEventListener("click", skipToApp, { once: true });
+  document.getElementById("landing-skip-nav-btn")?.addEventListener("click", skipToApp, { once: true });
+}
+
+function hideLandingScreen() {
+  const el = document.getElementById("landing-screen");
+  if (el) el.style.display = "none";
+}
+
+function showOnboardingScreen() {
+  obState = { step: 0, city: null, type: [], bill: 8000 };
+  hideLandingScreen();
+  const el = document.getElementById("onboarding-screen");
+  if (!el) return;
+  el.style.display = "";
+  document.getElementById("ob-skip-btn")?.addEventListener("click", skipToApp, { once: true });
+  renderOnboardingStep();
+}
+
+function hideOnboardingScreen() {
+  const el = document.getElementById("onboarding-screen");
+  if (el) el.style.display = "none";
+}
+
+function skipToApp() {
+  hideLandingScreen();
+  hideOnboardingScreen();
+}
+
+function renderOnboardingStep() {
+  const inner = document.getElementById("ob-inner");
+  if (!inner) return;
+
+  const step = obState.step;
+  const cur = OB_STEP_DEFS[step];
+  const isLast = step === OB_STEP_DEFS.length - 1;
+
+  const progressBars = OB_STEP_DEFS.map((_, i) =>
+    `<div class="ob-prog-bar${i <= step ? " done" : ""}"></div>`
+  ).join("");
+
+  let bodyHtml = "";
+  let canNext = false;
+
+  if (cur.id === "city") {
+    canNext = Boolean(obState.city);
+    const cityOpts = [
+      { value: "all",       label: "Multiple Cities", iconHtml: `<span style="display:flex;align-items:center">${CITY_ICON_ALL}</span>` },
+      { value: "karachi",   label: "Karachi",         iconHtml: `<img src="./assets/mazar-e-quaid.svg" alt="Karachi" />` },
+      { value: "lahore",    label: "Lahore",           iconHtml: `<img src="./assets/minar-e-pakistan.svg" alt="Lahore" />` },
+      { value: "islamabad", label: "Islamabad",        iconHtml: `<img src="./assets/faisal-mosque.svg" alt="Islamabad" />` },
+    ];
+    bodyHtml = `<div class="ob-opts">${cityOpts.map(opt => `
+      <button class="ob-opt${obState.city === opt.value ? " sel" : ""}" data-ob-city="${escapeAttr(opt.value)}" type="button">
+        <span class="ob-opt-icon">${opt.iconHtml}</span>
+        <span>${escapeHtml(opt.label)}</span>
+        ${obState.city === opt.value ? `<span class="ob-opt-check">✓</span>` : ""}
+      </button>`).join("")}</div>`;
+
+  } else if (cur.id === "bill") {
+    canNext = true;
+    bodyHtml = `
+      <div>
+        <div class="ob-slider-val">${formatCurrency(obState.bill)}</div>
+        <input type="range" id="ob-slider" min="1000" max="30000" step="500" value="${obState.bill}" style="width:100%;accent-color:var(--brand)" />
+        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px"><span>PKR 1,000</span><span>PKR 30,000</span></div>
+      </div>`;
+
+  } else if (cur.id === "type") {
+    const types = obState.type;
+    canNext = types.length > 0;
+    const typeOpts = [
+      ...QUIZ_CARD_TYPE_OPTIONS,
+      { value: "any", label: "I'm open to all", icon: "🎯" },
+    ];
+    bodyHtml = `<div class="ob-opts">${typeOpts.map(opt => `
+      <button class="ob-opt${types.includes(opt.value) ? " sel" : ""}" data-ob-type="${escapeAttr(opt.value)}" type="button">
+        <span class="ob-opt-icon" style="font-size:28px">${opt.icon}</span>
+        <span>${escapeHtml(opt.label)}</span>
+        ${types.includes(opt.value) ? `<span class="ob-opt-check">✓</span>` : ""}
+      </button>`).join("")}</div>`;
+  }
+
+  inner.innerHTML = `
+    <div style="max-width:520px;width:100%;animation:fadeUp .3s ease both">
+      <div class="ob-prog">${progressBars}</div>
+      <div class="ob-step-label">Question ${step + 1} of ${OB_STEP_DEFS.length}</div>
+      <h2 class="ob-q">${escapeHtml(cur.q)}</h2>
+      <p class="ob-hint">${escapeHtml(cur.hint)}</p>
+      ${bodyHtml}
+      <div class="ob-nav-row">
+        ${step > 0 ? `<button class="ob-back" id="ob-back-btn" type="button">← Back</button>` : `<div></div>`}
+        ${isLast
+          ? `<button class="ob-next-btn" id="ob-finish-btn" type="button"${!canNext ? " disabled" : ""}>See My Cards →</button>`
+          : `<button class="ob-next-btn" id="ob-next-btn" type="button"${!canNext ? " disabled" : ""}>Next →</button>`}
+      </div>
+    </div>`;
+
+  document.getElementById("ob-slider")?.addEventListener("input", (e) => {
+    obState.bill = parseInt(e.target.value);
+    renderOnboardingStep();
+  });
+
+  document.querySelectorAll("[data-ob-city]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      obState.city = btn.dataset.obCity;
+      renderOnboardingStep();
+    });
+  });
+
+  document.querySelectorAll("[data-ob-type]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const v = btn.dataset.obType;
+      if (v === "any") {
+        obState.type = obState.type.includes("any") ? [] : ["any"];
+      } else {
+        const without = obState.type.filter(x => x !== "any");
+        obState.type = without.includes(v) ? without.filter(x => x !== v) : [...without, v];
+      }
+      renderOnboardingStep();
+    });
+  });
+
+  document.getElementById("ob-next-btn")?.addEventListener("click", () => {
+    obState.step++;
+    renderOnboardingStep();
+  });
+
+  document.getElementById("ob-back-btn")?.addEventListener("click", () => {
+    obState.step--;
+    renderOnboardingStep();
+  });
+
+  document.getElementById("ob-finish-btn")?.addEventListener("click", applyOnboardingResults);
+}
+
+function applyOnboardingResults() {
+  if (obState.city && obState.city !== "all") {
+    state.selectedCity = obState.city;
+    updateCityChip();
+    renderNavCityTabs();
+  }
+  if (obState.type.length > 0 && !obState.type.includes("any")) {
+    obState.type.forEach(t => state.selectedCardTypes.add(t));
+  }
+  if (obState.bill) {
+    state.orderValue = obState.bill;
+  }
+  syncDomToState();
+  renderRecommendations();
+  hideOnboardingScreen();
+}
+
+/* Quick Quiz (First Visit Onboarding — kept for openQuickQuiz fallback) */
+let quickQuizState = { step: 0, city: null, type: null, bill: 10000 };
+
+function openQuickQuiz() {
+  quickQuizState = { step: 0, city: null, type: null, bill: 10000 };
+  renderQuickQuiz();
+  const modal = document.getElementById("quiz-modal");
+  if (modal) modal.style.display = "flex";
+}
+
+function renderQuickQuiz() {
+  const inner = document.getElementById("quiz-modal-inner");
+  if (!inner) return;
+
+  const steps = ["city", "type", "bill"];
+  const step = quickQuizState.step;
+  const isLast = step === steps.length - 1;
+  
+  const progressBars = steps.map((_, index) => `<div class="q-bar${index <= step ? " done" : ""}"></div>`).join("");
+  
+  let bodyHtml = "";
+  let title = "";
+  let canNext = false;
+
+  if (steps[step] === "city") {
+    title = "Which city are you in?";
+    canNext = Boolean(quickQuizState.city);
+    bodyHtml = `
+      <div class="q-grid">
+        ${QUIZ_CITY_OPTIONS.slice(1).map((option) => `
+          <button class="q-opt${quickQuizState.city === option.value ? " sel" : ""}" data-qquiz-city="${escapeAttr(option.value)}" type="button">
+            <span class="q-icon"><img class="q-icon-img" src="${escapeAttr(option.iconSrc)}" alt="${escapeAttr(option.iconAlt)}" style="width:32px;height:32px;" /></span>
+            <span>${escapeHtml(option.label)}</span>
+            ${quickQuizState.city === option.value ? `<span class="q-check">✓</span>` : ""}
+          </button>
+        `).join("")}
+      </div>
+    `;
+  } else if (steps[step] === "type") {
+    title = "What type of card?";
+    canNext = Boolean(quickQuizState.type);
+    bodyHtml = `
+      <div class="q-grid">
+        ${QUIZ_CARD_TYPE_OPTIONS.map((option) => `
+          <button class="q-opt${quickQuizState.type === option.value ? " sel" : ""}" data-qquiz-type="${escapeAttr(option.value)}" type="button">
+            <span class="q-icon" style="font-size:32px;">${option.icon}</span>
+            <span>${escapeHtml(option.label)}</span>
+            ${quickQuizState.type === option.value ? `<span class="q-check">✓</span>` : ""}
+          </button>
+        `).join("")}
+      </div>
+    `;
+  } else if (steps[step] === "bill") {
+    title = "Typical bill amount?";
+    canNext = true;
+    bodyHtml = `
+      <div style="display:flex;gap:8px;flex-direction:column;align-items:center;">
+        <div class="q-slider-val">${formatCurrency(quickQuizState.bill)}</div>
+        <input type="range" min="1000" max="50000" step="500" value="${quickQuizState.bill}" id="qquiz-slider" style="width:100%;accent-color:var(--brand)" />
+        <div class="q-slider-ends" style="font-size:12px;color:var(--muted2);"><span>1K</span><span>50K</span></div>
+      </div>
+    `;
+  }
+
+  inner.innerHTML = `
+    <div style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:24px;">
+      <div style="display:flex;gap:4px;justify-content:center;">${progressBars}</div>
+      <div>
+        <h2 style="font-size:20px;font-weight:600;margin-bottom:16px;color:var(--ink);">${title}</h2>
+        ${bodyHtml}
+      </div>
+      <div style="display:flex;gap:8px;">
+        ${step > 0 ? `<button class="btn-secondary qquiz-prev" style="flex:1;padding:12px;border-radius:var(--r-sm);background:var(--surface2);color:var(--ink);font-weight:500;cursor:pointer;border:1px solid var(--line);">Back</button>` : ""}
+        ${!isLast ? `<button class="btn-primary qquiz-next" style="flex:1;padding:12px;border-radius:var(--r-sm);background:${canNext ? "var(--brand)" : "var(--muted2)"};color:#fff;font-weight:500;cursor:${canNext ? "pointer" : "not-allowed"};opacity:${canNext ? "1" : "0.5"};" ${!canNext ? "disabled" : ""}>Next</button>` : `<button class="btn-primary qquiz-finish" style="flex:1;padding:12px;border-radius:var(--r-sm);background:var(--brand);color:#fff;font-weight:500;cursor:pointer;">See Results</button>`}
+      </div>
+      <button class="qquiz-skip" style="padding:8px;background:none;color:var(--muted2);text-align:center;font-size:13px;cursor:pointer;text-decoration:underline;">Skip for now</button>
+    </div>
+  `;
+
+  // Event listeners
+  const slider = document.getElementById("qquiz-slider");
+  if (slider) slider.addEventListener("input", (e) => {
+    quickQuizState.bill = parseInt(e.target.value);
+    renderQuickQuiz();
+  });
+
+  document.querySelectorAll("[data-qquiz-city]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      quickQuizState.city = btn.dataset.qquizCity;
+      renderQuickQuiz();
+    });
+  });
+
+  document.querySelectorAll("[data-qquiz-type]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      quickQuizState.type = btn.dataset.qquizType;
+      renderQuickQuiz();
+    });
+  });
+
+  const nextBtn = document.querySelector(".qquiz-next");
+  if (nextBtn && canNext) {
+    nextBtn.addEventListener("click", () => {
+      quickQuizState.step++;
+      renderQuickQuiz();
+    });
+  }
+
+  const prevBtn = document.querySelector(".qquiz-prev");
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      quickQuizState.step--;
+      renderQuickQuiz();
+    });
+  }
+
+  const finishBtn = document.querySelector(".qquiz-finish");
+  if (finishBtn) {
+    finishBtn.addEventListener("click", () => {
+      applyQuickQuizResults();
+    });
+  }
+
+  const skipBtn = document.querySelector(".qquiz-skip");
+  if (skipBtn) {
+    skipBtn.addEventListener("click", () => {
+      closeQuiz();
+    });
+  }
+}
+
+function applyQuickQuizResults() {
+  if (quickQuizState.city) {
+    state.selectedCity = quickQuizState.city;
+    updateCityChip();
+    renderNavCityTabs();
+  }
+  if (quickQuizState.type) {
+    state.selectedCardTypes.add(quickQuizState.type);
+  }
+  if (quickQuizState.bill) {
+    state.orderValue = quickQuizState.bill;
+  }
+  renderRecommendations();
+  closeQuiz();
+}
+
 function openQuiz() {
   quizState = buildQuizStateFromCurrent();
   renderQuiz();
@@ -1188,9 +1512,10 @@ function renderQuiz() {
     `;
   } else if (current.id === "types") {
     canNext = quizState.types.length > 0;
+    const allTypeOpts = [...QUIZ_CARD_TYPE_OPTIONS, { value: "any", label: "I'm open to all", icon: "🎯" }];
     bodyHtml = `
       <div class="q-grid">
-        ${QUIZ_CARD_TYPE_OPTIONS.map((option) => `
+        ${allTypeOpts.map((option) => `
           <button class="q-opt${quizState.types.includes(option.value) ? " sel" : ""}" data-quiz-type="${escapeAttr(option.value)}" type="button">
             <span class="q-icon">${option.icon}</span>
             <span style="flex:1">${escapeHtml(option.label)}</span>
@@ -1321,7 +1646,13 @@ function renderQuiz() {
   });
   inner.querySelectorAll("[data-quiz-type]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      toggleQuizArrayValue("types", btn.dataset.quizType);
+      const v = btn.dataset.quizType;
+      if (v === "any") {
+        quizState.types = quizState.types.includes("any") ? [] : ["any"];
+      } else {
+        const without = quizState.types.filter(x => x !== "any");
+        quizState.types = without.includes(v) ? without.filter(x => x !== v) : [...without, v];
+      }
       pruneQuizRestaurants();
       renderQuiz();
     });
@@ -1377,12 +1708,12 @@ function renderQuiz() {
 function getQuizSteps() {
   return [
     { id: "city",        title: "Which city do you usually dine in?",          hint: "We’ll focus the ranking on where you actually use the card." },
-    { id: "bill",        title: "What’s your typical restaurant bill?",         hint: "Per outing — caps and savings change a lot with bill size." },
+    { id: "bill",        title: "What’s your typical restaurant bill?",         hint: "Per outing. Caps and savings change a lot with bill size." },
     { id: "days",        title: "What days do you usually go out?",             hint: "Optional. We’ll keep all days if your pattern varies." },
     { id: "types",       title: "What type of card can you get?",               hint: "Select one or more. This one matters, so pick at least one." },
     { id: "banks",       title: "Do you want to limit this to certain banks?",  hint: "Optional. Add banks only if you want to narrow the shortlist." },
     { id: "restaurants", title: "Which restaurants should we prioritize?",      hint: "Optional, but this produces much better recommendations." },
-    { id: "eligibility", title: "What’s your monthly salary and balance?",      hint: "Optional — helps us hide cards you likely won’t qualify for." },
+    { id: "eligibility", title: "What’s your monthly salary and balance?",      hint: "Optional. Helps us hide cards you likely won’t qualify for." },
   ];
 }
 
@@ -1390,7 +1721,7 @@ function handleQuizDone(ans) {
   state.selectedCity = normalizeCityValue(ans.city);
   state.orderValue = ans.bill || 10000;
   state.selectedDays = new Set(ans.days || []);
-  state.selectedCardTypes = new Set(ans.types || []);
+  state.selectedCardTypes = new Set((ans.types || []).includes("any") ? [] : (ans.types || []));
   state.selectedBanks = new Set(ans.banks || []);
   state.selectedRestaurants = new Set(ans.restaurants || []);
   state.monthlySalary = parseOptionalNumber(ans.monthlySalary);
@@ -1452,7 +1783,7 @@ function getAvailableBanksForQuiz() {
   const selectedCity = normalizeCityValue(quizState.city);
   state.data.offers.forEach((offer) => {
     if (selectedCity !== "all" && normalizeCityValue(offer.city) !== selectedCity) return;
-    if (quizState.types.length > 0 && !quizState.types.includes(offer.cardCategory)) return;
+    if (quizState.types.length > 0 && !quizState.types.includes("any") && !quizState.types.includes(offer.cardCategory)) return;
     bankCounts.set(offer.bank, (bankCounts.get(offer.bank) || 0) + 1);
   });
   return Array.from(bankCounts.keys()).sort((a, b) => a.localeCompare(b));
@@ -1464,7 +1795,7 @@ function getAvailableRestaurantsForQuiz() {
   const selectedCity = normalizeCityValue(quizState.city);
   state.data.offers.forEach((offer) => {
     if (selectedCity !== "all" && normalizeCityValue(offer.city) !== selectedCity) return;
-    if (quizState.types.length > 0 && !quizState.types.includes(offer.cardCategory)) return;
+    if (quizState.types.length > 0 && !quizState.types.includes("any") && !quizState.types.includes(offer.cardCategory)) return;
     if (quizState.banks.length > 0 && !quizState.banks.includes(offer.bank)) return;
     names.add(offer.restaurant);
   });
@@ -1895,13 +2226,13 @@ async function sendChatMessage(text) {
     if (err instanceof GeminiError && err.status === 503) {
       streamingMsg.text = "⚠️ Chat is not available right now.";
     } else if (err instanceof GeminiError && (err.status === 400 || err.status === 403)) {
-      streamingMsg.text = "⚠️ Chat service configuration error — please try again later.";
+      streamingMsg.text = "⚠️ Chat service configuration error. Please try again later.";
     } else if (err instanceof GeminiError && err.status === 429) {
       streamingMsg.text =
-        "⚠️ Rate limit hit — too many requests. Please wait a moment and try again.";
+        "⚠️ Rate limit hit. Too many requests. Please wait a moment and try again.";
     } else {
       streamingMsg.text =
-        "⚠️ Connection error — please check your internet connection and try again.";
+        "⚠️ Connection error. Please check your internet connection and try again.";
     }
   }
 
@@ -2290,7 +2621,7 @@ function renderSourcesSection(sourceIds) {
           </a>`;
         }).join("")}
       </div>
-      <div class="cd-sources-note">Requirements and fees are sourced from publicly available bank documents. Values may change — verify with your bank before applying.</div>
+      <div class="cd-sources-note">Requirements and fees are sourced from publicly available bank documents. Values may change, so verify with your bank before applying.</div>
     </div>
   `;
 }
@@ -3099,7 +3430,7 @@ function buildTopPickReason(result) {
     : `covers ${result.coveredVenueCount} of ${result.totalVenueCount} restaurants`;
   const topRest = result.topMatches[0]?.restaurant;
   const savingCtx = topRest ? `best saving at ${topRest}` : `highest savings at your bill size`;
-  return `Ranked #1 — ${venueCtx}, with the ${savingCtx}.`;
+  return `Ranked #1: ${venueCtx}, with the ${savingCtx}.`;
 }
 
 /* ── CONTEXTUAL CHAT CHIPS ── */
@@ -3242,6 +3573,8 @@ function syncDomToState() {
 init().then(() => {
   renderNavCityTabs();
   updateCityChip();
+  // Check first visit and show quick quiz
+  checkFirstVisitAndShowQuickQuiz();
 }).catch((error) => {
   console.error(error);
   const grid = document.getElementById("results-grid");
