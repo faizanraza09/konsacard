@@ -34,6 +34,9 @@ BANK_NAME_MAP = {
 MANUAL_ALIASES = {
     "Al Baraka Bank": {
         "PayPak Debit Card": "PayPak Standard Debit Card",
+        "Nexgen Habib University PayPak Debit Card": "Nexgen Student PayPak Debit Card",
+        "Nexgen IVS PayPak Debit Card": "Nexgen Student PayPak Debit Card",
+        "Nexgen Riphah University PayPak Debit Card": "Nexgen Student PayPak Debit Card",
     },
     "Allied Bank": {
         "Cash+Shop Classic Visa Debit Card": "Allied Visa Classic Debit Card",

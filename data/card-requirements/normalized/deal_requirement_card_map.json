@@ -3,10 +3,10 @@
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Mastercard Gold Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "al-baraka--mastercard-gold",
+    "requirement_card_name": "Mastercard Gold Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
@@ -21,55 +21,55 @@
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Mastercard Silver Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "al-baraka--mastercard-silver",
+    "requirement_card_name": "Mastercard Silver Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Mastercard World Elite Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "al-baraka--mastercard-world-elite",
+    "requirement_card_name": "Mastercard World Elite Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Nexgen Habib University PayPak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Nexgen IVS PayPak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Nexgen Riphah University PayPak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Nexgen Student PayPak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
@@ -93,10 +93,10 @@
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "UnionPay Silver Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "al-baraka--unionpay-silver",
+    "requirement_card_name": "UnionPay Silver Debit Card"
   },
   {
     "deal_bank_name": "Allied Bank",
@@ -120,10 +120,10 @@
     "deal_bank_name": "Allied Bank",
     "requirement_bank_name": "Allied Bank",
     "deal_card_name": "Cash+Shop Sapphire Visa Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied--cash-shop-sapphire-visa-debit",
+    "requirement_card_name": "Cash+Shop Sapphire Visa Debit Card"
   },
   {
     "deal_bank_name": "Allied Bank",
@@ -156,10 +156,10 @@
     "deal_bank_name": "Allied Bank",
     "requirement_bank_name": "Allied Bank",
     "deal_card_name": "Islamic Banking VISA DebitCard",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied--islamic-banking-visa-debitcard",
+    "requirement_card_name": "Islamic Banking VISA DebitCard"
   },
   {
     "deal_bank_name": "Allied Bank",
@@ -174,10 +174,10 @@
     "deal_bank_name": "Allied Bank",
     "requirement_bank_name": "Allied Bank",
     "deal_card_name": "UPI & Paypak myWallet Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied--upi-paypak-mywallet-debit-card",
+    "requirement_card_name": "UPI & Paypak myWallet Debit Card"
   },
   {
     "deal_bank_name": "Allied Bank",
@@ -192,10 +192,10 @@
     "deal_bank_name": "Allied Bank",
     "requirement_bank_name": "Allied Bank",
     "deal_card_name": "UnionPay PayPak Prepaid Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "allied--unionpay-paypak-prepaid-card",
+    "requirement_card_name": "UnionPay PayPak Prepaid Card"
   },
   {
     "deal_bank_name": "Allied Bank",
@@ -264,10 +264,10 @@
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Corporate Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "askari--askari-corporate-credit-card",
+    "requirement_card_name": "Askari Corporate Credit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -282,10 +282,10 @@
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari PayPak Classic Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "askari--askari-paypak-classic-debit-card",
+    "requirement_card_name": "Askari PayPak Classic Debit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -300,10 +300,10 @@
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari PayPak Little Champs Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "askari--askari-paypak-little-champs-debit-card",
+    "requirement_card_name": "Askari PayPak Little Champs Debit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -318,10 +318,10 @@
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Sahar Visa Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "askari--askari-sahar-visa-debit-card",
+    "requirement_card_name": "Askari Sahar Visa Debit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -336,19 +336,19 @@
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Visa Gold Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "askari--askari-visa-gold-debit-card",
+    "requirement_card_name": "Askari Visa Gold Debit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Visa Platinum Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "askari--askari-visa-platinum-debit-card",
+    "requirement_card_name": "Askari Visa Platinum Debit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -1127,6 +1127,15 @@
   {
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Konnect Debit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
     "deal_card_name": "HBL Nisa DebitCard",
     "matched": false,
     "match_method": null,
@@ -1591,6 +1600,15 @@
     "match_method": "manual_alias",
     "requirement_card_id": "meezan--meezan-titanium-mastercard-debit-card",
     "requirement_card_name": "Meezan Titanium MasterCard Debit Card"
+  },
+  {
+    "deal_bank_name": "Meezan Bank",
+    "requirement_bank_name": "Meezan Bank",
+    "deal_card_name": "Visa Charge Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
   },
   {
     "deal_bank_name": "Meezan Bank",

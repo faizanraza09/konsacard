@@ -105,7 +105,8 @@
     "url": "https://www.abl.com/personal/cards/debit-cards/allied-unionpay-paypak-gold-debit-card/",
     "source_type": "html",
     "used_by_card_ids": [
-      "allied-bank--allied-unionpay-paypak-gold-debit-card"
+      "allied-bank--allied-unionpay-paypak-gold-debit-card",
+      "allied--cash-shop-sapphire-visa-debit"
     ]
   },
   {
@@ -203,7 +204,11 @@
       "askari-bank--askari-paypak-debit-card-gold",
       "askari-bank--askari-visa-debit-card-classic",
       "askari-bank--askari-visa-signature-debit-card",
-      "askari-bank--askari-world-mastercard-credit-card"
+      "askari-bank--askari-world-mastercard-credit-card",
+      "askari--askari-paypak-classic-debit-card",
+      "askari--askari-visa-gold-debit-card",
+      "askari--askari-visa-platinum-debit-card",
+      "askari--askari-corporate-credit-card"
     ]
   },
   {
@@ -2313,6 +2318,93 @@
     "source_type": "html",
     "used_by_card_ids": [
       "ubl--ubl-paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "al-baraka-src-85931fd3c3",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "url": "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-%28Jan-Jun-2026%29-English.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "al-baraka--mastercard-platinum-debit-card",
+      "al-baraka--paypak-standard-debit-card",
+      "al-baraka--unionpay-classic-debit-card",
+      "al-baraka--unionpay-gold-debit-card",
+      "al-baraka--mastercard-gold",
+      "al-baraka--mastercard-silver",
+      "al-baraka--nexgen-student-paypak"
+    ]
+  },
+  {
+    "source_id": "al-baraka-src-2048e1ff34",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "url": "https://www.albaraka.com.pk/page/airport-lounge-access/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "al-baraka--mastercard-world-elite"
+    ]
+  },
+  {
+    "source_id": "al-baraka-src-5c8bef6584",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "url": "https://www.albaraka.com.pk/page/al-baraka-unionpay-debit-card/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "al-baraka--unionpay-silver"
+    ]
+  },
+  {
+    "source_id": "allied-src-a39f203863",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "url": "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "allied-bank--allied-upi-paypak-classic-plus"
+    ]
+  },
+  {
+    "source_id": "allied-src-fd3d1db43b",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "url": "https://www.abl.com/islamic/islamic-banking-deposit/current-accounts/allied-islamic-basic-banking-account/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "allied--islamic-banking-visa-debitcard"
+    ]
+  },
+  {
+    "source_id": "allied-src-368250eeb0",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "url": "https://www.abl.com/personal/digital-banking-services/myabl-wallet/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "allied--upi-paypak-mywallet-debit-card"
+    ]
+  },
+  {
+    "source_id": "allied-src-89c01294ce",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "url": "https://www.abl.com/personal/cards/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "allied--unionpay-paypak-prepaid-card"
+    ]
+  },
+  {
+    "source_id": "askari-src-14d6f9970c",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "url": "https://askaribank.com/gallery/AKBL_KFS_Effective_Jan2026.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "askari--askari-paypak-little-champs-debit-card",
+      "askari--askari-sahar-visa-debit-card"
     ]
   }
 ]

@@ -2,47 +2,26 @@
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
-    "matched_cards": 3,
+    "matched_cards": 11,
     "total_deal_cards": 11,
-    "coverage_pct": 27.3,
-    "unmatched_deal_cards": [
-      "Mastercard Gold Debit Card",
-      "Mastercard Silver Debit Card",
-      "Mastercard World Elite Debit Card",
-      "Nexgen Habib University PayPak Debit Card",
-      "Nexgen IVS PayPak Debit Card",
-      "Nexgen Riphah University PayPak Debit Card",
-      "Nexgen Student PayPak Debit Card",
-      "UnionPay Silver Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Allied Bank",
     "requirement_bank_name": "Allied Bank",
-    "matched_cards": 13,
+    "matched_cards": 17,
     "total_deal_cards": 17,
-    "coverage_pct": 76.5,
-    "unmatched_deal_cards": [
-      "Cash+Shop Sapphire Visa Debit Card",
-      "Islamic Banking VISA DebitCard",
-      "UPI & Paypak myWallet Debit Card",
-      "UnionPay PayPak Prepaid Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
-    "matched_cards": 7,
+    "matched_cards": 13,
     "total_deal_cards": 13,
-    "coverage_pct": 53.8,
-    "unmatched_deal_cards": [
-      "Askari Corporate Credit Card",
-      "Askari PayPak Classic Debit Card",
-      "Askari PayPak Little Champs Debit Card",
-      "Askari Sahar Visa Debit Card",
-      "Askari Visa Gold Debit Card",
-      "Askari Visa Platinum Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Bank AL Habib",
@@ -125,9 +104,10 @@
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
     "matched_cards": 9,
-    "total_deal_cards": 11,
-    "coverage_pct": 81.8,
+    "total_deal_cards": 12,
+    "coverage_pct": 75.0,
     "unmatched_deal_cards": [
+      "HBL Konnect Debit Card",
       "HBL Nisa DebitCard",
       "HBL Titanium DebitCard"
     ]
@@ -191,9 +171,11 @@
     "deal_bank_name": "Meezan Bank",
     "requirement_bank_name": "Meezan Bank",
     "matched_cards": 13,
-    "total_deal_cards": 13,
-    "coverage_pct": 100.0,
-    "unmatched_deal_cards": []
+    "total_deal_cards": 14,
+    "coverage_pct": 92.9,
+    "unmatched_deal_cards": [
+      "Visa Charge Card"
+    ]
   },
   {
     "deal_bank_name": "Standard Chartered Bank",

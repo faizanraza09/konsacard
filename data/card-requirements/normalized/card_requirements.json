@@ -5,9 +5,9 @@
     "bank_name": "Al Baraka Bank",
     "card_name": "Mastercard Platinum Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 8000,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 10000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -16,26 +16,31 @@
       "minimum_monthly_salary_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "minimum_account_balance_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "annual_fee_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ]
     },
     "source_ids": [
       "al-baraka-src-bb81a92b2c",
       "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-c74d09b980",
+      "al-baraka-src-85931fd3c3"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Current official SOC lists the fee. No card-specific salary or balance threshold was publicly disclosed on the official card pages or current KFS/SOC reviewed.",
       "Jul-Dec 2025 SOC shows PKR 8,000; Jan-Jun 2025 SOC showed PKR 7,500.",
       "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
     ],
@@ -52,9 +57,9 @@
     "bank_name": "Al Baraka Bank",
     "card_name": "PayPak Standard Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 2000,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2200,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -63,26 +68,31 @@
       "minimum_monthly_salary_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "minimum_account_balance_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "annual_fee_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ]
     },
     "source_ids": [
       "al-baraka-src-bb81a92b2c",
       "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-c74d09b980",
+      "al-baraka-src-85931fd3c3"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Current official SOC lists the fee. No card-specific salary or balance threshold was publicly disclosed on the official card pages or current KFS/SOC reviewed.",
       "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
     ],
     "bank_gaps": [
@@ -98,9 +108,9 @@
     "bank_name": "Al Baraka Bank",
     "card_name": "UnionPay Classic Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 2200,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -109,26 +119,31 @@
       "minimum_monthly_salary_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "minimum_account_balance_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "annual_fee_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ]
     },
     "source_ids": [
       "al-baraka-src-bb81a92b2c",
       "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-c74d09b980",
+      "al-baraka-src-85931fd3c3"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Current official SOC lists the fee. No card-specific salary or balance threshold was publicly disclosed on the official card pages or current KFS/SOC reviewed.",
       "Jul-Dec 2025 SOC shows PKR 2,200; Jan-Jun 2025 SOC showed PKR 2,000.",
       "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
     ],
@@ -145,9 +160,9 @@
     "bank_name": "Al Baraka Bank",
     "card_name": "UnionPay Gold Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 2700,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 3500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -156,26 +171,31 @@
       "minimum_monthly_salary_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "minimum_account_balance_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ],
       "annual_fee_pkr": [
         "al-baraka-src-bb81a92b2c",
         "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-c74d09b980",
+        "al-baraka-src-85931fd3c3"
       ]
     },
     "source_ids": [
       "al-baraka-src-bb81a92b2c",
       "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-c74d09b980",
+      "al-baraka-src-85931fd3c3"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Current official SOC lists the fee. No card-specific salary or balance threshold was publicly disclosed on the official card pages or current KFS/SOC reviewed.",
       "Jul-Dec 2025 SOC shows PKR 2,700; Jan-Jun 2025 SOC showed PKR 2,500.",
       "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
     ],
@@ -192,9 +212,9 @@
     "bank_name": "Allied Bank",
     "card_name": "Allied Basic Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
+      "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 1750,
+      "annual_fee_pkr": 2000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -215,6 +235,7 @@
     ],
     "confidence": "high",
     "notes": [
+      "Official card page lists eligible customer and account categories, but no card-specific income or balance threshold is published. Annual fee is from the Jan-Jun 2026 SOC.",
       "Product is targeted to photo-account / shaky-signature style eligibility and specific account categories."
     ],
     "bank_gaps": [
@@ -230,9 +251,9 @@
     "bank_name": "Allied Bank",
     "card_name": "Allied UPI & PayPak Classic Plus",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
+      "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 2800,
+      "annual_fee_pkr": 2900,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -240,19 +261,26 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "allied-bank-src-b90c7f1768",
-        "allied-bank-src-890e3f0567"
+        "allied-bank-src-890e3f0567",
+        "allied-src-a39f203863"
       ],
       "annual_fee_pkr": [
         "allied-bank-src-b90c7f1768",
-        "allied-bank-src-890e3f0567"
+        "allied-bank-src-890e3f0567",
+        "allied-src-a39f203863"
+      ],
+      "minimum_account_balance_pkr": [
+        "allied-src-a39f203863"
       ]
     },
     "source_ids": [
       "allied-bank-src-b90c7f1768",
-      "allied-bank-src-890e3f0567"
+      "allied-bank-src-890e3f0567",
+      "allied-src-a39f203863"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Current official SOC lists the card and fee, but no standalone official page with a card-specific salary or balance threshold was found.",
       "Recovered from SOC plus current official debit-limit grouping rather than a clean standalone product page."
     ],
     "bank_gaps": [
@@ -310,9 +338,9 @@
     "bank_name": "Allied Bank",
     "card_name": "Allied UnionPay PayPak Classic Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
+      "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 2700,
+      "annual_fee_pkr": 2800,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -333,6 +361,7 @@
     ],
     "confidence": "high",
     "notes": [
+      "Official card page says the card is for Regular and Asaan account holders, but it does not publish a card-specific salary or balance threshold. Annual fee is from the Jan-Jun 2026 SOC.",
       "Product page distinguishes Regular and Asaan account-holder limits.",
       "Public sources did not expose salary or age thresholds."
     ],
@@ -349,9 +378,9 @@
     "bank_name": "Allied Bank",
     "card_name": "Allied Visa Classic Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
+      "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 2700,
+      "annual_fee_pkr": 2900,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -372,6 +401,7 @@
     ],
     "confidence": "high",
     "notes": [
+      "Official page states the card is offered to Allied Bank account holders; no specific card-level income or balance threshold is published. Annual fee is from the Jan-Jun 2026 SOC.",
       "Eligibility is account-holder based rather than salary-gated on the surfaced public page.",
       "Public page also lists current daily ATM, POS/e-commerce, and funds-transfer limits."
     ],
@@ -488,10 +518,10 @@
     "bank_name": "Allied Bank",
     "card_name": "Allied Visa Premium Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 416667,
+      "minimum_monthly_salary_pkr": null,
       "minimum_deposit_pkr": 2000000,
       "annual_fee_pkr": 19500,
-      "annual_fee_waiver_rule": "Eligible if maintaining PKR 500,000 daily average in current account or PKR 1,000,000 in savings over the last 11 months.",
+      "annual_fee_waiver_rule": "Waiver available on request if customer maintains a daily average balance of PKR 500,000 in Current Account or PKR 1,000,000 in Savings Account over the last 11 months.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "minimum_account_balance_pkr": 2000000
@@ -534,8 +564,9 @@
       "allied-bank-src-890e3f0567",
       "allied-bank-src-d56c0f5c11"
     ],
-    "confidence": "low",
+    "confidence": "high",
     "notes": [
+      "Eligibility is published as minimum deposit, investment, house-loan, or corporate criteria. Minimum account balance shown here is the published PKR deposit threshold. No monthly salary threshold is published.",
       "Official product page states PKR 5 million annual income eligibility.",
       "Official product page also states a PKR 2 million deposit route and the annual-fee-waiver balance conditions.",
       "Official Jul-Dec 2025 SOC lists a PKR 19,500 annual / issuance / renewal fee."
@@ -553,10 +584,10 @@
     "bank_name": "Allied Bank",
     "card_name": "Allied Youth Visa Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": 10000,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": "Youth account fee-exemption grid surfaces first-year debit-card relief; exact youth-card pricing line is not separately published.",
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2900,
+      "annual_fee_waiver_rule": null,
       "minimum_age_years": 18,
       "maximum_age_years": 35
     },
@@ -586,8 +617,9 @@
       "allied-bank-src-6d796f5418",
       "allied-bank-src-890e3f0567"
     ],
-    "confidence": "low",
+    "confidence": "medium",
     "notes": [
+      "Youth Account page confirms a youth-branded Visa debit card but does not publish a separate card fee; annual fee is mapped to Visa Classic in the Jan-Jun 2026 SOC. Account-page balance thresholds relate to account monthly charges, not card eligibility.",
       "Public account page says the youth account includes a youth-branded Visa debit card.",
       "SOC shows youth-account balance thresholds of PKR 10,000 for ages 18-25 and PKR 50,000 for ages 26-35."
     ],
@@ -605,9 +637,9 @@
     "card_name": "Allied Visa Gold Credit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 2500,
-      "annual_fee_waiver_rule": "Spend PKR 25,000 within 3 months.",
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 3000,
+      "annual_fee_waiver_rule": "Annual fee reversal available if cardholder spends PKR 25,000 within 3 months and informs the bank.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -629,8 +661,9 @@
       "allied-bank-src-37254e5ede",
       "allied-bank-src-890e3f0567"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "No public monthly salary threshold was found on the official product page, SOC, or summary box reviewed.",
       "Current official pages did not cleanly expose salary, balance, or age criteria."
     ],
     "bank_gaps": [
@@ -647,9 +680,9 @@
     "card_name": "Allied Visa Platinum Credit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 5000,
-      "annual_fee_waiver_rule": "Spend PKR 50,000 within 3 months.",
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 6000,
+      "annual_fee_waiver_rule": "Annual fee reversal available if cardholder spends PKR 50,000 within 3 months and informs the bank.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -671,8 +704,10 @@
       "allied-bank-src-676d1ecb55",
       "allied-bank-src-890e3f0567"
     ],
-    "confidence": "medium",
-    "notes": [],
+    "confidence": "high",
+    "notes": [
+      "No public monthly salary threshold was found on the official product page, SOC, or summary box reviewed."
+    ],
     "bank_gaps": [
       "Credit-card salary, balance, and age thresholds were not cleanly exposed on the official pages found.",
       "Some debit-card annual fees are visible in the SOC, but not every row could be assigned to a named card with high confidence.",
@@ -865,8 +900,8 @@
     "bank_name": "Askari Bank Limited",
     "card_name": "Askari PayPak Debit Card Gold",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": 0,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
       "joining_fee_pkr": 2400,
       "annual_fee_pkr": 2400,
       "annual_fee_waiver_rule": null,
@@ -905,8 +940,9 @@
       "askari-bank-src-e56a35371b",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "The 2026 SOC publishes the annual fee. No public card-specific salary or balance threshold was found in the official SOC/KFS reviewed.",
       "PayPak debit issuance is account-linked rather than salary-gated on the public card page.",
       "Official Askari Asaan Current and Asaan Saving account pages surface no minimum balance requirement and explicitly frame PayPak issuance against those no-minimum-balance products."
     ],
@@ -923,8 +959,8 @@
     "bank_name": "Askari Bank Limited",
     "card_name": "Askari Visa Debit Card Classic",
     "requirements": {
-      "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": 0,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -948,8 +984,9 @@
       "askari-bank-src-99da203940",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "The 2026 SOC publishes issuance and annual fee. No public card-specific salary or balance threshold was found in the official SOC/KFS reviewed.",
       "Card page says no minimum balance requirement for issuance or retention."
     ],
     "bank_gaps": [
@@ -7364,5 +7401,515 @@
       "Debit-card eligibility is mostly account-linked rather than salary-gated."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages, fee-reversal page, summary boxes, and debit-card product pages. Normalize before shipping to UI."
+  },
+  {
+    "card_id": "al-baraka--mastercard-gold",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Gold Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 4500,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ],
+      "minimum_account_balance_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ],
+      "annual_fee_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ]
+    },
+    "source_ids": [
+      "al-baraka-src-85931fd3c3"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Current official SOC lists the fee. No card-specific salary or balance threshold was publicly disclosed on the official card pages or current KFS/SOC reviewed."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "al-baraka--mastercard-silver",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Silver Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 3200,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ],
+      "minimum_account_balance_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ],
+      "annual_fee_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ]
+    },
+    "source_ids": [
+      "al-baraka-src-85931fd3c3"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Current official SOC lists the fee. No card-specific salary or balance threshold was publicly disclosed on the official card pages or current KFS/SOC reviewed."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "al-baraka--mastercard-world-elite",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard World Elite Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "al-baraka-src-2048e1ff34"
+      ],
+      "minimum_account_balance_pkr": [
+        "al-baraka-src-2048e1ff34"
+      ],
+      "annual_fee_pkr": [
+        "al-baraka-src-2048e1ff34"
+      ]
+    },
+    "source_ids": [
+      "al-baraka-src-2048e1ff34"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "The official site references Mastercard World Elite lounge access, but no public product page, eligibility threshold, or fee listing was found in the current SOC/KFS reviewed."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "al-baraka--unionpay-silver",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "UnionPay Silver Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2500,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "al-baraka-src-5c8bef6584"
+      ],
+      "minimum_account_balance_pkr": [
+        "al-baraka-src-5c8bef6584"
+      ],
+      "annual_fee_pkr": [
+        "al-baraka-src-5c8bef6584"
+      ]
+    },
+    "source_ids": [
+      "al-baraka-src-5c8bef6584"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Official UnionPay page describes Silver and Gold limits, while the current SOC lists UnionPay International Classic and Gold fees. Silver was mapped to the Classic fee naming used in the current SOC."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "al-baraka--nexgen-student-paypak",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Nexgen Student PayPak Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2200,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ],
+      "minimum_account_balance_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ],
+      "annual_fee_pkr": [
+        "al-baraka-src-85931fd3c3"
+      ]
+    },
+    "source_ids": [
+      "al-baraka-src-85931fd3c3"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Current official SOC lists PayPak NexGen pricing. No card-specific salary or balance threshold was publicly disclosed in the official material reviewed."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "allied--cash-shop-sapphire-visa-debit",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "Cash+Shop Sapphire Visa Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 41667,
+      "minimum_account_balance_pkr": 100000,
+      "annual_fee_pkr": 3000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "allied-bank-src-d88340d22d"
+      ],
+      "minimum_account_balance_pkr": [
+        "allied-bank-src-d88340d22d"
+      ],
+      "annual_fee_pkr": [
+        "allied-bank-src-d88340d22d"
+      ]
+    },
+    "source_ids": [
+      "allied-bank-src-d88340d22d"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "ABL states that existing Visa Sapphire cardholders will automatically receive the UnionPay & PayPak Gold Debit Card on renewal. Monthly salary shown is the official minimum annual income of PKR 500,000 converted to a monthly equivalent. Annual fee is the shared Visa Sapphire / UPI-PayPak Gold fee in the 2026 SOC."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "allied--islamic-banking-visa-debitcard",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "Islamic Banking VISA DebitCard",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2900,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "allied-src-fd3d1db43b"
+      ],
+      "minimum_account_balance_pkr": [
+        "allied-src-fd3d1db43b"
+      ],
+      "annual_fee_pkr": [
+        "allied-src-fd3d1db43b"
+      ]
+    },
+    "source_ids": [
+      "allied-src-fd3d1db43b"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Islamic account pages state eligibility for the Allied Cash Plus Shop Visa Debit Card at the bank's discretion, but do not publish a card-specific salary or balance threshold. Annual fee is mapped to the Islamic SOC primary Visa Classic debit-card fee."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "allied--upi-paypak-mywallet-debit-card",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "UPI & Paypak myWallet Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 350,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "allied-src-368250eeb0"
+      ],
+      "minimum_account_balance_pkr": [
+        "allied-src-368250eeb0"
+      ],
+      "annual_fee_pkr": [
+        "allied-src-368250eeb0"
+      ]
+    },
+    "source_ids": [
+      "allied-src-368250eeb0"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "myABL Wallet page confirms a co-badged UPI/PayPak debit card, while the Branchless Banking KFS states no balance is required for the wallet account. No public income threshold is disclosed. SOC states annual fee is PKR 350 plus FED; annual_fee_pkr excludes taxes."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "allied--unionpay-paypak-prepaid-card",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "UnionPay PayPak Prepaid Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "allied-src-89c01294ce"
+      ],
+      "minimum_account_balance_pkr": [
+        "allied-src-89c01294ce"
+      ],
+      "annual_fee_pkr": [
+        "allied-src-89c01294ce"
+      ]
+    },
+    "source_ids": [
+      "allied-src-89c01294ce"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "No current official product page or current SOC entry clearly identifying a separate UnionPay PayPak Prepaid card was found."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "askari--askari-paypak-classic-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari PayPak Classic Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 1700,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "minimum_account_balance_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "annual_fee_pkr": [
+        "askari-bank-src-72c9635352"
+      ]
+    },
+    "source_ids": [
+      "askari-bank-src-72c9635352"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Mapped to Askari's PayPak Silver / Classic fee naming in the 2026 SOC. No public card-specific salary or balance threshold was found."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "askari--askari-paypak-little-champs-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari PayPak Little Champs Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": 100,
+      "annual_fee_pkr": 1700,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "askari-src-14d6f9970c"
+      ],
+      "minimum_account_balance_pkr": [
+        "askari-src-14d6f9970c"
+      ],
+      "annual_fee_pkr": [
+        "askari-src-14d6f9970c"
+      ]
+    },
+    "source_ids": [
+      "askari-src-14d6f9970c"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Little Champ Current Account KFS shows a PKR 100 account-opening figure and debit-card pricing consistent with PayPak Silver. No card-specific salary threshold is published."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "askari--askari-sahar-visa-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Sahar Visa Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 3000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "askari-src-14d6f9970c"
+      ],
+      "minimum_account_balance_pkr": [
+        "askari-src-14d6f9970c"
+      ],
+      "annual_fee_pkr": [
+        "askari-src-14d6f9970c"
+      ]
+    },
+    "source_ids": [
+      "askari-src-14d6f9970c"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Askari Sahar Current Account KFS shows zero initial/minimum-balance indicators for the linked account. No separate monthly salary threshold is published."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "askari--askari-visa-gold-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Visa Gold Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 3500,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "minimum_account_balance_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "annual_fee_pkr": [
+        "askari-bank-src-72c9635352"
+      ]
+    },
+    "source_ids": [
+      "askari-bank-src-72c9635352"
+    ],
+    "confidence": "high",
+    "notes": [
+      "The 2026 SOC publishes issuance and annual fee. No public card-specific salary or balance threshold was found."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "askari--askari-visa-platinum-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Visa Platinum Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 8000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "minimum_account_balance_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "annual_fee_pkr": [
+        "askari-bank-src-72c9635352"
+      ]
+    },
+    "source_ids": [
+      "askari-bank-src-72c9635352"
+    ],
+    "confidence": "high",
+    "notes": [
+      "The 2026 SOC publishes issuance and annual fee. No public card-specific salary or balance threshold was found."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
+  },
+  {
+    "card_id": "askari--askari-corporate-credit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Corporate Credit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 4800,
+      "annual_fee_waiver_rule": "Waiver available on 50% utilization of total limit within 3 months of issuance or renewal.",
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "minimum_account_balance_pkr": [
+        "askari-bank-src-72c9635352"
+      ],
+      "annual_fee_pkr": [
+        "askari-bank-src-72c9635352"
+      ]
+    },
+    "source_ids": [
+      "askari-bank-src-72c9635352"
+    ],
+    "confidence": "high",
+    "notes": [
+      "The 2026 SOC publishes annual fee and waiver rule. No public monthly salary or account-balance threshold was found."
+    ],
+    "bank_gaps": [],
+    "retrieved_note": "Added via deep-research merge."
   }
 ]

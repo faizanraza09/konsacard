@@ -1604,5 +1604,170 @@
     "tier": "virtual",
     "confidence": "high",
     "pilot_position": 9
+  },
+  {
+    "card_id": "al-baraka--mastercard-gold",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Gold Debit Card",
+    "card_slug": "mastercard-gold",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "high",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "al-baraka--mastercard-silver",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Silver Debit Card",
+    "card_slug": "mastercard-silver",
+    "card_type": "debit",
+    "tier": "silver",
+    "confidence": "high",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "al-baraka--mastercard-world-elite",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard World Elite Debit Card",
+    "card_slug": "mastercard-world-elite",
+    "card_type": "debit",
+    "tier": "world-elite",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "al-baraka--unionpay-silver",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "UnionPay Silver Debit Card",
+    "card_slug": "unionpay-silver",
+    "card_type": "debit",
+    "tier": "silver",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "al-baraka--nexgen-student-paypak",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Nexgen Student PayPak Debit Card",
+    "card_slug": "nexgen-student-paypak",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "high",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "allied--cash-shop-sapphire-visa-debit",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "Cash+Shop Sapphire Visa Debit Card",
+    "card_slug": "cash-shop-sapphire-visa-debit",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "allied--islamic-banking-visa-debitcard",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "Islamic Banking VISA DebitCard",
+    "card_slug": "islamic-banking-visa-debitcard",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "allied--upi-paypak-mywallet-debit-card",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "UPI & Paypak myWallet Debit Card",
+    "card_slug": "upi-paypak-mywallet-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "allied--unionpay-paypak-prepaid-card",
+    "bank_slug": "allied",
+    "bank_name": "Allied Bank",
+    "card_name": "UnionPay PayPak Prepaid Card",
+    "card_slug": "unionpay-paypak-prepaid-card",
+    "card_type": "prepaid",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "askari--askari-paypak-classic-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari PayPak Classic Debit Card",
+    "card_slug": "askari-paypak-classic-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "askari--askari-paypak-little-champs-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari PayPak Little Champs Debit Card",
+    "card_slug": "askari-paypak-little-champs-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "askari--askari-sahar-visa-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Sahar Visa Debit Card",
+    "card_slug": "askari-sahar-visa-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "askari--askari-visa-gold-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Visa Gold Debit Card",
+    "card_slug": "askari-visa-gold-debit-card",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "high",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "askari--askari-visa-platinum-debit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Visa Platinum Debit Card",
+    "card_slug": "askari-visa-platinum-debit-card",
+    "card_type": "debit",
+    "tier": "platinum",
+    "confidence": "high",
+    "pilot_position": 99
+  },
+  {
+    "card_id": "askari--askari-corporate-credit-card",
+    "bank_slug": "askari",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari Corporate Credit Card",
+    "card_slug": "askari-corporate-credit-card",
+    "card_type": "credit",
+    "tier": "other",
+    "confidence": "high",
+    "pilot_position": 99
   }
 ]
