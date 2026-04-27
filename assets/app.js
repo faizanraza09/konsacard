@@ -1506,15 +1506,8 @@ function restoreQuizFocus(id) {
 }
 
 /* ══════════════════════════════════════════════════════
-   CHAT — Gemini 2.5 Flash with streaming
+   CHAT — Gemini 2.5 Flash with streaming (via /api/chat proxy)
    ══════════════════════════════════════════════════════ */
-
-const GEMINI_MODEL = "gemini-2.5-flash";
-const GEMINI_BASE    = "https://generativelanguage.googleapis.com/v1beta/models";
-/* ── Key management ── */
-function getGeminiKey() {
-  return (window.GEMINI_KEY || "").trim();
-}
 
 /* ── Query-specific data context ── */
 function buildQueryContext(userQuery) {
@@ -1717,28 +1710,17 @@ RESPONSE RULES:
 
 /* ── Gemini streaming generator ── */
 async function* streamGemini(geminiContents, systemPrompt) {
-  const key = getGeminiKey();
-  const url = `${GEMINI_BASE}/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${key}`;
-
-  const resp = await fetch(url, {
+  const resp = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      system_instruction: { parts: [{ text: systemPrompt }] },
-      contents: geminiContents,
-      generationConfig: {
-        temperature: 0.35,
-        maxOutputTokens: 2048,
-        topP: 0.95,
-      },
-    }),
+    body: JSON.stringify({ contents: geminiContents, systemPrompt }),
   });
 
   if (!resp.ok) {
-    let msg = `Gemini API error ${resp.status}`;
+    let msg = `Chat error ${resp.status}`;
     try {
       const body = await resp.json();
-      msg = body?.error?.message || msg;
+      msg = body?.error || msg;
     } catch { /* ignore */ }
     throw new GeminiError(msg, resp.status);
   }
@@ -1927,13 +1909,13 @@ async function sendChatMessage(text) {
     streamingMsg.streaming = false;
   } catch (err) {
     streamingMsg.streaming = false;
-    if (err instanceof GeminiError && (err.status === 400 || err.status === 403)) {
-      streamingMsg.text =
-        "⚠️ API key issue — your key may be invalid or have no quota. " +
-        "Tap the key icon above to update it.";
+    if (err instanceof GeminiError && err.status === 503) {
+      streamingMsg.text = "⚠️ Chat is not available right now.";
+    } else if (err instanceof GeminiError && (err.status === 400 || err.status === 403)) {
+      streamingMsg.text = "⚠️ Chat service configuration error — please try again later.";
     } else if (err instanceof GeminiError && err.status === 429) {
       streamingMsg.text =
-        "⚠️ Rate limit hit — Gemini free tier allows limited requests per minute. Please wait a moment and try again.";
+        "⚠️ Rate limit hit — too many requests. Please wait a moment and try again.";
     } else {
       streamingMsg.text =
         "⚠️ Connection error — please check your internet connection and try again.";

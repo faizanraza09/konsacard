@@ -4,7 +4,8 @@
   "description": "Static web app for comparing dining card offers in Pakistan.",
   "main": "index.js",
   "scripts": {
-    "dev": "python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8000",
+    "dev": "wrangler pages dev . --port 8000",
+    "dev:static": "python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8000",
     "refresh:offers": "python scripts/offers/refresh_all_offers.py",
     "refresh:requirements": "python scripts/card_requirements/build_card_requirements_normalized.py && python scripts/card_requirements/build_deal_requirement_card_map.py",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -22,6 +23,7 @@
   },
   "homepage": "https://github.com/faizanraza09/card-match-pk#readme",
   "devDependencies": {
-    "@playwright/test": "^1.59.1"
+    "@playwright/test": "^1.59.1",
+    "wrangler": "^3"
   }
 }
