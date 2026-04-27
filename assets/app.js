@@ -95,11 +95,11 @@ const BANK_LOGO_FILES = {
 };
 
 const BANK_APPLY_URLS = {
-  albarakabank:          "https://www.albarakabank.com.pk/personal/",
+  albarakabank:          "https://www.albaraka.com.pk/",
   alliedbank:            "https://www.abl.com/Cards",
   askaribanklimited:     "https://www.askaribank.com.pk/Cards/",
   bankalhabib:           "https://www.bankalhabib.com/cards",
-  bankalfalah:           "https://www.bankalfalah.com/cards/",
+  bankalfalah:           "https://www.bankalfalah.com/personal-banking/credit-cards/",
   bankofpunjab:          "https://www.bop.com.pk/personal/cards",
   bankislami:            "https://www.bankislami.com.pk/personal/",
   easypaisa:             "https://www.easypaisa.com.pk/wallet/",
@@ -107,10 +107,10 @@ const BANK_APPLY_URLS = {
   habibbanklimited:      "https://www.hbl.com/personal/cards/",
   habibmetrobank:        "https://www.habibmetro.com/personal-banking/cards/",
   hblislamicbanklimited: "https://www.hbl.com/islamic/",
-  jsbank:                "https://jsbl.com/personal-banking/cards/",
+  jsbank:                "https://www.jsbl.com/personal/debit-card/",
   mcbbanklimited:        "https://www.mcb.com.pk/personal/cards/",
-  mcbislamicbankltd:     "https://www.mcb.com.pk/personal/cards/",
-  meezanbank:            "https://meezanbank.com/cards/",
+  mcbislamicbankltd:     "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/",
+  meezanbank:            "https://www.meezanbank.com/",
   standardcharteredbank: "https://www.sc.com/pk/credit-cards/",
   unitedbanklimitedubl:  "https://www.ubl.com.pk/consumer-banking/cards/",
 };
@@ -139,9 +139,10 @@ async function fetchJson(path) {
 
 async function loadRequirementsContext() {
   try {
-    const [requirementsPayload, mappingPayload] = await Promise.all([
+    const [requirementsPayload, mappingPayload, sourcesPayload] = await Promise.all([
       fetchJson("./data/card-requirements/normalized/card_requirements.json"),
       fetchJson("./data/card-requirements/normalized/deal_requirement_card_map.json"),
+      fetchJson("./data/card-requirements/normalized/sources.json"),
     ]);
     return {
       available: true,
@@ -149,9 +150,10 @@ async function loadRequirementsContext() {
       mappingByDealKey: new Map(
         mappingPayload.map((row) => [buildDealCardKey(row.deal_bank_name, row.deal_card_name), row]),
       ),
+      sourcesById: new Map(sourcesPayload.map((s) => [s.source_id, s])),
     };
   } catch {
-    return { available: false, byCardId: new Map(), mappingByDealKey: new Map() };
+    return { available: false, byCardId: new Map(), mappingByDealKey: new Map(), sourcesById: new Map() };
   }
 }
 
@@ -2109,17 +2111,17 @@ function computeRecommendations() {
 /* ── ELIGIBILITY ── */
 function evaluateEligibility(bank, card) {
   if (!state.requirements?.available) {
-    return { status: "unavailable", label: "Requirements unavailable", tone: "unclear", sortRank: 1, detail: "Requirements data could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false };
+    return { status: "unavailable", label: "Requirements unavailable", tone: "unclear", sortRank: 1, detail: "Requirements data could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [] };
   }
 
   const mapping = state.requirements.mappingByDealKey.get(buildDealCardKey(bank, card));
   if (!mapping?.matched || !mapping.requirement_card_id) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "This deal-side card is not yet mapped to a verified requirements record.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false };
+    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "This deal-side card is not yet mapped to a verified requirements record.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [] };
   }
 
   const record = state.requirements.byCardId.get(mapping.requirement_card_id);
   if (!record) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "A mapped requirements record could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false };
+    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "A mapped requirements record could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [] };
   }
 
   const requirements = record.requirements || {};
@@ -2149,11 +2151,13 @@ function evaluateEligibility(bank, card) {
 
   if (annualFeePkr !== null) criteria.push(formatRequirementCriterion(annualFeePkr, "fee"));
 
-  if (blockers.length) return { status: "ineligible", label: "Likely ineligible", tone: "ineligible", sortRank: 0, detail: blockers[0], criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true };
-  if (salaryReq === null && balanceReq === null) return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "No public salary or balance threshold was captured for this card.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true };
-  if (missingInput) return { status: "needs_input", label: "Salary/balance not entered", tone: "needs-input", sortRank: 2, detail: "Public thresholds exist, but salary or balance details have not been entered.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true };
+  const sourceIds = record.source_ids || [];
 
-  return { status: "eligible", label: "Likely eligible", tone: "eligible", sortRank: 3, detail: "Entered salary and balance meet the public thresholds captured for this card.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true };
+  if (blockers.length) return { status: "ineligible", label: "Likely ineligible", tone: "ineligible", sortRank: 0, detail: blockers[0], criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
+  if (salaryReq === null && balanceReq === null) return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "No public salary or balance threshold was captured for this card.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
+  if (missingInput) return { status: "needs_input", label: "Salary/balance not entered", tone: "needs-input", sortRank: 2, detail: "Public thresholds exist, but salary or balance details have not been entered.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
+
+  return { status: "eligible", label: "Likely eligible", tone: "eligible", sortRank: 3, detail: "Entered salary and balance meet the public thresholds captured for this card.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
 }
 
 function renderEligibilityBadge(status) {
@@ -2299,6 +2303,27 @@ function renderRequirementSummary(status, options = {}) {
       <div class="requirement-note">${escapeHtml(showStatus ? status.detail : "Shown only when the requirements dataset has a verified card mapping.")}</div>
       ${status.criteria.length ? `<div class="requirement-meta">${escapeHtml(status.criteria.join(" · "))}</div>` : ""}
       ${meta.length ? `<div class="requirement-meta">${escapeHtml(meta.join(" · "))}</div>` : ""}
+    </div>
+  `;
+}
+
+function renderSourcesSection(sourceIds) {
+  if (!state.requirements?.sourcesById || !sourceIds?.length) return "";
+  const sources = sourceIds.map((id) => state.requirements.sourcesById.get(id)).filter(Boolean);
+  if (!sources.length) return "";
+  return `
+    <div class="cd-section cd-sources-section">
+      <div class="cd-section-title">Data sources</div>
+      <div class="cd-sources-list">
+        ${sources.map((s) => {
+          const isPdf = s.source_type === "pdf";
+          return `<a class="cd-source-link" href="${escapeAttr(s.url)}" target="_blank" rel="noopener noreferrer">
+            <span class="cd-source-label">${escapeHtml(isPdf ? "Official document" : "Official bank page")}</span>
+            <span class="cd-source-badge cd-source-badge--${isPdf ? "pdf" : "web"}">${isPdf ? "PDF" : "Web"}</span>
+          </a>`;
+        }).join("")}
+      </div>
+      <div class="cd-sources-note">Requirements and fees are sourced from publicly available bank documents. Values may change — verify with your bank before applying.</div>
     </div>
   `;
 }
@@ -2595,6 +2620,8 @@ function renderCardDetailModal(inner) {
       </div>` : ""}
 
       ${result ? renderRequirementSummary(result.requirementStatus, { showStatus: true }) : ""}
+
+      ${result ? renderSourcesSection(result.requirementStatus.sourceIds) : ""}
 
       <div class="cd-section">
         <div class="cd-section-title">Deals by day</div>

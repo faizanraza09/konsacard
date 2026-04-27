@@ -2053,6 +2053,17 @@ body.content-page {
 .cd-section-title { font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 12px; }
 .cd-section-sub { font-size: 10px; font-weight: 500; color: var(--muted2); margin-left: 6px; text-transform: none; letter-spacing: 0; }
 
+/* Sources section in detail modal */
+.cd-sources-section { background: var(--surface2); }
+.cd-sources-list { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+.cd-source-link { display: flex; align-items: center; gap: 8px; text-decoration: none; color: var(--ink); font-size: 12.5px; font-weight: 500; padding: 7px 10px; background: var(--surface); border: 1px solid var(--line2); border-radius: 8px; transition: border-color .15s; }
+.cd-source-link:hover { border-color: var(--brand); color: var(--brand); }
+.cd-source-label { flex: 1; }
+.cd-source-badge { font-size: 9px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; padding: 2px 6px; border-radius: 4px; flex-shrink: 0; }
+.cd-source-badge--pdf { background: #fef3c7; color: #92400e; }
+.cd-source-badge--web { background: #dbeafe; color: #1e40af; }
+.cd-sources-note { font-size: 11px; color: var(--muted2); line-height: 1.5; }
+
 /* Deal calendar */
 .deal-calendar { display: flex; gap: 6px; align-items: flex-end; }
 .deal-cal-day { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; }
