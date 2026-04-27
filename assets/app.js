@@ -1758,12 +1758,15 @@ class GeminiError extends Error {
 
 /* ── Convert internal message history to Gemini contents format ── */
 function toGeminiContents(messages) {
-  return messages
+  const contents = messages
     .filter((m) => m.role === "user" || m.role === "bot")
     .map((m) => ({
       role: m.role === "bot" ? "model" : "user",
       parts: [{ text: m.text }],
     }));
+  // Gemini requires the first turn to be a user turn — drop any leading model turns (e.g. the UI greeting)
+  const firstUser = contents.findIndex((c) => c.role === "user");
+  return firstUser > 0 ? contents.slice(firstUser) : contents;
 }
 
 /* ── Open / close ── */
