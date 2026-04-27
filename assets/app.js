@@ -1133,9 +1133,9 @@ const OB_STEP_DEFS = [
 let obState = { step: 0, city: null, type: [], bill: 8000 };
 
 function checkFirstVisitAndShowQuickQuiz() {
-  const visited = localStorage.getItem("konsacard_visited");
+  const visited = localStorage.getItem("konsacard_visited_v2");
   if (!visited) {
-    localStorage.setItem("konsacard_visited", "true");
+    localStorage.setItem("konsacard_visited_v2", "true");
     showLandingScreen();
   }
 }
