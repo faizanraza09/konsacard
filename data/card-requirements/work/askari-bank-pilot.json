@@ -94,7 +94,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": null,
@@ -115,7 +115,7 @@
       "card_type": "debit",
       "tier": "signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_relationship_balance_pkr": 5000000,
         "annual_fee_pkr": 18000,
         "annual_fee_waiver_rule": "Waived if the required minimum average quarterly balance is maintained.",
@@ -128,6 +128,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "Eligibility is deposit-based rather than salary-based on the official card page.",
         "Page frames the card as free for eligible relationship customers, while the SOC lists a standard PKR 18,000 fee."
       ]
     },
@@ -136,8 +137,8 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "joining_fee_pkr": 2400,
         "annual_fee_pkr": 2400,
         "annual_fee_waiver_rule": null,
@@ -146,10 +147,15 @@
       },
       "sources": [
         "https://askaribank.com/personal/cards/paypak-debit-card",
+        "https://askaribank.com/personal/accounts/current-account-pkr/askari-asaan-current-account",
+        "https://askaribank.com/personal/accounts/askari-asaan-saving-account",
         "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
       ],
       "confidence": "medium",
-      "notes": []
+      "notes": [
+        "PayPak debit issuance is account-linked rather than salary-gated on the public card page.",
+        "Official Askari Asaan Current and Asaan Saving account pages surface no minimum balance requirement and explicitly frame PayPak issuance against those no-minimum-balance products."
+      ]
     }
   ],
   "gaps": [

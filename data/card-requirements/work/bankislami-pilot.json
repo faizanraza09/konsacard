@@ -8,7 +8,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 1000,
         "annual_fee_waiver_rule": "Mashal Women account gives 50% discount on debit-card annual fee and 100% waiver at PKR 100,000 average balance for Classic and PayPak.",
@@ -31,7 +31,7 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 1000,
         "annual_fee_waiver_rule": "Mashal Women account gives 50% discount on annual fee and 100% waiver at PKR 100,000 average balance for Classic and PayPak.",
@@ -52,9 +52,9 @@
       "card_type": "debit",
       "tier": "titanium",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 4000,
         "annual_fee_waiver_rule": "Priority Banking page indicates issuance and replacement fee waivers for the Priority Titanium Debit Mastercard.",
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -62,11 +62,13 @@
       "sources": [
         "https://bankislami.com.pk/titanium-debit-mastercard/",
         "https://bankislami.com.pk/wp-content/uploads/2022/07/FAQs-Titanium-Debit-Mastercard.pdf",
+        "https://bankislami.com.pk/wp-content/uploads/2026/01/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
         "https://bankislami.com.pk/prioritybanking/"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
-        "Priority Titanium appears to be a distinct premium variant and should be modeled separately later."
+        "The public 2026 SOC lists the ordinary Titanium Debit Mastercard at PKR 4,000 for issuance/annual subscription/replacement.",
+        "Priority Titanium appears to be a distinct premium variant with fee waivers and a separate Priority relationship criterion, so the ordinary Titanium record keeps salary and balance thresholds as null."
       ]
     }
   ],

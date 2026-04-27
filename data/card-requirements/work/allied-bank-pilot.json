@@ -9,7 +9,7 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2500,
         "annual_fee_waiver_rule": "Spend PKR 25,000 within 3 months.",
         "minimum_age_years": null,
@@ -30,7 +30,7 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 5000,
         "annual_fee_waiver_rule": "Spend PKR 50,000 within 3 months.",
         "minimum_age_years": null,
@@ -71,7 +71,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 416667,
         "minimum_deposit_pkr": 2000000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 19500,
         "annual_fee_waiver_rule": "Eligible if maintaining PKR 500,000 daily average in current account or PKR 1,000,000 in savings over the last 11 months.",
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -79,12 +79,14 @@
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/visa-premium-debit-card/",
         "https://www.abl.com/ur/personal/cards/debit-cards/visa-premium-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf"
       ],
       "confidence": "low",
       "notes": [
-        "Salary threshold comes from the Urdu page and is expressed as PKR 5 million annual income.",
-        "Surfaced SOC excerpt was not explicit enough to assign an annual fee with high confidence."
+        "Official product page states PKR 5 million annual income eligibility.",
+        "Official product page also states a PKR 2 million deposit route and the annual-fee-waiver balance conditions.",
+        "Official Jul-Dec 2025 SOC lists a PKR 19,500 annual / issuance / renewal fee."
       ]
     },
     {
@@ -94,18 +96,20 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 83333,
         "minimum_account_balance_pkr": 300000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 6000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.abl.com/personal-banking/credit-debit-cards/allied-visa-platinum-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Product page states PKR 1 million annual income and PKR 300,000 account balance."
+        "Product page states PKR 1 million annual income and PKR 300,000 account balance.",
+        "Official Jul-Dec 2025 SOC lists a PKR 6,000 annual / issuance / renewal fee."
       ]
     },
     {
@@ -113,21 +117,23 @@
       "card_type": "debit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 5000000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "If required balance is not maintained, PKR 8,000 per month is charged; after 3 consecutive months of non-maintenance the card is downgraded.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/visa-infinite-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Conventional route says PKR 5m current or PKR 10m savings/term deposit.",
-        "Islamic route says PKR 10m current or PKR 10m savings/term deposit."
+        "Islamic route says PKR 10m current or PKR 10m savings/term deposit.",
+        "Official Jul-Dec 2025 SOC lists annual / issuance / renewal fee as free, while the product page separately states the PKR 8,000 monthly non-maintenance charge."
       ]
     },
     {
@@ -135,7 +141,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
@@ -157,7 +163,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
@@ -179,7 +185,7 @@
       "card_type": "debit",
       "tier": "classic-plus",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2800,
         "annual_fee_waiver_rule": null,
@@ -200,7 +206,7 @@
       "card_type": "debit",
       "tier": "basic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 1750,
         "annual_fee_waiver_rule": null,
@@ -221,7 +227,7 @@
       "card_type": "debit",
       "tier": "youth",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 10000,
         "annual_fee_pkr": null,
         "annual_fee_waiver_rule": "Youth account fee-exemption grid surfaces first-year debit-card relief; exact youth-card pricing line is not separately published.",

@@ -9,7 +9,7 @@
       "tier": "classic",
       "requirements": {
         "minimum_monthly_salary_pkr": 70000,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 5000,
         "annual_fee_waiver_rule": "Reduced fee of PKR 1,200 on spending PKR 25,000 within 1 month of activation.",
         "minimum_age_years": null,
@@ -22,7 +22,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "Shared product table shows a PKR 70,000 monthly salary threshold across surfaced credit-card variants."
+        "Shared product table shows a PKR 70,000 monthly salary threshold across surfaced credit-card variants.",
+        "Public credit-card material is income-based and does not surface a deposit threshold for this unsecured product."
       ]
     },
     {
@@ -31,7 +32,7 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": 70000,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 15000,
         "annual_fee_waiver_rule": "Reduced fee of PKR 3,100 on spending PKR 100,000 within 1 month of activation.",
         "minimum_age_years": null,
@@ -43,7 +44,9 @@
         "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
       ],
       "confidence": "medium",
-      "notes": []
+      "notes": [
+        "Public credit-card material is income-based and does not surface a deposit threshold for this unsecured product."
+      ]
     },
     {
       "card_name": "PayPak Classic Debit Card",
@@ -51,6 +54,7 @@
       "tier": "classic",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "minimum_deposit_pkr": 100,
         "annual_fee_pkr": 1000,
         "annual_fee_waiver_rule": "Annual fee waived for JS Inclusive Current Account.",
@@ -64,7 +68,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "JS Asaan Current Account has no minimum monthly average balance and low initial deposit of PKR 100."
+        "JS Asaan Current Account page states no minimum monthly average balance and low initial deposit of PKR 100.",
+        "JS Bank's Mar 2026 deposit KFS also surfaces nil balance-to-keep on its low-balance current-account variants."
       ]
     },
     {
@@ -72,7 +77,8 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "minimum_average_balance_pkr": 100000,
         "annual_fee_pkr": 2500,
         "annual_fee_waiver_rule": "JS Current Account annual fee waiver at PKR 100,000 average balance; JS Elite Plus Current Account lists annual fee free.",
@@ -85,14 +91,17 @@
         "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
       ],
       "confidence": "medium",
-      "notes": []
+      "notes": [
+        "JS Current Account page presents PKR 100,000 as the balance needed for annual-fee waiver, not as a hard card-eligibility threshold.",
+        "JS Bank's Mar 2026 deposit KFS shows current-account variants with nil balance-to-keep while fee waivers remain tied to average-balance bands."
+      ]
     },
     {
       "card_name": "Mastercard World Debit Card",
       "card_type": "debit",
       "tier": "world",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 3000000,
         "annual_fee_pkr": 17000,
         "annual_fee_waiver_rule": null,

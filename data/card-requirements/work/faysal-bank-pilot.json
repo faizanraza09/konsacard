@@ -8,8 +8,8 @@
       "card_type": "credit",
       "tier": "world",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 40000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 26000,
         "supplementary_annual_fee_pkr": 12500,
         "annual_fee_waiver_rule": "Spend PKR 1,000,000 within 12 months for annual fee reversal; reduced fee PKR 2,500 otherwise. Supplementary: spend PKR 50,000 within 60 days.",
@@ -18,11 +18,13 @@
       },
       "sources": [
         "https://www.faysalbank.com/faysal-islami-noor-cards",
-        "https://www.faysalbank.com/priority/priority-faysal-islami-noor-cards/"
+        "https://www.faysalbank.com/priority/priority-faysal-islami-noor-cards/",
+        "https://www.faysalbank.com/priority/priority-faysal-islami-noor-cards/noor-world-card"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Age was not cleanly surfaced on the World-specific page reviewed."
+        "World-specific page exposes the same shared Noor income grid as the other Noor cards: PKR 40,000 salaried approved, PKR 50,000 salaried unapproved, PKR 100,000 self-employed.",
+        "Recovered as an unsecured income-based card rather than a deposit-gated product."
       ]
     },
     {
@@ -31,7 +33,7 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": 40000,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 11000,
         "supplementary_annual_fee_pkr": 2000,
         "annual_fee_waiver_rule": "Spend PKR 30,000 within 60 days for annual fee reversal; reduced fee PKR 900 otherwise. Supplementary: spend PKR 15,000 within 60 days.",
@@ -45,6 +47,8 @@
       "confidence": "high",
       "notes": [
         "Product page clearly surfaces PKR 40,000 salary threshold for salaried approved applicants."
+        ,
+        "Recovered as an unsecured income-based card rather than a deposit-gated product."
       ]
     },
     {
@@ -52,8 +56,8 @@
       "card_type": "credit",
       "tier": "titanium",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 40000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 13000,
         "supplementary_annual_fee_pkr": 4000,
         "annual_fee_waiver_rule": "Spend PKR 40,000 within 60 days for annual fee reversal; reduced fee PKR 1,100 otherwise. Supplementary: spend PKR 20,000 within 60 days.",
@@ -61,10 +65,14 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.faysalbank.com/faysal-islami-noor-cards"
+        "https://www.faysalbank.com/faysal-islami-noor-cards",
+        "https://www.faysalbank.com/faysal-islami-noor-cards/noor-titanium-card"
       ],
-      "confidence": "medium",
-      "notes": []
+      "confidence": "high",
+      "notes": [
+        "Titanium page exposes the shared Noor income grid: PKR 40,000 salaried approved, PKR 50,000 salaried unapproved, PKR 100,000 self-employed.",
+        "Recovered as an unsecured income-based card rather than a deposit-gated product."
+      ]
     },
     {
       "card_name": "Priority World Debit Card",
@@ -72,9 +80,10 @@
       "tier": "world",
       "requirements": {
         "minimum_monthly_salary_pkr": 500000,
+        "minimum_account_balance_pkr": 3000000,
         "minimum_average_balance_pkr": 3000000,
         "minimum_deposit_pkr": 5000000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Complimentary Priority World Debit Card on maintenance of required priority thresholds.",
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -86,6 +95,7 @@
       "confidence": "medium",
       "notes": [
         "Priority eligibility can be met by PKR 3,000,000 quarterly average balance in CASA/current/saving, PKR 5,000,000 term deposit, or PKR 10,000,000 AUM with at least PKR 1,500,000 average quarterly CASA balance.",
+        "Priority experience page describes the card as complimentary while the required priority thresholds are maintained.",
         "Supplementary cards allowed for loved ones above 18 years."
       ]
     },
@@ -95,9 +105,10 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": 500000,
+        "minimum_account_balance_pkr": 3000000,
         "minimum_average_balance_pkr": 3000000,
         "minimum_deposit_pkr": 5000000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Complimentary Priority Platinum Debit Card on maintenance of required priority thresholds.",
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -107,7 +118,9 @@
         "https://www.faysalbank.com/priority/priority-experience/"
       ],
       "confidence": "medium",
-      "notes": []
+      "notes": [
+        "Priority experience page describes the card as complimentary while the required priority thresholds are maintained."
+      ]
     }
   ],
   "gaps": [

@@ -1,7 +1,7 @@
 {
   "bank_slug": "hbl",
   "bank_name": "HBL",
-  "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI.",
+  "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI.",
   "cards": [
     {
       "card_name": "HBL Platinum CreditCard",
@@ -10,19 +10,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 400000,
         "minimum_relationship_balance_pkr": 1000000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 22000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 21,
         "maximum_age_years": 65
       },
       "sources": [
-        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview"
+        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Salaried age cap appears to be 60; self-employed appears to extend to 65.",
         "Supplementary card age appears as 18+ on the overview page.",
-        "Annual fee was not cleanly surfaced in the current crawlable source pass."
+        "Annual fee is listed as Rs. 22,000 in HBL's Jan-Jun 2026 Schedule of Bank Charges.",
+        "HBL Prestige members publicly receive a 50% Platinum annual-fee waiver, but the base card requirement record keeps the standard fee."
       ]
     },
     {
@@ -32,18 +34,19 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 100000,
         "minimum_relationship_balance_pkr": 300000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 14000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 21,
         "maximum_age_years": 65
       },
       "sources": [
-        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview"
+        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Salaried age cap appears to be 60; self-employed appears to extend to 65.",
-        "Annual fee was not cleanly surfaced in the current crawlable source pass."
+        "Annual fee is listed as Rs. 14,000 in HBL's Jan-Jun 2026 Schedule of Bank Charges."
       ]
     },
     {
@@ -53,18 +56,19 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": 105000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 6500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 21,
         "maximum_age_years": 65
       },
       "sources": [
-        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview"
+        "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Salaried age cap appears to be 60; self-employed appears to extend to 65.",
-        "Annual fee was not cleanly surfaced in the current crawlable source pass."
+        "Annual fee is listed as Rs. 6,500 in HBL's Jan-Jun 2026 Schedule of Bank Charges."
       ]
     },
     {
@@ -112,7 +116,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
@@ -134,7 +138,7 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
@@ -157,20 +161,22 @@
       "card_type": "debit",
       "tier": "business",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "HBL's Jan-Jun 2026 SOBC says Mastercard Business Classic issuance and annual fee are 100% waived.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard"
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Public page confirms it is a distinct business debit-card product for new and existing customers.",
-        "Public page surfaced product limits but not a clean fee or age table."
+        "Public page surfaced product limits but not a clean fee or age table.",
+        "The Jan-Jun 2026 SOBC explicitly waives issuance and annual fee for Mastercard Business Classic."
       ]
     },
     {
@@ -178,20 +184,22 @@
       "card_type": "debit",
       "tier": "world-business",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 22000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card"
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Public page confirms it is a distinct world business debit-card product for new and existing customers.",
-        "Public page surfaced product limits but not a clean fee or age table."
+        "Public page surfaced product limits but not a clean fee or age table.",
+        "HBL Jan-Jun 2026 SOBC lists Mastercard Business World annual fee at Rs. 22,000."
       ]
     },
     {
@@ -199,22 +207,23 @@
       "card_type": "debit",
       "tier": "world",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 20000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
-        "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf"
+        "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Public page positions it for high-net-worth customers.",
         "Limit enhancement PDF shows daily withdrawal PKR 500,000 and purchase/e-commerce / funds-transfer limits of PKR 3,000,000.",
-        "No clean public fee table was surfaced in this pass."
+        "HBL Jan-Jun 2026 SOBC lists Mastercard World annual fee at Rs. 20,000."
       ]
     },
     {
@@ -222,7 +231,7 @@
       "card_type": "debit",
       "tier": "world-elite",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Free issuance, renewal, and replacement for HBL Prestige members.",
@@ -242,7 +251,6 @@
     }
   ],
   "gaps": [
-    "Fee amounts and waiver rules are still missing for HBL's standard credit-card tiers in this source pass.",
     "Most HBL debit-card pages still do not expose clean public fee or age tables."
   ]
 }

@@ -8,7 +8,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 50000,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2900,
         "annual_fee_waiver_rule": null,
@@ -31,7 +31,7 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 4000,
         "annual_fee_waiver_rule": null,
@@ -53,7 +53,7 @@
       "card_type": "debit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 7000,
         "annual_fee_waiver_rule": null,
@@ -68,6 +68,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "Public card pages frame the product as not requiring a minimum income.",
         "No clear minimum balance requirement was found in the surfaced public pages."
       ]
     },
@@ -76,7 +77,7 @@
       "card_type": "debit",
       "tier": "signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 1000000,
         "minimum_deposit_pkr": 1000000,
         "annual_fee_pkr": 18000,
@@ -105,7 +106,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
         "minimum_relationship_balance_pkr": 75000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 6500,
         "annual_fee_waiver_rule": "Basic: PKR 65,000 retail spend in 2 months or PKR 45,000 international/e-commerce spend in 2 months. Supplementary: PKR 25,000 or PKR 17,500.",
         "minimum_age_years": 21,
         "maximum_age_years": 70
@@ -113,12 +114,13 @@
       "sources": [
         "https://www.bankalfalah.com/personal-banking/cards/credit-cards/eligibility-criteria-credit-cards/",
         "https://www.bankalfalah.com/digital-banking/bank-alfalah-instant-visa-classic-credit-card/",
+        "https://www.bankalfalah.com/wp-content/uploads/2025/07/Credit-Card-Summary-Box-July-to-Dec-2025.pdf",
         "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/"
       ],
       "confidence": "medium",
       "notes": [
         "Salaried age cap appears to be 60; self-employed and supplementary appear to extend to 70.",
-        "Annual fee amount was not cleanly surfaced in the public pages reviewed."
+        "Annual fee is sourced from the official Credit Card Summary Box updated Jul-Dec 2025."
       ]
     },
     {
@@ -128,7 +130,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
         "minimum_relationship_balance_pkr": 75000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 12000,
         "annual_fee_waiver_rule": "Basic: PKR 150,000 retail spend in 2 months or PKR 110,000 international/e-commerce spend in 2 months. Supplementary: PKR 75,000 or PKR 55,000.",
         "minimum_age_years": 21,
         "maximum_age_years": 70
@@ -136,11 +138,13 @@
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/visa-gold-credit-card",
         "https://www.bankalfalah.com/personal-banking/cards/credit-cards/eligibility-criteria-credit-cards/",
+        "https://www.bankalfalah.com/wp-content/uploads/2025/07/Credit-Card-Summary-Box-July-to-Dec-2025.pdf",
         "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/"
       ],
       "confidence": "medium",
       "notes": [
-        "Shared eligibility grid appears to apply across mainstream consumer credit cards."
+        "Shared eligibility grid appears to apply across mainstream consumer credit cards.",
+        "Annual fee is sourced from the official Credit Card Summary Box updated Jul-Dec 2025."
       ]
     },
     {
@@ -149,6 +153,7 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 13000,
         "supplementary_annual_fee_pkr": 6500,
         "annual_fee_waiver_rule": "First-year annual fee waived for Premier Banking customers only.",
@@ -163,7 +168,8 @@
       "confidence": "high",
       "notes": [
         "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds.",
-        "Salaried age cap appears to be 60; self-employed and supplementary appear to extend to 70."
+        "Salaried age cap appears to be 60; self-employed and supplementary appear to extend to 70.",
+        "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
       ]
     },
     {
@@ -172,6 +178,7 @@
       "tier": "optimus",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 16000,
         "supplementary_annual_fee_pkr": 8000,
         "annual_fee_waiver_rule": null,
@@ -184,7 +191,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds."
+        "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds.",
+        "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
       ]
     },
     {
@@ -193,6 +201,7 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 23000,
         "supplementary_annual_fee_pkr": 11500,
         "annual_fee_waiver_rule": null,
@@ -205,7 +214,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds."
+        "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds.",
+        "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
       ]
     },
     {
@@ -213,7 +223,7 @@
       "card_type": "credit",
       "tier": "premier-platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 50000,
         "minimum_relationship_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Free for Premier customers while Premier criteria are maintained.",
@@ -236,6 +246,7 @@
       "tier": "corporate",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 6000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 21,
@@ -247,7 +258,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "Public summary box shows PKR 6,000 fee from second year onward."
+        "Public summary box shows PKR 6,000 fee from second year onward.",
+        "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
       ]
     },
     {
@@ -277,8 +289,8 @@
       "card_type": "debit",
       "tier": "pehchaan",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 4000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -286,11 +298,13 @@
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/cards/debit-cards/alfalah-pehchaan-debit-card/",
-        "https://www.bankalfalah.com/personal-banking/cards/debit-cards/compare-debit-cards"
+        "https://www.bankalfalah.com/personal-banking/cards/debit-cards/compare-debit-cards",
+        "https://www.bankalfalah.com/personal-banking/deposit-accounts/alfalah-pehchaan-current-account/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Requirement is tied to the underlying Pehchaan account rather than a salary threshold."
+        "Requirement is tied to the underlying Pehchaan account rather than a salary threshold.",
+        "Official Pehchaan account page states no minimum balance requirement."
       ]
     },
     {
@@ -299,7 +313,7 @@
       "tier": "islamic-classic",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2900,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -309,9 +323,10 @@
         "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-classic-debit-card/",
         "https://www.bankalfalah.com/wp-content/uploads/2024/05/SOBC-Islamic-May-2024-W_SUM.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
-        "Current public page confirms no minimum income, but the fee was recovered from surfaced Islamic SOC material."
+        "Current public page confirms no minimum income and no minimum balance requirement.",
+        "The fee was recovered from surfaced Islamic SOC material."
       ]
     },
     {
@@ -340,10 +355,10 @@
       "card_type": "debit",
       "tier": "islamic-signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 1000000,
         "minimum_deposit_pkr": 1000000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 9000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -361,10 +376,10 @@
       "card_type": "debit",
       "tier": "islamic-power-pack-signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 250000,
         "minimum_deposit_pkr": 250000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 9000,
         "annual_fee_waiver_rule": "Annual fee becomes payable if the customer falls below the Power Pack balance and wants to retain the card.",
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -384,7 +399,7 @@
       "tier": "islamic-paypak-classic",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2400,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -394,9 +409,10 @@
         "https://www.bankalfalah.com/islamic/debit-card/alfalah-paypak-islamic-classic-debit-card/",
         "https://www.bankalfalah.com/wp-content/uploads/2024/05/SOBC-Islamic-May-2024-W_SUM.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
-        "Current public page confirms no minimum income, but the fee was recovered from surfaced Islamic SOC material."
+        "Current public page confirms no minimum income and no minimum balance requirement.",
+        "The fee was recovered from surfaced Islamic SOC material."
       ]
     },
     {
@@ -405,19 +421,22 @@
       "tier": "islamic-women-gold",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 4400,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bankalfalah.com/islamic/debit-card/bank-alfalah-islamic-gold-women-debit-card/"
+        "https://www.bankalfalah.com/islamic/debit-card/bank-alfalah-islamic-gold-women-debit-card/",
+        "https://www.bankalfalah.com/islamic/deposit-accounts/bank-alfalah-islamic-women-account/",
+        "https://www.bankalfalah.com/wp-content/uploads/2025/05/SOBC-Islamic-EnglishJul-Dec-2025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Tied to the Islamic Women account and publicly framed as not requiring an income threshold.",
-        "A clean card-specific fee row was not surfaced in this pass."
+        "Official Islamic Women account page states no minimum balance requirement.",
+        "Latest surfaced official Islamic SOC lists PKR 4,400 annual charges for the Islamic Gold Women Debit Card."
       ]
     },
     {
@@ -425,19 +444,21 @@
       "card_type": "debit",
       "tier": "islamic-women-power-pack",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 250000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 20500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bankalfalah.com/islamic/debit-card/bank-alfalah-islamic-power-pack-women-debit-card/"
+        "https://www.bankalfalah.com/islamic/debit-card/bank-alfalah-islamic-power-pack-women-debit-card/",
+        "https://www.bankalfalah.com/wp-content/uploads/2025/05/SOBC-Islamic-EnglishJul-Dec-2025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Public page ties the card to the Islamic Women account plus the PKR 250,000 Power Pack balance condition."
+        "Public page ties the card to the Islamic Women account plus the PKR 250,000 Power Pack balance condition.",
+        "Latest surfaced official Islamic SOC lists PKR 20,500 annual charges for the Islamic Power Pack Women Debit Card."
       ]
     },
     {
@@ -445,7 +466,7 @@
       "card_type": "debit",
       "tier": "premier-signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_relationship_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Free for Premier customers while Premier criteria are maintained.",
@@ -466,7 +487,7 @@
       "card_type": "debit",
       "tier": "islamic-premier-signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_relationship_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Fee waiver applies for Islamic Premier customers meeting the relationship threshold.",
@@ -487,20 +508,25 @@
       "card_type": "credit",
       "tier": "ultra-cashback",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 9000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bankalfalah.com/personal-banking/credit-cards/visa-ultra-cashback-card"
+        "https://www.bankalfalah.com/personal-banking/credit-cards/visa-ultra-cashback-card",
+        "https://www.bankalfalah.com/wp-content/uploads/2025/07/Credit-Card-Summary-Box-July-to-Dec-2025.pdf",
+        "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/"
       ],
       "confidence": "low",
       "notes": [
         "Recovered as the current official public naming for the Ultra Visa credit-card family.",
-        "This pass did not recover a clean public eligibility or fee table for the product."
+        "Current official card page lists PKR 50,000 minimum gross income for salaried applicants.",
+        "Official Credit Card Summary Box updated Jul-Dec 2025 lists a PKR 9,000 basic-card annual fee.",
+        "Official annual-fee reversal page says Ultra cardholders are only eligible for a first-year annual-fee waiver on PKR 75,000 spend within 2 months.",
+        "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
       ]
     }
   ],

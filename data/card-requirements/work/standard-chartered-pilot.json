@@ -9,7 +9,7 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 19000,
         "supplementary_annual_fee_pkr": 7500,
         "annual_fee_waiver_rule": "Second year onwards: 1.5x credit limit in 3 months after fee charge, capped at PKR 800,000 and floored at PKR 200,000. First-year fee may be reversed on digital acquisition or spend promotion.",
@@ -24,7 +24,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "Self-employed minimum age is 25 on public pages."
+        "Self-employed minimum age is 25 on public pages.",
+        "Official eligibility flow asks for income proof and does not surface any deposit threshold for this unsecured credit-card product."
       ]
     },
     {
@@ -32,8 +33,8 @@
       "card_type": "credit",
       "tier": "world",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 500000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 26000,
         "supplementary_annual_fee_pkr": 9000,
         "annual_fee_waiver_rule": "Second year onwards: 1.5x credit limit in 3 months after fee charge, capped at PKR 900,000 and floored at PKR 600,000. First-year fee can be reversed based on spend promotion.",
@@ -42,12 +43,14 @@
       },
       "sources": [
         "https://www.sc.com/pk/credit-cards/",
+        "https://www.sc.com/pk/credit-cards/mastercard-world/apply-now/",
         "https://av.sc.com/pk/content/docs/pk-personal-installment-finance-cc.pdf",
         "https://av.sc.com/pk/content/docs/pk-annual-fee-reversal-criteria.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Public landing page did not expose a clean income threshold for World in the surfaced crawl."
+        "Official apply-now page explicitly states minimum monthly salary / income of PKR 500,000.",
+        "No deposit threshold is surfaced on the public eligibility or apply pages for this unsecured credit-card product."
       ]
     },
     {
@@ -64,11 +67,15 @@
       },
       "sources": [
         "https://www.sc.com/pk/credit-cards/",
+        "https://www.sc.com/pk/credit-cards/master-card-titanium/",
+        "https://www.sc.com/pk/credit-cards/master-card-titanium/apply-now/",
+        "https://av.sc.com/pk/content/docs/CC_Summary_Box.pdf",
         "https://av.sc.com/pk/content/docs/pk-annual-fee-reversal-criteria.pdf"
       ],
       "confidence": "low",
       "notes": [
-        "Self-employed minimum age is 25 on public pages."
+        "Self-employed minimum age is 25 on public pages.",
+        "Current official Titanium product pages expose eligibility, but the current public conventional Summary Box / MID fee grid surfaced for Pakistan lists Platinum, World, and Easy Credit only, so annual_fee_pkr remains null."
       ]
     },
     {
@@ -99,7 +106,7 @@
       "card_type": "credit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 100000,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 19000,
         "supplementary_annual_fee_pkr": 6000,
@@ -109,10 +116,13 @@
       },
       "sources": [
         "https://www.sc.com/pk/credit-cards/",
+        "https://www.sc.com/pk/credit-cards/mastercard-saadiq-platinum/apply-now/",
         "https://av.sc.com/pk/content/docs/pk-saadiq-credit-card-mid.pdf"
       ],
       "confidence": "medium",
-      "notes": []
+      "notes": [
+        "Minimum monthly salary / income is inferred from the official apply-now form's lowest selectable income band, which starts at PKR 100,000; the public page does not state the threshold in prose."
+      ]
     }
   ],
   "gaps": [

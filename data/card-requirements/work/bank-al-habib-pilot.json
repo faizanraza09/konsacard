@@ -105,8 +105,8 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 4500,
         "supplementary_annual_fee_pkr": 3500,
         "annual_fee_waiver_rule": null,
@@ -114,11 +114,13 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bankalhabib.com/debit-cards"
+        "https://www.bankalhabib.com/debit-cards",
+        "https://www.bankalhabib.com/accounts/digital"
       ],
       "confidence": "medium",
       "notes": [
-        "Official public product exists, but no public salary or balance threshold was surfaced."
+        "Official digital-account page states no minimum balance or initial deposit requirement and explicitly lists Visa Gold Debit Card among the available debit-card options.",
+        "Eligibility is account-linked rather than salary-gated on public BAHL material."
       ]
     },
     {
@@ -126,8 +128,8 @@
       "card_type": "debit",
       "tier": "silver",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 3700,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
@@ -135,11 +137,13 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bankalhabib.com/debit-cards"
+        "https://www.bankalhabib.com/debit-cards",
+        "https://www.bankalhabib.com/accounts/digital"
       ],
       "confidence": "medium",
       "notes": [
-        "Official public product exists, but no public salary or balance threshold was surfaced."
+        "Official digital-account page states no minimum balance or initial deposit requirement and explicitly lists Visa Silver Debit Card among the available debit-card options.",
+        "Eligibility is account-linked rather than salary-gated on public BAHL material."
       ]
     },
     {
@@ -147,7 +151,7 @@
       "card_type": "debit",
       "tier": "digital-gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 4500,
         "annual_fee_waiver_rule": null,
@@ -159,10 +163,10 @@
         "https://www.bankalhabib.com/alhabib-digital-account",
         "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
         "Underlying digital account public pages say no minimum balance or initial deposit.",
-        "Dedicated debit-card page and digital-account KFS show conflicting fee context, so this fee should be treated as unresolved public-source conflict."
+        "Official BAHL debit-cards page now exposes a PKR 4,500 primary annual fee and PKR 3,500 supplementary annual fee for the Digital Account Gold variant."
       ]
     },
     {
@@ -170,9 +174,10 @@
       "card_type": "debit",
       "tier": "digital-classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3700,
+        "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -182,11 +187,11 @@
         "https://www.bankalhabib.com/alhabib-digital-account",
         "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
         "Public naming is Classic rather than Silver on BAHL's own site.",
         "Underlying digital account public pages say no minimum balance or initial deposit.",
-        "The debit-cards page appears mislabeled on the Classic fee block, so the exact fee was not cleanly recoverable."
+        "Official BAHL debit-cards page exposes PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee for the Digital Account Classic variant."
       ]
     },
     {
@@ -194,8 +199,8 @@
       "card_type": "debit",
       "tier": "remit",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 3700,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
@@ -217,8 +222,8 @@
       "card_type": "debit",
       "tier": "woman",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 3700,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
@@ -241,7 +246,7 @@
       "card_type": "debit",
       "tier": "unionpay-apna",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 25000,
         "annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": null,
@@ -264,8 +269,8 @@
       "card_type": "debit",
       "tier": "unionpay",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 1250,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -273,13 +278,15 @@
       },
       "sources": [
         "https://www.bankalhabib.com/cards",
+        "https://www.bankalhabib.com/accounts/digital",
         "https://www.bankalhabib.com/files/download/reports/Current%20Account.pdf",
         "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
         "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
       ],
       "confidence": "low",
       "notes": [
-        "Public fees differ by account/KFS context, so this is not a single settled universal UnionPay fee."
+        "Public fees differ by account/KFS context, so this is not a single settled universal UnionPay fee.",
+        "Official BAHL digital-account FAQs list UPI Debit Card availability and explicitly state no minimum balance / no initial deposit requirement for these accounts."
       ]
     },
     {
@@ -287,7 +294,7 @@
       "card_type": "debit",
       "tier": "paypak",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 25000,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Often the default free card when the surfaced account-level average-balance condition is maintained.",

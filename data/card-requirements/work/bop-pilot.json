@@ -9,7 +9,7 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 6250,
         "supplementary_annual_fee_pkr": 3125,
         "annual_fee_waiver_rule": "Spend PKR 40,000 within 60 days to reverse annual fee by calling the helpline.",
@@ -31,7 +31,7 @@
       "tier": "world",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 25000,
         "supplementary_annual_fee_pkr": 12500,
         "annual_fee_waiver_rule": "Spend PKR 1,500,000 within 12 months to reverse annual fee by calling the helpline.",
@@ -50,7 +50,7 @@
       "card_type": "debit",
       "tier": "world",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 15000,
         "supplementary_annual_fee_pkr": 9000,
@@ -97,7 +97,7 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2500,
         "supplementary_annual_fee_pkr": 1300,
@@ -119,7 +119,7 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3300,
         "supplementary_annual_fee_pkr": 1500,
@@ -143,7 +143,7 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 12500,
         "supplementary_annual_fee_pkr": 6250,
         "annual_fee_waiver_rule": "Spend PKR 100,000 within 60 days to reverse annual fee by calling the helpline.",
@@ -165,7 +165,7 @@
       "card_type": "debit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 5500,
         "supplementary_annual_fee_pkr": 2500,
@@ -188,9 +188,9 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 2600,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -198,12 +198,14 @@
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/REVISED%20BOP%20DMC%20Application-Sep%20%2716.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20-%20English%20-%20Jan-June%20%202026.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
         "Current forms use Classic where older BOP forms used Silver, so this is the best current alias target for Mastercard Silver Debit Card.",
-        "A clean current SOC fee row for the classic tier was not surfaced in this pass."
+        "Official BOP SOBC PDFs now surface the Classic Debit Master Card issuance/renewal/replacement fee at PKR 2,600 per annum.",
+        "No public BOP page or PDF found in this pass that defensibly states a universal salary or balance threshold for this generic account-linked card."
       ]
     },
     {
@@ -259,7 +261,7 @@
       "card_type": "debit",
       "tier": "taqwa-world",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 15000,
         "annual_fee_waiver_rule": "Priority-marked customers receive subsidized fee tiers in surfaced Islamic SOBC/KFS materials.",
@@ -281,7 +283,7 @@
       "card_type": "debit",
       "tier": "naaz",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 1000,
         "annual_fee_pkr": 0,
         "supplementary_annual_fee_pkr": 1100,

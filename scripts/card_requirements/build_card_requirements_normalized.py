@@ -28,6 +28,24 @@ def source_id_for(bank_slug: str, url: str) -> str:
     return f"{bank_slug}-src-{digest}"
 
 
+def normalize_requirements(requirements: dict) -> dict:
+    normalized = dict(requirements or {})
+    if normalized.get("minimum_account_balance_pkr") is None:
+        alt_values = [
+            normalized.get("minimum_average_balance_pkr"),
+            normalized.get("minimum_deposit_pkr"),
+            normalized.get("minimum_relationship_balance_pkr"),
+        ]
+        alt_values = [value for value in alt_values if value is not None]
+        unique_values = sorted(set(alt_values))
+        # Only normalize when public balance-like thresholds agree or there is a single
+        # surfaced numeric threshold. Conflicting new-vs-existing customer thresholds are
+        # left untouched for manual review.
+        if len(unique_values) == 1:
+            normalized["minimum_account_balance_pkr"] = unique_values[0]
+    return normalized
+
+
 def main() -> None:
     NORMALIZED_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -67,7 +85,7 @@ def main() -> None:
                     existing["used_by_card_ids"].append(card_id)
 
             confidence = card.get("confidence", "low")
-            requirements = card.get("requirements", {})
+            requirements = normalize_requirements(card.get("requirements", {}))
             requirement_sources = {
                 key: source_ids[:] for key, value in requirements.items() if value is not None
             }

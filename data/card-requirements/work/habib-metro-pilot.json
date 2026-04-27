@@ -8,7 +8,7 @@
       "card_type": "debit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 3000000,
         "annual_fee_pkr": 7500,
         "annual_fee_waiver_rule": null,
@@ -20,7 +20,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "Page states PKR 3mn last 3 months average balance for Platinum."
+        "Page states PKR 3mn last 3 months average balance for Platinum.",
+        "Eligibility is balance-based on the public debit-card page rather than salary-gated."
       ]
     },
     {
@@ -28,7 +29,7 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 4400,
         "annual_fee_waiver_rule": null,
@@ -40,7 +41,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "Page states no minimum balance."
+        "Page states no minimum balance.",
+        "Public debit-card page frames this as an account-linked card with no salary threshold surfaced."
       ]
     },
     {
@@ -48,7 +50,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 3300,
         "annual_fee_waiver_rule": null,
@@ -59,14 +61,16 @@
         "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
       ],
       "confidence": "high",
-      "notes": []
+      "notes": [
+        "Public debit-card page frames this as an account-linked card with no salary threshold surfaced."
+      ]
     },
     {
       "card_name": "Visa Infinite Debit Card",
       "card_type": "debit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_relationship_balance_pkr": 100000000,
         "annual_fee_pkr": 35000,
         "annual_fee_waiver_rule": "Annual fee for additional spouse card is waived for Priority Banking customers.",
@@ -86,7 +90,7 @@
       "card_type": "debit",
       "tier": "paypak",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2200,
         "annual_fee_waiver_rule": null,
@@ -97,14 +101,16 @@
         "https://www.habibmetro.com/digital-banking/cards/paypak-debit-card/"
       ],
       "confidence": "high",
-      "notes": []
+      "notes": [
+        "Public PayPak page states balance required: none."
+      ]
     },
     {
       "card_name": "Foreign Currency Visa Debit Card",
       "card_type": "debit",
       "tier": "fcy",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3300,
         "annual_fee_waiver_rule": null,
@@ -117,7 +123,8 @@
       "confidence": "medium",
       "notes": [
         "Classic annual fee is PKR 3,300; Gold PKR 4,400; Platinum PKR 7,500.",
-        "Card is available with Freelancer and Exporters Special Foreign Currency Account."
+        "Card is available with Freelancer and Exporters Special Foreign Currency Account.",
+        "Freelancer account page states no minimum monthly balance requirement on the linked PKR-side relationship, but no separate public ESFCA balance threshold was surfaced."
       ]
     }
   ],

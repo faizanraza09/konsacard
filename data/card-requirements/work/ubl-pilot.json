@@ -9,7 +9,7 @@
       "tier": "classic",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 6000,
         "supplementary_annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": "Spend PKR 50,000 in 60 days.",
@@ -24,7 +24,8 @@
       "confidence": "low",
       "notes": [
         "Annual fee changed from PKR 5,000 in Jul-Dec 2025 to PKR 6,000 in Jan-Jun 2026.",
-        "Supplementary annual fee changed from PKR 2,500 to PKR 3,000."
+        "Supplementary annual fee changed from PKR 2,500 to PKR 3,000.",
+        "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
       ]
     },
     {
@@ -33,7 +34,7 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 12000,
         "supplementary_annual_fee_pkr": 6000,
         "annual_fee_waiver_rule": "Spend PKR 100,000 in 60 days.",
@@ -49,7 +50,8 @@
       "confidence": "low",
       "notes": [
         "Annual fee changed from PKR 10,000 in Jul-Dec 2025 to PKR 12,000 in Jan-Jun 2026.",
-        "Supplementary annual fee changed from PKR 5,000 to PKR 6,000."
+        "Supplementary annual fee changed from PKR 5,000 to PKR 6,000.",
+        "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
       ]
     },
     {
@@ -58,7 +60,7 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 20000,
         "supplementary_annual_fee_pkr": 10000,
         "annual_fee_waiver_rule": "Spend PKR 300,000 in 60 days.",
@@ -73,7 +75,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "Annual fee stayed at PKR 20,000 across the two surfaced summary-box periods."
+        "Annual fee stayed at PKR 20,000 across the two surfaced summary-box periods.",
+        "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
       ]
     },
     {
@@ -81,8 +84,8 @@
       "card_type": "debit",
       "tier": "premium",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2800,
         "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
@@ -95,7 +98,7 @@
       ],
       "confidence": "high",
       "notes": [
-        "All existing and new account holders can apply."
+        "Official product page says all existing and new account holders can apply."
       ]
     },
     {
@@ -103,8 +106,8 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2000,
         "supplementary_annual_fee_pkr": 1200,
         "annual_fee_waiver_rule": null,
@@ -118,7 +121,7 @@
       ],
       "confidence": "high",
       "notes": [
-        "All existing and new account holders can apply.",
+        "Official product page says all existing and new current and saving account holders can apply.",
         "Omni Paypak variant is for digital wallet account holders who do not have a UBL card."
       ]
     },
@@ -127,8 +130,8 @@
       "card_type": "debit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Free annual fee and replacement fee on surfaced product page.",
         "minimum_age_years": null,
@@ -139,7 +142,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "Product is tied to Priority Banking rather than a mass-market debit-card flow."
+        "Product is tied to UBL Signature Priority Banking rather than a mass-market debit-card flow.",
+        "Official Signature Banking page shows a PKR 3 million quarterly average-balance threshold for qualifying local-currency current accounts."
       ]
     },
     {
@@ -147,8 +151,8 @@
       "card_type": "debit",
       "tier": "signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "supplementary_annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Free annual, supplementary, and replacement fees on the surfaced product page.",
@@ -160,7 +164,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "Public page positions it as a relationship-tier debit product, but no numeric threshold was surfaced publicly."
+        "Public page positions it as a relationship-tier debit product.",
+        "Official Signature Banking page shows a PKR 3 million quarterly average-balance threshold for qualifying local-currency current accounts."
       ]
     },
     {
@@ -168,20 +173,23 @@
       "card_type": "debit",
       "tier": "premium",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 2800,
+        "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking/AmeenPremiumDebitMasterCard",
-        "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking"
+        "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking",
+        "https://ubldigital.com/portals/0/Pdf/UBL-SBL-Merged-SOC-V3.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
-        "Official product exists, but the surfaced public pages did not provide a clean fee table or numeric eligibility threshold."
+        "Product page exists but does not show a fee table; fee values were recovered from the surfaced UBL merged SOC PDF.",
+        "Ameen Premium Account page says there is no minimum balance requirement."
       ]
     },
     {
@@ -189,8 +197,8 @@
       "card_type": "prepaid",
       "tier": "virtual",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "joining_fee_pkr": 300,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "No annual fee surfaced; issuance fee is PKR 300 plus FED.",
@@ -204,7 +212,8 @@
       "confidence": "high",
       "notes": [
         "Virtual prepaid card with PKR 100,000 max balance/load at a time.",
-        "Public fee page also lists refund and international transaction charges."
+        "Public fee page also lists refund and international transaction charges.",
+        "Official terms say the dedicated card account has no minimum balance penalty."
       ]
     },
     {
@@ -212,8 +221,8 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2300,
         "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
@@ -235,9 +244,10 @@
       "card_type": "debit",
       "tier": "urooj",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 2800,
+        "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -245,9 +255,11 @@
       "sources": [
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-Urooj-Debit-Card"
       ],
-      "confidence": "low",
+      "confidence": "high",
       "notes": [
-        "Official product page exists, but the surfaced public page did not provide a clean numeric fee or eligibility table in this pass."
+        "Official product page exposes PKR 2,800 primary annual fee and PKR 1,500 supplementary annual fee.",
+        "Page positions the card as available for UBL Urooj account holders.",
+        "Official Urooj Account page says there is no minimum balance requirement."
       ]
     },
     {
@@ -255,9 +267,10 @@
       "card_type": "debit",
       "tier": "freelancer",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 2800,
+        "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -265,9 +278,11 @@
       "sources": [
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-Freelancer-Debit-Card"
       ],
-      "confidence": "low",
+      "confidence": "high",
       "notes": [
-        "Official product page exists, but the surfaced public page did not provide a clean numeric fee or eligibility table in this pass."
+        "Official product page exposes PKR 2,800 primary annual fee and PKR 1,500 supplementary annual fee.",
+        "Page positions the card as available for UBL Freelancer Account holders.",
+        "Official digital-account page says the Freelancer Account has no minimum balance requirement."
       ]
     },
     {
@@ -275,7 +290,7 @@
       "card_type": "debit",
       "tier": "business-fcy",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
