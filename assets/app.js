@@ -641,7 +641,7 @@ function renderRecommendations() {
     return;
   }
 
-  if (countEl) countEl.textContent = String(results.length);
+  if (countEl) countEl.textContent = String(computeRestaurantDeals().length);
   if (rhSub) {
     rhSub.textContent = `Ranked by estimated savings on a ${formatCurrency(state.orderValue)} bill`;
   }
@@ -755,11 +755,11 @@ function renderFeaturedCard(result, container) {
           <div class="cs-v green">${formatCurrency(result.avgExpectedSaving)} / outing</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Restaurant Coverage", "How many of your filtered restaurants have active deals for this card.")}</div>
+          <div class="cs-l cs-l-with-info">${renderMetricLabel("Restaurants Matched", "How many restaurants have active deals for this card.")}</div>
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Deal-Day Match", "Share of your selected going-out days where this card has active deals.")}</div>
+          <div class="cs-l cs-l-with-info">${renderMetricLabel("Avg Day Coverage", "Average share of your selected going-out days where this card has active deals.")}</div>
           <div class="cs-v">${Math.round(result.avgDayFit * 100)}%</div>
         </div>
         <div class="card-stat">
@@ -844,11 +844,11 @@ function renderResultCards(results, container) {
           <div class="cs-v green">${formatCurrency(result.avgExpectedSaving)} / outing</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Restaurant Coverage", "How many of your filtered restaurants have active deals for this card.")}</div>
+          <div class="cs-l cs-l-with-info">${renderMetricLabel("Restaurants Matched", "How many restaurants have active deals for this card.")}</div>
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Deal-Day Match", "Share of your selected going-out days where this card has active deals.")}</div>
+          <div class="cs-l cs-l-with-info">${renderMetricLabel("Avg Day Coverage", "Average share of your selected going-out days where this card has active deals.")}</div>
           <div class="cs-v">${Math.round(result.avgDayFit * 100)}%</div>
         </div>
         <div class="card-stat">
@@ -896,8 +896,8 @@ function renderCardDetail(result) {
 
   const detailItems = [
     { icon: "🏙️", l: "Available In", v: getTopPickCitiesLabel() },
-    { icon: "📅", l: "Deal-Day Match", v: `${Math.round(result.avgDayFit * 100)}% of days` },
-    { icon: "📊", l: "Restaurant Coverage", v: `${result.coveredVenueCount} / ${result.totalVenueCount} restaurants` },
+    { icon: "📅", l: "Avg Day Coverage", v: `${Math.round(result.avgDayFit * 100)}% of days` },
+    { icon: "📊", l: "Restaurants Matched", v: `${result.coveredVenueCount} of ${result.totalVenueCount}` },
     { icon: "💰", l: "Typical Cap", v: result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap listed" },
   ];
 
@@ -1019,9 +1019,9 @@ function openCompareModal() {
     nets.some((n) => n !== null)
       ? { l: "Net annual saving",     vals: nets,                                      fmt: (v, i) => nets[i] !== null ? formatSavingsAmount(nets[i], { per: "yr", signed: true }) : "—", compare: "high" }
       : null,
-    { l: "Restaurant Coverage",       vals: cards.map((c) => c.coveredVenueCount),    fmt: (v)    => `${v} of ${cards[0].totalVenueCount}`,  compare: "high" },
+    { l: "Restaurants Matched",       vals: cards.map((c) => c.coveredVenueCount),    fmt: (v)    => `${v} of ${cards[0].totalVenueCount}`,  compare: "high" },
     { l: "Exclusive restaurants",     vals: excl,                                     fmt: (v)    => v > 0 ? `${v} only here` : "—",         compare: "high" },
-    { l: "Deal-Day Match",            vals: cards.map((c) => c.avgDayFit),            fmt: (v)    => Math.round(v * 100) + "%",              compare: "high" },
+    { l: "Avg Day Coverage",          vals: cards.map((c) => c.avgDayFit),            fmt: (v)    => Math.round(v * 100) + "%",              compare: "high" },
     { l: "Avg Discount",              vals: cards.map((c) => c.averageDiscount || 0), fmt: (v)    => v ? v.toFixed(1) + "%" : "—",           compare: "high" },
   ].filter(Boolean);
 
@@ -2445,6 +2445,14 @@ function clearChat() {
 function computeRecommendations() {
   if (!state.data) return [];
 
+  const allCityVenues = new Set();
+  state.data.offers.forEach((offer) => {
+    if (!cityMatches(offer.city)) return;
+    allCityVenues.add(`${offer.city} || ${offer.restaurant}`);
+  });
+  const totalVenueCount = allCityVenues.size;
+  if (!totalVenueCount) return [];
+
   const desiredOffers = state.data.offers.filter((offer) => {
     if (!cityMatches(offer.city)) return false;
     if (state.selectedBanks.size > 0 && !state.selectedBanks.has(offer.bank)) return false;
@@ -2461,8 +2469,8 @@ function computeRecommendations() {
     }
   });
 
-  const totalVenueCount = desiredVenues.size;
-  if (!totalVenueCount) return [];
+  const scoringVenueCount = desiredVenues.size;
+  if (!scoringVenueCount) return [];
 
   const selectedDays = getEffectiveSelectedDays();
   const totalSelectedDays = selectedDays.size;
@@ -2545,11 +2553,11 @@ function computeRecommendations() {
 
     const matches = venueSummaries;
     const coveredVenueCount = matches.length;
-    const coverage = coveredVenueCount / totalVenueCount;
+    const coverage = coveredVenueCount / scoringVenueCount;
     const totalExpectedSaving = matches.reduce((sum, match) => sum + match.expectedSaving, 0);
     const totalDayFit = matches.reduce((sum, match) => sum + match.dayFit, 0);
-    const avgExpectedSaving = totalExpectedSaving / totalVenueCount;
-    const avgDayFit = totalDayFit / totalVenueCount;
+    const avgExpectedSaving = totalExpectedSaving / scoringVenueCount;
+    const avgDayFit = totalDayFit / scoringVenueCount;
     const averageDiscount = average(
       matches.map((match) => match.discountPct).filter((v) => Number.isFinite(v)),
     );
@@ -2772,7 +2780,6 @@ function formatRequirementFieldValue(status, field) {
 
 function renderRequirementSummary(status, options = {}) {
   const { showStatus = false } = options;
-  const meta = renderEligibilityMeta(status);
   const fields = [
     { label: "Salary", field: "salaryReq" },
     { label: "Min balance", field: "balanceReq" },
@@ -2792,9 +2799,6 @@ function renderRequirementSummary(status, options = {}) {
           </div>
         `).join("")}
       </div>
-      <div class="requirement-note">${escapeHtml(showStatus ? status.detail : "Shown only when the requirements dataset has a verified card mapping.")}</div>
-      ${status.criteria.length ? `<div class="requirement-meta">${escapeHtml(status.criteria.join(" · "))}</div>` : ""}
-      ${meta.length ? `<div class="requirement-meta">${escapeHtml(meta.join(" · "))}</div>` : ""}
     </div>
   `;
 }
@@ -3055,10 +3059,6 @@ function renderCardDetailModal(inner) {
     .filter((r) => r.saving > 0)
     .sort((a, b) => b.saving - a.saving);
 
-  const density    = getDealDensityByDay(bank, card);
-  const maxDensity = Math.max(...density, 1);
-  const todayIdx   = (new Date().getDay() + 6) % 7;
-
   const annualSaving = result ? result.avgExpectedSaving * state.outingsPerWeek * 52 : 0;
   const fee          = result?.requirementStatus?.annualFeePkr ?? null;
   const netAnnual    = fee !== null ? annualSaving - fee : null;
@@ -3098,15 +3098,16 @@ function renderCardDetailModal(inner) {
         </div>
         ${netAnnual !== null ? `
         <div class="cd-stat">
-          <div class="cd-stat-l">Net annual saving after ${formatCurrency(fee)} fee</div>
+          <div class="cd-stat-l">Net annual saving</div>
           <div class="cd-stat-v" style="color:${netAnnual >= 0 ? "var(--green)" : "var(--red)"}">${formatSavingsAmount(netAnnual, { per: "yr", signed: true })}</div>
+          <div class="cd-stat-sub">After ${formatCurrency(fee)} fee</div>
         </div>` : ""}
         <div class="cd-stat">
-          <div class="cd-stat-l">Restaurant Coverage</div>
-          <div class="cd-stat-v">${result.coveredVenueCount} / ${result.totalVenueCount}</div>
+          <div class="cd-stat-l">Restaurants Matched</div>
+          <div class="cd-stat-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="cd-stat">
-          <div class="cd-stat-l">Deal-Day Match</div>
+          <div class="cd-stat-l">Avg Day Coverage</div>
           <div class="cd-stat-v">${Math.round(result.avgDayFit * 100)}%</div>
         </div>
       </div>` : ""}
@@ -3114,24 +3115,6 @@ function renderCardDetailModal(inner) {
       ${result ? renderRequirementSummary(result.requirementStatus, { showStatus: true }) : ""}
 
       ${result ? renderSourcesSection(result.requirementStatus.sourceIds) : ""}
-
-      <div class="cd-section">
-        <div class="cd-section-title">Deals by day</div>
-        <div class="deal-calendar">
-          ${density.map((count, i) => {
-            const pct     = count > 0 ? Math.max(Math.round((count / maxDensity) * 100), 14) : 0;
-            const isToday = i === todayIdx;
-            return `
-              <div class="deal-cal-day${isToday ? " today" : ""}">
-                <div class="deal-cal-bar-wrap">
-                  <div class="deal-cal-bar" style="height:${pct}%;background:${count > 0 ? "var(--green)" : "var(--line)"}"></div>
-                </div>
-                <div class="deal-cal-label">${DAY_SHORT[i]}</div>
-                <div class="deal-cal-count">${count > 0 ? count : "—"}</div>
-              </div>`;
-          }).join("")}
-        </div>
-      </div>
 
       <div class="cd-section">
         <div class="cd-section-title">
@@ -3619,9 +3602,7 @@ function renderOutingsPills() {
 
 /* ── TOP PICK REASON ── */
 function buildTopPickReason(result) {
-  const venueCtx = state.selectedRestaurants.size > 0
-    ? `covers ${result.coveredVenueCount} of your ${state.selectedRestaurants.size} selected restaurants`
-    : `covers ${result.coveredVenueCount} of ${result.totalVenueCount} restaurants`;
+  const venueCtx = `covers ${result.coveredVenueCount} of ${result.totalVenueCount} restaurants`;
   const topRest = result.topMatches[0]?.restaurant;
   const savingCtx = topRest ? `best saving at ${topRest}` : `highest savings at your bill size`;
   return `Ranked #1: ${venueCtx}, with the ${savingCtx}.`;
@@ -3706,8 +3687,8 @@ function updateMobileFilterBadge() {
   if (!tab) return;
   const n = getActiveFilterCount();
   tab.innerHTML = n > 0
-    ? `<span>⚙️</span>Filters <span class="mob-tab-badge">${n}</span>`
-    : `<span>⚙️</span>Filters`;
+    ? `<span>⚙️</span><span class="mob-tab-label">Filters <span class="mob-tab-badge">${n}</span></span>`
+    : `<span>⚙️</span><span class="mob-tab-label">Filters</span>`;
 }
 
 /* ── SHAREABLE URL ── */
