@@ -2335,7 +2335,7 @@ async function withRetry(fn, { maxAttempts = 3, signal } = {}) {
 }
 
 /* ── Gemini streaming generator (Gemini SSE format) ── */
-async function* streamGroq(messages, systemPrompt, signal, maxTokens = 1000) {
+async function* streamGemini(messages, systemPrompt, signal, maxTokens = 1000) {
   const resp = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -2382,7 +2382,7 @@ async function* streamGroq(messages, systemPrompt, signal, maxTokens = 1000) {
 }
 
 /* ── Non-streaming Gemini call (used for tool resolution loop) ── */
-async function callGroqNonStreaming(messages, systemPrompt, signal, maxTokens = 700) {
+async function callGeminiNonStreaming(messages, systemPrompt, signal, maxTokens = 700) {
   const resp = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -2648,7 +2648,7 @@ async function sendChatMessage(text) {
 
     for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
       const data = await withRetry(
-        () => callGroqNonStreaming(messages, systemPrompt, signal, 700),
+        () => callGeminiNonStreaming(messages, systemPrompt, signal, 700),
         { maxAttempts: 3, signal }
       );
       const msg   = data?.choices?.[0]?.message;
@@ -2682,7 +2682,7 @@ async function sendChatMessage(text) {
       streamingMsg.streaming = false;
     } else {
       let fullText = "";
-      for await (const chunk of streamGroq(messages, systemPrompt, signal, 1000)) {
+      for await (const chunk of streamGemini(messages, systemPrompt, signal, 1000)) {
         fullText += chunk;
         streamingMsg.text = fullText;
         updateStreamingBubble(fullText);
