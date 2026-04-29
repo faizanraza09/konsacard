@@ -29,6 +29,7 @@ const state = {
   },
   chatOpen: false,
   chatMessages: [],
+  chatApiMessages: [],  // OpenAI-format messages including tool call/result history
   chatLoading: false,
 };
 
@@ -2274,7 +2275,6 @@ function executeChatTool(name, args) {
 /* ── System prompt ── */
 function buildSystemPrompt() {
   const cityLabel = state.selectedCity === "all" ? "all cities (Karachi, Lahore, Islamabad)" : state.selectedCity;
-  // Only include essential context, NOT user filters like bill/frequency
   const userCtx = [
     `City: ${cityLabel}`,
     state.selectedCardTypes.size ? `Card types: ${[...state.selectedCardTypes].join(", ")}` : null,
@@ -2283,49 +2283,56 @@ function buildSystemPrompt() {
 
   const top3 = computeRecommendations().slice(0, 3);
   const top3text = top3.length
-    ? `TOP CARDS IN ${cityLabel.toUpperCase()}:\n` +
-      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Discount: ${Math.round(r.avgDiscount * 10) / 10}% avg`).join("\n")
+    ? `TOP CARDS FOR CURRENT FILTERS:\n` +
+      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) — ${Math.round(r.avgDiscount * 10) / 10}% avg discount`).join("\n")
     : "No cards match the current filters.";
 
-  return `You are KonsaCard AI, the expert assistant for konsacard.pk - Pakistan's independent restaurant discount card comparison tool.
+  return `You are KonsaCard AI, the expert assistant for konsacard.pk — Pakistan's independent restaurant discount card comparison tool.
 
-IMPORTANT - Personalization Rules:
-- DO NOT use stored filter values (bill size, frequency, salary, balance) in your responses
-- DO calculate and mention personalized savings ONLY if the user explicitly tells you their info
-  Example: User says "I spend 3,000 per outing" → you can say "that would be 450 savings at 15%"
-  Example: User doesn't mention bill → just say "15% discount with 2,000 cap"
-- Always present objective discount % first, then optional personalization if user data is provided
-
-Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%.
-
-TOKEN BUDGET: You have ~600-900 tokens for your response. Prioritize clarity over detail:
-- For tool-calling turns: be brief; let tool results speak.
-- For final answers: key facts first (best card, discount details), then other options if room.
-- Never write filler or repeat yourself.
-
-CITY CONTEXT:
+USER CONTEXT:
 ${userCtx}
 
 ${top3text}
 
-TOOLS - always call these for data questions, never answer from memory:
-* search_offers - restaurant/bank/card/day/discount filters. Use this first for offer lookup questions.
-* rank_cards - scored recommendations for context-specific "best card" questions.
-* get_bank_cards - bank-level coverage and card summaries.
-* get_restaurant_rankings - best restaurants by discount/deal coverage.
-* compare_cards - detailed side-by-side card comparison.
-* get_card_requirements - salary, balance, fee, waiver and eligibility status for specific cards or top cards.
+## QUESTION TYPES — identify which applies, then follow the strategy:
 
-RULES:
-- ALWAYS call a tool when the answer requires data. Never guess or estimate from memory.
-- **RESTAURANT-SPECIFIC QUERIES**: If user asks "best card at [restaurant name]" ALWAYS extract the restaurant name and pass it to rank_cards.restaurants parameter. This ensures the answer is specific to that venue, not generic.
-- Fuzzy matching is built in: "Xanders" finds "Xander's", "kababjees" finds "Kababjees Restaurant".
-- For "best card at restaurant X AND Y" pass both to rank_cards restaurants param.
-- Eligibility/fee questions: call get_card_requirements (do not assume values).
-- Monthly saving estimate = per-outing saving x outings/week x 4.3.
-- Always name the specific card and bank, never be vague.
-- Use PKR for all amounts.
-- If no data exists, say so and recommend checking with the bank directly.`;
+**LOOKUP** — specific fact ("what discount does HBL give at Hardee's?", "which days is this deal valid?")
+→ Call the most relevant tool and present the data directly.
+→ Best tools: search_offers (offer-level detail), get_bank_cards, get_card_requirements.
+
+**RECOMMENDATION** — best-fit query ("best card for me?", "best card at X?", "best card on Fridays?")
+→ Call rank_cards with all relevant filters. Pass restaurant name(s) if mentioned, pass days if mentioned.
+→ Optionally follow with get_card_requirements if eligibility hasn't been shown yet.
+→ Present top 2-3 options with specific discount %, cap, and a one-line reason each fits.
+
+**COMPARISON** — head-to-head ("HBL vs MCB", "debit vs credit for dining?")
+→ For specific cards: call compare_cards.
+→ For type-level comparison (debit vs credit): call rank_cards twice with card_types filter and contrast the results.
+→ Highlight the single deciding factor clearly.
+
+**ADVISORY** — judgment or strategy ("is a premium card worth it?", "how do caps affect me?", "should I get two cards?")
+→ Answer from domain knowledge. Pull one grounding data point with a tool only if it sharpens the answer.
+→ Give a direct recommendation; explain the key tradeoff in one sentence.
+
+**OVERVIEW/BROAD** — landscape question ("which bank has the most deals?", "best restaurants for discounts?", "which city has the most offers?")
+→ Call get_bank_cards (omit bank param for all banks), get_restaurant_rankings, or rank_cards without a restaurant filter.
+→ Summarize the pattern — top 3-4 entries with the key distinguishing stat, not every row.
+
+## TOOLS (never answer data questions from memory — always call a tool):
+* search_offers — offer-level detail; filters by restaurant, bank, card, day, discount threshold
+* rank_cards — cards scored by savings + coverage; use restaurants/days/city params to narrow
+* get_bank_cards — bank-level card inventory and coverage stats across restaurants
+* get_restaurant_rankings — restaurants ranked by max discount, deal count, or bank coverage
+* compare_cards — head-to-head comparison of 2-4 cards
+* get_card_requirements — eligibility (salary/balance), annual fee, and waiver conditions
+
+## CONSTANTS:
+- Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%
+- Monthly savings estimate = per-outing saving × outings/week × 4.3
+- Fuzzy matching is built in — "Xanders" finds "Xander's", "hbl" finds "HBL"
+- Always use PKR for amounts. Always name the specific card and bank.
+- Personalize savings ("at PKR 5,000 that's PKR 750 off") ONLY if the user stated their bill size. Otherwise give the % and cap only.
+- If no data exists for a query, say so and suggest checking with the bank directly.`;
 }
 
 
@@ -2662,14 +2669,19 @@ async function sendChatMessage(text) {
   const queryStartTime = Date.now();
 
   try {
-    let messages = toChatMessages(state.chatMessages.filter((m) => !m.streaming));
+    // Start from the persisted API message history (includes prior tool call/result turns),
+    // then append the new user message.
+    let messages = trimOpenAiMessages([
+      ...state.chatApiMessages,
+      { role: "user", content: t },
+    ]);
     let directText = "";
     let toolsUsed = false;
     const MAX_TOOL_ROUNDS = 4;
 
     for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
       const data = await withRetry(
-        () => callGeminiNonStreaming(messages, systemPrompt, signal, 700),
+        () => callGeminiNonStreaming(messages, systemPrompt, signal, 1200),
         { maxAttempts: 3, signal }
       );
       const msg   = data?.choices?.[0]?.message;
@@ -2685,6 +2697,7 @@ async function sendChatMessage(text) {
       const toolResults = toolCalls.map((tc) => ({
         role: "tool",
         tool_call_id: tc.id,
+        name: tc.function.name,
         content: JSON.stringify(compactToolResultForModel(
           tc.function.name,
           executeChatTool(tc.function.name, JSON.parse(tc.function.arguments || "{}"))
@@ -2698,19 +2711,26 @@ async function sendChatMessage(text) {
       messages = trimOpenAiMessages(messages);
     }
 
+    let finalText = "";
     if (directText) {
-      streamingMsg.text = directText;
+      finalText = directText;
+      streamingMsg.text = finalText;
       streamingMsg.streaming = false;
     } else {
-      let fullText = "";
-      for await (const chunk of streamGemini(messages, systemPrompt, signal, 1000)) {
-        fullText += chunk;
-        streamingMsg.text = fullText;
-        updateStreamingBubble(fullText);
+      for await (const chunk of streamGemini(messages, systemPrompt, signal, 1600)) {
+        finalText += chunk;
+        streamingMsg.text = finalText;
+        updateStreamingBubble(finalText);
       }
-      streamingMsg.text = fullText || "…";
+      streamingMsg.text = finalText || "…";
       streamingMsg.streaming = false;
     }
+
+    // Persist the full message exchange (including tool history) for the next turn
+    state.chatApiMessages = trimOpenAiMessages([
+      ...messages,
+      { role: "assistant", content: finalText || streamingMsg.text },
+    ]);
   } catch (err) {
     streamingMsg.streaming = false;
     if (err.name === "AbortError") {
@@ -2742,6 +2762,7 @@ async function sendChatMessage(text) {
 /* ── Clear conversation ── */
 function clearChat() {
   state.chatMessages = [];
+  state.chatApiMessages = [];
   state.chatLoading = false;
   openChat();
 }
