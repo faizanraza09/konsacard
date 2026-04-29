@@ -5,7 +5,7 @@
     "deal_card_name": "Mastercard Gold Debit Card",
     "matched": true,
     "match_method": "canonical_exact",
-    "requirement_card_id": "al-baraka--mastercard-gold",
+    "requirement_card_id": "al-baraka--mastercard-gold-debit-card",
     "requirement_card_name": "Mastercard Gold Debit Card"
   },
   {
@@ -23,7 +23,7 @@
     "deal_card_name": "Mastercard Silver Debit Card",
     "matched": true,
     "match_method": "canonical_exact",
-    "requirement_card_id": "al-baraka--mastercard-silver",
+    "requirement_card_id": "al-baraka--mastercard-silver-debit-card",
     "requirement_card_name": "Mastercard Silver Debit Card"
   },
   {
@@ -31,9 +31,9 @@
     "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Mastercard World Elite Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "al-baraka--mastercard-world-elite",
-    "requirement_card_name": "Mastercard World Elite Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "al-baraka--mastercard-platinum-debit-card",
+    "requirement_card_name": "Mastercard Platinum Debit Card"
   },
   {
     "deal_bank_name": "Al Baraka Bank",
@@ -41,7 +41,7 @@
     "deal_card_name": "Nexgen Habib University PayPak Debit Card",
     "matched": true,
     "match_method": "manual_alias",
-    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak-debit-card",
     "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
@@ -50,7 +50,7 @@
     "deal_card_name": "Nexgen IVS PayPak Debit Card",
     "matched": true,
     "match_method": "manual_alias",
-    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak-debit-card",
     "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
@@ -59,7 +59,7 @@
     "deal_card_name": "Nexgen Riphah University PayPak Debit Card",
     "matched": true,
     "match_method": "manual_alias",
-    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak-debit-card",
     "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
@@ -68,7 +68,7 @@
     "deal_card_name": "Nexgen Student PayPak Debit Card",
     "matched": true,
     "match_method": "canonical_exact",
-    "requirement_card_id": "al-baraka--nexgen-student-paypak",
+    "requirement_card_id": "al-baraka--nexgen-student-paypak-debit-card",
     "requirement_card_name": "Nexgen Student PayPak Debit Card"
   },
   {
@@ -95,7 +95,7 @@
     "deal_card_name": "UnionPay Silver Debit Card",
     "matched": true,
     "match_method": "canonical_exact",
-    "requirement_card_id": "al-baraka--unionpay-silver",
+    "requirement_card_id": "al-baraka--unionpay-silver-debit-card",
     "requirement_card_name": "UnionPay Silver Debit Card"
   },
   {
@@ -122,7 +122,7 @@
     "deal_card_name": "Cash+Shop Sapphire Visa Debit Card",
     "matched": true,
     "match_method": "canonical_exact",
-    "requirement_card_id": "allied--cash-shop-sapphire-visa-debit",
+    "requirement_card_id": "allied-bank--cash-shop-sapphire-visa-debit-card",
     "requirement_card_name": "Cash+Shop Sapphire Visa Debit Card"
   },
   {
@@ -158,7 +158,7 @@
     "deal_card_name": "Islamic Banking VISA DebitCard",
     "matched": true,
     "match_method": "canonical_exact",
-    "requirement_card_id": "allied--islamic-banking-visa-debitcard",
+    "requirement_card_id": "allied-bank--islamic-banking-visa-debitcard",
     "requirement_card_name": "Islamic Banking VISA DebitCard"
   },
   {
@@ -175,9 +175,9 @@
     "requirement_bank_name": "Allied Bank",
     "deal_card_name": "UPI & Paypak myWallet Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "allied--upi-paypak-mywallet-debit-card",
-    "requirement_card_name": "UPI & Paypak myWallet Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-upi-paypak-classic-plus",
+    "requirement_card_name": "Allied UPI & PayPak Classic Plus"
   },
   {
     "deal_bank_name": "Allied Bank",
@@ -193,9 +193,9 @@
     "requirement_bank_name": "Allied Bank",
     "deal_card_name": "UnionPay PayPak Prepaid Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "allied--unionpay-paypak-prepaid-card",
-    "requirement_card_name": "UnionPay PayPak Prepaid Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "allied-bank--allied-unionpay-paypak-classic-debit-card",
+    "requirement_card_name": "Allied UnionPay PayPak Classic Debit Card"
   },
   {
     "deal_bank_name": "Allied Bank",
@@ -265,9 +265,9 @@
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Corporate Credit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "askari--askari-corporate-credit-card",
-    "requirement_card_name": "Askari Corporate Credit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-mastercard-classic-credit-card",
+    "requirement_card_name": "Askari Mastercard Classic Credit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -283,9 +283,9 @@
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari PayPak Classic Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "askari--askari-paypak-classic-debit-card",
-    "requirement_card_name": "Askari PayPak Classic Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-paypak-debit-card-gold",
+    "requirement_card_name": "Askari PayPak Debit Card Gold"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -301,9 +301,9 @@
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari PayPak Little Champs Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "askari--askari-paypak-little-champs-debit-card",
-    "requirement_card_name": "Askari PayPak Little Champs Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-visa-debit-card-classic",
+    "requirement_card_name": "Askari Visa Debit Card Classic"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -319,9 +319,9 @@
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Sahar Visa Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "askari--askari-sahar-visa-debit-card",
-    "requirement_card_name": "Askari Sahar Visa Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-visa-debit-card-classic",
+    "requirement_card_name": "Askari Visa Debit Card Classic"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -337,18 +337,18 @@
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Visa Gold Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "askari--askari-visa-gold-debit-card",
-    "requirement_card_name": "Askari Visa Gold Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-visa-debit-card-classic",
+    "requirement_card_name": "Askari Visa Debit Card Classic"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
     "requirement_bank_name": "Askari Bank Limited",
     "deal_card_name": "Askari Visa Platinum Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "askari--askari-visa-platinum-debit-card",
-    "requirement_card_name": "Askari Visa Platinum Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "askari-bank--askari-visa-signature-debit-card",
+    "requirement_card_name": "Askari Visa Signature Debit Card"
   },
   {
     "deal_bank_name": "Askari Bank Limited",
@@ -507,10 +507,10 @@
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-islamic-premier-visa-infinite-debit-card",
+    "requirement_card_name": "Bank Alfalah Islamic Premier Visa Infinite Debit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
@@ -552,10 +552,10 @@
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah Mastercard Titanium Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-mastercard-titanium-credit-card",
+    "requirement_card_name": "Bank Alfalah Mastercard Titanium Credit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
@@ -588,19 +588,19 @@
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah Premier Visa Infinite Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card",
+    "requirement_card_name": "Bank Alfalah Premier Visa Infinite Credit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah Premier Visa Infinite Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-debit-card",
+    "requirement_card_name": "Bank Alfalah Premier Visa Infinite Debit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
@@ -750,10 +750,10 @@
     "deal_bank_name": "Bank of Punjab",
     "requirement_bank_name": "Bank of Punjab",
     "deal_card_name": "Lahore Qalandars Gold Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-of-punjab--lahore-qalandars-gold-credit-card",
+    "requirement_card_name": "Lahore Qalandars Gold Credit Card"
   },
   {
     "deal_bank_name": "Bank of Punjab",
@@ -883,75 +883,75 @@
   },
   {
     "deal_bank_name": "Easypaisa",
-    "requirement_bank_name": null,
+    "requirement_bank_name": "Easypaisa",
     "deal_card_name": "Easy Paisa DebitCard",
-    "matched": false,
-    "match_method": "unmapped_bank",
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "easypaisa--easy-paisa-debitcard",
+    "requirement_card_name": "Easy Paisa DebitCard"
   },
   {
     "deal_bank_name": "Easypaisa",
-    "requirement_bank_name": null,
+    "requirement_bank_name": "Easypaisa",
     "deal_card_name": "Easy Paisa Pay Pak Debit Card",
-    "matched": false,
-    "match_method": "unmapped_bank",
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "easypaisa--easy-paisa-pay-pak-debit-card",
+    "requirement_card_name": "Easy Paisa Pay Pak Debit Card"
   },
   {
     "deal_bank_name": "Easypaisa",
-    "requirement_bank_name": null,
+    "requirement_bank_name": "Easypaisa",
     "deal_card_name": "Easy Paisa Union Pay Debit Card",
-    "matched": false,
-    "match_method": "unmapped_bank",
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "easypaisa--easy-paisa-union-pay-debit-card",
+    "requirement_card_name": "Easy Paisa Union Pay Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Amal Mastercard Gold Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--amal-mastercard-gold-debit-card",
+    "requirement_card_name": "Amal Mastercard Gold Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Amal Mastercard Platinum Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--amal-mastercard-platinum-debit-card",
+    "requirement_card_name": "Amal Mastercard Platinum Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Mastercard Classic Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-classic-debit-card",
+    "requirement_card_name": "Faysal Islami Mastercard Classic Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Mastercard Gold Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-gold-debit-card",
+    "requirement_card_name": "Faysal Islami Mastercard Gold Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Noor Flexi Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-noor-flexi-card",
+    "requirement_card_name": "Faysal Islami Noor Flexi Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -966,10 +966,10 @@
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Noor Platinum  Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-noor-platinum-card",
+    "requirement_card_name": "Faysal Islami Noor Platinum  Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -984,10 +984,10 @@
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Noor Velocity Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-noor-velocity-card",
+    "requirement_card_name": "Faysal Islami Noor Velocity Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -1047,10 +1047,10 @@
     "deal_bank_name": "HBL Islamic Bank Limited",
     "requirement_bank_name": "HBL Islamic Bank Limited",
     "deal_card_name": "HBL Islamic Titanium DebitCard",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-titanium-debitcard",
+    "requirement_card_name": "HBL Islamic Titanium DebitCard"
   },
   {
     "deal_bank_name": "HBL Islamic Bank Limited",
@@ -1128,19 +1128,19 @@
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
     "deal_card_name": "HBL Konnect Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-classic-debitcard",
+    "requirement_card_name": "HBL Classic DebitCard"
   },
   {
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
     "deal_card_name": "HBL Nisa DebitCard",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-nisa-debitcard",
+    "requirement_card_name": "HBL Nisa DebitCard"
   },
   {
     "deal_bank_name": "Habib Bank Limited",
@@ -1155,10 +1155,10 @@
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
     "deal_card_name": "HBL Titanium DebitCard",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-titanium-debitcard",
+    "requirement_card_name": "HBL Titanium DebitCard"
   },
   {
     "deal_bank_name": "Habib Bank Limited",
@@ -1209,10 +1209,10 @@
     "deal_bank_name": "Habib Metro Bank",
     "requirement_bank_name": "Habib Metro Bank",
     "deal_card_name": "Visa Ladies Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "habib-metro--visa-ladies-debit-card",
+    "requirement_card_name": "Visa Ladies Debit Card"
   },
   {
     "deal_bank_name": "Habib Metro Bank",
@@ -1236,28 +1236,28 @@
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
     "deal_card_name": "Mastercard Her Titanium Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "js-bank--mastercard-her-titanium-debit-card",
+    "requirement_card_name": "Mastercard Her Titanium Debit Card"
   },
   {
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
     "deal_card_name": "Mastercard Platinum Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "js-bank--mastercard-platinum-debit-card",
+    "requirement_card_name": "Mastercard Platinum Debit Card"
   },
   {
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
     "deal_card_name": "Mastercard Titanium Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "js-bank--mastercard-titanium-debit-card",
+    "requirement_card_name": "Mastercard Titanium Debit Card"
   },
   {
     "deal_bank_name": "JS Bank",
@@ -1272,10 +1272,10 @@
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
     "deal_card_name": "Private Banking Visa Signature Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "js-bank--private-banking-visa-signature-credit-card",
+    "requirement_card_name": "Private Banking Visa Signature Credit Card"
   },
   {
     "deal_bank_name": "JS Bank",
@@ -1290,10 +1290,10 @@
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
     "deal_card_name": "Visa Gold Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "js-bank--visa-gold-credit-card",
+    "requirement_card_name": "Visa Gold Credit Card"
   },
   {
     "deal_bank_name": "JS Bank",
@@ -1308,19 +1308,19 @@
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Mastercard Classic Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--mastercard-classic-debit-card",
+    "requirement_card_name": "Mastercard Classic Debit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Nayab Visa Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--nayab-visa-debit-card",
+    "requirement_card_name": "Nayab Visa Debit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
@@ -1344,46 +1344,46 @@
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Visa Classic Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--visa-classic-credit-card",
+    "requirement_card_name": "Visa Classic Credit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Visa Fun Club Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--visa-fun-club-debit-card",
+    "requirement_card_name": "Visa Fun Club Debit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Visa Gold Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--visa-gold-credit-card",
+    "requirement_card_name": "Visa Gold Credit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Visa Gold Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--visa-gold-debit-card",
+    "requirement_card_name": "Visa Gold Debit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Visa Platinum Credit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--visa-platinum-credit-card",
+    "requirement_card_name": "Visa Platinum Credit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
@@ -1407,10 +1407,10 @@
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Visa Silver Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mcb-bank--visa-silver-debit-card",
+    "requirement_card_name": "Visa Silver Debit Card"
   },
   {
     "deal_bank_name": "MCB Islamic Bank Ltd",
@@ -1425,10 +1425,10 @@
     "deal_bank_name": "MCB Islamic Bank Ltd",
     "requirement_bank_name": "MCB Islamic Bank Ltd",
     "deal_card_name": "UnionPay Platinum Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-platinum-debit-card",
+    "requirement_card_name": "MCB Islamic Platinum Debit Card"
   },
   {
     "deal_bank_name": "MCB Islamic Bank Ltd",
@@ -1461,37 +1461,37 @@
     "deal_bank_name": "MCB Islamic Bank Ltd",
     "requirement_bank_name": "MCB Islamic Bank Ltd",
     "deal_card_name": "Visa FCY Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-visa-classic-debit-card",
+    "requirement_card_name": "MCB Islamic Visa Classic Debit Card"
   },
   {
     "deal_bank_name": "MCB Islamic Bank Ltd",
     "requirement_bank_name": "MCB Islamic Bank Ltd",
     "deal_card_name": "Visa Gold Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-qadar-gold-debit-card",
+    "requirement_card_name": "MCB Islamic Qadar Gold Debit Card"
   },
   {
     "deal_bank_name": "MCB Islamic Bank Ltd",
     "requirement_bank_name": "MCB Islamic Bank Ltd",
     "deal_card_name": "Visa Junior Club Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-visa-classic-debit-card",
+    "requirement_card_name": "MCB Islamic Visa Classic Debit Card"
   },
   {
     "deal_bank_name": "MCB Islamic Bank Ltd",
     "requirement_bank_name": "MCB Islamic Bank Ltd",
     "deal_card_name": "Visa Niswan Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "mcb-islamic--mcb-islamic-visa-classic-debit-card",
+    "requirement_card_name": "MCB Islamic Visa Classic Debit Card"
   },
   {
     "deal_bank_name": "MCB Islamic Bank Ltd",
@@ -1605,10 +1605,10 @@
     "deal_bank_name": "Meezan Bank",
     "requirement_bank_name": "Meezan Bank",
     "deal_card_name": "Visa Charge Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "meezan--meezan-visa-gold-debit-card",
+    "requirement_card_name": "Meezan Visa Gold Debit Card"
   },
   {
     "deal_bank_name": "Meezan Bank",
@@ -1695,10 +1695,10 @@
     "deal_bank_name": "United Bank Limited (UBL)",
     "requirement_bank_name": "United Bank Limited (UBL)",
     "deal_card_name": "UBL Mastercard Premium Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "ubl--ubl-mastercard-premium-debit-card",
+    "requirement_card_name": "UBL Mastercard Premium Debit Card"
   },
   {
     "deal_bank_name": "United Bank Limited (UBL)",

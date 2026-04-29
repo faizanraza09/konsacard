@@ -9,19 +9,21 @@
       "tier": "classic",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 3500,
-        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.meezanbank.com/visa-debit-card",
         "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/plus-account/"
+        "https://www.meezanbank.com/plus-account/",
+        "https://www.meezanbank.com/"
       ],
       "confidence": "medium",
       "notes": [
+        "No publicly disclosed salary or balance threshold.",
         "General eligibility appears to be tied to having a Meezan account."
       ]
     },
@@ -31,31 +33,34 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 4500,
-        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.meezanbank.com/visa-debit-card",
         "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/plus-account/"
+        "https://www.meezanbank.com/plus-account/",
+        "https://www.meezanbank.com/"
       ],
       "confidence": "medium",
-      "notes": []
+      "notes": [
+        "No publicly disclosed salary or balance threshold."
+      ]
     },
     {
       "card_name": "Meezan Visa Infinite Debit Card",
       "card_type": "debit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 1000000,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "minimum_average_balance_pkr": 1000000,
         "minimum_relationship_balance_pkr": 15000000,
-        "annual_fee_pkr": 42500,
-        "annual_fee_waiver_rule": "Free for eligible premium customers with PKR 15m+ bank balances, PKR 20m+ TDRs, or PKR 20m+ combined relationship.",
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -66,6 +71,7 @@
       ],
       "confidence": "low",
       "notes": [
+        "No public salary, balance, or fee threshold found for Infinite tier.",
         "There are two competing eligibility frames: premium-customer thresholds on the card page and a lower PKR 1,000,000 issuance or average-balance threshold in the SOC PDF.",
         "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 1,000,000) while the higher relationship-balance criterion is preserved separately."
       ]
@@ -75,12 +81,12 @@
       "card_type": "debit",
       "tier": "world",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 500000,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 5000000,
         "minimum_average_balance_pkr": 500000,
         "minimum_relationship_balance_pkr": 5000000,
-        "annual_fee_pkr": 27500,
-        "annual_fee_waiver_rule": "Free for eligible premium customers with PKR 5m+ bank balances, PKR 7m+ TDRs, or PKR 7m+ combined relationship.",
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Free for Meezan Premium Banking customers with PKR 5M in accounts or PKR 7M in TDCs",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -89,8 +95,9 @@
         "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
         "https://www.meezanbank.com/premium-banking/"
       ],
-      "confidence": "low",
+      "confidence": "high",
       "notes": [
+        "World Debit Card is part of Meezan Premium Banking. PKR 5,000,000 in accounts or PKR 7,000,000 in Term Deposit Certificates required. No annual fee for qualifying customers.",
         "There are two competing eligibility frames: premium-customer thresholds on the card page and a lower PKR 500,000 issuance or average-balance threshold in the SOC PDF.",
         "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 500,000) while the higher relationship-balance criterion is preserved separately."
       ]
@@ -171,10 +178,10 @@
       "tier": "paypak",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "minimum_average_balance_pkr": 200000,
-        "annual_fee_pkr": 2500,
-        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
         "existing_account_required": true
@@ -183,10 +190,12 @@
         "https://www.meezanbank.com/paypak-debit-card/",
         "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
         "https://www.meezanbank.com/asaan-current-account/",
-        "https://www.meezanbank.com/kids-club-account"
+        "https://www.meezanbank.com/kids-club-account",
+        "https://www.meezanbank.com/"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "No salary or balance threshold for standard PayPak.",
         "PayPak page and current SOC disagree on some fee values, so the fee should be treated as an unresolved official-source conflict."
       ]
     },

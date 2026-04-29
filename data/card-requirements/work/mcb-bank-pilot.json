@@ -8,8 +8,8 @@
       "card_type": "debit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -17,10 +17,12 @@
       },
       "sources": [
         "https://www.linkedin.com/company/mcbbankpk",
-        "https://www.linkedin.com/posts/mcbbankpk_signaturemove-mcbbank-bank4life-activity-7197861037218402304-upE-"
+        "https://www.linkedin.com/posts/mcbbankpk_signaturemove-mcbbank-bank4life-activity-7197861037218402304-upE-",
+        "https://www.mcb.com.pk/personal/cards/"
       ],
       "confidence": "low",
       "notes": [
+        "No public salary, balance, or fee threshold found.",
         "Official LinkedIn indicates this is an active debit-card product.",
         "Later official post states ATM withdrawals up to PKR 350,000/day and POS/online spending up to PKR 800,000/day."
       ]
@@ -30,10 +32,10 @@
       "card_type": "debit",
       "tier": "signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 2000000,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": "Conditional fee structure. Latest surfaced Jan-Jun 2026 SOBC mirror shows PKR 10,000 per quarter charged only if quarterly average total deposits stay below PKR 5 million and quarterly average current-account balance stays below PKR 2 million. Earlier 2025 mirrors showed PKR 5,000 per quarter under the same balance-waiver structure.",
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -42,10 +44,12 @@
         "https://www.linkedin.com/posts/mcbbankpk_signaturemove-mcbbank-bank4life-activity-7197861037218402304-upE-",
         "https://www.scribd.com/document/982845362/SOBC-Jan-June-2026-English",
         "https://www.scribd.com/document/802687454/Schedule-of-Bank-Charges-January-June-2025-English-Version",
-        "https://www.scribd.com/document/767620503/Schedule-of-Bank-Charges-July-December-2024-English-Version"
+        "https://www.scribd.com/document/767620503/Schedule-of-Bank-Charges-July-December-2024-English-Version",
+        "https://www.mcb.com.pk/personal/cards/"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "notes": [
+        "No public salary, balance, or fee threshold found.",
         "Official LinkedIn indicates the card is actively marketed.",
         "Official MCB FAQ PDF confirms deposit-based eligibility rather than salary-based eligibility.",
         "Current public evidence found in the official FAQ PDF and later surfaced SOBC mirrors supports a balance-based eligibility and a conditional quarterly fee rather than a flat published annual fee."
@@ -56,19 +60,181 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Free for Sohni Dharti Remittance Current Account customers.",
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.linkedin.com/company/mcbbankpk"
+        "https://www.linkedin.com/company/mcbbankpk",
+        "https://www.mcb.com.pk/personal/cards/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "No salary or balance threshold. Fee not publicly listed.",
+        "Official LinkedIn states SDRA includes a free PayPak Debit Card."
+      ]
+    },
+    {
+      "card_name": "Mastercard Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcb.com.pk/personal/cards/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "No salary or balance threshold. Fee not publicly listed."
+      ]
+    },
+    {
+      "card_name": "Nayab Visa Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcb.com.pk/personal/cards/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "No salary or balance threshold."
+      ]
+    },
+    {
+      "card_name": "Visa Classic Credit Card",
+      "card_type": "credit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Reversed if PKR 50,000 spend within 60 days",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.scribd.com/document/905938617/47897242750019105-5"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Spend-based reversal model. No public income or balance threshold found."
+      ]
+    },
+    {
+      "card_name": "Visa Gold Credit Card",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Reversed if PKR 150,000 spend within 60 days",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.scribd.com/document/905938617/47897242750019105-5"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Spend-based reversal model."
+      ]
+    },
+    {
+      "card_name": "Visa Platinum Credit Card",
+      "card_type": "credit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Reversed if PKR 250,000 spend within 60 days",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.scribd.com/document/905938617/47897242750019105-5"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Spend-based reversal model."
+      ]
+    },
+    {
+      "card_name": "Visa Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcb.com.pk/personal/cards/"
       ],
       "confidence": "low",
       "notes": [
-        "Official LinkedIn states SDRA includes a free PayPak Debit Card."
+        "No public salary, balance, or fee threshold found."
+      ]
+    },
+    {
+      "card_name": "Visa Silver Debit Card",
+      "card_type": "debit",
+      "tier": "silver",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcb.com.pk/personal/cards/"
+      ],
+      "confidence": "low",
+      "notes": [
+        "No public salary, balance, or fee threshold found."
+      ]
+    },
+    {
+      "card_name": "Visa Fun Club Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.mcb.com.pk/personal/cards/"
+      ],
+      "confidence": "low",
+      "notes": [
+        "Youth/fun card; no publicly disclosed salary or balance threshold."
       ]
     }
   ],

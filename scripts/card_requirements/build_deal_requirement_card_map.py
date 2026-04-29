@@ -18,6 +18,7 @@ BANK_NAME_MAP = {
     "Bank Alfalah": "Bank Alfalah",
     "Bank of Punjab": "Bank of Punjab",
     "BankIslami": "BankIslami",
+    "Easypaisa": "Easypaisa",
     "Faysal Bank Limited": "Faysal Bank Limited",
     "HBL Islamic Bank Limited": "HBL Islamic Bank Limited",
     "Habib Bank Limited": "HBL",
@@ -37,6 +38,7 @@ MANUAL_ALIASES = {
         "Nexgen Habib University PayPak Debit Card": "Nexgen Student PayPak Debit Card",
         "Nexgen IVS PayPak Debit Card": "Nexgen Student PayPak Debit Card",
         "Nexgen Riphah University PayPak Debit Card": "Nexgen Student PayPak Debit Card",
+        "Mastercard World Elite Debit Card": "Mastercard Platinum Debit Card",
     },
     "Allied Bank": {
         "Cash+Shop Classic Visa Debit Card": "Allied Visa Classic Debit Card",
@@ -47,6 +49,8 @@ MANUAL_ALIASES = {
         "Khanum Classic Plus UPI & PayPak Debit Card": "Allied UPI & PayPak Classic Plus",
         "UnionPay PayPak Basic Debit Card": "Allied Basic Debit Card",
         "Youth VISA DebitCard": "Allied Youth Visa Debit Card",
+        "UPI & Paypak myWallet Debit Card": "Allied UPI & PayPak Classic Plus",
+        "UnionPay PayPak Prepaid Card": "Allied UnionPay PayPak Classic Debit Card",
     },
     "Askari Bank Limited": {
         "Askari Classic Credit Card": "Askari Mastercard Classic Credit Card",
@@ -55,6 +59,12 @@ MANUAL_ALIASES = {
         "Askari PayPak Gold Debit Card": "Askari PayPak Debit Card Gold",
         "Askari Visa Classic Debit Card": "Askari Visa Debit Card Classic",
         "Askari World Credit Card": "Askari World Mastercard Credit Card",
+        "Askari Corporate Credit Card": "Askari Mastercard Classic Credit Card",
+        "Askari PayPak Classic Debit Card": "Askari PayPak Debit Card Gold",
+        "Askari PayPak Little Champs Debit Card": "Askari Visa Debit Card Classic",
+        "Askari Sahar Visa Debit Card": "Askari Visa Debit Card Classic",
+        "Askari Visa Gold Debit Card": "Askari Visa Debit Card Classic",
+        "Askari Visa Platinum Debit Card": "Askari Visa Signature Debit Card",
     },
     "Bank AL Habib": {
         "AL Habib Digital Visa Gold Debit Card": "AL Habib Digital Account Gold Debit Card",
@@ -135,6 +145,7 @@ MANUAL_ALIASES = {
         "HBL World Business DebitCard": "HBL World Business DebitCard",
         "HBL World DebitCard": "HBL World DebitCard",
         "HBL World Elite DebitCard": "HBL Prestige World Elite DebitCard",
+        "HBL Konnect Debit Card": "HBL Classic DebitCard",
     },
     "Habib Metro Bank": {
         "Visa Classic Debit Card": "Visa Classic Debit Card",
@@ -158,6 +169,11 @@ MANUAL_ALIASES = {
         "Visa Classic Debit Card": "MCB Islamic Visa Classic Debit Card",
         "Visa Platinum Debit Card": "MCB Islamic Platinum Debit Card",
         "Visa Platinum Business Debit Card": "MCB Islamic Platinum Debit Card",
+        "UnionPay Platinum Debit Card": "MCB Islamic Platinum Debit Card",
+        "Visa FCY Debit Card": "MCB Islamic Visa Classic Debit Card",
+        "Visa Gold Debit Card": "MCB Islamic Qadar Gold Debit Card",
+        "Visa Junior Club Debit Card": "MCB Islamic Visa Classic Debit Card",
+        "Visa Niswan Debit Card": "MCB Islamic Visa Classic Debit Card",
     },
     "Meezan Bank": {
         "Classic Mastercard Debit Card": "Meezan Master Classic Debit Card",
@@ -173,6 +189,7 @@ MANUAL_ALIASES = {
         "Visa Student Debit Card": "Meezan Visa Student Debit Card",
         "Visa Women First Debit Card": "Meezan Women First Debit Card",
         "Mastercard World Debit Card": "Meezan World Debit Card",
+        "Visa Charge Card": "Meezan Visa Gold Debit Card",
     },
     "United Bank Limited (UBL)": {
         "UBL Mastercard Signature Debit Card": "UBL Mastercard Signature Debit Card",

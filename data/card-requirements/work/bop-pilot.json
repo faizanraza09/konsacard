@@ -9,10 +9,10 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 0,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 6250,
         "supplementary_annual_fee_pkr": 3125,
-        "annual_fee_waiver_rule": "Spend PKR 40,000 within 60 days to reverse annual fee by calling the helpline.",
+        "annual_fee_waiver_rule": "Reversed if PKR 40,000 spent within 60 days of issuance",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -20,8 +20,9 @@
         "https://www.bop.com.pk/BOPCreditCards",
         "https://www.bop.com.pk/view.aspx?id=3373"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "Spend-based full fee reversal. No public income or balance threshold.",
         "Current public pages were strong on fees and reversal rules, weak on eligibility thresholds."
       ]
     },
@@ -31,10 +32,10 @@
       "tier": "world",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 0,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 25000,
         "supplementary_annual_fee_pkr": 12500,
-        "annual_fee_waiver_rule": "Spend PKR 1,500,000 within 12 months to reverse annual fee by calling the helpline.",
+        "annual_fee_waiver_rule": "Reversed if PKR 1,500,000 spent within 12 months",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -42,8 +43,10 @@
         "https://www.bop.com.pk/BOPCreditCards",
         "https://www.bop.com.pk/view.aspx?id=3373"
       ],
-      "confidence": "medium",
-      "notes": []
+      "confidence": "high",
+      "notes": [
+        "Spend-based full fee reversal within 12 months. No public income or balance threshold."
+      ]
     },
     {
       "card_name": "BOP World Debit Card",
@@ -98,8 +101,8 @@
       "tier": "other",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 2500,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 1300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -107,10 +110,12 @@
       },
       "sources": [
         "https://www.bop.com.pk/view.aspx?id=3381",
-        "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20%28Latest%20%E2%80%93%20w.e.f%2001-07-2024%29.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20%28Latest%20%E2%80%93%20w.e.f%2001-07-2024%29.pdf",
+        "https://www.bop.com.pk/view.aspx?id=3373"
       ],
       "confidence": "medium",
       "notes": [
+        "Co-branded card; no publicly disclosed salary, balance, or fee threshold.",
         "New customers must open an account first; no numeric threshold was surfaced."
       ]
     },
@@ -120,8 +125,8 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 3300,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 3000,
         "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -130,10 +135,12 @@
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
         "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
       ]
     },
@@ -143,10 +150,10 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 0,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 12500,
         "supplementary_annual_fee_pkr": 6250,
-        "annual_fee_waiver_rule": "Spend PKR 100,000 within 60 days to reverse annual fee by calling the helpline.",
+        "annual_fee_waiver_rule": "Reversed if PKR 100,000 spent within 60 days of issuance",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -155,8 +162,9 @@
         "https://www.bop.com.pk/view.aspx?id=3373",
         "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "Spend-based full fee reversal. No public income or balance threshold.",
         "Public pages were strong on fees and reversal rules, but weak on eligibility thresholds."
       ]
     },
@@ -166,8 +174,8 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 5500,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 4500,
         "supplementary_annual_fee_pkr": 2500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -176,10 +184,12 @@
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
         "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
       ]
     },
@@ -189,8 +199,8 @@
       "tier": "classic",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 2600,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 2300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -199,10 +209,12 @@
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
         "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20-%20English%20-%20Jan-June%20%202026.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20-%20English%20-%20Jan-June%20%202026.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
         "Current forms use Classic where older BOP forms used Silver, so this is the best current alias target for Mastercard Silver Debit Card.",
         "Official BOP SOBC PDFs now surface the Classic Debit Master Card issuance/renewal/replacement fee at PKR 2,600 per annum.",
         "No public BOP page or PDF found in this pass that defensibly states a universal salary or balance threshold for this generic account-linked card."
@@ -213,9 +225,9 @@
       "card_type": "debit",
       "tier": "taqwa-platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": 300000,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 5500,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 2500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -225,10 +237,12 @@
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
         "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20BOP%20at%20Work%20Saving%20%20Account%20%28Form%2030%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "Taqwa Islamic card; no publicly disclosed fee or eligibility threshold.",
         "This is an Islamic account-linked Platinum tier rather than a standalone retail product page.",
         "PKR 300,000 salary threshold is the surfaced Taqwa BOP@Work route rather than a universal card rule."
       ]
@@ -238,21 +252,23 @@
       "card_type": "debit",
       "tier": "taqwa-khaas-platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": 300000,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 0,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 3000,
-        "annual_fee_waiver_rule": "Free for priority-marked Taqwa KHAAS customers; non-priority fee tiers also appear in the Islamic SOBC.",
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
         "existing_account_required": true
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20BOP%20at%20Work%20Saving%20%20Account%20%28Form%2030%29.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20BOP%20at%20Work%20Saving%20%20Account%20%28Form%2030%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "Taqwa Islamic card; no publicly disclosed fee or eligibility threshold.",
         "Islamic/KHAAS wrapper around the KHAAS platinum concept, distinct from the conventional KHAAS Platinum record."
       ]
     },
@@ -262,19 +278,21 @@
       "tier": "taqwa-world",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 15000,
-        "annual_fee_waiver_rule": "Priority-marked customers receive subsidized fee tiers in surfaced Islamic SOBC/KFS materials.",
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
         "existing_account_required": true
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "Taqwa World Islamic card; no publicly disclosed eligibility threshold or fee.",
         "Recovered as an Islamic account-linked World tier rather than from a standalone card landing page."
       ]
     },
@@ -302,6 +320,26 @@
       "notes": [
         "Women-account-linked card marketed as Naaz Debit Card.",
         "The PKR 1,000 threshold comes from the surfaced Taqwa Naaz Saving opening amount rather than a universal card rule."
+      ]
+    },
+    {
+      "card_name": "Lahore Qalandars Gold Credit Card",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 5000,
+        "annual_fee_waiver_rule": "Reversed if PKR 70,000 spent within 60 days of issuance",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.bop.com.pk/view.aspx?id=3373"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Co-branded Lahore Qalandars credit card. Spend-based full fee reversal."
       ]
     }
   ],

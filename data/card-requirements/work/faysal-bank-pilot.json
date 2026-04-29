@@ -46,8 +46,7 @@
       ],
       "confidence": "high",
       "notes": [
-        "Product page clearly surfaces PKR 40,000 salary threshold for salaried approved applicants."
-        ,
+        "Product page clearly surfaces PKR 40,000 salary threshold for salaried approved applicants.",
         "Recovered as an unsecured income-based card rather than a deposit-gated product."
       ]
     },
@@ -120,6 +119,146 @@
       "confidence": "medium",
       "notes": [
         "Priority experience page describes the card as complimentary while the required priority thresholds are maintained."
+      ]
+    },
+    {
+      "card_name": "Amal Mastercard Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.faysalbank.com/personal/cards/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "No publicly disclosed salary or balance threshold."
+      ]
+    },
+    {
+      "card_name": "Amal Mastercard Platinum Debit Card",
+      "card_type": "debit",
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.faysalbank.com/personal/cards/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "No publicly disclosed salary or balance threshold."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Mastercard Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.faysalbank.com/personal/cards/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "No publicly disclosed salary or balance threshold."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Mastercard Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.faysalbank.com/personal/cards/"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "No publicly disclosed salary or balance threshold."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Noor Velocity Card",
+      "card_type": null,
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 6500,
+        "annual_fee_waiver_rule": "Reduced to PKR 600 if PKR 20,000 spent within qualifying period",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Reduced fee model from Jul-Dec 2025 KFS. PKR 6,500 initial; reduced to PKR 600 post spend-target."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Noor Flexi Card",
+      "card_type": null,
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 6500,
+        "annual_fee_waiver_rule": "Reduced to PKR 600 if PKR 20,000 spent within qualifying period",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Entry-tier Noor card — likely the same tier as Velocity or a predecessor. Reduced fee model."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Noor Platinum  Card",
+      "card_type": null,
+      "tier": "platinum",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 19000,
+        "annual_fee_waiver_rule": "Reduced to PKR 2,100 if PKR 200,000 spent within qualifying period",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Reduced fee model from Jul-Dec 2025 KFS. Includes golf and Mastercard Championship Series access."
       ]
     }
   ],

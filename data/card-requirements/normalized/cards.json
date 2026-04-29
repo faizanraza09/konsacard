@@ -1,5 +1,16 @@
 [
   {
+    "card_id": "al-baraka--mastercard-gold-debit-card",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Gold Debit Card",
+    "card_slug": "mastercard-gold-debit-card",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "high",
+    "pilot_position": 5
+  },
+  {
     "card_id": "al-baraka--mastercard-platinum-debit-card",
     "bank_slug": "al-baraka",
     "bank_name": "Al Baraka Bank",
@@ -7,8 +18,30 @@
     "card_slug": "mastercard-platinum-debit-card",
     "card_type": "debit",
     "tier": "platinum",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 3
+  },
+  {
+    "card_id": "al-baraka--mastercard-silver-debit-card",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Silver Debit Card",
+    "card_slug": "mastercard-silver-debit-card",
+    "card_type": "debit",
+    "tier": "silver",
+    "confidence": "high",
+    "pilot_position": 6
+  },
+  {
+    "card_id": "al-baraka--nexgen-student-paypak-debit-card",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Nexgen Student PayPak Debit Card",
+    "card_slug": "nexgen-student-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "high",
+    "pilot_position": 8
   },
   {
     "card_id": "al-baraka--paypak-standard-debit-card",
@@ -18,7 +51,7 @@
     "card_slug": "paypak-standard-debit-card",
     "card_type": "debit",
     "tier": "other",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 4
   },
   {
@@ -29,7 +62,7 @@
     "card_slug": "unionpay-classic-debit-card",
     "card_type": "debit",
     "tier": "classic",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 1
   },
   {
@@ -40,8 +73,19 @@
     "card_slug": "unionpay-gold-debit-card",
     "card_type": "debit",
     "tier": "gold",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 2
+  },
+  {
+    "card_id": "al-baraka--unionpay-silver-debit-card",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "UnionPay Silver Debit Card",
+    "card_slug": "unionpay-silver-debit-card",
+    "card_type": "debit",
+    "tier": "silver",
+    "confidence": "medium",
+    "pilot_position": 7
   },
   {
     "card_id": "allied-bank--allied-visa-gold-credit-card",
@@ -84,7 +128,7 @@
     "card_slug": "allied-upi-paypak-classic-plus",
     "card_type": "debit",
     "tier": "classic-plus",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 9
   },
   {
@@ -161,8 +205,30 @@
     "card_slug": "allied-youth-visa-debit-card",
     "card_type": "debit",
     "tier": "youth",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 11
+  },
+  {
+    "card_id": "allied-bank--cash-shop-sapphire-visa-debit-card",
+    "bank_slug": "allied-bank",
+    "bank_name": "Allied Bank",
+    "card_name": "Cash+Shop Sapphire Visa Debit Card",
+    "card_slug": "cash-shop-sapphire-visa-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 12
+  },
+  {
+    "card_id": "allied-bank--islamic-banking-visa-debitcard",
+    "bank_slug": "allied-bank",
+    "bank_name": "Allied Bank",
+    "card_name": "Islamic Banking VISA DebitCard",
+    "card_slug": "islamic-banking-visa-debitcard",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 13
   },
   {
     "card_id": "askari-bank--askari-mastercard-classic-credit-card",
@@ -249,7 +315,7 @@
     "card_slug": "al-habib-gold-credit-card",
     "card_type": "credit",
     "tier": "gold",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 1
   },
   {
@@ -260,7 +326,7 @@
     "card_slug": "al-habib-green-credit-card",
     "card_type": "credit",
     "tier": "green",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 2
   },
   {
@@ -315,7 +381,7 @@
     "card_slug": "bahl-unionpay-apna-debit-card",
     "card_type": "debit",
     "tier": "unionpay-apna",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 11
   },
   {
@@ -326,7 +392,7 @@
     "card_slug": "bahl-unionpay-debit-card",
     "card_type": "debit",
     "tier": "unionpay",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 12
   },
   {
@@ -337,7 +403,7 @@
     "card_slug": "paypak-debit-card",
     "card_type": "debit",
     "tier": "paypak",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 13
   },
   {
@@ -381,7 +447,7 @@
     "card_slug": "visa-silver-debit-card",
     "card_type": "debit",
     "tier": "silver",
-    "confidence": "medium",
+    "confidence": "low",
     "pilot_position": 6
   },
   {
@@ -405,6 +471,28 @@
     "tier": "optimus",
     "confidence": "high",
     "pilot_position": 8
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-mastercard-titanium-credit-card",
+    "bank_slug": "bank-alfalah",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Mastercard Titanium Credit Card",
+    "card_slug": "bank-alfalah-mastercard-titanium-credit-card",
+    "card_type": "credit",
+    "tier": "titanium",
+    "confidence": "medium",
+    "pilot_position": 26
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card",
+    "bank_slug": "bank-alfalah",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Premier Visa Infinite Credit Card",
+    "card_slug": "bank-alfalah-premier-visa-infinite-credit-card",
+    "card_type": "credit",
+    "tier": "infinite",
+    "confidence": "medium",
+    "pilot_position": 27
   },
   {
     "card_id": "bank-alfalah--bank-alfalah-premier-visa-platinum-credit-card",
@@ -447,7 +535,7 @@
     "card_slug": "bank-alfalah-visa-ultra-cashback-card",
     "card_type": "credit",
     "tier": "ultra-cashback",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 23
   },
   {
@@ -506,6 +594,17 @@
     "pilot_position": 20
   },
   {
+    "card_id": "bank-alfalah--bank-alfalah-islamic-premier-visa-infinite-debit-card",
+    "bank_slug": "bank-alfalah",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
+    "card_slug": "bank-alfalah-islamic-premier-visa-infinite-debit-card",
+    "card_type": "debit",
+    "tier": "infinite",
+    "confidence": "high",
+    "pilot_position": 24
+  },
+  {
     "card_id": "bank-alfalah--bank-alfalah-islamic-premier-visa-signature-debit-card",
     "bank_slug": "bank-alfalah",
     "bank_name": "Bank Alfalah",
@@ -535,7 +634,7 @@
     "card_slug": "bank-alfalah-paypak-islamic-classic-debit-card",
     "card_type": "debit",
     "tier": "islamic-paypak-classic",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 18
   },
   {
@@ -548,6 +647,17 @@
     "tier": "pehchaan",
     "confidence": "high",
     "pilot_position": 13
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-debit-card",
+    "bank_slug": "bank-alfalah",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Premier Visa Infinite Debit Card",
+    "card_slug": "bank-alfalah-premier-visa-infinite-debit-card",
+    "card_type": "debit",
+    "tier": "infinite",
+    "confidence": "high",
+    "pilot_position": 25
   },
   {
     "card_id": "bank-alfalah--bank-alfalah-premier-visa-signature-debit-card",
@@ -568,7 +678,7 @@
     "card_slug": "bank-alfalah-visa-islamic-classic-debit-card",
     "card_type": "debit",
     "tier": "islamic-classic",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 14
   },
   {
@@ -579,7 +689,7 @@
     "card_slug": "bank-alfalah-visa-islamic-gold-debit-card",
     "card_type": "debit",
     "tier": "islamic-gold",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 15
   },
   {
@@ -612,7 +722,7 @@
     "card_slug": "visa-gold-debit-card",
     "card_type": "debit",
     "tier": "gold",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 2
   },
   {
@@ -623,7 +733,7 @@
     "card_slug": "visa-platinum-debit-card",
     "card_type": "debit",
     "tier": "platinum",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 3
   },
   {
@@ -645,7 +755,7 @@
     "card_slug": "bop-mastercard-gold-credit-card",
     "card_type": "credit",
     "tier": "gold",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 1
   },
   {
@@ -656,7 +766,7 @@
     "card_slug": "bop-mastercard-platinum-credit-card",
     "card_type": "credit",
     "tier": "platinum",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 7
   },
   {
@@ -667,8 +777,19 @@
     "card_slug": "bop-world-credit-card",
     "card_type": "credit",
     "tier": "world",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 2
+  },
+  {
+    "card_id": "bank-of-punjab--lahore-qalandars-gold-credit-card",
+    "bank_slug": "bank-of-punjab",
+    "bank_name": "Bank of Punjab",
+    "card_name": "Lahore Qalandars Gold Credit Card",
+    "card_slug": "lahore-qalandars-gold-credit-card",
+    "card_type": "credit",
+    "tier": "gold",
+    "confidence": "high",
+    "pilot_position": 14
   },
   {
     "card_id": "bank-of-punjab--bop-khaas-platinum-debit-card",
@@ -700,7 +821,7 @@
     "card_slug": "bop-mastercard-classic-debit-card",
     "card_type": "debit",
     "tier": "classic",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 9
   },
   {
@@ -711,7 +832,7 @@
     "card_slug": "bop-mastercard-gold-debit-card",
     "card_type": "debit",
     "tier": "gold",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 6
   },
   {
@@ -722,7 +843,7 @@
     "card_slug": "bop-mastercard-platinum-debit-card",
     "card_type": "debit",
     "tier": "platinum",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 8
   },
   {
@@ -744,7 +865,7 @@
     "card_slug": "bop-taqwa-khaas-platinum-islamic-debit-card",
     "card_type": "debit",
     "tier": "taqwa-khaas-platinum",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 11
   },
   {
@@ -755,7 +876,7 @@
     "card_slug": "bop-taqwa-platinum-islamic-debit-card",
     "card_type": "debit",
     "tier": "taqwa-platinum",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 10
   },
   {
@@ -766,7 +887,7 @@
     "card_slug": "bop-taqwa-world-islamic-debit-card",
     "card_type": "debit",
     "tier": "taqwa-world",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 12
   },
   {
@@ -788,7 +909,7 @@
     "card_slug": "classic-debit-mastercard",
     "card_type": "debit",
     "tier": "classic",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 1
   },
   {
@@ -799,7 +920,7 @@
     "card_slug": "paypak-debit-card",
     "card_type": "debit",
     "tier": "other",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 2
   },
   {
@@ -810,8 +931,74 @@
     "card_slug": "titanium-debit-mastercard",
     "card_type": "debit",
     "tier": "titanium",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 3
+  },
+  {
+    "card_id": "easypaisa--easy-paisa-debitcard",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "card_name": "Easy Paisa DebitCard",
+    "card_slug": "easy-paisa-debitcard",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 1
+  },
+  {
+    "card_id": "easypaisa--easy-paisa-pay-pak-debit-card",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "card_name": "Easy Paisa Pay Pak Debit Card",
+    "card_slug": "easy-paisa-pay-pak-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 2
+  },
+  {
+    "card_id": "easypaisa--easy-paisa-union-pay-debit-card",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "card_name": "Easy Paisa Union Pay Debit Card",
+    "card_slug": "easy-paisa-union-pay-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 3
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-noor-flexi-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Noor Flexi Card",
+    "card_slug": "faysal-islami-noor-flexi-card",
+    "card_type": null,
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 11
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-noor-platinum-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Noor Platinum  Card",
+    "card_slug": "faysal-islami-noor-platinum-card",
+    "card_type": null,
+    "tier": "platinum",
+    "confidence": "high",
+    "pilot_position": 12
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-noor-velocity-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Noor Velocity Card",
+    "card_slug": "faysal-islami-noor-velocity-card",
+    "card_type": null,
+    "tier": "other",
+    "confidence": "high",
+    "pilot_position": 10
   },
   {
     "card_id": "faysal-bank--faysal-islami-noor-gold-card",
@@ -847,6 +1034,50 @@
     "pilot_position": 1
   },
   {
+    "card_id": "faysal-bank--amal-mastercard-gold-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Amal Mastercard Gold Debit Card",
+    "card_slug": "amal-mastercard-gold-debit-card",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "medium",
+    "pilot_position": 6
+  },
+  {
+    "card_id": "faysal-bank--amal-mastercard-platinum-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Amal Mastercard Platinum Debit Card",
+    "card_slug": "amal-mastercard-platinum-debit-card",
+    "card_type": "debit",
+    "tier": "platinum",
+    "confidence": "medium",
+    "pilot_position": 7
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-mastercard-classic-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Mastercard Classic Debit Card",
+    "card_slug": "faysal-islami-mastercard-classic-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "medium",
+    "pilot_position": 8
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-mastercard-gold-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Mastercard Gold Debit Card",
+    "card_slug": "faysal-islami-mastercard-gold-debit-card",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "medium",
+    "pilot_position": 9
+  },
+  {
     "card_id": "faysal-bank--priority-platinum-debit-card",
     "bank_slug": "faysal-bank",
     "bank_name": "Faysal Bank Limited",
@@ -876,7 +1107,7 @@
     "card_slug": "hbl-fuelsaver-gold-creditcard",
     "card_type": "credit",
     "tier": "gold",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 4
   },
   {
@@ -887,7 +1118,7 @@
     "card_slug": "hbl-fuelsaver-green-creditcard",
     "card_type": "credit",
     "tier": "green",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 5
   },
   {
@@ -957,6 +1188,17 @@
     "pilot_position": 7
   },
   {
+    "card_id": "hbl--hbl-nisa-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL Nisa DebitCard",
+    "card_slug": "hbl-nisa-debitcard",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 12
+  },
+  {
     "card_id": "hbl--hbl-prestige-world-elite-debitcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -966,6 +1208,17 @@
     "tier": "world-elite",
     "confidence": "high",
     "pilot_position": 11
+  },
+  {
+    "card_id": "hbl--hbl-titanium-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL Titanium DebitCard",
+    "card_slug": "hbl-titanium-debitcard",
+    "card_type": "debit",
+    "tier": "titanium",
+    "confidence": "low",
+    "pilot_position": 13
   },
   {
     "card_id": "hbl--hbl-world-business-debitcard",
@@ -1045,6 +1298,17 @@
     "pilot_position": 7
   },
   {
+    "card_id": "hbl-islamic--hbl-islamic-titanium-debitcard",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic Titanium DebitCard",
+    "card_slug": "hbl-islamic-titanium-debitcard",
+    "card_type": "debit",
+    "tier": "titanium",
+    "confidence": "low",
+    "pilot_position": 8
+  },
+  {
     "card_id": "hbl-islamic--hbl-islamic-world-debit-card",
     "bank_slug": "hbl-islamic",
     "bank_name": "HBL Islamic Bank Limited",
@@ -1122,6 +1386,17 @@
     "pilot_position": 4
   },
   {
+    "card_id": "habib-metro--visa-ladies-debit-card",
+    "bank_slug": "habib-metro",
+    "bank_name": "Habib Metro Bank",
+    "card_name": "Visa Ladies Debit Card",
+    "card_slug": "visa-ladies-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "high",
+    "pilot_position": 7
+  },
+  {
     "card_id": "habib-metro--visa-platinum-debit-card",
     "bank_slug": "habib-metro",
     "bank_name": "Habib Metro Bank",
@@ -1131,6 +1406,17 @@
     "tier": "platinum",
     "confidence": "high",
     "pilot_position": 1
+  },
+  {
+    "card_id": "habib-metro--visa-signature-debit-card",
+    "bank_slug": "habib-metro",
+    "bank_name": "Habib Metro Bank",
+    "card_name": "Visa Signature Debit Card",
+    "card_slug": "visa-signature-debit-card",
+    "card_type": "debit",
+    "tier": "signature",
+    "confidence": "high",
+    "pilot_position": 8
   },
   {
     "card_id": "js-bank--js-credit-card-classic",
@@ -1155,6 +1441,39 @@
     "pilot_position": 2
   },
   {
+    "card_id": "js-bank--private-banking-visa-signature-credit-card",
+    "bank_slug": "js-bank",
+    "bank_name": "JS Bank",
+    "card_name": "Private Banking Visa Signature Credit Card",
+    "card_slug": "private-banking-visa-signature-credit-card",
+    "card_type": "credit",
+    "tier": "signature",
+    "confidence": "high",
+    "pilot_position": 10
+  },
+  {
+    "card_id": "js-bank--visa-gold-credit-card",
+    "bank_slug": "js-bank",
+    "bank_name": "JS Bank",
+    "card_name": "Visa Gold Credit Card",
+    "card_slug": "visa-gold-credit-card",
+    "card_type": "credit",
+    "tier": "gold",
+    "confidence": "high",
+    "pilot_position": 11
+  },
+  {
+    "card_id": "js-bank--js-paypak-classic-debit-card",
+    "bank_slug": "js-bank",
+    "bank_name": "JS Bank",
+    "card_name": "JS PayPak Classic Debit Card",
+    "card_slug": "js-paypak-classic-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 6
+  },
+  {
     "card_id": "js-bank--mastercard-gold-debit-card",
     "bank_slug": "js-bank",
     "bank_name": "JS Bank",
@@ -1162,8 +1481,41 @@
     "card_slug": "mastercard-gold-debit-card",
     "card_type": "debit",
     "tier": "gold",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 4
+  },
+  {
+    "card_id": "js-bank--mastercard-her-titanium-debit-card",
+    "bank_slug": "js-bank",
+    "bank_name": "JS Bank",
+    "card_name": "Mastercard Her Titanium Debit Card",
+    "card_slug": "mastercard-her-titanium-debit-card",
+    "card_type": "debit",
+    "tier": "titanium",
+    "confidence": "high",
+    "pilot_position": 7
+  },
+  {
+    "card_id": "js-bank--mastercard-platinum-debit-card",
+    "bank_slug": "js-bank",
+    "bank_name": "JS Bank",
+    "card_name": "Mastercard Platinum Debit Card",
+    "card_slug": "mastercard-platinum-debit-card",
+    "card_type": "debit",
+    "tier": "platinum",
+    "confidence": "high",
+    "pilot_position": 8
+  },
+  {
+    "card_id": "js-bank--mastercard-titanium-debit-card",
+    "bank_slug": "js-bank",
+    "bank_name": "JS Bank",
+    "card_name": "Mastercard Titanium Debit Card",
+    "card_slug": "mastercard-titanium-debit-card",
+    "card_type": "debit",
+    "tier": "titanium",
+    "confidence": "high",
+    "pilot_position": 9
   },
   {
     "card_id": "js-bank--mastercard-world-debit-card",
@@ -1188,6 +1540,39 @@
     "pilot_position": 3
   },
   {
+    "card_id": "mcb-bank--visa-classic-credit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Classic Credit Card",
+    "card_slug": "visa-classic-credit-card",
+    "card_type": "credit",
+    "tier": "classic",
+    "confidence": "medium",
+    "pilot_position": 6
+  },
+  {
+    "card_id": "mcb-bank--visa-gold-credit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Gold Credit Card",
+    "card_slug": "visa-gold-credit-card",
+    "card_type": "credit",
+    "tier": "gold",
+    "confidence": "medium",
+    "pilot_position": 7
+  },
+  {
+    "card_id": "mcb-bank--visa-platinum-credit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Platinum Credit Card",
+    "card_slug": "visa-platinum-credit-card",
+    "card_type": "credit",
+    "tier": "platinum",
+    "confidence": "medium",
+    "pilot_position": 8
+  },
+  {
     "card_id": "mcb-bank--mcb-visa-platinum-debit-card",
     "bank_slug": "mcb-bank",
     "bank_name": "MCB Bank Limited",
@@ -1206,8 +1591,30 @@
     "card_slug": "mcb-visa-signature-debit-card",
     "card_type": "debit",
     "tier": "signature",
-    "confidence": "medium",
+    "confidence": "low",
     "pilot_position": 2
+  },
+  {
+    "card_id": "mcb-bank--mastercard-classic-debit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Mastercard Classic Debit Card",
+    "card_slug": "mastercard-classic-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "medium",
+    "pilot_position": 4
+  },
+  {
+    "card_id": "mcb-bank--nayab-visa-debit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Nayab Visa Debit Card",
+    "card_slug": "nayab-visa-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 5
   },
   {
     "card_id": "mcb-bank--paypak-debit-card",
@@ -1217,8 +1624,41 @@
     "card_slug": "paypak-debit-card",
     "card_type": "debit",
     "tier": "other",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 3
+  },
+  {
+    "card_id": "mcb-bank--visa-fun-club-debit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Fun Club Debit Card",
+    "card_slug": "visa-fun-club-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "low",
+    "pilot_position": 11
+  },
+  {
+    "card_id": "mcb-bank--visa-gold-debit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Gold Debit Card",
+    "card_slug": "visa-gold-debit-card",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "low",
+    "pilot_position": 9
+  },
+  {
+    "card_id": "mcb-bank--visa-silver-debit-card",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Silver Debit Card",
+    "card_slug": "visa-silver-debit-card",
+    "card_type": "debit",
+    "tier": "silver",
+    "confidence": "low",
+    "pilot_position": 10
   },
   {
     "card_id": "mcb-islamic--mcb-islamic-paypak-classic-debit-card",
@@ -1305,7 +1745,7 @@
     "card_slug": "meezan-paypak-debit-card",
     "card_type": "debit",
     "tier": "paypak",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 8
   },
   {
@@ -1404,7 +1844,7 @@
     "card_slug": "meezan-world-debit-card",
     "card_type": "debit",
     "tier": "world",
-    "confidence": "low",
+    "confidence": "high",
     "pilot_position": 4
   },
   {
@@ -1415,7 +1855,7 @@
     "card_slug": "easy-credit",
     "card_type": "credit",
     "tier": "easy-credit",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 4
   },
   {
@@ -1437,7 +1877,7 @@
     "card_slug": "mastercard-titanium-credit-card",
     "card_type": "credit",
     "tier": "titanium",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 3
   },
   {
@@ -1459,7 +1899,7 @@
     "card_slug": "saadiq-mastercard-platinum-credit-card",
     "card_type": "credit",
     "tier": "platinum",
-    "confidence": "medium",
+    "confidence": "low",
     "pilot_position": 5
   },
   {
@@ -1470,7 +1910,7 @@
     "card_slug": "ubl-credit-card-classic",
     "card_type": "credit",
     "tier": "classic",
-    "confidence": "low",
+    "confidence": "high",
     "pilot_position": 1
   },
   {
@@ -1481,7 +1921,7 @@
     "card_slug": "ubl-credit-card-gold",
     "card_type": "credit",
     "tier": "gold",
-    "confidence": "low",
+    "confidence": "high",
     "pilot_position": 2
   },
   {
@@ -1492,7 +1932,7 @@
     "card_slug": "ubl-visa-platinum-credit-card",
     "card_type": "credit",
     "tier": "platinum",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 3
   },
   {
@@ -1505,6 +1945,17 @@
     "tier": "premium",
     "confidence": "medium",
     "pilot_position": 8
+  },
+  {
+    "card_id": "ubl--ubl-mastercard-premium-debit-card",
+    "bank_slug": "ubl",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Mastercard Premium Debit Card",
+    "card_slug": "ubl-mastercard-premium-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 14
   },
   {
     "card_id": "ubl--ubl-mastercard-signature-debit-card",
@@ -1604,170 +2055,5 @@
     "tier": "virtual",
     "confidence": "high",
     "pilot_position": 9
-  },
-  {
-    "card_id": "al-baraka--mastercard-gold",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "card_name": "Mastercard Gold Debit Card",
-    "card_slug": "mastercard-gold",
-    "card_type": "debit",
-    "tier": "gold",
-    "confidence": "high",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "al-baraka--mastercard-silver",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "card_name": "Mastercard Silver Debit Card",
-    "card_slug": "mastercard-silver",
-    "card_type": "debit",
-    "tier": "silver",
-    "confidence": "high",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "al-baraka--mastercard-world-elite",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "card_name": "Mastercard World Elite Debit Card",
-    "card_slug": "mastercard-world-elite",
-    "card_type": "debit",
-    "tier": "world-elite",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "al-baraka--unionpay-silver",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "card_name": "UnionPay Silver Debit Card",
-    "card_slug": "unionpay-silver",
-    "card_type": "debit",
-    "tier": "silver",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "al-baraka--nexgen-student-paypak",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "card_name": "Nexgen Student PayPak Debit Card",
-    "card_slug": "nexgen-student-paypak",
-    "card_type": "debit",
-    "tier": "other",
-    "confidence": "high",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "allied--cash-shop-sapphire-visa-debit",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "card_name": "Cash+Shop Sapphire Visa Debit Card",
-    "card_slug": "cash-shop-sapphire-visa-debit",
-    "card_type": "debit",
-    "tier": "other",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "allied--islamic-banking-visa-debitcard",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "card_name": "Islamic Banking VISA DebitCard",
-    "card_slug": "islamic-banking-visa-debitcard",
-    "card_type": "debit",
-    "tier": "other",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "allied--upi-paypak-mywallet-debit-card",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "card_name": "UPI & Paypak myWallet Debit Card",
-    "card_slug": "upi-paypak-mywallet-debit-card",
-    "card_type": "debit",
-    "tier": "other",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "allied--unionpay-paypak-prepaid-card",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "card_name": "UnionPay PayPak Prepaid Card",
-    "card_slug": "unionpay-paypak-prepaid-card",
-    "card_type": "prepaid",
-    "tier": "other",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "askari--askari-paypak-classic-debit-card",
-    "bank_slug": "askari",
-    "bank_name": "Askari Bank Limited",
-    "card_name": "Askari PayPak Classic Debit Card",
-    "card_slug": "askari-paypak-classic-debit-card",
-    "card_type": "debit",
-    "tier": "classic",
-    "confidence": "high",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "askari--askari-paypak-little-champs-debit-card",
-    "bank_slug": "askari",
-    "bank_name": "Askari Bank Limited",
-    "card_name": "Askari PayPak Little Champs Debit Card",
-    "card_slug": "askari-paypak-little-champs-debit-card",
-    "card_type": "debit",
-    "tier": "other",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "askari--askari-sahar-visa-debit-card",
-    "bank_slug": "askari",
-    "bank_name": "Askari Bank Limited",
-    "card_name": "Askari Sahar Visa Debit Card",
-    "card_slug": "askari-sahar-visa-debit-card",
-    "card_type": "debit",
-    "tier": "other",
-    "confidence": "medium",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "askari--askari-visa-gold-debit-card",
-    "bank_slug": "askari",
-    "bank_name": "Askari Bank Limited",
-    "card_name": "Askari Visa Gold Debit Card",
-    "card_slug": "askari-visa-gold-debit-card",
-    "card_type": "debit",
-    "tier": "gold",
-    "confidence": "high",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "askari--askari-visa-platinum-debit-card",
-    "bank_slug": "askari",
-    "bank_name": "Askari Bank Limited",
-    "card_name": "Askari Visa Platinum Debit Card",
-    "card_slug": "askari-visa-platinum-debit-card",
-    "card_type": "debit",
-    "tier": "platinum",
-    "confidence": "high",
-    "pilot_position": 99
-  },
-  {
-    "card_id": "askari--askari-corporate-credit-card",
-    "bank_slug": "askari",
-    "bank_name": "Askari Bank Limited",
-    "card_name": "Askari Corporate Credit Card",
-    "card_slug": "askari-corporate-credit-card",
-    "card_type": "credit",
-    "tier": "other",
-    "confidence": "high",
-    "pilot_position": 99
   }
 ]

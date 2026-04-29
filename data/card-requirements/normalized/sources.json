@@ -1,5 +1,25 @@
 [
   {
+    "source_id": "al-baraka-src-4d99915c36",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "url": "https://www.albaraka.com.pk/downloads-documents/Key%20Fact%20Statement%20Saving%20accounts%20-%20Sep.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "al-baraka--nexgen-student-paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "al-baraka-src-9a16c33595",
+    "bank_slug": "al-baraka",
+    "bank_name": "Al Baraka Bank",
+    "url": "https://www.albaraka.com.pk/page/al-baraka-unionpay-debit-card/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "al-baraka--unionpay-silver-debit-card"
+    ]
+  },
+  {
     "source_id": "al-baraka-src-bb81a92b2c",
     "bank_slug": "al-baraka",
     "bank_name": "Al Baraka Bank",
@@ -32,12 +52,12 @@
     "url": "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
     "source_type": "pdf",
     "used_by_card_ids": [
+      "al-baraka--mastercard-gold-debit-card",
       "al-baraka--mastercard-platinum-debit-card",
+      "al-baraka--mastercard-silver-debit-card",
       "al-baraka--paypak-standard-debit-card",
       "al-baraka--unionpay-classic-debit-card",
-      "al-baraka--unionpay-gold-debit-card",
-      "al-baraka--mastercard-gold",
-      "al-baraka--mastercard-silver"
+      "al-baraka--unionpay-gold-debit-card"
     ]
   },
   {
@@ -107,8 +127,7 @@
     "url": "https://www.abl.com/personal/cards/debit-cards/allied-unionpay-paypak-gold-debit-card/",
     "source_type": "html",
     "used_by_card_ids": [
-      "allied-bank--allied-unionpay-paypak-gold-debit-card",
-      "allied--cash-shop-sapphire-visa-debit"
+      "allied-bank--allied-unionpay-paypak-gold-debit-card"
     ]
   },
   {
@@ -182,6 +201,21 @@
     ]
   },
   {
+    "source_id": "allied-bank-src-b03cb2ba40",
+    "bank_slug": "allied-bank",
+    "bank_name": "Allied Bank",
+    "url": "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "allied-bank--allied-basic-debit-card",
+      "allied-bank--allied-unionpay-paypak-classic-debit-card",
+      "allied-bank--allied-upi-paypak-classic-plus",
+      "allied-bank--allied-visa-classic-debit-card",
+      "allied-bank--cash-shop-sapphire-visa-debit-card",
+      "allied-bank--islamic-banking-visa-debitcard"
+    ]
+  },
+  {
     "source_id": "allied-bank-src-d56c0f5c11",
     "bank_slug": "allied-bank",
     "bank_name": "Allied Bank",
@@ -206,11 +240,7 @@
       "askari-bank--askari-paypak-debit-card-gold",
       "askari-bank--askari-visa-debit-card-classic",
       "askari-bank--askari-visa-signature-debit-card",
-      "askari-bank--askari-world-mastercard-credit-card",
-      "askari--askari-paypak-classic-debit-card",
-      "askari--askari-visa-gold-debit-card",
-      "askari--askari-visa-platinum-debit-card",
-      "askari--askari-corporate-credit-card"
+      "askari-bank--askari-world-mastercard-credit-card"
     ]
   },
   {
@@ -372,12 +402,12 @@
       "bank-al-habib--al-habib-digital-account-gold-debit-card",
       "bank-al-habib--al-habib-remit-debit-card",
       "bank-al-habib--al-habib-woman-debit-card",
-      "bank-al-habib--visa-gold-debit-card",
-      "bank-al-habib--visa-platinum-debit-card",
-      "bank-al-habib--visa-silver-debit-card",
       "bank-al-habib--bahl-unionpay-apna-debit-card",
       "bank-al-habib--bahl-unionpay-debit-card",
-      "bank-al-habib--paypak-debit-card"
+      "bank-al-habib--paypak-debit-card",
+      "bank-al-habib--visa-gold-debit-card",
+      "bank-al-habib--visa-platinum-debit-card",
+      "bank-al-habib--visa-silver-debit-card"
     ]
   },
   {
@@ -489,6 +519,16 @@
     ]
   },
   {
+    "source_id": "bank-al-habib-src-6b21a1495b",
+    "bank_slug": "bank-al-habib",
+    "bank_name": "Bank AL Habib",
+    "url": "https://www.bankalhabib.com/signature",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "bank-al-habib--signature-debit-card"
+    ]
+  },
+  {
     "source_id": "bank-al-habib-src-1ff3bbdd68",
     "bank_slug": "bank-al-habib",
     "bank_name": "Bank AL Habib",
@@ -538,6 +578,20 @@
     "used_by_card_ids": [
       "bank-alfalah--bank-alfalah-mastercard-optimus-credit-card",
       "bank-alfalah--bank-alfalah-visa-platinum-credit-card"
+    ]
+  },
+  {
+    "source_id": "bank-alfalah-src-1da86c98fe",
+    "bank_slug": "bank-alfalah",
+    "bank_name": "Bank Alfalah",
+    "url": "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "bank-alfalah--bank-alfalah-islamic-premier-visa-infinite-debit-card",
+      "bank-alfalah--bank-alfalah-paypak-islamic-classic-debit-card",
+      "bank-alfalah--bank-alfalah-premier-visa-infinite-debit-card",
+      "bank-alfalah--bank-alfalah-visa-islamic-classic-debit-card",
+      "bank-alfalah--bank-alfalah-visa-islamic-gold-debit-card"
     ]
   },
   {
@@ -810,9 +864,9 @@
     "source_type": "html",
     "used_by_card_ids": [
       "bank-alfalah--bank-alfalah-american-express-gold-credit-card",
-      "bank-alfalah--bank-alfalah-visa-ultra-cashback-card",
       "bank-alfalah--bank-alfalah-mastercard-titanium-credit-card",
-      "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card"
+      "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card",
+      "bank-alfalah--bank-alfalah-visa-ultra-cashback-card"
     ]
   },
   {
@@ -1058,6 +1112,21 @@
     ]
   },
   {
+    "source_id": "bank-of-punjab-src-26989ff0d3",
+    "bank_slug": "bank-of-punjab",
+    "bank_name": "Bank of Punjab",
+    "url": "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "bank-of-punjab--bop-mastercard-classic-debit-card",
+      "bank-of-punjab--bop-mastercard-gold-debit-card",
+      "bank-of-punjab--bop-mastercard-platinum-debit-card",
+      "bank-of-punjab--bop-taqwa-khaas-platinum-islamic-debit-card",
+      "bank-of-punjab--bop-taqwa-platinum-islamic-debit-card",
+      "bank-of-punjab--bop-taqwa-world-islamic-debit-card"
+    ]
+  },
+  {
     "source_id": "bank-of-punjab-src-3f4475c476",
     "bank_slug": "bank-of-punjab",
     "bank_name": "Bank of Punjab",
@@ -1122,10 +1191,10 @@
     "url": "https://www.bop.com.pk/view.aspx?id=3373",
     "source_type": "html",
     "used_by_card_ids": [
+      "bank-of-punjab--bop-lahore-qalandars-debit-card",
       "bank-of-punjab--bop-mastercard-gold-credit-card",
       "bank-of-punjab--bop-mastercard-platinum-credit-card",
       "bank-of-punjab--bop-world-credit-card",
-      "bank-of-punjab--bop-lahore-qalandars-debit-card",
       "bank-of-punjab--lahore-qalandars-gold-credit-card"
     ]
   },
@@ -1234,6 +1303,40 @@
     ]
   },
   {
+    "source_id": "bankislami-src-05a7ba57c4",
+    "bank_slug": "bankislami",
+    "bank_name": "BankIslami",
+    "url": "https://onboard.bankislami.com.pk/static/media/Products%20Brief%20Description%20-%20Digital%20Onboarding%20Final.f03233bc.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "bankislami--titanium-debit-mastercard"
+    ]
+  },
+  {
+    "source_id": "easypaisa-src-765b3475de",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "url": "https://easypaisa.com.pk/easypaisa-debit-card/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "easypaisa--easy-paisa-debitcard",
+      "easypaisa--easy-paisa-pay-pak-debit-card",
+      "easypaisa--easy-paisa-union-pay-debit-card"
+    ]
+  },
+  {
+    "source_id": "faysal-bank-src-cc48a97240",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "url": "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "faysal-bank--faysal-islami-noor-flexi-card",
+      "faysal-bank--faysal-islami-noor-platinum-card",
+      "faysal-bank--faysal-islami-noor-velocity-card"
+    ]
+  },
+  {
     "source_id": "faysal-bank-src-f427116f10",
     "bank_slug": "faysal-bank",
     "bank_name": "Faysal Bank Limited",
@@ -1263,6 +1366,19 @@
     "source_type": "html",
     "used_by_card_ids": [
       "faysal-bank--faysal-islami-noor-titanium-card"
+    ]
+  },
+  {
+    "source_id": "faysal-bank-src-7d7ff37303",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "url": "https://www.faysalbank.com/personal/cards/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "faysal-bank--amal-mastercard-gold-debit-card",
+      "faysal-bank--amal-mastercard-platinum-debit-card",
+      "faysal-bank--faysal-islami-mastercard-classic-debit-card",
+      "faysal-bank--faysal-islami-mastercard-gold-debit-card"
     ]
   },
   {
@@ -1344,17 +1460,28 @@
     ]
   },
   {
+    "source_id": "hbl-src-a89d1e12ff",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "url": "https://www.hbl.com/personal/cards/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "hbl--hbl-nisa-debitcard",
+      "hbl--hbl-titanium-debitcard"
+    ]
+  },
+  {
     "source_id": "hbl-src-b3407ffa95",
     "bank_slug": "hbl",
     "bank_name": "HBL",
     "url": "https://www.hbl.com/personal/cards/credit-cards/credit-cards-overview",
     "source_type": "html",
     "used_by_card_ids": [
+      "hbl--hbl-fuelsaver-gold-creditcard",
+      "hbl--hbl-fuelsaver-green-creditcard",
       "hbl--hbl-gold-creditcard",
       "hbl--hbl-green-creditcard",
-      "hbl--hbl-platinum-creditcard",
-      "hbl--hbl-fuelsaver-gold-creditcard",
-      "hbl--hbl-fuelsaver-green-creditcard"
+      "hbl--hbl-platinum-creditcard"
     ]
   },
   {
@@ -1439,6 +1566,17 @@
     ]
   },
   {
+    "source_id": "hbl-src-fdfa37debd",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "url": "https://www.scribd.com/doc/295390691/HBL-DebitCard-SOBC",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "hbl--hbl-classic-debitcard",
+      "hbl--hbl-gold-debitcard"
+    ]
+  },
+  {
     "source_id": "hbl-islamic-src-b85e543077",
     "bank_slug": "hbl-islamic",
     "bank_name": "HBL Islamic Bank Limited",
@@ -1460,6 +1598,16 @@
       "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
       "hbl-islamic--hbl-islamic-paypak-debit-card",
       "hbl-islamic--hbl-islamic-world-debit-card"
+    ]
+  },
+  {
+    "source_id": "hbl-islamic-src-ab66d3c634",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "url": "https://www.hbl.com/islamic/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "hbl-islamic--hbl-islamic-titanium-debitcard"
     ]
   },
   {
@@ -1584,8 +1732,8 @@
     "used_by_card_ids": [
       "habib-metro--visa-classic-debit-card",
       "habib-metro--visa-gold-debit-card",
-      "habib-metro--visa-platinum-debit-card",
       "habib-metro--visa-ladies-debit-card",
+      "habib-metro--visa-platinum-debit-card",
       "habib-metro--visa-signature-debit-card"
     ]
   },
@@ -1680,15 +1828,15 @@
     "used_by_card_ids": [
       "js-bank--js-credit-card-classic",
       "js-bank--js-credit-card-platinum",
+      "js-bank--js-paypak-classic-debit-card",
       "js-bank--mastercard-gold-debit-card",
+      "js-bank--mastercard-her-titanium-debit-card",
+      "js-bank--mastercard-platinum-debit-card",
+      "js-bank--mastercard-titanium-debit-card",
       "js-bank--mastercard-world-debit-card",
       "js-bank--paypak-classic-debit-card",
-      "js--js-paypak-classic-debit-card",
-      "js--mastercard-her-titanium-debit-card",
-      "js--mastercard-platinum-debit-card",
-      "js--mastercard-titanium-debit-card",
-      "js--private-banking-visa-signature-credit-card",
-      "js--visa-gold-credit-card"
+      "js-bank--private-banking-visa-signature-credit-card",
+      "js-bank--visa-gold-credit-card"
     ]
   },
   {
@@ -1724,6 +1872,23 @@
     ]
   },
   {
+    "source_id": "mcb-bank-src-a1b94861c8",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "url": "https://www.mcb.com.pk/personal/cards/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "mcb-bank--mastercard-classic-debit-card",
+      "mcb-bank--mcb-visa-platinum-debit-card",
+      "mcb-bank--mcb-visa-signature-debit-card",
+      "mcb-bank--nayab-visa-debit-card",
+      "mcb-bank--paypak-debit-card",
+      "mcb-bank--visa-fun-club-debit-card",
+      "mcb-bank--visa-gold-debit-card",
+      "mcb-bank--visa-silver-debit-card"
+    ]
+  },
+  {
     "source_id": "mcb-bank-src-b16bbec0eb",
     "bank_slug": "mcb-bank",
     "bank_name": "MCB Bank Limited",
@@ -1741,6 +1906,18 @@
     "source_type": "html",
     "used_by_card_ids": [
       "mcb-bank--mcb-visa-signature-debit-card"
+    ]
+  },
+  {
+    "source_id": "mcb-bank-src-7ce74a2c7c",
+    "bank_slug": "mcb-bank",
+    "bank_name": "MCB Bank Limited",
+    "url": "https://www.scribd.com/document/905938617/47897242750019105-5",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "mcb-bank--visa-classic-credit-card",
+      "mcb-bank--visa-gold-credit-card",
+      "mcb-bank--visa-platinum-credit-card"
     ]
   },
   {
@@ -1818,6 +1995,18 @@
       "mcb-islamic--mcb-islamic-qadar-classic-debit-card",
       "mcb-islamic--mcb-islamic-qadar-gold-debit-card",
       "mcb-islamic--mcb-islamic-visa-classic-debit-card"
+    ]
+  },
+  {
+    "source_id": "meezan-src-289bedcb17",
+    "bank_slug": "meezan",
+    "bank_name": "Meezan Bank",
+    "url": "https://www.meezanbank.com/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "meezan--meezan-paypak-debit-card",
+      "meezan--meezan-visa-gold-debit-card",
+      "meezan--meezan-visa-silver-debit-card"
     ]
   },
   {
@@ -2043,6 +2232,16 @@
     ]
   },
   {
+    "source_id": "standard-chartered-src-2de368e3f2",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "url": "https://www.sc.com/global/av/pk-completep-schedule-of-charges-eng.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "standard-chartered--mastercard-titanium-credit-card"
+    ]
+  },
+  {
     "source_id": "standard-chartered-src-1dff1fbee0",
     "bank_slug": "standard-chartered",
     "bank_name": "Standard Chartered Bank Pakistan",
@@ -2107,6 +2306,26 @@
     ]
   },
   {
+    "source_id": "standard-chartered-src-dcab9ddf22",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "url": "https://www.sc.com/pk/help/faqs/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "standard-chartered--easy-credit"
+    ]
+  },
+  {
+    "source_id": "standard-chartered-src-a777a11ca7",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "url": "https://www.sc.com/pk/saadiq/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "standard-chartered--saadiq-mastercard-platinum-credit-card"
+    ]
+  },
+  {
     "source_id": "ubl-src-069ab98da7",
     "bank_slug": "ubl",
     "bank_name": "United Bank Limited (UBL)",
@@ -2125,6 +2344,20 @@
     "used_by_card_ids": [
       "ubl--ubl-credit-card-classic",
       "ubl--ubl-credit-card-gold",
+      "ubl--ubl-visa-platinum-credit-card"
+    ]
+  },
+  {
+    "source_id": "ubl-src-401ef09b67",
+    "bank_slug": "ubl",
+    "bank_name": "United Bank Limited (UBL)",
+    "url": "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "ubl--ubl-ameen-premium-debit-mastercard",
+      "ubl--ubl-credit-card-classic",
+      "ubl--ubl-credit-card-gold",
+      "ubl--ubl-mastercard-premium-debit-card",
       "ubl--ubl-visa-platinum-credit-card"
     ]
   },
@@ -2340,321 +2573,6 @@
     "source_type": "html",
     "used_by_card_ids": [
       "ubl--ubl-paypak-debit-card"
-    ]
-  },
-  {
-    "source_id": "al-baraka-src-85931fd3c3",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "url": "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-%28Jan-Jun-2026%29-English.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "al-baraka--mastercard-platinum-debit-card",
-      "al-baraka--paypak-standard-debit-card",
-      "al-baraka--unionpay-classic-debit-card",
-      "al-baraka--unionpay-gold-debit-card",
-      "al-baraka--mastercard-gold",
-      "al-baraka--mastercard-silver",
-      "al-baraka--nexgen-student-paypak"
-    ]
-  },
-  {
-    "source_id": "al-baraka-src-2048e1ff34",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "url": "https://www.albaraka.com.pk/page/airport-lounge-access/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "al-baraka--mastercard-world-elite"
-    ]
-  },
-  {
-    "source_id": "al-baraka-src-5c8bef6584",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "url": "https://www.albaraka.com.pk/page/al-baraka-unionpay-debit-card/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "al-baraka--unionpay-silver"
-    ]
-  },
-  {
-    "source_id": "allied-src-a39f203863",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "url": "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "allied-bank--allied-upi-paypak-classic-plus"
-    ]
-  },
-  {
-    "source_id": "allied-src-fd3d1db43b",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "url": "https://www.abl.com/islamic/islamic-banking-deposit/current-accounts/allied-islamic-basic-banking-account/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "allied--islamic-banking-visa-debitcard"
-    ]
-  },
-  {
-    "source_id": "allied-src-368250eeb0",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "url": "https://www.abl.com/personal/digital-banking-services/myabl-wallet/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "allied--upi-paypak-mywallet-debit-card"
-    ]
-  },
-  {
-    "source_id": "allied-src-89c01294ce",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "url": "https://www.abl.com/personal/cards/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "allied--unionpay-paypak-prepaid-card"
-    ]
-  },
-  {
-    "source_id": "askari-src-14d6f9970c",
-    "bank_slug": "askari",
-    "bank_name": "Askari Bank Limited",
-    "url": "https://askaribank.com/gallery/AKBL_KFS_Effective_Jan2026.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "askari--askari-paypak-little-champs-debit-card",
-      "askari--askari-sahar-visa-debit-card"
-    ]
-  },
-  {
-    "source_id": "al-baraka-src-990ef0f6c4",
-    "bank_slug": "al-baraka",
-    "bank_name": "Al Baraka Bank",
-    "url": "https://www.albaraka.com.pk/downloads-documents/Key%20Fact%20Statement%20Saving%20accounts%20-%20Sep.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "al-baraka--nexgen-student-paypak"
-    ]
-  },
-  {
-    "source_id": "allied-src-886db496b1",
-    "bank_slug": "allied",
-    "bank_name": "Allied Bank",
-    "url": "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "allied-bank--allied-basic-debit-card",
-      "allied-bank--allied-upi-paypak-classic-plus",
-      "allied-bank--allied-unionpay-paypak-classic-debit-card",
-      "allied-bank--allied-visa-classic-debit-card",
-      "allied--cash-shop-sapphire-visa-debit",
-      "allied--islamic-banking-visa-debitcard"
-    ]
-  },
-  {
-    "source_id": "bank-al-habib-src-28ff5b6f5a",
-    "bank_slug": "bank-al-habib",
-    "bank_name": "Bank AL Habib",
-    "url": "https://www.bankalhabib.com/signature",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "bank-al-habib--signature-debit-card"
-    ]
-  },
-  {
-    "source_id": "bank-alfalah-src-7e32d96804",
-    "bank_slug": "bank-alfalah",
-    "bank_name": "Bank Alfalah",
-    "url": "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "bank-alfalah--bank-alfalah-paypak-islamic-classic-debit-card",
-      "bank-alfalah--bank-alfalah-visa-islamic-classic-debit-card",
-      "bank-alfalah--bank-alfalah-visa-islamic-gold-debit-card",
-      "bank-alfalah--bank-alfalah-islamic-premier-visa-infinite-debit-card",
-      "bank-alfalah--bank-alfalah-premier-visa-infinite-debit-card"
-    ]
-  },
-  {
-    "source_id": "bank-of-punjab-src-8f69257029",
-    "bank_slug": "bank-of-punjab",
-    "bank_name": "Bank of Punjab",
-    "url": "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "bank-of-punjab--bop-mastercard-classic-debit-card",
-      "bank-of-punjab--bop-mastercard-gold-debit-card",
-      "bank-of-punjab--bop-mastercard-platinum-debit-card",
-      "bank-of-punjab--bop-taqwa-khaas-platinum-islamic-debit-card",
-      "bank-of-punjab--bop-taqwa-platinum-islamic-debit-card",
-      "bank-of-punjab--bop-taqwa-world-islamic-debit-card"
-    ]
-  },
-  {
-    "source_id": "bankislami-src-f915b800f2",
-    "bank_slug": "bankislami",
-    "bank_name": "BankIslami",
-    "url": "https://onboard.bankislami.com.pk/static/media/Products%20Brief%20Description%20-%20Digital%20Onboarding%20Final.f03233bc.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "bankislami--titanium-debit-mastercard"
-    ]
-  },
-  {
-    "source_id": "hbl-src-5ea168a358",
-    "bank_slug": "hbl",
-    "bank_name": "HBL",
-    "url": "https://www.scribd.com/doc/295390691/HBL-DebitCard-SOBC",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "hbl--hbl-classic-debitcard",
-      "hbl--hbl-gold-debitcard"
-    ]
-  },
-  {
-    "source_id": "hbl-src-ed83417606",
-    "bank_slug": "hbl",
-    "bank_name": "HBL",
-    "url": "https://www.hbl.com/personal/cards/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "hbl--hbl-nisa-debitcard",
-      "hbl--hbl-titanium-debitcard"
-    ]
-  },
-  {
-    "source_id": "hbl-islamic-src-31423de4e6",
-    "bank_slug": "hbl-islamic",
-    "bank_name": "HBL Islamic Bank Limited",
-    "url": "https://www.hbl.com/islamic/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "hbl-islamic--hbl-islamic-titanium-debitcard"
-    ]
-  },
-  {
-    "source_id": "mcb-src-7b269787f5",
-    "bank_slug": "mcb",
-    "bank_name": "MCB Bank Limited",
-    "url": "https://www.mcb.com.pk/personal/cards/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "mcb-bank--mcb-visa-signature-debit-card",
-      "mcb-bank--mcb-visa-platinum-debit-card",
-      "mcb-bank--paypak-debit-card",
-      "mcb--mastercard-classic-debit-card",
-      "mcb--nayab-visa-debit-card",
-      "mcb--visa-gold-debit-card",
-      "mcb--visa-silver-debit-card",
-      "mcb--visa-fun-club-debit-card"
-    ]
-  },
-  {
-    "source_id": "mcb-src-662a5b54f7",
-    "bank_slug": "mcb",
-    "bank_name": "MCB Bank Limited",
-    "url": "https://www.scribd.com/document/905938617/47897242750019105-5",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "mcb--visa-classic-credit-card",
-      "mcb--visa-gold-credit-card",
-      "mcb--visa-platinum-credit-card"
-    ]
-  },
-  {
-    "source_id": "meezan-src-1ab540a485",
-    "bank_slug": "meezan",
-    "bank_name": "Meezan Bank",
-    "url": "https://www.meezanbank.com/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "meezan--meezan-paypak-debit-card",
-      "meezan--meezan-visa-gold-debit-card",
-      "meezan--meezan-visa-silver-debit-card"
-    ]
-  },
-  {
-    "source_id": "standard-chartered-bank-pakistan-src-b2651ddff7",
-    "bank_slug": "standard-chartered-bank-pakistan",
-    "bank_name": "Standard Chartered Bank Pakistan",
-    "url": "https://www.sc.com/pk/help/faqs/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "standard-chartered--easy-credit"
-    ]
-  },
-  {
-    "source_id": "standard-chartered-bank-pakistan-src-386802075e",
-    "bank_slug": "standard-chartered-bank-pakistan",
-    "bank_name": "Standard Chartered Bank Pakistan",
-    "url": "https://www.sc.com/pk/saadiq/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "standard-chartered--saadiq-mastercard-platinum-credit-card"
-    ]
-  },
-  {
-    "source_id": "standard-chartered-bank-pakistan-src-888c78945a",
-    "bank_slug": "standard-chartered-bank-pakistan",
-    "bank_name": "Standard Chartered Bank Pakistan",
-    "url": "https://www.sc.com/global/av/pk-completep-schedule-of-charges-eng.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "standard-chartered--mastercard-titanium-credit-card"
-    ]
-  },
-  {
-    "source_id": "united-bank-limited-src-804aa3107e",
-    "bank_slug": "united-bank-limited",
-    "bank_name": "United Bank Limited (UBL)",
-    "url": "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "ubl--ubl-ameen-premium-debit-mastercard",
-      "ubl--ubl-credit-card-classic",
-      "ubl--ubl-credit-card-gold",
-      "ubl--ubl-visa-platinum-credit-card",
-      "united-bank-limited--ubl-mastercard-premium-debit-card"
-    ]
-  },
-  {
-    "source_id": "faysal-src-43854b13a0",
-    "bank_slug": "faysal",
-    "bank_name": "Faysal Bank Limited",
-    "url": "https://www.faysalbank.com/personal/cards/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "faysal--amal-mastercard-gold-debit-card",
-      "faysal--amal-mastercard-platinum-debit-card",
-      "faysal--faysal-islami-mastercard-classic-debit-card",
-      "faysal--faysal-islami-mastercard-gold-debit-card"
-    ]
-  },
-  {
-    "source_id": "faysal-src-9ad59775ef",
-    "bank_slug": "faysal",
-    "bank_name": "Faysal Bank Limited",
-    "url": "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "faysal--faysal-islami-noor-velocity-card",
-      "faysal--faysal-islami-noor-flexi-card",
-      "faysal--faysal-islami-noor-platinum-card"
-    ]
-  },
-  {
-    "source_id": "easypaisa-src-be0497dccb",
-    "bank_slug": "easypaisa",
-    "bank_name": "Easypaisa",
-    "url": "https://easypaisa.com.pk/easypaisa-debit-card/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "easypaisa--easy-paisa-debitcard",
-      "easypaisa--easy-paisa-pay-pak-debit-card",
-      "easypaisa--easy-paisa-union-pay-debit-card"
     ]
   }
 ]

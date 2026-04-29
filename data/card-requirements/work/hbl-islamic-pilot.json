@@ -162,6 +162,26 @@
         "The PKR 5,000,000 threshold reflects surfaced Islamic Prestige account eligibility.",
         "RDA route of USD 50,000 equivalent also appears publicly, but the normalized fields currently store the PKR current/saving threshold only."
       ]
+    },
+    {
+      "card_name": "HBL Islamic Titanium DebitCard",
+      "card_type": "debit",
+      "tier": "titanium",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://www.hbl.com/islamic/"
+      ],
+      "confidence": "low",
+      "notes": [
+        "No public salary, balance, or fee threshold found."
+      ]
     }
   ],
   "gaps": [

@@ -34,25 +34,18 @@
   {
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
-    "matched_cards": 23,
+    "matched_cards": 27,
     "total_deal_cards": 27,
-    "coverage_pct": 85.2,
-    "unmatched_deal_cards": [
-      "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
-      "Bank Alfalah Mastercard Titanium Credit Card",
-      "Bank Alfalah Premier Visa Infinite Credit Card",
-      "Bank Alfalah Premier Visa Infinite Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Bank of Punjab",
     "requirement_bank_name": "Bank of Punjab",
-    "matched_cards": 13,
+    "matched_cards": 14,
     "total_deal_cards": 14,
-    "coverage_pct": 92.9,
-    "unmatched_deal_cards": [
-      "Lahore Qalandars Gold Credit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "BankIslami",
@@ -64,118 +57,75 @@
   },
   {
     "deal_bank_name": "Easypaisa",
-    "requirement_bank_name": null,
-    "matched_cards": 0,
+    "requirement_bank_name": "Easypaisa",
+    "matched_cards": 3,
     "total_deal_cards": 3,
-    "coverage_pct": 0.0,
-    "unmatched_deal_cards": [
-      "Easy Paisa DebitCard",
-      "Easy Paisa Pay Pak Debit Card",
-      "Easy Paisa Union Pay Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
-    "matched_cards": 5,
+    "matched_cards": 12,
     "total_deal_cards": 12,
-    "coverage_pct": 41.7,
-    "unmatched_deal_cards": [
-      "Amal Mastercard Gold Debit Card",
-      "Amal Mastercard Platinum Debit Card",
-      "Faysal Islami Mastercard Classic Debit Card",
-      "Faysal Islami Mastercard Gold Debit Card",
-      "Faysal Islami Noor Flexi Card",
-      "Faysal Islami Noor Platinum  Card",
-      "Faysal Islami Noor Velocity Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "HBL Islamic Bank Limited",
     "requirement_bank_name": "HBL Islamic Bank Limited",
-    "matched_cards": 6,
+    "matched_cards": 7,
     "total_deal_cards": 7,
-    "coverage_pct": 85.7,
-    "unmatched_deal_cards": [
-      "HBL Islamic Titanium DebitCard"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
-    "matched_cards": 9,
+    "matched_cards": 12,
     "total_deal_cards": 12,
-    "coverage_pct": 75.0,
-    "unmatched_deal_cards": [
-      "HBL Konnect Debit Card",
-      "HBL Nisa DebitCard",
-      "HBL Titanium DebitCard"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Habib Metro Bank",
     "requirement_bank_name": "Habib Metro Bank",
-    "matched_cards": 3,
+    "matched_cards": 4,
     "total_deal_cards": 4,
-    "coverage_pct": 75.0,
-    "unmatched_deal_cards": [
-      "Visa Ladies Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
-    "matched_cards": 4,
+    "matched_cards": 9,
     "total_deal_cards": 9,
-    "coverage_pct": 44.4,
-    "unmatched_deal_cards": [
-      "Mastercard Her Titanium Debit Card",
-      "Mastercard Platinum Debit Card",
-      "Mastercard Titanium Debit Card",
-      "Private Banking Visa Signature Credit Card",
-      "Visa Gold Credit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
-    "matched_cards": 4,
+    "matched_cards": 12,
     "total_deal_cards": 12,
-    "coverage_pct": 33.3,
-    "unmatched_deal_cards": [
-      "Mastercard Classic Debit Card",
-      "Nayab Visa Debit Card",
-      "Visa Classic Credit Card",
-      "Visa Fun Club Debit Card",
-      "Visa Gold Credit Card",
-      "Visa Gold Debit Card",
-      "Visa Platinum Credit Card",
-      "Visa Silver Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "MCB Islamic Bank Ltd",
     "requirement_bank_name": "MCB Islamic Bank Ltd",
-    "matched_cards": 6,
+    "matched_cards": 11,
     "total_deal_cards": 11,
-    "coverage_pct": 54.5,
-    "unmatched_deal_cards": [
-      "UnionPay Platinum Debit Card",
-      "Visa FCY Debit Card",
-      "Visa Gold Debit Card",
-      "Visa Junior Club Debit Card",
-      "Visa Niswan Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Meezan Bank",
     "requirement_bank_name": "Meezan Bank",
-    "matched_cards": 13,
+    "matched_cards": 14,
     "total_deal_cards": 14,
-    "coverage_pct": 92.9,
-    "unmatched_deal_cards": [
-      "Visa Charge Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Standard Chartered Bank",
@@ -188,11 +138,9 @@
   {
     "deal_bank_name": "United Bank Limited (UBL)",
     "requirement_bank_name": "United Bank Limited (UBL)",
-    "matched_cards": 16,
+    "matched_cards": 17,
     "total_deal_cards": 17,
-    "coverage_pct": 94.1,
-    "unmatched_deal_cards": [
-      "UBL Mastercard Premium Debit Card"
-    ]
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
   }
 ]

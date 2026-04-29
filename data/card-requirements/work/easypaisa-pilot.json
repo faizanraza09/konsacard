@@ -1,0 +1,73 @@
+{
+  "bank_slug": "easypaisa",
+  "bank_name": "Easypaisa",
+  "retrieved_note": "Pilot extraction for Easypaisa debit cards. Easypaisa cards are modeled as zero minimum salary and zero minimum balance products.",
+  "cards": [
+    {
+      "card_name": "Easy Paisa DebitCard",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "One-time issuance fee only; no annual fee",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://easypaisa.com.pk/easypaisa-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "One-time issuance fee model. Zero annual fee. 5-year card validity. Mass-market inclusion product.",
+        "Mass-market inclusion card product with no published salary or minimum-balance threshold."
+      ]
+    },
+    {
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "One-time issuance fee only; no annual fee",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://easypaisa.com.pk/easypaisa-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "One-time issuance fee model. Zero annual fee.",
+        "No published salary or minimum-balance threshold for the Easypaisa PayPak variant."
+      ]
+    },
+    {
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "One-time issuance fee only; no annual fee",
+        "minimum_age_years": null,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "https://easypaisa.com.pk/easypaisa-debit-card/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "One-time issuance fee model. Zero annual fee.",
+        "No published salary or minimum-balance threshold for the Easypaisa UnionPay variant."
+      ]
+    }
+  ],
+  "gaps": [
+    "Public details for Easypaisa cards are light; source-backed requirement data is treated as zero-threshold unless official policy changes."
+  ]
+}

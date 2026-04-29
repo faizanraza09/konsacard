@@ -151,13 +151,50 @@ async function loadRequirementsContext() {
         mappingPayload.map((row) => [buildDealCardKey(row.deal_bank_name, row.deal_card_name), row]),
       ),
       sourcesById: new Map(sourcesPayload.map((s) => [s.source_id, s])),
+      estimatesByTier: buildEstimatesByTier(requirementsPayload),
     };
   } catch {
-    return { available: false, byCardId: new Map(), mappingByDealKey: new Map(), sourcesById: new Map() };
+    return { available: false, byCardId: new Map(), mappingByDealKey: new Map(), sourcesById: new Map(), estimatesByTier: new Map() };
   }
 }
 
 /* ── BIND EVENTS ── */
+function bindCityChip() {
+  const chip = document.getElementById("rh-chip-city");
+  if (!chip) return;
+  chip.addEventListener("click", () => {
+    let picker = document.getElementById("city-chip-picker");
+    if (picker) { picker.remove(); return; }
+    if (!state.data) return;
+    const cities = ["all", ...state.data.cities.map((c) => normalizeCityValue(c)).filter(Boolean)];
+    picker = document.createElement("div");
+    picker.id = "city-chip-picker";
+    picker.className = "city-chip-picker";
+    cities.forEach((city) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `city-chip-opt${state.selectedCity === city ? " active" : ""}`;
+      btn.textContent = formatCityLabel(city);
+      btn.addEventListener("click", (ev) => {
+        ev.stopPropagation();
+        state.selectedCity = city;
+        picker.remove();
+        render();
+      });
+      picker.appendChild(btn);
+    });
+    chip.style.position = "relative";
+    chip.appendChild(picker);
+    const dismiss = (ev) => {
+      if (!chip.contains(ev.target)) {
+        picker.remove();
+        document.removeEventListener("click", dismiss, true);
+      }
+    };
+    setTimeout(() => document.addEventListener("click", dismiss, true), 0);
+  });
+}
+
 function bindEvents() {
   // Nav city tabs
   renderNavCityTabs();
@@ -406,31 +443,30 @@ function renderOrderValueLabel() {
 /* ── NAV CITY TABS ── */
 function renderNavCityTabs() {
   if (!state.data) return;
-  const container = document.getElementById("nav-city-tabs");
-  if (!container) return;
-
   const cities = ["all", ...state.data.cities.map((city) => normalizeCityValue(city)).filter(Boolean)];
 
-  container.innerHTML = "";
-  cities.forEach((city) => {
-    const btn = document.createElement("button");
-    btn.className = `city-tab${state.selectedCity === city ? " active" : ""}`;
-    btn.textContent = formatCityLabel(city);
-    btn.type = "button";
-    btn.addEventListener("click", () => {
-      state.selectedCity = city;
-      render();
+  const buildTabs = (container, btnClass) => {
+    if (!container) return;
+    container.innerHTML = "";
+    cities.forEach((city) => {
+      const btn = document.createElement("button");
+      btn.className = `${btnClass}${state.selectedCity === city ? " active" : ""}`;
+      btn.textContent = formatCityLabel(city);
+      btn.type = "button";
+      btn.addEventListener("click", () => {
+        state.selectedCity = city;
+        render();
+      });
+      container.appendChild(btn);
     });
-    container.appendChild(btn);
-  });
+  };
+
+  buildTabs(document.getElementById("nav-city-tabs"), "city-tab");
+  buildTabs(document.getElementById("rh-city-tabs"), "rh-city-tab");
 }
 
 function updateCityChip() {
-  const el = document.getElementById("summary-cities");
-  if (!el) return;
-  el.textContent = state.selectedCity === "all"
-    ? "All cities"
-    : state.selectedCity.charAt(0).toUpperCase() + state.selectedCity.slice(1);
+  // city chip replaced by rh-city-tabs — kept for any external callers
 }
 
 /* ── DAY PILLS ── */
@@ -629,9 +665,11 @@ function renderRecommendations() {
 
   updateCityChip();
 
+  const countLabel = document.getElementById("result-count-label");
   if (state.viewMode === "restaurants") {
     const deals = computeRestaurantDeals();
     if (countEl) countEl.textContent = String(deals.length);
+    if (countLabel) countLabel.textContent = "restaurants matched";
     if (rhSub) rhSub.textContent = `Restaurants with active deals · at ${formatCurrency(state.orderValue)} bill`;
     if (summaryBest) summaryBest.textContent = deals.length > 0 ? `${deals[0].discountLabel} at ${deals[0].restaurant}` : "—";
     if (emptyState) emptyState.classList.add("hidden");
@@ -641,7 +679,8 @@ function renderRecommendations() {
     return;
   }
 
-  if (countEl) countEl.textContent = String(computeRestaurantDeals().length);
+  if (countEl) countEl.textContent = String(results.length);
+  if (countLabel) countLabel.textContent = "cards matched";
   if (rhSub) {
     rhSub.textContent = `Ranked by estimated savings on a ${formatCurrency(state.orderValue)} bill`;
   }
@@ -661,8 +700,14 @@ function renderRecommendations() {
   }
 
   if (emptyState) emptyState.classList.add("hidden");
-  renderFeaturedCard(results[0], topPick);
-  renderPagedResultCards(results.slice(1), resultsGrid);
+  const onFirstPage = (state.pagination.results || 1) === 1;
+  if (onFirstPage) {
+    renderFeaturedCard(results[0], topPick);
+    renderPagedResultCards(results.slice(1), resultsGrid);
+  } else {
+    if (topPick) topPick.innerHTML = "";
+    renderPagedResultCards(results.slice(1), resultsGrid);
+  }
   renderCompareTray();
 }
 
@@ -700,7 +745,8 @@ function renderBankLogo(bank, className) {
 function renderMetricLabel(label, tooltip) {
   const labelText = `<span class="metric-label-text">${escapeHtml(label)}</span>`;
   if (!tooltip) return labelText;
-  return `${labelText}<span class="metric-info" title="${escapeAttr(tooltip)}" aria-label="${escapeAttr(`${label}: ${tooltip}`)}" tabindex="0">i</span>`;
+  const infoSvg = `<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="6.5" cy="6.5" r="6" stroke="#7f8da8" stroke-width="1.1"/><circle cx="6.5" cy="4.2" r="0.8" fill="#7f8da8"/><rect x="5.85" y="6" width="1.3" height="3.5" rx="0.65" fill="#7f8da8"/></svg>`;
+  return `${labelText}<span class="metric-info" title="${escapeAttr(tooltip)}" aria-label="${escapeAttr(`${label}: ${tooltip}`)}" tabindex="0">${infoSvg}</span>`;
 }
 
 /* ── FEATURED CARD ── */
@@ -743,10 +789,6 @@ function renderFeaturedCard(result, container) {
             ${!canCmp ? "disabled" : ""}>
             ${inCmp ? "✓ Comparing" : "+ Compare"}
           </button>
-          <button class="btn-detail" data-key="${escapeAttr(cardKey)}" type="button" title="View all deals">⤢</button>
-          <button class="btn-expand" data-key="${escapeAttr(cardKey)}" type="button">
-            ${isExpanded ? "↑" : "↓"}
-          </button>
         </div>
       </div>
       <div class="card-stats-row card-stats-row--clickable">
@@ -773,14 +815,6 @@ function renderFeaturedCard(result, container) {
 
   container.querySelector(".btn-compare")?.addEventListener("click", (e) => {
     toggleCompare(e.currentTarget.dataset.key);
-  });
-  container.querySelector(".btn-detail")?.addEventListener("click", (e) => {
-    openCardDetail(e.currentTarget.dataset.key);
-  });
-  container.querySelector(".btn-expand")?.addEventListener("click", (e) => {
-    const key = e.currentTarget.dataset.key;
-    state.expandedCard = state.expandedCard === key ? null : key;
-    render();
   });
   bindCardOpenInteractions(container.querySelector("article"), cardKey);
 }
@@ -832,10 +866,6 @@ function renderResultCards(results, container) {
             ${!canCmp ? "disabled" : ""}>
             ${inCmp ? "✓ Comparing" : "+ Compare"}
           </button>
-          <button class="btn-detail" data-key="${escapeAttr(cardKey)}" type="button" title="View all deals">⤢</button>
-          <button class="btn-expand" data-key="${escapeAttr(cardKey)}" type="button">
-            ${isExpanded ? "↑" : "↓"}
-          </button>
         </div>
       </div>
       <div class="card-stats-row card-stats-row--clickable">
@@ -861,14 +891,6 @@ function renderResultCards(results, container) {
 
     article.querySelector(".btn-compare")?.addEventListener("click", (e) => {
       toggleCompare(e.currentTarget.dataset.key);
-    });
-    article.querySelector(".btn-detail")?.addEventListener("click", (e) => {
-      openCardDetail(e.currentTarget.dataset.key);
-    });
-    article.querySelector(".btn-expand")?.addEventListener("click", (e) => {
-      const key = e.currentTarget.dataset.key;
-      state.expandedCard = state.expandedCard === key ? null : key;
-      renderRecommendations();
     });
     article.tabIndex = 0;
     article.setAttribute("role", "button");
@@ -953,10 +975,12 @@ function renderCompareTray() {
 
   if (state.compareList.length === 0) {
     tray.style.display = "none";
+    document.body.classList.remove("has-cmp-tray");
     return;
   }
 
   tray.style.display = "";
+  document.body.classList.add("has-cmp-tray");
   cardsEl.innerHTML = "";
 
   state.compareList.forEach((key) => {
@@ -1065,12 +1089,14 @@ function openCompareModal() {
           const bg = ri % 2 === 0 ? "var(--surface2)" : "var(--surface)";
           return `
             <div class="cmp-label-cell" style="background:${bg}">${escapeHtml(row.l)}</div>
-            ${cards.map((c, i) => `
-              <div class="cmp-val-cell${winner === i ? " win" : ""}" style="background:${bg}">
+            ${cards.map((c, i) => {
+              const cellClass = winner === i ? " win" : (winner >= 0 ? " lose" : "");
+              return `
+              <div class="cmp-val-cell${cellClass}" style="background:${bg}">
                 ${row.fmt(row.vals[i], i)}
                 ${winner === i ? `<span class="better-badge">Better</span>` : ""}
-              </div>
-            `).join("")}
+              </div>`;
+            }).join("")}
           `;
         }).join("")}
       </div>
@@ -1243,8 +1269,13 @@ function renderOnboardingStep() {
       </div>
     </div>`;
 
-  document.getElementById("ob-slider")?.addEventListener("input", (e) => {
+  const obSlider = document.getElementById("ob-slider");
+  obSlider?.addEventListener("input", (e) => {
     obState.bill = parseInt(e.target.value);
+    const valEl = document.querySelector(".ob-slider-val");
+    if (valEl) valEl.textContent = formatCurrency(obState.bill);
+  });
+  obSlider?.addEventListener("change", () => {
     renderOnboardingStep();
   });
 
@@ -1379,10 +1410,14 @@ function renderQuickQuiz() {
 
   // Event listeners
   const slider = document.getElementById("qquiz-slider");
-  if (slider) slider.addEventListener("input", (e) => {
-    quickQuizState.bill = parseInt(e.target.value);
-    renderQuickQuiz();
-  });
+  if (slider) {
+    slider.addEventListener("input", (e) => {
+      quickQuizState.bill = parseInt(e.target.value);
+      const valEl = document.querySelector(".q-slider-val");
+      if (valEl) valEl.textContent = formatCurrency(quickQuizState.bill);
+    });
+    slider.addEventListener("change", () => renderQuickQuiz());
+  }
 
   document.querySelectorAll("[data-qquiz-city]").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -1831,88 +1866,119 @@ function fuzzyMatch(query, target) {
   return qw.some((qword) => tw.some((tword) => tword.startsWith(qword) || qword.startsWith(tword)));
 }
 
-/* ── TOOL DEFINITIONS ── */
-const CHAT_TOOL_DEFINITIONS = [{
-  functionDeclarations: [
-    {
+/* ── TOOL DEFINITIONS (OpenAI format) ── */
+const CHAT_TOOL_DEFINITIONS = [
+  {
+    type: "function",
+    function: {
       name: "search_offers",
       description: "Search and filter the full offers database. Use for: all deals at a restaurant, all offers from a bank, day-of-week deals, offers above a discount threshold, or any combination of filters. Returns raw offer rows with full detail.",
       parameters: {
-        type: "OBJECT",
+        type: "object",
         properties: {
-          restaurants: { type: "ARRAY", items: { type: "STRING" }, description: "Restaurant name(s) — partial/fuzzy match ok. Pass multiple to get deals at all of them." },
-          banks:       { type: "ARRAY", items: { type: "STRING" }, description: "Bank name(s) — partial match ok, e.g. 'HBL', 'Meezan', 'Alfalah'." },
-          cards:       { type: "ARRAY", items: { type: "STRING" }, description: "Card name(s) — partial match ok." },
-          card_types:  { type: "ARRAY", items: { type: "STRING" }, description: "Card category: debit, credit, or other (digital wallets)." },
-          city:        { type: "STRING", description: "City filter: karachi, lahore, islamabad, or all." },
-          days:        { type: "ARRAY", items: { type: "NUMBER" }, description: "Valid-on-day filter: 0=Mon 1=Tue 2=Wed 3=Thu 4=Fri 5=Sat 6=Sun." },
-          min_discount_pct: { type: "NUMBER", description: "Minimum discount percentage to include." },
-          sort_by:     { type: "STRING", description: "Sort: discount (default), cap, restaurant, bank." },
-          limit:       { type: "NUMBER", description: "Max results (default 50, max 150)." },
+          restaurants: { type: "array", items: { type: "string" }, description: "Restaurant name(s) — partial/fuzzy match ok. Pass multiple to get deals at all of them." },
+          banks:       { type: "array", items: { type: "string" }, description: "Bank name(s) — partial match ok, e.g. 'HBL', 'Meezan', 'Alfalah'." },
+          cards:       { type: "array", items: { type: "string" }, description: "Card name(s) — partial match ok." },
+          card_types:  { type: "array", items: { type: "string" }, description: "Card category: debit, credit, or other (digital wallets)." },
+          city:        { type: "string", description: "City filter: karachi, lahore, islamabad, or all." },
+          days:        { type: "array", items: { type: "number" }, description: "Valid-on-day filter: 0=Mon 1=Tue 2=Wed 3=Thu 4=Fri 5=Sat 6=Sun." },
+          min_discount_pct: { type: "number", description: "Minimum discount percentage to include." },
+          sort_by:     { type: "string", description: "Sort: discount (default), cap, restaurant, bank." },
+          limit:       { type: "number", description: "Max results (default 30, max 60)." },
         },
       },
     },
-    {
+  },
+  {
+    type: "function",
+    function: {
       name: "rank_cards",
       description: "Get cards ranked by estimated savings and restaurant coverage for a given context. Use for: best card overall, best card for specific restaurants (pass multiple for AND logic), best card for specific days, best card within a budget.",
       parameters: {
-        type: "OBJECT",
+        type: "object",
         properties: {
-          city:        { type: "STRING", description: "City: karachi, lahore, islamabad, or all." },
-          bill_size:   { type: "NUMBER", description: "Typical bill size in PKR for savings estimate." },
-          card_types:  { type: "ARRAY", items: { type: "STRING" }, description: "Restrict to these card types: debit, credit, other." },
-          restaurants: { type: "ARRAY", items: { type: "STRING" }, description: "Only rank cards covering ALL of these restaurants (AND logic)." },
-          days:        { type: "ARRAY", items: { type: "NUMBER" }, description: "Only count offers valid on these days (0=Mon...6=Sun)." },
-          limit:       { type: "NUMBER", description: "Max results (default 15)." },
+          city:        { type: "string", description: "City: karachi, lahore, islamabad, or all." },
+          bill_size:   { type: "number", description: "Typical bill size in PKR for savings estimate." },
+          card_types:  { type: "array", items: { type: "string" }, description: "Restrict to these card types: debit, credit, other." },
+          restaurants: { type: "array", items: { type: "string" }, description: "Only rank cards covering ALL of these restaurants (AND logic)." },
+          days:        { type: "array", items: { type: "number" }, description: "Only count offers valid on these days (0=Mon...6=Sun)." },
+          limit:       { type: "number", description: "Max results (default 15)." },
         },
       },
     },
-    {
+  },
+  {
+    type: "function",
+    function: {
       name: "get_bank_cards",
       description: "Get all cards and deal stats for one bank or every bank. Use for: what cards does bank X have, which bank covers the most restaurants, bank-level comparisons.",
       parameters: {
-        type: "OBJECT",
+        type: "object",
         properties: {
-          bank: { type: "STRING", description: "Bank name (partial match ok). Omit to get a summary of all 18 banks." },
-          city: { type: "STRING", description: "City filter (optional)." },
+          bank: { type: "string", description: "Bank name (partial match ok). Omit to get a summary of all 18 banks." },
+          city: { type: "string", description: "City filter (optional)." },
         },
       },
     },
-    {
+  },
+  {
+    type: "function",
+    function: {
       name: "get_restaurant_rankings",
       description: "Get restaurants ranked by max discount, total deal count, or number of banks covering them. Use for: highest discount restaurant, most deals in a city, which places are covered by the most banks.",
       parameters: {
-        type: "OBJECT",
+        type: "object",
         properties: {
-          city:        { type: "STRING", description: "City filter (optional)." },
-          card_types:  { type: "ARRAY", items: { type: "STRING" }, description: "Card type filter (optional)." },
-          sort_by:     { type: "STRING", description: "max_discount (default), deal_count, bank_count." },
-          limit:       { type: "NUMBER", description: "Max results (default 20)." },
+          city:       { type: "string", description: "City filter (optional)." },
+          card_types: { type: "array", items: { type: "string" }, description: "Card type filter (optional)." },
+          sort_by:    { type: "string", description: "max_discount (default), deal_count, bank_count." },
+          limit:      { type: "number", description: "Max results (default 20)." },
         },
       },
     },
-    {
+  },
+  {
+    type: "function",
+    function: {
       name: "compare_cards",
       description: "Head-to-head comparison of 2-4 specific cards: savings estimate, restaurant coverage, day-by-day deal breakdown, caps, and eligibility side by side.",
       parameters: {
-        type: "OBJECT",
+        type: "object",
         properties: {
           cards: {
-            type: "ARRAY",
-            items: { type: "OBJECT", properties: { bank: { type: "STRING" }, card: { type: "STRING" } } },
+            type: "array",
+            items: { type: "object", properties: { bank: { type: "string" }, card: { type: "string" } } },
             description: "Array of {bank, card} pairs to compare.",
           },
-          bill_size: { type: "NUMBER", description: "Bill size in PKR for savings estimates." },
-          city:      { type: "STRING", description: "City filter (optional)." },
+          bill_size: { type: "number", description: "Bill size in PKR for savings estimates." },
+          city:      { type: "string", description: "City filter (optional)." },
         },
       },
     },
-  ],
-}];
+  },
+  {
+    type: "function",
+    function: {
+      name: "get_card_requirements",
+      description: "Get eligibility requirements and annual fee details for specific cards or the current top recommendations.",
+      parameters: {
+        type: "object",
+        properties: {
+          cards: {
+            type: "array",
+            items: { type: "object", properties: { bank: { type: "string" }, card: { type: "string" } } },
+            description: "Array of {bank, card} pairs. Omit to fetch requirements for top ranked cards.",
+          },
+          limit: { type: "number", description: "If cards are omitted, max top cards to return (default 5)." },
+        },
+      },
+    },
+  },
+];
 
 /* ── TOOL IMPLEMENTATIONS ── */
 
-function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, days, min_discount_pct, sort_by = "discount", limit = 50 } = {}) {
+function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, days, min_discount_pct, sort_by = "discount", limit = 30 } = {}) {
   if (!state.data?.offers) return { error: "Offers data not loaded." };
   let results = state.data.offers;
   if (city && city !== "all") {
@@ -1930,14 +1996,20 @@ function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, da
   else if (sort_by === "cap")        results = results.slice().sort((a, b) => (b.capPkr || 0) - (a.capPkr || 0));
   else if (sort_by === "restaurant") results = results.slice().sort((a, b) => a.restaurant.localeCompare(b.restaurant));
   else if (sort_by === "bank")       results = results.slice().sort((a, b) => a.bank.localeCompare(b.bank));
-  const cap = Math.min(limit, 150);
+  const cap = Math.min(limit, 60);
   return {
     total_matching: total, returned: Math.min(total, cap),
     offers: results.slice(0, cap).map((o) => ({
-      restaurant: o.restaurant, city: o.city, bank: o.bank, card: o.card,
-      card_type: o.cardCategory, discount: o.discountLabel, discount_pct: o.discountPct,
-      fixed_discount_pkr: o.fixedDiscountPkr, offer_title: o.offerTitle,
-      valid_days: o.daysLabel, cap_pkr: o.capPkr,
+      offer_id: `${o.bank}||${o.card}||${o.restaurant}||${o.city}`.toLowerCase(),
+      restaurant: o.restaurant,
+      city: o.city,
+      bank: o.bank,
+      card: o.card,
+      card_type: o.cardCategory,
+      discount_pct: o.discountPct,
+      cap_pkr: o.capPkr,
+      valid_days: o.daysLabel,
+      offer_title: o.offerTitle,
     })),
   };
 }
@@ -2073,6 +2145,88 @@ function chatTool_compareCards({ cards, bill_size, city } = {}) {
   };
 }
 
+function resolveCanonicalCardPair(bank, card) {
+  const match = state.data?.offers?.find((o) => fuzzyMatch(bank, o.bank) && fuzzyMatch(card, o.card));
+  return {
+    bank: match?.bank || bank,
+    card: match?.card || card,
+  };
+}
+
+function chatTool_getCardRequirements({ cards, limit = 5 } = {}) {
+  if (!state.requirements?.available) {
+    return { error: "Card requirements data unavailable." };
+  }
+  const candidates = Array.isArray(cards) && cards.length
+    ? cards.map(({ bank, card }) => resolveCanonicalCardPair(bank, card))
+    : computeRecommendations().slice(0, Math.min(limit, 8)).map((r) => ({ bank: r.bank, card: r.card }));
+
+  return {
+    cards: candidates.map(({ bank, card }) => {
+      const status = evaluateEligibility(bank, card);
+      return {
+        bank,
+        card,
+        status: status.status,
+        status_label: status.label,
+        salary_required_pkr: status.salaryReq,
+        balance_required_pkr: status.balanceReq,
+        annual_fee_pkr: status.annualFeePkr,
+        fee_waiver: status.annualFeeWaiverRule || null,
+        requirements: status.criteria || [],
+        is_estimated: !!status.isEstimated,
+        estimation_note: status.estimationNote || null,
+      };
+    }),
+  };
+}
+
+function compactToolResultForModel(name, result) {
+  if (!result || result.error) return result;
+  if (name === "search_offers") {
+    return {
+      total_matching: result.total_matching,
+      returned: result.returned,
+      offers: (result.offers || []).slice(0, 20),
+    };
+  }
+  if (name === "rank_cards") {
+    return { ranked_cards: (result.ranked_cards || []).slice(0, 12) };
+  }
+  if (name === "get_restaurant_rankings") {
+    return { restaurants: (result.restaurants || []).slice(0, 20) };
+  }
+  if (name === "get_bank_cards") {
+    return {
+      banks: (result.banks || []).slice(0, 8).map((b) => ({
+        bank: b.bank,
+        total_cards: b.total_cards,
+        total_deals: b.total_deals,
+        unique_restaurants: b.unique_restaurants,
+        cards: (b.cards || []).slice(0, 8),
+      })),
+    };
+  }
+  if (name === "compare_cards") {
+    return { bill_size_pkr: result.bill_size_pkr, city_filter: result.city_filter, cards: (result.cards || []).slice(0, 4) };
+  }
+  if (name === "get_card_requirements") {
+    return {
+      cards: (result.cards || []).map((c) => ({
+        bank: c.bank,
+        card: c.card,
+        status: c.status,
+        status_label: c.status_label,
+        salary_required_pkr: c.salary_required_pkr,
+        balance_required_pkr: c.balance_required_pkr,
+        annual_fee_pkr: c.annual_fee_pkr,
+        fee_waiver: c.fee_waiver,
+      })),
+    };
+  }
+  return result;
+}
+
 function executeChatTool(name, args) {
   try {
     switch (name) {
@@ -2081,29 +2235,12 @@ function executeChatTool(name, args) {
       case "get_bank_cards":          return chatTool_getBankCards(args);
       case "get_restaurant_rankings": return chatTool_getRestaurantRankings(args);
       case "compare_cards":           return chatTool_compareCards(args);
+      case "get_card_requirements":   return chatTool_getCardRequirements(args);
       default: return { error: `Unknown tool: ${name}` };
     }
   } catch (e) {
     return { error: `Tool error: ${e.message}` };
   }
-}
-
-/* ── Requirements context (full, always included in system prompt) ── */
-function buildRequirementsContext() {
-  if (!state.requirements?.available) return "Card requirements data unavailable.";
-  const lines = Array.from(state.requirements.byCardId.values()).map((r) => {
-    const req = r.requirements || {};
-    const parts = [];
-    if (req.minimum_monthly_salary_pkr)  parts.push(`salary >= PKR ${Number(req.minimum_monthly_salary_pkr).toLocaleString()}`);
-    if (req.minimum_account_balance_pkr) parts.push(`balance >= PKR ${Number(req.minimum_account_balance_pkr).toLocaleString()}`);
-    if (req.annual_fee_pkr) {
-      const waiver = req.annual_fee_waiver_rule ? ` (waivable: ${req.annual_fee_waiver_rule})` : "";
-      parts.push(`fee PKR ${Number(req.annual_fee_pkr).toLocaleString()}${waiver}`);
-    }
-    if (req.minimum_age_years) parts.push(`age >= ${req.minimum_age_years}`);
-    return `* ${r.bank_name} - ${r.card_name}: ${parts.length ? parts.join(" | ") : "no public requirements found"}`;
-  });
-  return `CARD REQUIREMENTS (verified from official bank sources):\n${lines.join("\n")}`;
 }
 
 /* ── System prompt ── */
@@ -2120,37 +2257,39 @@ function buildSystemPrompt() {
     state.accountBalance           ? `Account balance: PKR ${Number(state.accountBalance).toLocaleString()}` : null,
   ].filter(Boolean).join("\n");
 
-  const top5 = computeRecommendations().slice(0, 5);
-  const top5text = top5.length
-    ? `TOP 5 CARDS (current filters - call rank_cards tool for custom queries):\n` +
-      top5.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Score ${Number(r.score).toFixed(1)}/100 | Est. PKR ${Math.round(r.avgExpectedSaving)}/outing | ${r.coveredVenueCount} restaurants`).join("\n")
+  const top3 = computeRecommendations().slice(0, 3);
+  const top3text = top3.length
+    ? `CURRENT TOP CARDS SNAPSHOT:\n` +
+      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Score ${Number(r.score).toFixed(1)} | Est PKR ${Math.round(r.avgExpectedSaving)}/outing`).join("\n")
     : "No cards match the current filters.";
 
   return `You are KonsaCard AI, the expert assistant for konsacard.pk - Pakistan's independent restaurant discount card comparison tool.
 
-DATASET: 20,170 offers | 18 banks | 169 cards | 831 restaurants | Cities: Karachi, Lahore, Islamabad
-Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%. No bank pays for placement.
-Tiers high to low: Signature > World > Platinum > Gold > Basic.
+Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%.
+
+TOKEN BUDGET: You have ~600-900 tokens for your response. Prioritize clarity over detail:
+- For tool-calling turns: be brief; let tool results speak.
+- For final answers: key facts first (best card, why, estimated saving), then details if room.
+- Never write filler or repeat yourself.
 
 USER CONTEXT:
 ${userCtx}
 
-${top5text}
-
-${buildRequirementsContext()}
+${top3text}
 
 TOOLS - always call these for data questions, never answer from memory:
-* search_offers - filter offers by any combo of restaurant/bank/card/type/city/day/discount. Use for: "deals at Nando's", "HBL offers on Fridays", "all 30%+ discounts in Lahore".
-* rank_cards - scored recommendations. Use for: "best card for me", "best card at Xanders AND Kababjees", "top debit card in Lahore for weekends".
-* get_bank_cards - per-bank card+deal summary. Use for: "what cards does Meezan have", "which bank covers the most restaurants".
-* get_restaurant_rankings - restaurants ranked by discount/coverage. Use for: "highest discount restaurant", "where can I save the most in Karachi".
-* compare_cards - head-to-head. Use for: "HBL Signature vs UBL World", "compare these three cards".
+* search_offers - restaurant/bank/card/day/discount filters. Use this first for offer lookup questions.
+* rank_cards - scored recommendations for context-specific "best card" questions.
+* get_bank_cards - bank-level coverage and card summaries.
+* get_restaurant_rankings - best restaurants by discount/deal coverage.
+* compare_cards - detailed side-by-side card comparison.
+* get_card_requirements - salary, balance, fee, waiver and eligibility status for specific cards or top cards.
 
 RULES:
 - ALWAYS call a tool when the answer requires data. Never guess or estimate from memory.
 - Fuzzy matching is built in: "Xanders" finds "Xander's", "kababjees" finds "Kababjees Restaurant".
 - For "best card at restaurant X AND Y" pass both to rank_cards restaurants param.
-- Eligibility/fee questions: check CARD REQUIREMENTS above first, only call tools if more detail needed.
+- Eligibility/fee questions: call get_card_requirements (do not assume values).
 - Monthly saving estimate = per-outing saving x outings/week x 4.3.
 - Always name the specific card and bank, never be vague.
 - Use PKR for all amounts.
@@ -2158,21 +2297,55 @@ RULES:
 }
 
 
-/* ── Gemini streaming generator ── */
-async function* streamGemini(geminiContents, systemPrompt) {
+class GeminiError extends Error {
+  constructor(message, status) {
+    super(message);
+    this.status = status;
+  }
+}
+
+/* ── Retry helper: retries on network errors and 5xx/429 with backoff ── */
+async function withRetry(fn, { maxAttempts = 3, signal } = {}) {
+  let lastErr;
+  for (let attempt = 0; attempt < maxAttempts; attempt++) {
+    if (signal?.aborted) throw new DOMException("Aborted", "AbortError");
+    try {
+      return await fn();
+    } catch (err) {
+      if (err.name === "AbortError") throw err;
+      lastErr = err;
+      const retryable = !(err instanceof GeminiError) || err.status === 429 || err.status >= 500;
+      if (!retryable || attempt === maxAttempts - 1) throw err;
+      const delay = err instanceof GeminiError && err.status === 429 ? 3000 : 1000 * (attempt + 1);
+      await new Promise((res) => setTimeout(res, delay));
+    }
+  }
+  throw lastErr;
+}
+
+/* ── Groq streaming generator (OpenAI SSE format) ── */
+async function* streamGroq(messages, systemPrompt, signal, maxTokens = 1000) {
   const resp = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ contents: geminiContents, systemPrompt }),
+    body: JSON.stringify({ messages, systemPrompt, stream: true, maxTokens }),
+    signal,
   });
 
   if (!resp.ok) {
     let msg = `Chat error ${resp.status}`;
-    try {
-      const body = await resp.json();
-      msg = body?.error || msg;
-    } catch { /* ignore */ }
+    try { const body = await resp.json(); msg = body?.error || msg; } catch { /* ignore */ }
     throw new GeminiError(msg, resp.status);
+  }
+
+  // Get token estimate from response if available
+  const tokenEstimate = resp.headers.get("X-Token-Estimate");
+  if (tokenEstimate) {
+    try {
+      const parsed = JSON.parse(tokenEstimate);
+      const { input, output, total } = parsed;
+      console.log(`[CHAT STREAM] Tokens: input=${input}, output=${output}, total=${total} (estimate)`);
+    } catch { /* ignore */ }
   }
 
   const reader = resp.body.getReader();
@@ -2192,46 +2365,76 @@ async function* streamGemini(geminiContents, systemPrompt) {
       if (!raw || raw === "[DONE]") continue;
       try {
         const parsed = JSON.parse(raw);
-        const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text;
+        const text = parsed?.choices?.[0]?.delta?.content;
         if (text) yield text;
       } catch { /* skip malformed chunk */ }
     }
   }
 }
 
-class GeminiError extends Error {
-  constructor(message, status) {
-    super(message);
-    this.status = status;
-  }
-}
-
-/* ── Non-streaming Gemini call (used for tool resolution loop) ── */
-async function callGeminiNonStreaming(contents, systemPrompt, tools) {
+/* ── Non-streaming Groq call (used for tool resolution loop) ── */
+async function callGroqNonStreaming(messages, systemPrompt, signal, maxTokens = 700) {
   const resp = await fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ contents, systemPrompt, tools: tools || undefined, stream: false }),
+    body: JSON.stringify({ messages, systemPrompt, stream: false, maxTokens }),
+    signal,
   });
   if (!resp.ok) {
     let msg = `Chat error ${resp.status}`;
     try { const b = await resp.json(); msg = b?.error || msg; } catch { /* ignore */ }
     throw new GeminiError(msg, resp.status);
   }
-  return resp.json();
+  const data = await resp.json();
+  if (data._tokenEstimate) {
+    const { input, output, total } = data._tokenEstimate;
+    console.log(`[CHAT TOOL] Tokens: input=${input}, output=${output}, total=${total}`);
+  }
+  return data;
 }
 
-/* ── Convert internal message history to Gemini contents format ── */
-function toGeminiContents(messages) {
-  const contents = messages
-    .filter((m) => m.role === "user" || m.role === "bot")
+/* ── Convert internal message history to OpenAI messages format ── */
+function truncateModelMessage(text, maxChars = 900) {
+  if (!text || text.length <= maxChars) return text;
+  return `${text.slice(0, maxChars)}\n[truncated for context budget]`;
+}
+
+function toChatMessages(messages, { maxMessages = 6, maxChars = 9000 } = {}) {
+  const result = messages
+    .filter((m) => (m.role === "user" || m.role === "bot") && m.text)
     .map((m) => ({
-      role: m.role === "bot" ? "model" : "user",
-      parts: [{ text: m.text }],
+      role: m.role === "bot" ? "assistant" : "user",
+      content: truncateModelMessage(m.text),
     }));
-  // Gemini requires the first turn to be a user turn — drop any leading model turns (e.g. the UI greeting)
-  const firstUser = contents.findIndex((c) => c.role === "user");
-  return firstUser > 0 ? contents.slice(firstUser) : contents;
+  // OpenAI requires the first message to be a user turn
+  const firstUser = result.findIndex((m) => m.role === "user");
+  const normalized = firstUser > 0 ? result.slice(firstUser) : result;
+  const recent = normalized.slice(-maxMessages);
+  const kept = [];
+  let used = 0;
+  for (let i = recent.length - 1; i >= 0; i--) {
+    const row = recent[i];
+    const len = (row.content || "").length;
+    if (kept.length && used + len > maxChars) break;
+    kept.push(row);
+    used += len;
+  }
+  return kept.reverse();
+}
+
+function trimOpenAiMessages(messages, { maxMessages = 16, maxChars = 14000 } = {}) {
+  const kept = [];
+  let used = 0;
+  for (let i = messages.length - 1; i >= 0; i--) {
+    const row = messages[i];
+    const len = JSON.stringify(row).length;
+    if (kept.length && (kept.length >= maxMessages || used + len > maxChars)) break;
+    kept.push(row);
+    used += len;
+  }
+  const normalized = kept.reverse();
+  const firstUser = normalized.findIndex((m) => m.role === "user");
+  return firstUser > 0 ? normalized.slice(firstUser) : normalized;
 }
 
 /* ── Open / close ── */
@@ -2275,10 +2478,25 @@ function renderChatBody() {
 
     const bubble = document.createElement("div");
     bubble.className = `bubble ${msg.role}`;
-    if (msg.streaming) {
-      bubble.classList.add("streaming");
-    }
+    if (msg.streaming) bubble.classList.add("streaming");
     bubble.innerHTML = formatBubbleText(msg.text);
+
+    if (msg.retryText) {
+      const retryBtn = document.createElement("button");
+      retryBtn.className = "chat-retry-btn";
+      retryBtn.textContent = "Retry";
+      retryBtn.addEventListener("click", () => {
+        const retryText = msg.retryText;
+        // Remove the failed bot message and re-send
+        state.chatMessages = state.chatMessages.filter((m) => m !== msg);
+        // Also remove the user message that preceded it
+        const lastUser = [...state.chatMessages].reverse().find((m) => m.role === "user");
+        if (lastUser) state.chatMessages = state.chatMessages.filter((m) => m !== lastUser);
+        sendChatMessage(retryText);
+      });
+      bubble.appendChild(retryBtn);
+    }
+
     row.appendChild(bubble);
     msgs.appendChild(row);
   });
@@ -2313,15 +2531,18 @@ function renderChatBody() {
 }
 
 /* Update just the last streaming bubble without full re-render */
-function updateStreamingBubble(text) {
+function updateStreamingBubble(text, slow = false) {
   const msgs = document.getElementById("chat-msgs");
   if (!msgs) return;
   const bubbles = msgs.querySelectorAll(".bubble.bot.streaming");
   const last = bubbles[bubbles.length - 1];
-  if (last) {
+  if (!last) return;
+  if (slow && !text) {
+    last.innerHTML = `<span class="chat-slow-hint">Taking a moment…</span>`;
+  } else {
     last.innerHTML = formatBubbleText(text);
-    msgs.scrollTop = msgs.scrollHeight;
   }
+  msgs.scrollTop = msgs.scrollHeight;
 }
 
 /* Markdown: **bold**, ## headers, bullet + numbered lists, line breaks */
@@ -2344,10 +2565,19 @@ function formatBubbleText(text) {
   return html;
 }
 
+/* ── In-flight abort controller ── */
+let _chatAbort = null;
+
 /* ── Send message with tool-calling loop + streaming final answer ── */
 async function sendChatMessage(text) {
   const t = (text || "").trim();
   if (!t || state.chatLoading) return;
+
+  // Cancel any previous in-flight request
+  if (_chatAbort) { _chatAbort.abort(); _chatAbort = null; }
+  const abort = new AbortController();
+  _chatAbort = abort;
+  const { signal } = abort;
 
   const input = document.getElementById("chat-input");
   if (input) input.value = "";
@@ -2361,55 +2591,62 @@ async function sendChatMessage(text) {
   state.chatMessages.push(streamingMsg);
   renderChatBody();
 
-  try {
-    // Build conversation from history (exclude the streaming placeholder we just added)
-    let contents = toGeminiContents(state.chatMessages.filter((m) => !m.streaming));
+  // Show "still thinking" hint if first token takes > 9s
+  const slowTimer = setTimeout(() => {
+    if (streamingMsg.streaming && !streamingMsg.text) {
+      updateStreamingBubble("", true);
+    }
+  }, 9000);
 
+  // Overall 50s hard timeout
+  const timeoutTimer = setTimeout(() => abort.abort(), 50000);
+
+  const queryStartTime = Date.now();
+  console.log(`[CHAT START] Query: "${t.slice(0, 60)}..."`);
+
+  try {
+    let messages = toChatMessages(state.chatMessages.filter((m) => !m.streaming));
     let directText = "";
     let toolsUsed = false;
     const MAX_TOOL_ROUNDS = 4;
 
-    // Tool resolution loop: non-streaming calls until Gemini returns text (no more tool calls)
     for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
-      const data = await callGeminiNonStreaming(contents, systemPrompt, CHAT_TOOL_DEFINITIONS);
-      const parts = data?.candidates?.[0]?.content?.parts || [];
-      const toolCalls = parts.filter((p) => p.functionCall);
-      const textParts  = parts.filter((p) => p.text);
+      const data = await withRetry(
+        () => callGroqNonStreaming(messages, systemPrompt, signal, 700),
+        { maxAttempts: 3, signal }
+      );
+      const msg   = data?.choices?.[0]?.message;
+      const toolCalls = msg?.tool_calls || [];
 
       if (!toolCalls.length) {
-        if (!toolsUsed) {
-          // Simple question answered straight from system prompt — no tools needed
-          directText = textParts.map((p) => p.text).join("");
-        }
-        // If tools were used, fall through to streaming call below
+        if (!toolsUsed) directText = msg?.content || "";
         break;
       }
 
       toolsUsed = true;
-      const toolResults = toolCalls.map((p) => ({
-        functionResponse: {
-          name: p.functionCall.name,
-          response: executeChatTool(p.functionCall.name, p.functionCall.args || {}),
-        },
+      // Append assistant's tool-call message, then each tool result
+      const toolResults = toolCalls.map((tc) => ({
+        role: "tool",
+        tool_call_id: tc.id,
+        content: JSON.stringify(compactToolResultForModel(
+          tc.function.name,
+          executeChatTool(tc.function.name, JSON.parse(tc.function.arguments || "{}"))
+        )),
       }));
-
-      // Append model's tool-call turn + our results to the conversation
-      contents = [
-        ...contents,
-        { role: "model", parts },
-        { role: "user",  parts: toolResults },
+      messages = [
+        ...messages,
+        { role: "assistant", content: msg.content || null, tool_calls: toolCalls },
+        ...toolResults,
       ];
+      messages = trimOpenAiMessages(messages);
     }
 
     if (directText) {
-      // Instant response — no tool round-trips needed
       streamingMsg.text = directText;
       streamingMsg.streaming = false;
     } else {
-      // Stream the final synthesis (Gemini has all tool results in context, no tools passed
-      // so it can only return text — no risk of infinite tool loop)
       let fullText = "";
-      for await (const chunk of streamGemini(contents, systemPrompt)) {
+      for await (const chunk of streamGroq(messages, systemPrompt, signal, 1000)) {
         fullText += chunk;
         streamingMsg.text = fullText;
         updateStreamingBubble(fullText);
@@ -2419,19 +2656,32 @@ async function sendChatMessage(text) {
     }
   } catch (err) {
     streamingMsg.streaming = false;
-    if (err instanceof GeminiError && err.status === 503) {
-      streamingMsg.text = "⚠️ Chat is not available right now.";
+    if (err.name === "AbortError") {
+      // Timed out or superseded by new message — remove the empty bubble
+      state.chatMessages = state.chatMessages.filter((m) => m !== streamingMsg);
+      if (signal.aborted && !_chatAbort?.signal.aborted) return; // superseded, new message handling it
+      streamingMsg.text = "⚠️ Request timed out. Please try again.";
+      state.chatMessages.push(streamingMsg);
     } else if (err instanceof GeminiError && (err.status === 400 || err.status === 403)) {
-      streamingMsg.text = "⚠️ Chat service configuration error. Please try again later.";
+      streamingMsg.text = "⚠️ Chat configuration error. Please try again later.";
     } else if (err instanceof GeminiError && err.status === 429) {
-      streamingMsg.text = "⚠️ Rate limit hit. Too many requests. Please wait a moment and try again.";
+      streamingMsg.text = "⚠️ Too many requests — please wait a moment, then try again.";
+    } else if (err instanceof GeminiError && err.status >= 500) {
+      streamingMsg.text = "⚠️ Chat service is temporarily unavailable. Please try again shortly.";
     } else {
-      streamingMsg.text = "⚠️ Connection error. Please check your internet connection and try again.";
+      streamingMsg.text = "⚠️ Connection error. Check your internet and try again.";
     }
+    streamingMsg.retryText = t;
+    console.log(`[CHAT ERROR] ${err.message || err.name} | Time: ${Date.now() - queryStartTime}ms`);
+  } finally {
+    clearTimeout(slowTimer);
+    clearTimeout(timeoutTimer);
+    if (_chatAbort === abort) _chatAbort = null;
   }
 
   state.chatLoading = false;
   renderChatBody();
+  console.log(`[CHAT END] Completed in ${Date.now() - queryStartTime}ms`);
 }
 
 /* ── Clear conversation ── */
@@ -2453,6 +2703,27 @@ function computeRecommendations() {
   const totalVenueCount = allCityVenues.size;
   if (!totalVenueCount) return [];
 
+  // Determine the baseline set of venues we are scoring against.
+  // If user selected restaurants, use those. 
+  // Otherwise, use all restaurants in the current city.
+  // Crucially, we do NOT filter this by bank, otherwise filtering to a single
+  // bank makes that bank's coverage look like 100%.
+  const scoringVenues = new Map();
+  if (state.selectedRestaurants.size > 0) {
+    state.selectedRestaurants.forEach(name => {
+      // Find the specific city-restaurant keys for the selected names
+      const found = state.data.offers.find(o => o.restaurant === name && cityMatches(o.city));
+      if (found) scoringVenues.set(`${found.city} || ${name}`, { city: found.city, restaurant: name });
+    });
+  } else {
+    allCityVenues.forEach(key => {
+      const [city, restaurant] = key.split(" || ");
+      scoringVenues.set(key, { city, restaurant });
+    });
+  }
+
+  const scoringVenueCount = scoringVenues.size || 1; // Prevent div by zero
+
   const desiredOffers = state.data.offers.filter((offer) => {
     if (!cityMatches(offer.city)) return false;
     if (state.selectedBanks.size > 0 && !state.selectedBanks.has(offer.bank)) return false;
@@ -2460,17 +2731,6 @@ function computeRecommendations() {
     if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
     return true;
   });
-
-  const desiredVenues = new Map();
-  desiredOffers.forEach((offer) => {
-    const venueKey = `${offer.city} || ${offer.restaurant}`;
-    if (!desiredVenues.has(venueKey)) {
-      desiredVenues.set(venueKey, { city: offer.city, restaurant: offer.restaurant });
-    }
-  });
-
-  const scoringVenueCount = desiredVenues.size;
-  if (!scoringVenueCount) return [];
 
   const selectedDays = getEffectiveSelectedDays();
   const totalSelectedDays = selectedDays.size;
@@ -2557,7 +2817,10 @@ function computeRecommendations() {
     const totalExpectedSaving = matches.reduce((sum, match) => sum + match.expectedSaving, 0);
     const totalDayFit = matches.reduce((sum, match) => sum + match.dayFit, 0);
     const avgExpectedSaving = totalExpectedSaving / scoringVenueCount;
-    const avgDayFit = totalDayFit / scoringVenueCount;
+    
+    // Day fit should be relative to COVERED venues (Reliability)
+    // not scoringVenueCount (Broadness), otherwise the number is confusingly diluted.
+    const avgDayFit = coveredVenueCount > 0 ? totalDayFit / coveredVenueCount : 0;
     const averageDiscount = average(
       matches.map((match) => match.discountPct).filter((v) => Number.isFinite(v)),
     );
@@ -2586,22 +2849,23 @@ function computeRecommendations() {
     item.requirementStatus = evaluateEligibility(item.bank, item.card);
   });
 
+  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
   const bestExpected = Math.max(...aggregates.map((item) => item.avgExpectedSaving), 1);
   aggregates.forEach((item) => {
-    item.score =
+    item.baseScore =
       (item.avgExpectedSaving / bestExpected) * 70 + item.coverage * 20 + item.avgDayFit * 10;
+    item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
+    item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
+      ? 30 * (item.qualificationConfidence - 0.5)
+      : 0;
+    item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta));
   });
-
-  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
 
   let visible = state.useEligibility && hasEligibilityInput
     ? aggregates.filter((item) => item.requirementStatus.status !== "ineligible")
     : aggregates;
 
   return visible.sort((a, b) => {
-    if (state.useEligibility && hasEligibilityInput && b.requirementStatus.sortRank !== a.requirementStatus.sortRank) {
-      return b.requirementStatus.sortRank - a.requirementStatus.sortRank;
-    }
     if (b.score !== a.score) return b.score - a.score;
     if (b.avgExpectedSaving !== a.avgExpectedSaving) return b.avgExpectedSaving - a.avgExpectedSaving;
     return b.coverage - a.coverage;
@@ -2609,6 +2873,44 @@ function computeRecommendations() {
 }
 
 /* ── ELIGIBILITY ── */
+function inferCardTier(cardName) {
+  const n = (cardName || "").toLowerCase();
+  if (n.includes("world") || n.includes("infinite") || n.includes("signature") || n.includes("privilege")) return "world";
+  if (n.includes("platinum")) return "platinum";
+  if (n.includes("titanium")) return "titanium";
+  if (n.includes("gold")) return "gold";
+  if (n.includes("silver")) return "silver";
+  if (n.includes("classic") || n.includes("standard") || n.includes("basic")) return "classic";
+  return "other";
+}
+
+function buildEstimatesByTier(requirementsPayload) {
+  const groups = {};
+  requirementsPayload.forEach((row) => {
+    const salary  = normalizeRequirementNumber(row.requirements?.minimum_monthly_salary_pkr);
+    const balance = normalizeRequirementNumber(row.requirements?.minimum_account_balance_pkr);
+    if (salary === null && balance === null) return;
+    const tier = inferCardTier(row.card_name);
+    if (!groups[tier]) groups[tier] = { salaries: [], balances: [], count: 0 };
+    if (salary  !== null && salary  > 0) groups[tier].salaries.push(salary);
+    if (balance !== null && balance > 0) groups[tier].balances.push(balance);
+    groups[tier].count++;
+  });
+
+  function median(arr) {
+    if (!arr.length) return null;
+    const s = [...arr].sort((a, b) => a - b);
+    const m = Math.floor(s.length / 2);
+    return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
+  }
+
+  const map = new Map();
+  Object.entries(groups).forEach(([tier, g]) => {
+    map.set(tier, { tier, medianSalary: median(g.salaries), medianBalance: median(g.balances), peerCount: g.count });
+  });
+  return map;
+}
+
 function evaluateEligibility(bank, card) {
   if (!state.requirements?.available) {
     return { status: "unavailable", label: "Requirements unavailable", tone: "unclear", sortRank: 1, detail: "Requirements data could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [] };
@@ -2625,39 +2927,147 @@ function evaluateEligibility(bank, card) {
   }
 
   const requirements = record.requirements || {};
-  const salaryReq = normalizeRequirementNumber(requirements.minimum_monthly_salary_pkr);
-  const balanceReq = normalizeRequirementNumber(requirements.minimum_account_balance_pkr);
-  const annualFeePkr = normalizeRequirementNumber(requirements.annual_fee_pkr);
+  let salaryReq  = normalizeRequirementNumber(requirements.minimum_monthly_salary_pkr);
+  
+  // Consolidate various balance-like fields into a single effective balance requirement
+  let balanceReq = normalizeRequirementNumber(requirements.minimum_account_balance_pkr);
+  if (balanceReq === null) {
+    const alts = [
+      requirements.minimum_average_balance_pkr,
+      requirements.minimum_relationship_balance_pkr,
+      requirements.minimum_deposit_pkr
+    ].map(normalizeRequirementNumber).filter(v => v !== null);
+    if (alts.length > 0) balanceReq = Math.max(...alts);
+  }
+
+  const annualFeePkr       = normalizeRequirementNumber(requirements.annual_fee_pkr);
   const annualFeeWaiverRule = requirements.annual_fee_waiver_rule || null;
+  const sourceIds = record.source_ids || [];
+
+  // Fill missing salary/balance from tier-peer medians
+  let salaryIsEstimated  = false;
+  let balanceIsEstimated = false;
+  let estimationNote     = null;
+  if (salaryReq === null || balanceReq === null) {
+    const tier    = inferCardTier(record.card_name);
+    const tierEst = state.requirements.estimatesByTier?.get(tier);
+    if (tierEst) {
+      if (salaryReq  === null && tierEst.medianSalary  !== null) { salaryReq  = tierEst.medianSalary;  salaryIsEstimated  = true; }
+      if (balanceReq === null && tierEst.medianBalance !== null) { balanceReq = tierEst.medianBalance; balanceIsEstimated = true; }
+      if (salaryIsEstimated || balanceIsEstimated) {
+        const tierLabel = tier === "other" ? "similar" : tier.charAt(0).toUpperCase() + tier.slice(1);
+        estimationNote  = `Estimated from ${tierEst.peerCount} similar ${tierLabel} cards`;
+      }
+    }
+  }
+  const isEstimated = salaryIsEstimated || balanceIsEstimated;
+
   const criteria = [];
   const blockers = [];
-  let missingInput = false;
+  let salaryPassed  = true;
+  let balancePassed = true;
+  let missingInput  = false;
 
   if (salaryReq !== null) {
     criteria.push(formatRequirementCriterion(salaryReq, "salary"));
     if (salaryReq > 0) {
-      if (state.monthlySalary === null) missingInput = true;
-      else if (state.monthlySalary < salaryReq) blockers.push(`Below the listed salary threshold of ${formatCurrency(salaryReq)} / month`);
+      if (state.monthlySalary === null) {
+        missingInput = true;
+      } else if (state.monthlySalary < salaryReq) {
+        salaryPassed = false;
+        const qualifier = salaryIsEstimated ? "estimated " : "listed ";
+        blockers.push(`Below the ${qualifier}salary threshold of ${formatCurrency(salaryReq)} / month`);
+      }
     }
   }
 
   if (balanceReq !== null) {
     criteria.push(formatRequirementCriterion(balanceReq, "balance"));
     if (balanceReq > 0) {
-      if (state.accountBalance === null) missingInput = true;
-      else if (state.accountBalance < balanceReq) blockers.push(`Below the listed account balance threshold of ${formatCurrency(balanceReq)}`);
+      if (state.accountBalance === null) {
+        missingInput = true;
+      } else if (state.accountBalance < balanceReq) {
+        balancePassed = false;
+        const qualifier = balanceIsEstimated ? "estimated " : "listed ";
+        blockers.push(`Below the ${qualifier}account balance threshold of ${formatCurrency(balanceReq)}`);
+      }
     }
   }
 
   if (annualFeePkr !== null) criteria.push(formatRequirementCriterion(annualFeePkr, "fee"));
 
-  const sourceIds = record.source_ids || [];
+  const base = { criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds };
 
-  if (blockers.length) return { status: "ineligible", label: "Likely ineligible", tone: "ineligible", sortRank: 0, detail: blockers[0], criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
-  if (salaryReq === null && balanceReq === null) return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "No public salary or balance threshold was captured for this card.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
-  if (missingInput) return { status: "needs_input", label: "Salary/balance not entered", tone: "needs-input", sortRank: 2, detail: "Public thresholds exist, but salary or balance details have not been entered.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
+  // Treat Salary and Balance as ALTERNATIVE paths (OR logic)
+  // A card is only "ineligible" if it has requirements and the user fails BOTH.
+  const hasSalaryReq  = salaryReq !== null && salaryReq > 0;
+  const hasBalanceReq = balanceReq !== null && balanceReq > 0;
+  const isBlocked     = (hasSalaryReq || hasBalanceReq) && (!salaryPassed && !balancePassed);
 
-  return { status: "eligible", label: "Likely eligible", tone: "eligible", sortRank: 3, detail: "Entered salary and balance meet the public thresholds captured for this card.", criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, hasRequirementRecord: true, sourceIds };
+  if (isBlocked) {
+    const detail = blockers.length > 1 ? `${blockers[0]} (and balance)` : blockers[0];
+    if (isEstimated) return { ...base, status: "est_ineligible",  label: "May not qualify (est.)",    tone: "est-ineligible",  sortRank: 0.5, detail };
+    return               { ...base, status: "ineligible",         label: "Likely ineligible",          tone: "ineligible",      sortRank: 0,   detail };
+  }
+  if (salaryReq === null && balanceReq === null) {
+    return               { ...base, status: "unclear",            label: "Requirements unclear",       tone: "unclear",         sortRank: 1,   detail: "No public salary or balance threshold was captured for this card." };
+  }
+  if (missingInput) {
+    if (isEstimated) return { ...base, status: "est_needs_input", label: "Est. requirements exist",   tone: "est-needs-input", sortRank: 1.5, detail: estimationNote || "Estimated thresholds exist but salary or balance details have not been entered." };
+    return               { ...base, status: "needs_input",        label: "Salary/balance not entered", tone: "needs-input",     sortRank: 2,   detail: "Public thresholds exist, but salary or balance details have not been entered." };
+  }
+  if (isEstimated) return  { ...base, status: "est_eligible",     label: "Possibly eligible (est.)",  tone: "est-eligible",    sortRank: 2.5, detail: estimationNote || "Entered salary and balance meet the estimated thresholds for this card." };
+  return                   { ...base, status: "eligible",          label: "Likely eligible",            tone: "eligible",        sortRank: 3,   detail: "Entered salary and balance meet the public thresholds captured for this card." };
+}
+
+function computeQualificationConfidence(status) {
+  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
+  if (!hasEligibilityInput || !status?.hasRequirementRecord) return 0.5;
+
+  // Hard penalty for known ineligibility (unifies filter and score)
+  if (status.status === "ineligible" || status.status === "est_ineligible") return 0.0;
+
+  const scores = [];
+  const scoreDimension = (inputValue, requirementValue, isEstimated = false) => {
+    const input = normalizeRequirementNumber(inputValue);
+    const req = normalizeRequirementNumber(requirementValue);
+    if (req === null) return;
+
+    let q = 0.5;
+    if (req <= 0) {
+      q = 1.0;
+    } else if (input === null) {
+      q = 0.5;
+    } else {
+      const ratio = input / req;
+      // Smooth piecewise linear curve
+      if (ratio >= 1.3) {
+        q = 1.0;
+      } else if (ratio >= 1.0) {
+        // Linear between 1.0 (0.8 score) and 1.3 (1.0 score)
+        q = 0.8 + (ratio - 1.0) * (0.2 / 0.3);
+      } else if (ratio >= 0.7) {
+        // Linear between 0.7 (0.0 score) and 1.0 (0.8 score)
+        q = 0.0 + (ratio - 0.7) * (0.8 / 0.3);
+      } else {
+        q = 0.0;
+      }
+    }
+
+    if (isEstimated) {
+      q = 0.5 + (q - 0.5) * 0.7;
+    }
+
+    scores.push(q);
+  };
+
+  scoreDimension(state.monthlySalary, status.salaryReq, status.salaryIsEstimated);
+  scoreDimension(state.accountBalance, status.balanceReq, status.balanceIsEstimated);
+
+  if (!scores.length) return 0.5;
+  // Use Math.max to support alternative qualification paths (OR logic)
+  const maxScore = Math.max(...scores);
+  return Math.max(0, Math.min(1, maxScore));
 }
 
 function renderEligibilityBadge(status) {
@@ -2772,10 +3182,21 @@ function formatRequirementFieldValue(status, field) {
   const value = status[field];
   if (field === "annualFeePkr" && value === null && status.annualFeeWaiverRule) return "Conditional";
   if (value === null) return "Not listed";
-  if (field === "salaryReq") return value === 0 ? "No minimum salary" : `${formatCurrency(value)} / month`;
-  if (field === "balanceReq") return value === 0 ? "No minimum balance" : formatCurrency(value);
+  const est = (field === "salaryReq" && status.salaryIsEstimated) || (field === "balanceReq" && status.balanceIsEstimated);
+  const prefix = est ? "~" : "";
+  if (field === "salaryReq")  return value === 0 ? "No minimum salary"  : `${prefix}${formatCurrency(value)} / month`;
+  if (field === "balanceReq") return value === 0 ? "No minimum balance" : `${prefix}${formatCurrency(value)}`;
   if (field === "annualFeePkr") return value === 0 ? "No annual fee" : formatCurrency(value);
   return "Not listed";
+}
+
+function formatQualificationDeltaLabel(delta) {
+  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
+  if (!hasEligibilityInput) return "";
+  const value = Number(delta);
+  if (!Number.isFinite(value) || Math.abs(value) < 0.05) return "";
+  const sign = value > 0 ? "+" : "";
+  return `${sign}${value.toFixed(1)} qual`;
 }
 
 function renderRequirementSummary(status, options = {}) {
@@ -2785,6 +3206,9 @@ function renderRequirementSummary(status, options = {}) {
     { label: "Min balance", field: "balanceReq" },
     { label: "Annual fee", field: "annualFeePkr" },
   ];
+  const estNote = status.isEstimated && status.estimationNote
+    ? `<div class="requirement-est-note">~ values are estimates — ${escapeHtml(status.estimationNote)}</div>`
+    : "";
   return `
     <div class="requirement-panel">
       <div class="requirement-panel-head">
@@ -2799,6 +3223,7 @@ function renderRequirementSummary(status, options = {}) {
           </div>
         `).join("")}
       </div>
+      ${estNote}
     </div>
   `;
 }
@@ -2930,13 +3355,9 @@ function setupMobileNavMenu() {
     const deskLinks = Array.from(nav.querySelectorAll(".nav-links-desk a"))
       .map((link) => `<a class="nav-link utility-link" href="${escapeAttr(link.getAttribute("href") || "#")}">${escapeHtml(link.textContent || "")}</a>`)
       .join("");
-    const quizBtn = document.getElementById("btn-open-quiz");
-    const quizMarkup = quizBtn
-      ? `<button class="btn-find-my-card utility-link" id="nav-mobile-quiz" type="button"><span>🎯</span> Find My Card</button>`
-      : "";
     utilityNav = document.createElement("div");
     utilityNav.className = "utility-nav";
-    utilityNav.innerHTML = `${deskLinks}${quizMarkup}`;
+    utilityNav.innerHTML = deskLinks;
     nav.appendChild(utilityNav);
     utilityNav.querySelector("#nav-mobile-quiz")?.addEventListener("click", () => {
       closeMobileNavMenu();
@@ -3065,17 +3486,16 @@ function renderCardDetailModal(inner) {
   const applyUrl     = getBankApplyUrl(bank);
   const isMyCard     = state.myCard === key;
   const score        = result ? Number(result.score).toFixed(1) : "—";
-
   inner.innerHTML = `
     <div class="cd-wrap">
       <div class="cd-head">
-        <div class="cd-head-left">
-          ${renderBankLogo(bank, "cd-logo")}
-          <div class="cd-head-info">
-            ${result ? `<div class="cd-score" style="color:${scoreColor(Number(result.score))}">Score ${score} / 100</div>` : ""}
-            <div class="cd-card-name">${escapeHtml(card)}</div>
-            <div class="cd-bank-name">${escapeHtml(bank)}</div>
-          </div>
+          <div class="cd-head-left">
+            ${renderBankLogo(bank, "cd-logo")}
+            <div class="cd-head-info">
+              ${result ? `<div class="cd-score" style="color:${scoreColor(Number(result.score))}">Score ${score} / 100</div>` : ""}
+              <div class="cd-card-name">${escapeHtml(card)}</div>
+              <div class="cd-bank-name">${escapeHtml(bank)}</div>
+            </div>
         </div>
         <div class="cd-head-actions">
           <button class="btn-cd-mycard${isMyCard ? " active" : ""}" data-key="${escapeAttr(key)}" type="button">
@@ -3088,25 +3508,25 @@ function renderCardDetailModal(inner) {
 
       ${result ? `
       <div class="cd-stats">
-        <div class="cd-stat">
+        <div class="cd-stat cd-stat--saving">
           <div class="cd-stat-l">Saving / outing</div>
           <div class="cd-stat-v green">${formatCurrency(result.avgExpectedSaving)}</div>
         </div>
-        <div class="cd-stat">
+        <div class="cd-stat cd-stat--annual">
           <div class="cd-stat-l">Annual (${state.outingsPerWeek === 4 ? "4×+" : state.outingsPerWeek + "×"}/wk)</div>
           <div class="cd-stat-v green">${formatSavingsAmount(annualSaving, { per: "yr" })}</div>
         </div>
         ${netAnnual !== null ? `
-        <div class="cd-stat">
+        <div class="cd-stat cd-stat--net">
           <div class="cd-stat-l">Net annual saving</div>
           <div class="cd-stat-v" style="color:${netAnnual >= 0 ? "var(--green)" : "var(--red)"}">${formatSavingsAmount(netAnnual, { per: "yr", signed: true })}</div>
           <div class="cd-stat-sub">After ${formatCurrency(fee)} fee</div>
         </div>` : ""}
-        <div class="cd-stat">
+        <div class="cd-stat cd-stat--restaurants">
           <div class="cd-stat-l">Restaurants Matched</div>
           <div class="cd-stat-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
-        <div class="cd-stat">
+        <div class="cd-stat cd-stat--avgday">
           <div class="cd-stat-l">Avg Day Coverage</div>
           <div class="cd-stat-v">${Math.round(result.avgDayFit * 100)}%</div>
         </div>

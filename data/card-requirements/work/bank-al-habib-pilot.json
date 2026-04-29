@@ -10,10 +10,11 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 20000,
         "minimum_relationship_balance_pkr": 25000,
-        "annual_fee_pkr": 6000,
+        "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": 21,
-        "maximum_age_years": 65
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "minimum_account_balance_pkr": null
       },
       "sources": [
         "https://www.bankalhabib.com/credit-cards",
@@ -21,8 +22,9 @@
         "https://www.bankalhabib.com/files/download/reports/SOC-Credit-Card.pdf",
         "https://www.bankalhabib.com/files/download/reports/CREDIT-CARD-SUMMARY-BOX-2025.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "PKR 20,000 minimum monthly income for salaried applicants. Max debt-to-burden ratio 40% of take-home pay.",
         "Eligibility page clearly exposes salary and age criteria.",
         "Annual fee conflicts across official documents: summary box says PKR 6,500, latest SOC surfaced says PKR 6,000.",
         "Supplementary annual fee appears as PKR 3,000."
@@ -35,18 +37,20 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 20000,
         "minimum_relationship_balance_pkr": 25000,
-        "annual_fee_pkr": 4000,
+        "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": 21,
-        "maximum_age_years": 65
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "minimum_account_balance_pkr": null
       },
       "sources": [
         "https://www.bankalhabib.com/credit-cards",
         "https://www.bankalhabib.com/files/download/reports/SOC-Credit-Card.pdf",
         "https://www.bankalhabib.com/files/download/reports/CREDIT-CARD-SUMMARY-BOX-2025.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "PKR 20,000 minimum monthly income for salaried applicants.",
         "Annual fee conflicts across official documents: summary box says PKR 4,500, latest SOC surfaced says PKR 4,000.",
         "Supplementary annual fee appears as PKR 2,000."
       ]
@@ -60,16 +64,19 @@
         "minimum_deposit_pkr": 2000000,
         "minimum_average_balance_pkr": 2000000,
         "annual_fee_pkr": 22000,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "Waived if PKR 3,000,000 average monthly balance maintained for 180 days",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "minimum_account_balance_pkr": 2000000
       },
       "sources": [
         "https://www.bankalhabib.com/schedule-of-charges/alhabib-signature-debit-card",
-        "https://www.bankalhabib.com/ur/debit-cards"
+        "https://www.bankalhabib.com/ur/debit-cards",
+        "https://www.bankalhabib.com/signature"
       ],
       "confidence": "high",
       "notes": [
+        "Requires PKR 750,000/month salary OR PKR 2,000,000 balance held for minimum 180 days. PKR 22,000 annual fee. Full fee waiver at PKR 3,000,000 MAB.",
         "New customers: PKR 2,000,000 deposit.",
         "Existing customers: PKR 2,000,000 average monthly balance for 180 days.",
         "Supplementary annual fee appears as PKR 22,000."
@@ -105,8 +112,8 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 4500,
         "supplementary_annual_fee_pkr": 3500,
         "annual_fee_waiver_rule": null,
@@ -119,6 +126,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "Fee of PKR 4,500 from official debit cards page. Salary and balance thresholds not publicly disclosed.",
         "Official digital-account page states no minimum balance or initial deposit requirement and explicitly lists Visa Gold Debit Card among the available debit-card options.",
         "Eligibility is account-linked rather than salary-gated on public BAHL material."
       ]
@@ -130,7 +138,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 3700,
+        "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -140,8 +148,9 @@
         "https://www.bankalhabib.com/debit-cards",
         "https://www.bankalhabib.com/accounts/digital"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "notes": [
+        "No public fee, salary or balance threshold found.",
         "Official digital-account page states no minimum balance or initial deposit requirement and explicitly lists Visa Silver Debit Card among the available debit-card options.",
         "Eligibility is account-linked rather than salary-gated on public BAHL material."
       ]
@@ -153,7 +162,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 4500,
+        "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -165,6 +174,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "Digital account; no salary or balance minimum publicly disclosed.",
         "Underlying digital account public pages say no minimum balance or initial deposit.",
         "Official BAHL debit-cards page now exposes a PKR 4,500 primary annual fee and PKR 3,500 supplementary annual fee for the Digital Account Gold variant."
       ]
@@ -176,7 +186,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 3700,
+        "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -189,6 +199,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "Digital account; no salary or balance minimum publicly disclosed.",
         "Public naming is Classic rather than Silver on BAHL's own site.",
         "Underlying digital account public pages say no minimum balance or initial deposit.",
         "Official BAHL debit-cards page exposes PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee for the Digital Account Classic variant."
@@ -201,7 +212,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 3700,
+        "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -214,6 +225,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "No publicly disclosed salary or balance threshold.",
         "Good fee recovery from the debit-cards page, but card-specific eligibility remains weak."
       ]
     },
@@ -224,10 +236,10 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 3700,
+        "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": 18,
+        "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
@@ -238,6 +250,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "No publicly disclosed salary or balance threshold.",
         "The age threshold comes from the underlying woman account eligibility, not a separate card-only age rule."
       ]
     },
@@ -247,8 +260,8 @@
       "tier": "unionpay-apna",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 25000,
-        "annual_fee_pkr": 3000,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -256,10 +269,12 @@
       "sources": [
         "https://www.bankalhabib.com/cards",
         "https://www.bankalhabib.com/accounts/current",
-        "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf"
+        "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
+        "https://www.bankalhabib.com/debit-cards"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "No publicly disclosed salary or balance threshold.",
         "Recovered from account-level KFS rather than a clean standalone card SOC.",
         "The PKR 25,000 threshold is the surfaced Apna account average-balance condition tied to account/card fee context."
       ]
@@ -271,7 +286,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 1250,
+        "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -281,10 +296,12 @@
         "https://www.bankalhabib.com/accounts/digital",
         "https://www.bankalhabib.com/files/download/reports/Current%20Account.pdf",
         "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
-        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
+        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf",
+        "https://www.bankalhabib.com/debit-cards"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "No publicly disclosed salary or balance threshold.",
         "Public fees differ by account/KFS context, so this is not a single settled universal UnionPay fee.",
         "Official BAHL digital-account FAQs list UPI Debit Card availability and explicitly state no minimum balance / no initial deposit requirement for these accounts."
       ]
@@ -295,9 +312,9 @@
       "tier": "paypak",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 25000,
-        "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Often the default free card when the surfaced account-level average-balance condition is maintained.",
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -305,10 +322,12 @@
         "https://new.bankalhabib.com/card-detail/paypak-debit-card/",
         "https://www.bankalhabib.com/files/download/reports/Current%20Account.pdf",
         "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
-        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf"
+        "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf",
+        "https://www.bankalhabib.com/debit-cards"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
+        "No publicly disclosed salary or balance threshold.",
         "Recovered from account-level KFS context rather than one clean universal card-fee schedule."
       ]
     }
