@@ -2,8 +2,8 @@ const GEMINI_MODEL = "gemini-2.5-flash-lite";
 const GEMINI_BASE = "https://generativelanguage.googleapis.com/v1beta/models";
 
 /* ── Rate limiting ── */
-const RATE_LIMIT_HOURLY = 10;
-const RATE_LIMIT_DAILY  = 20;
+const RATE_LIMIT_HOURLY = 5;
+const RATE_LIMIT_DAILY  = 10;
 
 async function checkRateLimit(kv, ip, shouldCount) {
   if (!kv || !ip) return null; // no KV binding → skip (local dev without KV)
@@ -203,7 +203,7 @@ export async function onRequestPost(context) {
   if (rl?.limited) {
     console.log(`[CHAT] Rate limited | IP: ${ip} | reason: ${rl.reason}`);
     return Response.json(
-      { error: "Too many requests. Please wait before sending more messages." },
+      { error: "Too many requests.", reason: rl.reason },
       {
         status: 429,
         headers: { "Retry-After": String(rl.retryAfter) },

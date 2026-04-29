@@ -2337,9 +2337,10 @@ ${top3text}
 
 
 class GeminiError extends Error {
-  constructor(message, status) {
+  constructor(message, status, reason) {
     super(message);
     this.status = status;
+    this.reason = reason;
   }
 }
 
@@ -2372,9 +2373,9 @@ async function* streamGemini(messages, systemPrompt, signal, maxTokens = 1000) {
   });
 
   if (!resp.ok) {
-    let msg = `Chat error ${resp.status}`;
-    try { const body = await resp.json(); msg = body?.error || msg; } catch { /* ignore */ }
-    throw new GeminiError(msg, resp.status);
+    let msg = `Chat error ${resp.status}`, reason;
+    try { const b = await resp.json(); msg = b?.error || msg; reason = b?.reason; } catch { /* ignore */ }
+    throw new GeminiError(msg, resp.status, reason);
   }
 
   // Get token estimate from response if available
@@ -2418,9 +2419,9 @@ async function callGeminiNonStreaming(messages, systemPrompt, signal, maxTokens 
     signal,
   });
   if (!resp.ok) {
-    let msg = `Chat error ${resp.status}`;
-    try { const b = await resp.json(); msg = b?.error || msg; } catch { /* ignore */ }
-    throw new GeminiError(msg, resp.status);
+    let msg = `Chat error ${resp.status}`, reason;
+    try { const b = await resp.json(); msg = b?.error || msg; reason = b?.reason; } catch { /* ignore */ }
+    throw new GeminiError(msg, resp.status, reason);
   }
   const data = await resp.json();
   
@@ -2742,7 +2743,9 @@ async function sendChatMessage(text) {
     } else if (err instanceof GeminiError && (err.status === 400 || err.status === 403)) {
       streamingMsg.text = "⚠️ Chat configuration error. Please try again later.";
     } else if (err instanceof GeminiError && err.status === 429) {
-      streamingMsg.text = "⚠️ Too many requests — please wait a moment, then try again.";
+      streamingMsg.text = err.reason === "daily"
+        ? "You're officially today's most curious user! 🏆 I've hit my daily limit but I'll be fully recharged tomorrow — come back then and let's keep finding you great deals! 💳"
+        : "You're on a roll! 🔥 I need a quick hourly breather — check back in a bit and let's keep going! 💳";
     } else if (err instanceof GeminiError && err.status >= 500) {
       streamingMsg.text = "⚠️ Chat service is temporarily unavailable. Please try again shortly.";
     } else {
