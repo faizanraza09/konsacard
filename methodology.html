@@ -93,13 +93,14 @@
               <strong>Formula:</strong> Score = (Your card's avg saving ÷ Best saving in results) × 70 + Coverage % × 20 + Day fit % × 10
             </div>
 
-            <h3 style="margin-top:24px; font-size:16px; font-weight:700">The Qualification Adjustment (+/- 15 pts)</h3>
+            <h3 style="margin-top:24px; font-size:16px; font-weight:700">The Qualification Adjustment (+/- 30 pts)</h3>
             <p>
-              The score above is the "base" fit. If you provide your monthly salary or account balance, the tool applies a <strong>±15 point adjustment</strong>:
+              The score above is the "base" fit. If you provide your monthly salary or account balance, the tool applies a <strong>±30 point adjustment</strong> based on how well you meet the card's qualification requirements:
             </p>
             <ul>
-              <li><strong>Qualification Boost (+):</strong> If you comfortably meet the requirements, the score increases, reflecting that this card is a viable "best fit" for your profile.</li>
-              <li><strong>Ineligibility Penalty (-):</strong> If you fall below the requirements, the score drops. If you are significantly below the threshold, the card is penalized heavily (and hidden if you turn on "Eligibility Mode").</li>
+              <li><strong>Strong Qualification (+30):</strong> If you comfortably meet the requirements with a high confidence level (typically 75%+), the score increases by up to 30 points, reflecting that this card is a viable "best fit" for your profile.</li>
+              <li><strong>Marginal Qualification (0 to +15):</strong> If you meet the requirements but with moderate confidence, you receive a smaller boost proportional to your qualification match.</li>
+              <li><strong>Below Requirements (-15 to -30):</strong> If you fall below the requirements, the score drops proportionally. If you are significantly below the threshold, the card is penalized heavily (and hidden if you turn on "Eligibility Mode").</li>
             </ul>
             <p>
               <strong>Smart Requirements:</strong> Pakistani bank cards often have multiple paths to qualify (e.g., "Salary of Rs 100k OR Balance of Rs 500k"). Our algorithm handles this by taking your <em>best</em> qualification match across all available fields.
