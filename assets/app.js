@@ -2034,7 +2034,13 @@ function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, li
   return {
     ranked_cards: results.map((r, i) => {
       // Get discount stats for this card
-      const cardOffers = state.data.offers.filter((o) => o.card === r.card && o.bank === r.bank);
+      let cardOffers = state.data.offers.filter((o) => o.card === r.card && o.bank === r.bank);
+      
+      // If restaurants were specified, show stats only for those restaurants
+      if (restaurants?.length && state.selectedRestaurants.size > 0) {
+        cardOffers = cardOffers.filter((o) => state.selectedRestaurants.has(o.restaurant));
+      }
+      
       const discounts = cardOffers.map((o) => o.discountPct).filter((v) => v != null);
       const avgDiscount = discounts.length ? discounts.reduce((a, b) => a + b, 0) / discounts.length : 0;
       const caps = cardOffers.map((o) => o.capPkr).filter((v) => v != null);
@@ -2298,6 +2304,7 @@ TOOLS - always call these for data questions, never answer from memory:
 
 RULES:
 - ALWAYS call a tool when the answer requires data. Never guess or estimate from memory.
+- **RESTAURANT-SPECIFIC QUERIES**: If user asks "best card at [restaurant name]" ALWAYS extract the restaurant name and pass it to rank_cards.restaurants parameter. This ensures the answer is specific to that venue, not generic.
 - Fuzzy matching is built in: "Xanders" finds "Xander's", "kababjees" finds "Kababjees Restaurant".
 - For "best card at restaurant X AND Y" pass both to rank_cards restaurants param.
 - Eligibility/fee questions: call get_card_requirements (do not assume values).
