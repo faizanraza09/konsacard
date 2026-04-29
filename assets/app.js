@@ -2032,15 +2032,26 @@ function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, li
   const results = computeRecommendations().slice(0, Math.min(limit, 30));
   Object.assign(state, saved);
   return {
-    ranked_cards: results.map((r, i) => ({
-      rank: i + 1, card: r.card, bank: r.bank, card_type: r.cardCategory,
-      fit_score: Number(r.score).toFixed(1),
-      estimated_saving_pkr_per_outing: Math.round(r.avgExpectedSaving),
-      restaurants_covered: r.coveredVenueCount,
-      total_restaurants_in_filter: r.totalVenueCount,
-      day_fit_pct: Math.round(r.avgDayFit * 100),
-      median_cap_pkr: r.medianCap || null,
-    })),
+    ranked_cards: results.map((r, i) => {
+      // Get discount stats for this card
+      const cardOffers = state.data.offers.filter((o) => o.card === r.card && o.bank === r.bank);
+      const discounts = cardOffers.map((o) => o.discountPct).filter((v) => v != null);
+      const avgDiscount = discounts.length ? discounts.reduce((a, b) => a + b, 0) / discounts.length : 0;
+      const caps = cardOffers.map((o) => o.capPkr).filter((v) => v != null);
+      
+      return {
+        rank: i + 1, 
+        card: r.card, 
+        bank: r.bank, 
+        card_type: r.cardCategory,
+        fit_score: Number(r.score).toFixed(1),
+        avg_discount_pct: Math.round(avgDiscount * 10) / 10,
+        median_cap_pkr: r.medianCap || null,
+        restaurants_covered: r.coveredVenueCount,
+        total_restaurants_in_filter: r.totalVenueCount,
+        day_fit_pct: Math.round(r.avgDayFit * 100),
+      };
+    }),
   };
 }
 
@@ -2113,10 +2124,9 @@ function chatTool_getRestaurantRankings({ city, card_types, sort_by = "max_disco
 function chatTool_compareCards({ cards, bill_size, city } = {}) {
   if (!state.data?.offers) return { error: "Offers data not loaded." };
   if (!cards?.length) return { error: "No cards specified." };
-  const bill = bill_size || state.orderValue;
   const cityFilter = normalizeCityValue(city || state.selectedCity);
   return {
-    bill_size_pkr: bill, city_filter: cityFilter,
+    city_filter: cityFilter,
     cards: cards.map(({ bank, card }) => {
       const offers = state.data.offers.filter((o) =>
         fuzzyMatch(bank, o.bank) && fuzzyMatch(card, o.card) &&
@@ -2128,14 +2138,12 @@ function chatTool_compareCards({ cards, bill_size, city } = {}) {
       const caps = offers.map((o) => o.capPkr).filter((v) => v != null);
       const avgDiscount = discounts.length ? discounts.reduce((a, b) => a + b, 0) / discounts.length : 0;
       const avgCap = caps.length ? caps.reduce((a, b) => a + b, 0) / caps.length : null;
-      const saving = avgCap ? Math.min((bill * avgDiscount) / 100, avgCap) : (bill * avgDiscount) / 100;
       const elig = evaluateEligibility(offers[0].bank, offers[0].card);
       return {
         bank: offers[0].bank, card: offers[0].card, card_type: offers[0].cardCategory,
         restaurants_covered: rests.size,
         avg_discount_pct: Math.round(avgDiscount * 10) / 10,
         avg_cap_pkr: avgCap ? Math.round(avgCap) : "no cap",
-        estimated_saving_per_outing_pkr: Math.round(saving),
         day_breakdown: [0,1,2,3,4,5,6].map((d) => ({ day: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][d], valid_deals: offers.filter((o) => o.days.includes(d)).length })),
         salary_required_pkr: elig.salaryReq, balance_required_pkr: elig.balanceReq,
         annual_fee_pkr: elig.annualFeePkr, fee_waiver: elig.annualFeeWaiverRule || null,
@@ -2246,33 +2254,35 @@ function executeChatTool(name, args) {
 /* ── System prompt ── */
 function buildSystemPrompt() {
   const cityLabel = state.selectedCity === "all" ? "all cities (Karachi, Lahore, Islamabad)" : state.selectedCity;
+  // Only include essential context, NOT frequency/salary/balance (these are for filtering, not for chat)
   const userCtx = [
     `City: ${cityLabel}`,
-    `Bill size: ${formatCurrency(state.orderValue)}`,
-    state.selectedCardTypes.size   ? `Card types: ${[...state.selectedCardTypes].join(", ")}` : null,
-    state.selectedBanks.size       ? `Banks: ${[...state.selectedBanks].join(", ")}` : null,
-    state.selectedRestaurants.size ? `Restaurants: ${[...state.selectedRestaurants].slice(0, 5).join(", ")}` : null,
-    state.outingsPerWeek           ? `Outings/week: ${state.outingsPerWeek}` : null,
-    state.monthlySalary            ? `Monthly salary: PKR ${Number(state.monthlySalary).toLocaleString()}` : null,
-    state.accountBalance           ? `Account balance: PKR ${Number(state.accountBalance).toLocaleString()}` : null,
+    state.selectedCardTypes.size ? `Card types: ${[...state.selectedCardTypes].join(", ")}` : null,
+    state.selectedBanks.size     ? `Banks: ${[...state.selectedBanks].join(", ")}` : null,
   ].filter(Boolean).join("\n");
 
   const top3 = computeRecommendations().slice(0, 3);
   const top3text = top3.length
-    ? `CURRENT TOP CARDS SNAPSHOT:\n` +
-      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Score ${Number(r.score).toFixed(1)} | Est PKR ${Math.round(r.avgExpectedSaving)}/outing`).join("\n")
+    ? `TOP CARDS IN ${cityLabel.toUpperCase()}:\n` +
+      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) | Fit Score ${Number(r.score).toFixed(0)}`).join("\n")
     : "No cards match the current filters.";
 
   return `You are KonsaCard AI, the expert assistant for konsacard.pk - Pakistan's independent restaurant discount card comparison tool.
+
+IMPORTANT: You are INDEPENDENT of user preferences. Provide objective information about cards:
+- Focus on discount percentages and caps, NOT personalized savings
+- Do NOT mention user's bill size, frequency of dining, salary, or other personal filters
+- When recommending a card, explain the discount % at the relevant restaurant/category
+- Example: "Visa Infinite offers 15% off at Xanders with a PKR 2,000 cap per transaction" (not "saves PKR 4000/month")
 
 Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%.
 
 TOKEN BUDGET: You have ~600-900 tokens for your response. Prioritize clarity over detail:
 - For tool-calling turns: be brief; let tool results speak.
-- For final answers: key facts first (best card, why, estimated saving), then details if room.
+- For final answers: key facts first (best card, discount details), then other options if room.
 - Never write filler or repeat yourself.
 
-USER CONTEXT:
+CITY CONTEXT:
 ${userCtx}
 
 ${top3text}
