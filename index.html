@@ -100,24 +100,6 @@
             </div>
           </div>
 
-          <!-- Restaurants -->
-          <div class="s-section">
-            <div class="s-label">
-              Restaurants
-              <span class="s-label-count" id="selected-rest-count" style="display:none"></span>
-            </div>
-            <input id="restaurant-search" class="s-search" type="search" placeholder="Search restaurants…" autocomplete="off" />
-            <div id="restaurant-results" class="s-search-results"></div>
-            <div id="selected-restaurants" class="s-chips"></div>
-          </div>
-
-          <!-- Going-Out Days -->
-          <div class="s-section">
-            <div class="s-label">Going-Out Days</div>
-            <div id="day-pills" class="s-pill-group"></div>
-            <button class="btn-tonight" id="btn-tonight" type="button"></button>
-          </div>
-
           <!-- Card Type -->
           <div class="s-section">
             <div class="s-label">Card Type</div>
@@ -132,17 +114,24 @@
             <div id="selected-banks" class="s-chips"></div>
           </div>
 
+          <!-- Restaurants -->
+          <div class="s-section">
+            <div class="s-label">
+              Restaurants
+              <span class="s-label-count" id="selected-rest-count" style="display:none"></span>
+            </div>
+            <input id="restaurant-search" class="s-search" type="search" placeholder="Search restaurants…" autocomplete="off" />
+            <div id="restaurant-results" class="s-search-results"></div>
+            <div id="selected-restaurants" class="s-chips"></div>
+          </div>
+
           <!-- Eligibility -->
-          <div class="s-section" style="border-bottom:none">
+          <div class="s-section">
             <div class="s-label-row">
               <div class="s-label" style="margin-bottom:0">Eligibility</div>
               <button class="s-text-btn" id="clear-eligibility" type="button" style="display:none">Clear</button>
             </div>
-            <label class="s-check-row" style="margin-top:8px">
-              <input id="use-eligibility" type="checkbox" />
-              <span>Use salary &amp; balance to hide clearly ineligible cards</span>
-            </label>
-            <div class="eligibility-inputs" id="eligibility-inputs" style="display:none">
+            <div class="eligibility-inputs" id="eligibility-inputs">
               <div class="elig-field">
                 <div class="elig-label">Monthly Salary</div>
                 <input id="monthly-salary" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 100000" />
@@ -154,16 +143,11 @@
             </div>
           </div>
 
-          <!-- Banks covered footer -->
-          <div class="s-banks-footer">
-            <div class="s-banks-footer-label">18 Banks Covered</div>
-            <div class="s-banks-chips">
-              <span>HBL</span><span>Alfalah</span><span>Askari</span><span>Meezan</span>
-              <span>UBL</span><span>Easypaisa</span><span>SCB</span><span>MCB</span>
-              <span>JS Bank</span><span>AL Habib</span><span>Faysal</span><span>Allied</span>
-              <span>BankIslami</span><span>Habib Metro</span><span>BoP</span><span>Al Baraka</span>
-              <span>HBL Is.</span><span>MCB Is.</span>
-            </div>
+          <!-- Going-Out Days -->
+          <div class="s-section" style="border-bottom:none">
+            <div class="s-label">Going-Out Days</div>
+            <div id="day-pills" class="s-pill-group"></div>
+            <button class="btn-tonight" id="btn-tonight" type="button"></button>
           </div>
         </aside>
 
@@ -248,6 +232,16 @@
                 <a href="./best-debit-cards-pakistan">Best Debit Cards in Pakistan</a>
               </div>
             </div>
+            <div class="footer-banks">
+              <div class="footer-banks-label">18 Banks Covered</div>
+              <div class="footer-banks-chips">
+                <span>HBL</span><span>Alfalah</span><span>Askari</span><span>Meezan</span>
+                <span>UBL</span><span>Easypaisa</span><span>SCB</span><span>MCB</span>
+                <span>JS Bank</span><span>AL Habib</span><span>Faysal</span><span>Allied</span>
+                <span>BankIslami</span><span>Habib Metro</span><span>BoP</span><span>Al Baraka</span>
+                <span>HBL Is.</span><span>MCB Is.</span>
+              </div>
+            </div>
             <div class="footer-fine">
               Offers can change. Always confirm terms directly with your bank.
             </div>
@@ -258,11 +252,11 @@
 
       <!-- Mobile bottom tabs -->
       <div class="mob-tabs" id="mob-tabs">
-        <button class="mob-tab active" id="mob-tab-filters" type="button">
+        <button class="mob-tab" id="mob-tab-filters" type="button">
           <span>⚙️</span><span class="mob-tab-label">Filters</span>
         </button>
-        <button class="mob-tab" id="mob-tab-results" type="button">
-          <span>🃏</span><span class="mob-tab-label">Results</span>
+        <button class="mob-tab active" id="mob-tab-results" type="button">
+          <span>📊</span><span class="mob-tab-label">Results</span>
         </button>
         <button class="mob-tab" id="mob-tab-chat" type="button">
           <span>💬</span><span class="mob-tab-label">Ask AI</span>
@@ -341,7 +335,7 @@
       </nav>
       <div class="landing-s-body">
         <div class="landing-inner">
-          <h1 class="landing-h1">Stop guessing.<br>Find the card that <span style="color:var(--brand)">actually saves you money</span> at restaurants.</h1>
+          <h1 class="landing-h1">Stop guessing.<br>Find the card that <span style="color:var(--brand)">actually saves you money</span></h1>
           <button id="landing-start-btn" class="landing-cta" type="button">Get Started <span style="font-size:18px">→</span></button>
           <button id="landing-skip-btn" class="landing-skip" type="button">Already know what you want? Skip to browse all cards</button>
           <div class="landing-stats">

@@ -7,13 +7,15 @@ const state = {
   selectedRestaurants: new Set(),
   selectedBanks: new Set(),
   selectedCardTypes: new Set(),
+  selectedCards: new Set(),      // card name search filter
   bankSearchTerm: "",
   restSearchTerm: "",
+  cardSearchTerm: "",            // card name search term
   orderValue: 10000,
   useEligibility: false,
   monthlySalary: null,
   accountBalance: null,
-  outingsPerWeek: 2,
+  outingsPerWeek: 1,
   viewMode: "cards",
   myCard: null,
   detailCardKey: null,
@@ -228,43 +230,46 @@ function bindEvents() {
     });
   }
 
-  // Eligibility
-  const useElig = document.getElementById("use-eligibility");
-  if (useElig) {
-    useElig.addEventListener("change", (e) => {
-      state.useEligibility = e.target.checked;
-      const inputs = document.getElementById("eligibility-inputs");
-      const clearBtn = document.getElementById("clear-eligibility");
-      if (inputs) inputs.style.display = e.target.checked ? "grid" : "none";
-      if (clearBtn) clearBtn.style.display = e.target.checked ? "" : "none";
-      render();
+  // Card search
+  const cardSearch = document.getElementById("card-search");
+  if (cardSearch) {
+    cardSearch.addEventListener("input", (e) => {
+      state.cardSearchTerm = e.target.value.trim();
+      renderCardSearch();
     });
   }
+
+  // Eligibility
   const monthlySalary = document.getElementById("monthly-salary");
+  const accountBalance = document.getElementById("account-balance");
+  const clearElig = document.getElementById("clear-eligibility");
+
+  function syncEligibilityState() {
+    state.useEligibility = state.monthlySalary !== null || state.accountBalance !== null;
+    if (clearElig) clearElig.style.display = state.useEligibility ? "" : "none";
+  }
+
   if (monthlySalary) {
     monthlySalary.addEventListener("input", (e) => {
       state.monthlySalary = parseOptionalNumber(e.target.value);
+      syncEligibilityState();
       render();
     });
   }
-  const accountBalance = document.getElementById("account-balance");
   if (accountBalance) {
     accountBalance.addEventListener("input", (e) => {
       state.accountBalance = parseOptionalNumber(e.target.value);
+      syncEligibilityState();
       render();
     });
   }
-  const clearElig = document.getElementById("clear-eligibility");
   if (clearElig) {
     clearElig.addEventListener("click", () => {
       state.useEligibility = false;
       state.monthlySalary = null;
       state.accountBalance = null;
-      if (useElig) useElig.checked = false;
       if (monthlySalary) monthlySalary.value = "";
       if (accountBalance) accountBalance.value = "";
-      const inputs = document.getElementById("eligibility-inputs");
-      if (inputs) inputs.style.display = "none";
       clearElig.style.display = "none";
       render();
     });
@@ -386,10 +391,12 @@ function resetFilters() {
   state.selectedRestaurants = new Set();
   state.selectedBanks = new Set();
   state.selectedCardTypes = new Set();
+  state.selectedCards = new Set();
   state.bankSearchTerm = "";
   state.restSearchTerm = "";
+  state.cardSearchTerm = "";
   state.orderValue = 10000;
-  state.outingsPerWeek = 2;
+  state.outingsPerWeek = 1;
   state.viewMode = "cards";
   state.useEligibility = false;
   state.monthlySalary = null;
@@ -401,10 +408,8 @@ function resetFilters() {
   if (restSearch) restSearch.value = "";
   const bankSearch = document.getElementById("bank-search");
   if (bankSearch) bankSearch.value = "";
-  const useElig = document.getElementById("use-eligibility");
-  if (useElig) useElig.checked = false;
-  const eligInputs = document.getElementById("eligibility-inputs");
-  if (eligInputs) eligInputs.style.display = "none";
+  const cardSearch = document.getElementById("card-search");
+  if (cardSearch) cardSearch.value = "";
   const clearEligBtn = document.getElementById("clear-eligibility");
   if (clearEligBtn) clearEligBtn.style.display = "none";
   const monthlySalary = document.getElementById("monthly-salary");
@@ -418,6 +423,7 @@ function resetFilters() {
 /* ── RENDER ── */
 function render() {
   pruneRestaurants();
+  pruneCards();
   renderOrderValueLabel();
   renderOutingsPills();
   renderNavCityTabs();
@@ -580,6 +586,81 @@ function renderSelectedBanks() {
   });
 }
 
+/* ── CARD SEARCH ── */
+function getAvailableCards() {
+  if (!state.data) return [];
+  const cardSet = new Set();
+  state.data.offers.forEach((offer) => {
+    if (!cityMatches(offer.city)) return;
+    if (!cardTypeMatches(offer.cardCategory)) return;
+    if (state.selectedBanks.size > 0 && !state.selectedBanks.has(offer.bank)) return;
+    if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return;
+    cardSet.add(offer.card);
+  });
+  return Array.from(cardSet).sort((a, b) => a.localeCompare(b));
+}
+
+function pruneCards() {
+  const available = new Set(getAvailableCards());
+  state.selectedCards.forEach((card) => {
+    if (!available.has(card)) state.selectedCards.delete(card);
+  });
+}
+
+function renderCardSearch() {
+  const available = getAvailableCards();
+  const term = state.cardSearchTerm.toLowerCase();
+  const results = available
+    .filter((c) => !state.selectedCards.has(c))
+    .filter((c) => !term || c.toLowerCase().includes(term))
+    .slice(0, 14);
+
+  const container = document.getElementById("card-results");
+  if (!container) return;
+  container.innerHTML = "";
+  results.forEach((card) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "s-search-item";
+    item.innerHTML = `<span>${escapeHtml(card)}</span><span class="s-search-item-add">Add</span>`;
+    item.addEventListener("click", () => {
+      state.selectedCards.add(card);
+      state.cardSearchTerm = "";
+      const cardSearch = document.getElementById("card-search");
+      if (cardSearch) cardSearch.value = "";
+      render();
+    });
+    container.appendChild(item);
+  });
+}
+
+function renderSelectedCards() {
+  const container = document.getElementById("selected-cards");
+  if (!container) return;
+  container.innerHTML = "";
+
+  const count = state.selectedCards.size;
+  const countEl = document.getElementById("selected-cards-count");
+  if (countEl) {
+    countEl.textContent = count > 0 ? `(${count})` : "";
+    countEl.style.display = count > 0 ? "" : "none";
+  }
+
+  Array.from(state.selectedCards).sort((a, b) => a.localeCompare(b)).forEach((card) => {
+    const chip = document.createElement("div");
+    chip.className = "s-chip";
+    chip.innerHTML = `<span>${escapeHtml(card)}</span>`;
+    const rm = document.createElement("button");
+    rm.className = "s-chip-remove";
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.setAttribute("aria-label", `Remove ${card}`);
+    rm.addEventListener("click", () => { state.selectedCards.delete(card); render(); });
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  });
+}
+
 /* ── RESTAURANT SEARCH ── */
 function getAvailableRestaurants() {
   if (!state.data) return [];
@@ -701,14 +782,8 @@ function renderRecommendations() {
   }
 
   if (emptyState) emptyState.classList.add("hidden");
-  const onFirstPage = (state.pagination.results || 1) === 1;
-  if (onFirstPage) {
-    renderFeaturedCard(results[0], topPick);
-    renderPagedResultCards(results.slice(1), resultsGrid);
-  } else {
-    if (topPick) topPick.innerHTML = "";
-    renderPagedResultCards(results.slice(1), resultsGrid);
-  }
+  if (topPick) topPick.innerHTML = "";
+  renderPagedResultCards(results, resultsGrid);
   renderCompareTray();
 }
 
@@ -743,11 +818,8 @@ function renderBankLogo(bank, className) {
   `;
 }
 
-function renderMetricLabel(label, tooltip) {
-  const labelText = `<span class="metric-label-text">${escapeHtml(label)}</span>`;
-  if (!tooltip) return labelText;
-  const infoSvg = `<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="6.5" cy="6.5" r="6" stroke="#7f8da8" stroke-width="1.1"/><circle cx="6.5" cy="4.2" r="0.8" fill="#7f8da8"/><rect x="5.85" y="6" width="1.3" height="3.5" rx="0.65" fill="#7f8da8"/></svg>`;
-  return `${labelText}<span class="metric-info" title="${escapeAttr(tooltip)}" aria-label="${escapeAttr(`${label}: ${tooltip}`)}" tabindex="0">${infoSvg}</span>`;
+function renderMetricLabel(label) {
+  return `<span class="metric-label-text">${escapeHtml(label)}</span>`;
 }
 
 /* ── FEATURED CARD ── */
@@ -794,19 +866,19 @@ function renderFeaturedCard(result, container) {
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Estimated Saving", "Estimated discount value per outing for your current filters.")}</div>
+          <div class="cs-l">${renderMetricLabel("Estimated Saving")}</div>
           <div class="cs-v green">${formatCurrency(result.avgExpectedSaving)} / outing</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Restaurants Matched", "How many restaurants have active deals for this card.")}</div>
+          <div class="cs-l">${renderMetricLabel("Restaurants Matched")}</div>
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Avg Day Coverage", "Average share of your selected going-out days where this card has active deals.")}</div>
+          <div class="cs-l">${renderMetricLabel("Avg Day Coverage")}</div>
           <div class="cs-v">${Math.round(result.avgDayFit * 100)}%</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Typical Cap", "Median per-offer discount cap found across matched deals.")}</div>
+          <div class="cs-l">${renderMetricLabel("Typical Cap")}</div>
           <div class="cs-v">${result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap"}</div>
         </div>
       </div>
@@ -871,19 +943,19 @@ function renderResultCards(results, container) {
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Estimated Saving", "Estimated discount value per outing for your current filters.")}</div>
+          <div class="cs-l">${renderMetricLabel("Estimated Saving")}</div>
           <div class="cs-v green">${formatCurrency(result.avgExpectedSaving)} / outing</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Restaurants Matched", "How many restaurants have active deals for this card.")}</div>
+          <div class="cs-l">${renderMetricLabel("Restaurants Matched")}</div>
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Avg Day Coverage", "Average share of your selected going-out days where this card has active deals.")}</div>
+          <div class="cs-l">${renderMetricLabel("Avg Day Coverage")}</div>
           <div class="cs-v">${Math.round(result.avgDayFit * 100)}%</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l cs-l-with-info">${renderMetricLabel("Typical Cap", "Median per-offer discount cap found across matched deals.")}</div>
+          <div class="cs-l">${renderMetricLabel("Typical Cap")}</div>
           <div class="cs-v">${result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap"}</div>
         </div>
       </div>
@@ -904,12 +976,47 @@ function renderResultCards(results, container) {
 
 function renderPagedResultCards(results, container) {
   if (!container) return;
-  const pageData = paginateItems(results, "results", RESULTS_LIST_ITEMS_PER_PAGE);
-  renderResultCards(pageData.items, container);
-  if (pageData.totalPages > 1) {
-    container.insertAdjacentHTML("beforeend", renderPaginationControls("results", pageData));
-    bindPaginationControls(container, "results", renderRecommendations);
-  }
+
+  const allResults = results;
+  container.innerHTML = `
+    <div class="cards-view-search-wrap">
+      <input type="search" class="s-search cards-view-search" placeholder="Search ${results.length} cards…" autocomplete="off" />
+    </div>
+    <div class="cards-view-featured"></div>
+    <div class="cards-view-list"></div>
+  `;
+
+  const searchInput = container.querySelector(".cards-view-search");
+  const featuredContainer = container.querySelector(".cards-view-featured");
+  const listContainer = container.querySelector(".cards-view-list");
+
+  const renderRows = () => {
+    const term = searchInput?.value.trim().toLowerCase() || "";
+    const filteredResults = allResults.filter((result) =>
+      !term || result.card.toLowerCase().includes(term) || result.bank.toLowerCase().includes(term)
+    );
+
+    if ((state.pagination.results || 1) === 1 && filteredResults.length > 0) {
+      renderFeaturedCard(filteredResults[0], featuredContainer);
+    } else {
+      featuredContainer.innerHTML = "";
+    }
+
+    const restResults = (state.pagination.results || 1) === 1 ? filteredResults.slice(1) : filteredResults;
+    const pageData = paginateItems(restResults, "results", RESULTS_LIST_ITEMS_PER_PAGE);
+    renderResultCards(pageData.items, listContainer);
+    if (pageData.totalPages > 1) {
+      listContainer.insertAdjacentHTML("beforeend", renderPaginationControls("results", pageData));
+      bindPaginationControls(listContainer, "results", () => renderRows());
+    }
+  };
+
+  searchInput?.addEventListener("input", () => {
+    state.pagination.results = 1;
+    renderRows();
+  });
+
+  renderRows();
 }
 
 function renderCardDetail(result) {
@@ -2808,6 +2915,7 @@ function computeRecommendations() {
     if (state.selectedBanks.size > 0 && !state.selectedBanks.has(offer.bank)) return false;
     if (!cardTypeMatches(offer.cardCategory)) return false;
     if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
+    if (state.selectedCards.size > 0 && !state.selectedCards.has(offer.card)) return false;
     return true;
   });
 
@@ -4176,6 +4284,7 @@ function getActiveFilterCount() {
   if (state.selectedDays.size > 0) n++;
   if (state.selectedRestaurants.size > 0) n++;
   if (state.selectedBanks.size > 0) n++;
+  if (state.selectedCards.size > 0) n++;
   if (state.selectedCardTypes.size > 0) n++;
   if (state.useEligibility) n++;
   return n;
@@ -4195,11 +4304,12 @@ function encodeStateToUrl() {
   const params = new URLSearchParams();
   if (state.selectedCity !== "all") params.set("city", state.selectedCity);
   if (state.orderValue !== 10000) params.set("bill", state.orderValue);
-  if (state.outingsPerWeek !== 2) params.set("outings", state.outingsPerWeek);
+  if (state.outingsPerWeek !== 1) params.set("outings", state.outingsPerWeek);
   if (state.selectedDays.size > 0) params.set("days", Array.from(state.selectedDays).join(","));
   if (state.selectedCardTypes.size > 0) params.set("types", Array.from(state.selectedCardTypes).join(","));
   if (state.selectedBanks.size > 0) params.set("banks", Array.from(state.selectedBanks).join("|"));
   if (state.selectedRestaurants.size > 0) params.set("rests", Array.from(state.selectedRestaurants).join("|"));
+  if (state.selectedCards.size > 0) params.set("cards", Array.from(state.selectedCards).join("|"));
   if (state.useEligibility) params.set("elig", "1");
   if (state.monthlySalary !== null) params.set("salary", state.monthlySalary);
   if (state.accountBalance !== null) params.set("balance", state.accountBalance);
@@ -4217,6 +4327,7 @@ function restoreStateFromUrl() {
   if (params.has("types")) state.selectedCardTypes = new Set(params.get("types").split(",").filter(Boolean));
   if (params.has("banks")) state.selectedBanks = new Set(params.get("banks").split("|").filter(Boolean));
   if (params.has("rests")) state.selectedRestaurants = new Set(params.get("rests").split("|").filter(Boolean));
+  if (params.has("cards")) state.selectedCards = new Set(params.get("cards").split("|").filter(Boolean));
   if (params.get("elig") === "1") {
     state.useEligibility = true;
     if (params.has("salary")) state.monthlySalary = Number(params.get("salary"));
@@ -4231,10 +4342,8 @@ function syncDomToState() {
   if (bankSearch) bankSearch.value = "";
   const restSearch = document.getElementById("restaurant-search");
   if (restSearch) restSearch.value = "";
-  const useElig = document.getElementById("use-eligibility");
-  if (useElig) useElig.checked = state.useEligibility;
-  const eligInputs = document.getElementById("eligibility-inputs");
-  if (eligInputs) eligInputs.style.display = state.useEligibility ? "grid" : "none";
+  const cardSearch = document.getElementById("card-search");
+  if (cardSearch) cardSearch.value = "";
   const clearEligBtn = document.getElementById("clear-eligibility");
   if (clearEligBtn) clearEligBtn.style.display = state.useEligibility ? "" : "none";
   const monthlySalary = document.getElementById("monthly-salary");
