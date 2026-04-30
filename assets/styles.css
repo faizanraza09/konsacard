@@ -1688,6 +1688,25 @@ body.content-page {
   }
   .nav > .utility-nav.nav-open { display: flex; }
   .utility-link { width: 100%; }
+
+  /* Content-page nav: collapse inline links into hamburger dropdown */
+  .mobile-nav-wrap { position: relative; }
+  .mobile-nav-wrap .utility-nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 220px;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(255,255,255,0.96);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-lg);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    z-index: 10;
+  }
+  .mobile-nav-wrap .utility-nav.nav-open { display: flex; }
 }
 
 /* ── MOBILE RESPONSIVE ── */
@@ -1727,8 +1746,8 @@ body.content-page {
   .pager { flex-direction: column; align-items: flex-start; }
   .pager-actions { width: 100%; justify-content: space-between; }
   .mobile-nav-wrap { width: auto; margin-left: auto; }
-  .content-hero { grid-template-columns: 1fr; padding-top: 24px; }
-  .content-layout { grid-template-columns: 1fr; padding-bottom: 28px; }
+  .content-hero { grid-template-columns: minmax(0, 1fr); padding-top: 24px; }
+  .content-layout { grid-template-columns: minmax(0, 1fr); padding-bottom: 28px; }
   .spotlight-grid { grid-template-columns: 1fr; }
 
 }
@@ -1780,6 +1799,11 @@ body.content-page {
   .content-card { padding: 18px; border-radius: 18px; }
   .content-hero h1 { font-size: 34px; }
   .content-hero p { font-size: 15px; }
+  /* Content page: score rows stack on small phones */
+  .score-row { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .score-bar-track { width: 100%; }
+  /* Nav badge: hide on very small screens to give nav room */
+  .content-shell .nav-badge { display: none; }
 }
 
 /* ── CONTENT PAGE COMPONENTS ── */
