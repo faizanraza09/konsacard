@@ -216,6 +216,7 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
   font-size: 12.5px;
   color: var(--ink);
   transition: background .1s;
+  text-align: left;
 }
 .s-search-item:hover { background: var(--surface2); }
 .s-search-item-add { font-size: 11px; font-weight: 700; color: var(--brand); }
@@ -614,14 +615,19 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 /* Chevron at right edge of card row signals the whole card is tappable */
 .card-row--clickable::after {
   content: '›';
-  font-size: 18px;
-  color: var(--muted2);
-  opacity: 0.5;
+  font-size: 20px;
+  color: var(--brand);
+  opacity: 0.35;
   flex-shrink: 0;
   line-height: 1;
+  transition: opacity .15s, transform .15s;
 }
-.card-item { transition: border-color .15s; }
-.card-item:hover { border-color: rgba(189,91,61,0.3); }
+.card-row--clickable:hover::after {
+  opacity: 0.85;
+  transform: translateX(2px);
+}
+.card-item { transition: border-color .15s, box-shadow .15s, transform .1s; }
+.card-item:hover { border-color: rgba(189,91,61,0.4); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
 
 .card-btns { display: flex; gap: 6px; flex-shrink: 0; }
 .btn-compare {
@@ -1165,32 +1171,7 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 }
 .chat-fab:hover { transform: scale(1.08); box-shadow: 0 6px 30px rgba(189,91,61,.5); }
 
-/* Find My Card FAB */
-.find-card-fab {
-  position: fixed;
-  bottom: 24px;
-  right: 20px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  background: var(--brand);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 24px rgba(189,91,61,0.4);
-  cursor: pointer;
-  z-index: 240;
-  transition: transform .2s, box-shadow .2s;
-  font-size: 21px;
-  border: none;
-  display: none;
-}
-
-.find-card-fab:hover { transform: scale(1.08); box-shadow: 0 6px 30px rgba(189,91,61,.5); }
-
 @media (max-width: 768px) {
-  .find-card-fab { display: flex; }
   .chat-fab { bottom: 76px; }
 }
 
@@ -2088,20 +2069,6 @@ body.content-page {
 }
 .view-toggle-btn.active { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-sm); }
 
-/* ── MY CARD BADGE ── */
-.badge-mycard {
-  display: inline-flex;
-  align-items: center;
-  padding: 2px 7px;
-  border-radius: 99px;
-  background: var(--green-light);
-  border: 1px solid rgba(5,150,105,.25);
-  color: var(--green);
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
 
 /* ── FEATURED CARD QUICK BUTTONS (inline below why-text) ── */
 .card-featured-quick-btns {
@@ -2198,21 +2165,8 @@ body.content-page {
 .cd-card-name { font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.2; }
 .cd-bank-name { font-size: 12px; color: var(--muted); margin-top: 2px; }
 .cd-head-actions { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
-.cd-head-actions .btn-cd-mycard,
 .cd-head-actions .btn-apply,
 .cd-head-actions .btn-modal-close { height: 34px; }
-.btn-cd-mycard {
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 11.5px;
-  font-weight: 700;
-  border: 1.5px solid var(--line);
-  color: var(--muted);
-  background: transparent;
-  transition: all .15s;
-  white-space: nowrap;
-}
-.btn-cd-mycard:hover, .btn-cd-mycard.active { border-color: var(--green); color: var(--green); background: var(--green-light); }
 
 .cd-stats {
   display: grid;
@@ -2292,9 +2246,19 @@ body.content-page {
   width: 100%;
   text-align: left;
   cursor: pointer;
-  transition: border-color .15s, box-shadow .15s;
+  transition: border-color .15s, box-shadow .15s, transform .1s;
 }
-.rest-deal-row:hover { border-color: var(--brand-mid); box-shadow: var(--shadow-sm); }
+.rest-deal-row:hover { border-color: var(--brand-mid); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
+.rest-deal-row::after {
+  content: '›';
+  font-size: 20px;
+  color: var(--brand);
+  opacity: 0.35;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: opacity .15s, transform .15s;
+}
+.rest-deal-row:hover::after { opacity: 0.85; transform: translateX(2px); }
 .rest-deal-rank { width: 24px; font-size: 13px; font-weight: 800; color: var(--muted2); text-align: center; flex-shrink: 0; }
 .rest-deal-body { flex: 1; min-width: 0; }
 .rest-deal-name { font-size: 14px; font-weight: 700; color: var(--ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

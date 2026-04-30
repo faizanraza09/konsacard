@@ -58,7 +58,8 @@
       "Read(//c/Temp/**)",
       "Skill(gsd-help)",
       "Bash(ipconfig)",
-      "Bash(findstr /i \"IPv4\")"
+      "Bash(findstr /i \"IPv4\")",
+      "Bash(git stash *)"
     ]
   }
 }

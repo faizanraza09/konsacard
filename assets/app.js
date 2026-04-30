@@ -17,7 +17,6 @@ const state = {
   accountBalance: null,
   outingsPerWeek: 1,
   viewMode: "cards",
-  myCard: null,
   detailCardKey: null,
   detailRestaurantKey: null,
   compareList: [],               // up to 2 card keys "bank || card"
@@ -127,7 +126,6 @@ async function init() {
   state.data = payload;
   state.requirements = requirements;
 
-  state.myCard = localStorage.getItem("konsacard_mycard") || null;
   restoreStateFromUrl();
   bindEvents();
   syncDomToState();
@@ -834,8 +832,6 @@ function renderFeaturedCard(result, container) {
   const sc = scoreColor(scorePct);
   const showEligibility = isEligibilityContextActive();
   const eligStatus = result.requirementStatus;
-  const isMyCard = state.myCard === cardKey;
-
   container.innerHTML = `
     <article class="card-item card-item--featured${inCmp ? " in-compare" : ""}" id="feat-${escapeAttr(cardKey)}" data-key="${escapeAttr(cardKey)}" tabindex="0" role="button" aria-label="Open details for ${escapeAttr(result.card)} from ${escapeAttr(result.bank)}">
       <div class="card-row card-row--clickable">
@@ -845,7 +841,6 @@ function renderFeaturedCard(result, container) {
           <div class="card-badges">
             <span class="badge-top-pick">#1 TOP PICK</span>
             ${showEligibility ? renderEligibilityBadge(eligStatus) : ""}
-            ${isMyCard ? `<span class="badge-mycard">MY CARD</span>` : ""}
           </div>
           <div class="card-name">${escapeHtml(result.card)}</div>
           <div class="card-bank">${escapeHtml(result.bank)}</div>
@@ -903,7 +898,6 @@ function renderResultCards(results, container) {
     const inCmp = state.compareList.includes(cardKey);
     const canCmp = state.compareList.length < 2 || inCmp;
     const isExpanded = state.expandedCard === cardKey;
-    const isMyCard = state.myCard === cardKey;
     const score = Number(result.score).toFixed(1);
     const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
     const sc = scoreColor(scorePct);
@@ -922,7 +916,6 @@ function renderResultCards(results, container) {
         <div class="card-info">
           <div class="card-badges">
             ${showEligibility ? renderEligibilityBadge(eligStatus) : ""}
-            ${isMyCard ? `<span class="badge-mycard">MY CARD</span>` : ""}
           </div>
           <div class="card-name">${escapeHtml(result.card)}</div>
           <div class="card-bank">${escapeHtml(result.bank)}</div>
@@ -1966,11 +1959,13 @@ function restoreQuizFocus(id) {
 /* ── FUZZY NAME MATCH ── */
 function fuzzyMatch(query, target) {
   if (!query || !target) return false;
-  const norm = (s) => s.toLowerCase().replace(/['‘’`]/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
+  const norm = (s) => s.toLowerCase().replace(/[‘’’`]/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
   const q = norm(query), t = norm(target);
   if (t.includes(q) || q.includes(t)) return true;
-  const qw = q.split(" ").filter((w) => w.length >= 3);
-  const tw = t.split(" ").filter((w) => w.length >= 3);
+  // Only use prefix matching for words ≥4 chars to avoid generic short words
+  // like "card", "debit", "gold" creating false cross-card matches.
+  const qw = q.split(" ").filter((w) => w.length >= 4);
+  const tw = t.split(" ").filter((w) => w.length >= 4);
   return qw.some((qword) => tw.some((tword) => tword.startsWith(qword) || qword.startsWith(tword)));
 }
 
@@ -2128,7 +2123,12 @@ function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, li
     selectedCity: state.selectedCity, orderValue: state.orderValue,
     selectedCardTypes: state.selectedCardTypes, selectedRestaurants: state.selectedRestaurants,
     selectedDays: state.selectedDays,
+    selectedBanks: state.selectedBanks, selectedCards: state.selectedCards,
   };
+  // Chat is independent of UI filters — reset bank/card constraints so the AI
+  // sees the full dataset, not whatever the user happens to have filtered.
+  state.selectedBanks = new Set();
+  state.selectedCards = new Set();
   if (city)               state.selectedCity = normalizeCityValue(city);
   if (bill_size)          state.orderValue = bill_size;
   if (card_types?.length) state.selectedCardTypes = new Set(card_types);
@@ -2293,9 +2293,18 @@ function chatTool_getCardRequirements({ cards, limit = 5 } = {}) {
   if (!state.requirements?.available) {
     return { error: "Card requirements data unavailable." };
   }
-  const candidates = Array.isArray(cards) && cards.length
-    ? cards.map(({ bank, card }) => resolveCanonicalCardPair(bank, card))
-    : computeRecommendations().slice(0, Math.min(limit, 8)).map((r) => ({ bank: r.bank, card: r.card }));
+  let candidates;
+  if (Array.isArray(cards) && cards.length) {
+    candidates = cards.map(({ bank, card }) => resolveCanonicalCardPair(bank, card));
+  } else {
+    const savedBanks = state.selectedBanks;
+    const savedCards = state.selectedCards;
+    state.selectedBanks = new Set();
+    state.selectedCards = new Set();
+    candidates = computeRecommendations().slice(0, Math.min(limit, 8)).map((r) => ({ bank: r.bank, card: r.card }));
+    state.selectedBanks = savedBanks;
+    state.selectedCards = savedCards;
+  }
 
   return {
     cards: candidates.map(({ bank, card }) => {
@@ -2382,17 +2391,27 @@ function executeChatTool(name, args) {
 /* ── System prompt ── */
 function buildSystemPrompt() {
   const cityLabel = state.selectedCity === "all" ? "all cities (Karachi, Lahore, Islamabad)" : state.selectedCity;
-  const userCtx = [
-    `City: ${cityLabel}`,
-    state.selectedCardTypes.size ? `Card types: ${[...state.selectedCardTypes].join(", ")}` : null,
-    state.selectedBanks.size     ? `Banks: ${[...state.selectedBanks].join(", ")}` : null,
-  ].filter(Boolean).join("\n");
+  const userCtx = `City: ${cityLabel}`;
 
-  const top3 = computeRecommendations().slice(0, 3);
+  // Compute top 3 independent of UI bank/card filters so the AI sees the full dataset.
+  // JS is single-threaded so the mutation+restore is safe, but try/finally guarantees
+  // state is always restored even if computeRecommendations throws.
+  const savedBanks = state.selectedBanks;
+  const savedCards = state.selectedCards;
+  let top3 = [];
+  try {
+    state.selectedBanks = new Set();
+    state.selectedCards = new Set();
+    top3 = computeRecommendations().slice(0, 3);
+  } finally {
+    state.selectedBanks = savedBanks;
+    state.selectedCards = savedCards;
+  }
+
   const top3text = top3.length
-    ? `TOP CARDS FOR CURRENT FILTERS:\n` +
-      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) — ${Math.round(r.avgDiscount * 10) / 10}% avg discount`).join("\n")
-    : "No cards match the current filters.";
+    ? `TOP CARDS (city context only):\n` +
+      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) — ${Math.round((r.averageDiscount || 0) * 10) / 10}% avg discount`).join("\n")
+    : "No cards available.";
 
   return `You are KonsaCard AI, the expert assistant for konsacard.pk — Pakistan's independent restaurant discount card comparison tool.
 
@@ -2572,29 +2591,6 @@ function truncateModelMessage(text, maxChars = 900) {
   return `${text.slice(0, maxChars)}\n[truncated for context budget]`;
 }
 
-function toChatMessages(messages, { maxMessages = 6, maxChars = 9000 } = {}) {
-  const result = messages
-    .filter((m) => (m.role === "user" || m.role === "bot") && m.text)
-    .map((m) => ({
-      role: m.role === "bot" ? "assistant" : "user",
-      content: truncateModelMessage(m.text),
-    }));
-  // OpenAI requires the first message to be a user turn
-  const firstUser = result.findIndex((m) => m.role === "user");
-  const normalized = firstUser > 0 ? result.slice(firstUser) : result;
-  const recent = normalized.slice(-maxMessages);
-  const kept = [];
-  let used = 0;
-  for (let i = recent.length - 1; i >= 0; i--) {
-    const row = recent[i];
-    const len = (row.content || "").length;
-    if (kept.length && used + len > maxChars) break;
-    kept.push(row);
-    used += len;
-  }
-  return kept.reverse();
-}
-
 function trimOpenAiMessages(messages, { maxMessages = 16, maxChars = 14000 } = {}) {
   const kept = [];
   let used = 0;
@@ -2618,9 +2614,10 @@ function openChat() {
   if (fab)   fab.style.display   = "none";
 
   if (state.chatMessages.length === 0) {
+    const cityLabel = state.selectedCity === "all" ? "all cities" : state.selectedCity;
     state.chatMessages = [{
       role: "bot",
-      text: "Hi! I'm KonsaCard AI. Tell me your city and typical bill and I'll help you find the best restaurant discount card. 💳",
+      text: `Hi! I'm KonsaCard AI. I can see you're browsing ${cityLabel} deals — ask me anything about restaurant discounts, card comparisons, or eligibility. 💳`,
     }];
   }
   renderChatBody();
@@ -2821,7 +2818,17 @@ async function sendChatMessage(text) {
 
     let finalText = "";
     if (directText) {
+      // Stream word-by-word so direct answers feel consistent with tool-backed ones.
       finalText = directText;
+      const words = finalText.split(" ");
+      let built = "";
+      for (const word of words) {
+        if (signal.aborted) break;
+        built += (built ? " " : "") + word;
+        streamingMsg.text = built;
+        updateStreamingBubble(built);
+        await new Promise((r) => setTimeout(r, 18));
+      }
       streamingMsg.text = finalText;
       streamingMsg.streaming = false;
     } else {
@@ -3025,7 +3032,7 @@ function computeRecommendations() {
       coverage,
       avgDayFit,
       coveredVenueCount,
-      totalVenueCount,
+      totalVenueCount: scoringVenues.size,
       averageDiscount,
       medianCap,
       topMatches,
@@ -3605,17 +3612,6 @@ function getDealDensityByDay(bank, card) {
   return dayRests.map((s) => s.size);
 }
 
-/* ── MY CARD ── */
-function setMyCard(cardKey) {
-  if (state.myCard === cardKey) {
-    state.myCard = null;
-    localStorage.removeItem("konsacard_mycard");
-  } else {
-    state.myCard = cardKey;
-    localStorage.setItem("konsacard_mycard", cardKey);
-  }
-  render();
-}
 
 /* ── CARD DETAIL MODAL ── */
 function openCardDetail(cardKey) {
@@ -3671,7 +3667,6 @@ function renderCardDetailModal(inner) {
   const fee          = result?.requirementStatus?.annualFeePkr ?? null;
   const netAnnual    = fee !== null ? annualSaving - fee : null;
   const applyUrl     = getBankApplyUrl(bank);
-  const isMyCard     = state.myCard === key;
   const score        = result ? Number(result.score).toFixed(1) : "—";
   inner.innerHTML = `
     <div class="cd-wrap">
@@ -3685,9 +3680,6 @@ function renderCardDetailModal(inner) {
             </div>
         </div>
         <div class="cd-head-actions">
-          <button class="btn-cd-mycard${isMyCard ? " active" : ""}" data-key="${escapeAttr(key)}" type="button">
-            ${isMyCard ? "✓ My Card" : "♡ My Card"}
-          </button>
           ${applyUrl ? `<a class="btn-apply" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Apply →</a>` : ""}
           <button class="btn-modal-close" id="btn-cd-close" type="button">×</button>
         </div>
@@ -3735,10 +3727,6 @@ function renderCardDetailModal(inner) {
   `;
 
   inner.querySelector("#btn-cd-close")?.addEventListener("click", closeCardDetail);
-  inner.querySelector(".btn-cd-mycard")?.addEventListener("click", (e) => {
-    setMyCard(e.currentTarget.dataset.key);
-    renderCardDetailModal(inner);
-  });
   const searchInput = inner.querySelector(".cd-rest-search");
   const listContainer = inner.querySelector(".cd-rest-list");
   const renderRows = () => {
@@ -3756,12 +3744,14 @@ function renderCardDetailModal(inner) {
 /* ── RESTAURANT VIEW ── */
 function computeRestaurantDeals() {
   const validKeys = new Set(computeRecommendations().map((r) => `${r.bank} || ${r.card}`));
+  const effectiveDays = getEffectiveSelectedDays();
   const best = new Map();
 
   state.data.offers.forEach((offer) => {
     if (!cityMatches(offer.city)) return;
     if (!validKeys.has(`${offer.bank} || ${offer.card}`)) return;
     if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return;
+    if (!offer.days.some((d) => effectiveDays.has(d))) return;
 
     const saving = getOfferSavingValue(offer, state.orderValue);
     if (!Number.isFinite(saving) || saving <= 0) return;
