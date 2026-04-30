@@ -1962,10 +1962,13 @@ function fuzzyMatch(query, target) {
   const norm = (s) => s.toLowerCase().replace(/[‘’’`]/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
   const q = norm(query), t = norm(target);
   if (t.includes(q) || q.includes(t)) return true;
-  // Only use prefix matching for words ≥4 chars to avoid generic short words
-  // like "card", "debit", "gold" creating false cross-card matches.
-  const qw = q.split(" ").filter((w) => w.length >= 4);
-  const tw = t.split(" ").filter((w) => w.length >= 4);
+  // Strip generic banking words before prefix matching — they appear in almost
+  // every card/bank name and cause false positives ("card" matching any card, etc.)
+  const STOP = new Set(["card", "bank", "debit", "credit", "visa", "gold", "silver", "plus", "lite", "easy"]);
+  const sig = (s) => s.split(" ").filter((w) => w.length >= 4 && !STOP.has(w));
+  const qw = sig(q);
+  const tw = sig(t);
+  if (!qw.length || !tw.length) return false;
   return qw.some((qword) => tw.some((tword) => tword.startsWith(qword) || qword.startsWith(tword)));
 }
 
