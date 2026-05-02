@@ -59,7 +59,10 @@
       "Skill(gsd-help)",
       "Bash(ipconfig)",
       "Bash(findstr /i \"IPv4\")",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(Get-ChildItem -File)",
+      "Bash(Select-Object Name, Length)",
+      "Bash(Sort-Object Length -Descending)"
     ]
   }
 }
