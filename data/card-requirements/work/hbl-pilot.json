@@ -78,7 +78,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 100000,
         "minimum_relationship_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 7200,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -91,7 +91,8 @@
       "confidence": "high",
       "notes": [
         "PKR 100,000 minimum monthly salary for Gold FuelSaver card.",
-        "The current public page surfaced annual fee economics, but not a clean eligibility table."
+        "The official product page's FuelSaver Gold benefit table shows an annual fee of PKR 7,200.",
+        "The current public page surfaced annual fee economics, but not a clean age or balance eligibility table."
       ]
     },
     {
@@ -101,7 +102,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3600,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -114,7 +115,8 @@
       "confidence": "high",
       "notes": [
         "PKR 35,000 minimum monthly salary for Green FuelSaver card.",
-        "The current public page surfaced annual fee economics, but not a clean eligibility table."
+        "The official product page's FuelSaver Green benefit table shows an annual fee of PKR 3,600.",
+        "The current public page surfaced annual fee economics, but not a clean age or balance eligibility table."
       ]
     },
     {
@@ -124,7 +126,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 700,
+        "annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -132,13 +134,14 @@
       "sources": [
         "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
         "https://www.hbl.com/personal/cards/debit-cards/hbl-classic-debitcard",
-        "https://www.scribd.com/doc/295390691/HBL-DebitCard-SOBC"
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "No salary or balance threshold. Annual fee PKR 700 from HBL debit card fee schedule.",
+        "No salary threshold was publicly surfaced; issuance remains account-linked on HBL's debit-card overview.",
+        "HBL's Jan-Jun 2026 SOBC lists the MasterCard Standard annual fee at PKR 3,000, which is the closest current public fee match for HBL's classic debit tier.",
         "HBL uses HBL DebitCard as an umbrella label on overview pages and HBL Classic DebitCard as the concrete product page.",
-        "No clean public fee or age table was surfaced in this pass."
+        "No clean public age table was surfaced in this pass."
       ]
     },
     {
@@ -147,8 +150,8 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 700,
+        "minimum_account_balance_pkr": 40000,
+        "annual_fee_pkr": 3800,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -156,14 +159,17 @@
       "sources": [
         "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
         "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf",
-        "https://www.scribd.com/doc/295390691/HBL-DebitCard-SOBC"
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf",
+        "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
       ],
       "confidence": "medium",
       "notes": [
-        "Annual fee PKR 700 from HBL debit card fee schedule. Salary and balance not publicly disclosed.",
+        "HBL's Jan-Jun 2026 SOBC lists the MasterCard Gold annual fee at PKR 3,800.",
+        "No card-specific salary threshold was publicly disclosed.",
         "Public page confirms it is a distinct product for new and existing customers.",
         "Limit enhancement PDF shows daily withdrawal PKR 200,000 and purchase/e-commerce / funds-transfer limits of PKR 500,000.",
-        "No clean current fee table was surfaced publicly in this pass."
+        "No clean public age table was surfaced in this pass.",
+        "Minimum account balance of PKR 40,000 is the linked HBL Conventional Current Account monthly average balance requirement per the official account page."
       ]
     },
     {
@@ -172,7 +178,7 @@
       "tier": "business",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 40000,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "HBL's Jan-Jun 2026 SOBC says Mastercard Business Classic issuance and annual fee are 100% waived.",
         "minimum_age_years": null,
@@ -180,13 +186,15 @@
       },
       "sources": [
         "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
-        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf",
+        "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
       ],
       "confidence": "medium",
       "notes": [
         "Public page confirms it is a distinct business debit-card product for new and existing customers.",
         "Public page surfaced product limits but not a clean fee or age table.",
-        "The Jan-Jun 2026 SOBC explicitly waives issuance and annual fee for Mastercard Business Classic."
+        "The Jan-Jun 2026 SOBC explicitly waives issuance and annual fee for Mastercard Business Classic.",
+        "Minimum account balance of PKR 40,000 is the linked HBL Conventional Current Account monthly average balance requirement per the official account page."
       ]
     },
     {
@@ -197,7 +205,7 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 22000,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "HBL's Jan-Jun 2026 SOBC says Mastercard Business World issuance is 100% waived and annual fee is charged at 50% of the standard schedule amount.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -209,7 +217,7 @@
       "notes": [
         "Public page confirms it is a distinct world business debit-card product for new and existing customers.",
         "Public page surfaced product limits but not a clean fee or age table.",
-        "HBL Jan-Jun 2026 SOBC lists Mastercard Business World annual fee at Rs. 22,000."
+        "HBL Jan-Jun 2026 SOBC lists Mastercard Business World annual fee at Rs. 22,000 before the public business-customer waiver note."
       ]
     },
     {
@@ -220,20 +228,22 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 20000,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "For qualified HBL Premium customers, the Jan-Jun 2026 addendum waives issuance and annual fee 100% in year 1 and gives a 50% annual-fee waiver from year 2 onward for the Master World Debit Card.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
         "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf",
-        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf",
+        "https://www.hbl.com/assets/documents/Addendum_to_SOBC_for_January_to_June_2026_-_HBL_Premium_-_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Public page positions it for high-net-worth customers.",
         "Limit enhancement PDF shows daily withdrawal PKR 500,000 and purchase/e-commerce / funds-transfer limits of PKR 3,000,000.",
-        "HBL Jan-Jun 2026 SOBC lists Mastercard World annual fee at Rs. 20,000."
+        "HBL Jan-Jun 2026 SOBC lists Mastercard World annual fee at Rs. 20,000.",
+        "A separate HBL Premium addendum publicly discloses a relationship-based fee waiver for qualified Premium customers."
       ]
     },
     {
@@ -242,11 +252,12 @@
       "tier": "world-elite",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 5000000,
         "annual_fee_pkr": 0,
         "annual_fee_waiver_rule": "Free issuance, renewal, and replacement for HBL Prestige members.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.hbl.com/prestige/prestige-exclusive/prestige-cards/hbl-prestige-world-elite-debitcard",
@@ -255,6 +266,7 @@
       "confidence": "high",
       "notes": [
         "Exclusive to HBL Prestige members.",
+        "Prestige eligibility requires a conventional current account quarterly average of PKR 5,000,000 (or equivalent foreign currency).",
         "Issued instantly from Prestige lounges according to the public page.",
         "Limit enhancement PDF shows daily withdrawal PKR 1,000,000 and purchase/e-commerce / funds-transfer limits of PKR 5,000,000."
       ]
@@ -267,16 +279,20 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": "Specifically for women",
+        "annual_fee_waiver_rule": "For HBL Nisa Plus Current and HBL Nisa Savings customers, issuance of the chosen HBL Classic (Master) or HBL Gold (Master) debit card is waived in the first year; subsequent annual fees apply according to card type as per the latest SOBC.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.hbl.com/personal/cards/"
+        "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "https://www.hbl.com/assets/documents/KFS_HBL_Conventional_Current_Account.pdf",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Women-only product. No publicly disclosed salary or balance threshold."
+        "Women-only debit proposition.",
+        "Current public account and SOBC documents surface first-year issuance waivers for Nisa-linked Classic or Gold Mastercard debit issuance, but do not publish a separate standalone Nisa-card fee table.",
+        "No publicly disclosed salary or card-specific balance threshold was surfaced."
       ]
     },
     {
@@ -285,22 +301,28 @@
       "tier": "titanium",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
+        "minimum_account_balance_pkr": 40000,
+        "annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.hbl.com/personal/cards/"
+        "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf",
+        "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
-        "No public salary, balance, or fee threshold found."
+        "HBL's Jan-Jun 2026 SOBC lists Mastercard Titanium annual fee at PKR 3,000.",
+        "The complementary-lounge page still publicly names HBL Titanium DebitCard, but a dedicated current product page was not surfaced in this pass.",
+        "No public salary threshold was found.",
+        "Minimum account balance of PKR 40,000 is the linked HBL Conventional Current Account monthly average balance requirement per the official account page."
       ]
     }
   ],
   "gaps": [
-    "Most HBL debit-card pages still do not expose clean public fee or age tables."
+    "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+    "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
   ]
 }
