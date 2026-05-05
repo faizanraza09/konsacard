@@ -67,7 +67,15 @@
       "Bash(curl -sI \"https://konsacard.pk/\")",
       "Bash(curl -s -A \"Mozilla/5.0 \\(compatible; Googlebot/2.1; +http://www.google.com/bot.html\\)\" \"https://konsacard.pk/how-card-tiers-affect-discounts\")",
       "WebFetch(domain:propakistani.pk)",
-      "Bash(pip3 install *)"
+      "Bash(pip3 install *)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\Faizan.Raza\\\\OneDrive - Whiteshield\\\\Passion\\\\card-match-pk\" -Recurse -Force)",
+      "Bash(Select-Object -First 30)",
+      "Bash(Format-List FullName, PSIsContainer)",
+      "Bash(PowerShell *)",
+      "Bash(python scripts/seo/generate_seo_pages.py)",
+      "Bash(python *)",
+      "WebFetch(domain:prodbaf.blob.core.windows.net)",
+      "Bash(grep \"/banks/[^/]*/$\" -c)"
     ]
   }
 }
