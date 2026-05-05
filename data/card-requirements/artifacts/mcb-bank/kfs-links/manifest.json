@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.mcb.com.pk/quick-links/key-fact-statement",
+  "final_url": "https://www.mcb.com.pk/quick-links/key-fact-statement",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\kfs-links\\source.html",
+    "data\\card-requirements\\artifacts\\mcb-bank\\kfs-links\\page-text.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\kfs-links\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\mcb-bank\\kfs-links\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 135,
+    "text_length": 11583,
+    "title": "MCB Bank Pakistan | Your Ultimate Banking Solution"
+  }
+}

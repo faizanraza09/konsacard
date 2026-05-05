@@ -1,0 +1,41 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf",
+  "final_url": "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\SOBC_January_to_June_2026_-_English_Web.pdf",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\screenshots\\page-002.png",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\ocr\\page-002.ocr.txt",
+    "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pypdf",
+    "text_lengths": {
+      "pypdf": 121653,
+      "pdfplumber": 119640,
+      "pymupdf": 121653
+    },
+    "rendered_screenshot_pages": 2,
+    "needs_visual_review": false,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\screenshots\\page-001.png",
+          "ocr_text_length": 4781
+        },
+        {
+          "image": "data\\card-requirements\\artifacts\\hbl\\sobc-jan-jun-2026\\screenshots\\page-002.png",
+          "ocr_text_length": 4784
+        }
+      ],
+      "combined_text_length": 9567
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf",
+  "final_url": "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\MCB_CreditCardFeeInfo-5-7-24.pdf",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pypdf",
+    "text_lengths": {
+      "pypdf": 0,
+      "pdfplumber": 0,
+      "pymupdf": 0
+    },
+    "rendered_screenshot_pages": 1,
+    "needs_visual_review": true,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-fee-details\\screenshots\\page-001.png",
+          "ocr_text_length": 987
+        }
+      ],
+      "combined_text_length": 987
+    }
+  }
+}

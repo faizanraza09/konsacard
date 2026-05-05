@@ -1,0 +1,41 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf",
+  "final_url": "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\screenshots\\page-002.png",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\ocr\\page-002.ocr.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pymupdf",
+    "text_lengths": {
+      "pypdf": 22843,
+      "pdfplumber": 22546,
+      "pymupdf": 22855
+    },
+    "rendered_screenshot_pages": 2,
+    "needs_visual_review": false,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\screenshots\\page-001.png",
+          "ocr_text_length": 5822
+        },
+        {
+          "image": "data\\card-requirements\\artifacts\\mcb-bank\\credit-card-summary-box-2026-h1\\screenshots\\page-002.png",
+          "ocr_text_length": 5557
+        }
+      ],
+      "combined_text_length": 11381
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+  "final_url": "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\SOC-Jan-to-Jun-2026.pdf",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\screenshots\\page-002.png",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\ocr\\page-002.ocr.txt",
+    "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pymupdf",
+    "text_lengths": {
+      "pypdf": 85049,
+      "pdfplumber": 83118,
+      "pymupdf": 85300
+    },
+    "rendered_screenshot_pages": 2,
+    "needs_visual_review": false,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\screenshots\\page-001.png",
+          "ocr_text_length": 0
+        },
+        {
+          "image": "data\\card-requirements\\artifacts\\faysal-bank\\soc-2026-h1\\screenshots\\page-002.png",
+          "ocr_text_length": 381
+        }
+      ],
+      "combined_text_length": 381
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
+  "final_url": "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\SOBC-Jan-June-2026-English.pdf",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\screenshots\\page-002.png",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\ocr\\page-002.ocr.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pymupdf",
+    "text_lengths": {
+      "pypdf": 85773,
+      "pdfplumber": 83500,
+      "pymupdf": 85775
+    },
+    "rendered_screenshot_pages": 2,
+    "needs_visual_review": false,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\screenshots\\page-001.png",
+          "ocr_text_length": 0
+        },
+        {
+          "image": "data\\card-requirements\\artifacts\\mcb-bank\\sobc-2026-h1\\screenshots\\page-002.png",
+          "ocr_text_length": 114
+        }
+      ],
+      "combined_text_length": 114
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+  "final_url": "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\AB-SOC-July-to-December-2025.pdf",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\screenshots\\page-002.png",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\ocr\\page-002.ocr.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pymupdf",
+    "text_lengths": {
+      "pypdf": 50211,
+      "pdfplumber": 47271,
+      "pymupdf": 51450
+    },
+    "rendered_screenshot_pages": 2,
+    "needs_visual_review": false,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\screenshots\\page-001.png",
+          "ocr_text_length": 172
+        },
+        {
+          "image": "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test-ocr\\screenshots\\page-002.png",
+          "ocr_text_length": 1832
+        }
+      ],
+      "combined_text_length": 2006
+    }
+  }
+}

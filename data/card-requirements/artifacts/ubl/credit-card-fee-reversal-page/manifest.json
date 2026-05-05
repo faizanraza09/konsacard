@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+  "final_url": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+  "content_type": "text/html; charset=utf-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\ubl\\credit-card-fee-reversal-page\\source.html",
+    "data\\card-requirements\\artifacts\\ubl\\credit-card-fee-reversal-page\\page-text.txt",
+    "data\\card-requirements\\artifacts\\ubl\\credit-card-fee-reversal-page\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\ubl\\credit-card-fee-reversal-page\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 33,
+    "text_length": 15269,
+    "title": "Criteria for Annual Fee Reversal"
+  }
+}

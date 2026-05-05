@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+  "final_url": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\platinum-credit-page\\source.html",
+    "data\\card-requirements\\artifacts\\mcb-bank\\platinum-credit-page\\page-text.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\platinum-credit-page\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\mcb-bank\\platinum-credit-page\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 35,
+    "text_length": 15698,
+    "title": "MCB Platinum Credit Card | Live Lavishly | MCB Bank Pakistan"
+  }
+}

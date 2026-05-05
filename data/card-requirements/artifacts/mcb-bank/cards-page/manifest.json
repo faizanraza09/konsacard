@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.mcb.com.pk/personal/cards/",
+  "final_url": "https://www.mcb.com.pk/personal/cards/",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\cards-page\\source.html",
+    "data\\card-requirements\\artifacts\\mcb-bank\\cards-page\\page-text.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\cards-page\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\mcb-bank\\cards-page\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 22,
+    "text_length": 8067,
+    "title": "MCB Bank Pakistan | Your Ultimate Banking Solution"
+  }
+}

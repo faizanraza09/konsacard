@@ -1,0 +1,35 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.hbl.com/assets/documents/Addendum_to_ISOBC_for_January_to_June_2026_-_HBL_Islamic_Premium_-_English.pdf",
+  "final_url": "https://www.hbl.com/assets/documents/Addendum_to_ISOBC_for_January_to_June_2026_-_HBL_Islamic_Premium_-_English.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\Addendum_to_ISOBC_for_January_to_June_2026_-_HBL_Islamic_Premium_-_English.pdf",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pymupdf",
+    "text_lengths": {
+      "pypdf": 872,
+      "pdfplumber": 844,
+      "pymupdf": 887
+    },
+    "rendered_screenshot_pages": 1,
+    "needs_visual_review": true,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\hbl-islamic\\islamic-premium-addendum-jan-jun-2026\\screenshots\\page-001.png",
+          "ocr_text_length": 872
+        }
+      ],
+      "combined_text_length": 872
+    }
+  }
+}

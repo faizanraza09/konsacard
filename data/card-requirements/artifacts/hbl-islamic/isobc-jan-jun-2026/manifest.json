@@ -1,0 +1,41 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf",
+  "final_url": "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\ISOBC_January_to_June_2026_-_English_Web.pdf",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\screenshots\\page-002.png",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\ocr\\page-001.ocr.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\ocr\\page-002.ocr.txt",
+    "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\ocr\\combined-ocr.txt"
+  ],
+  "metadata": {
+    "best_method": "pymupdf",
+    "text_lengths": {
+      "pypdf": 100580,
+      "pdfplumber": 93512,
+      "pymupdf": 100665
+    },
+    "rendered_screenshot_pages": 2,
+    "needs_visual_review": false,
+    "ocr": {
+      "tesseract_cmd": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+      "pages": [
+        {
+          "image": "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\screenshots\\page-001.png",
+          "ocr_text_length": 4378
+        },
+        {
+          "image": "data\\card-requirements\\artifacts\\hbl-islamic\\isobc-jan-jun-2026\\screenshots\\page-002.png",
+          "ocr_text_length": 3991
+        }
+      ],
+      "combined_text_length": 8371
+    }
+  }
+}

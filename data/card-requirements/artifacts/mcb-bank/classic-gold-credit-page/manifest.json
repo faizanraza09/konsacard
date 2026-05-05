@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+  "final_url": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\classic-gold-credit-page\\source.html",
+    "data\\card-requirements\\artifacts\\mcb-bank\\classic-gold-credit-page\\page-text.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\classic-gold-credit-page\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\mcb-bank\\classic-gold-credit-page\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 36,
+    "text_length": 12228,
+    "title": "MCB Classic/Gold Credit Card | Risk-Free | MCB Bank Pakistan"
+  }
+}

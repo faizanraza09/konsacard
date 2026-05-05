@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.albaraka.com.pk/",
+  "final_url": "https://www.albaraka.com.pk/",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\homepage-smoke-test\\source.html",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\homepage-smoke-test\\page-text.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\homepage-smoke-test\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\homepage-smoke-test\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 35,
+    "text_length": 15922,
+    "title": "Welcome - ALBARAKA"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.mcb.com.pk/quick-links/mcb-schedule-of-charges",
+  "final_url": "https://www.mcb.com.pk/quick-links/mcb-schedule-of-charges",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\schedule-links\\source.html",
+    "data\\card-requirements\\artifacts\\mcb-bank\\schedule-links\\page-text.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\schedule-links\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\mcb-bank\\schedule-links\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 66,
+    "text_length": 10749,
+    "title": "MCB Bank Pakistan | Your Ultimate Banking Solution"
+  }
+}

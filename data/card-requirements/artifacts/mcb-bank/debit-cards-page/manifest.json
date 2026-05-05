@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.mcb.com.pk/mcb-debit-card/",
+  "final_url": "https://www.mcb.com.pk/mcb-debit-card/",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\mcb-bank\\debit-cards-page\\source.html",
+    "data\\card-requirements\\artifacts\\mcb-bank\\debit-cards-page\\page-text.txt",
+    "data\\card-requirements\\artifacts\\mcb-bank\\debit-cards-page\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\mcb-bank\\debit-cards-page\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 14,
+    "text_length": 3591,
+    "title": "MCB Bank Pakistan | Mcb Debit Card"
+  }
+}

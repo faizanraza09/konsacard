@@ -1,0 +1,24 @@
+{
+  "kind": "pdf",
+  "source_url": "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+  "final_url": "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
+  "content_type": "application/pdf",
+  "files": [
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test\\AB-SOC-July-to-December-2025.pdf",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test\\extracted-text\\pypdf.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test\\extracted-text\\pdfplumber.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test\\extracted-text\\pymupdf.txt",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test\\screenshots\\page-001.png",
+    "data\\card-requirements\\artifacts\\al-baraka-bank\\soc-smoke-test\\screenshots\\page-002.png"
+  ],
+  "metadata": {
+    "best_method": "pymupdf",
+    "text_lengths": {
+      "pypdf": 50211,
+      "pdfplumber": 47271,
+      "pymupdf": 51450
+    },
+    "rendered_screenshot_pages": 2,
+    "needs_visual_review": false
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "kind": "html",
+  "source_url": "https://www.hbl.com/personal/cards/credit-cards/fuel-saver-credit-card",
+  "final_url": "https://www.hbl.com/personal/cards/credit-cards/fuel-saver-credit-card",
+  "content_type": "text/html; charset=UTF-8",
+  "files": [
+    "data\\card-requirements\\artifacts\\hbl\\fuel-saver-page\\source.html",
+    "data\\card-requirements\\artifacts\\hbl\\fuel-saver-page\\page-text.txt",
+    "data\\card-requirements\\artifacts\\hbl\\fuel-saver-page\\interesting-links.json",
+    "data\\card-requirements\\artifacts\\hbl\\fuel-saver-page\\page-summary.json"
+  ],
+  "metadata": {
+    "interesting_link_count": 95,
+    "text_length": 16579,
+    "title": "Fuel Saver Credit Card | HBL Pakistan"
+  }
+}
