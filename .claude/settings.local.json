@@ -75,7 +75,8 @@
       "Bash(python scripts/seo/generate_seo_pages.py)",
       "Bash(python *)",
       "WebFetch(domain:prodbaf.blob.core.windows.net)",
-      "Bash(grep \"/banks/[^/]*/$\" -c)"
+      "Bash(grep \"/banks/[^/]*/$\" -c)",
+      "Bash(grep -E \"banks/[^/]+/$\")"
     ]
   }
 }
