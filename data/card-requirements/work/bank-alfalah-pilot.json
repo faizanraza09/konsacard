@@ -8,7 +8,7 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 50000,
+        "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2900,
         "annual_fee_waiver_rule": null,
@@ -22,7 +22,7 @@
       ],
       "confidence": "medium",
       "notes": [
-        "Public pages say no minimum income requirement.",
+        "Current official card page says no minimum income requirement.",
         "Public pages say no minimum balance requirement."
       ]
     },
@@ -110,21 +110,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
         "minimum_relationship_balance_pkr": 75000,
-        "annual_fee_pkr": 6500,
-        "annual_fee_waiver_rule": "Basic: PKR 65,000 retail spend in 2 months or PKR 45,000 international/e-commerce spend in 2 months. Supplementary: PKR 25,000 or PKR 17,500.",
+        "annual_fee_pkr": 7000,
+        "annual_fee_waiver_rule": "Basic: PKR 70,000 eligible spend in 2 months. Supplementary: PKR 35,000 eligible spend in 2 months.",
         "minimum_age_years": 21,
         "maximum_age_years": 70
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/cards/credit-cards/eligibility-criteria-credit-cards/",
         "https://www.bankalfalah.com/digital-banking/bank-alfalah-instant-visa-classic-credit-card/",
-        "https://www.bankalfalah.com/wp-content/uploads/2025/07/Credit-Card-Summary-Box-July-to-Dec-2025.pdf",
-        "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/"
+        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Salaried age cap appears to be 60; self-employed and supplementary appear to extend to 70.",
-        "Annual fee is sourced from the official Credit Card Summary Box updated Jul-Dec 2025."
+        "Latest public Jan-Jun 2026 KFS shows PKR 7,000 basic annual fee and PKR 3,500 supplementary annual fee.",
+        "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 70,000 eligible spend for the basic card and PKR 35,000 for the supplementary card within 2 months."
       ]
     },
     {
@@ -134,21 +134,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
         "minimum_relationship_balance_pkr": 75000,
-        "annual_fee_pkr": 12000,
-        "annual_fee_waiver_rule": "Basic: PKR 150,000 retail spend in 2 months or PKR 110,000 international/e-commerce spend in 2 months. Supplementary: PKR 75,000 or PKR 55,000.",
+        "annual_fee_pkr": 13000,
+        "annual_fee_waiver_rule": "Basic: PKR 200,000 eligible spend in 2 months. Supplementary: PKR 100,000 eligible spend in 2 months.",
         "minimum_age_years": 21,
         "maximum_age_years": 70
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/visa-gold-credit-card",
         "https://www.bankalfalah.com/personal-banking/cards/credit-cards/eligibility-criteria-credit-cards/",
-        "https://www.bankalfalah.com/wp-content/uploads/2025/07/Credit-Card-Summary-Box-July-to-Dec-2025.pdf",
-        "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/"
+        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Shared eligibility grid appears to apply across mainstream consumer credit cards.",
-        "Annual fee is sourced from the official Credit Card Summary Box updated Jul-Dec 2025."
+        "Latest public Jan-Jun 2026 KFS shows PKR 13,000 basic annual fee and PKR 6,500 supplementary annual fee.",
+        "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 200,000 eligible spend for the basic card and PKR 100,000 for the supplementary card within 2 months."
       ]
     },
     {
@@ -185,7 +185,7 @@
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 16000,
         "supplementary_annual_fee_pkr": 8000,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "Basic: PKR 300,000 eligible spend in 2 months. Supplementary: PKR 150,000 eligible spend in 2 months.",
         "minimum_age_years": 21,
         "maximum_age_years": 70
       },
@@ -196,7 +196,8 @@
       "confidence": "high",
       "notes": [
         "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds.",
-        "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
+        "Latest public Jan-Jun 2026 KFS shows PKR 16,000 basic annual fee and PKR 8,000 supplementary annual fee.",
+        "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 300,000 eligible spend for the basic card and PKR 150,000 for the supplementary card within 2 months."
       ]
     },
     {
@@ -208,7 +209,7 @@
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 23000,
         "supplementary_annual_fee_pkr": 11500,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "Basic: PKR 475,000 eligible spend in 2 months. Supplementary: PKR 237,500 eligible spend in 2 months.",
         "minimum_age_years": 21,
         "maximum_age_years": 70
       },
@@ -219,7 +220,8 @@
       "confidence": "high",
       "notes": [
         "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds.",
-        "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
+        "Latest public Jan-Jun 2026 KFS shows PKR 23,000 basic annual fee and PKR 11,500 supplementary annual fee.",
+        "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 475,000 eligible spend for the basic card and PKR 237,500 for the supplementary card within 2 months."
       ]
     },
     {
@@ -340,8 +342,8 @@
       "card_type": "debit",
       "tier": "islamic-gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 5000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -352,10 +354,11 @@
         "https://www.bankalfalah.com/wp-content/uploads/2024/05/SOBC-Islamic-May-2024-W_SUM.pdf",
         "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Fee from Jan-Jun 2026 Islamic SOC. Salary and balance not publicly disclosed.",
-        "Current public page confirms no minimum income, but the fee was recovered from surfaced Islamic SOC material."
+        "Official product page explicitly states no minimum income requirement.",
+        "Jan-Jun 2026 Islamic SOC lists annual fee at PKR 5,000; no balance threshold is published for this card.",
+        "Card is issued against any Bank Alfalah Islamic Banking account with no published minimum balance requirement."
       ]
     },
     {
@@ -520,24 +523,23 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 10000,
+        "annual_fee_waiver_rule": "First-year annual fee waiver on PKR 75,000 eligible spend within 2 months.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/visa-ultra-cashback-card",
-        "https://www.bankalfalah.com/wp-content/uploads/2025/07/Credit-Card-Summary-Box-July-to-Dec-2025.pdf",
-        "https://www.bankalfalah.com/credit-cards/bank-alfalah-credit-cards-annual-fee-spend-reversal-criteria/",
+        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf",
         "https://www.bankalfalah.com/personal-banking/credit-cards/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "PKR 50,000 minimum monthly salary for salaried applicants (PKR 75,000 for self-employed).",
         "Recovered as the current official public naming for the Ultra Visa credit-card family.",
         "Current official card page lists PKR 50,000 minimum gross income for salaried applicants.",
-        "Official Credit Card Summary Box updated Jul-Dec 2025 lists a PKR 9,000 basic-card annual fee.",
-        "Official annual-fee reversal page says Ultra cardholders are only eligible for a first-year annual-fee waiver on PKR 75,000 spend within 2 months.",
+        "Latest public Jan-Jun 2026 KFS lists PKR 10,000 basic annual fee and PKR 5,000 supplementary annual fee.",
+        "Latest public Jan-Jun 2026 KFS says Ultra cardholders are only eligible for a first-year annual-fee waiver on PKR 75,000 spend within 2 months.",
         "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
       ]
     },
@@ -594,11 +596,14 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bankalfalah.com/personal-banking/credit-cards/"
+        "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "notes": [
-        "PKR 50,000 minimum monthly salary for salaried applicants."
+        "PKR 50,000 minimum monthly salary for salaried applicants.",
+        "POSSIBLY DISCONTINUED: The Mastercard Titanium card does not appear in the Jan-Jun 2026 KFS Summary Box (which lists Classic, Gold, Optimus, Platinum, Premier Platinum, Ultra). The product page URL returns 404. The card may have been rebranded to Mastercard Optimus (PKR 16,000 annual fee). Verify before relying on this record.",
+        "Annual fee is null — not published in any current official document."
       ]
     },
     {
@@ -606,19 +611,25 @@
       "card_type": "credit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": 50000,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "No annual or issuance fee while Premier Infinite criteria are maintained; customers not meeting the Premier Infinite AUM criteria are charged USD 500 equivalent in PKR.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bankalfalah.com/personal-banking/credit-cards/"
+        "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "https://www.bankalfalah.com/wp-content/uploads/2024/11/SOBC-Conventional-2025-29-11-24_Shehroz-V9.pdf",
+        "https://www.bankalfalah.com/wp-content/uploads/2024/06/SOBC-Conventional-Final-June-2024.pdf",
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "PKR 50,000 minimum monthly salary for salaried; PKR 75,000 for self-employed."
+        "Premier Infinite is presented publicly as an invitation-only Premier product rather than a standard income-gated card.",
+        "Official Premier SOC states no annual and issuance fee for Premier Visa Infinite Credit Card, but customers not meeting the Premier Infinite AUM criteria are charged USD 500 equivalent in PKR.",
+        "The Islamic SOC mentions a PKR 150 Million AUM threshold for 'Islamic Infinite Banking' — this appears to be a distinct ultra-premium tier, not the conventional Premier Infinite tier.",
+        "The conventional Premier Infinite AUM threshold is not published clearly in accessible SOC documents. The conventional Premier Infinite Debit Card uses PKR 1.5M account balance; the credit card threshold is likely higher but unconfirmed. Needs manual verification against a current conventional SOC."
       ]
     }
   ],
