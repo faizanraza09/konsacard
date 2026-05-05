@@ -10,7 +10,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 20000,
         "minimum_relationship_balance_pkr": 25000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 6500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -26,7 +26,7 @@
       "notes": [
         "PKR 20,000 minimum monthly income for salaried applicants. Max debt-to-burden ratio 40% of take-home pay.",
         "Eligibility page clearly exposes salary and age criteria.",
-        "Annual fee conflicts across official documents: summary box says PKR 6,500, latest SOC surfaced says PKR 6,000.",
+        "Latest public product page and 2025 summary box both show PKR 6,500 annual fee for the basic card.",
         "Supplementary annual fee appears as PKR 3,000."
       ]
     },
@@ -37,7 +37,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 20000,
         "minimum_relationship_balance_pkr": 25000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 4500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -51,7 +51,7 @@
       "confidence": "medium",
       "notes": [
         "PKR 20,000 minimum monthly income for salaried applicants.",
-        "Annual fee conflicts across official documents: summary box says PKR 4,500, latest SOC surfaced says PKR 4,000.",
+        "Latest public 2025 summary box shows PKR 4,500 annual fee for the basic card.",
         "Supplementary annual fee appears as PKR 2,000."
       ]
     },
@@ -138,7 +138,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3700,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -150,7 +150,7 @@
       ],
       "confidence": "low",
       "notes": [
-        "No public fee, salary or balance threshold found.",
+        "Official BAHL debit-cards page now exposes PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee for Visa Silver.",
         "Official digital-account page states no minimum balance or initial deposit requirement and explicitly lists Visa Silver Debit Card among the available debit-card options.",
         "Eligibility is account-linked rather than salary-gated on public BAHL material."
       ]
@@ -162,7 +162,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 4500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -186,7 +186,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3700,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -212,7 +212,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3700,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -225,8 +225,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "No publicly disclosed salary or balance threshold.",
-        "Good fee recovery from the debit-cards page, but card-specific eligibility remains weak."
+        "Official BAHL debit-cards page shows PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee.",
+        "No publicly disclosed salary or balance threshold."
       ]
     },
     {
@@ -236,7 +236,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3700,
         "supplementary_annual_fee_pkr": 2700,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -250,6 +250,7 @@
       ],
       "confidence": "medium",
       "notes": [
+        "Official BAHL debit-cards page shows PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee.",
         "No publicly disclosed salary or balance threshold.",
         "The age threshold comes from the underlying woman account eligibility, not a separate card-only age rule."
       ]

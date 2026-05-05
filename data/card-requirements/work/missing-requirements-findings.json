@@ -1,0 +1,273 @@
+[
+  {
+    "card_id": "ubl--ubl-visa-platinum-credit-card",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Visa Platinum Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining PKR 25,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "ubl--ubl-visa-fcy-business-debit-card",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Visa FCY Business Debit Card",
+    "missing_fields": [
+      "balance",
+      "annual_fee"
+    ],
+    "findings": [
+      {
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining PKR 25,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "ubl--ubl-credit-card-gold",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Credit Card Gold",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining PKR 25,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "ubl--ubl-credit-card-classic",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Credit Card Classic",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining PKR 25,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "hbl--hbl-world-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL World DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average      balance of Rs. 40,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average balance of Rs. 40,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "hbl--hbl-world-business-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL World Business DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average      balance of Rs. 40,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average balance of Rs. 40,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "hbl--hbl-titanium-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL Titanium DebitCard",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average      balance of Rs. 40,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average balance of Rs. 40,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "hbl--hbl-gold-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL Gold DebitCard",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average      balance of Rs. 40,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average balance of Rs. 40,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "hbl--hbl-business-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL Business DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average      balance of Rs. 40,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "maintaining monthly average balance of Rs. 40,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "allied-bank--allied-visa-platinum-credit-card",
+    "bank_name": "Allied Bank",
+    "card_name": "Allied Visa Platinum Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://www.abl.com/personal/accounts/current/current-account/",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining a monthly average balance of Rs. 250,000"
+          }
+        ]
+      },
+      {
+        "url": "https://www.abl.com/personal/cards/debit-cards/visa-premium-debit-card/",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "Maintain a daily average balance of PKR 500,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "Maintain PKR 1,000,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "maintained in the respective savings account, a fee of PKR 3,000"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "card_id": "allied-bank--allied-visa-gold-credit-card",
+    "bank_name": "Allied Bank",
+    "card_name": "Allied Visa Gold Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "findings": [
+      {
+        "url": "https://www.abl.com/personal/accounts/current/current-account/",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "maintaining a monthly average balance of Rs. 250,000"
+          }
+        ]
+      },
+      {
+        "url": "https://www.abl.com/personal/cards/debit-cards/visa-premium-debit-card/",
+        "matches": [
+          {
+            "field": "balance",
+            "snippet": "Maintain a daily average balance of PKR 500,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "Maintain PKR 1,000,000"
+          },
+          {
+            "field": "balance",
+            "snippet": "maintained in the respective savings account, a fee of PKR 3,000"
+          }
+        ]
+      }
+    ]
+  }
+]

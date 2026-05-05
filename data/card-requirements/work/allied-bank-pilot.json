@@ -9,7 +9,7 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 0,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2500,
         "annual_fee_waiver_rule": "Spend PKR 25,000 within 3 months.",
         "minimum_age_years": null,
@@ -17,11 +17,13 @@
       },
       "sources": [
         "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "https://www.abl.com/wp-content/uploads/2025/07/Allied-Visa-Credit-Card-Summary-Box-Q2-2025_30-06-25_05-03-56-1.pdf",
         "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Current official pages did not cleanly expose salary, balance, or age criteria."
+        "Current official pages did not cleanly expose salary, balance, or age criteria.",
+        "Latest public Allied Visa Credit Card Summary Box effective July 1, 2025 shows Gold annual fee of PKR 2,500 and reversal on PKR 25,000 spend within 3 months."
       ]
     },
     {
@@ -30,7 +32,7 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 0,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 5000,
         "annual_fee_waiver_rule": "Spend PKR 50,000 within 3 months.",
         "minimum_age_years": null,
@@ -38,10 +40,14 @@
       },
       "sources": [
         "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "https://www.abl.com/wp-content/uploads/2025/07/Allied-Visa-Credit-Card-Summary-Box-Q2-2025_30-06-25_05-03-56-1.pdf",
         "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
       ],
       "confidence": "medium",
-      "notes": []
+      "notes": [
+        "Latest public Allied Visa Credit Card Summary Box effective July 1, 2025 shows Platinum annual fee of PKR 5,000 and reversal on PKR 50,000 spend within 3 months.",
+        "Current official pages still do not expose a public salary, balance, or age threshold."
+      ]
     },
     {
       "card_name": "Allied UnionPay & PayPak Gold Debit Card",

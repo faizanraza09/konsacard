@@ -8,7 +8,7 @@
       "card_type": "credit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 50000,
+        "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": 150000,
         "annual_fee_pkr": 5000,
         "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
@@ -19,11 +19,12 @@
         "https://askaribank.com/personal/cards/mastercard-credit-cards",
         "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Shared eligibility grid across Classic, Gold, and Platinum.",
-        "Different salary thresholds are shown for approved companies, non-approved companies, and GOP/Semi-Govt/Autonomous categories.",
-        "SEB/SEP threshold is described as PKR 150,000 average balance."
+        "Shared public eligibility grid across Classic, Gold, and Platinum.",
+        "The lowest published salaried threshold on the official page is PKR 35,000 for GOP/Semi-Govt./Autonomous permanent employees; approved-company and non-approved-company applicants are shown at higher salary bands.",
+        "SEB/SEP applicants are shown separately on the official page with PKR 150,000 average-balance criterion.",
+        "The FAQ on the same page splits maximum age as 60 for permanent salaried, 65 for contractual salaried/pensioners, and 70 for SEB/SEP."
       ]
     },
     {
@@ -31,7 +32,7 @@
       "card_type": "credit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": 50000,
+        "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": 150000,
         "annual_fee_pkr": 11000,
         "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
@@ -42,9 +43,11 @@
         "https://askaribank.com/personal/cards/mastercard-credit-cards",
         "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Eligibility comes from the shared Mastercard page, not a card-specific page."
+        "Eligibility comes from the shared Mastercard page rather than a Gold-only page.",
+        "The lowest published salaried threshold on that page is PKR 35,000 for GOP/Semi-Govt./Autonomous permanent employees; other salaried categories are higher.",
+        "SEB/SEP applicants are shown separately with PKR 150,000 average-balance criterion."
       ]
     },
     {
@@ -52,7 +55,7 @@
       "card_type": "credit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": 50000,
+        "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": 150000,
         "annual_fee_pkr": 19500,
         "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
@@ -63,9 +66,11 @@
         "https://askaribank.com/personal/cards/mastercard-credit-cards",
         "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Eligibility comes from the shared Mastercard page, not a card-specific page."
+        "Eligibility comes from the shared Mastercard page rather than a Platinum-only page.",
+        "The lowest published salaried threshold on that page is PKR 35,000 for GOP/Semi-Govt./Autonomous permanent employees; other salaried categories are higher.",
+        "SEB/SEP applicants are shown separately with PKR 150,000 average-balance criterion."
       ]
     },
     {
@@ -74,7 +79,7 @@
       "tier": "world",
       "requirements": {
         "minimum_monthly_salary_pkr": 1000000,
-        "minimum_relationship_balance_pkr": 2000000,
+        "minimum_relationship_balance_pkr": null,
         "annual_fee_pkr": 23000,
         "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
         "minimum_age_years": 21,
@@ -86,7 +91,9 @@
       ],
       "confidence": "high",
       "notes": [
-        "Product page directly exposes the higher World eligibility thresholds."
+        "Product page directly exposes the higher World eligibility thresholds.",
+        "The official World page publishes minimum income as PKR 1.00 million for salaried applicants and PKR 2.00 million for SEB/SEP applicants.",
+        "No separate public deposit-relationship threshold was found on the World card page in this pass."
       ]
     },
     {
@@ -105,7 +112,7 @@
         "https://askaribank.com/personal/cards/askari-visa-debit-card",
         "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Card page says no minimum balance requirement for issuance or retention."
       ]
@@ -118,7 +125,7 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_relationship_balance_pkr": 5000000,
         "annual_fee_pkr": 18000,
-        "annual_fee_waiver_rule": "Waived if the required minimum average quarterly balance is maintained.",
+        "annual_fee_waiver_rule": "Relationship-based eligibility page shows the card for customers maintaining PKR 5,000,000 quarterly average relationship; SOC lists PKR 18,000 standard annual fee.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -126,10 +133,10 @@
         "https://askaribank.com/personal/cards/askari-visa-debit-card",
         "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Eligibility is deposit-based rather than salary-based on the official card page.",
-        "Page frames the card as free for eligible relationship customers, while the SOC lists a standard PKR 18,000 fee."
+        "Eligibility is relationship-balance based rather than salary based on the official card page.",
+        "The page shows PKR 5,000,000 quarterly average relationship for conventional current, Islamic current, Islamic savings, or CASA relationship."
       ]
     },
     {
@@ -151,10 +158,11 @@
         "https://askaribank.com/personal/accounts/askari-asaan-saving-account",
         "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "PayPak debit issuance is account-linked rather than salary-gated on the public card page.",
-        "Official Askari Asaan Current and Asaan Saving account pages surface no minimum balance requirement and explicitly frame PayPak issuance against those no-minimum-balance products."
+        "Official Askari Asaan Current and Asaan Saving account pages surface PKR 100 opening amount and no minimum balance requirement.",
+        "Those no-minimum-balance account pages advertise PayPak debit card issuance, while the SOC provides the standard joining and annual fee."
       ]
     }
   ],

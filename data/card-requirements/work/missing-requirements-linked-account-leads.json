@@ -1,0 +1,3863 @@
+[
+  {
+    "card_id": "bank-al-habib--bahl-unionpay-debit-card",
+    "bank_name": "Bank AL Habib",
+    "card_name": "BAHL UnionPay Debit Card",
+    "missing_fields": [
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.bankalhabib.com/cards",
+      "https://www.bankalhabib.com/accounts/digital",
+      "https://www.bankalhabib.com/files/download/reports/Current%20Account.pdf",
+      "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
+      "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf",
+      "https://www.bankalhabib.com/debit-cards"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalhabib.com/cards",
+      "https://www.bankalhabib.com/accounts/digital",
+      "https://www.bankalhabib.com/debit-cards"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.bankalhabib.com/corporate-social-responsibility"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Current Accounts",
+        "url": "https://www.bankalhabib.com/accounts/current"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Saving Accounts",
+        "url": "https://www.bankalhabib.com/accounts/saving"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Foreign Currency Accounts",
+        "url": "https://www.bankalhabib.com/accounts/foreign"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "AL Habib Roshan Digital Account",
+        "url": "https://www.bankalhabib.com/alhabib-roshan-digital-account-landing"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Accounts",
+        "url": "https://www.bankalhabib.com/woman-accounts"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalhabib.com/schedule-of-charges"
+      },
+      {
+        "from": "https://www.bankalhabib.com/cards",
+        "text": "Exclusive Discounts",
+        "url": "https://www.bankalhabib.com/discounts"
+      },
+      {
+        "from": "https://www.bankalhabib.com/cards",
+        "text": "Designated Coordinators for Exporters' Special Foreign Currency Retention Accounts",
+        "url": "https://www.bankalhabib.com/cards"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Investor Portfolio Securities Account",
+        "url": "https://www.bankalhabib.com/investor-portfolio-securities-ips-account"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "Designated Coordinators for Exporters' Special Foreign Currency Retention Accounts",
+        "url": "https://www.bankalhabib.com/accounts/digital"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "AL Habib Asaan Digital Account",
+        "url": "https://www.bankalhabib.com/accounts/digital#asaan_digital_account"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "AL Habib Digital Account PKR",
+        "url": "https://www.bankalhabib.com/accounts/digital#digital_account_pkr"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "AL Habib Digital Account FCY",
+        "url": "https://www.bankalhabib.com/accounts/digital#digital_account_fcy"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "AL Habib Remit Account",
+        "url": "https://www.bankalhabib.com/accounts/digital#remit_account_digital"
+      }
+    ],
+    "lead_count": 212
+  },
+  {
+    "card_id": "bank-al-habib--visa-gold-debit-card",
+    "bank_name": "Bank AL Habib",
+    "card_name": "Visa Gold Debit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bankalhabib.com/debit-cards",
+      "https://www.bankalhabib.com/accounts/digital"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalhabib.com/debit-cards",
+      "https://www.bankalhabib.com/accounts/digital"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.bankalhabib.com/corporate-social-responsibility"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "Current Accounts",
+        "url": "https://www.bankalhabib.com/accounts/current"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "Saving Accounts",
+        "url": "https://www.bankalhabib.com/accounts/saving"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "Foreign Currency Accounts",
+        "url": "https://www.bankalhabib.com/accounts/foreign"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "AL Habib Roshan Digital Account",
+        "url": "https://www.bankalhabib.com/alhabib-roshan-digital-account-landing"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "Accounts",
+        "url": "https://www.bankalhabib.com/woman-accounts"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/digital",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalhabib.com/schedule-of-charges"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "AL Habib Digital Account Gold",
+        "url": "https://www.bankalhabib.com/debit-cards#alhabib_digital_account_gold"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "AL Habib Digital Account Classic",
+        "url": "https://www.bankalhabib.com/debit-cards#al_habib_digital_account_classic"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the charges associated with AL Habib Freelancer Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse1140"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Exclusive Visa Benefits",
+        "url": "https://www.bankalhabib.com/signature"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the fees and charges associated with AL Habib Signature Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse952"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Exclusive Visa Benefits",
+        "url": "https://www.bankalhabib.com/alhabib-visa-platinum"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the fees and charges associated with Visa Platinum Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse902"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the fees and charges associated with Visa Gold Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse907"
+      }
+    ],
+    "lead_count": 210
+  },
+  {
+    "card_id": "hbl--hbl-world-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL World DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+      "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf",
+      "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf",
+      "https://www.hbl.com/assets/documents/Addendum_to_SOBC_for_January_to_June_2026_-_HBL_Premium_-_English.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/personal/accounts"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/hbl-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "eBanc Roshan Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/ebanc-roshan-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "Current",
+        "url": "https://www.hbl.com/personal/accounts/#current"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL Haryali Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-haryali-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL SDRA (Sohni Dharti Remittance Account)",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-sdra-sohni-dharti-remittance-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL Asaan Digital RemittanceAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-digital-remittanceaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL FreedomAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freedom-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL Freelancer Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freelancer-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL Conventional CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL Basic BankingAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-basic-bankingaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL AsaanAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL PensionerAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-pensioner-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-debitcard",
+        "text": "HBL Foreign Currency CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-foreign-currency-currentaccount"
+      }
+    ],
+    "lead_count": 97
+  },
+  {
+    "card_id": "hbl--hbl-world-business-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL World Business DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+      "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/personal/accounts"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/hbl-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "eBanc Roshan Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/ebanc-roshan-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "Current",
+        "url": "https://www.hbl.com/personal/accounts/#current"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL Haryali Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-haryali-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL SDRA (Sohni Dharti Remittance Account)",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-sdra-sohni-dharti-remittance-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL Asaan Digital RemittanceAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-digital-remittanceaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL FreedomAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freedom-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL Freelancer Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freelancer-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL Conventional CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL Basic BankingAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-basic-bankingaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL AsaanAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL PensionerAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-pensioner-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-world-business-debit-card",
+        "text": "HBL Foreign Currency CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-foreign-currency-currentaccount"
+      }
+    ],
+    "lead_count": 97
+  },
+  {
+    "card_id": "hbl--hbl-titanium-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL Titanium DebitCard",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+      "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/personal/cards/complimentary-lounge-access"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/personal/accounts"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/hbl-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "eBanc Roshan Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/ebanc-roshan-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "Current",
+        "url": "https://www.hbl.com/personal/accounts/#current"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL Haryali Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-haryali-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL SDRA (Sohni Dharti Remittance Account)",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-sdra-sohni-dharti-remittance-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL Asaan Digital RemittanceAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-digital-remittanceaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL FreedomAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freedom-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL Freelancer Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freelancer-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL Conventional CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL Basic BankingAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-basic-bankingaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL AsaanAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL PensionerAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-pensioner-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/complimentary-lounge-access",
+        "text": "HBL Foreign Currency CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-foreign-currency-currentaccount"
+      }
+    ],
+    "lead_count": 97
+  },
+  {
+    "card_id": "hbl--hbl-nisa-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL Nisa DebitCard",
+    "missing_fields": [
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+      "https://www.hbl.com/assets/documents/KFS_HBL_Conventional_Current_Account.pdf",
+      "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/personal/accounts"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/hbl-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "eBanc Roshan Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/ebanc-roshan-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "Current",
+        "url": "https://www.hbl.com/personal/accounts/#current"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL Haryali Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-haryali-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL SDRA (Sohni Dharti Remittance Account)",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-sdra-sohni-dharti-remittance-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL Asaan Digital RemittanceAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-digital-remittanceaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL FreedomAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freedom-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL Freelancer Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freelancer-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL Conventional CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL Basic BankingAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-basic-bankingaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL AsaanAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL PensionerAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-pensioner-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/debit-cards-overview",
+        "text": "HBL Foreign Currency CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-foreign-currency-currentaccount"
+      }
+    ],
+    "lead_count": 97
+  },
+  {
+    "card_id": "hbl--hbl-gold-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL Gold DebitCard",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+      "https://www.hbl.com/assets/downloads/Limit%20Enhancement.pdf",
+      "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/personal/accounts"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/hbl-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "eBanc Roshan Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/ebanc-roshan-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "Current",
+        "url": "https://www.hbl.com/personal/accounts/#current"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL Haryali Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-haryali-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL SDRA (Sohni Dharti Remittance Account)",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-sdra-sohni-dharti-remittance-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL Asaan Digital RemittanceAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-digital-remittanceaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL FreedomAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freedom-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL Freelancer Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freelancer-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL Conventional CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL Basic BankingAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-basic-bankingaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL AsaanAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL PensionerAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-pensioner-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-gold-debit-card",
+        "text": "HBL Foreign Currency CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-foreign-currency-currentaccount"
+      }
+    ],
+    "lead_count": 97
+  },
+  {
+    "card_id": "hbl--hbl-business-debitcard",
+    "bank_name": "HBL",
+    "card_name": "HBL Business DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+      "https://www.hbl.com/assets/documents/SOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/personal/accounts"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/hbl-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "eBanc Roshan Digital Account",
+        "url": "https://www.hbl.com/personal/digital-banking/ebanc-roshan-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "Current",
+        "url": "https://www.hbl.com/personal/accounts/#current"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL Haryali Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-haryali-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL SDRA (Sohni Dharti Remittance Account)",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-sdra-sohni-dharti-remittance-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL Asaan Digital RemittanceAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-digital-remittanceaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL FreedomAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freedom-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL Freelancer Account",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-freelancer-digital-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL Conventional CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-conventional-currentaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL Basic BankingAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-basic-bankingaccount"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL AsaanAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-asaan-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL PensionerAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-pensioner-account"
+      },
+      {
+        "from": "https://www.hbl.com/personal/cards/debit-cards/hbl-business-debitcard",
+        "text": "HBL Foreign Currency CurrentAccount",
+        "url": "https://www.hbl.com/personal/accounts/current/hbl-foreign-currency-currentaccount"
+      }
+    ],
+    "lead_count": 97
+  },
+  {
+    "card_id": "allied-bank--allied-visa-platinum-credit-card",
+    "bank_name": "Allied Bank",
+    "card_name": "Allied Visa Platinum Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+      "https://www.abl.com/wp-content/uploads/2025/07/Allied-Visa-Credit-Card-Summary-Box-Q2-2025_30-06-25_05-03-56-1.pdf",
+      "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "myPakistan Digital Account",
+        "url": "https://www.abl.com/personal/digital-banking-services/myabl-digital-banking/mypakistan-digital-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Asaan Mobile Account (AMA)",
+        "url": "https://www.abl.com/personal/digital-banking-services/asaan-mobile-account-ama/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "VISA Premium Debit Card",
+        "url": "https://www.abl.com/personal/cards/debit-cards/visa-premium-debit-card/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Foreign Currency Visa Debit Cards for Roshan Digital and Foreign Currency Accounts",
+        "url": "https://www.abl.com/personal/cards/debit-cards/foreign-currency-visa-debit-cards-for-roshan-digital-and-foreign-currency-accounts/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Accounts & Deposits",
+        "url": "https://www.abl.com/personal/accounts/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Digital Account",
+        "url": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied Current Account",
+        "url": "https://www.abl.com/personal/accounts/current/current-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied Easy Current Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-easy-current-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied Asaan Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-asaan-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied Basic Banking Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-basic-banking-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied Express Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-express-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied Freelancer Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-freelancer-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Saving Accounts",
+        "url": "https://www.abl.com/personal/accounts/savings/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied PLS Savings Account",
+        "url": "https://www.abl.com/personal/accounts/savings/pls-savings-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
+        "text": "Allied Asaan Saving Account",
+        "url": "https://www.abl.com/personal/accounts/savings/allied-asaan-saving-account/"
+      }
+    ],
+    "lead_count": 96
+  },
+  {
+    "card_id": "allied-bank--allied-visa-gold-credit-card",
+    "bank_name": "Allied Bank",
+    "card_name": "Allied Visa Gold Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+      "https://www.abl.com/wp-content/uploads/2025/07/Allied-Visa-Credit-Card-Summary-Box-Q2-2025_30-06-25_05-03-56-1.pdf",
+      "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "myPakistan Digital Account",
+        "url": "https://www.abl.com/personal/digital-banking-services/myabl-digital-banking/mypakistan-digital-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Asaan Mobile Account (AMA)",
+        "url": "https://www.abl.com/personal/digital-banking-services/asaan-mobile-account-ama/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "VISA Premium Debit Card",
+        "url": "https://www.abl.com/personal/cards/debit-cards/visa-premium-debit-card/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Foreign Currency Visa Debit Cards for Roshan Digital and Foreign Currency Accounts",
+        "url": "https://www.abl.com/personal/cards/debit-cards/foreign-currency-visa-debit-cards-for-roshan-digital-and-foreign-currency-accounts/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Accounts & Deposits",
+        "url": "https://www.abl.com/personal/accounts/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Digital Account",
+        "url": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied Current Account",
+        "url": "https://www.abl.com/personal/accounts/current/current-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied Easy Current Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-easy-current-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied Asaan Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-asaan-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied Basic Banking Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-basic-banking-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied Express Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-express-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied Freelancer Account",
+        "url": "https://www.abl.com/personal/accounts/current/allied-freelancer-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Saving Accounts",
+        "url": "https://www.abl.com/personal/accounts/savings/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied PLS Savings Account",
+        "url": "https://www.abl.com/personal/accounts/savings/pls-savings-account/"
+      },
+      {
+        "from": "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
+        "text": "Allied Asaan Saving Account",
+        "url": "https://www.abl.com/personal/accounts/savings/allied-asaan-saving-account/"
+      }
+    ],
+    "lead_count": 96
+  },
+  {
+    "card_id": "bank-al-habib--bahl-unionpay-apna-debit-card",
+    "bank_name": "Bank AL Habib",
+    "card_name": "BAHL UnionPay Apna Debit Card",
+    "missing_fields": [
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.bankalhabib.com/cards",
+      "https://www.bankalhabib.com/accounts/current",
+      "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
+      "https://www.bankalhabib.com/debit-cards"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalhabib.com/cards",
+      "https://www.bankalhabib.com/accounts/current",
+      "https://www.bankalhabib.com/debit-cards"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.bankalhabib.com/corporate-social-responsibility"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Current Accounts",
+        "url": "https://www.bankalhabib.com/accounts/current"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Saving Accounts",
+        "url": "https://www.bankalhabib.com/accounts/saving"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Foreign Currency Accounts",
+        "url": "https://www.bankalhabib.com/accounts/foreign"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "AL Habib Roshan Digital Account",
+        "url": "https://www.bankalhabib.com/alhabib-roshan-digital-account-landing"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Accounts",
+        "url": "https://www.bankalhabib.com/woman-accounts"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalhabib.com/schedule-of-charges"
+      },
+      {
+        "from": "https://www.bankalhabib.com/cards",
+        "text": "Exclusive Discounts",
+        "url": "https://www.bankalhabib.com/discounts"
+      },
+      {
+        "from": "https://www.bankalhabib.com/cards",
+        "text": "Designated Coordinators for Exporters' Special Foreign Currency Retention Accounts",
+        "url": "https://www.bankalhabib.com/cards"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Investor Portfolio Securities Account",
+        "url": "https://www.bankalhabib.com/investor-portfolio-securities-ips-account"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/current",
+        "text": "AL Habib Signature Account",
+        "url": "https://www.bankalhabib.com/accounts/current#alhabib_signature_account"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/current",
+        "text": "AL Habib Freelancer Current Account",
+        "url": "https://www.bankalhabib.com/accounts/current#alhabib_freelancer_current_account"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/current",
+        "text": "AL Habib Remit Current Account",
+        "url": "https://www.bankalhabib.com/accounts/current#remit_account_current"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/current",
+        "text": "AL Habib Armed Forces Pensioner Current Account",
+        "url": "https://www.bankalhabib.com/accounts/current#al_habib_armed_forces_pensioner_current_account"
+      },
+      {
+        "from": "https://www.bankalhabib.com/accounts/current",
+        "text": "AL Habib Current Account",
+        "url": "https://www.bankalhabib.com/accounts/current#current_accounts"
+      }
+    ],
+    "lead_count": 84
+  },
+  {
+    "card_id": "meezan--meezan-world-debit-card",
+    "bank_name": "Meezan Bank",
+    "card_name": "Meezan World Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.meezanbank.com/world-debit-card/",
+      "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
+      "https://www.meezanbank.com/premium-banking/"
+    ],
+    "checked_html_sources": [
+      "https://www.meezanbank.com/world-debit-card/",
+      "https://www.meezanbank.com/premium-banking/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Premium Banking",
+        "url": "https://www.meezanbank.com/premium-banking"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Women's Banking",
+        "url": "https://www.meezanbank.com/women-account"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/business-bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.meezanbank.com/csr"
+      },
+      {
+        "from": "https://www.meezanbank.com/world-debit-card/",
+        "text": "Schedule of Charges",
+        "url": "https://www.meezanbank.com/world-debit-card/"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Complete Schedule of Charges Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/soc-changes.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jan-Jun 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jan-Jun 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jul-Dec 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jan-Jun 2023",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2023.pdf"
+      }
+    ],
+    "lead_count": 74
+  },
+  {
+    "card_id": "meezan--meezan-visa-infinite-debit-card",
+    "bank_name": "Meezan Bank",
+    "card_name": "Meezan Visa Infinite Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.meezanbank.com/visa-infinite-debit-card/",
+      "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
+      "https://www.meezanbank.com/premium-banking/"
+    ],
+    "checked_html_sources": [
+      "https://www.meezanbank.com/visa-infinite-debit-card/",
+      "https://www.meezanbank.com/premium-banking/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Premium Banking",
+        "url": "https://www.meezanbank.com/premium-banking"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Women's Banking",
+        "url": "https://www.meezanbank.com/women-account"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/business-bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.meezanbank.com/csr"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-infinite-debit-card/",
+        "text": "Schedule of Charges",
+        "url": "https://www.meezanbank.com/visa-infinite-debit-card/"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Complete Schedule of Charges Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/soc-changes.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jan-Jun 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jan-Jun 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jul-Dec 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/premium-banking/",
+        "text": "Jan-Jun 2023",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2023.pdf"
+      }
+    ],
+    "lead_count": 74
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-world-debit-card",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic World Debit Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-world-debitcard",
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+      "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-world-debitcard",
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/islamic/islamic-accounts"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Konnect",
+        "url": "https://www.hbl.com/islamic/konnect-islamic-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Saving",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-saving"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Saving Accounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/saving-accounts-overview"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Uraan Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-uraan-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Mahana Amdan",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-mahana-amdan"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Rutba Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-rutba-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic FC PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-fc-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Al-IrtifaAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-al-irtifaaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Nisa Tawfir Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-nisa-tawfir-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Account Opening Process for Freelancer & IT Entities",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/account-opening-process-for-freelancer-it-entities"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Current",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-current"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Islamic CurrentAccounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-current/islamic-currentaccounts-overview"
+      }
+    ],
+    "lead_count": 59
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic Mastercard Standard Debit Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-classic-debitcard-mastercard-visa-unionpay",
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+      "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-classic-debitcard-mastercard-visa-unionpay",
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/islamic/islamic-accounts"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Konnect",
+        "url": "https://www.hbl.com/islamic/konnect-islamic-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Saving",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-saving"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Saving Accounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/saving-accounts-overview"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Uraan Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-uraan-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Mahana Amdan",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-mahana-amdan"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Rutba Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-rutba-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic FC PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-fc-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Al-IrtifaAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-al-irtifaaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Nisa Tawfir Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-nisa-tawfir-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Account Opening Process for Freelancer & IT Entities",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/account-opening-process-for-freelancer-it-entities"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Current",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-current"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Islamic CurrentAccounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-current/islamic-currentaccounts-overview"
+      }
+    ],
+    "lead_count": 59
+  },
+  {
+    "card_id": "mcb-bank--visa-gold-debit-card",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Gold Debit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.mcb.com.pk/personal/cards/",
+      "https://www.mcb.com.pk/mcb-debit-card/",
+      "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.mcb.com.pk/personal/cards/",
+      "https://www.mcb.com.pk/mcb-debit-card/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.mcb.com.pk/mcb-debit-card/",
+        "text": "Deposit Accounts",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "",
+        "url": "https://www.mcb.com.pk/personal/roshan-digital-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Deposit",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Sohni Dharti Remittance Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/sohni-dharti-remittance-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Life Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-life-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Asaan Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB One Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-one-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Smart Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-smart-business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Pensioners Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-pensioners-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Senior Citizen Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-senior-citizen-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Asaan Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Burqraftaar Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-burqraftaar-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Fun Club - Banking For Kids",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/fun-club-banking-for-kids"
+      }
+    ],
+    "lead_count": 58
+  },
+  {
+    "card_id": "mcb-bank--mcb-visa-signature-debit-card",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "MCB Visa Signature Debit Card",
+    "missing_fields": [
+      "salary",
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.mcb.com.pk/assets/documents/Signature-FAQs-6-March-2024-Green.pdf",
+      "https://www.mcb.com.pk/mcb-debit-card/",
+      "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
+      "https://www.mcb.com.pk/personal/cards/"
+    ],
+    "checked_html_sources": [
+      "https://www.mcb.com.pk/mcb-debit-card/",
+      "https://www.mcb.com.pk/personal/cards/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Deposit Accounts",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts"
+      },
+      {
+        "from": "https://www.mcb.com.pk/mcb-debit-card/",
+        "text": "Relationship",
+        "url": "https://www.mcb.com.pk/privilege/relationship/experience-benefits"
+      },
+      {
+        "from": "https://www.mcb.com.pk/mcb-debit-card/",
+        "text": "Deposit Accounts",
+        "url": "https://www.mcb.com.pk/privilege/privilege-deposit-accounts"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "",
+        "url": "https://www.mcb.com.pk/personal/roshan-digital-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Deposit",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Sohni Dharti Remittance Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/sohni-dharti-remittance-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Life Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-life-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Asaan Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB One Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-one-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Smart Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-smart-business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Pensioners Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-pensioners-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Senior Citizen Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-senior-citizen-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Asaan Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-remittance-account"
+      }
+    ],
+    "lead_count": 58
+  },
+  {
+    "card_id": "hbl-islamic--hbl-world-islamic-business-debitcard",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL World Islamic Business DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+      "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/islamic/islamic-accounts"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "Konnect",
+        "url": "https://www.hbl.com/islamic/konnect-islamic-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "Saving",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-saving"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "Saving Accounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/saving-accounts-overview"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "HBL Islamic Uraan Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-uraan-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "HBL Islamic Mahana Amdan",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-mahana-amdan"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "HBL Islamic Rutba Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-rutba-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "HBL Islamic FC PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-fc-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "HBL Al-IrtifaAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-al-irtifaaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "HBL Islamic PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "HBL Nisa Tawfir Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-nisa-tawfir-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "Account Opening Process for Freelancer & IT Entities",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/account-opening-process-for-freelancer-it-entities"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "Current",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-current"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
+        "text": "Islamic CurrentAccounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-current/islamic-currentaccounts-overview"
+      }
+    ],
+    "lead_count": 58
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-mastercard-gold-debit-card",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic Mastercard Gold Debit Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+      "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/islamic/islamic-accounts"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Konnect",
+        "url": "https://www.hbl.com/islamic/konnect-islamic-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Saving",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-saving"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Saving Accounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/saving-accounts-overview"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Uraan Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-uraan-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Mahana Amdan",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-mahana-amdan"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic Rutba Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-rutba-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic FC PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-fc-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Al-IrtifaAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-al-irtifaaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Islamic PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "HBL Nisa Tawfir Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-nisa-tawfir-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Account Opening Process for Freelancer & IT Entities",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/account-opening-process-for-freelancer-it-entities"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Current",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-current"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
+        "text": "Islamic CurrentAccounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-current/islamic-currentaccounts-overview"
+      }
+    ],
+    "lead_count": 58
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-business-debitcard",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic Business DebitCard",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+      "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "PRESTIGE",
+        "url": "https://www.hbl.com/prestige"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "Accounts",
+        "url": "https://www.hbl.com/islamic/islamic-accounts"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "Konnect",
+        "url": "https://www.hbl.com/islamic/konnect-islamic-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "Saving",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-saving"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "Saving Accounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/saving-accounts-overview"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "HBL Islamic Uraan Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-uraan-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "HBL Islamic Mahana Amdan",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-mahana-amdan"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "HBL Islamic Rutba Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-rutba-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "HBL Islamic FC PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-fc-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "HBL Al-IrtifaAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-al-irtifaaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "HBL Islamic PLSAccount",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-islamic-plsaccount"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "HBL Nisa Tawfir Account",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/hbl-nisa-tawfir-account"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "Account Opening Process for Freelancer & IT Entities",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-saving/account-opening-process-for-freelancer-it-entities"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "Current",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/#islamic-current"
+      },
+      {
+        "from": "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
+        "text": "Islamic CurrentAccounts Overview",
+        "url": "https://www.hbl.com/islamic/islamic-accounts/islamic-current/islamic-currentaccounts-overview"
+      }
+    ],
+    "lead_count": 58
+  },
+  {
+    "card_id": "mcb-bank--visa-platinum-credit-card",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Platinum Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+      "https://www.mcb.com.pk/assets/documents/SOBC-1st-January-to-June-30-New-27-November-2025.pdf",
+      "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf",
+      "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Deposit Accounts",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "",
+        "url": "https://www.mcb.com.pk/personal/roshan-digital-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Current Deposit",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Sohni Dharti Remittance Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/sohni-dharti-remittance-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Current Life Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-life-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Asaan Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "MCB One Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-one-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "MCB Smart Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-smart-business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "MCB Pensioners Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-pensioners-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "MCB Senior Citizen Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-senior-citizen-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "MCB Asaan Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "MCB Burqraftaar Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-burqraftaar-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
+        "text": "Fun Club - Banking For Kids",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/fun-club-banking-for-kids"
+      }
+    ],
+    "lead_count": 57
+  },
+  {
+    "card_id": "mcb-bank--visa-gold-credit-card",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Gold Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+      "https://www.mcb.com.pk/assets/documents/SOBC-1st-January-to-June-30-New-27-November-2025.pdf",
+      "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf",
+      "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Deposit Accounts",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "",
+        "url": "https://www.mcb.com.pk/personal/roshan-digital-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Current Deposit",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Sohni Dharti Remittance Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/sohni-dharti-remittance-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Current Life Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-life-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Asaan Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB One Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-one-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Smart Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-smart-business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Pensioners Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-pensioners-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Senior Citizen Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-senior-citizen-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Asaan Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Burqraftaar Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-burqraftaar-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Fun Club - Banking For Kids",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/fun-club-banking-for-kids"
+      }
+    ],
+    "lead_count": 57
+  },
+  {
+    "card_id": "mcb-bank--visa-classic-credit-card",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "Visa Classic Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+      "https://www.mcb.com.pk/assets/documents/SOBC-1st-January-to-June-30-New-27-November-2025.pdf",
+      "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf",
+      "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Deposit Accounts",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "",
+        "url": "https://www.mcb.com.pk/personal/roshan-digital-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Current Deposit",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Sohni Dharti Remittance Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/sohni-dharti-remittance-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Current Life Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-life-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Asaan Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB One Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-one-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Smart Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-smart-business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Pensioners Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-pensioners-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Senior Citizen Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-senior-citizen-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Asaan Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "MCB Burqraftaar Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-burqraftaar-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
+        "text": "Fun Club - Banking For Kids",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/fun-club-banking-for-kids"
+      }
+    ],
+    "lead_count": 57
+  },
+  {
+    "card_id": "ubl--ubl-credit-card-gold",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Credit Card Gold",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+      "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+      "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+      "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "Roshan Digital Account",
+        "url": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "Schedule of Charges",
+        "url": "https://ubldigital.com/More/ScheduleofCharges"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "In-Branch Account Opening Process",
+        "url": "https://ubldigital.com/In-Branch-Account-Opening-Process"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Mukammal Current Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Good Citizen Account",
+        "url": "https://ubldigital.com/deposits/ubl-good-citizen-account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Urooj account",
+        "url": "https://ubldigital.com/Deposits/UBL-Urooj-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "Asaan Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Asaan-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "Asaan Digital Savings account",
+        "url": "https://ubldigital.com/UBL-Asaan-Digital-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Foreign Currency Current Account",
+        "url": "https://ubldigital.com/Deposits/UBLUniZarForeignCurrencyCurrentAccount"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Freelancer Account",
+        "url": "https://ubldigital.com/UBL-Freelancer-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Mahana Aamdani Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mahana-Aamdani-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Zindagi Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Zindagi-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL Foreign Currency Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBLFCYUniFlex"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
+        "text": "UBL First Minor Savings Account",
+        "url": "https://www.ubldigital.com/Deposits/UBL-First-Minor-Savings-Account"
+      }
+    ],
+    "lead_count": 56
+  },
+  {
+    "card_id": "mcb-bank--paypak-debit-card",
+    "bank_name": "MCB Bank Limited",
+    "card_name": "PayPak Debit Card",
+    "missing_fields": [
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.mcb.com.pk/personal/cards/",
+      "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.mcb.com.pk/personal/cards/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Deposit Accounts",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "",
+        "url": "https://www.mcb.com.pk/personal/roshan-digital-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Deposit",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Sohni Dharti Remittance Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/sohni-dharti-remittance-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Current Life Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/current-life-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Asaan Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB One Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-one-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Smart Business Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-smart-business-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Pensioners Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-pensioners-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Senior Citizen Current Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-senior-citizen-current-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Asaan Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-asaan-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "MCB Burqraftaar Remittance Account",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/mcb-burqraftaar-remittance-account"
+      },
+      {
+        "from": "https://www.mcb.com.pk/personal/cards/",
+        "text": "Fun Club - Banking For Kids",
+        "url": "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/fun-club-banking-for-kids"
+      }
+    ],
+    "lead_count": 56
+  },
+  {
+    "card_id": "ubl--ubl-visa-platinum-credit-card",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Visa Platinum Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+      "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+      "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+      "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "Roshan Digital Account",
+        "url": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "Schedule of Charges",
+        "url": "https://ubldigital.com/More/ScheduleofCharges"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "In-Branch Account Opening Process",
+        "url": "https://ubldigital.com/In-Branch-Account-Opening-Process"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Mukammal Current Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Good Citizen Account",
+        "url": "https://ubldigital.com/deposits/ubl-good-citizen-account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Urooj account",
+        "url": "https://ubldigital.com/Deposits/UBL-Urooj-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "Asaan Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Asaan-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "Asaan Digital Savings account",
+        "url": "https://ubldigital.com/UBL-Asaan-Digital-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Foreign Currency Current Account",
+        "url": "https://ubldigital.com/Deposits/UBLUniZarForeignCurrencyCurrentAccount"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Freelancer Account",
+        "url": "https://ubldigital.com/UBL-Freelancer-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Mahana Aamdani Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mahana-Aamdani-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Zindagi Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Zindagi-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL Foreign Currency Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBLFCYUniFlex"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
+        "text": "UBL First Minor Savings Account",
+        "url": "https://www.ubldigital.com/Deposits/UBL-First-Minor-Savings-Account"
+      }
+    ],
+    "lead_count": 55
+  },
+  {
+    "card_id": "ubl--ubl-visa-fcy-business-debit-card",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Visa FCY Business Debit Card",
+    "missing_fields": [
+      "balance",
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card"
+    ],
+    "checked_html_sources": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "Roshan Digital Account",
+        "url": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "Schedule of Charges",
+        "url": "https://ubldigital.com/More/ScheduleofCharges"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "In-Branch Account Opening Process",
+        "url": "https://ubldigital.com/In-Branch-Account-Opening-Process"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Mukammal Current Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Good Citizen Account",
+        "url": "https://ubldigital.com/deposits/ubl-good-citizen-account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Urooj account",
+        "url": "https://ubldigital.com/Deposits/UBL-Urooj-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "Asaan Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Asaan-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "Asaan Digital Savings account",
+        "url": "https://ubldigital.com/UBL-Asaan-Digital-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Foreign Currency Current Account",
+        "url": "https://ubldigital.com/Deposits/UBLUniZarForeignCurrencyCurrentAccount"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Freelancer Account",
+        "url": "https://ubldigital.com/UBL-Freelancer-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Mahana Aamdani Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mahana-Aamdani-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Zindagi Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Zindagi-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL Foreign Currency Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBLFCYUniFlex"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card",
+        "text": "UBL First Minor Savings Account",
+        "url": "https://www.ubldigital.com/Deposits/UBL-First-Minor-Savings-Account"
+      }
+    ],
+    "lead_count": 54
+  },
+  {
+    "card_id": "ubl--ubl-credit-card-classic",
+    "bank_name": "United Bank Limited (UBL)",
+    "card_name": "UBL Credit Card Classic",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+      "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+      "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
+      "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "Roshan Digital Account",
+        "url": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "Schedule of Charges",
+        "url": "https://ubldigital.com/More/ScheduleofCharges"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "In-Branch Account Opening Process",
+        "url": "https://ubldigital.com/In-Branch-Account-Opening-Process"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Mukammal Current Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mukammal-Current-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Good Citizen Account",
+        "url": "https://ubldigital.com/deposits/ubl-good-citizen-account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Urooj account",
+        "url": "https://ubldigital.com/Deposits/UBL-Urooj-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "Asaan Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Asaan-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "Asaan Digital Savings account",
+        "url": "https://ubldigital.com/UBL-Asaan-Digital-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Foreign Currency Current Account",
+        "url": "https://ubldigital.com/Deposits/UBLUniZarForeignCurrencyCurrentAccount"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Freelancer Account",
+        "url": "https://ubldigital.com/UBL-Freelancer-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Mahana Aamdani Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Mahana-Aamdani-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Zindagi Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Zindagi-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBL-Savings-Account"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL Foreign Currency Savings Account",
+        "url": "https://ubldigital.com/Deposits/UBLFCYUniFlex"
+      },
+      {
+        "from": "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "text": "UBL First Minor Savings Account",
+        "url": "https://www.ubldigital.com/Deposits/UBL-First-Minor-Savings-Account"
+      }
+    ],
+    "lead_count": 54
+  },
+  {
+    "card_id": "meezan--meezan-paypak-debit-card",
+    "bank_name": "Meezan Bank",
+    "card_name": "Meezan PayPak Debit Card",
+    "missing_fields": [
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.meezanbank.com/paypak-debit-card/",
+      "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
+      "https://www.meezanbank.com/asaan-current-account/",
+      "https://www.meezanbank.com/kids-club-account",
+      "https://www.meezanbank.com/"
+    ],
+    "checked_html_sources": [
+      "https://www.meezanbank.com/paypak-debit-card/",
+      "https://www.meezanbank.com/asaan-current-account/",
+      "https://www.meezanbank.com/kids-club-account/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Premium Banking",
+        "url": "https://www.meezanbank.com/premium-banking"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Women's Banking",
+        "url": "https://www.meezanbank.com/women-account"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/business-bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.meezanbank.com/csr"
+      },
+      {
+        "from": "https://www.meezanbank.com/paypak-debit-card/",
+        "text": "Schedule of Charges",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-English.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/paypak-debit-card/",
+        "text": "Schedule of Charges",
+        "url": "https://www.meezanbank.com/paypak-debit-card/"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Complete Schedule of Charges Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/soc-changes.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Jan-Jun 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Jan-Jun 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/kids-club-account/",
+        "text": "Jul-Dec 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2024.pdf"
+      }
+    ],
+    "lead_count": 52
+  },
+  {
+    "card_id": "meezan--meezan-titanium-mastercard-debit-card",
+    "bank_name": "Meezan Bank",
+    "card_name": "Meezan Titanium MasterCard Debit Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.meezanbank.com/titanium-debit-card/",
+      "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.meezanbank.com/titanium-debit-card/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Premium Banking",
+        "url": "https://www.meezanbank.com/premium-banking"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Women's Banking",
+        "url": "https://www.meezanbank.com/women-account"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/business-bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.meezanbank.com/csr"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "If I have multiple Meezan Bank accounts, which ones will I access with my debit card?",
+        "url": "https://www.meezanbank.com/titanium-debit-card/#collapse615"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Schedule of Charges",
+        "url": "https://www.meezanbank.com/titanium-debit-card/"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Complete Schedule of Charges Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/soc-changes.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Jan-Jun 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Jan-Jun 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/titanium-debit-card/",
+        "text": "Jul-Dec 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2024.pdf"
+      }
+    ],
+    "lead_count": 42
+  },
+  {
+    "card_id": "meezan--meezan-visa-platinum-debit-card",
+    "bank_name": "Meezan Bank",
+    "card_name": "Meezan Visa Platinum Debit Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.meezanbank.com/visa-platinum-debit-card",
+      "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.meezanbank.com/visa-platinum-debit-card"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Premium Banking",
+        "url": "https://www.meezanbank.com/premium-banking"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Women's Banking",
+        "url": "https://www.meezanbank.com/women-account"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Bank Accounts",
+        "url": "https://www.meezanbank.com/business-bank-accounts"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.meezanbank.com/csr"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Schedule of Charges",
+        "url": "https://www.meezanbank.com/visa-platinum-debit-card"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Complete Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jan-Jun-2026.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Complete Schedule of Charges Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-URDU-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Schedule of Charges Jan-Jun 2026",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/soc-changes.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Jan-Jun 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Jul-Dec 2025",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2025.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Jan-Jun 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Jul-Dec 2024",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jul-Dec-2024.pdf"
+      },
+      {
+        "from": "https://www.meezanbank.com/visa-platinum-debit-card",
+        "text": "Jan-Jun 2023",
+        "url": "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2023.pdf"
+      }
+    ],
+    "lead_count": 41
+  },
+  {
+    "card_id": "js-bank--mastercard-platinum-debit-card",
+    "bank_name": "JS Bank",
+    "card_name": "Mastercard Platinum Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+      "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "Quick links",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "UR",
+        "url": "https://www.jsbl.com/ur/personal/accounts/current-accounts/js-platinum-business-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/#!"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Current Accounts:",
+        "url": "https://www.jsbl.com/js-current-accounts"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Premium Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-premium/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Asaan Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-asaan/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Premier Raabta Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-premier-raabta/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Her Current Account",
+        "url": "https://www.jsbl.com/js-her-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Basic Banking Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-basic-banking-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Freelancers Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-freelancers-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Foreign Currency Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-foreign-currency-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Inclusive Current Account",
+        "url": "https://www.jsbl.com/js-inclusive-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Exporters Special Foreign Currency Account",
+        "url": "https://www.jsbl.com/js-exporters-special-foreign-currency-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
+        "text": "JS Foreign Currency Plus Savings Account",
+        "url": "https://www.jsbl.com/personal/accounts/savings-account/js-foreign-currency-plus/"
+      }
+    ],
+    "lead_count": 36
+  },
+  {
+    "card_id": "js-bank--mastercard-gold-debit-card",
+    "bank_name": "JS Bank",
+    "card_name": "Mastercard Gold Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+      "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "Quick links",
+        "url": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "UR",
+        "url": "https://www.jsbl.com/ur/personal/accounts/savings-account/js-pls-savings-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "",
+        "url": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/#!"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Current Accounts:",
+        "url": "https://www.jsbl.com/js-current-accounts"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Premium Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-premium/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Asaan Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-asaan/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Premier Raabta Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-premier-raabta/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Her Current Account",
+        "url": "https://www.jsbl.com/js-her-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Basic Banking Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-basic-banking-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Freelancers Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-freelancers-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Foreign Currency Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-foreign-currency-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Inclusive Current Account",
+        "url": "https://www.jsbl.com/js-inclusive-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Platinum Business Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
+        "text": "JS Exporters Special Foreign Currency Account",
+        "url": "https://www.jsbl.com/js-exporters-special-foreign-currency-account/"
+      }
+    ],
+    "lead_count": 36
+  },
+  {
+    "card_id": "js-bank--mastercard-her-titanium-debit-card",
+    "bank_name": "JS Bank",
+    "card_name": "Mastercard Her Titanium Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.jsbl.com/her-finances/",
+      "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.jsbl.com/her-finances/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "Accounts",
+        "url": "https://www.jsbl.com/her-finances/#!"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Current Accounts:",
+        "url": "https://www.jsbl.com/js-current-accounts"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Premium Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-premium/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Asaan Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-asaan/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Premier Raabta Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-premier-raabta/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Her Current Account",
+        "url": "https://www.jsbl.com/js-her-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Basic Banking Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-basic-banking-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Freelancers Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-freelancers-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Foreign Currency Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-foreign-currency-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Inclusive Current Account",
+        "url": "https://www.jsbl.com/js-inclusive-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Platinum Business Current Account",
+        "url": "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Exporters Special Foreign Currency Account",
+        "url": "https://www.jsbl.com/js-exporters-special-foreign-currency-account/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Foreign Currency Plus Savings Account",
+        "url": "https://www.jsbl.com/personal/accounts/savings-account/js-foreign-currency-plus/"
+      },
+      {
+        "from": "https://www.jsbl.com/her-finances/",
+        "text": "JS Rupee Plus Savings Account – Special Deposit Account",
+        "url": "https://www.jsbl.com/personal/accounts/savings-account/js-rupee-plus-savings-account/"
+      }
+    ],
+    "lead_count": 30
+  },
+  {
+    "card_id": "bank-al-habib--paypak-debit-card",
+    "bank_name": "Bank AL Habib",
+    "card_name": "PayPak Debit Card",
+    "missing_fields": [
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://new.bankalhabib.com/card-detail/paypak-debit-card/",
+      "https://www.bankalhabib.com/files/download/reports/Current%20Account.pdf",
+      "https://www.bankalhabib.com/files/documents/Apna-Indiviual-Current-Account-KFS.pdf",
+      "https://www.bankalhabib.com/files/download/documents/Key-Fact-Sheet-for-digital-account.pdf",
+      "https://www.bankalhabib.com/debit-cards"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalhabib.com/debit-cards"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Corporate Social Responsibility",
+        "url": "https://www.bankalhabib.com/corporate-social-responsibility"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Current Accounts",
+        "url": "https://www.bankalhabib.com/accounts/current"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Saving Accounts",
+        "url": "https://www.bankalhabib.com/accounts/saving"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Foreign Currency Accounts",
+        "url": "https://www.bankalhabib.com/accounts/foreign"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "AL Habib Roshan Digital Account",
+        "url": "https://www.bankalhabib.com/alhabib-roshan-digital-account-landing"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Accounts",
+        "url": "https://www.bankalhabib.com/woman-accounts"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalhabib.com/schedule-of-charges"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "AL Habib Digital Account Gold",
+        "url": "https://www.bankalhabib.com/debit-cards#alhabib_digital_account_gold"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "AL Habib Digital Account Classic",
+        "url": "https://www.bankalhabib.com/debit-cards#al_habib_digital_account_classic"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the charges associated with AL Habib Freelancer Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse1140"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Exclusive Visa Benefits",
+        "url": "https://www.bankalhabib.com/signature"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the fees and charges associated with AL Habib Signature Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse952"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "Exclusive Visa Benefits",
+        "url": "https://www.bankalhabib.com/alhabib-visa-platinum"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the fees and charges associated with Visa Platinum Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse902"
+      },
+      {
+        "from": "https://www.bankalhabib.com/debit-cards",
+        "text": "What are the fees and charges associated with Visa Gold Debit Card?",
+        "url": "https://www.bankalhabib.com/debit-cards#collapse907"
+      }
+    ],
+    "lead_count": 26
+  },
+  {
+    "card_id": "bankislami--titanium-debit-mastercard",
+    "bank_name": "BankIslami",
+    "card_name": "Titanium Debit Mastercard",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://bankislami.com.pk/titanium-debit-mastercard/",
+      "https://bankislami.com.pk/wp-content/uploads/2022/07/FAQs-Titanium-Debit-Mastercard.pdf",
+      "https://bankislami.com.pk/wp-content/uploads/2026/01/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
+      "https://bankislami.com.pk/prioritybanking/",
+      "https://onboard.bankislami.com.pk/static/media/Products%20Brief%20Description%20-%20Digital%20Onboarding%20Final.f03233bc.pdf"
+    ],
+    "checked_html_sources": [
+      "https://bankislami.com.pk/digital-channel/debitcards/titanium-debit-mastercard/",
+      "https://bankislami.com.pk/prioritybanking/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "English",
+        "url": "https://bankislami.com.pk/prioritybanking/"
+      },
+      {
+        "from": "https://bankislami.com.pk/digital-channel/debitcards/titanium-debit-mastercard/",
+        "text": "Accounts",
+        "url": "https://bankislami.com.pk/digital-channel/debitcards/titanium-debit-mastercard/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Kids Account",
+        "url": "https://bankislami.com.pk/islami-kids-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Khair Current Account",
+        "url": "https://bankislami.com.pk/islami-khair-current-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Sahulat Account",
+        "url": "https://bankislami.com.pk/islami-sahulat-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Bachat Account",
+        "url": "https://bankislami.com.pk/islami-bachat-account-2/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Current Account",
+        "url": "https://bankislami.com.pk/islami-current-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Asaan Account",
+        "url": "https://bankislami.com.pk/islaami-asaan-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Sohni Dharti Home Remittances Account",
+        "url": "https://bankislami.com.pk/bankislami-sohni-dharti-home-remittances-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Mahana Munafa Account",
+        "url": "https://bankislami.com.pk/islami-mahana-munafa-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Dollar Bachat Account",
+        "url": "https://bankislami.com.pk/islami-dollar-bachat-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Foreign Currency Account",
+        "url": "https://bankislami.com.pk/islami-foreign-currency-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Premium Saving Account",
+        "url": "https://bankislami.com.pk/islami-premium-saving-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Business Saving Account",
+        "url": "https://bankislami.com.pk/islami-business-saving-account/"
+      },
+      {
+        "from": "https://bankislami.com.pk/prioritybanking/",
+        "text": "BankIslami Freelancer Account",
+        "url": "https://bankislami.com.pk/account-opening-for-freelancer-it-sector/"
+      }
+    ],
+    "lead_count": 21
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-visa-ultra-cashback-card",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Visa Ultra Cashback Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bankalfalah.com/personal-banking/credit-cards/visa-ultra-cashback-card",
+      "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf",
+      "https://www.bankalfalah.com/personal-banking/credit-cards/"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalfalah.com/personal-banking/credit-cards/visa-ultra-cashback-card",
+      "https://www.bankalfalah.com/personal-banking/credit-cards/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Premier",
+        "url": "https://www.bankalfalah.com/premier-banking/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalfalah.com/digital-banking/schedule-of-charges/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Account Opening Tracker",
+        "url": "https://www.bankalfalah.com/account-tracker"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Paper Based Account Opening Workflow - Branch",
+        "url": "https://www.bankalfalah.com/branch-account-tracker"
+      }
+    ],
+    "lead_count": 4
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Premier Visa Infinite Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bankalfalah.com/personal-banking/credit-cards/",
+      "https://www.bankalfalah.com/wp-content/uploads/2024/11/SOBC-Conventional-2025-29-11-24_Shehroz-V9.pdf",
+      "https://www.bankalfalah.com/wp-content/uploads/2024/06/SOBC-Conventional-Final-June-2024.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalfalah.com/personal-banking/credit-cards/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Premier",
+        "url": "https://www.bankalfalah.com/premier-banking/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalfalah.com/digital-banking/schedule-of-charges/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Account Opening Tracker",
+        "url": "https://www.bankalfalah.com/account-tracker"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Paper Based Account Opening Workflow - Branch",
+        "url": "https://www.bankalfalah.com/branch-account-tracker"
+      }
+    ],
+    "lead_count": 4
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-mastercard-titanium-credit-card",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Mastercard Titanium Credit Card",
+    "missing_fields": [
+      "balance",
+      "annual_fee"
+    ],
+    "source_urls": [
+      "https://www.bankalfalah.com/personal-banking/credit-cards/"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalfalah.com/personal-banking/credit-cards/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Premier",
+        "url": "https://www.bankalfalah.com/premier-banking/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalfalah.com/digital-banking/schedule-of-charges/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Account Opening Tracker",
+        "url": "https://www.bankalfalah.com/account-tracker"
+      },
+      {
+        "from": "https://www.bankalfalah.com/personal-banking/credit-cards/",
+        "text": "Paper Based Account Opening Workflow - Branch",
+        "url": "https://www.bankalfalah.com/branch-account-tracker"
+      }
+    ],
+    "lead_count": 4
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-visa-islamic-gold-debit-card",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Visa Islamic Gold Debit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-gold-debit-card/",
+      "https://www.bankalfalah.com/wp-content/uploads/2024/05/SOBC-Islamic-May-2024-W_SUM.pdf",
+      "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-gold-debit-card/"
+    ],
+    "linked_account_leads": [
+      {
+        "from": "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-gold-debit-card/",
+        "text": "Premier",
+        "url": "https://www.bankalfalah.com/premier-banking/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-gold-debit-card/",
+        "text": "Schedule of Charges",
+        "url": "https://www.bankalfalah.com/islamic-banking/schedule-of-charges/"
+      },
+      {
+        "from": "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-gold-debit-card/",
+        "text": "Paper Based Account Opening Workflow - Branch",
+        "url": "https://www.bankalfalah.com/branch-account-tracker"
+      }
+    ],
+    "lead_count": 3
+  },
+  {
+    "card_id": "js-bank--visa-gold-credit-card",
+    "bank_name": "JS Bank",
+    "card_name": "Visa Gold Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "js-bank--private-banking-visa-signature-credit-card",
+    "bank_name": "JS Bank",
+    "card_name": "Private Banking Visa Signature Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "js-bank--mastercard-titanium-debit-card",
+    "bank_name": "JS Bank",
+    "card_name": "Mastercard Titanium Debit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-titanium-debitcard",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic Titanium DebitCard",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-noor-velocity-card",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Noor Velocity Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-noor-platinum-card",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Noor Platinum  Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-noor-flexi-card",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Noor Flexi Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "bank-of-punjab--lahore-qalandars-gold-credit-card",
+    "bank_name": "Bank of Punjab",
+    "card_name": "Lahore Qalandars Gold Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bop.com.pk/view.aspx?id=3373"
+    ],
+    "checked_html_sources": [
+      "https://www.bop.com.pk/view.aspx?id=3373"
+    ],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "bank-of-punjab--bop-world-debit-card",
+    "bank_name": "Bank of Punjab",
+    "card_name": "BOP World Debit Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bop.com.pk/Documents/Resource_Center/Combined%20KFS%20conventional.pdf",
+      "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction",
+      "https://www.bop.com.pk/view.aspx?id=3567"
+    ],
+    "checked_html_sources": [
+      "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction",
+      "https://www.bop.com.pk/view.aspx?id=3567"
+    ],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "bank-of-punjab--bop-world-credit-card",
+    "bank_name": "Bank of Punjab",
+    "card_name": "BOP World Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bop.com.pk/BOPCreditCards",
+      "https://www.bop.com.pk/view.aspx?id=3373"
+    ],
+    "checked_html_sources": [
+      "https://www.bop.com.pk/BOPCreditCards",
+      "https://www.bop.com.pk/view.aspx?id=3373"
+    ],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "bank-of-punjab--bop-mastercard-platinum-credit-card",
+    "bank_name": "Bank of Punjab",
+    "card_name": "BOP Mastercard Platinum Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bop.com.pk/BOPCreditCards",
+      "https://www.bop.com.pk/view.aspx?id=3373",
+      "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf"
+    ],
+    "checked_html_sources": [
+      "https://www.bop.com.pk/BOPCreditCards",
+      "https://www.bop.com.pk/view.aspx?id=3373"
+    ],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "bank-of-punjab--bop-mastercard-gold-credit-card",
+    "bank_name": "Bank of Punjab",
+    "card_name": "BOP Mastercard Gold Credit Card",
+    "missing_fields": [
+      "salary",
+      "balance"
+    ],
+    "source_urls": [
+      "https://www.bop.com.pk/BOPCreditCards",
+      "https://www.bop.com.pk/view.aspx?id=3373"
+    ],
+    "checked_html_sources": [
+      "https://www.bop.com.pk/BOPCreditCards",
+      "https://www.bop.com.pk/view.aspx?id=3373"
+    ],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-debit-card",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Premier Visa Infinite Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "bank-alfalah--bank-alfalah-islamic-premier-visa-infinite-debit-card",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "askari-bank--askari-world-mastercard-credit-card",
+    "bank_name": "Askari Bank Limited",
+    "card_name": "Askari World Mastercard Credit Card",
+    "missing_fields": [
+      "balance"
+    ],
+    "source_urls": [
+      "https://askaribank.com/personal/cards/askari-world-mastercard-credit-card",
+      "https://askaribank.com/gallery/SOC%2001-01-2026%20Final-1212025.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "al-baraka--unionpay-gold-debit-card",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "UnionPay Gold Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "al-baraka--mastercard-platinum-debit-card",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Platinum Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  },
+  {
+    "card_id": "al-baraka--mastercard-gold-debit-card",
+    "bank_name": "Al Baraka Bank",
+    "card_name": "Mastercard Gold Debit Card",
+    "missing_fields": [
+      "salary"
+    ],
+    "source_urls": [
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+      "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
+    ],
+    "checked_html_sources": [],
+    "linked_account_leads": [],
+    "lead_count": 0
+  }
+]

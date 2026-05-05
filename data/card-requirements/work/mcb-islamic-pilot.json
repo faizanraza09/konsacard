@@ -17,12 +17,13 @@
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
-        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+        "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Annual fee is PKR 2,600 plus FED.",
-        "MCB Islamic Shandaar and Asaan current-account pages publicly show no minimum balance requirement for eligible accountholders."
+        "MCB Islamic Shandaar Account page says debit-card issuance and annual/renewal charges are free for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
+        "Public account pages used in this pass show no minimum balance requirement for eligible current-account relationships."
       ]
     },
     {
@@ -33,18 +34,19 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 3200,
-        "annual_fee_waiver_rule": "Shandaar Account first issuance free rule applies.",
+        "annual_fee_waiver_rule": "MCB Islamic Shandaar Account waives new and annual/renewal debit-card charges for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
-        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+        "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Annual fee is PKR 3,200 plus FED.",
-        "MCB Islamic Shandaar and Asaan current-account pages publicly show no minimum balance requirement for eligible accountholders."
+        "MCB Islamic Shandaar Account page says debit-card issuance and annual/renewal charges are free for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
+        "Public account pages used in this pass show no minimum balance requirement for eligible current-account relationships."
       ]
     },
     {
@@ -61,13 +63,13 @@
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
-        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+        "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Annual fee is PKR 7,750 plus FED.",
-        "Shandaar Account explicitly excludes UnionPay Platinum from first-issuance-free rule.",
-        "MCB Islamic Shandaar and Hidayat current-account pages publicly show no minimum balance requirement for eligible accountholders."
+        "Shandaar Account free debit-card criteria explicitly excludes Platinum from the new and annual/renewal waiver.",
+        "Public account pages used in this pass show no minimum balance requirement for eligible current-account relationships."
       ]
     },
     {
@@ -79,7 +81,7 @@
         "minimum_account_balance_pkr": 0,
         "minimum_deposit_pkr": 100,
         "annual_fee_pkr": 2200,
-        "annual_fee_waiver_rule": "Shandaar Account first issuance free rule applies.",
+        "annual_fee_waiver_rule": "MCB Islamic Shandaar Account waives new and annual/renewal debit-card charges for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -88,13 +90,14 @@
         "https://www.mcbislamicbank.com/personal/products/current-accounts/asaan-current-account/",
         "https://www.mcbislamicbank.com/personal/products/personal-digital-account/mcb-islamic-asaan-digital-current-account/",
         "https://www.mcbislamicbank.com/personal/products/current-accounts/asaan-remittance-current-account/",
-        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+        "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Annual fee is PKR 2,200 plus FED.",
         "Asaan Current and Asaan Digital Current accounts show PKR 100 initial deposit and no minimum balance.",
-        "Asaan Remittance Current Account shows nil initial deposit and no minimum balance."
+        "Asaan Remittance Current Account shows nil initial deposit and no minimum balance.",
+        "Shandaar Account page waives new and annual/renewal debit-card charges for non-Platinum variants under the published PKR 25,000 opening-month or previous-month-average-balance criteria."
       ]
     },
     {
@@ -105,18 +108,19 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2950,
-        "annual_fee_waiver_rule": "Official Visa Classic page shows PKR 2,950 + FED issuance, annual, and replacement fee. Shandaar Account says first issuance is free.",
+        "annual_fee_waiver_rule": "MCB Islamic Shandaar Account waives new and annual/renewal debit-card charges for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/visa-cards/visa-classic/",
-        "https://www.mcbislamicbank.com/personal/products/shandaar-account/"
+        "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Official Visa Classic page exposes PKR 2,950 + FED issuance, annual, and replacement fee.",
-        "Eligibility note says all singly operated PKR accounts for individual, joint (primary), and sole proprietor customers."
+        "Eligibility note says all singly operated PKR accounts for individual, joint (primary), and sole proprietor customers.",
+        "Shandaar Account page publishes the non-Platinum annual/renewal waiver criteria at PKR 25,000 opening-month deposit or PKR 25,000 previous-month average balance."
       ]
     }
   ],

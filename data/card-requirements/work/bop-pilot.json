@@ -55,21 +55,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 15000,
+        "annual_fee_pkr": 18000,
         "supplementary_annual_fee_pkr": 9000,
-        "annual_fee_waiver_rule": "Specially discounted World Debit Card pricing for KHAAS/Priority customers.",
+        "annual_fee_waiver_rule": "Priority-marked KHAAS/current-account customers get discounted World Debit Card pricing; non-priority public KFS shows PKR 18,000 annual and PKR 9,000 supplementary.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.bop.com.pk/view.aspx?id=3526",
-        "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20%28Latest%20%E2%80%93%20w.e.f%2001-07-2024%29.pdf",
-        "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction"
+        "https://www.bop.com.pk/Documents/Resource_Center/Combined%20KFS%20conventional.pdf",
+        "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction",
+        "https://www.bop.com.pk/view.aspx?id=3567"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
-        "Non-priority pricing appears at PKR 15,000 annual fee and PKR 9,000 supplementary.",
-        "KHAAS/Priority current and saving customers have subsidized fee tiers."
+        "Latest surfaced conventional KFS shows non-priority World Debit pricing at PKR 18,000 annual and PKR 9,000 supplementary.",
+        "BOP KHAAS public pages still show discounted pricing for qualifying KHAAS/Priority relationships rather than a single universal fee."
       ]
     },
     {
@@ -102,21 +102,20 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
-        "supplementary_annual_fee_pkr": 1300,
+        "annual_fee_pkr": 3000,
+        "supplementary_annual_fee_pkr": 1400,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bop.com.pk/view.aspx?id=3381",
-        "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20%28Latest%20%E2%80%93%20w.e.f%2001-07-2024%29.pdf",
-        "https://www.bop.com.pk/view.aspx?id=3373"
+        "https://www.bop.com.pk/Documents/Resource_Center/Combined%20KFS%20conventional.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Co-branded card; no publicly disclosed salary, balance, or fee threshold.",
-        "New customers must open an account first; no numeric threshold was surfaced."
+        "Latest surfaced conventional KFS shows PKR 3,000 issuance/renewal/replacement and PKR 1,400 supplementary.",
+        "New customers must open an account first; no numeric salary or balance threshold was surfaced on the public card page."
       ]
     },
     {
@@ -126,7 +125,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 3000,
+        "annual_fee_pkr": 3600,
         "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -135,12 +134,11 @@
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/Combined%20KFS%20conventional.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
+        "Latest surfaced conventional KFS shows PKR 3,600 annual fee and PKR 1,500 supplementary.",
         "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
       ]
     },
@@ -175,7 +173,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 4500,
+        "annual_fee_pkr": 6000,
         "supplementary_annual_fee_pkr": 2500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -184,12 +182,11 @@
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/Combined%20KFS%20conventional.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
+        "Latest surfaced conventional KFS shows PKR 6,000 annual fee and PKR 2,500 supplementary.",
         "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
       ]
     },
@@ -200,7 +197,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2300,
+        "annual_fee_pkr": 2800,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -208,15 +205,12 @@
       },
       "sources": [
         "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20English%20Version%20%2001-07-2025.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/con%20SOBC%20-%20English%20-%20Jan-June%20%202026.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/Combined%20KFS%20conventional.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
+        "Latest surfaced conventional KFS shows PKR 2,800 annual fee.",
         "Current forms use Classic where older BOP forms used Silver, so this is the best current alias target for Mastercard Silver Debit Card.",
-        "Official BOP SOBC PDFs now surface the Classic Debit Master Card issuance/renewal/replacement fee at PKR 2,600 per annum.",
         "No public BOP page or PDF found in this pass that defensibly states a universal salary or balance threshold for this generic account-linked card."
       ]
     },
@@ -227,7 +221,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 6000,
         "supplementary_annual_fee_pkr": 2500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
@@ -235,14 +229,13 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Current%20Account%20PKR%2032%20%281%29.pdf",
         "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20BOP%20at%20Work%20Saving%20%20Account%20%28Form%2030%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Taqwa Islamic card; no publicly disclosed fee or eligibility threshold.",
+        "Latest surfaced Islamic KFS shows PKR 6,000 issuance/renewal/replacement and PKR 2,500 supplementary for Platinum debit.",
         "This is an Islamic account-linked Platinum tier rather than a standalone retail product page.",
         "PKR 300,000 salary threshold is the surfaced Taqwa BOP@Work route rather than a universal card rule."
       ]
@@ -254,21 +247,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 0,
         "supplementary_annual_fee_pkr": 3000,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "Zero issuance and renewal for priority-marked KHAAS Islamic accounts; non-priority public Islamic KFS shows PKR 6,000 plus PKR 3,000 supplementary.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "existing_account_required": true
       },
       "sources": [
-        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Current%20Account%20PKR%2032%20%281%29.pdf",
         "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20BOP%20at%20Work%20Saving%20%20Account%20%28Form%2030%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
+        "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Taqwa Islamic card; no publicly disclosed fee or eligibility threshold.",
+        "Islamic KFS surfaces zero issuance/renewal for priority-marked KHAAS Platinum and PKR 3,000 supplementary; non-priority pricing still appears separately.",
         "Islamic/KHAAS wrapper around the KHAAS platinum concept, distinct from the conventional KHAAS Platinum record."
       ]
     },
@@ -279,20 +272,20 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 18000,
+        "annual_fee_waiver_rule": "Priority-marked Islamic KHAAS accounts get discounted World Debit pricing; surfaced Islamic KFS shows PKR 18,000 non-priority annual pricing.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "existing_account_required": true
       },
       "sources": [
-        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Current%20Account%20PKR%2032%20%281%29.pdf",
         "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/Taqwa%20Rahat%20Corporate%20Saving%20Account%20%28Form%2015%29.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/RDA%20Conventional%20SOBC%20Jan%20to%20June%202025-%20English.pdf"
+        "https://www.bop.com.pk/BOP%20Khaas%20Banking%20-%20Introduction"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Taqwa World Islamic card; no publicly disclosed eligibility threshold or fee.",
+        "Latest surfaced Islamic KFS shows PKR 18,000 annual for non-priority World Debit; KHAAS/Priority relationships still receive discounted pricing.",
         "Recovered as an Islamic account-linked World tier rather than from a standalone card landing page."
       ]
     },
@@ -303,9 +296,9 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 1000,
-        "annual_fee_pkr": 0,
+        "annual_fee_pkr": 2400,
         "supplementary_annual_fee_pkr": 1100,
-        "annual_fee_waiver_rule": "Issued free on surfaced Naaz account documents; renewal/replacement fees apply by account context.",
+        "annual_fee_waiver_rule": "Issued free with BOP Naaz Current Account; current public KFS shows PKR 2,400 on renewal/replacement and PKR 1,100 supplementary.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "existing_account_required": true
@@ -314,11 +307,12 @@
         "https://www.bop.com.pk/BOPNaaz",
         "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/RBG/English/BOP%20NAAZ%20%28Current%20Account%29.pdf",
         "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/ISL/English/TAQWA%20Naaz%20Account%20-%20Saving.pdf",
-        "https://www.bop.com.pk/Documents/Resource_Center/TIB%20SOBC-English%20July-December%202025.pdf"
+        "https://www.bop.com.pk/Documents/Resource_Center/BOPKFS/RBG/English/BOP%20NAAZ%20Account%20%28Saving%20Account%29.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Women-account-linked card marketed as Naaz Debit Card.",
+        "The public Naaz page states free issuance with Naaz Current Account, while current KFS PDFs now surface PKR 2,400 renewal/replacement and PKR 1,100 supplementary.",
         "The PKR 1,000 threshold comes from the surfaced Taqwa Naaz Saving opening amount rather than a universal card rule."
       ]
     },

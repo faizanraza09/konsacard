@@ -79,22 +79,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "minimum_average_balance_pkr": 100000,
+        "minimum_average_balance_pkr": 250000,
         "annual_fee_pkr": 1650,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "Free annual fee on JS PLS Savings Account when PKR 250,000 monthly average balance is maintained.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.jsbl.com/personal/accounts/current-accounts/js-current-account/",
-        "https://www.jsbl.com/js-current-accounts/",
+        "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
         "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Annual fee PKR 1,650 from Jul-Dec 2025 SOC. Annual retention fee PKR 950. No salary or balance threshold found.",
-        "JS Current Account page presents PKR 100,000 as the balance needed for annual-fee waiver, not as a hard card-eligibility threshold.",
-        "JS Bank's Mar 2026 deposit KFS shows current-account variants with nil balance-to-keep while fee waivers remain tied to average-balance bands."
+        "Annual fee PKR 1,650 from Jul-Dec 2025 SOC. Annual retention fee PKR 950.",
+        "Current JS PLS Savings public page makes the clearest current official waiver route: free Gold debit card annual fee at PKR 250,000 monthly average balance.",
+        "This remains an account-linked debit card rather than a salary-gated retail card."
       ]
     },
     {
@@ -144,18 +143,20 @@
       "tier": "titanium",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 25000,
+        "minimum_account_balance_pkr": 50000,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Free if PKR 25,000 average balance maintained",
+        "annual_fee_waiver_rule": "Free on JS HER Current Account when PKR 50,000 average balance is maintained.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
+        "https://www.jsbl.com/her-finances/",
         "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Women-targeted card. Zero annual fee if PKR 25,000 average balance maintained. PKR 25,000 balance requirement from Jul-Dec 2025 SOC."
+        "Women-targeted card. Current JS HER public material surfaces PKR 50,000 as the average-balance threshold for free Titanium debit annual fee.",
+        "Earlier lower-balance thresholds were replaced with the current official public JS HER route."
       ]
     },
     {
@@ -165,17 +166,20 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
+        "minimum_average_balance_pkr": 150000,
         "annual_fee_pkr": 3000,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "Annual fee waived on JS Platinum Business Current Account when PKR 150,000 average balance is maintained over the past three months.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
+        "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
         "https://www.jsbl.com/wp-content/uploads/2025/05/Schedule-of-Charges-Jul-to-Dec-2025-Eng.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Annual fee PKR 3,000. Annual retention fee PKR 12,500. No salary or balance threshold found."
+        "Annual fee PKR 3,000 from Jul-Dec 2025 SOC.",
+        "Current public JS Platinum Business Current Account page surfaces a clear annual-fee-waiver route at PKR 150,000 average balance over the past three months."
       ]
     },
     {

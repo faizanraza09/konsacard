@@ -16,15 +16,13 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
-        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "No salary or balance threshold. Fee from 2026 SOC.",
-        "Jul-Dec 2025 SOC shows PKR 2,200; Jan-Jun 2025 SOC showed PKR 2,000.",
-        "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+        "Jan-Jun 2026 current-account and saving-account KFS pages list Classic UnionPay annual fee at PKR 2,500.",
+        "Jan-Jun 2026 current-account KFS also shows PKR 100 to open and NIL balance to keep across the ordinary PKR current-account variants surfaced publicly in this pass."
       ]
     },
     {
@@ -40,15 +38,14 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
-        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Balance requirement confirmed from 2025 SOC. Fee from 2026 SOC.",
-        "Jul-Dec 2025 SOC shows PKR 2,700; Jan-Jun 2025 SOC showed PKR 2,500.",
-        "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+        "Jan-Jun 2026 KFS pages list UnionPay Gold annual fee at PKR 3,500.",
+        "The retained PKR 100,000 balance threshold comes from the official Jan-Jun 2025 SOC; current KFS pages do not restate a numeric Gold balance requirement."
       ]
     },
     {
@@ -64,15 +61,14 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
-        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Balance requirement confirmed from 2025 SOC. Fee retained from 2026 SOC (PKR 10,000).",
-        "Jul-Dec 2025 SOC shows PKR 8,000; Jan-Jun 2025 SOC showed PKR 7,500.",
-        "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+        "Jan-Jun 2026 KFS pages list Platinum MasterCard annual fee at PKR 10,000.",
+        "The retained PKR 100,000 balance threshold comes from the official Jan-Jun 2025 SOC; current KFS pages do not restate a numeric Platinum balance requirement."
       ]
     },
     {
@@ -88,14 +84,13 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.albaraka.com.pk/uploads/AB-SOC-July-to-December-2025.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
-        "https://www.albaraka.com.pk/uploads/Al%20Baraka%20-%20Terms%20%26%20Condition%20Form%2010-10-2024.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "No salary or balance threshold. Fee from 2026 SOC.",
-        "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+        "Jan-Jun 2026 current-account and saving-account KFS pages list PayPak Standard annual fee at PKR 2,200.",
+        "Jan-Jun 2026 current-account KFS also shows PKR 100 to open and NIL balance to keep across the ordinary PKR current-account variants surfaced publicly in this pass."
       ]
     },
     {
@@ -111,11 +106,13 @@
         "maximum_age_years": null
       },
       "sources": [
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
         "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Balance requirement from 2025 SOC. Fee from 2026 SOC."
+        "Jan-Jun 2026 saving-account KFS lists Gold MasterCard annual fee at PKR 4,500.",
+        "The retained balance requirement comes from the official Jan-Jun 2025 SOC; the current KFS does not restate a numeric Gold balance threshold."
       ]
     },
     {
@@ -131,11 +128,13 @@
         "maximum_age_years": null
       },
       "sources": [
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
         "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Balance requirement from 2025 SOC. Fee from 2026 SOC."
+        "Jan-Jun 2026 saving-account KFS labels the product slot as Classic MasterCard and lists PKR 3,200 annual fee.",
+        "The retained PKR 10,000 balance and waiver note come from older official public material; the current KFS does not restate a silver-tier balance rule."
       ]
     },
     {
@@ -151,11 +150,12 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.albaraka.com.pk/page/al-baraka-unionpay-debit-card/"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "No salary or balance threshold. Fee from 2026 SOC."
+        "Jan-Jun 2026 saving-account KFS labels the active fee row as Classic Union Pay Int. and lists PKR 2,500 annual fee.",
+        "The pilot record keeps the older Silver naming, but the current public KFS uses Classic rather than Silver terminology."
       ]
     },
     {
@@ -171,11 +171,13 @@
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.albaraka.com.pk/downloads-documents/Key%20Fact%20Statement%20Saving%20accounts%20-%20Sep.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Minimal PKR 100 opening requirement from KFS. No salary threshold. Fee from 2026 SOC."
+        "Jan-Jun 2026 KFS pages list PayPak NexGen annual fee at PKR 2,200.",
+        "Current-account KFS shows PKR 100 opening amount and NIL balance to keep for the public PKR current-account variants surfaced in this pass."
       ]
     }
   ],

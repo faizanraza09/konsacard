@@ -10,8 +10,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": "No average balance condition",
+        "annual_fee_pkr": 2900,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -24,6 +24,7 @@
       "confidence": "high",
       "notes": [
         "No minimum balance condition per official product page.",
+        "The public Jan-Jun 2026 SOC lists Classic Debit Mastercard issuance, annual subscription, and replacement at PKR 2,900.",
         "Fee logic depends partly on the underlying account relationship."
       ]
     },
@@ -34,8 +35,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": "No average balance condition",
+        "annual_fee_pkr": 1800,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -47,7 +48,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "No minimum balance condition per official product page."
+        "No minimum balance condition per official product page.",
+        "The public Jan-Jun 2026 SOC lists PayPak Debit Card issuance, annual subscription, and replacement at PKR 1,800."
       ]
     },
     {
@@ -57,7 +59,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 25000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 4000,
         "annual_fee_waiver_rule": "Fee waived if PKR 25,000 average monthly balance maintained",
         "minimum_age_years": null,
         "maximum_age_years": null

@@ -10,8 +10,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 3500,
+        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -23,7 +23,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "No publicly disclosed salary or balance threshold.",
+        "Official Jan-Jun 2026 SOC lists Visa Silver issuance and annual fee at PKR 3,500 each.",
+        "Meezan Plus account holders maintaining PKR 200,000 monthly average balance receive an annual-fee waiver.",
         "General eligibility appears to be tied to having a Meezan account."
       ]
     },
@@ -34,8 +35,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 4500,
+        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -47,7 +48,8 @@
       ],
       "confidence": "medium",
       "notes": [
-        "No publicly disclosed salary or balance threshold."
+        "Official Jan-Jun 2026 SOC lists Visa Gold issuance and annual fee at PKR 4,500 each.",
+        "Meezan Plus account holders maintaining PKR 200,000 monthly average balance receive an annual-fee waiver."
       ]
     },
     {
@@ -56,11 +58,11 @@
       "tier": "infinite",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 1000000,
         "minimum_average_balance_pkr": 1000000,
         "minimum_relationship_balance_pkr": 15000000,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 42500,
+        "annual_fee_waiver_rule": "Charges are waived for Premium customers maintaining average monthly balance of PKR 15,000,000 in checking accounts, PKR 20,000,000 across checking accounts and TDCs, or PKR 50,000,000 across checking accounts, TDCs, and Islamic Naya Pakistan Certificates from Meezan RDA.",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
@@ -69,11 +71,11 @@
         "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
         "https://www.meezanbank.com/premium-banking/"
       ],
-      "confidence": "low",
+      "confidence": "high",
       "notes": [
-        "No public salary, balance, or fee threshold found for Infinite tier.",
-        "There are two competing eligibility frames: premium-customer thresholds on the card page and a lower PKR 1,000,000 issuance or average-balance threshold in the SOC PDF.",
-        "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 1,000,000) while the higher relationship-balance criterion is preserved separately."
+        "Official Jan-Jun 2026 SOC lists Visa Infinite issuance and annual fee at PKR 42,500 each.",
+        "There are two competing eligibility frames: premium-customer thresholds on the Premium Banking page and a lower PKR 1,000,000 issuance or average-balance threshold in the SOC PDF.",
+        "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 1,000,000) while the higher premium-banking relationship criteria are preserved separately."
       ]
     },
     {
@@ -85,7 +87,7 @@
         "minimum_account_balance_pkr": 5000000,
         "minimum_average_balance_pkr": 500000,
         "minimum_relationship_balance_pkr": 5000000,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 27500,
         "annual_fee_waiver_rule": "Free for Meezan Premium Banking customers with PKR 5M in accounts or PKR 7M in TDCs",
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -97,6 +99,7 @@
       ],
       "confidence": "high",
       "notes": [
+        "Official Jan-Jun 2026 SOC lists Mastercard World issuance and annual fee at PKR 27,500 each.",
         "World Debit Card is part of Meezan Premium Banking. PKR 5,000,000 in accounts or PKR 7,000,000 in Term Deposit Certificates required. No annual fee for qualifying customers.",
         "There are two competing eligibility frames: premium-customer thresholds on the card page and a lower PKR 500,000 issuance or average-balance threshold in the SOC PDF.",
         "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 500,000) while the higher relationship-balance criterion is preserved separately."

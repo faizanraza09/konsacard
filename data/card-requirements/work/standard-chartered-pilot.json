@@ -59,25 +59,24 @@
       "tier": "titanium",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
+        "minimum_age_years": 21,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.sc.com/pk/credit-cards/",
         "https://www.sc.com/pk/credit-cards/master-card-titanium/",
         "https://www.sc.com/pk/credit-cards/master-card-titanium/apply-now/",
-        "https://av.sc.com/pk/content/docs/CC_Summary_Box.pdf",
         "https://av.sc.com/pk/content/docs/pk-annual-fee-reversal-criteria.pdf",
-        "https://www.sc.com/global/av/pk-completep-schedule-of-charges-eng.pdf"
+        "https://www.sc.com/pk/credit-cards/compare/"
       ],
       "confidence": "medium",
       "notes": [
-        "PKR 50,000 estimated minimum salary based on SCB standard credit card eligibility criteria.",
-        "Self-employed minimum age is 25 on public pages.",
-        "Current official Titanium product pages expose eligibility, but the current public conventional Summary Box / MID fee grid surfaced for Pakistan lists Platinum, World, and Easy Credit only, so annual_fee_pkr remains null."
+        "Current SC Pakistan credit-card pages explicitly surface monthly income above PKR 50,000 for Titanium.",
+        "Public card pages clearly surface age 21 for salaried applicants and 25 for self-employed applicants.",
+        "No public deposit threshold is surfaced for this unsecured credit-card product, so minimum_account_balance_pkr is treated as not required."
       ]
     },
     {
@@ -85,12 +84,12 @@
       "card_type": "credit",
       "tier": "easy-credit",
       "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 3000,
         "supplementary_annual_fee_pkr": 1000,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
+        "minimum_age_years": 21,
         "maximum_age_years": null
       },
       "sources": [
@@ -101,8 +100,9 @@
       ],
       "confidence": "high",
       "notes": [
+        "Current SC Pakistan credit-card landing page explicitly surfaces monthly income above PKR 50,000 for Easy Credit.",
         "PKR 3,000 annual renewal fee. Provides evergreen revolving credit line.",
-        "Self-employed minimum age is 25 on public pages."
+        "Public pages clearly surface age 21 for salaried applicants and 25 for self-employed applicants."
       ]
     },
     {
@@ -111,23 +111,25 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
+        "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": null,
         "supplementary_annual_fee_pkr": 6000,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
+        "minimum_age_years": 21,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.sc.com/pk/credit-cards/",
+        "https://www.sc.com/pk/credit-cards/mastercard-saadiq-platinum/",
         "https://www.sc.com/pk/credit-cards/mastercard-saadiq-platinum/apply-now/",
         "https://av.sc.com/pk/content/docs/pk-saadiq-credit-card-mid.pdf",
         "https://www.sc.com/pk/saadiq/"
       ],
       "confidence": "low",
       "notes": [
-        "5% cashback on dining, grocery, e-commerce. No public salary, balance, or fee threshold found.",
-        "Minimum monthly salary / income is inferred from the official apply-now form's lowest selectable income band, which starts at PKR 100,000; the public page does not state the threshold in prose."
+        "Current product page clearly surfaces age 21 for salaried applicants and 25 for self-employed applicants.",
+        "No public deposit threshold is surfaced for this unsecured credit-card product, so minimum_account_balance_pkr is treated as not required.",
+        "5% cashback on dining, grocery, e-commerce. No clean current public salary threshold or annual-fee figure was surfaced in prose or a current public SOC/MID."
       ]
     }
   ],

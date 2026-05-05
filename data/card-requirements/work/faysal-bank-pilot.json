@@ -128,16 +128,18 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/"
+        "https://www.faysalbank.com/personal/cards/",
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Amal Gold at PKR 3,300.",
         "No publicly disclosed salary or balance threshold."
       ]
     },
@@ -148,16 +150,18 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 7000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/"
+        "https://www.faysalbank.com/personal/cards/",
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Amal Platinum at PKR 7,000.",
         "No publicly disclosed salary or balance threshold."
       ]
     },
@@ -168,16 +172,18 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 2300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/"
+        "https://www.faysalbank.com/personal/cards/",
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Classic at PKR 2,300.",
         "No publicly disclosed salary or balance threshold."
       ]
     },
@@ -188,16 +194,18 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": null,
+        "annual_fee_pkr": 3300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/"
+        "https://www.faysalbank.com/personal/cards/",
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
+        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Gold at PKR 3,300.",
         "No publicly disclosed salary or balance threshold."
       ]
     },
