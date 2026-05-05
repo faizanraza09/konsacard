@@ -14,24 +14,30 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
+        "al-baraka-src-517996e599",
         "al-baraka-src-9bb6993f8b"
       ],
       "minimum_account_balance_pkr": [
+        "al-baraka-src-517996e599",
         "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_pkr": [
+        "al-baraka-src-517996e599",
         "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_waiver_rule": [
+        "al-baraka-src-517996e599",
         "al-baraka-src-9bb6993f8b"
       ]
     },
     "source_ids": [
+      "al-baraka-src-517996e599",
       "al-baraka-src-9bb6993f8b"
     ],
     "confidence": "high",
     "notes": [
-      "Balance requirement from 2025 SOC. Fee from 2026 SOC."
+      "Jan-Jun 2026 saving-account KFS labels the product slot as Classic MasterCard and lists PKR 3,200 annual fee.",
+      "The retained PKR 10,000 balance and waiver note come from older official public material; the current KFS does not restate a silver-tier balance rule."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -55,21 +61,26 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "al-baraka-src-4d99915c36"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ],
       "minimum_account_balance_pkr": [
-        "al-baraka-src-4d99915c36"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ],
       "annual_fee_pkr": [
-        "al-baraka-src-4d99915c36"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ]
     },
     "source_ids": [
-      "al-baraka-src-4d99915c36"
+      "al-baraka-src-df75da52f0",
+      "al-baraka-src-517996e599"
     ],
     "confidence": "high",
     "notes": [
-      "Minimal PKR 100 opening requirement from KFS. No salary threshold. Fee from 2026 SOC."
+      "Jan-Jun 2026 KFS pages list PayPak NexGen annual fee at PKR 2,200.",
+      "Current-account KFS shows PKR 100 opening amount and NIL balance to keep for the public PKR current-account variants surfaced in this pass."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -93,30 +104,26 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ],
       "minimum_account_balance_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ],
       "annual_fee_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ]
     },
     "source_ids": [
-      "al-baraka-src-bb81a92b2c",
-      "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-df75da52f0",
+      "al-baraka-src-517996e599"
     ],
     "confidence": "high",
     "notes": [
-      "No salary or balance threshold. Fee from 2026 SOC.",
-      "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+      "Jan-Jun 2026 current-account and saving-account KFS pages list PayPak Standard annual fee at PKR 2,200.",
+      "Jan-Jun 2026 current-account KFS also shows PKR 100 to open and NIL balance to keep across the ordinary PKR current-account variants surfaced publicly in this pass."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -140,31 +147,26 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ],
       "minimum_account_balance_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ],
       "annual_fee_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599"
       ]
     },
     "source_ids": [
-      "al-baraka-src-bb81a92b2c",
-      "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-df75da52f0",
+      "al-baraka-src-517996e599"
     ],
     "confidence": "high",
     "notes": [
-      "No salary or balance threshold. Fee from 2026 SOC.",
-      "Jul-Dec 2025 SOC shows PKR 2,200; Jan-Jun 2025 SOC showed PKR 2,000.",
-      "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+      "Jan-Jun 2026 current-account and saving-account KFS pages list Classic UnionPay annual fee at PKR 2,500.",
+      "Jan-Jun 2026 current-account KFS also shows PKR 100 to open and NIL balance to keep across the ordinary PKR current-account variants surfaced publicly in this pass."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -188,21 +190,22 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "al-baraka-src-9a16c33595"
+        "al-baraka-src-517996e599"
       ],
       "minimum_account_balance_pkr": [
-        "al-baraka-src-9a16c33595"
+        "al-baraka-src-517996e599"
       ],
       "annual_fee_pkr": [
-        "al-baraka-src-9a16c33595"
+        "al-baraka-src-517996e599"
       ]
     },
     "source_ids": [
-      "al-baraka-src-9a16c33595"
+      "al-baraka-src-517996e599"
     ],
     "confidence": "medium",
     "notes": [
-      "No salary or balance threshold. Fee from 2026 SOC."
+      "Jan-Jun 2026 saving-account KFS labels the active fee row as Classic Union Pay Int. and lists PKR 2,500 annual fee.",
+      "The pilot record keeps the older Silver naming, but the current public KFS uses Classic rather than Silver terminology."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -226,21 +229,26 @@
     },
     "requirement_sources": {
       "minimum_account_balance_pkr": [
+        "al-baraka-src-517996e599",
         "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_pkr": [
+        "al-baraka-src-517996e599",
         "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_waiver_rule": [
+        "al-baraka-src-517996e599",
         "al-baraka-src-9bb6993f8b"
       ]
     },
     "source_ids": [
+      "al-baraka-src-517996e599",
       "al-baraka-src-9bb6993f8b"
     ],
     "confidence": "high",
     "notes": [
-      "Balance requirement from 2025 SOC. Fee from 2026 SOC."
+      "Jan-Jun 2026 saving-account KFS lists Gold MasterCard annual fee at PKR 4,500.",
+      "The retained balance requirement comes from the official Jan-Jun 2025 SOC; the current KFS does not restate a numeric Gold balance threshold."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -264,31 +272,30 @@
     },
     "requirement_sources": {
       "minimum_account_balance_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599",
+        "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599",
+        "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_waiver_rule": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599",
+        "al-baraka-src-9bb6993f8b"
       ]
     },
     "source_ids": [
-      "al-baraka-src-bb81a92b2c",
-      "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-df75da52f0",
+      "al-baraka-src-517996e599",
+      "al-baraka-src-9bb6993f8b"
     ],
     "confidence": "high",
     "notes": [
-      "Balance requirement confirmed from 2025 SOC. Fee retained from 2026 SOC (PKR 10,000).",
-      "Jul-Dec 2025 SOC shows PKR 8,000; Jan-Jun 2025 SOC showed PKR 7,500.",
-      "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+      "Jan-Jun 2026 KFS pages list Platinum MasterCard annual fee at PKR 10,000.",
+      "The retained PKR 100,000 balance threshold comes from the official Jan-Jun 2025 SOC; current KFS pages do not restate a numeric Platinum balance requirement."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -312,31 +319,30 @@
     },
     "requirement_sources": {
       "minimum_account_balance_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599",
+        "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_pkr": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599",
+        "al-baraka-src-9bb6993f8b"
       ],
       "annual_fee_waiver_rule": [
-        "al-baraka-src-bb81a92b2c",
-        "al-baraka-src-9bb6993f8b",
-        "al-baraka-src-c74d09b980"
+        "al-baraka-src-df75da52f0",
+        "al-baraka-src-517996e599",
+        "al-baraka-src-9bb6993f8b"
       ]
     },
     "source_ids": [
-      "al-baraka-src-bb81a92b2c",
-      "al-baraka-src-9bb6993f8b",
-      "al-baraka-src-c74d09b980"
+      "al-baraka-src-df75da52f0",
+      "al-baraka-src-517996e599",
+      "al-baraka-src-9bb6993f8b"
     ],
     "confidence": "high",
     "notes": [
-      "Balance requirement confirmed from 2025 SOC. Fee from 2026 SOC.",
-      "Jul-Dec 2025 SOC shows PKR 2,700; Jan-Jun 2025 SOC showed PKR 2,500.",
-      "Current-account FAQ and Jan-Jun 2026 KFS surface a PKR 100 opening amount and nil balance-to-keep on ordinary current-account relationships."
+      "Jan-Jun 2026 KFS pages list UnionPay Gold annual fee at PKR 3,500.",
+      "The retained PKR 100,000 balance threshold comes from the official Jan-Jun 2025 SOC; current KFS pages do not restate a numeric Gold balance requirement."
     ],
     "bank_gaps": [
       "No public consumer credit-card catalogue was found in this pass.",
@@ -869,33 +875,33 @@
     "card_name": "Allied Visa Gold Credit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": 0,
+      "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 2500,
       "annual_fee_waiver_rule": "Spend PKR 25,000 within 3 months.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
-      "minimum_account_balance_pkr": [
-        "allied-bank-src-37254e5ede",
-        "allied-bank-src-890e3f0567"
-      ],
       "annual_fee_pkr": [
         "allied-bank-src-37254e5ede",
+        "allied-bank-src-c0fcd4b868",
         "allied-bank-src-890e3f0567"
       ],
       "annual_fee_waiver_rule": [
         "allied-bank-src-37254e5ede",
+        "allied-bank-src-c0fcd4b868",
         "allied-bank-src-890e3f0567"
       ]
     },
     "source_ids": [
       "allied-bank-src-37254e5ede",
+      "allied-bank-src-c0fcd4b868",
       "allied-bank-src-890e3f0567"
     ],
     "confidence": "medium",
     "notes": [
-      "Current official pages did not cleanly expose salary, balance, or age criteria."
+      "Current official pages did not cleanly expose salary, balance, or age criteria.",
+      "Latest public Allied Visa Credit Card Summary Box effective July 1, 2025 shows Gold annual fee of PKR 2,500 and reversal on PKR 25,000 spend within 3 months."
     ],
     "bank_gaps": [
       "Credit-card salary, balance, and age thresholds were not cleanly exposed on the official pages found.",
@@ -911,32 +917,34 @@
     "card_name": "Allied Visa Platinum Credit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": 0,
+      "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 5000,
       "annual_fee_waiver_rule": "Spend PKR 50,000 within 3 months.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
-      "minimum_account_balance_pkr": [
-        "allied-bank-src-676d1ecb55",
-        "allied-bank-src-890e3f0567"
-      ],
       "annual_fee_pkr": [
         "allied-bank-src-676d1ecb55",
+        "allied-bank-src-c0fcd4b868",
         "allied-bank-src-890e3f0567"
       ],
       "annual_fee_waiver_rule": [
         "allied-bank-src-676d1ecb55",
+        "allied-bank-src-c0fcd4b868",
         "allied-bank-src-890e3f0567"
       ]
     },
     "source_ids": [
       "allied-bank-src-676d1ecb55",
+      "allied-bank-src-c0fcd4b868",
       "allied-bank-src-890e3f0567"
     ],
     "confidence": "medium",
-    "notes": [],
+    "notes": [
+      "Latest public Allied Visa Credit Card Summary Box effective July 1, 2025 shows Platinum annual fee of PKR 5,000 and reversal on PKR 50,000 spend within 3 months.",
+      "Current official pages still do not expose a public salary, balance, or age threshold."
+    ],
     "bank_gaps": [
       "Credit-card salary, balance, and age thresholds were not cleanly exposed on the official pages found.",
       "Some debit-card annual fees are visible in the SOC, but not every row could be assigned to a named card with high confidence.",
@@ -950,7 +958,7 @@
     "bank_name": "Askari Bank Limited",
     "card_name": "Askari Mastercard Classic Credit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 50000,
+      "minimum_monthly_salary_pkr": 35000,
       "minimum_relationship_balance_pkr": 150000,
       "annual_fee_pkr": 5000,
       "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
@@ -992,11 +1000,12 @@
       "askari-bank-src-67faa3eae0",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Shared eligibility grid across Classic, Gold, and Platinum.",
-      "Different salary thresholds are shown for approved companies, non-approved companies, and GOP/Semi-Govt/Autonomous categories.",
-      "SEB/SEP threshold is described as PKR 150,000 average balance."
+      "Shared public eligibility grid across Classic, Gold, and Platinum.",
+      "The lowest published salaried threshold on the official page is PKR 35,000 for GOP/Semi-Govt./Autonomous permanent employees; approved-company and non-approved-company applicants are shown at higher salary bands.",
+      "SEB/SEP applicants are shown separately on the official page with PKR 150,000 average-balance criterion.",
+      "The FAQ on the same page splits maximum age as 60 for permanent salaried, 65 for contractual salaried/pensioners, and 70 for SEB/SEP."
     ],
     "bank_gaps": [
       "Debit-card pages do not clearly publish age criteria.",
@@ -1011,7 +1020,7 @@
     "bank_name": "Askari Bank Limited",
     "card_name": "Askari Mastercard Gold Credit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 50000,
+      "minimum_monthly_salary_pkr": 35000,
       "minimum_relationship_balance_pkr": 150000,
       "annual_fee_pkr": 11000,
       "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
@@ -1053,9 +1062,11 @@
       "askari-bank-src-67faa3eae0",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Eligibility comes from the shared Mastercard page, not a card-specific page."
+      "Eligibility comes from the shared Mastercard page rather than a Gold-only page.",
+      "The lowest published salaried threshold on that page is PKR 35,000 for GOP/Semi-Govt./Autonomous permanent employees; other salaried categories are higher.",
+      "SEB/SEP applicants are shown separately with PKR 150,000 average-balance criterion."
     ],
     "bank_gaps": [
       "Debit-card pages do not clearly publish age criteria.",
@@ -1070,7 +1081,7 @@
     "bank_name": "Askari Bank Limited",
     "card_name": "Askari Mastercard Platinum Credit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 50000,
+      "minimum_monthly_salary_pkr": 35000,
       "minimum_relationship_balance_pkr": 150000,
       "annual_fee_pkr": 19500,
       "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
@@ -1112,9 +1123,11 @@
       "askari-bank-src-67faa3eae0",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Eligibility comes from the shared Mastercard page, not a card-specific page."
+      "Eligibility comes from the shared Mastercard page rather than a Platinum-only page.",
+      "The lowest published salaried threshold on that page is PKR 35,000 for GOP/Semi-Govt./Autonomous permanent employees; other salaried categories are higher.",
+      "SEB/SEP applicants are shown separately with PKR 150,000 average-balance criterion."
     ],
     "bank_gaps": [
       "Debit-card pages do not clearly publish age criteria.",
@@ -1169,10 +1182,11 @@
       "askari-bank-src-e56a35371b",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "PayPak debit issuance is account-linked rather than salary-gated on the public card page.",
-      "Official Askari Asaan Current and Asaan Saving account pages surface no minimum balance requirement and explicitly frame PayPak issuance against those no-minimum-balance products."
+      "Official Askari Asaan Current and Asaan Saving account pages surface PKR 100 opening amount and no minimum balance requirement.",
+      "Those no-minimum-balance account pages advertise PayPak debit card issuance, while the SOC provides the standard joining and annual fee."
     ],
     "bank_gaps": [
       "Debit-card pages do not clearly publish age criteria.",
@@ -1212,7 +1226,7 @@
       "askari-bank-src-99da203940",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Card page says no minimum balance requirement for issuance or retention."
     ],
@@ -1232,7 +1246,7 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_relationship_balance_pkr": 5000000,
       "annual_fee_pkr": 18000,
-      "annual_fee_waiver_rule": "Waived if the required minimum average quarterly balance is maintained.",
+      "annual_fee_waiver_rule": "Relationship-based eligibility page shows the card for customers maintaining PKR 5,000,000 quarterly average relationship; SOC lists PKR 18,000 standard annual fee.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "minimum_account_balance_pkr": 5000000
@@ -1263,10 +1277,10 @@
       "askari-bank-src-99da203940",
       "askari-bank-src-72c9635352"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Eligibility is deposit-based rather than salary-based on the official card page.",
-      "Page frames the card as free for eligible relationship customers, while the SOC lists a standard PKR 18,000 fee."
+      "Eligibility is relationship-balance based rather than salary based on the official card page.",
+      "The page shows PKR 5,000,000 quarterly average relationship for conventional current, Islamic current, Islamic savings, or CASA relationship."
     ],
     "bank_gaps": [
       "Debit-card pages do not clearly publish age criteria.",
@@ -1282,19 +1296,14 @@
     "card_name": "Askari World Mastercard Credit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": 1000000,
-      "minimum_relationship_balance_pkr": 2000000,
+      "minimum_relationship_balance_pkr": null,
       "annual_fee_pkr": 23000,
       "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
       "minimum_age_years": 21,
-      "maximum_age_years": 70,
-      "minimum_account_balance_pkr": 2000000
+      "maximum_age_years": 70
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "askari-bank-src-b13de780a9",
-        "askari-bank-src-72c9635352"
-      ],
-      "minimum_relationship_balance_pkr": [
         "askari-bank-src-b13de780a9",
         "askari-bank-src-72c9635352"
       ],
@@ -1313,10 +1322,6 @@
       "maximum_age_years": [
         "askari-bank-src-b13de780a9",
         "askari-bank-src-72c9635352"
-      ],
-      "minimum_account_balance_pkr": [
-        "askari-bank-src-b13de780a9",
-        "askari-bank-src-72c9635352"
       ]
     },
     "source_ids": [
@@ -1325,7 +1330,9 @@
     ],
     "confidence": "high",
     "notes": [
-      "Product page directly exposes the higher World eligibility thresholds."
+      "Product page directly exposes the higher World eligibility thresholds.",
+      "The official World page publishes minimum income as PKR 1.00 million for salaried applicants and PKR 2.00 million for SEB/SEP applicants.",
+      "No separate public deposit-relationship threshold was found on the World card page in this pass."
     ],
     "bank_gaps": [
       "Debit-card pages do not clearly publish age criteria.",
@@ -1342,7 +1349,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3700,
       "supplementary_annual_fee_pkr": 2700,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -1355,6 +1362,11 @@
         "bank-al-habib-src-44d3cf261c"
       ],
       "minimum_account_balance_pkr": [
+        "bank-al-habib-src-48db98247e",
+        "bank-al-habib-src-cd4fbeebcc",
+        "bank-al-habib-src-44d3cf261c"
+      ],
+      "annual_fee_pkr": [
         "bank-al-habib-src-48db98247e",
         "bank-al-habib-src-cd4fbeebcc",
         "bank-al-habib-src-44d3cf261c"
@@ -1392,7 +1404,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 4500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -1404,6 +1416,11 @@
         "bank-al-habib-src-44d3cf261c"
       ],
       "minimum_account_balance_pkr": [
+        "bank-al-habib-src-48db98247e",
+        "bank-al-habib-src-cd4fbeebcc",
+        "bank-al-habib-src-44d3cf261c"
+      ],
+      "annual_fee_pkr": [
         "bank-al-habib-src-48db98247e",
         "bank-al-habib-src-cd4fbeebcc",
         "bank-al-habib-src-44d3cf261c"
@@ -1435,7 +1452,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 20000,
       "minimum_relationship_balance_pkr": 25000,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 6500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -1449,6 +1466,12 @@
         "bank-al-habib-src-29f3be85b3"
       ],
       "minimum_relationship_balance_pkr": [
+        "bank-al-habib-src-ce598f1b6a",
+        "bank-al-habib-src-e6eceae0ad",
+        "bank-al-habib-src-c3c98479fc",
+        "bank-al-habib-src-29f3be85b3"
+      ],
+      "annual_fee_pkr": [
         "bank-al-habib-src-ce598f1b6a",
         "bank-al-habib-src-e6eceae0ad",
         "bank-al-habib-src-c3c98479fc",
@@ -1471,7 +1494,7 @@
     "notes": [
       "PKR 20,000 minimum monthly income for salaried applicants. Max debt-to-burden ratio 40% of take-home pay.",
       "Eligibility page clearly exposes salary and age criteria.",
-      "Annual fee conflicts across official documents: summary box says PKR 6,500, latest SOC surfaced says PKR 6,000.",
+      "Latest public product page and 2025 summary box both show PKR 6,500 annual fee for the basic card.",
       "Supplementary annual fee appears as PKR 3,000."
     ],
     "bank_gaps": [
@@ -1489,7 +1512,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 20000,
       "minimum_relationship_balance_pkr": 25000,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 4500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -1502,6 +1525,11 @@
         "bank-al-habib-src-29f3be85b3"
       ],
       "minimum_relationship_balance_pkr": [
+        "bank-al-habib-src-ce598f1b6a",
+        "bank-al-habib-src-c3c98479fc",
+        "bank-al-habib-src-29f3be85b3"
+      ],
+      "annual_fee_pkr": [
         "bank-al-habib-src-ce598f1b6a",
         "bank-al-habib-src-c3c98479fc",
         "bank-al-habib-src-29f3be85b3"
@@ -1520,7 +1548,7 @@
     "confidence": "medium",
     "notes": [
       "PKR 20,000 minimum monthly income for salaried applicants.",
-      "Annual fee conflicts across official documents: summary box says PKR 4,500, latest SOC surfaced says PKR 4,000.",
+      "Latest public 2025 summary box shows PKR 4,500 annual fee for the basic card.",
       "Supplementary annual fee appears as PKR 2,000."
     ],
     "bank_gaps": [
@@ -1538,7 +1566,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3700,
       "supplementary_annual_fee_pkr": 2700,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -1551,6 +1579,11 @@
         "bank-al-habib-src-8dc52c1767"
       ],
       "minimum_account_balance_pkr": [
+        "bank-al-habib-src-48db98247e",
+        "bank-al-habib-src-d8edefc288",
+        "bank-al-habib-src-8dc52c1767"
+      ],
+      "annual_fee_pkr": [
         "bank-al-habib-src-48db98247e",
         "bank-al-habib-src-d8edefc288",
         "bank-al-habib-src-8dc52c1767"
@@ -1568,8 +1601,8 @@
     ],
     "confidence": "medium",
     "notes": [
-      "No publicly disclosed salary or balance threshold.",
-      "Good fee recovery from the debit-cards page, but card-specific eligibility remains weak."
+      "Official BAHL debit-cards page shows PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee.",
+      "No publicly disclosed salary or balance threshold."
     ],
     "bank_gaps": [
       "No public fee-waiver rule for credit cards was found in this pass.",
@@ -1586,7 +1619,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3700,
       "supplementary_annual_fee_pkr": 2700,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -1600,6 +1633,12 @@
         "bank-al-habib-src-b725619686"
       ],
       "minimum_account_balance_pkr": [
+        "bank-al-habib-src-48db98247e",
+        "bank-al-habib-src-1ff3bbdd68",
+        "bank-al-habib-src-8870a9922e",
+        "bank-al-habib-src-b725619686"
+      ],
+      "annual_fee_pkr": [
         "bank-al-habib-src-48db98247e",
         "bank-al-habib-src-1ff3bbdd68",
         "bank-al-habib-src-8870a9922e",
@@ -1620,6 +1659,7 @@
     ],
     "confidence": "medium",
     "notes": [
+      "Official BAHL debit-cards page shows PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee.",
       "No publicly disclosed salary or balance threshold.",
       "The age threshold comes from the underlying woman account eligibility, not a separate card-only age rule."
     ],
@@ -1910,7 +1950,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3700,
       "supplementary_annual_fee_pkr": 2700,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -1925,6 +1965,10 @@
         "bank-al-habib-src-48db98247e",
         "bank-al-habib-src-fd6af828e7"
       ],
+      "annual_fee_pkr": [
+        "bank-al-habib-src-48db98247e",
+        "bank-al-habib-src-fd6af828e7"
+      ],
       "supplementary_annual_fee_pkr": [
         "bank-al-habib-src-48db98247e",
         "bank-al-habib-src-fd6af828e7"
@@ -1936,7 +1980,7 @@
     ],
     "confidence": "low",
     "notes": [
-      "No public fee, salary or balance threshold found.",
+      "Official BAHL debit-cards page now exposes PKR 3,700 primary annual fee and PKR 2,700 supplementary annual fee for Visa Silver.",
       "Official digital-account page states no minimum balance or initial deposit requirement and explicitly lists Visa Silver Debit Card among the available debit-card options.",
       "Eligibility is account-linked rather than salary-gated on public BAHL material."
     ],
@@ -2270,7 +2314,7 @@
       "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": 16000,
       "supplementary_annual_fee_pkr": 8000,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "Basic: PKR 300,000 eligible spend in 2 months. Supplementary: PKR 150,000 eligible spend in 2 months.",
       "minimum_age_years": 21,
       "maximum_age_years": 70
     },
@@ -2291,6 +2335,10 @@
         "bank-alfalah-src-d39c721923",
         "bank-alfalah-src-7dc156031d"
       ],
+      "annual_fee_waiver_rule": [
+        "bank-alfalah-src-d39c721923",
+        "bank-alfalah-src-7dc156031d"
+      ],
       "minimum_age_years": [
         "bank-alfalah-src-d39c721923",
         "bank-alfalah-src-7dc156031d"
@@ -2307,7 +2355,8 @@
     "confidence": "high",
     "notes": [
       "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds.",
-      "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
+      "Latest public Jan-Jun 2026 KFS shows PKR 16,000 basic annual fee and PKR 8,000 supplementary annual fee.",
+      "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 300,000 eligible spend for the basic card and PKR 150,000 for the supplementary card within 2 months."
     ],
     "bank_gaps": [
       "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
@@ -2331,15 +2380,19 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "bank-alfalah-src-22bcf65089"
+        "bank-alfalah-src-22bcf65089",
+        "bank-alfalah-src-7dc156031d"
       ]
     },
     "source_ids": [
-      "bank-alfalah-src-22bcf65089"
+      "bank-alfalah-src-22bcf65089",
+      "bank-alfalah-src-7dc156031d"
     ],
-    "confidence": "medium",
+    "confidence": "low",
     "notes": [
-      "PKR 50,000 minimum monthly salary for salaried applicants."
+      "PKR 50,000 minimum monthly salary for salaried applicants.",
+      "POSSIBLY DISCONTINUED: The Mastercard Titanium card does not appear in the Jan-Jun 2026 KFS Summary Box (which lists Classic, Gold, Optimus, Platinum, Premier Platinum, Ultra). The product page URL returns 404. The card may have been rebranded to Mastercard Optimus (PKR 16,000 annual fee). Verify before relying on this record.",
+      "Annual fee is null \u2014 not published in any current official document."
     ],
     "bank_gaps": [
       "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
@@ -2486,38 +2539,6 @@
     "notes": [
       "Requirement is tied to the underlying Pehchaan account rather than a salary threshold.",
       "Official Pehchaan account page states no minimum balance requirement."
-    ],
-    "bank_gaps": [
-      "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
-      "Debit-card age requirements were generally not stated.",
-      "Some Islamic debit-card fee values were recovered from older surfaced SOC material rather than a current dedicated card page."
-    ],
-    "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI."
-  },
-  {
-    "card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card",
-    "bank_slug": "bank-alfalah",
-    "bank_name": "Bank Alfalah",
-    "card_name": "Bank Alfalah Premier Visa Infinite Credit Card",
-    "requirements": {
-      "minimum_monthly_salary_pkr": 50000,
-      "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
-      "minimum_age_years": null,
-      "maximum_age_years": null
-    },
-    "requirement_sources": {
-      "minimum_monthly_salary_pkr": [
-        "bank-alfalah-src-22bcf65089"
-      ]
-    },
-    "source_ids": [
-      "bank-alfalah-src-22bcf65089"
-    ],
-    "confidence": "medium",
-    "notes": [
-      "PKR 50,000 minimum monthly salary for salaried; PKR 75,000 for self-employed."
     ],
     "bank_gaps": [
       "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
@@ -2729,6 +2750,54 @@
     "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI."
   },
   {
+    "card_id": "bank-alfalah--bank-alfalah-visa-islamic-gold-debit-card",
+    "bank_slug": "bank-alfalah",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Visa Islamic Gold Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 0,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 5000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "bank-alfalah-src-107b9b3c1b",
+        "bank-alfalah-src-d3634e2ab4",
+        "bank-alfalah-src-1da86c98fe"
+      ],
+      "minimum_account_balance_pkr": [
+        "bank-alfalah-src-107b9b3c1b",
+        "bank-alfalah-src-d3634e2ab4",
+        "bank-alfalah-src-1da86c98fe"
+      ],
+      "annual_fee_pkr": [
+        "bank-alfalah-src-107b9b3c1b",
+        "bank-alfalah-src-d3634e2ab4",
+        "bank-alfalah-src-1da86c98fe"
+      ]
+    },
+    "source_ids": [
+      "bank-alfalah-src-107b9b3c1b",
+      "bank-alfalah-src-d3634e2ab4",
+      "bank-alfalah-src-1da86c98fe"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Official product page explicitly states no minimum income requirement.",
+      "Jan-Jun 2026 Islamic SOC lists annual fee at PKR 5,000; no balance threshold is published for this card.",
+      "Card is issued against any Bank Alfalah Islamic Banking account with no published minimum balance requirement."
+    ],
+    "bank_gaps": [
+      "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
+      "Debit-card age requirements were generally not stated.",
+      "Some Islamic debit-card fee values were recovered from older surfaced SOC material rather than a current dedicated card page."
+    ],
+    "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI."
+  },
+  {
     "card_id": "bank-alfalah--bank-alfalah-visa-islamic-signature-debit-card",
     "bank_slug": "bank-alfalah",
     "bank_name": "Bank Alfalah",
@@ -2784,7 +2853,7 @@
       "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": 23000,
       "supplementary_annual_fee_pkr": 11500,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "Basic: PKR 475,000 eligible spend in 2 months. Supplementary: PKR 237,500 eligible spend in 2 months.",
       "minimum_age_years": 21,
       "maximum_age_years": 70
     },
@@ -2805,6 +2874,10 @@
         "bank-alfalah-src-132bc8eaab",
         "bank-alfalah-src-7dc156031d"
       ],
+      "annual_fee_waiver_rule": [
+        "bank-alfalah-src-132bc8eaab",
+        "bank-alfalah-src-7dc156031d"
+      ],
       "minimum_age_years": [
         "bank-alfalah-src-132bc8eaab",
         "bank-alfalah-src-7dc156031d"
@@ -2821,7 +2894,8 @@
     "confidence": "high",
     "notes": [
       "Public summary box shows PKR 50,000 salaried and PKR 75,000 self-employed thresholds.",
-      "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
+      "Latest public Jan-Jun 2026 KFS shows PKR 23,000 basic annual fee and PKR 11,500 supplementary annual fee.",
+      "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 475,000 eligible spend for the basic card and PKR 237,500 for the supplementary card within 2 months."
     ],
     "bank_gaps": [
       "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
@@ -2838,32 +2912,40 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 50000,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 10000,
+      "annual_fee_waiver_rule": "First-year annual fee waiver on PKR 75,000 eligible spend within 2 months.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "bank-alfalah-src-cda48be0a1",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56",
+        "bank-alfalah-src-7dc156031d",
+        "bank-alfalah-src-22bcf65089"
+      ],
+      "annual_fee_pkr": [
+        "bank-alfalah-src-cda48be0a1",
+        "bank-alfalah-src-7dc156031d",
+        "bank-alfalah-src-22bcf65089"
+      ],
+      "annual_fee_waiver_rule": [
+        "bank-alfalah-src-cda48be0a1",
+        "bank-alfalah-src-7dc156031d",
         "bank-alfalah-src-22bcf65089"
       ]
     },
     "source_ids": [
       "bank-alfalah-src-cda48be0a1",
-      "bank-alfalah-src-1f9b049c01",
-      "bank-alfalah-src-d67c344f56",
+      "bank-alfalah-src-7dc156031d",
       "bank-alfalah-src-22bcf65089"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "PKR 50,000 minimum monthly salary for salaried applicants (PKR 75,000 for self-employed).",
       "Recovered as the current official public naming for the Ultra Visa credit-card family.",
       "Current official card page lists PKR 50,000 minimum gross income for salaried applicants.",
-      "Official Credit Card Summary Box updated Jul-Dec 2025 lists a PKR 9,000 basic-card annual fee.",
-      "Official annual-fee reversal page says Ultra cardholders are only eligible for a first-year annual-fee waiver on PKR 75,000 spend within 2 months.",
+      "Latest public Jan-Jun 2026 KFS lists PKR 10,000 basic annual fee and PKR 5,000 supplementary annual fee.",
+      "Latest public Jan-Jun 2026 KFS says Ultra cardholders are only eligible for a first-year annual-fee waiver on PKR 75,000 spend within 2 months.",
       "Recovered as an unsecured credit-card product with income-based public eligibility rather than a deposit threshold."
     ],
     "bank_gaps": [
@@ -2881,8 +2963,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 50000,
       "minimum_relationship_balance_pkr": 75000,
-      "annual_fee_pkr": 6500,
-      "annual_fee_waiver_rule": "Basic: PKR 65,000 retail spend in 2 months or PKR 45,000 international/e-commerce spend in 2 months. Supplementary: PKR 25,000 or PKR 17,500.",
+      "annual_fee_pkr": 7000,
+      "annual_fee_waiver_rule": "Basic: PKR 70,000 eligible spend in 2 months. Supplementary: PKR 35,000 eligible spend in 2 months.",
       "minimum_age_years": 21,
       "maximum_age_years": 70,
       "minimum_account_balance_pkr": 75000
@@ -2891,56 +2973,49 @@
       "minimum_monthly_salary_pkr": [
         "bank-alfalah-src-522e6311dc",
         "bank-alfalah-src-be89bf0ada",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "minimum_relationship_balance_pkr": [
         "bank-alfalah-src-522e6311dc",
         "bank-alfalah-src-be89bf0ada",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "annual_fee_pkr": [
         "bank-alfalah-src-522e6311dc",
         "bank-alfalah-src-be89bf0ada",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "annual_fee_waiver_rule": [
         "bank-alfalah-src-522e6311dc",
         "bank-alfalah-src-be89bf0ada",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "minimum_age_years": [
         "bank-alfalah-src-522e6311dc",
         "bank-alfalah-src-be89bf0ada",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "maximum_age_years": [
         "bank-alfalah-src-522e6311dc",
         "bank-alfalah-src-be89bf0ada",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "minimum_account_balance_pkr": [
         "bank-alfalah-src-522e6311dc",
         "bank-alfalah-src-be89bf0ada",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ]
     },
     "source_ids": [
       "bank-alfalah-src-522e6311dc",
       "bank-alfalah-src-be89bf0ada",
-      "bank-alfalah-src-1f9b049c01",
-      "bank-alfalah-src-d67c344f56"
+      "bank-alfalah-src-7dc156031d"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Salaried age cap appears to be 60; self-employed and supplementary appear to extend to 70.",
-      "Annual fee is sourced from the official Credit Card Summary Box updated Jul-Dec 2025."
+      "Latest public Jan-Jun 2026 KFS shows PKR 7,000 basic annual fee and PKR 3,500 supplementary annual fee.",
+      "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 70,000 eligible spend for the basic card and PKR 35,000 for the supplementary card within 2 months."
     ],
     "bank_gaps": [
       "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
@@ -2955,7 +3030,7 @@
     "bank_name": "Bank Alfalah",
     "card_name": "Visa Classic Debit Card",
     "requirements": {
-      "minimum_monthly_salary_pkr": 50000,
+      "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": 2900,
       "annual_fee_waiver_rule": null,
@@ -2986,7 +3061,7 @@
     ],
     "confidence": "medium",
     "notes": [
-      "Public pages say no minimum income requirement.",
+      "Current official card page says no minimum income requirement.",
       "Public pages say no minimum balance requirement."
     ],
     "bank_gaps": [
@@ -3004,8 +3079,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 50000,
       "minimum_relationship_balance_pkr": 75000,
-      "annual_fee_pkr": 12000,
-      "annual_fee_waiver_rule": "Basic: PKR 150,000 retail spend in 2 months or PKR 110,000 international/e-commerce spend in 2 months. Supplementary: PKR 75,000 or PKR 55,000.",
+      "annual_fee_pkr": 13000,
+      "annual_fee_waiver_rule": "Basic: PKR 200,000 eligible spend in 2 months. Supplementary: PKR 100,000 eligible spend in 2 months.",
       "minimum_age_years": 21,
       "maximum_age_years": 70,
       "minimum_account_balance_pkr": 75000
@@ -3014,56 +3089,49 @@
       "minimum_monthly_salary_pkr": [
         "bank-alfalah-src-e53b09e059",
         "bank-alfalah-src-522e6311dc",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "minimum_relationship_balance_pkr": [
         "bank-alfalah-src-e53b09e059",
         "bank-alfalah-src-522e6311dc",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "annual_fee_pkr": [
         "bank-alfalah-src-e53b09e059",
         "bank-alfalah-src-522e6311dc",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "annual_fee_waiver_rule": [
         "bank-alfalah-src-e53b09e059",
         "bank-alfalah-src-522e6311dc",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "minimum_age_years": [
         "bank-alfalah-src-e53b09e059",
         "bank-alfalah-src-522e6311dc",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "maximum_age_years": [
         "bank-alfalah-src-e53b09e059",
         "bank-alfalah-src-522e6311dc",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ],
       "minimum_account_balance_pkr": [
         "bank-alfalah-src-e53b09e059",
         "bank-alfalah-src-522e6311dc",
-        "bank-alfalah-src-1f9b049c01",
-        "bank-alfalah-src-d67c344f56"
+        "bank-alfalah-src-7dc156031d"
       ]
     },
     "source_ids": [
       "bank-alfalah-src-e53b09e059",
       "bank-alfalah-src-522e6311dc",
-      "bank-alfalah-src-1f9b049c01",
-      "bank-alfalah-src-d67c344f56"
+      "bank-alfalah-src-7dc156031d"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Shared eligibility grid appears to apply across mainstream consumer credit cards.",
-      "Annual fee is sourced from the official Credit Card Summary Box updated Jul-Dec 2025."
+      "Latest public Jan-Jun 2026 KFS shows PKR 13,000 basic annual fee and PKR 6,500 supplementary annual fee.",
+      "Latest public Jan-Jun 2026 KFS shows annual-fee reversal at PKR 200,000 eligible spend for the basic card and PKR 100,000 for the supplementary card within 2 months."
     ],
     "bank_gaps": [
       "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
@@ -3291,6 +3359,53 @@
     "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI."
   },
   {
+    "card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card",
+    "bank_slug": "bank-alfalah",
+    "bank_name": "Bank Alfalah",
+    "card_name": "Bank Alfalah Premier Visa Infinite Credit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 0,
+      "annual_fee_waiver_rule": "No annual or issuance fee while Premier Infinite criteria are maintained; customers not meeting the Premier Infinite AUM criteria are charged USD 500 equivalent in PKR.",
+      "minimum_age_years": null,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "bank-alfalah-src-22bcf65089",
+        "bank-alfalah-src-23eef52664",
+        "bank-alfalah-src-c7a7f2920c",
+        "bank-alfalah-src-1da86c98fe"
+      ],
+      "annual_fee_waiver_rule": [
+        "bank-alfalah-src-22bcf65089",
+        "bank-alfalah-src-23eef52664",
+        "bank-alfalah-src-c7a7f2920c",
+        "bank-alfalah-src-1da86c98fe"
+      ]
+    },
+    "source_ids": [
+      "bank-alfalah-src-22bcf65089",
+      "bank-alfalah-src-23eef52664",
+      "bank-alfalah-src-c7a7f2920c",
+      "bank-alfalah-src-1da86c98fe"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Premier Infinite is presented publicly as an invitation-only Premier product rather than a standard income-gated card.",
+      "Official Premier SOC states no annual and issuance fee for Premier Visa Infinite Credit Card, but customers not meeting the Premier Infinite AUM criteria are charged USD 500 equivalent in PKR.",
+      "The Islamic SOC mentions a PKR 150 Million AUM threshold for 'Islamic Infinite Banking' \u2014 this appears to be a distinct ultra-premium tier, not the conventional Premier Infinite tier.",
+      "The conventional Premier Infinite AUM threshold is not published clearly in accessible SOC documents. The conventional Premier Infinite Debit Card uses PKR 1.5M account balance; the credit card threshold is likely higher but unconfirmed. Needs manual verification against a current conventional SOC."
+    ],
+    "bank_gaps": [
+      "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
+      "Debit-card age requirements were generally not stated.",
+      "Some Islamic debit-card fee values were recovered from older surfaced SOC material rather than a current dedicated card page."
+    ],
+    "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI."
+  },
+  {
     "card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-debit-card",
     "bank_slug": "bank-alfalah",
     "bank_name": "Bank Alfalah",
@@ -3317,43 +3432,6 @@
     "confidence": "high",
     "notes": [
       "Mandatory PKR 1.5 million in accounts for Alfalah Premier status."
-    ],
-    "bank_gaps": [
-      "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
-      "Debit-card age requirements were generally not stated.",
-      "Some Islamic debit-card fee values were recovered from older surfaced SOC material rather than a current dedicated card page."
-    ],
-    "retrieved_note": "Pilot agent extraction from official public pages. Normalize before shipping to UI."
-  },
-  {
-    "card_id": "bank-alfalah--bank-alfalah-visa-islamic-gold-debit-card",
-    "bank_slug": "bank-alfalah",
-    "bank_name": "Bank Alfalah",
-    "card_name": "Bank Alfalah Visa Islamic Gold Debit Card",
-    "requirements": {
-      "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 5000,
-      "annual_fee_waiver_rule": null,
-      "minimum_age_years": null,
-      "maximum_age_years": null
-    },
-    "requirement_sources": {
-      "annual_fee_pkr": [
-        "bank-alfalah-src-107b9b3c1b",
-        "bank-alfalah-src-d3634e2ab4",
-        "bank-alfalah-src-1da86c98fe"
-      ]
-    },
-    "source_ids": [
-      "bank-alfalah-src-107b9b3c1b",
-      "bank-alfalah-src-d3634e2ab4",
-      "bank-alfalah-src-1da86c98fe"
-    ],
-    "confidence": "medium",
-    "notes": [
-      "Fee from Jan-Jun 2026 Islamic SOC. Salary and balance not publicly disclosed.",
-      "Current public page confirms no minimum income, but the fee was recovered from surfaced Islamic SOC material."
     ],
     "bank_gaps": [
       "Several Premier / Infinite family cards still need cleaner separation between conventional, Premier, and Islamic Premier records.",
@@ -3422,8 +3500,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "supplementary_annual_fee_pkr": 1300,
+      "annual_fee_pkr": 3000,
+      "supplementary_annual_fee_pkr": 1400,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -3431,29 +3509,29 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "bank-of-punjab-src-31e1cf5de6",
-        "bank-of-punjab-src-45e026354c",
-        "bank-of-punjab-src-1e09d9958d"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "minimum_account_balance_pkr": [
         "bank-of-punjab-src-31e1cf5de6",
-        "bank-of-punjab-src-45e026354c",
-        "bank-of-punjab-src-1e09d9958d"
+        "bank-of-punjab-src-549be3d6fe"
+      ],
+      "annual_fee_pkr": [
+        "bank-of-punjab-src-31e1cf5de6",
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "supplementary_annual_fee_pkr": [
         "bank-of-punjab-src-31e1cf5de6",
-        "bank-of-punjab-src-45e026354c",
-        "bank-of-punjab-src-1e09d9958d"
+        "bank-of-punjab-src-549be3d6fe"
       ]
     },
     "source_ids": [
       "bank-of-punjab-src-31e1cf5de6",
-      "bank-of-punjab-src-45e026354c",
-      "bank-of-punjab-src-1e09d9958d"
+      "bank-of-punjab-src-549be3d6fe"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Co-branded card; no publicly disclosed salary, balance, or fee threshold.",
-      "New customers must open an account first; no numeric threshold was surfaced."
+      "Latest surfaced conventional KFS shows PKR 3,000 issuance/renewal/replacement and PKR 1,400 supplementary.",
+      "New customers must open an account first; no numeric salary or balance threshold was surfaced on the public card page."
     ],
     "bank_gaps": [
       "Credit-card salary, balance, and age criteria were not cleanly surfaced on the official pages found.",
@@ -3470,7 +3548,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 2300,
+      "annual_fee_pkr": 2800,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -3479,40 +3557,29 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "minimum_account_balance_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "annual_fee_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ]
     },
     "source_ids": [
       "bank-of-punjab-src-3f4475c476",
-      "bank-of-punjab-src-7f528aa735",
-      "bank-of-punjab-src-5a7accb767",
-      "bank-of-punjab-src-26989ff0d3"
+      "bank-of-punjab-src-549be3d6fe"
     ],
     "confidence": "high",
     "notes": [
-      "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
+      "Latest surfaced conventional KFS shows PKR 2,800 annual fee.",
       "Current forms use Classic where older BOP forms used Silver, so this is the best current alias target for Mastercard Silver Debit Card.",
-      "Official BOP SOBC PDFs now surface the Classic Debit Master Card issuance/renewal/replacement fee at PKR 2,600 per annum.",
       "No public BOP page or PDF found in this pass that defensibly states a universal salary or balance threshold for this generic account-linked card."
     ],
     "bank_gaps": [
@@ -3530,7 +3597,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 3000,
+      "annual_fee_pkr": 3600,
       "supplementary_annual_fee_pkr": 1500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -3540,38 +3607,32 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "minimum_account_balance_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "annual_fee_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "supplementary_annual_fee_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ]
     },
     "source_ids": [
       "bank-of-punjab-src-3f4475c476",
-      "bank-of-punjab-src-7f528aa735",
-      "bank-of-punjab-src-26989ff0d3"
+      "bank-of-punjab-src-549be3d6fe"
     ],
     "confidence": "high",
     "notes": [
-      "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
+      "Latest surfaced conventional KFS shows PKR 3,600 annual fee and PKR 1,500 supplementary.",
       "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
     ],
     "bank_gaps": [
@@ -3589,7 +3650,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": 4500,
+      "annual_fee_pkr": 6000,
       "supplementary_annual_fee_pkr": 2500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -3599,38 +3660,32 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "minimum_account_balance_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "annual_fee_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "supplementary_annual_fee_pkr": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-3f4475c476",
-        "bank-of-punjab-src-7f528aa735",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-549be3d6fe"
       ]
     },
     "source_ids": [
       "bank-of-punjab-src-3f4475c476",
-      "bank-of-punjab-src-7f528aa735",
-      "bank-of-punjab-src-26989ff0d3"
+      "bank-of-punjab-src-549be3d6fe"
     ],
     "confidence": "high",
     "notes": [
-      "No income or balance threshold. Fee from Jan-Jun 2025 SOC.",
+      "Latest surfaced conventional KFS shows PKR 6,000 annual fee and PKR 2,500 supplementary.",
       "Recovered as an account-linked generic current/savings debit card rather than a salary-gated product."
     ],
     "bank_gaps": [
@@ -3648,9 +3703,9 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 1000,
-      "annual_fee_pkr": 0,
+      "annual_fee_pkr": 2400,
       "supplementary_annual_fee_pkr": 1100,
-      "annual_fee_waiver_rule": "Issued free on surfaced Naaz account documents; renewal/replacement fees apply by account context.",
+      "annual_fee_waiver_rule": "Issued free with BOP Naaz Current Account; current public KFS shows PKR 2,400 on renewal/replacement and PKR 1,100 supplementary.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
@@ -3660,48 +3715,49 @@
         "bank-of-punjab-src-3126ca2db5",
         "bank-of-punjab-src-5d84200b9d",
         "bank-of-punjab-src-ba2276ac12",
-        "bank-of-punjab-src-cf20de2fcc"
+        "bank-of-punjab-src-626345bdff"
       ],
       "minimum_account_balance_pkr": [
         "bank-of-punjab-src-3126ca2db5",
         "bank-of-punjab-src-5d84200b9d",
         "bank-of-punjab-src-ba2276ac12",
-        "bank-of-punjab-src-cf20de2fcc"
+        "bank-of-punjab-src-626345bdff"
       ],
       "annual_fee_pkr": [
         "bank-of-punjab-src-3126ca2db5",
         "bank-of-punjab-src-5d84200b9d",
         "bank-of-punjab-src-ba2276ac12",
-        "bank-of-punjab-src-cf20de2fcc"
+        "bank-of-punjab-src-626345bdff"
       ],
       "supplementary_annual_fee_pkr": [
         "bank-of-punjab-src-3126ca2db5",
         "bank-of-punjab-src-5d84200b9d",
         "bank-of-punjab-src-ba2276ac12",
-        "bank-of-punjab-src-cf20de2fcc"
+        "bank-of-punjab-src-626345bdff"
       ],
       "annual_fee_waiver_rule": [
         "bank-of-punjab-src-3126ca2db5",
         "bank-of-punjab-src-5d84200b9d",
         "bank-of-punjab-src-ba2276ac12",
-        "bank-of-punjab-src-cf20de2fcc"
+        "bank-of-punjab-src-626345bdff"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-3126ca2db5",
         "bank-of-punjab-src-5d84200b9d",
         "bank-of-punjab-src-ba2276ac12",
-        "bank-of-punjab-src-cf20de2fcc"
+        "bank-of-punjab-src-626345bdff"
       ]
     },
     "source_ids": [
       "bank-of-punjab-src-3126ca2db5",
       "bank-of-punjab-src-5d84200b9d",
       "bank-of-punjab-src-ba2276ac12",
-      "bank-of-punjab-src-cf20de2fcc"
+      "bank-of-punjab-src-626345bdff"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Women-account-linked card marketed as Naaz Debit Card.",
+      "The public Naaz page states free issuance with Naaz Current Account, while current KFS PDFs now surface PKR 2,400 renewal/replacement and PKR 1,100 supplementary.",
       "The PKR 1,000 threshold comes from the surfaced Taqwa Naaz Saving opening amount rather than a universal card rule."
     ],
     "bank_gaps": [
@@ -3719,43 +3775,53 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 0,
       "supplementary_annual_fee_pkr": 3000,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "Zero issuance and renewal for priority-marked KHAAS Islamic accounts; non-priority public Islamic KFS shows PKR 6,000 plus PKR 3,000 supplementary.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-a29d0fbf30"
       ],
       "minimum_account_balance_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-a29d0fbf30"
+      ],
+      "annual_fee_pkr": [
+        "bank-of-punjab-src-7ff8978072",
+        "bank-of-punjab-src-ca33b10842",
+        "bank-of-punjab-src-a29d0fbf30"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-a29d0fbf30"
+      ],
+      "annual_fee_waiver_rule": [
+        "bank-of-punjab-src-7ff8978072",
+        "bank-of-punjab-src-ca33b10842",
+        "bank-of-punjab-src-a29d0fbf30"
       ],
       "existing_account_required": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-a29d0fbf30"
       ]
     },
     "source_ids": [
-      "bank-of-punjab-src-cf20de2fcc",
+      "bank-of-punjab-src-7ff8978072",
       "bank-of-punjab-src-ca33b10842",
-      "bank-of-punjab-src-26989ff0d3"
+      "bank-of-punjab-src-a29d0fbf30"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Taqwa Islamic card; no publicly disclosed fee or eligibility threshold.",
+      "Islamic KFS surfaces zero issuance/renewal for priority-marked KHAAS Platinum and PKR 3,000 supplementary; non-priority pricing still appears separately.",
       "Islamic/KHAAS wrapper around the KHAAS platinum concept, distinct from the conventional KHAAS Platinum record."
     ],
     "bank_gaps": [
@@ -3773,7 +3839,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 6000,
       "supplementary_annual_fee_pkr": 2500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -3782,39 +3848,39 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-41213aced2",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-41213aced2"
       ],
       "minimum_account_balance_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-41213aced2",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-41213aced2"
+      ],
+      "annual_fee_pkr": [
+        "bank-of-punjab-src-7ff8978072",
+        "bank-of-punjab-src-ca33b10842",
+        "bank-of-punjab-src-41213aced2"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-41213aced2",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-41213aced2"
       ],
       "existing_account_required": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-ca33b10842",
-        "bank-of-punjab-src-41213aced2",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-41213aced2"
       ]
     },
     "source_ids": [
-      "bank-of-punjab-src-cf20de2fcc",
+      "bank-of-punjab-src-7ff8978072",
       "bank-of-punjab-src-ca33b10842",
-      "bank-of-punjab-src-41213aced2",
-      "bank-of-punjab-src-26989ff0d3"
+      "bank-of-punjab-src-41213aced2"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Taqwa Islamic card; no publicly disclosed fee or eligibility threshold.",
+      "Latest surfaced Islamic KFS shows PKR 6,000 issuance/renewal/replacement and PKR 2,500 supplementary for Platinum debit.",
       "This is an Islamic account-linked Platinum tier rather than a standalone retail product page.",
       "PKR 300,000 salary threshold is the surfaced Taqwa BOP@Work route rather than a universal card rule."
     ],
@@ -3833,37 +3899,47 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 18000,
+      "annual_fee_waiver_rule": "Priority-marked Islamic KHAAS accounts get discounted World Debit pricing; surfaced Islamic KFS shows PKR 18,000 non-priority annual pricing.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-41213aced2",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-a29d0fbf30"
       ],
       "minimum_account_balance_pkr": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-41213aced2",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-a29d0fbf30"
+      ],
+      "annual_fee_pkr": [
+        "bank-of-punjab-src-7ff8978072",
+        "bank-of-punjab-src-41213aced2",
+        "bank-of-punjab-src-a29d0fbf30"
+      ],
+      "annual_fee_waiver_rule": [
+        "bank-of-punjab-src-7ff8978072",
+        "bank-of-punjab-src-41213aced2",
+        "bank-of-punjab-src-a29d0fbf30"
       ],
       "existing_account_required": [
-        "bank-of-punjab-src-cf20de2fcc",
+        "bank-of-punjab-src-7ff8978072",
         "bank-of-punjab-src-41213aced2",
-        "bank-of-punjab-src-26989ff0d3"
+        "bank-of-punjab-src-a29d0fbf30"
       ]
     },
     "source_ids": [
-      "bank-of-punjab-src-cf20de2fcc",
+      "bank-of-punjab-src-7ff8978072",
       "bank-of-punjab-src-41213aced2",
-      "bank-of-punjab-src-26989ff0d3"
+      "bank-of-punjab-src-a29d0fbf30"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Taqwa World Islamic card; no publicly disclosed eligibility threshold or fee.",
+      "Latest surfaced Islamic KFS shows PKR 18,000 annual for non-priority World Debit; KHAAS/Priority relationships still receive discounted pricing.",
       "Recovered as an Islamic account-linked World tier rather than from a standalone card landing page."
     ],
     "bank_gaps": [
@@ -3881,43 +3957,43 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 15000,
+      "annual_fee_pkr": 18000,
       "supplementary_annual_fee_pkr": 9000,
-      "annual_fee_waiver_rule": "Specially discounted World Debit Card pricing for KHAAS/Priority customers.",
+      "annual_fee_waiver_rule": "Priority-marked KHAAS/current-account customers get discounted World Debit Card pricing; non-priority public KFS shows PKR 18,000 annual and PKR 9,000 supplementary.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "bank-of-punjab-src-0733a853cf",
-        "bank-of-punjab-src-45e026354c",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-549be3d6fe",
+        "bank-of-punjab-src-a29d0fbf30",
+        "bank-of-punjab-src-d2be5cba0f"
       ],
       "annual_fee_pkr": [
-        "bank-of-punjab-src-0733a853cf",
-        "bank-of-punjab-src-45e026354c",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-549be3d6fe",
+        "bank-of-punjab-src-a29d0fbf30",
+        "bank-of-punjab-src-d2be5cba0f"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-0733a853cf",
-        "bank-of-punjab-src-45e026354c",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-549be3d6fe",
+        "bank-of-punjab-src-a29d0fbf30",
+        "bank-of-punjab-src-d2be5cba0f"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-0733a853cf",
-        "bank-of-punjab-src-45e026354c",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-549be3d6fe",
+        "bank-of-punjab-src-a29d0fbf30",
+        "bank-of-punjab-src-d2be5cba0f"
       ]
     },
     "source_ids": [
-      "bank-of-punjab-src-0733a853cf",
-      "bank-of-punjab-src-45e026354c",
-      "bank-of-punjab-src-a29d0fbf30"
+      "bank-of-punjab-src-549be3d6fe",
+      "bank-of-punjab-src-a29d0fbf30",
+      "bank-of-punjab-src-d2be5cba0f"
     ],
-    "confidence": "low",
+    "confidence": "medium",
     "notes": [
-      "Non-priority pricing appears at PKR 15,000 annual fee and PKR 9,000 supplementary.",
-      "KHAAS/Priority current and saving customers have subsidized fee tiers."
+      "Latest surfaced conventional KFS shows non-priority World Debit pricing at PKR 18,000 annual and PKR 9,000 supplementary.",
+      "BOP KHAAS public pages still show discounted pricing for qualifying KHAAS/Priority relationships rather than a single universal fee."
     ],
     "bank_gaps": [
       "Credit-card salary, balance, and age criteria were not cleanly surfaced on the official pages found.",
@@ -4104,8 +4180,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": "No average balance condition",
+      "annual_fee_pkr": 2900,
+      "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -4122,7 +4198,7 @@
         "bankislami-src-4646505772",
         "bankislami-src-99979893ea"
       ],
-      "annual_fee_waiver_rule": [
+      "annual_fee_pkr": [
         "bankislami-src-ec6e00397c",
         "bankislami-src-dcf3c11239",
         "bankislami-src-4646505772",
@@ -4138,6 +4214,7 @@
     "confidence": "high",
     "notes": [
       "No minimum balance condition per official product page.",
+      "The public Jan-Jun 2026 SOC lists Classic Debit Mastercard issuance, annual subscription, and replacement at PKR 2,900.",
       "Fee logic depends partly on the underlying account relationship."
     ],
     "bank_gaps": [
@@ -4155,8 +4232,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": "No average balance condition",
+      "annual_fee_pkr": 1800,
+      "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -4173,7 +4250,7 @@
         "bankislami-src-4646505772",
         "bankislami-src-99979893ea"
       ],
-      "annual_fee_waiver_rule": [
+      "annual_fee_pkr": [
         "bankislami-src-8bd25ccb06",
         "bankislami-src-dcf3c11239",
         "bankislami-src-4646505772",
@@ -4188,7 +4265,8 @@
     ],
     "confidence": "high",
     "notes": [
-      "No minimum balance condition per official product page."
+      "No minimum balance condition per official product page.",
+      "The public Jan-Jun 2026 SOC lists PayPak Debit Card issuance, annual subscription, and replacement at PKR 1,800."
     ],
     "bank_gaps": [
       "No clear public consumer credit-card catalogue was found in this pass.",
@@ -4205,13 +4283,20 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": 25000,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 4000,
       "annual_fee_waiver_rule": "Fee waived if PKR 25,000 average monthly balance maintained",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_account_balance_pkr": [
+        "bankislami-src-feeffaa38c",
+        "bankislami-src-c64b261c45",
+        "bankislami-src-4646505772",
+        "bankislami-src-4c1fa863f0",
+        "bankislami-src-05a7ba57c4"
+      ],
+      "annual_fee_pkr": [
         "bankislami-src-feeffaa38c",
         "bankislami-src-c64b261c45",
         "bankislami-src-4646505772",
@@ -4374,24 +4459,32 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3300,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ],
       "minimum_account_balance_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
+      ],
+      "annual_fee_pkr": [
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ]
     },
     "source_ids": [
-      "faysal-bank-src-7d7ff37303"
+      "faysal-bank-src-7d7ff37303",
+      "faysal-bank-src-3f53631ce8"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Amal Gold at PKR 3,300.",
       "No publicly disclosed salary or balance threshold."
     ],
     "bank_gaps": [
@@ -4409,24 +4502,32 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 7000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ],
       "minimum_account_balance_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
+      ],
+      "annual_fee_pkr": [
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ]
     },
     "source_ids": [
-      "faysal-bank-src-7d7ff37303"
+      "faysal-bank-src-7d7ff37303",
+      "faysal-bank-src-3f53631ce8"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Amal Platinum at PKR 7,000.",
       "No publicly disclosed salary or balance threshold."
     ],
     "bank_gaps": [
@@ -4444,24 +4545,32 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 2300,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ],
       "minimum_account_balance_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
+      ],
+      "annual_fee_pkr": [
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ]
     },
     "source_ids": [
-      "faysal-bank-src-7d7ff37303"
+      "faysal-bank-src-7d7ff37303",
+      "faysal-bank-src-3f53631ce8"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Classic at PKR 2,300.",
       "No publicly disclosed salary or balance threshold."
     ],
     "bank_gaps": [
@@ -4479,24 +4588,32 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3300,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ],
       "minimum_account_balance_pkr": [
-        "faysal-bank-src-7d7ff37303"
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
+      ],
+      "annual_fee_pkr": [
+        "faysal-bank-src-7d7ff37303",
+        "faysal-bank-src-3f53631ce8"
       ]
     },
     "source_ids": [
-      "faysal-bank-src-7d7ff37303"
+      "faysal-bank-src-7d7ff37303",
+      "faysal-bank-src-3f53631ce8"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Gold at PKR 3,300.",
       "No publicly disclosed salary or balance threshold."
     ],
     "bank_gaps": [
@@ -4907,7 +5024,7 @@
     "card_name": "HBL Business DebitCard",
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 40000,
       "annual_fee_pkr": 0,
       "annual_fee_waiver_rule": "HBL's Jan-Jun 2026 SOBC says Mastercard Business Classic issuance and annual fee are 100% waived.",
       "minimum_age_years": null,
@@ -4916,29 +5033,40 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "hbl-src-ebfd800bdf",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
+      ],
+      "minimum_account_balance_pkr": [
+        "hbl-src-ebfd800bdf",
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
       ],
       "annual_fee_pkr": [
         "hbl-src-ebfd800bdf",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
       ],
       "annual_fee_waiver_rule": [
         "hbl-src-ebfd800bdf",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
       ]
     },
     "source_ids": [
       "hbl-src-ebfd800bdf",
-      "hbl-src-7d351b4ff9"
+      "hbl-src-7d351b4ff9",
+      "hbl-src-be9f494cd4"
     ],
     "confidence": "medium",
     "notes": [
       "Public page confirms it is a distinct business debit-card product for new and existing customers.",
       "Public page surfaced product limits but not a clean fee or age table.",
-      "The Jan-Jun 2026 SOBC explicitly waives issuance and annual fee for Mastercard Business Classic."
+      "The Jan-Jun 2026 SOBC explicitly waives issuance and annual fee for Mastercard Business Classic.",
+      "Minimum account balance of PKR 40,000 is the linked HBL Conventional Current Account monthly average balance requirement per the official account page."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -4959,32 +5087,34 @@
       "minimum_monthly_salary_pkr": [
         "hbl-src-4b4c415851",
         "hbl-src-8d4161b05d",
-        "hbl-src-fdfa37debd"
+        "hbl-src-7d351b4ff9"
       ],
       "minimum_account_balance_pkr": [
         "hbl-src-4b4c415851",
         "hbl-src-8d4161b05d",
-        "hbl-src-fdfa37debd"
+        "hbl-src-7d351b4ff9"
       ],
       "annual_fee_pkr": [
         "hbl-src-4b4c415851",
         "hbl-src-8d4161b05d",
-        "hbl-src-fdfa37debd"
+        "hbl-src-7d351b4ff9"
       ]
     },
     "source_ids": [
       "hbl-src-4b4c415851",
       "hbl-src-8d4161b05d",
-      "hbl-src-fdfa37debd"
+      "hbl-src-7d351b4ff9"
     ],
     "confidence": "medium",
     "notes": [
-      "No salary or balance threshold. Annual fee PKR 700 from HBL debit card fee schedule.",
+      "No salary threshold was publicly surfaced; issuance remains account-linked on HBL's debit-card overview.",
+      "HBL's Jan-Jun 2026 SOBC lists the MasterCard Standard annual fee at PKR 3,000, which is the closest current public fee match for HBL's classic debit tier.",
       "HBL uses HBL DebitCard as an umbrella label on overview pages and HBL Classic DebitCard as the concrete product page.",
-      "No clean public fee or age table was surfaced in this pass."
+      "No clean public age table was surfaced in this pass."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -4996,7 +5126,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 100000,
       "minimum_relationship_balance_pkr": null,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 7200,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5004,6 +5134,10 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
+        "hbl-src-e30f050699",
+        "hbl-src-b3407ffa95"
+      ],
+      "annual_fee_pkr": [
         "hbl-src-e30f050699",
         "hbl-src-b3407ffa95"
       ]
@@ -5015,10 +5149,12 @@
     "confidence": "high",
     "notes": [
       "PKR 100,000 minimum monthly salary for Gold FuelSaver card.",
-      "The current public page surfaced annual fee economics, but not a clean eligibility table."
+      "The official product page's FuelSaver Gold benefit table shows an annual fee of PKR 7,200.",
+      "The current public page surfaced annual fee economics, but not a clean age or balance eligibility table."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5030,7 +5166,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 35000,
       "minimum_relationship_balance_pkr": null,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3600,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5038,6 +5174,10 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
+        "hbl-src-e30f050699",
+        "hbl-src-b3407ffa95"
+      ],
+      "annual_fee_pkr": [
         "hbl-src-e30f050699",
         "hbl-src-b3407ffa95"
       ]
@@ -5049,10 +5189,12 @@
     "confidence": "high",
     "notes": [
       "PKR 35,000 minimum monthly salary for Green FuelSaver card.",
-      "The current public page surfaced annual fee economics, but not a clean eligibility table."
+      "The official product page's FuelSaver Green benefit table shows an annual fee of PKR 3,600.",
+      "The current public page surfaced annual fee economics, but not a clean age or balance eligibility table."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5106,7 +5248,8 @@
       "Annual fee is listed as Rs. 14,000 in HBL's Jan-Jun 2026 Schedule of Bank Charges."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5160,7 +5303,8 @@
       "Annual fee is listed as Rs. 6,500 in HBL's Jan-Jun 2026 Schedule of Bank Charges."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5173,30 +5317,41 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": "Specifically for women",
+      "annual_fee_waiver_rule": "For HBL Nisa Plus Current and HBL Nisa Savings customers, issuance of the chosen HBL Classic (Master) or HBL Gold (Master) debit card is waived in the first year; subsequent annual fees apply according to card type as per the latest SOBC.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "hbl-src-a89d1e12ff"
+        "hbl-src-4b4c415851",
+        "hbl-src-3230fe66ec",
+        "hbl-src-7d351b4ff9"
       ],
       "minimum_account_balance_pkr": [
-        "hbl-src-a89d1e12ff"
+        "hbl-src-4b4c415851",
+        "hbl-src-3230fe66ec",
+        "hbl-src-7d351b4ff9"
       ],
       "annual_fee_waiver_rule": [
-        "hbl-src-a89d1e12ff"
+        "hbl-src-4b4c415851",
+        "hbl-src-3230fe66ec",
+        "hbl-src-7d351b4ff9"
       ]
     },
     "source_ids": [
-      "hbl-src-a89d1e12ff"
+      "hbl-src-4b4c415851",
+      "hbl-src-3230fe66ec",
+      "hbl-src-7d351b4ff9"
     ],
     "confidence": "medium",
     "notes": [
-      "Women-only product. No publicly disclosed salary or balance threshold."
+      "Women-only debit proposition.",
+      "Current public account and SOBC documents surface first-year issuance waivers for Nisa-linked Classic or Gold Mastercard debit issuance, but do not publish a separate standalone Nisa-card fee table.",
+      "No publicly disclosed salary or card-specific balance threshold was surfaced."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5252,7 +5407,8 @@
       "HBL Prestige members publicly receive a 50% Platinum annual-fee waiver, but the base card requirement record keeps the standard fee."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5275,11 +5431,19 @@
         "hbl-src-ab2b59f60a",
         "hbl-src-3ac3649d76"
       ],
+      "minimum_account_balance_pkr": [
+        "hbl-src-ab2b59f60a",
+        "hbl-src-3ac3649d76"
+      ],
       "annual_fee_pkr": [
         "hbl-src-ab2b59f60a",
         "hbl-src-3ac3649d76"
       ],
       "annual_fee_waiver_rule": [
+        "hbl-src-ab2b59f60a",
+        "hbl-src-3ac3649d76"
+      ],
+      "existing_account_required": [
         "hbl-src-ab2b59f60a",
         "hbl-src-3ac3649d76"
       ]
@@ -5291,15 +5455,15 @@
     "confidence": "high",
     "notes": [
       "Exclusive to HBL Prestige members.",
-      "HBL Prestige membership requires PKR 5,000,000 quarterly average balance in a current account OR PKR 15,000,000 in a savings account. Source: hbl.com/prestige/become-a-member/hbl-prestige-membership.",
-      "minimum_account_balance_pkr set to 5,000,000 (the lower current-account threshold). Users with PKR 15M in savings also qualify.",
+      "Prestige eligibility requires a conventional current account quarterly average of PKR 5,000,000 (or equivalent foreign currency).",
       "Issued instantly from Prestige lounges according to the public page.",
       "Limit enhancement PDF shows daily withdrawal PKR 1,000,000 and purchase/e-commerce / funds-transfer limits of PKR 5,000,000."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
-    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Balance threshold confirmed from hbl.com/prestige/become-a-member/hbl-prestige-membership May 2026."
+    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
   {
     "card_id": "hbl--hbl-world-business-debitcard",
@@ -5310,10 +5474,9 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 22000,
-      "annual_fee_waiver_rule": "First year free; PKR 22,000 from second year onward.",
+      "annual_fee_waiver_rule": "HBL's Jan-Jun 2026 SOBC says Mastercard Business World issuance is 100% waived and annual fee is charged at 50% of the standard schedule amount.",
       "minimum_age_years": null,
-      "maximum_age_years": null,
-      "existing_account_required": true
+      "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
@@ -5321,6 +5484,10 @@
         "hbl-src-7d351b4ff9"
       ],
       "annual_fee_pkr": [
+        "hbl-src-61fcb687a1",
+        "hbl-src-7d351b4ff9"
+      ],
+      "annual_fee_waiver_rule": [
         "hbl-src-61fcb687a1",
         "hbl-src-7d351b4ff9"
       ]
@@ -5333,10 +5500,11 @@
     "notes": [
       "Public page confirms it is a distinct world business debit-card product for new and existing customers.",
       "Public page surfaced product limits but not a clean fee or age table.",
-      "HBL Jan-Jun 2026 SOBC lists Mastercard Business World annual fee at Rs. 22,000."
+      "HBL Jan-Jun 2026 SOBC lists Mastercard Business World annual fee at Rs. 22,000 before the public business-customer waiver note."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5349,7 +5517,7 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 20000,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "For qualified HBL Premium customers, the Jan-Jun 2026 addendum waives issuance and annual fee 100% in year 1 and gives a 50% annual-fee waiver from year 2 onward for the Master World Debit Card.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -5357,27 +5525,38 @@
       "minimum_monthly_salary_pkr": [
         "hbl-src-2bbe997a3c",
         "hbl-src-3ac3649d76",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-7d351b4ff9",
+        "hbl-src-f261253c77"
       ],
       "annual_fee_pkr": [
         "hbl-src-2bbe997a3c",
         "hbl-src-3ac3649d76",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-7d351b4ff9",
+        "hbl-src-f261253c77"
+      ],
+      "annual_fee_waiver_rule": [
+        "hbl-src-2bbe997a3c",
+        "hbl-src-3ac3649d76",
+        "hbl-src-7d351b4ff9",
+        "hbl-src-f261253c77"
       ]
     },
     "source_ids": [
       "hbl-src-2bbe997a3c",
       "hbl-src-3ac3649d76",
-      "hbl-src-7d351b4ff9"
+      "hbl-src-7d351b4ff9",
+      "hbl-src-f261253c77"
     ],
     "confidence": "medium",
     "notes": [
       "Public page positions it for high-net-worth customers.",
       "Limit enhancement PDF shows daily withdrawal PKR 500,000 and purchase/e-commerce / funds-transfer limits of PKR 3,000,000.",
-      "HBL Jan-Jun 2026 SOBC lists Mastercard World annual fee at Rs. 20,000."
+      "HBL Jan-Jun 2026 SOBC lists Mastercard World annual fee at Rs. 20,000.",
+      "A separate HBL Premium addendum publicly discloses a relationship-based fee waiver for qualified Premium customers."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5388,33 +5567,44 @@
     "card_name": "HBL Gold DebitCard",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 40000,
       "annual_fee_pkr": 3800,
-      "annual_fee_waiver_rule": "50% waiver for HBL Preferred members (Rs 2M+ AUM). First-year waiver for Nisa account holders.",
+      "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
+      "minimum_account_balance_pkr": [
+        "hbl-src-6a64069806",
+        "hbl-src-3ac3649d76",
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
+      ],
       "annual_fee_pkr": [
         "hbl-src-6a64069806",
         "hbl-src-3ac3649d76",
-        "hbl-src-fdfa37debd"
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
       ]
     },
     "source_ids": [
       "hbl-src-6a64069806",
       "hbl-src-3ac3649d76",
-      "hbl-src-fdfa37debd"
+      "hbl-src-7d351b4ff9",
+      "hbl-src-be9f494cd4"
     ],
     "confidence": "medium",
     "notes": [
-      "Annual fee PKR 700 from HBL debit card fee schedule. Salary and balance not publicly disclosed.",
+      "HBL's Jan-Jun 2026 SOBC lists the MasterCard Gold annual fee at PKR 3,800.",
+      "No card-specific salary threshold was publicly disclosed.",
       "Public page confirms it is a distinct product for new and existing customers.",
       "Limit enhancement PDF shows daily withdrawal PKR 200,000 and purchase/e-commerce / funds-transfer limits of PKR 500,000.",
-      "No clean current fee table was surfaced publicly in this pass."
+      "No clean public age table was surfaced in this pass.",
+      "Minimum account balance of PKR 40,000 is the linked HBL Conventional Current Account monthly average balance requirement per the official account page."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5425,24 +5615,39 @@
     "card_name": "HBL Titanium DebitCard",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 40000,
       "annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
-      "annual_fee_pkr": ["hbl-src-sobc-jan-jun-2026"]
+      "minimum_account_balance_pkr": [
+        "hbl-src-28a353bbaa",
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
+      ],
+      "annual_fee_pkr": [
+        "hbl-src-28a353bbaa",
+        "hbl-src-7d351b4ff9",
+        "hbl-src-be9f494cd4"
+      ]
     },
     "source_ids": [
-      "hbl-src-a89d1e12ff"
+      "hbl-src-28a353bbaa",
+      "hbl-src-7d351b4ff9",
+      "hbl-src-be9f494cd4"
     ],
-    "confidence": "low",
+    "confidence": "medium",
     "notes": [
-      "No public salary, balance, or fee threshold found."
+      "HBL's Jan-Jun 2026 SOBC lists Mastercard Titanium annual fee at PKR 3,000.",
+      "The complementary-lounge page still publicly names HBL Titanium DebitCard, but a dedicated current product page was not surfaced in this pass.",
+      "No public salary threshold was found.",
+      "Minimum account balance of PKR 40,000 is the linked HBL Conventional Current Account monthly average balance requirement per the official account page."
     ],
     "bank_gaps": [
-      "Most HBL debit-card pages still do not expose clean public fee or age tables."
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds.",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Normalize before shipping to UI."
   },
@@ -5454,8 +5659,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 8000,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 0,
+      "annual_fee_waiver_rule": "The Jan-Jun 2026 ISOBC says Mastercard Business Classic issuance and annual fee are 100% waived for the business-customer product.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
@@ -5466,6 +5671,10 @@
         "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_pkr": [
+        "hbl-islamic-src-f7edcffdfd",
+        "hbl-islamic-src-b85e543077"
+      ],
+      "annual_fee_waiver_rule": [
         "hbl-islamic-src-f7edcffdfd",
         "hbl-islamic-src-b85e543077"
       ],
@@ -5481,11 +5690,10 @@
     "confidence": "medium",
     "notes": [
       "Recovered as the current official public business debit-card product rather than a separate Classic Business tier.",
-      "The Jan-Jun 2026 Islamic Schedule of Bank Charges lists the primary annual fee for the Mastercard Business Classic Card at Rs. 8,000."
+      "The Jan-Jun 2026 Islamic Schedule of Bank Charges lists the standard Mastercard Business Classic fee at Rs. 8,000, but the same ISOBC note says issuance and annual fee are 100% waived for the business-customer product."
     ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -5498,8 +5706,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 3300,
-      "supplementary_annual_fee_pkr": 1000,
+      "annual_fee_pkr": 3800,
+      "supplementary_annual_fee_pkr": null,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -5507,26 +5715,24 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_pkr": [
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
-      ],
-      "supplementary_annual_fee_pkr": [
-        "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ]
     },
     "source_ids": [
       "hbl-islamic-src-54becadfef",
-      "hbl-islamic-src-cd3bb684ce"
+      "hbl-islamic-src-b85e543077"
     ],
     "confidence": "medium",
-    "notes": [],
+    "notes": [
+      "The Jan-Jun 2026 ISOBC shows primary annual fee PKR 3,800.",
+      "The same 2026 ISOBC marks supplementary annual fee as N/A for Mastercard Gold."
+    ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -5539,8 +5745,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 2500,
-      "supplementary_annual_fee_pkr": 700,
+      "annual_fee_pkr": 3000,
+      "supplementary_annual_fee_pkr": 550,
       "annual_fee_waiver_rule": "Issuance charges for Mastercard Standard are waived for first year for HBL Islamic Nisa Tawfir account holders. Free debit card for HBL @ Work Islamic customers.",
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -5549,36 +5755,36 @@
       "minimum_monthly_salary_pkr": [
         "hbl-islamic-src-4405408b9c",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_pkr": [
         "hbl-islamic-src-4405408b9c",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "supplementary_annual_fee_pkr": [
         "hbl-islamic-src-4405408b9c",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_waiver_rule": [
         "hbl-islamic-src-4405408b9c",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ]
     },
     "source_ids": [
       "hbl-islamic-src-4405408b9c",
       "hbl-islamic-src-54becadfef",
-      "hbl-islamic-src-cd3bb684ce"
+      "hbl-islamic-src-b85e543077"
     ],
     "confidence": "medium",
     "notes": [
-      "Public page shows product availability and limits; fees come from ISOBC."
+      "Public page shows product availability and limits; current fee values come from the Jan-Jun 2026 ISOBC.",
+      "The Jan-Jun 2026 ISOBC shows primary annual fee PKR 3,000 and supplementary annual fee PKR 550."
     ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -5591,8 +5797,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 1700,
-      "supplementary_annual_fee_pkr": 500,
+      "annual_fee_pkr": 2000,
+      "supplementary_annual_fee_pkr": 0,
       "annual_fee_waiver_rule": "First-year free issuance for HBL Uraan, HBL Islamic Rutba, all Islamic Asaan accounts, HBL Islamic Mahana Amdan, and Freelancer Digital Account. Second year onwards annual fees apply.",
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -5601,37 +5807,36 @@
       "minimum_monthly_salary_pkr": [
         "hbl-islamic-src-5e14485b6b",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_pkr": [
         "hbl-islamic-src-5e14485b6b",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "supplementary_annual_fee_pkr": [
         "hbl-islamic-src-5e14485b6b",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_waiver_rule": [
         "hbl-islamic-src-5e14485b6b",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ]
     },
     "source_ids": [
       "hbl-islamic-src-5e14485b6b",
       "hbl-islamic-src-54becadfef",
-      "hbl-islamic-src-cd3bb684ce"
+      "hbl-islamic-src-b85e543077"
     ],
     "confidence": "medium",
     "notes": [
       "Overview page confirms issuance through account-opening form or additional request form.",
-      "ISOBC shows primary fee Rs. 1,700 and supplementary fee Rs. 500."
+      "The Jan-Jun 2026 ISOBC shows primary annual fee PKR 2,000 and supplementary annual fee Nil."
     ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -5689,7 +5894,6 @@
     ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -5702,8 +5906,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 17000,
-      "supplementary_annual_fee_pkr": 1700,
+      "annual_fee_pkr": 20000,
+      "supplementary_annual_fee_pkr": null,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -5712,31 +5916,26 @@
       "minimum_monthly_salary_pkr": [
         "hbl-islamic-src-aa4a41649c",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_pkr": [
         "hbl-islamic-src-aa4a41649c",
         "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
-      ],
-      "supplementary_annual_fee_pkr": [
-        "hbl-islamic-src-aa4a41649c",
-        "hbl-islamic-src-54becadfef",
-        "hbl-islamic-src-cd3bb684ce"
+        "hbl-islamic-src-b85e543077"
       ]
     },
     "source_ids": [
       "hbl-islamic-src-aa4a41649c",
       "hbl-islamic-src-54becadfef",
-      "hbl-islamic-src-cd3bb684ce"
+      "hbl-islamic-src-b85e543077"
     ],
     "confidence": "medium",
     "notes": [
-      "Public page shows card limits and application flow; fees come from ISOBC."
+      "Public page shows card limits and application flow; current fee values come from the Jan-Jun 2026 ISOBC.",
+      "The Jan-Jun 2026 ISOBC shows primary annual fee PKR 20,000 and marks supplementary annual fee as N/A."
     ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -5750,7 +5949,7 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 22000,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "The Jan-Jun 2026 ISOBC says Mastercard Business World issuance is 100% waived and annual fee is charged at 50% of the standard schedule amount for the business-customer product.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
@@ -5761,6 +5960,10 @@
         "hbl-islamic-src-b85e543077"
       ],
       "annual_fee_pkr": [
+        "hbl-islamic-src-44cfe51252",
+        "hbl-islamic-src-b85e543077"
+      ],
+      "annual_fee_waiver_rule": [
         "hbl-islamic-src-44cfe51252",
         "hbl-islamic-src-b85e543077"
       ],
@@ -5776,11 +5979,10 @@
     "confidence": "medium",
     "notes": [
       "Recovered as the current official public world business debit-card product.",
-      "The Jan-Jun 2026 Islamic Schedule of Bank Charges lists the primary annual fee for the Mastercard Business World card at Rs. 22,000."
+      "The Jan-Jun 2026 Islamic Schedule of Bank Charges lists the standard annual fee for the Mastercard Business World card at Rs. 22,000 before the public business-customer waiver note."
     ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -5793,22 +5995,26 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
-    "requirement_sources": {},
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "hbl-islamic-src-b85e543077"
+      ]
+    },
     "source_ids": [
-      "hbl-islamic-src-ab66d3c634"
+      "hbl-islamic-src-b85e543077"
     ],
-    "confidence": "low",
+    "confidence": "medium",
     "notes": [
-      "No public salary, balance, or fee threshold found."
+      "The Jan-Jun 2026 ISOBC lists Mastercard Titanium primary annual fee at PKR 3,000.",
+      "No public salary, balance, or age threshold was found."
     ],
     "bank_gaps": [
       "Public pages did not expose salary or age thresholds for most consumer debit cards.",
-      "HBL Islamic Titanium DebitCard remains unresolved.",
       "No public HBL Islamic consumer credit-card catalogue was found in this pass."
     ],
     "retrieved_note": "Pilot extraction from official public pages and HBL Islamic schedule of bank charges PDFs. Normalize before shipping to UI."
@@ -6308,40 +6514,40 @@
     "card_name": "Mastercard Gold Debit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": 100000,
-      "minimum_average_balance_pkr": 100000,
+      "minimum_account_balance_pkr": 250000,
+      "minimum_average_balance_pkr": 250000,
       "annual_fee_pkr": 1650,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "Free annual fee on JS PLS Savings Account when PKR 250,000 monthly average balance is maintained.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_account_balance_pkr": [
-        "js-bank-src-4dd768402f",
-        "js-bank-src-0f7fa77fda",
+        "js-bank-src-d0a68197d1",
         "js-bank-src-1ec2b57630"
       ],
       "minimum_average_balance_pkr": [
-        "js-bank-src-4dd768402f",
-        "js-bank-src-0f7fa77fda",
+        "js-bank-src-d0a68197d1",
         "js-bank-src-1ec2b57630"
       ],
       "annual_fee_pkr": [
-        "js-bank-src-4dd768402f",
-        "js-bank-src-0f7fa77fda",
+        "js-bank-src-d0a68197d1",
+        "js-bank-src-1ec2b57630"
+      ],
+      "annual_fee_waiver_rule": [
+        "js-bank-src-d0a68197d1",
         "js-bank-src-1ec2b57630"
       ]
     },
     "source_ids": [
-      "js-bank-src-4dd768402f",
-      "js-bank-src-0f7fa77fda",
+      "js-bank-src-d0a68197d1",
       "js-bank-src-1ec2b57630"
     ],
     "confidence": "high",
     "notes": [
-      "Annual fee PKR 1,650 from Jul-Dec 2025 SOC. Annual retention fee PKR 950. No salary or balance threshold found.",
-      "JS Current Account page presents PKR 100,000 as the balance needed for annual-fee waiver, not as a hard card-eligibility threshold.",
-      "JS Bank's Mar 2026 deposit KFS shows current-account variants with nil balance-to-keep while fee waivers remain tied to average-balance bands."
+      "Annual fee PKR 1,650 from Jul-Dec 2025 SOC. Annual retention fee PKR 950.",
+      "Current JS PLS Savings public page makes the clearest current official waiver route: free Gold debit card annual fee at PKR 250,000 monthly average balance.",
+      "This remains an account-linked debit card rather than a salary-gated retail card."
     ],
     "bank_gaps": [
       "Public pages did not cleanly expose age criteria for either debit or credit cards.",
@@ -6357,29 +6563,34 @@
     "card_name": "Mastercard Her Titanium Debit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": 25000,
+      "minimum_account_balance_pkr": 50000,
       "annual_fee_pkr": 0,
-      "annual_fee_waiver_rule": "Free if PKR 25,000 average balance maintained",
+      "annual_fee_waiver_rule": "Free on JS HER Current Account when PKR 50,000 average balance is maintained.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_account_balance_pkr": [
+        "js-bank-src-e6e200319f",
         "js-bank-src-1ec2b57630"
       ],
       "annual_fee_pkr": [
+        "js-bank-src-e6e200319f",
         "js-bank-src-1ec2b57630"
       ],
       "annual_fee_waiver_rule": [
+        "js-bank-src-e6e200319f",
         "js-bank-src-1ec2b57630"
       ]
     },
     "source_ids": [
+      "js-bank-src-e6e200319f",
       "js-bank-src-1ec2b57630"
     ],
     "confidence": "high",
     "notes": [
-      "Women-targeted card. Zero annual fee if PKR 25,000 average balance maintained. PKR 25,000 balance requirement from Jul-Dec 2025 SOC."
+      "Women-targeted card. Current JS HER public material surfaces PKR 50,000 as the average-balance threshold for free Titanium debit annual fee.",
+      "Earlier lower-balance thresholds were replaced with the current official public JS HER route."
     ],
     "bank_gaps": [
       "Public pages did not cleanly expose age criteria for either debit or credit cards.",
@@ -6395,23 +6606,39 @@
     "card_name": "Mastercard Platinum Debit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 150000,
+      "minimum_average_balance_pkr": 150000,
       "annual_fee_pkr": 3000,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "Annual fee waived on JS Platinum Business Current Account when PKR 150,000 average balance is maintained over the past three months.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
+      "minimum_account_balance_pkr": [
+        "js-bank-src-b003607357",
+        "js-bank-src-1ec2b57630"
+      ],
+      "minimum_average_balance_pkr": [
+        "js-bank-src-b003607357",
+        "js-bank-src-1ec2b57630"
+      ],
       "annual_fee_pkr": [
+        "js-bank-src-b003607357",
+        "js-bank-src-1ec2b57630"
+      ],
+      "annual_fee_waiver_rule": [
+        "js-bank-src-b003607357",
         "js-bank-src-1ec2b57630"
       ]
     },
     "source_ids": [
+      "js-bank-src-b003607357",
       "js-bank-src-1ec2b57630"
     ],
     "confidence": "high",
     "notes": [
-      "Annual fee PKR 3,000. Annual retention fee PKR 12,500. No salary or balance threshold found."
+      "Annual fee PKR 3,000 from Jul-Dec 2025 SOC.",
+      "Current public JS Platinum Business Current Account page surfaces a clear annual-fee-waiver route at PKR 150,000 average balance over the past three months."
     ],
     "bank_gaps": [
       "Public pages did not cleanly expose age criteria for either debit or credit cards.",
@@ -6583,40 +6810,44 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 14000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "mcb-bank-src-5524b22834",
-        "mcb-bank-src-bdad3c7914",
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ],
       "minimum_account_balance_pkr": [
-        "mcb-bank-src-5524b22834",
-        "mcb-bank-src-bdad3c7914",
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
+      ],
+      "annual_fee_pkr": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-5524b22834",
-      "mcb-bank-src-bdad3c7914",
-      "mcb-bank-src-a1b94861c8"
+      "mcb-bank-src-a1b94861c8",
+      "mcb-bank-src-2e42e6e99b",
+      "mcb-bank-src-35ccce8f4a"
     ],
-    "confidence": "low",
+    "confidence": "medium",
     "notes": [
-      "No public salary, balance, or fee threshold found.",
-      "Official LinkedIn indicates this is an active debit-card product.",
-      "Later official post states ATM withdrawals up to PKR 350,000/day and POS/online spending up to PKR 800,000/day."
+      "Official Jan-Jun 2026 SOBC lists MCB Visa Platinum Debit Card issuance, renewal/annual, and replacement at PKR 14,000 each.",
+      "No public salary, balance, or standing annual-fee waiver threshold was found for the generic Platinum debit tier."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--mastercard-classic-debit-card",
@@ -6626,32 +6857,40 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-35ccce8f4a"
       ],
       "minimum_account_balance_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-35ccce8f4a"
+      ],
+      "annual_fee_pkr": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-35ccce8f4a"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-a1b94861c8"
+      "mcb-bank-src-a1b94861c8",
+      "mcb-bank-src-35ccce8f4a"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "No salary or balance threshold. Fee not publicly listed."
+      "Official Jan-Jun 2026 SOBC lists MCB Debit Mastercard Classic issuance, renewal/annual, supplementary, and replacement at PKR 3,000 each.",
+      "No salary or balance threshold."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--nayab-visa-debit-card",
@@ -6661,32 +6900,49 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 4000,
+      "annual_fee_waiver_rule": "MCB Nayab Current Account affluent tier publishes free issuance, annual, and renewal on the Exclusive Nayab Card; mass/premium current tiers and the Nayab Savings Account publish a 50% issuance discount only.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ],
       "minimum_account_balance_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
+      ],
+      "annual_fee_pkr": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
+      ],
+      "annual_fee_waiver_rule": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-a1b94861c8"
+      "mcb-bank-src-a1b94861c8",
+      "mcb-bank-src-2e42e6e99b",
+      "mcb-bank-src-35ccce8f4a"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "No salary or balance threshold."
+      "Official Nayab account tables in the Jan-Jun 2026 SOBC say Nayab Visa card charges, where applicable, follow the Visa Gold Plus price shown on the debit-card fee table.",
+      "The current Visa Gold Plus issuance, renewal/annual, and replacement price in the official SOBC is PKR 4,000."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--paypak-debit-card",
@@ -6703,29 +6959,29 @@
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "mcb-bank-src-5524b22834",
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-35ccce8f4a"
       ],
       "minimum_account_balance_pkr": [
-        "mcb-bank-src-5524b22834",
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-35ccce8f4a"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-5524b22834",
-      "mcb-bank-src-a1b94861c8"
+      "mcb-bank-src-a1b94861c8",
+      "mcb-bank-src-35ccce8f4a"
     ],
     "confidence": "medium",
     "notes": [
-      "No salary or balance threshold. Fee not publicly listed.",
-      "Official LinkedIn states SDRA includes a free PayPak Debit Card."
+      "No salary or balance threshold.",
+      "Official Jan-Jun 2026 SOBC publishes separate PayPak Classic and PayPak Gold fee lines, so the generic PayPak record keeps annual_fee_pkr null rather than collapsing two official variants into one scalar."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--visa-fun-club-debit-card",
@@ -6735,32 +6991,49 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 1000,
+      "annual_fee_waiver_rule": "Issuance fee is waived if the Fun Club current account maintains PKR 50,000 average balance in the month of issuance; the annual fee is waived if PKR 50,000 average balance is maintained in the month before the annual fee falls due.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ],
       "minimum_account_balance_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
+      ],
+      "annual_fee_pkr": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
+      ],
+      "annual_fee_waiver_rule": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-a1b94861c8"
+      "mcb-bank-src-a1b94861c8",
+      "mcb-bank-src-2e42e6e99b",
+      "mcb-bank-src-35ccce8f4a"
     ],
-    "confidence": "low",
+    "confidence": "high",
     "notes": [
-      "Youth/fun card; no publicly disclosed salary or balance threshold."
+      "Official Jan-Jun 2026 SOBC lists the Fun Club debit card issuance/annual fee and replacement fee at PKR 1,000 each.",
+      "Youth/fun card; no publicly disclosed salary threshold."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--visa-silver-debit-card",
@@ -6770,32 +7043,44 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ],
       "minimum_account_balance_pkr": [
-        "mcb-bank-src-a1b94861c8"
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
+      ],
+      "annual_fee_pkr": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-a1b94861c8"
+      "mcb-bank-src-a1b94861c8",
+      "mcb-bank-src-2e42e6e99b",
+      "mcb-bank-src-35ccce8f4a"
     ],
-    "confidence": "low",
+    "confidence": "high",
     "notes": [
-      "No public salary, balance, or fee threshold found."
+      "Official Jan-Jun 2026 SOBC lists Visa Silver Debit Card issuance, renewal/annual, supplementary, and replacement at PKR 3,000 each.",
+      "No public salary, balance, or standing annual-fee waiver threshold found."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--mcb-visa-signature-debit-card",
@@ -6804,34 +7089,51 @@
     "card_name": "MCB Visa Signature Debit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 2000000,
+      "minimum_relationship_balance_pkr": 5000000,
       "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_waiver_rule": "No fee if the customer maintains a quarterly average current-account balance of PKR 2,000,000 or total deposits of PKR 5,000,000; otherwise PKR 10,000 is charged per quarter.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
-    "requirement_sources": {},
+    "requirement_sources": {
+      "minimum_account_balance_pkr": [
+        "mcb-bank-src-fedfa77582",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a",
+        "mcb-bank-src-a1b94861c8"
+      ],
+      "minimum_relationship_balance_pkr": [
+        "mcb-bank-src-fedfa77582",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a",
+        "mcb-bank-src-a1b94861c8"
+      ],
+      "annual_fee_waiver_rule": [
+        "mcb-bank-src-fedfa77582",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a",
+        "mcb-bank-src-a1b94861c8"
+      ]
+    },
     "source_ids": [
       "mcb-bank-src-fedfa77582",
-      "mcb-bank-src-bdad3c7914",
-      "mcb-bank-src-532682dad6",
-      "mcb-bank-src-a22ccd9eb8",
-      "mcb-bank-src-b16bbec0eb",
+      "mcb-bank-src-2e42e6e99b",
+      "mcb-bank-src-35ccce8f4a",
       "mcb-bank-src-a1b94861c8"
     ],
-    "confidence": "low",
+    "confidence": "high",
     "notes": [
-      "No public salary, balance, or fee threshold found.",
-      "Official LinkedIn indicates the card is actively marketed.",
       "Official MCB FAQ PDF confirms deposit-based eligibility rather than salary-based eligibility.",
-      "Current public evidence found in the official FAQ PDF and later surfaced SOBC mirrors supports a balance-based eligibility and a conditional quarterly fee rather than a flat published annual fee."
+      "Eligibility is published as PKR 2,000,000 in a current account at application time or PKR 5,000,000 equivalent total deposits, with the same thresholds monitored on a quarterly-average basis thereafter.",
+      "The current official SOBC publishes a quarterly fee model rather than a flat annual fee."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--visa-classic-credit-card",
@@ -6841,29 +7143,42 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": "Reversed if PKR 50,000 spend within 60 days",
+      "annual_fee_pkr": 7000,
+      "annual_fee_waiver_rule": "100% annual-fee waiver if the basic card spends PKR 50,000 within 60 days of the fee charge date.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
+      "annual_fee_pkr": [
+        "mcb-bank-src-c603399433",
+        "mcb-bank-src-84154b869c",
+        "mcb-bank-src-95017c36c6",
+        "mcb-bank-src-900e3ecbed"
+      ],
       "annual_fee_waiver_rule": [
-        "mcb-bank-src-7ce74a2c7c"
+        "mcb-bank-src-c603399433",
+        "mcb-bank-src-84154b869c",
+        "mcb-bank-src-95017c36c6",
+        "mcb-bank-src-900e3ecbed"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-7ce74a2c7c"
+      "mcb-bank-src-c603399433",
+      "mcb-bank-src-84154b869c",
+      "mcb-bank-src-95017c36c6",
+      "mcb-bank-src-900e3ecbed"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Spend-based reversal model. No public income or balance threshold found."
+      "Official Jan-Jun 2026 MCB credit-card SOBC lists the Classic basic-card issuance/annual fee at PKR 7,000 per annum.",
+      "No public income or balance threshold found on current official card pages or summary-box material."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--visa-gold-credit-card",
@@ -6873,29 +7188,42 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": "Reversed if PKR 150,000 spend within 60 days",
+      "annual_fee_pkr": 14000,
+      "annual_fee_waiver_rule": "100% annual-fee waiver if the basic card spends PKR 150,000 within 60 days of the fee charge date.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
+      "annual_fee_pkr": [
+        "mcb-bank-src-c603399433",
+        "mcb-bank-src-84154b869c",
+        "mcb-bank-src-95017c36c6",
+        "mcb-bank-src-900e3ecbed"
+      ],
       "annual_fee_waiver_rule": [
-        "mcb-bank-src-7ce74a2c7c"
+        "mcb-bank-src-c603399433",
+        "mcb-bank-src-84154b869c",
+        "mcb-bank-src-95017c36c6",
+        "mcb-bank-src-900e3ecbed"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-7ce74a2c7c"
+      "mcb-bank-src-c603399433",
+      "mcb-bank-src-84154b869c",
+      "mcb-bank-src-95017c36c6",
+      "mcb-bank-src-900e3ecbed"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Spend-based reversal model."
+      "Official Jan-Jun 2026 MCB credit-card SOBC lists the Gold basic-card issuance/annual fee at PKR 14,000 per annum.",
+      "No public income or balance threshold found on current official card pages or summary-box material."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--visa-gold-debit-card",
@@ -6905,25 +7233,34 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 4000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
-    "requirement_sources": {},
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "mcb-bank-src-a1b94861c8",
+        "mcb-bank-src-2e42e6e99b",
+        "mcb-bank-src-35ccce8f4a"
+      ]
+    },
     "source_ids": [
-      "mcb-bank-src-a1b94861c8"
+      "mcb-bank-src-a1b94861c8",
+      "mcb-bank-src-2e42e6e99b",
+      "mcb-bank-src-35ccce8f4a"
     ],
-    "confidence": "low",
+    "confidence": "high",
     "notes": [
-      "No public salary, balance, or fee threshold found."
+      "Official Jan-Jun 2026 SOBC lists Visa Gold Debit Card issuance, renewal/annual, and replacement at PKR 4,000 each.",
+      "No public salary, balance, or standing annual-fee waiver threshold found."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-bank--visa-platinum-credit-card",
@@ -6933,29 +7270,42 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": "Reversed if PKR 250,000 spend within 60 days",
+      "annual_fee_pkr": 22000,
+      "annual_fee_waiver_rule": "100% annual-fee waiver if the basic card spends PKR 250,000 within 60 days of the fee charge date.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
+      "annual_fee_pkr": [
+        "mcb-bank-src-8fbf0d3627",
+        "mcb-bank-src-84154b869c",
+        "mcb-bank-src-95017c36c6",
+        "mcb-bank-src-900e3ecbed"
+      ],
       "annual_fee_waiver_rule": [
-        "mcb-bank-src-7ce74a2c7c"
+        "mcb-bank-src-8fbf0d3627",
+        "mcb-bank-src-84154b869c",
+        "mcb-bank-src-95017c36c6",
+        "mcb-bank-src-900e3ecbed"
       ]
     },
     "source_ids": [
-      "mcb-bank-src-7ce74a2c7c"
+      "mcb-bank-src-8fbf0d3627",
+      "mcb-bank-src-84154b869c",
+      "mcb-bank-src-95017c36c6",
+      "mcb-bank-src-900e3ecbed"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Spend-based reversal model."
+      "Official Jan-Jun 2026 MCB credit-card SOBC lists the Platinum basic-card issuance/annual fee at PKR 22,000 per annum.",
+      "No public income or balance threshold found on current official card pages or summary-box material."
     ],
     "bank_gaps": [
-      "The official MCB Signature FAQ PDF was recovered later, but most other MCB cards still do not have strong MCB-controlled public documentation captured in the repo.",
-      "Named cards like MCB Visa Gold Credit Card, MCB Visa Platinum Credit Card, MCB Visa Debit Card, and MCB GOLD PLUS were referenced publicly but not with detailed requirement tables.",
-      "MCB Visa Platinum Debit Card and generic PayPak Debit Card records still need stronger fee and balance evidence."
+      "Generic PayPak Debit Card still collapses two current official fee variants (PayPak Classic and PayPak Gold), so annual_fee_pkr remains intentionally null on the generic record.",
+      "No current official MCB-controlled public source surfaced income thresholds for the credit-card tiers in this pass.",
+      "MCB Visa Signature Debit Card currently publishes a quarterly non-maintenance fee model rather than a flat annual fee."
     ],
-    "retrieved_note": "Pilot extraction started from weak public references, but the MCB Visa Signature Debit Card record is now supplemented with the official MCB Signature FAQ PDF plus later surfaced SOBC mirrors."
+    "retrieved_note": "Pilot extraction updated with official MCB public sources including the Jan-Jun 2026 SOBC, the Signature FAQ PDF, the credit-card summary box, and the fee-information PDF."
   },
   {
     "card_id": "mcb-islamic--mcb-islamic-paypak-classic-debit-card",
@@ -6967,7 +7317,7 @@
       "minimum_account_balance_pkr": 0,
       "minimum_deposit_pkr": 100,
       "annual_fee_pkr": 2200,
-      "annual_fee_waiver_rule": "Shandaar Account first issuance free rule applies.",
+      "annual_fee_waiver_rule": "MCB Islamic Shandaar Account waives new and annual/renewal debit-card charges for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -6977,35 +7327,35 @@
         "mcb-islamic-src-3743187df4",
         "mcb-islamic-src-cf3fd48018",
         "mcb-islamic-src-b00612a70b",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "minimum_account_balance_pkr": [
         "mcb-islamic-src-0ac82bff6a",
         "mcb-islamic-src-3743187df4",
         "mcb-islamic-src-cf3fd48018",
         "mcb-islamic-src-b00612a70b",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "minimum_deposit_pkr": [
         "mcb-islamic-src-0ac82bff6a",
         "mcb-islamic-src-3743187df4",
         "mcb-islamic-src-cf3fd48018",
         "mcb-islamic-src-b00612a70b",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_pkr": [
         "mcb-islamic-src-0ac82bff6a",
         "mcb-islamic-src-3743187df4",
         "mcb-islamic-src-cf3fd48018",
         "mcb-islamic-src-b00612a70b",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_waiver_rule": [
         "mcb-islamic-src-0ac82bff6a",
         "mcb-islamic-src-3743187df4",
         "mcb-islamic-src-cf3fd48018",
         "mcb-islamic-src-b00612a70b",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ]
     },
     "source_ids": [
@@ -7013,13 +7363,14 @@
       "mcb-islamic-src-3743187df4",
       "mcb-islamic-src-cf3fd48018",
       "mcb-islamic-src-b00612a70b",
-      "mcb-islamic-src-a2970d9ab3"
+      "mcb-islamic-src-21753bef21"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Annual fee is PKR 2,200 plus FED.",
       "Asaan Current and Asaan Digital Current accounts show PKR 100 initial deposit and no minimum balance.",
-      "Asaan Remittance Current Account shows nil initial deposit and no minimum balance."
+      "Asaan Remittance Current Account shows nil initial deposit and no minimum balance.",
+      "Shandaar Account page waives new and annual/renewal debit-card charges for non-Platinum variants under the published PKR 25,000 opening-month or previous-month-average-balance criteria."
     ],
     "bank_gaps": [
       "No official public consumer credit-card catalogue was found in this pass.",
@@ -7044,26 +7395,26 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "minimum_account_balance_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ]
     },
     "source_ids": [
       "mcb-islamic-src-0ac82bff6a",
-      "mcb-islamic-src-a2970d9ab3"
+      "mcb-islamic-src-21753bef21"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Annual fee is PKR 7,750 plus FED.",
-      "Shandaar Account explicitly excludes UnionPay Platinum from first-issuance-free rule.",
-      "MCB Islamic Shandaar and Hidayat current-account pages publicly show no minimum balance requirement for eligible accountholders."
+      "Shandaar Account free debit-card criteria explicitly excludes Platinum from the new and annual/renewal waiver.",
+      "Public account pages used in this pass show no minimum balance requirement for eligible current-account relationships."
     ],
     "bank_gaps": [
       "No official public consumer credit-card catalogue was found in this pass.",
@@ -7088,29 +7439,30 @@
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "minimum_account_balance_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_waiver_rule": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ]
     },
     "source_ids": [
       "mcb-islamic-src-0ac82bff6a",
-      "mcb-islamic-src-a2970d9ab3"
+      "mcb-islamic-src-21753bef21"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Annual fee is PKR 2,600 plus FED.",
-      "MCB Islamic Shandaar and Asaan current-account pages publicly show no minimum balance requirement for eligible accountholders."
+      "MCB Islamic Shandaar Account page says debit-card issuance and annual/renewal charges are free for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
+      "Public account pages used in this pass show no minimum balance requirement for eligible current-account relationships."
     ],
     "bank_gaps": [
       "No official public consumer credit-card catalogue was found in this pass.",
@@ -7128,36 +7480,37 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": 3200,
-      "annual_fee_waiver_rule": "Shandaar Account first issuance free rule applies.",
+      "annual_fee_waiver_rule": "MCB Islamic Shandaar Account waives new and annual/renewal debit-card charges for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "minimum_account_balance_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_pkr": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_waiver_rule": [
         "mcb-islamic-src-0ac82bff6a",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ]
     },
     "source_ids": [
       "mcb-islamic-src-0ac82bff6a",
-      "mcb-islamic-src-a2970d9ab3"
+      "mcb-islamic-src-21753bef21"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Annual fee is PKR 3,200 plus FED.",
-      "MCB Islamic Shandaar and Asaan current-account pages publicly show no minimum balance requirement for eligible accountholders."
+      "MCB Islamic Shandaar Account page says debit-card issuance and annual/renewal charges are free for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
+      "Public account pages used in this pass show no minimum balance requirement for eligible current-account relationships."
     ],
     "bank_gaps": [
       "No official public consumer credit-card catalogue was found in this pass.",
@@ -7175,36 +7528,37 @@
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": 2950,
-      "annual_fee_waiver_rule": "Official Visa Classic page shows PKR 2,950 + FED issuance, annual, and replacement fee. Shandaar Account says first issuance is free.",
+      "annual_fee_waiver_rule": "MCB Islamic Shandaar Account waives new and annual/renewal debit-card charges for non-Platinum variants when PKR 25,000 is deposited in the opening month or PKR 25,000 monthly average balance was maintained in the previous month.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
         "mcb-islamic-src-6175e51fd2",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "minimum_account_balance_pkr": [
         "mcb-islamic-src-6175e51fd2",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_pkr": [
         "mcb-islamic-src-6175e51fd2",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ],
       "annual_fee_waiver_rule": [
         "mcb-islamic-src-6175e51fd2",
-        "mcb-islamic-src-a2970d9ab3"
+        "mcb-islamic-src-21753bef21"
       ]
     },
     "source_ids": [
       "mcb-islamic-src-6175e51fd2",
-      "mcb-islamic-src-a2970d9ab3"
+      "mcb-islamic-src-21753bef21"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
       "Official Visa Classic page exposes PKR 2,950 + FED issuance, annual, and replacement fee.",
-      "Eligibility note says all singly operated PKR accounts for individual, joint (primary), and sole proprietor customers."
+      "Eligibility note says all singly operated PKR accounts for individual, joint (primary), and sole proprietor customers.",
+      "Shandaar Account page publishes the non-Platinum annual/renewal waiver criteria at PKR 25,000 opening-month deposit or PKR 25,000 previous-month average balance."
     ],
     "bank_gaps": [
       "No official public consumer credit-card catalogue was found in this pass.",
@@ -7511,8 +7865,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 4500,
+      "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -7528,6 +7882,18 @@
         "meezan-src-40a95e6f58",
         "meezan-src-04f8f602ab",
         "meezan-src-289bedcb17"
+      ],
+      "annual_fee_pkr": [
+        "meezan-src-4897b0552e",
+        "meezan-src-40a95e6f58",
+        "meezan-src-04f8f602ab",
+        "meezan-src-289bedcb17"
+      ],
+      "annual_fee_waiver_rule": [
+        "meezan-src-4897b0552e",
+        "meezan-src-40a95e6f58",
+        "meezan-src-04f8f602ab",
+        "meezan-src-289bedcb17"
       ]
     },
     "source_ids": [
@@ -7538,7 +7904,8 @@
     ],
     "confidence": "medium",
     "notes": [
-      "No publicly disclosed salary or balance threshold."
+      "Official Jan-Jun 2026 SOC lists Visa Gold issuance and annual fee at PKR 4,500 each.",
+      "Meezan Plus account holders maintaining PKR 200,000 monthly average balance receive an annual-fee waiver."
     ],
     "bank_gaps": [
       "No public Meezan consumer credit-card catalogue was found in this pass.",
@@ -7598,8 +7965,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 3500,
+      "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
@@ -7615,6 +7982,18 @@
         "meezan-src-40a95e6f58",
         "meezan-src-04f8f602ab",
         "meezan-src-289bedcb17"
+      ],
+      "annual_fee_pkr": [
+        "meezan-src-4897b0552e",
+        "meezan-src-40a95e6f58",
+        "meezan-src-04f8f602ab",
+        "meezan-src-289bedcb17"
+      ],
+      "annual_fee_waiver_rule": [
+        "meezan-src-4897b0552e",
+        "meezan-src-40a95e6f58",
+        "meezan-src-04f8f602ab",
+        "meezan-src-289bedcb17"
       ]
     },
     "source_ids": [
@@ -7625,7 +8004,8 @@
     ],
     "confidence": "medium",
     "notes": [
-      "No publicly disclosed salary or balance threshold.",
+      "Official Jan-Jun 2026 SOC lists Visa Silver issuance and annual fee at PKR 3,500 each.",
+      "Meezan Plus account holders maintaining PKR 200,000 monthly average balance receive an annual-fee waiver.",
       "General eligibility appears to be tied to having a Meezan account."
     ],
     "bank_gaps": [
@@ -7759,21 +8139,36 @@
     "card_name": "Meezan Visa Infinite Debit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 1000000,
       "minimum_average_balance_pkr": 1000000,
       "minimum_relationship_balance_pkr": 15000000,
-      "annual_fee_pkr": null,
-      "annual_fee_waiver_rule": null,
+      "annual_fee_pkr": 42500,
+      "annual_fee_waiver_rule": "Charges are waived for Premium customers maintaining average monthly balance of PKR 15,000,000 in checking accounts, PKR 20,000,000 across checking accounts and TDCs, or PKR 50,000,000 across checking accounts, TDCs, and Islamic Naya Pakistan Certificates from Meezan RDA.",
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
+      "minimum_account_balance_pkr": [
+        "meezan-src-8416f9d0b9",
+        "meezan-src-40a95e6f58",
+        "meezan-src-dea3859a87"
+      ],
       "minimum_average_balance_pkr": [
         "meezan-src-8416f9d0b9",
         "meezan-src-40a95e6f58",
         "meezan-src-dea3859a87"
       ],
       "minimum_relationship_balance_pkr": [
+        "meezan-src-8416f9d0b9",
+        "meezan-src-40a95e6f58",
+        "meezan-src-dea3859a87"
+      ],
+      "annual_fee_pkr": [
+        "meezan-src-8416f9d0b9",
+        "meezan-src-40a95e6f58",
+        "meezan-src-dea3859a87"
+      ],
+      "annual_fee_waiver_rule": [
         "meezan-src-8416f9d0b9",
         "meezan-src-40a95e6f58",
         "meezan-src-dea3859a87"
@@ -7784,11 +8179,11 @@
       "meezan-src-40a95e6f58",
       "meezan-src-dea3859a87"
     ],
-    "confidence": "low",
+    "confidence": "high",
     "notes": [
-      "No public salary, balance, or fee threshold found for Infinite tier.",
-      "There are two competing eligibility frames: premium-customer thresholds on the card page and a lower PKR 1,000,000 issuance or average-balance threshold in the SOC PDF.",
-      "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 1,000,000) while the higher relationship-balance criterion is preserved separately."
+      "Official Jan-Jun 2026 SOC lists Visa Infinite issuance and annual fee at PKR 42,500 each.",
+      "There are two competing eligibility frames: premium-customer thresholds on the Premium Banking page and a lower PKR 1,000,000 issuance or average-balance threshold in the SOC PDF.",
+      "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 1,000,000) while the higher premium-banking relationship criteria are preserved separately."
     ],
     "bank_gaps": [
       "No public Meezan consumer credit-card catalogue was found in this pass.",
@@ -7807,7 +8202,7 @@
       "minimum_account_balance_pkr": 5000000,
       "minimum_average_balance_pkr": 500000,
       "minimum_relationship_balance_pkr": 5000000,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 27500,
       "annual_fee_waiver_rule": "Free for Meezan Premium Banking customers with PKR 5M in accounts or PKR 7M in TDCs",
       "minimum_age_years": null,
       "maximum_age_years": null
@@ -7828,6 +8223,11 @@
         "meezan-src-40a95e6f58",
         "meezan-src-dea3859a87"
       ],
+      "annual_fee_pkr": [
+        "meezan-src-1e755976b8",
+        "meezan-src-40a95e6f58",
+        "meezan-src-dea3859a87"
+      ],
       "annual_fee_waiver_rule": [
         "meezan-src-1e755976b8",
         "meezan-src-40a95e6f58",
@@ -7841,6 +8241,7 @@
     ],
     "confidence": "high",
     "notes": [
+      "Official Jan-Jun 2026 SOC lists Mastercard World issuance and annual fee at PKR 27,500 each.",
       "World Debit Card is part of Meezan Premium Banking. PKR 5,000,000 in accounts or PKR 7,000,000 in Term Deposit Certificates required. No annual fee for qualifying customers.",
       "There are two competing eligibility frames: premium-customer thresholds on the card page and a lower PKR 500,000 issuance or average-balance threshold in the SOC PDF.",
       "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 500,000) while the higher relationship-balance criterion is preserved separately."
@@ -7851,6 +8252,70 @@
       "Most ordinary debit-card pages do not publish salary or age requirements."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and SOC PDF. Normalize before shipping to UI."
+  },
+  {
+    "card_id": "standard-chartered--easy-credit",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "card_name": "Easy Credit",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 50000,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 3000,
+      "supplementary_annual_fee_pkr": 1000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 21,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-cbdd6be323",
+        "standard-chartered-src-fa425dfbdd",
+        "standard-chartered-src-dcab9ddf22"
+      ],
+      "minimum_account_balance_pkr": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-cbdd6be323",
+        "standard-chartered-src-fa425dfbdd",
+        "standard-chartered-src-dcab9ddf22"
+      ],
+      "annual_fee_pkr": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-cbdd6be323",
+        "standard-chartered-src-fa425dfbdd",
+        "standard-chartered-src-dcab9ddf22"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-cbdd6be323",
+        "standard-chartered-src-fa425dfbdd",
+        "standard-chartered-src-dcab9ddf22"
+      ],
+      "minimum_age_years": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-cbdd6be323",
+        "standard-chartered-src-fa425dfbdd",
+        "standard-chartered-src-dcab9ddf22"
+      ]
+    },
+    "source_ids": [
+      "standard-chartered-src-1dff1fbee0",
+      "standard-chartered-src-cbdd6be323",
+      "standard-chartered-src-fa425dfbdd",
+      "standard-chartered-src-dcab9ddf22"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Current SC Pakistan credit-card landing page explicitly surfaces monthly income above PKR 50,000 for Easy Credit.",
+      "PKR 3,000 annual renewal fee. Provides evergreen revolving credit line.",
+      "Public pages clearly surface age 21 for salaried applicants and 25 for self-employed applicants."
+    ],
+    "bank_gaps": [
+      "No clean public debit-card fee/eligibility pages were surfaced in this pass.",
+      "Some credit-card products on the landing page expose eligibility while others do not."
+    ],
+    "retrieved_note": "Pilot extraction from official public pages and official MID / annual-fee criteria PDFs. Normalize before shipping to UI."
   },
   {
     "card_id": "standard-chartered--mastercard-platinum-credit-card",
@@ -7928,10 +8393,10 @@
     "card_name": "Mastercard Titanium Credit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": 50000,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": null,
       "annual_fee_waiver_rule": null,
-      "minimum_age_years": null,
+      "minimum_age_years": 21,
       "maximum_age_years": null
     },
     "requirement_sources": {
@@ -7939,24 +8404,36 @@
         "standard-chartered-src-1dff1fbee0",
         "standard-chartered-src-3903885563",
         "standard-chartered-src-eb86dd18ee",
-        "standard-chartered-src-b680a6f2fd",
         "standard-chartered-src-fa425dfbdd",
-        "standard-chartered-src-2de368e3f2"
+        "standard-chartered-src-0ea61becf9"
+      ],
+      "minimum_account_balance_pkr": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-3903885563",
+        "standard-chartered-src-eb86dd18ee",
+        "standard-chartered-src-fa425dfbdd",
+        "standard-chartered-src-0ea61becf9"
+      ],
+      "minimum_age_years": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-3903885563",
+        "standard-chartered-src-eb86dd18ee",
+        "standard-chartered-src-fa425dfbdd",
+        "standard-chartered-src-0ea61becf9"
       ]
     },
     "source_ids": [
       "standard-chartered-src-1dff1fbee0",
       "standard-chartered-src-3903885563",
       "standard-chartered-src-eb86dd18ee",
-      "standard-chartered-src-b680a6f2fd",
       "standard-chartered-src-fa425dfbdd",
-      "standard-chartered-src-2de368e3f2"
+      "standard-chartered-src-0ea61becf9"
     ],
     "confidence": "medium",
     "notes": [
-      "PKR 50,000 estimated minimum salary based on SCB standard credit card eligibility criteria.",
-      "Self-employed minimum age is 25 on public pages.",
-      "Current official Titanium product pages expose eligibility, but the current public conventional Summary Box / MID fee grid surfaced for Pakistan lists Platinum, World, and Easy Credit only, so annual_fee_pkr remains null."
+      "Current SC Pakistan credit-card pages explicitly surface monthly income above PKR 50,000 for Titanium.",
+      "Public card pages clearly surface age 21 for salaried applicants and 25 for self-employed applicants.",
+      "No public deposit threshold is surfaced for this unsecured credit-card product, so minimum_account_balance_pkr is treated as not required."
     ],
     "bank_gaps": [
       "No clean public debit-card fee/eligibility pages were surfaced in this pass.",
@@ -8028,67 +8505,37 @@
     "retrieved_note": "Pilot extraction from official public pages and official MID / annual-fee criteria PDFs. Normalize before shipping to UI."
   },
   {
-    "card_id": "standard-chartered--easy-credit",
-    "bank_slug": "standard-chartered",
-    "bank_name": "Standard Chartered Bank Pakistan",
-    "card_name": "Easy Credit",
-    "requirements": {
-      "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 3000,
-      "supplementary_annual_fee_pkr": 1000,
-      "annual_fee_waiver_rule": null,
-      "minimum_age_years": null,
-      "maximum_age_years": null
-    },
-    "requirement_sources": {
-      "annual_fee_pkr": [
-        "standard-chartered-src-1dff1fbee0",
-        "standard-chartered-src-cbdd6be323",
-        "standard-chartered-src-fa425dfbdd",
-        "standard-chartered-src-dcab9ddf22"
-      ],
-      "supplementary_annual_fee_pkr": [
-        "standard-chartered-src-1dff1fbee0",
-        "standard-chartered-src-cbdd6be323",
-        "standard-chartered-src-fa425dfbdd",
-        "standard-chartered-src-dcab9ddf22"
-      ]
-    },
-    "source_ids": [
-      "standard-chartered-src-1dff1fbee0",
-      "standard-chartered-src-cbdd6be323",
-      "standard-chartered-src-fa425dfbdd",
-      "standard-chartered-src-dcab9ddf22"
-    ],
-    "confidence": "high",
-    "notes": [
-      "PKR 3,000 annual renewal fee. Provides evergreen revolving credit line.",
-      "Self-employed minimum age is 25 on public pages."
-    ],
-    "bank_gaps": [
-      "No clean public debit-card fee/eligibility pages were surfaced in this pass.",
-      "Some credit-card products on the landing page expose eligibility while others do not."
-    ],
-    "retrieved_note": "Pilot extraction from official public pages and official MID / annual-fee criteria PDFs. Normalize before shipping to UI."
-  },
-  {
     "card_id": "standard-chartered--saadiq-mastercard-platinum-credit-card",
     "bank_slug": "standard-chartered",
     "bank_name": "Standard Chartered Bank Pakistan",
     "card_name": "Saadiq Mastercard Platinum Credit Card",
     "requirements": {
       "minimum_monthly_salary_pkr": null,
-      "minimum_account_balance_pkr": null,
+      "minimum_account_balance_pkr": 0,
       "annual_fee_pkr": null,
       "supplementary_annual_fee_pkr": 6000,
       "annual_fee_waiver_rule": null,
-      "minimum_age_years": null,
+      "minimum_age_years": 21,
       "maximum_age_years": null
     },
     "requirement_sources": {
+      "minimum_account_balance_pkr": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-e6ebae5e1c",
+        "standard-chartered-src-39641d6f8a",
+        "standard-chartered-src-ee6350e4be",
+        "standard-chartered-src-a777a11ca7"
+      ],
       "supplementary_annual_fee_pkr": [
         "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-e6ebae5e1c",
+        "standard-chartered-src-39641d6f8a",
+        "standard-chartered-src-ee6350e4be",
+        "standard-chartered-src-a777a11ca7"
+      ],
+      "minimum_age_years": [
+        "standard-chartered-src-1dff1fbee0",
+        "standard-chartered-src-e6ebae5e1c",
         "standard-chartered-src-39641d6f8a",
         "standard-chartered-src-ee6350e4be",
         "standard-chartered-src-a777a11ca7"
@@ -8096,14 +8543,16 @@
     },
     "source_ids": [
       "standard-chartered-src-1dff1fbee0",
+      "standard-chartered-src-e6ebae5e1c",
       "standard-chartered-src-39641d6f8a",
       "standard-chartered-src-ee6350e4be",
       "standard-chartered-src-a777a11ca7"
     ],
     "confidence": "low",
     "notes": [
-      "5% cashback on dining, grocery, e-commerce. No public salary, balance, or fee threshold found.",
-      "Minimum monthly salary / income is inferred from the official apply-now form's lowest selectable income band, which starts at PKR 100,000; the public page does not state the threshold in prose."
+      "Current product page clearly surfaces age 21 for salaried applicants and 25 for self-employed applicants.",
+      "No public deposit threshold is surfaced for this unsecured credit-card product, so minimum_account_balance_pkr is treated as not required.",
+      "5% cashback on dining, grocery, e-commerce. No clean current public salary threshold or annual-fee figure was surfaced in prose or a current public SOC/MID."
     ],
     "bank_gaps": [
       "No clean public debit-card fee/eligibility pages were surfaced in this pass.",
@@ -8119,7 +8568,7 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 2800,
       "supplementary_annual_fee_pkr": 1500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -8133,6 +8582,12 @@
         "ubl-src-401ef09b67"
       ],
       "minimum_account_balance_pkr": [
+        "ubl-src-0f9e0c0c54",
+        "ubl-src-39c6ab12ff",
+        "ubl-src-069ab98da7",
+        "ubl-src-401ef09b67"
+      ],
+      "annual_fee_pkr": [
         "ubl-src-0f9e0c0c54",
         "ubl-src-39c6ab12ff",
         "ubl-src-069ab98da7",
@@ -8153,8 +8608,8 @@
     ],
     "confidence": "medium",
     "notes": [
-      "No publicly disclosed salary or balance threshold.",
-      "Product page exists but does not show a fee table; fee values were recovered from the surfaced UBL merged SOC PDF.",
+      "No publicly disclosed salary threshold.",
+      "Product page exists but does not show a fee table; the official UBL merged SOC PDF lists PKR 2,800 primary annual fee and PKR 1,500 supplementary annual fee.",
       "Ameen Premium Account page says there is no minimum balance requirement."
     ],
     "bank_gaps": [
@@ -8172,25 +8627,38 @@
     "requirements": {
       "minimum_monthly_salary_pkr": 0,
       "minimum_account_balance_pkr": 0,
-      "annual_fee_pkr": null,
+      "annual_fee_pkr": 2800,
+      "supplementary_annual_fee_pkr": 1500,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null
     },
     "requirement_sources": {
       "minimum_monthly_salary_pkr": [
-        "ubl-src-401ef09b67"
+        "ubl-src-6d008ba630",
+        "ubl-src-d436703f6d"
       ],
       "minimum_account_balance_pkr": [
-        "ubl-src-401ef09b67"
+        "ubl-src-6d008ba630",
+        "ubl-src-d436703f6d"
+      ],
+      "annual_fee_pkr": [
+        "ubl-src-6d008ba630",
+        "ubl-src-d436703f6d"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "ubl-src-6d008ba630",
+        "ubl-src-d436703f6d"
       ]
     },
     "source_ids": [
-      "ubl-src-401ef09b67"
+      "ubl-src-6d008ba630",
+      "ubl-src-d436703f6d"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "No publicly disclosed salary or balance threshold."
+      "Official product page exposes PKR 2,800 basic annual/issuance fee and PKR 1,500 supplementary annual/issuance fee.",
+      "FAQ says all new and existing account holders are eligible, so no separate salary or balance threshold was publicly surfaced."
     ],
     "bank_gaps": [
       "Credit-card salary and age criteria were weakly surfaced in public pages reviewed.",
@@ -8658,6 +9126,7 @@
       "Spend-based full fee reversal. No public income or balance threshold.",
       "Annual fee changed from PKR 5,000 in Jul-Dec 2025 to PKR 6,000 in Jan-Jun 2026.",
       "Supplementary annual fee changed from PKR 2,500 to PKR 3,000.",
+      "Official fee-reversal page says the annual fee is charged at card activation and annually on the anniversary date, while FED on annual fee is not reversed.",
       "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
     ],
     "bank_gaps": [
@@ -8716,6 +9185,7 @@
       "Spend-based full fee reversal. No public income or balance threshold.",
       "Annual fee changed from PKR 10,000 in Jul-Dec 2025 to PKR 12,000 in Jan-Jun 2026.",
       "Supplementary annual fee changed from PKR 5,000 to PKR 6,000.",
+      "Official fee-reversal page says the annual fee is charged at card activation and annually on the anniversary date, while FED on annual fee is not reversed.",
       "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
     ],
     "bank_gaps": [
@@ -8773,6 +9243,7 @@
     "notes": [
       "Spend-based full fee reversal. No public income or balance threshold.",
       "Annual fee stayed at PKR 20,000 across the two surfaced summary-box periods.",
+      "Official fee-reversal page says the annual fee is charged at card activation and annually on the anniversary date, while FED on annual fee is not reversed.",
       "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
     ],
     "bank_gaps": [
