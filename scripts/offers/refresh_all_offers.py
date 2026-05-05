@@ -11,6 +11,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PEEKABOO_REFRESH = ROOT / "refresh_data.py"
 EASYPAISA_REFRESH = ROOT / "scripts" / "offers" / "extract_easypaisa_discountworld.py"
 OFFERS_VALIDATION = ROOT / "scripts" / "offers" / "validate_offers_dataset.py"
+SEO_PAGE_GENERATION = ROOT / "scripts" / "seo" / "generate_seo_pages.py"
 
 
 def run_step(label: str, command: list[str]) -> None:
@@ -31,6 +32,7 @@ def main() -> None:
     print("[offers] Merging Easypaisa into data/offers.json...")
     payload = merge_easypaisa_into_offers()
     run_step("Validating merged offers dataset", [python, str(OFFERS_VALIDATION)])
+    run_step("Generating bank, restaurant, and sitemap SEO pages", [python, str(SEO_PAGE_GENERATION)])
     print("[offers] Done.")
     print(f"[offers] Offers: {payload['stats']['offers']}")
     print(f"[offers] Cards: {payload['stats']['cards']}")

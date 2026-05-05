@@ -46,24 +46,42 @@
   </head>
   <body class="content-page">
     <div class="page-shell content-shell">
-      <nav class="app-bar" role="banner">
-        <div class="top-nav">
-          <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
-          <div class="mobile-nav-wrap">
-            <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
-              <span></span><span></span><span></span>
-            </button>
-            <nav class="utility-nav" id="main-nav" aria-label="Site links">
-              <a class="utility-link" href="./">Home</a>
-              <a class="utility-link" href="./about">About</a>
-              <a class="utility-link" href="./methodology">Methodology</a>
-              <a class="utility-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
-              <a class="utility-link" href="./privacy-policy">Privacy</a>
-              <a class="utility-link" href="./contact" aria-current="page">Contact</a>
-            </nav>
-          </div>
-          <span class="nav-badge">Karachi · Lahore · Islamabad</span>
+      <nav class="nav" role="banner">
+        <a class="nav-wordmark" href="./" aria-label="KonsaCard home">konsa<span>card</span><em>.pk</em></a>
+        <div class="city-tab-group" aria-label="Available cities">
+          <span class="city-tab active">All</span>
+          <span class="city-tab">Karachi</span>
+          <span class="city-tab">Lahore</span>
+          <span class="city-tab">Islamabad</span>
         </div>
+        <div style="flex:1"></div>
+        <div class="nav-links-desk">
+          <a class="nav-link" href="./banks/">Banks</a>
+          <a class="nav-link" href="./restaurants/">Restaurants</a>
+          <a class="nav-link" href="./about">About</a>
+          <a class="nav-link" href="./methodology">Methodology</a>
+          <a class="nav-link" href="./how-discount-caps-work">Discount Caps</a>
+          <a class="nav-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
+          <a class="nav-link" href="./privacy-policy">Privacy</a>
+          <a class="nav-link" href="./contact" aria-current="page">Contact</a>
+        </div>
+        <a class="btn-find-my-card" href="./">
+          <span>🎯</span> Find My Card
+        </a>
+        <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="utility-nav" id="main-nav" aria-label="Site links">
+          <a class="utility-link" href="./">Home</a>
+          <a class="utility-link" href="./banks/">Banks</a>
+          <a class="utility-link" href="./restaurants/">Restaurants</a>
+          <a class="utility-link" href="./about">About</a>
+          <a class="utility-link" href="./methodology">Methodology</a>
+          <a class="utility-link" href="./how-discount-caps-work">Discount Caps</a>
+          <a class="utility-link" href="./how-card-tiers-affect-discounts">Card Tiers</a>
+          <a class="utility-link" href="./privacy-policy">Privacy</a>
+          <a class="utility-link" href="./contact" aria-current="page">Contact</a>
+        </nav>
       </nav>
 
       <header class="content-hero">

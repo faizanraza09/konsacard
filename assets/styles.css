@@ -1432,6 +1432,19 @@ body.content-page {
   gap: 12px;
 }
 
+.content-shell .city-tab-group {
+  margin-left: 4px;
+}
+
+.content-shell .city-tab {
+  cursor: default;
+}
+
+.content-shell .city-tab[href],
+.content-shell .city-tab[role="button"] {
+  cursor: pointer;
+}
+
 .mobile-nav-wrap {
   display: flex;
   align-items: center;
@@ -1462,20 +1475,6 @@ body.content-page {
 .utility-link[aria-current="page"] {
   background: var(--brand-light);
   color: var(--brand);
-}
-
-.nav-badge {
-  flex-shrink: 0;
-  padding: 8px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.75);
-  border: 1px solid rgba(226,232,240,0.9);
-  color: var(--muted);
-  font-size: 11.5px;
-  font-weight: 700;
-  letter-spacing: .05em;
-  text-transform: uppercase;
-  box-shadow: var(--shadow-sm);
 }
 
 .sr-only {
@@ -1735,7 +1734,10 @@ body.content-page {
   .quiz-filters-grid { grid-template-columns: 1fr; }
   .quiz-summary-bar { flex-direction: column; align-items: flex-start; }
   .top-nav { flex-wrap: wrap; }
-  .nav-badge { order: 3; }
+  .content-shell .city-tab-group {
+    display: flex;
+    margin-left: 4px;
+  }
   .cmp-rest-row { grid-template-columns: 1fr; }
   .pager { flex-direction: column; align-items: flex-start; }
   .pager-actions { width: 100%; justify-content: space-between; }
@@ -1783,7 +1785,7 @@ body.content-page {
   .cd-stats { grid-template-columns: 1fr 1fr; padding: 0 12px; }
   .cd-stat { padding: 10px 8px; }
   .cd-stat-v { font-size: 13px; }
-  .cd-stat--annual, .cd-stat--avgday { display: none; }
+  .cd-stat--annual { display: none; }
 
   /* Other */
   .quiz-wrap { padding: 24px 20px; }
@@ -1796,8 +1798,11 @@ body.content-page {
   /* Content page: score rows stack on small phones */
   .score-row { flex-direction: column; align-items: flex-start; gap: 10px; }
   .score-bar-track { width: 100%; }
-  /* Nav badge: hide on very small screens to give nav room */
-  .content-shell .nav-badge { display: none; }
+  .content-shell .city-tab-group {
+    display: flex;
+    overflow-x: auto;
+    max-width: 100%;
+  }
 }
 
 /* ── CONTENT PAGE COMPONENTS ── */
@@ -2209,6 +2214,58 @@ body.content-page {
 .cd-source-badge--pdf { background: #fef3c7; color: #92400e; }
 .cd-source-badge--web { background: #dbeafe; color: #1e40af; }
 .cd-sources-note { font-size: 11px; color: var(--muted2); line-height: 1.5; }
+
+/* Requirements panel: strip card styling inside the detail modal */
+.cd-wrap .requirement-panel {
+  margin: 0; padding: 14px 20px;
+  background: none; border: none; border-radius: 0;
+  border-bottom: 1px solid var(--line2);
+}
+.cd-wrap .requirement-panel-head { margin-bottom: 10px; }
+.cd-wrap .requirement-panel-title {
+  font-size: 10px; font-weight: 800; letter-spacing: .08em; color: var(--muted);
+}
+
+/* Notes & conditions section in detail modal */
+.cd-notes-details {
+  margin-top: 10px;
+  border: 1px solid var(--line2);
+  border-radius: 8px;
+  background: var(--surface2);
+  overflow: hidden;
+}
+.cd-notes-summary {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 12px; cursor: pointer; list-style: none; user-select: none;
+}
+.cd-notes-summary::-webkit-details-marker { display: none; }
+.cd-notes-summary:focus-visible { outline: 2px solid var(--brand); outline-offset: -2px; }
+.cd-notes-summary-left { display: inline-flex; align-items: center; gap: 8px; }
+.cd-notes-heading {
+  font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--muted);
+}
+.cd-notes-count {
+  font-size: 10px; font-weight: 700; color: var(--muted2);
+  background: var(--surface); border: 1px solid var(--line2); border-radius: 999px; padding: 2px 6px;
+}
+.cd-notes-caret {
+  width: 8px; height: 8px; border-right: 1.8px solid var(--muted2); border-bottom: 1.8px solid var(--muted2);
+  transform: rotate(45deg); transition: transform .18s ease;
+}
+.cd-notes-details[open] .cd-notes-caret { transform: rotate(225deg); }
+.cd-notes-list {
+  list-style: disc;
+  padding: 0 12px 12px 30px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.cd-note-item {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ink2);
+}
 
 /* Deal calendar */
 .deal-calendar { display: flex; gap: 6px; align-items: flex-end; }

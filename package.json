@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "wrangler pages dev . --port 8001",
     "dev:static": "python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8001",
+    "generate:seo": "python scripts/seo/generate_seo_pages.py",
     "refresh:offers": "python scripts/offers/refresh_all_offers.py",
     "refresh:requirements": "python scripts/card_requirements/build_card_requirements_normalized.py && python scripts/card_requirements/build_deal_requirement_card_map.py",
     "test": "echo \"Error: no test specified\" && exit 1"
