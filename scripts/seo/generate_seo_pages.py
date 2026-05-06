@@ -290,10 +290,12 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <meta property="og:description" content="{escaped_description}" />
     <meta property="og:site_name" content="konsacard.pk" />
     <meta property="og:image" content="{SITE_URL}/assets/og-image.png" />
+    <meta property="og:image:alt" content="KonsaCard - Restaurant discount comparison for Pakistan" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{escaped_title}" />
     <meta name="twitter:description" content="{escaped_description}" />
     <meta name="twitter:image" content="{SITE_URL}/assets/og-image.png" />
+    <meta name="twitter:image:alt" content="KonsaCard - Restaurant discount comparison for Pakistan" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -351,10 +353,10 @@ def nav_html(current: str = "") -> str:
         <div class="nav-links-desk">
 {desk}
         </div>
-        <a class="btn-find-my-card" href="/">
+        <a class="btn-find-my-card" href="/" title="Find your best card">
           <span>🎯</span> Find My Card
         </a>
-        <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
           <span></span><span></span><span></span>
         </button>
         <nav class="utility-nav" id="main-nav" aria-label="Site links">
@@ -463,6 +465,65 @@ def entity_page_schema(
                 {
                     "@type": "ItemList",
                     "name": f"Related pages for {item_name}",
+                    "itemListElement": item_list,
+                },
+            ],
+        }
+    ]
+
+
+def restaurant_page_schema(
+    title: str,
+    description: str,
+    canonical_path: str,
+    restaurant_name: str,
+    related_banks: list[RelatedItem],
+    related_base_path: str,
+    cities: list[str],
+) -> list[dict]:
+    """Schema for restaurant pages with LocalBusiness information."""
+    item_list = [
+        {
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": item.name,
+            "url": f"{SITE_URL}{related_base_path}{item.slug}/",
+        }
+        for index, item in enumerate(related_banks[:10])
+    ]
+    
+    # LocalBusiness schema for restaurant
+    local_business = {
+        "@type": "LocalBusiness",
+        "name": restaurant_name,
+        "url": f"{SITE_URL}{canonical_path}",
+        "description": description,
+    }
+    
+    # Add addresses for known cities
+    if cities:
+        local_business["areaServed"] = cities
+    
+    return [
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebPage",
+                    "name": title,
+                    "url": f"{SITE_URL}{canonical_path}",
+                    "description": description,
+                    "about": restaurant_name,
+                },
+                make_breadcrumb_schema([
+                    ("Home", "/"),
+                    ("Restaurants", "/restaurants/"),
+                    (restaurant_name, canonical_path),
+                ]),
+                local_business,
+                {
+                    "@type": "ItemList",
+                    "name": f"Banks with offers at {restaurant_name}",
                     "itemListElement": item_list,
                 },
             ],
@@ -670,6 +731,13 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
         """
         for item in top_restaurants[:8]
     )
+    
+    # Internal linking: Show all cards
+    all_cards_list = "".join(
+        f'<li><a href="/banks/{summary["slug"]}/{card["slug"]}/">{escape(card["name"])}</a> ({card["card_type"]}) – {card["restaurant_count"]} restaurants, up to {format_pct(card["max_discount_pct"])} off</li>'
+        for card in summary["cards"]
+    )
+    
     body = f"""
       {nav_html('banks')}
 
@@ -708,6 +776,14 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
           <div class="card-grid">
             {restaurant_cards}
           </div>
+        </section>
+        
+        <section class="section">
+          <h2>All {escape(summary['name'])} cards</h2>
+          <p>Complete list of {escape(summary['name'])} cards available on KonsaCard:</p>
+          <ul style="list-style: disc; margin-left: 20px; color: var(--ink); line-height: 1.8; columns: 2; gap: 40px;">
+            {all_cards_list}
+          </ul>
         </section>
       </div>
       <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
@@ -769,6 +845,13 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
         """
         for item in summary["top_banks"][:8]
     )
+    
+    # Internal linking: Show all banks with offers
+    all_banks_list = "".join(
+        f'<li><a href="/banks/{bank_slug_map.get(bank["name"], "#")}/">{escape(bank["name"])}</a> – {bank["card_count"]} cards, up to {format_pct(bank["max_discount_pct"])} off</li>'
+        for bank in summary["banks"]
+    )
+    
     body = f"""
       {nav_html('restaurants')}
 
@@ -809,16 +892,25 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
             {bank_cards}
           </div>
         </section>
+        
+        <section class="section">
+          <h2>All banks with {escape(summary['name'])} offers</h2>
+          <p>Complete list of banks offering discounts at {escape(summary['name'])}:</p>
+          <ul style="list-style: disc; margin-left: 20px; color: var(--ink); line-height: 1.8;">
+            {all_banks_list}
+          </ul>
+        </section>
       </div>
       <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
     """
-    schema = entity_page_schema(
+    schema = restaurant_page_schema(
         title,
         description,
         f"/restaurants/{summary['slug']}/",
         summary["name"],
         summary["top_banks"],
         "/banks/",
+        summary.get("cities", []),
     )
     return html_page(
         title=title,
@@ -931,6 +1023,24 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
         """
         for r in card["restaurants"]
     )
+    
+    # Internal linking: Show other cards from the same bank
+    other_cards = [c for c in bank_summary['cards'] if c['slug'] != card['slug']][:5]
+    related_cards_html = ""
+    if other_cards:
+        card_links = "".join(
+            f'<li><a href="/banks/{bank_summary["slug"]}/{c["slug"]}/">{escape(c["name"])} ({c["card_type"]})</a> – {c["restaurant_count"]} restaurants</li>'
+            for c in other_cards
+        )
+        related_cards_html = f"""
+        <section class="section">
+          <h2>Other {escape(bank_summary['name'])} cards</h2>
+          <p>Compare this card with other offerings from {escape(bank_summary['name'])}:</p>
+          <ul style="list-style: disc; margin-left: 20px; color: var(--ink); line-height: 1.7;">
+            {card_links}
+          </ul>
+        </section>"""
+    
     body = f"""
       {nav_html('banks')}
 
@@ -982,6 +1092,8 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
             <a class="btn" href="/banks/{bank_summary['slug']}/">Back to {escape(bank_summary['name'])}</a>
           </div>
         </section>
+        
+        {related_cards_html}
       </div>
       <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change — always confirm current terms directly with the bank or restaurant.</div>
     """
