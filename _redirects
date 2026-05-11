@@ -1,0 +1,7 @@
+# Redirect old query-parameter filter URLs to clean canonical paths
+# Bank-specific landing page redirects (these have separate pages now)
+# Skip these for now - the homepage already canonicalizes filtered states to /
+
+# Keep all homepage query-param URLs (/?banks=...&rests=...) 
+# They all canonicalize to / via the canonical meta tag in index.html
+

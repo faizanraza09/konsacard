@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Crawl-delay to be respectful
+Crawl-delay: 1
+
 Sitemap: https://konsacard.pk/sitemap.xml

@@ -4351,9 +4351,22 @@ function encodeStateToUrl() {
   if (state.outingsPerWeek !== 1) params.set("outings", state.outingsPerWeek);
   if (state.selectedDays.size > 0) params.set("days", Array.from(state.selectedDays).join(","));
   if (state.selectedCardTypes.size > 0) params.set("types", Array.from(state.selectedCardTypes).join(","));
-  if (state.selectedBanks.size > 0) params.set("banks", Array.from(state.selectedBanks).join("|"));
-  if (state.selectedRestaurants.size > 0) params.set("rests", Array.from(state.selectedRestaurants).join("|"));
-  if (state.selectedCards.size > 0) params.set("cards", Array.from(state.selectedCards).join("|"));
+  // Use repeated params for multi-select (banks, rests, cards)
+  if (state.selectedBanks.size > 0) {
+    for (const bank of state.selectedBanks) {
+      params.append("banks", bank);
+    }
+  }
+  if (state.selectedRestaurants.size > 0) {
+    for (const rest of state.selectedRestaurants) {
+      params.append("rests", rest);
+    }
+  }
+  if (state.selectedCards.size > 0) {
+    for (const card of state.selectedCards) {
+      params.append("cards", card);
+    }
+  }
   if (state.useEligibility) params.set("elig", "1");
   if (state.monthlySalary !== null) params.set("salary", state.monthlySalary);
   if (state.accountBalance !== null) params.set("balance", state.accountBalance);
@@ -4369,9 +4382,32 @@ function restoreStateFromUrl() {
   if (params.has("outings")) state.outingsPerWeek = Math.max(1, Math.min(4, Number(params.get("outings")) || 2));
   if (params.has("days")) state.selectedDays = new Set(params.get("days").split(",").map(Number).filter((n) => n >= 0 && n <= 6));
   if (params.has("types")) state.selectedCardTypes = new Set(params.get("types").split(",").filter(Boolean));
-  if (params.has("banks")) state.selectedBanks = new Set(params.get("banks").split("|").filter(Boolean));
-  if (params.has("rests")) state.selectedRestaurants = new Set(params.get("rests").split("|").filter(Boolean));
-  if (params.has("cards")) state.selectedCards = new Set(params.get("cards").split("|").filter(Boolean));
+  // Parse repeated params for multi-select (banks, rests, cards)
+  // Also support legacy pipe-separated format for backwards compatibility
+  if (params.has("banks")) {
+    const banks = params.getAll("banks");
+    if (banks.length > 0 && banks[0].includes("|")) {
+      state.selectedBanks = new Set(banks[0].split("|").filter(Boolean));
+    } else {
+      state.selectedBanks = new Set(banks.filter(Boolean));
+    }
+  }
+  if (params.has("rests")) {
+    const rests = params.getAll("rests");
+    if (rests.length > 0 && rests[0].includes("|")) {
+      state.selectedRestaurants = new Set(rests[0].split("|").filter(Boolean));
+    } else {
+      state.selectedRestaurants = new Set(rests.filter(Boolean));
+    }
+  }
+  if (params.has("cards")) {
+    const cards = params.getAll("cards");
+    if (cards.length > 0 && cards[0].includes("|")) {
+      state.selectedCards = new Set(cards[0].split("|").filter(Boolean));
+    } else {
+      state.selectedCards = new Set(cards.filter(Boolean));
+    }
+  }
   if (params.get("elig") === "1") {
     state.useEligibility = true;
     if (params.has("salary")) state.monthlySalary = Number(params.get("salary"));
