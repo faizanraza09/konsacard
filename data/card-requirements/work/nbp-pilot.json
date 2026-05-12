@@ -1,0 +1,98 @@
+{
+  "bank_slug": "nbp",
+  "bank_name": "National Bank of Pakistan",
+  "retrieved_note": null,
+  "cards": [
+    {
+      "card_name": "PayPak Classic",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 1800,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+      ],
+      "confidence": "low",
+      "notes": []
+    },
+    {
+      "card_name": "PayPak Pink",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+      ],
+      "confidence": "low",
+      "notes": []
+    },
+    {
+      "card_name": "PayPak Edge co-badge Mastercard",
+      "card_type": "debit",
+      "tier": "premium",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 500000,
+        "annual_fee_pkr": 4000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+      ],
+      "confidence": "low",
+      "notes": []
+    },
+    {
+      "card_name": "UPI Classic",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 2250,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+      ],
+      "confidence": "low",
+      "notes": []
+    },
+    {
+      "card_name": "UPI Gold",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 0,
+        "minimum_account_balance_pkr": 100000,
+        "annual_fee_pkr": 3000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null
+      },
+      "sources": [
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+      ],
+      "confidence": "low",
+      "notes": []
+    }
+  ],
+  "gaps": []
+}

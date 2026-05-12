@@ -1,0 +1,125 @@
+{
+  "bank_slug": "nbp",
+  "bank_name": "National Bank of Pakistan",
+  "sources": [
+    {
+      "artifact": "nbp_card_details_template.xlsx",
+      "path": "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+      "kind": "workbook",
+      "role": "card_details",
+      "sheet": "nbp_card_details_template"
+    },
+    {
+      "artifact": "Active Merchant List - V03.26.xlsx",
+      "path": "data/card-requirements/raw/nbp/Active Merchant List - V03.26.xlsx",
+      "kind": "workbook",
+      "role": "merchant_directory",
+      "sheets": [
+        {
+          "sheet": "Summary",
+          "rows": 152,
+          "columns": 11
+        },
+        {
+          "sheet": "Active Merchants",
+          "rows": 33961,
+          "columns": 11
+        },
+        {
+          "sheet": "Exclude Locations ",
+          "rows": 445,
+          "columns": 11
+        }
+      ]
+    }
+  ],
+  "card_rows": [
+    {
+      "bank_name": "NBP",
+      "card_name": "PayPak Classic",
+      "card_type": "debit",
+      "tier": "classic",
+      "annual_fee_pkr": "1800",
+      "annual_fee_waiver_conditions": null,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": "-",
+      "minimum_age_years": "18",
+      "maximum_age_years": "none",
+      "benefits_discount": "golootlo discounts through app",
+      "free_insurance": "yes basic"
+    },
+    {
+      "bank_name": "NBP",
+      "card_name": "PayPak Pink",
+      "card_type": "debit",
+      "tier": "classic",
+      "annual_fee_pkr": "-",
+      "annual_fee_waiver_conditions": null,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": "-",
+      "minimum_age_years": "18",
+      "maximum_age_years": "none",
+      "benefits_discount": "golootlo discounts through app",
+      "free_insurance": "yes exclusive"
+    },
+    {
+      "bank_name": "NBP",
+      "card_name": "PayPak Edge co-badge Mastercard",
+      "card_type": "debit",
+      "tier": "premium",
+      "annual_fee_pkr": "4000",
+      "annual_fee_waiver_conditions": null,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": "500000",
+      "minimum_age_years": "18",
+      "maximum_age_years": "none",
+      "benefits_discount": "golootlo discounts through app",
+      "free_insurance": "yes premium"
+    },
+    {
+      "bank_name": "NBP",
+      "card_name": "UPI Classic",
+      "card_type": "debit",
+      "tier": "classic",
+      "annual_fee_pkr": "2250",
+      "annual_fee_waiver_conditions": null,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": "-",
+      "minimum_age_years": "18",
+      "maximum_age_years": "none",
+      "benefits_discount": "golootlo discounts direct on card",
+      "free_insurance": null
+    },
+    {
+      "bank_name": "NBP",
+      "card_name": "UPI Gold",
+      "card_type": "debit",
+      "tier": "gold",
+      "annual_fee_pkr": "3000",
+      "annual_fee_waiver_conditions": null,
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": "100000",
+      "minimum_age_years": "18",
+      "maximum_age_years": "none",
+      "benefits_discount": "golootlo discounts direct on card",
+      "free_insurance": null
+    }
+  ],
+  "merchant_directory": [
+    {
+      "sheet": "Summary",
+      "rows": 152,
+      "columns": 11
+    },
+    {
+      "sheet": "Active Merchants",
+      "rows": 33961,
+      "columns": 11
+    },
+    {
+      "sheet": "Exclude Locations ",
+      "rows": 445,
+      "columns": 11
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "artifact": "nbp_card_details_template.xlsx",
+    "path": "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+    "kind": "workbook",
+    "role": "card_details",
+    "sheet": "nbp_card_details_template"
+  },
+  {
+    "artifact": "Active Merchant List - V03.26.xlsx",
+    "path": "data/card-requirements/raw/nbp/Active Merchant List - V03.26.xlsx",
+    "kind": "workbook",
+    "role": "merchant_directory",
+    "sheets": [
+      {
+        "sheet": "Summary",
+        "rows": 152,
+        "columns": 11
+      },
+      {
+        "sheet": "Active Merchants",
+        "rows": 33961,
+        "columns": 11
+      },
+      {
+        "sheet": "Exclude Locations ",
+        "rows": 445,
+        "columns": 11
+      }
+    ]
+  }
+]
