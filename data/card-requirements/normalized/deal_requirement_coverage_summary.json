@@ -2,8 +2,8 @@
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
-    "matched_cards": 11,
-    "total_deal_cards": 11,
+    "matched_cards": 10,
+    "total_deal_cards": 10,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
@@ -91,9 +91,11 @@
     "deal_bank_name": "Habib Metro Bank",
     "requirement_bank_name": "Habib Metro Bank",
     "matched_cards": 4,
-    "total_deal_cards": 4,
-    "coverage_pct": 100.0,
-    "unmatched_deal_cards": []
+    "total_deal_cards": 5,
+    "coverage_pct": 80.0,
+    "unmatched_deal_cards": [
+      "Visa Signature Business Card"
+    ]
   },
   {
     "deal_bank_name": "JS Bank",
@@ -106,8 +108,8 @@
   {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
-    "matched_cards": 12,
-    "total_deal_cards": 12,
+    "matched_cards": 11,
+    "total_deal_cards": 11,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
@@ -124,6 +126,14 @@
     "requirement_bank_name": "Meezan Bank",
     "matched_cards": 14,
     "total_deal_cards": 14,
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
+  },
+  {
+    "deal_bank_name": "National Bank of Pakistan",
+    "requirement_bank_name": "National Bank of Pakistan",
+    "matched_cards": 5,
+    "total_deal_cards": 5,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },

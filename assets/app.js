@@ -41,7 +41,7 @@ const QUICK_QUESTIONS = [
   "Best low-fee options?",
 ];
 const PAGINATION_ITEMS_PER_PAGE = 10;
-const RESULTS_LIST_ITEMS_PER_PAGE = Math.max(1, PAGINATION_ITEMS_PER_PAGE - 1);
+const PAGE_ONE_LIST_SIZE = PAGINATION_ITEMS_PER_PAGE - 1;
 
 const CITY_LABELS = {
   all: "All",
@@ -92,6 +92,7 @@ const BANK_LOGO_FILES = {
   mcbbanklimited: "mcb-bank.png",
   mcbislamicbankltd: "mcb-islamic.png",
   meezanbank: "meezan-bank.png",
+  nationalbankofpakistan: "national-bank-of-pakistan.png",
   standardcharteredbank: "standard-chartered.png",
   unitedbanklimitedubl: "ubl.png",
 };
@@ -113,6 +114,7 @@ const BANK_APPLY_URLS = {
   mcbbanklimited:        "https://www.mcb.com.pk/personal/cards/",
   mcbislamicbankltd:     "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/",
   meezanbank:            "https://www.meezanbank.com/",
+  nationalbankofpakistan: "https://www.nbp.com.pk/",
   standardcharteredbank: "https://www.sc.com/pk/credit-cards/",
   unitedbanklimitedubl:  "https://www.ubl.com.pk/consumer-banking/cards/",
 };
@@ -893,7 +895,8 @@ function renderResultCards(results, container) {
   container.innerHTML = "";
 
   results.forEach((result, index) => {
-    const rank = index + 2;
+    const page = state.pagination.results || 1;
+    const rank = page === 1 ? index + 2 : PAGE_ONE_LIST_SIZE + (page - 2) * PAGINATION_ITEMS_PER_PAGE + index + 2;
     const cardKey = buildCardKey(result.bank, result.card);
     const inCmp = state.compareList.includes(cardKey);
     const canCmp = state.compareList.length < 2 || inCmp;
@@ -995,8 +998,9 @@ function renderPagedResultCards(results, container) {
       featuredContainer.innerHTML = "";
     }
 
-    const restResults = (state.pagination.results || 1) === 1 ? filteredResults.slice(1) : filteredResults;
-    const pageData = paginateItems(restResults, "results", RESULTS_LIST_ITEMS_PER_PAGE);
+    const restResults = filteredResults.slice(1);
+    const listPageSize = (state.pagination.results || 1) === 1 ? PAGE_ONE_LIST_SIZE : PAGINATION_ITEMS_PER_PAGE;
+    const pageData = paginateItems(restResults, "results", listPageSize);
     renderResultCards(pageData.items, listContainer);
     if (pageData.totalPages > 1) {
       listContainer.insertAdjacentHTML("beforeend", renderPaginationControls("results", pageData));
@@ -2919,12 +2923,11 @@ function computeRecommendations() {
 
   const scoringVenueCount = scoringVenues.size || 1; // Prevent div by zero
 
-  const desiredOffers = state.data.offers.filter((offer) => {
+  // Score against the use-case only. Narrowing filters like bank/card/type
+  // should not rebase fit scores.
+  const scoringOffers = state.data.offers.filter((offer) => {
     if (!cityMatches(offer.city)) return false;
-    if (state.selectedBanks.size > 0 && !state.selectedBanks.has(offer.bank)) return false;
-    if (!cardTypeMatches(offer.cardCategory)) return false;
     if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
-    if (state.selectedCards.size > 0 && !state.selectedCards.has(offer.card)) return false;
     return true;
   });
 
@@ -2932,7 +2935,7 @@ function computeRecommendations() {
   const totalSelectedDays = selectedDays.size;
   const cardMap = new Map();
 
-  desiredOffers.forEach((offer) => {
+  scoringOffers.forEach((offer) => {
     const offerSaving = getOfferSavingValue(offer, state.orderValue);
     if (!Number.isFinite(offerSaving) || offerSaving <= 0) return;
 
@@ -2940,10 +2943,11 @@ function computeRecommendations() {
     const cardKey = `${offer.bank} || ${offer.card}`;
 
     if (!cardMap.has(cardKey)) {
-      cardMap.set(cardKey, { bank: offer.bank, card: offer.card, venueDailyBest: new Map() });
+      cardMap.set(cardKey, { bank: offer.bank, card: offer.card, cardCategory: offer.cardCategory || null, venueDailyBest: new Map() });
     }
 
     const cardRecord = cardMap.get(cardKey);
+    if (!cardRecord.cardCategory && offer.cardCategory) cardRecord.cardCategory = offer.cardCategory;
     if (!cardRecord.venueDailyBest.has(venueKey)) {
       cardRecord.venueDailyBest.set(venueKey, new Map());
     }
@@ -2984,7 +2988,7 @@ function computeRecommendations() {
           bestByDay.map(([, match]) => match.discountPct).filter((v) => Number.isFinite(v)),
         );
         const caps = bestByDay
-          .map(([, match]) => match.capPkr ?? match.fixedDiscountPkr)
+          .map(([, match]) => match.capPkr)
           .filter((v) => Number.isFinite(v));
 
         return {
@@ -3021,7 +3025,7 @@ function computeRecommendations() {
       matches.map((match) => match.discountPct).filter((v) => Number.isFinite(v)),
     );
     const caps = matches
-      .map((match) => match.capPkr ?? match.fixedDiscountPkr)
+      .map((match) => match.capPkr)
       .filter((v) => Number.isFinite(v));
     const medianCap = caps.length ? median(caps) : null;
     const topMatches = matches.sort((a, b) => b.expectedSaving - a.expectedSaving).slice(0, 3);
@@ -3071,9 +3075,16 @@ function computeRecommendations() {
     item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta));
   });
 
-  let visible = state.useEligibility && hasEligibilityInput
-    ? aggregates.filter((item) => item.requirementStatus.status !== "ineligible")
-    : aggregates;
+  let visible = aggregates.filter((item) => {
+    if (state.selectedBanks.size > 0 && !state.selectedBanks.has(item.bank)) return false;
+    if (state.selectedCardTypes.size > 0 && !state.selectedCardTypes.has(item.cardCategory)) return false;
+    if (state.selectedCards.size > 0 && !state.selectedCards.has(item.card)) return false;
+    return true;
+  });
+
+  if (state.useEligibility && hasEligibilityInput) {
+    visible = visible.filter((item) => item.requirementStatus.status !== "ineligible");
+  }
 
   return visible.sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
@@ -3344,18 +3355,45 @@ function getTopPickCitiesLabel() {
 }
 
 function getOfferSavingValue(offer, orderValue) {
+  const discountType = offer.discountType || "percentage";
   const discountPct = getOfferDiscountPct(offer);
   const fixedDiscountPkr = Number.isFinite(offer.fixedDiscountPkr) ? offer.fixedDiscountPkr : null;
   const capPkr = Number.isFinite(offer.capPkr) ? offer.capPkr : null;
 
-  if (Number.isFinite(discountPct) && discountPct > 0) {
-    return Math.min(
-      (orderValue * discountPct) / 100,
-      fixedDiscountPkr ?? capPkr ?? Number.POSITIVE_INFINITY,
-    );
+  switch (discountType) {
+    case "fixed":
+      if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) {
+        return Math.min(fixedDiscountPkr, orderValue);
+      }
+      return null;
+
+    case "up_to":
+      if (Number.isFinite(discountPct) && discountPct > 0) {
+        var effectivePct = discountPct * 0.6;
+        var pctSaving = (orderValue * effectivePct) / 100;
+        return Math.min(pctSaving, capPkr || Number.POSITIVE_INFINITY);
+      }
+      return null;
+
+    case "bogo":
+      if (Number.isFinite(discountPct) && discountPct > 0) {
+        var bogoEffectivePct = discountPct * 0.3;
+        var bogoPctSaving = (orderValue * bogoEffectivePct) / 100;
+        return Math.min(bogoPctSaving, capPkr || Number.POSITIVE_INFINITY);
+      }
+      return null;
+
+    case "percentage":
+    default:
+      if (Number.isFinite(discountPct) && discountPct > 0) {
+        return Math.min(
+          (orderValue * discountPct) / 100,
+          fixedDiscountPkr || capPkr || Number.POSITIVE_INFINITY,
+        );
+      }
+      if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) return Math.min(fixedDiscountPkr, orderValue);
+      return null;
   }
-  if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) return fixedDiscountPkr;
-  return null;
 }
 
 function getOfferDiscountPct(offer) {
@@ -3444,7 +3482,9 @@ function renderRequirementSummary(status, options = {}) {
 
 function renderSourcesSection(sourceIds) {
   if (!state.requirements?.sourcesById || !sourceIds?.length) return "";
-  const sources = sourceIds.map((id) => state.requirements.sourcesById.get(id)).filter(Boolean);
+  const sources = sourceIds
+    .map((id) => state.requirements.sourcesById.get(id))
+    .filter((s) => s && s.source_type !== "spreadsheet");
   if (!sources.length) return "";
   return `
     <div class="cd-section cd-sources-section">
@@ -4002,7 +4042,7 @@ function getCompareRestaurantRows(compareKeys) {
       const candidate = {
         saving,
         discountLabel: offer.discountLabel,
-        capPkr: offer.capPkr ?? offer.fixedDiscountPkr ?? null,
+        capPkr: offer.capPkr ?? null,
       };
       if (!current || candidate.saving > current.saving) {
         dayMap.set(day, candidate);
@@ -4209,7 +4249,7 @@ function renderPaginationControls(pageKey, pageData) {
   if (!pageData || pageData.totalPages <= 1) return "";
   const pageListCount = Math.max(0, pageData.endIndex - pageData.startIndex);
   const metaText = pageKey === "results"
-    ? `Showing ${pageListCount + 1} cards on this page (including top pick) · ${pageData.totalItems + 1} total matches`
+    ? `Showing ${pageListCount + (pageData.currentPage === 1 ? 1 : 0)} cards on this page${pageData.currentPage === 1 ? " (plus top pick above)" : ""} · ${pageData.totalItems + 1} total matches`
     : `Showing ${pageData.startIndex + 1}-${pageData.endIndex} of ${pageData.totalItems}`;
   return `
     <div class="pager">

@@ -5,11 +5,13 @@ import sys
 from pathlib import Path
 
 from merge_easypaisa_into_offers import merge_easypaisa_into_offers
+from merge_nbp_into_offers import merge_nbp_into_offers
 
 
 ROOT = Path(__file__).resolve().parents[2]
-PEEKABOO_REFRESH = ROOT / "refresh_data.py"
+PEEKABOO_REFRESH = ROOT / "scripts" / "offers" / "refresh_peekaboo.py"
 EASYPAISA_REFRESH = ROOT / "scripts" / "offers" / "extract_easypaisa_discountworld.py"
+NBP_REFRESH = ROOT / "scripts" / "offers" / "extract_nbp_merchants.py"
 OFFERS_VALIDATION = ROOT / "scripts" / "offers" / "validate_offers_dataset.py"
 SEO_PAGE_GENERATION = ROOT / "scripts" / "seo" / "generate_seo_pages.py"
 
@@ -28,9 +30,12 @@ def main() -> None:
 
     run_step("Refreshing Peekaboo dataset", [python, str(PEEKABOO_REFRESH)])
     run_step("Refreshing Easypaisa dataset", [python, str(EASYPAISA_REFRESH)])
+    run_step("Refreshing NBP merchant dataset", [python, str(NBP_REFRESH)])
 
     print("[offers] Merging Easypaisa into data/offers.json...")
     payload = merge_easypaisa_into_offers()
+    print("[offers] Merging NBP into data/offers.json...")
+    payload = merge_nbp_into_offers()
     run_step("Validating merged offers dataset", [python, str(OFFERS_VALIDATION)])
     run_step("Generating bank, restaurant, and sitemap SEO pages", [python, str(SEO_PAGE_GENERATION)])
     print("[offers] Done.")

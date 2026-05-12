@@ -7,6 +7,7 @@ The app is driven by `data/offers.json` and now combines:
 
 - the existing Peekaboo-backed offers pipeline
 - a public-source Easypaisa offers pipeline
+- an NBP merchant-workbook pipeline
 
 ## Repo Structure
 
@@ -21,7 +22,6 @@ scripts/
   offers/                   Offers refresh, merge, and validation scripts
   card_requirements/        Requirements normalization and mapping builders
   dev/                      Local development utilities
-refresh_data.py             Compatibility entrypoint for Peekaboo-only refresh
 ```
 
 ## Main Data Outputs
@@ -63,10 +63,11 @@ python scripts/offers/refresh_all_offers.py
 
 That orchestrates:
 
-1. `refresh_data.py`
 2. `scripts/offers/extract_easypaisa_discountworld.py`
 3. `scripts/offers/merge_easypaisa_into_offers.py`
-4. `scripts/offers/validate_offers_dataset.py`
+4. `scripts/offers/extract_nbp_merchants.py`
+5. `scripts/offers/merge_nbp_into_offers.py`
+6. `scripts/offers/validate_offers_dataset.py`
 
 For more detail, see:
 

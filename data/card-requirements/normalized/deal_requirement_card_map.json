@@ -29,15 +29,6 @@
   {
     "deal_bank_name": "Al Baraka Bank",
     "requirement_bank_name": "Al Baraka Bank",
-    "deal_card_name": "Mastercard World Elite Debit Card",
-    "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "al-baraka--mastercard-platinum-debit-card",
-    "requirement_card_name": "Mastercard Platinum Debit Card"
-  },
-  {
-    "deal_bank_name": "Al Baraka Bank",
-    "requirement_bank_name": "Al Baraka Bank",
     "deal_card_name": "Nexgen Habib University PayPak Debit Card",
     "matched": true,
     "match_method": "manual_alias",
@@ -1224,6 +1215,15 @@
     "requirement_card_name": "Visa Platinum Debit Card"
   },
   {
+    "deal_bank_name": "Habib Metro Bank",
+    "requirement_bank_name": "Habib Metro Bank",
+    "deal_card_name": "Visa Signature Business Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
     "deal_card_name": "Mastercard Gold Debit Card",
@@ -1303,15 +1303,6 @@
     "match_method": "manual_alias",
     "requirement_card_id": "js-bank--js-credit-card-platinum",
     "requirement_card_name": "JS Credit Card Platinum"
-  },
-  {
-    "deal_bank_name": "MCB Bank Limited",
-    "requirement_bank_name": "MCB Bank Limited",
-    "deal_card_name": "Mastercard Classic Debit Card",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "mcb-bank--mastercard-classic-debit-card",
-    "requirement_card_name": "Mastercard Classic Debit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
@@ -1636,6 +1627,51 @@
     "match_method": "manual_alias",
     "requirement_card_id": "meezan--meezan-women-first-debit-card",
     "requirement_card_name": "Meezan Women First Debit Card"
+  },
+  {
+    "deal_bank_name": "National Bank of Pakistan",
+    "requirement_bank_name": "National Bank of Pakistan",
+    "deal_card_name": "PayPak Classic",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "nbp--paypak-classic",
+    "requirement_card_name": "PayPak Classic"
+  },
+  {
+    "deal_bank_name": "National Bank of Pakistan",
+    "requirement_bank_name": "National Bank of Pakistan",
+    "deal_card_name": "PayPak Edge co-badge Mastercard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "nbp--paypak-edge-co-badge-mastercard",
+    "requirement_card_name": "PayPak Edge co-badge Mastercard"
+  },
+  {
+    "deal_bank_name": "National Bank of Pakistan",
+    "requirement_bank_name": "National Bank of Pakistan",
+    "deal_card_name": "PayPak Pink",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "nbp--paypak-pink",
+    "requirement_card_name": "PayPak Pink"
+  },
+  {
+    "deal_bank_name": "National Bank of Pakistan",
+    "requirement_bank_name": "National Bank of Pakistan",
+    "deal_card_name": "UPI Classic",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "nbp--upi-classic",
+    "requirement_card_name": "UPI Classic"
+  },
+  {
+    "deal_bank_name": "National Bank of Pakistan",
+    "requirement_bank_name": "National Bank of Pakistan",
+    "deal_card_name": "UPI Gold",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "nbp--upi-gold",
+    "requirement_card_name": "UPI Gold"
   },
   {
     "deal_bank_name": "Standard Chartered Bank",

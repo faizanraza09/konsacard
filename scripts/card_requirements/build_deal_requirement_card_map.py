@@ -27,6 +27,8 @@ BANK_NAME_MAP = {
     "MCB Bank Limited": "MCB Bank Limited",
     "MCB Islamic Bank Ltd": "MCB Islamic Bank Ltd",
     "Meezan Bank": "Meezan Bank",
+    "National Bank of Pakistan": "National Bank of Pakistan",
+    "NBP": "National Bank of Pakistan",
     "Standard Chartered Bank": "Standard Chartered Bank Pakistan",
     "United Bank Limited (UBL)": "United Bank Limited (UBL)",
 }

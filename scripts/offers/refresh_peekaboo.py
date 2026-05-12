@@ -240,6 +240,15 @@ def build_discount_fields(discount_label: str | None, offer_title: str | None) -
     }
 
 
+DISCOUNT_KIND_TO_TYPE = {
+    "percent_exact": "percentage",
+    "percent_upto": "up_to",
+    "percent_with_fixed_cap": "percentage",
+    "fixed_amount": "fixed",
+    "unknown": "percentage",
+}
+
+
 def parse_discount_cap(text: str | None) -> int | None:
     if not text:
         return None
@@ -535,6 +544,7 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                 discount_label = extract_discount(entity)
                 discount_fields = build_discount_fields(discount_label, None)
                 if discount_label:
+                    nearest = entity.get("nearestBranch") or {}
                     offers.append(
                         {
                             "city": city_name,
@@ -549,6 +559,16 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                             "days": list(range(7)),
                             "daysLabel": "All Days",
                             "capPkr": None,
+                            "sourceMerchantName": entity.get("name"),
+                            "sourceAddress": nearest.get("name") or None,
+                            "sourceLat": nearest.get("lat"),
+                            "sourceLng": nearest.get("long"),
+                            "discountIsUpTo": discount_fields["discountKind"] == "percent_upto",
+                            "discountType": DISCOUNT_KIND_TO_TYPE.get(discount_fields["discountKind"], "percentage"),
+                            "orderTypes": [],
+                            "transactionLimitPerDay": None,
+                            "transactionLimitPerMonth": None,
+                            "branchCount": (entity.get("stats") or {}).get("branches"),
                         }
                     )
                 continue
@@ -561,6 +581,9 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                 if not discount_label:
                     continue
                 days = extract_weekdays(deal.get("title"), deal.get("description"))
+                nearest = entity.get("nearestBranch") or {}
+                order_type = deal.get("orderType", "")
+                order_types_list = ["Dine-In"] if order_type in ("OUTLET", "DINE_IN") else ([order_type] if order_type else [])
                 offers.append(
                     {
                         "city": city_name,
@@ -568,13 +591,24 @@ def get_card_offers(city_name: str, city_meta: dict, bank: dict, card: dict) -> 
                         "bank": bank["name"],
                         "card": card["typeName"],
                         "cardCategory": infer_card_category(card["typeName"]),
-                        "discountPct": discount_fields["discountPct"],
+                        "discountPct": float(deal.get("percentageValue")) if deal.get("percentageValue") is not None else discount_fields["discountPct"],
                         "discountLabel": discount_label,
                         "fixedDiscountPkr": discount_fields["fixedDiscountPkr"],
                         "offerTitle": deal.get("title"),
                         "days": [DAY_ORDER.index(day) for day in days],
                         "daysLabel": extract_schedule_label(deal.get("title"), deal.get("description")),
                         "capPkr": parse_discount_cap(deal.get("description")),
+                        "sourceMerchantName": entity.get("name"),
+                        "sourceAddress": nearest.get("name") or None,
+                        "sourceLat": nearest.get("lat"),
+                        "sourceLng": nearest.get("long"),
+                        "discountIsUpTo": discount_fields["discountKind"] == "percent_upto",
+                        "discountType": DISCOUNT_KIND_TO_TYPE.get(discount_fields["discountKind"], "percentage"),
+                        "orderTypes": order_types_list,
+                        "transactionLimitPerDay": extract_transaction_limit(deal.get("description"), "day"),
+                        "transactionLimitPerMonth": extract_transaction_limit(deal.get("description"), "month"),
+                        "branchCount": (entity.get("stats") or {}).get("branches"),
+                        "branches": list(deal.get("targetBranches", {}).values()),
                     }
                 )
 

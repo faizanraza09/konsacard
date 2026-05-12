@@ -12,25 +12,34 @@ For the full repo workflow used to build the dataset, see:
 - `docs/card_requirements_process.md`
 - `docs/card_requirements_agentic_pipeline.md`
 
+For the format banks should submit data in, see:
+
+- `data/BANK_DATA_SPEC.md`
+
 ## Layout
 
 ```text
 data/card-requirements/
   raw/
     <bank-slug>/
-      sources.json
-      evidence.json
+      source workbooks / PDFs / other evidence artifacts
   work/
     <bank-slug>-pilot.json
   normalized/
     cards.json
     card_requirements.json
     sources.json
+    deal_requirement_card_map.json
+    deal_requirement_coverage_summary.json
+  meta/
+    schema.json               Schema for pilot files
+  notes/
+    Research scratch files
 ```
 
 ## Principles
 
-- `raw/` stores source-backed extractions.
+- `raw/` stores captured evidence artifacts (Excel workbooks, PDFs, web page snapshots). Most banks skip this layer — evidence is embedded directly in pilot files as URLs.
 - `work/` stores bank-by-bank pilot outputs gathered before full normalization.
 - `normalized/` stores the best current structured view for app use.
 - Conflicting evidence should be preserved, not overwritten silently.

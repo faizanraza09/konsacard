@@ -188,7 +188,7 @@
     "bank_slug": "allied-bank",
     "bank_name": "Allied Bank",
     "url": "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx",
-    "source_type": "html",
+    "source_type": "spreadsheet",
     "used_by_card_ids": [
       "allied-bank--allied-basic-debit-card",
       "allied-bank--allied-unionpay-paypak-classic-debit-card",
@@ -2219,6 +2219,20 @@
       "meezan--meezan-visa-silver-debit-card",
       "meezan--meezan-women-first-debit-card",
       "meezan--meezan-world-debit-card"
+    ]
+  },
+  {
+    "source_id": "nbp-src-1ece37862d",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "url": "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+    "source_type": "spreadsheet",
+    "used_by_card_ids": [
+      "nbp--paypak-classic",
+      "nbp--paypak-edge-co-badge-mastercard",
+      "nbp--paypak-pink",
+      "nbp--upi-classic",
+      "nbp--upi-gold"
     ]
   },
   {

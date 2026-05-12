@@ -943,14 +943,21 @@ def render_eligibility_section(req: dict | None) -> str:
         items.append(("Joining fee", format_pkr_amount(reqs["joining_fee_pkr"])))
     if reqs.get("supplementary_annual_fee_pkr"):
         items.append(("Supplementary card fee", format_pkr_amount(reqs["supplementary_annual_fee_pkr"])))
-    if reqs.get("minimum_monthly_salary_pkr"):
-        items.append(("Min. monthly salary", format_pkr_amount(reqs["minimum_monthly_salary_pkr"])))
-    balance = (reqs.get("minimum_account_balance_pkr")
-               or reqs.get("minimum_average_balance_pkr")
-               or reqs.get("minimum_relationship_balance_pkr")
-               or reqs.get("minimum_deposit_pkr"))
-    if balance:
-        items.append(("Min. balance / deposit", format_pkr_amount(balance)))
+    if reqs.get("minimum_monthly_salary_pkr") is not None:
+        salary = reqs["minimum_monthly_salary_pkr"]
+        items.append(("Min. monthly salary", "No minimum salary" if salary == 0 else format_pkr_amount(salary)))
+    balance = None
+    for field in (
+        "minimum_account_balance_pkr",
+        "minimum_average_balance_pkr",
+        "minimum_relationship_balance_pkr",
+        "minimum_deposit_pkr",
+    ):
+        if reqs.get(field) is not None:
+            balance = reqs[field]
+            break
+    if balance is not None:
+        items.append(("Min. balance / deposit", "No minimum balance" if balance == 0 else format_pkr_amount(balance)))
     if reqs.get("minimum_age_years"):
         age_str = f"{reqs['minimum_age_years']}+"
         if reqs.get("maximum_age_years"):

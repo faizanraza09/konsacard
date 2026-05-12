@@ -95,6 +95,7 @@ def main() -> None:
             offer.get("fixedDiscountPkr"),
             offer.get("capPkr"),
             offer.get("offerTitle"),
+            offer.get("sourceAddress"),
         )
         if dedupe_key in seen:
             fail(

@@ -1848,6 +1848,61 @@
     "pilot_position": 4
   },
   {
+    "card_id": "nbp--paypak-classic",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "PayPak Classic",
+    "card_slug": "paypak-classic",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "low",
+    "pilot_position": 1
+  },
+  {
+    "card_id": "nbp--paypak-edge-co-badge-mastercard",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "PayPak Edge co-badge Mastercard",
+    "card_slug": "paypak-edge-co-badge-mastercard",
+    "card_type": "debit",
+    "tier": "premium",
+    "confidence": "low",
+    "pilot_position": 3
+  },
+  {
+    "card_id": "nbp--paypak-pink",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "PayPak Pink",
+    "card_slug": "paypak-pink",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "low",
+    "pilot_position": 2
+  },
+  {
+    "card_id": "nbp--upi-classic",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "UPI Classic",
+    "card_slug": "upi-classic",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "low",
+    "pilot_position": 4
+  },
+  {
+    "card_id": "nbp--upi-gold",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "UPI Gold",
+    "card_slug": "upi-gold",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "low",
+    "pilot_position": 5
+  },
+  {
     "card_id": "standard-chartered--easy-credit",
     "bank_slug": "standard-chartered",
     "bank_name": "Standard Chartered Bank Pakistan",

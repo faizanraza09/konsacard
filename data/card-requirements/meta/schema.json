@@ -1,69 +1,84 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "Konsacard Card Requirements Pilot Schema",
+  "title": "Card Requirements Pilot Schema",
+  "description": "Schema for bank-by-bank pilot files that feed into the card requirements normalization pipeline. This is the format actually consumed by build_card_requirements_normalized.py.",
   "type": "object",
-  "required": ["generatedAt", "scope", "records"],
+  "required": ["bank_slug", "bank_name", "cards"],
   "properties": {
-    "generatedAt": { "type": "string" },
-    "scope": { "type": "string" },
-    "notes": {
-      "type": "array",
-      "items": { "type": "string" }
+    "bank_slug": {
+      "type": "string",
+      "description": "Kebab-case bank slug, e.g. 'hbl', 'nbp', 'bank-alfalah'"
     },
-    "records": {
+    "bank_name": {
+      "type": "string",
+      "description": "Display name, e.g. 'National Bank of Pakistan'"
+    },
+    "retrieved_note": {
+      "type": ["string", "null"],
+      "description": "Context about how the data was gathered"
+    },
+    "cards": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["bank", "cardName", "cardType", "eligibility", "fees", "sources", "confidence"],
+        "required": ["card_name", "card_type", "requirements", "sources", "confidence"],
         "properties": {
-          "bank": { "type": "string" },
-          "cardName": { "type": "string" },
-          "cardType": {
+          "card_name": {
             "type": "string",
-            "enum": ["credit", "debit", "prepaid", "other"]
+            "description": "Full card product name"
           },
-          "tier": { "type": ["string", "null"] },
-          "eligibility": {
-            "type": "object",
-            "properties": {
-              "salariedMinMonthlyIncomePkr": { "type": ["number", "null"] },
-              "selfEmployedAvgBalancePkr": { "type": ["number", "null"] },
-              "minimumDepositPkr": { "type": ["number", "null"] },
-              "minimumMonthlyAverageBalancePkr": { "type": ["number", "null"] },
-              "ageMin": { "type": ["number", "null"] },
-              "ageMaxSalaried": { "type": ["number", "null"] },
-              "ageMaxSelfEmployed": { "type": ["number", "null"] },
-              "notes": { "type": ["string", "null"] }
-            }
+          "card_type": {
+            "type": "string",
+            "enum": ["credit", "debit", "prepaid", "other"],
+            "description": "Type of payment card"
           },
-          "fees": {
+          "tier": {
+            "type": ["string", "null"],
+            "description": "Card tier, e.g. 'classic', 'gold', 'platinum', 'premium', 'signature', 'infinite', 'world'"
+          },
+          "requirements": {
             "type": "object",
+            "description": "Flat dict of eligibility and fee fields. Null means not yet verified.",
             "properties": {
-              "issuanceFeePkr": { "type": ["number", "null"] },
-              "annualFeePkr": { "type": ["number", "null"] },
-              "replacementFeePkr": { "type": ["number", "null"] },
-              "annualFeeWaiverRule": { "type": ["string", "null"] },
-              "notes": { "type": ["string", "null"] }
+              "minimum_monthly_salary_pkr": { "type": ["number", "null"] },
+              "minimum_account_balance_pkr": { "type": ["number", "null"] },
+              "minimum_average_balance_pkr": { "type": ["number", "null"] },
+              "minimum_relationship_balance_pkr": { "type": ["number", "null"] },
+              "minimum_deposit_pkr": { "type": ["number", "null"] },
+              "annual_fee_pkr": { "type": ["number", "null"] },
+              "joining_fee_pkr": { "type": ["number", "null"] },
+              "supplementary_annual_fee_pkr": { "type": ["number", "null"] },
+              "annual_fee_waiver_rule": { "type": ["string", "null"] },
+              "minimum_age_years": { "type": ["number", "null"] },
+              "maximum_age_years": { "type": ["number", "null"] },
+              "income_document_required": { "type": ["boolean", "null"] },
+              "salary_transfer_required": { "type": ["boolean", "null"] },
+              "pakistani_cnic_required": { "type": ["boolean", "null"] },
+              "existing_account_required": { "type": ["boolean", "null"] }
             }
           },
           "sources": {
             "type": "array",
-            "items": {
-              "type": "object",
-              "required": ["url", "kind"],
-              "properties": {
-                "url": { "type": "string" },
-                "kind": { "type": "string" },
-                "notes": { "type": ["string", "null"] }
-              }
-            }
+            "items": { "type": "string" },
+            "description": "Source URLs or file paths where this card's info was obtained"
           },
           "confidence": {
             "type": "string",
-            "enum": ["high", "medium", "low"]
+            "enum": ["high", "medium", "low"],
+            "description": "Confidence in the extracted values"
+          },
+          "notes": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Free-text notes about evidence quality, conflicts, or caveats"
           }
         }
       }
+    },
+    "gaps": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Known gaps in this bank's card requirements coverage"
     }
   }
 }

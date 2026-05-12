@@ -8254,6 +8254,181 @@
     "retrieved_note": "Pilot agent extraction from official public pages and SOC PDF. Normalize before shipping to UI."
   },
   {
+    "card_id": "nbp--paypak-classic",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "PayPak Classic",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 0,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 1800,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 18,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_account_balance_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "annual_fee_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_age_years": [
+        "nbp-src-1ece37862d"
+      ]
+    },
+    "source_ids": [
+      "nbp-src-1ece37862d"
+    ],
+    "confidence": "low",
+    "notes": [],
+    "bank_gaps": [],
+    "retrieved_note": null
+  },
+  {
+    "card_id": "nbp--paypak-edge-co-badge-mastercard",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "PayPak Edge co-badge Mastercard",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 0,
+      "minimum_account_balance_pkr": 500000,
+      "annual_fee_pkr": 4000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 18,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_account_balance_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "annual_fee_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_age_years": [
+        "nbp-src-1ece37862d"
+      ]
+    },
+    "source_ids": [
+      "nbp-src-1ece37862d"
+    ],
+    "confidence": "low",
+    "notes": [],
+    "bank_gaps": [],
+    "retrieved_note": null
+  },
+  {
+    "card_id": "nbp--paypak-pink",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "PayPak Pink",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 0,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 0,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 18,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_account_balance_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "annual_fee_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_age_years": [
+        "nbp-src-1ece37862d"
+      ]
+    },
+    "source_ids": [
+      "nbp-src-1ece37862d"
+    ],
+    "confidence": "low",
+    "notes": [],
+    "bank_gaps": [],
+    "retrieved_note": null
+  },
+  {
+    "card_id": "nbp--upi-classic",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "UPI Classic",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 0,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 2250,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 18,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_account_balance_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "annual_fee_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_age_years": [
+        "nbp-src-1ece37862d"
+      ]
+    },
+    "source_ids": [
+      "nbp-src-1ece37862d"
+    ],
+    "confidence": "low",
+    "notes": [],
+    "bank_gaps": [],
+    "retrieved_note": null
+  },
+  {
+    "card_id": "nbp--upi-gold",
+    "bank_slug": "nbp",
+    "bank_name": "National Bank of Pakistan",
+    "card_name": "UPI Gold",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 0,
+      "minimum_account_balance_pkr": 100000,
+      "annual_fee_pkr": 3000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 18,
+      "maximum_age_years": null
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_account_balance_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "annual_fee_pkr": [
+        "nbp-src-1ece37862d"
+      ],
+      "minimum_age_years": [
+        "nbp-src-1ece37862d"
+      ]
+    },
+    "source_ids": [
+      "nbp-src-1ece37862d"
+    ],
+    "confidence": "low",
+    "notes": [],
+    "bank_gaps": [],
+    "retrieved_note": null
+  },
+  {
     "card_id": "standard-chartered--easy-credit",
     "bank_slug": "standard-chartered",
     "bank_name": "Standard Chartered Bank Pakistan",

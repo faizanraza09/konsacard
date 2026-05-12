@@ -7,22 +7,20 @@ ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_OFFERS_PATH = ROOT / "data" / "offers.json"
 DEFAULT_EASYPAISA_PATH = ROOT / "data" / "sources" / "easypaisa" / "discountworld-food.json"
 
-DAY_ORDER = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-]
-
 
 def normalize_offer(row: dict) -> dict:
-    discount_pct = row.get("headline_discount_pct")
-    discount_label = row.get("headline_discount_label")
-    if discount_label is None and discount_pct is not None:
-        discount_label = f"{discount_pct}%"
+    discount_pct_raw = row.get("headline_discount_pct")
+    discount_pct = float(discount_pct_raw) if discount_pct_raw is not None else None
+
+    discount_label = None
+    if row.get("headline_discount_label"):
+        discount_label = row["headline_discount_label"]
+    elif discount_pct is not None:
+        discount_label = f"{discount_pct:g}%"
+
+    cap_pkr = row.get("cap_pkr")
+    if cap_pkr is not None:
+        cap_pkr = int(cap_pkr)
 
     return {
         "city": row["city"],
@@ -30,13 +28,17 @@ def normalize_offer(row: dict) -> dict:
         "bank": "Easypaisa",
         "card": row["card_name"],
         "cardCategory": "debit",
-        "discountPct": float(discount_pct) if discount_pct is not None else None,
+        "discountPct": discount_pct,
         "discountLabel": discount_label,
         "fixedDiscountPkr": None,
         "offerTitle": None,
         "days": list(range(7)),
         "daysLabel": "All Days",
-        "capPkr": row.get("cap_pkr"),
+        "capPkr": cap_pkr,
+        "sourceMerchantName": row.get("merchant_name"),
+        "sourceAddress": None,
+        "discountIsUpTo": False,
+        "discountType": "percentage",
     }
 
 
@@ -44,8 +46,6 @@ def build_payload(offers: list[dict], existing_payload: dict) -> dict:
     restaurants_by_city: dict[str, set[str]] = {}
     for offer in offers:
         restaurants_by_city.setdefault(offer["city"], set()).add(offer["restaurant"])
-
-    unique_restaurants = {f"{offer['city']}||{offer['restaurant']}" for offer in offers}
 
     return {
         "generatedAt": datetime.now().isoformat(timespec="seconds"),
@@ -58,7 +58,7 @@ def build_payload(offers: list[dict], existing_payload: dict) -> dict:
             "offers": len(offers),
             "cards": len({f"{offer['bank']}||{offer['card']}" for offer in offers}),
             "banks": len({offer["bank"] for offer in offers}),
-            "restaurants": len(unique_restaurants),
+            "restaurants": len({f"{offer['city']}||{offer['restaurant']}" for offer in offers}),
         },
         "offers": offers,
     }
@@ -77,6 +77,7 @@ def dedupe_offers(offers: list[dict]) -> list[dict]:
             offer.get("fixedDiscountPkr"),
             offer.get("capPkr"),
             offer.get("offerTitle"),
+            offer.get("sourceAddress"),
         )
         deduped[key] = offer
     return list(deduped.values())
@@ -104,7 +105,7 @@ def merge_easypaisa_into_offers(
     offers_payload = json.loads(offers_path.read_text(encoding="utf-8"))
     easypaisa_payload = json.loads(easypaisa_path.read_text(encoding="utf-8"))
 
-    existing_offers = offers_payload["offers"]
+    existing_offers = [offer for offer in offers_payload["offers"] if offer.get("bank") != "Easypaisa"]
     existing_keys = {
         (
             row["city"],
@@ -112,8 +113,11 @@ def merge_easypaisa_into_offers(
             row["bank"],
             row["card"],
             tuple(row["days"]),
-            row["capPkr"],
-            row["discountPct"],
+            row.get("discountPct"),
+            row.get("fixedDiscountPkr"),
+            row.get("capPkr"),
+            row.get("offerTitle"),
+            row.get("sourceAddress"),
         )
         for row in existing_offers
     }
@@ -127,8 +131,11 @@ def merge_easypaisa_into_offers(
             normalized["bank"],
             normalized["card"],
             tuple(normalized["days"]),
-            normalized["capPkr"],
-            normalized["discountPct"],
+            normalized.get("discountPct"),
+            normalized.get("fixedDiscountPkr"),
+            normalized.get("capPkr"),
+            normalized.get("offerTitle"),
+            normalized.get("sourceAddress"),
         )
         if key in existing_keys:
             continue

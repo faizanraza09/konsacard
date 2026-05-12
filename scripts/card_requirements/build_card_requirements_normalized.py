@@ -18,6 +18,8 @@ def slugify(value: str) -> str:
 
 def source_type_for_url(url: str) -> str:
     lowered = url.lower()
+    if lowered.endswith(".xlsx") or lowered.endswith(".xls"):
+        return "spreadsheet"
     if lowered.endswith(".pdf") or ".pdf?" in lowered:
         return "pdf"
     return "html"

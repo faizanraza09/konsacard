@@ -185,11 +185,68 @@
           <article class="content-card">
             <h2>How the saving calculation works</h2>
             <p>
-              For each offer, the tool applies the discount to your bill, then caps it at the
-              published maximum. This matters enormously — a headline "30% off" can be worth
-              less than a "15% off" card once the cap kicks in.
+              Not all discounts work the same way. We classify every offer into one of four types
+              and apply a different formula for each. This is critical — a "Up to 45% off" is
+              not the same as a flat "20% off", and treating them identically would mis-rank cards.
             </p>
-            <div class="data-table-wrap">
+
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 1 — Flat percentage</h3>
+            <p>
+              A guaranteed percentage off the entire bill, optionally capped. E.g. "20% off entire menu
+              (max discount Rs. 500)". The saving is:
+            </p>
+            <div class="tip-box" style="margin-top:10px; margin-bottom:16px">
+              <strong>Saving = min( bill × % , cap )</strong>
+            </div>
+
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 2 — "Up to" percentage</h3>
+            <p>
+              A maximum advertised percentage that isn't guaranteed — e.g. "Up to 45% off". Most
+              items will receive a lower discount. We apply a <strong>60% conservatism factor</strong>
+              to avoid overstating savings:
+            </p>
+            <div class="tip-box" style="margin-top:10px; margin-bottom:16px">
+              <strong>Saving = min( bill × (advertised % × 0.6) , cap )</strong>
+            </div>
+            <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
+              A "Up to 45%" deal is estimated at 27% effective savings. This prevents cards with
+              aggressive marketing claims from unfairly dominating cards with honest flat rates.
+            </p>
+
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 3 — Fixed-price combo</h3>
+            <p>
+              A specific meal deal with a fixed saving — e.g. "Zinger Burger + Drink Rs. 400
+              (save Rs. 380)". These are item-specific, so we use the fixed PKR amount directly
+              rather than treating it as a percentage of your bill:
+            </p>
+            <div class="tip-box" style="margin-top:10px; margin-bottom:16px">
+              <strong>Saving = min( fixed PKR , bill )</strong>
+            </div>
+            <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
+              The saving is capped at your bill size — you can't save Rs. 380 on a Rs. 200 order.
+            </p>
+
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 4 — Buy One Get One (BOGO)</h3>
+            <p>
+              E.g. "Buy 1 Get 1 Free on Coffee". BOGO only applies to specific items, not your
+              entire bill. We apply a <strong>30% conservatism factor</strong> to reflect this:
+            </p>
+            <div class="tip-box" style="margin-top:10px; margin-bottom:16px">
+              <strong>Saving = min( bill × (BOGO equivalent % × 0.3) , cap )</strong>
+            </div>
+            <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
+              A "Buy 1 Get 1 Free" (50% mathematical equivalent) is estimated at 15% effective
+              savings — assuming the BOGO items represent roughly 30% of a typical order.
+            </p>
+
+            <h3 style="margin-top:20px; font-size:16px; font-weight:700">Why this matters</h3>
+            <p>
+              The cap comparison table below only shows the simplest case (flat % with a cap).
+              The real tool also handles the three other types above, adjusting each one to
+              produce a fair, comparable savings estimate.
+            </p>
+
+            <div class="data-table-wrap" style="margin-top:18px">
               <table class="data-table">
                 <thead>
                   <tr>
@@ -300,18 +357,23 @@
             <h2>Where the data comes from</h2>
             <p>
               Offers are compiled from public bank offer pages, official merchant listings,
-              and card benefit summaries published by issuers. No data is taken from behind
-              login walls or private account pages.
+              and card benefit summaries published by issuers. The dataset covers 19 banks
+              and over 1,300 restaurants across Karachi, Lahore, and Islamabad.
+            </p>
+            <p>
+              Separately, we maintain a card requirements dataset covering eligibility criteria
+              and fees for 192 cards across all banks — minimum salary requirements, account
+              balance thresholds, annual fees, and age limits — sourced from official bank
+              product pages and Schedule of Charges documents. This powers the Eligibility
+              Mode on the tool.
             </p>
             <ul>
-              <li><strong>City names</strong> are standardized to Karachi, Lahore, and Islamabad. Sub-city areas like DHA or Gulberg are mapped to the parent city unless an offer is explicitly restricted to a neighbourhood.</li>
-              <li><strong>Card names</strong> are normalized so the same card referenced differently across sources maps to a single entry.</li>
               <li><strong>Discount caps</strong> are included when published. When unpublished, the cap field is left blank — not assumed unlimited.</li>
-              <li><strong>Day restrictions</strong> are captured at the offer level. A card with different weekday and weekend terms appears as separate offer rows so day filtering works correctly.</li>
+              <li><strong>Day restrictions</strong> are captured at the offer level so day filtering works correctly.</li>
               <li><strong>Conflicting sources:</strong> when two public sources disagree, the more specific one takes precedence. Where sources still conflict without a clear hierarchy, the more conservative number is used.</li>
             </ul>
             <div class="tip-box amber">
-              <strong>Data freshness:</strong> The dataset is updated manually when bank offer pages change. Pakistani banks update their offer pages irregularly — sometimes monthly, sometimes quarterly. Always confirm current terms directly with the bank before making a card decision.
+              <strong>Data freshness:</strong> The dataset is updated when bank offer pages change. Pakistani banks update their offer pages irregularly — sometimes monthly, sometimes quarterly. Always confirm current terms directly with the bank before making a card decision.
             </div>
           </article>
 
