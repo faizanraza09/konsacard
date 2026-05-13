@@ -2036,7 +2036,7 @@ const CHAT_TOOL_DEFINITIONS = [
       parameters: {
         type: "object",
         properties: {
-          bank: { type: "string", description: "Bank name (partial match ok). Omit to get a summary of all 18 banks." },
+          bank: { type: "string", description: "Bank name (partial match ok). Omit to get a summary of all 19 banks." },
           city: { type: "string", description: "City filter (optional)." },
         },
       },
@@ -3180,6 +3180,7 @@ function evaluateEligibility(bank, card) {
 
   const annualFeePkr       = normalizeRequirementNumber(requirements.annual_fee_pkr);
   const annualFeeWaiverRule = requirements.annual_fee_waiver_rule || null;
+  const benefitSummary      = record.benefits || requirements.benefits || null;
   const sourceIds  = record.source_ids || [];
   const cardNotes  = (record.notes || []).filter((n) => n && typeof n === "string");
   const bankGaps   = (record.bank_gaps || []).filter((n) => n && typeof n === "string");
@@ -3236,7 +3237,7 @@ function evaluateEligibility(bank, card) {
 
   if (annualFeePkr !== null) criteria.push(formatRequirementCriterion(annualFeePkr, "fee"));
 
-  const base = { criteria, annualFeePkr, annualFeeWaiverRule, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds, cardNotes, bankGaps };
+  const base = { criteria, annualFeePkr, annualFeeWaiverRule, benefitSummary, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds, cardNotes, bankGaps };
 
   // Treat Salary and Balance as ALTERNATIVE paths (OR logic)
   // A card is only "ineligible" if it has requirements and the user fails BOTH.
@@ -3451,6 +3452,7 @@ function formatRequirementFieldValue(status, field) {
   if (value === null) return "Not listed";
   const est = (field === "salaryReq" && status.salaryIsEstimated) || (field === "balanceReq" && status.balanceIsEstimated);
   const prefix = est ? "~" : "";
+  if (field === "benefitSummary") return value;
   if (field === "salaryReq")  return value === 0 ? "No minimum salary"  : `${prefix}${formatCurrency(value)} / month`;
   if (field === "balanceReq") return value === 0 ? "No minimum balance" : `${prefix}${formatCurrency(value)}`;
   if (field === "annualFeePkr") return value === 0 ? "No annual fee" : formatCurrency(value);
@@ -3473,6 +3475,9 @@ function renderRequirementSummary(status, options = {}) {
     { label: "Min balance", field: "balanceReq" },
     { label: "Annual fee", field: "annualFeePkr" },
   ];
+  if (status?.benefitSummary) {
+    fields.push({ label: "Benefits", field: "benefitSummary" });
+  }
   const estNote = status.isEstimated && status.estimationNote
     ? `<div class="requirement-est-note">~ values are estimates — ${escapeHtml(status.estimationNote)}</div>`
     : "";

@@ -966,13 +966,14 @@ def format_pkr_amount(value: int | float | None) -> str:
     return f"PKR {int(value):,}"
 
 
-def render_eligibility_section(req: dict | None) -> str:
-    if not req:
+def render_eligibility_section(card: dict | None) -> str:
+    if not card:
         return ""
-    reqs = req.get("requirements") or {}
-    notes = [n for n in (req.get("notes") or []) if n]
-    gaps  = [g for g in (req.get("bank_gaps") or []) if g]
-    confidence = req.get("confidence", "")
+    reqs = card.get("requirements") or {}
+    notes = [n for n in (card.get("notes") or []) if n]
+    gaps  = [g for g in (card.get("bank_gaps") or []) if g]
+    benefits = (card.get("benefits") or "").strip()
+    confidence = card.get("confidence", "")
 
     items: list[tuple[str, str]] = []
     if reqs.get("annual_fee_pkr") is not None:
@@ -1004,6 +1005,8 @@ def render_eligibility_section(req: dict | None) -> str:
         items.append(("Age", age_str))
     if reqs.get("existing_account_required"):
         items.append(("Existing account", "Required"))
+    if benefits:
+        items.append(("Benefits", benefits))
 
     if not items and not notes and not gaps:
         return ""
@@ -1119,7 +1122,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
           </div>
         </section>
 
-        {render_eligibility_section(card.get('requirements'))}
+        {render_eligibility_section(card)}
 
         <section class="section">
           <h2>Card overview</h2>
@@ -1130,6 +1133,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
             <div><strong>Best discount:</strong> {escape(format_pct(card['max_discount_pct']))}</div>
             <div><strong>Highest cap:</strong> {escape(format_pkr(card['max_cap_pkr']))}</div>
             <div><strong>Cities:</strong> {escape(', '.join(card['cities']))}</div>
+            {f"<div><strong>Benefits:</strong> {escape(card.get('benefits') or '')}</div>" if card.get("benefits") else ""}
           </div>
           <div class="actions" style="margin-top:16px">
             <a class="btn primary" href="{escape(build_tool_url(bank=bank_summary['name']))}">Compare all {escape(bank_summary['name'])} cards</a>
@@ -1223,6 +1227,7 @@ def build_summaries(payload: dict) -> tuple[list[dict], list[dict]]:
                     "cities": dedupe_sorted(row["city"] for row in card_rows),
                     "restaurants": card_restaurant_list,
                     "requirements": find_req(req_lookup, bank_name, card_name),
+                    "benefits": (find_req(req_lookup, bank_name, card_name) or {}).get("benefits"),
                 }
             )
 

@@ -7,6 +7,7 @@
       "card_name": "PayPak Classic",
       "card_type": "debit",
       "tier": "classic",
+      "benefits": "Golootlo discounts through app",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
@@ -25,6 +26,7 @@
       "card_name": "PayPak Pink",
       "card_type": "debit",
       "tier": "classic",
+      "benefits": "Golootlo discounts through app",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
@@ -43,6 +45,7 @@
       "card_name": "PayPak Edge co-badge Mastercard",
       "card_type": "debit",
       "tier": "premium",
+      "benefits": "Golootlo discounts through app",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 500000,
@@ -61,6 +64,7 @@
       "card_name": "UPI Classic",
       "card_type": "debit",
       "tier": "classic",
+      "benefits": "Golootlo discounts direct on card",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
@@ -79,6 +83,7 @@
       "card_name": "UPI Gold",
       "card_type": "debit",
       "tier": "gold",
+      "benefits": "Golootlo discounts direct on card",
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 100000,

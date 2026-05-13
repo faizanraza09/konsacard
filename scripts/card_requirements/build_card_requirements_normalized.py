@@ -88,6 +88,7 @@ def main() -> None:
 
             confidence = card.get("confidence", "low")
             requirements = normalize_requirements(card.get("requirements", {}))
+            benefits = card.get("benefits") or card.get("benefits_discount")
             requirement_sources = {
                 key: source_ids[:] for key, value in requirements.items() if value is not None
             }
@@ -103,6 +104,7 @@ def main() -> None:
                     "tier": card.get("tier"),
                     "confidence": confidence,
                     "pilot_position": index,
+                    **({"benefits": benefits} if benefits else {}),
                 }
             )
 
@@ -119,6 +121,7 @@ def main() -> None:
                     "notes": card.get("notes", []),
                     "bank_gaps": bank_gaps,
                     "retrieved_note": retrieved_note,
+                    **({"benefits": benefits} if benefits else {}),
                 }
             )
 

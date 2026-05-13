@@ -8286,7 +8286,8 @@
     "confidence": "low",
     "notes": [],
     "bank_gaps": [],
-    "retrieved_note": null
+    "retrieved_note": null,
+    "benefits": "Golootlo discounts through app"
   },
   {
     "card_id": "nbp--paypak-edge-co-badge-mastercard",
@@ -8321,7 +8322,8 @@
     "confidence": "low",
     "notes": [],
     "bank_gaps": [],
-    "retrieved_note": null
+    "retrieved_note": null,
+    "benefits": "Golootlo discounts through app"
   },
   {
     "card_id": "nbp--paypak-pink",
@@ -8356,7 +8358,8 @@
     "confidence": "low",
     "notes": [],
     "bank_gaps": [],
-    "retrieved_note": null
+    "retrieved_note": null,
+    "benefits": "Golootlo discounts through app"
   },
   {
     "card_id": "nbp--upi-classic",
@@ -8391,7 +8394,8 @@
     "confidence": "low",
     "notes": [],
     "bank_gaps": [],
-    "retrieved_note": null
+    "retrieved_note": null,
+    "benefits": "Golootlo discounts direct on card"
   },
   {
     "card_id": "nbp--upi-gold",
@@ -8426,7 +8430,8 @@
     "confidence": "low",
     "notes": [],
     "bank_gaps": [],
-    "retrieved_note": null
+    "retrieved_note": null,
+    "benefits": "Golootlo discounts direct on card"
   },
   {
     "card_id": "standard-chartered--easy-credit",
