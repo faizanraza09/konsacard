@@ -2036,7 +2036,7 @@ const CHAT_TOOL_DEFINITIONS = [
       parameters: {
         type: "object",
         properties: {
-          bank: { type: "string", description: "Bank name (partial match ok). Omit to get a summary of all 18 banks." },
+          bank: { type: "string", description: "Bank name (partial match ok). Omit to get a summary of all 19 banks." },
           city: { type: "string", description: "City filter (optional)." },
         },
       },

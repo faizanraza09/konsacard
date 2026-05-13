@@ -1,6 +1,7 @@
 # Taste (Continuously Learned by [CommandCode][cmd])
 
 [cmd]: https://commandcode.ai/
+
 
 # data-processing
 - Do not infer card eligibility from unlabeled tier/classification columns in bank workbooks. When column meaning is undocumented, assign all bank cards to all offers equally (default assumption: every card gets every discount). Confidence: 0.70
