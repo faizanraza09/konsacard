@@ -203,6 +203,8 @@
             <div class="view-toggle">
               <button class="view-toggle-btn active" id="btn-view-cards" type="button">💳 Cards</button>
               <button class="view-toggle-btn" id="btn-view-restaurants" type="button">🍽️ Restaurants</button>
+              <button class="view-toggle-btn" id="btn-view-next-card" type="button">💼 My Wallet</button>
+              <button class="view-toggle-btn" id="btn-view-wallet" type="button">🧩 Build Wallet</button>
             </div>
             <div class="rh-chip" id="rh-chip-saving">
               <div class="rh-chip-l">Best Saving</div>
@@ -219,6 +221,12 @@
             <div class="empty-title" id="empty-state-title">No cards match your filters</div>
             <div class="empty-msg" id="empty-state-message">Try a different city or reset the filters</div>
           </div>
+
+          <!-- Next Card setup panel (owned cards input) — only shown in next-card view -->
+          <div id="next-card-setup" class="nc-setup-wrap" style="display:none"></div>
+
+          <!-- Build Wallet setup panel — only shown in wallet view -->
+          <div id="wallet-setup" class="wo-setup-wrap" style="display:none"></div>
 
           <!-- Top pick (featured card) -->
           <div id="top-pick" class="top-pick-wrap"></div>

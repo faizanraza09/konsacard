@@ -16,7 +16,18 @@ const state = {
   monthlySalary: null,
   accountBalance: null,
   outingsPerWeek: 1,
-  viewMode: "cards",
+  viewMode: "cards",                 // "cards" | "restaurants" | "my-wallet" | "wallet"
+  ownedCards: new Set(),             // Set of cardKey "${bank} || ${card}" the user currently has
+  ownedCardSearchTerm: "",
+  walletSize: 2,                     // K for Build Wallet (2..4)
+  walletBuildOnOwned: false,         // when true, wallet is computed on top of ownedCards
+  walletMaxFee: null,                // PKR cap on total annual fees of the wallet
+  walletNoSameBank: false,           // diversity: no two cards from the same bank
+  walletMixedTypes: false,           // require >=1 debit AND >=1 credit in wallet
+  walletObjective: "savings",        // "savings" | "coverage" | "roi"
+  walletMustInclude: new Set(),      // cardKeys that MUST appear in every wallet
+  walletMustIncludeSearchTerm: "",
+  walletAdvancedOpen: false,         // disclosure state for "Advanced options" panel
   detailCardKey: null,
   detailRestaurantKey: null,
   compareList: [],               // up to 2 card keys "bank || card"
@@ -361,6 +372,14 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
     state.viewMode = "restaurants";
     render();
   });
+  document.getElementById("btn-view-next-card")?.addEventListener("click", () => {
+    state.viewMode = "my-wallet";
+    render();
+  });
+  document.getElementById("btn-view-wallet")?.addEventListener("click", () => {
+    state.viewMode = "wallet";
+    render();
+  });
 
   // Card detail modal
   document.getElementById("card-detail-modal")?.addEventListener("click", (e) => {
@@ -401,6 +420,17 @@ function resetFilters() {
   state.useEligibility = false;
   state.monthlySalary = null;
   state.accountBalance = null;
+  state.ownedCards = new Set();
+  state.ownedCardSearchTerm = "";
+  state.walletSize = 2;
+  state.walletBuildOnOwned = false;
+  state.walletMaxFee = null;
+  state.walletNoSameBank = false;
+  state.walletMixedTypes = false;
+  state.walletObjective = "savings";
+  state.walletMustInclude = new Set();
+  state.walletMustIncludeSearchTerm = "";
+  state.walletAdvancedOpen = false;
 
   const orderSlider = document.getElementById("order-value");
   if (orderSlider) orderSlider.value = "10000";
@@ -748,6 +778,16 @@ function renderRecommendations() {
   updateCityChip();
 
   const countLabel = document.getElementById("result-count-label");
+  if (state.viewMode === "my-wallet") {
+    renderNextCardView(resultsGrid);
+    renderCompareTray();
+    return;
+  }
+  if (state.viewMode === "wallet") {
+    renderWalletView(resultsGrid);
+    renderCompareTray();
+    return;
+  }
   if (state.viewMode === "restaurants") {
     const deals = computeRestaurantDeals();
     if (countEl) countEl.textContent = String(deals.length);
@@ -3109,6 +3149,1504 @@ function computeRecommendations() {
   });
 }
 
+/* ── NEXT CARD: OWNED CARDS INPUT + VIEW ── */
+function getAllCardsCatalog() {
+  // List of { cardKey, bank, card, cardCategory } across the entire dataset.
+  if (!state.data) return [];
+  const seen = new Map();
+  state.data.offers.forEach((offer) => {
+    const key = buildCardKey(offer.bank, offer.card);
+    if (!seen.has(key)) {
+      seen.set(key, { cardKey: key, bank: offer.bank, card: offer.card, cardCategory: offer.cardCategory || "other" });
+    }
+  });
+  return Array.from(seen.values()).sort((a, b) => {
+    const bankCmp = a.bank.localeCompare(b.bank);
+    if (bankCmp !== 0) return bankCmp;
+    return a.card.localeCompare(b.card);
+  });
+}
+
+function renderOwnedCardsPanel(container, walletStats) {
+  if (!container) return;
+  const catalog = getAllCardsCatalog();
+  const ownedCount = state.ownedCards.size;
+  const hasWallet = ownedCount > 0;
+  const summaryHtml = hasWallet && walletStats ? `
+    <div class="mw-summary">
+      <div class="mw-summary-head">
+        <div class="mw-summary-title-wrap">
+          <div class="mw-summary-kicker">Your wallet</div>
+          <div class="mw-summary-title">${ownedCount} card${ownedCount === 1 ? "" : "s"} · ${formatCurrency(walletStats.perOuting)} / outing</div>
+          <div class="mw-summary-sub">What your current wallet is worth at a ${formatCurrency(state.orderValue)} bill</div>
+        </div>
+      </div>
+      <div class="mw-summary-stats">
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Savings / outing</div>
+          <div class="mw-summary-v green">${formatCurrency(walletStats.perOuting)}</div>
+        </div>
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Restaurants Covered</div>
+          <div class="mw-summary-v">${walletStats.coveredVenues} of ${walletStats.venueCount}</div>
+        </div>
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Est. Yearly</div>
+          <div class="mw-summary-v green">~${formatCurrency(walletStats.yearly)}</div>
+        </div>
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Total Annual Fees</div>
+          <div class="mw-summary-v">${walletStats.annualFee === 0 ? (walletStats.feeUnknown ? "Not listed" : "Free") : formatCurrency(walletStats.annualFee)}${walletStats.feeUnknown ? ` <span class="wo-fee-note">(some unlisted)</span>` : ""}</div>
+        </div>
+      </div>
+    </div>
+  ` : "";
+
+  container.innerHTML = `
+    ${summaryHtml}
+    <div class="nc-setup">
+      <div class="nc-setup-head">
+        <div class="nc-setup-title-wrap">
+          <div class="nc-setup-kicker">${hasWallet ? "Manage" : "Step 1"}</div>
+          <div class="nc-setup-title">${hasWallet ? "Cards in your wallet" : "Add the cards you carry"}</div>
+          <div class="nc-setup-sub">${hasWallet
+            ? "Add or remove cards to see how it changes your savings and the best card to add next."
+            : "Tell us what's in your wallet and we'll show what it's worth — plus the single best card to add next."}</div>
+        </div>
+        <div class="nc-setup-count">
+          <span class="nc-setup-count-num">${ownedCount}</span>
+          <span class="nc-setup-count-label">${ownedCount === 1 ? "card" : "cards"}</span>
+        </div>
+      </div>
+      <div class="nc-setup-body">
+        <input id="nc-owned-search" class="s-search nc-search" type="search" placeholder="Search bank or card name…" autocomplete="off" value="${escapeAttr(state.ownedCardSearchTerm)}" />
+        <div id="nc-owned-results" class="s-search-results nc-search-results"></div>
+        <div id="nc-owned-chips" class="s-chips nc-chips"></div>
+        <div class="nc-setup-foot">
+          ${ownedCount > 0 ? `<button id="nc-owned-clear" class="nc-clear-btn" type="button">Clear all</button>` : `<span class="nc-setup-foot-spacer"></span>`}
+          <span class="nc-crosslink">
+            Want to redesign? <a class="nc-link" id="nc-go-wallet">Try Build Wallet →</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const searchInput = document.getElementById("nc-owned-search");
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      state.ownedCardSearchTerm = e.target.value.trim();
+      renderOwnedCardsResults(catalog);
+    });
+  }
+  document.getElementById("nc-owned-clear")?.addEventListener("click", () => {
+    state.ownedCards = new Set();
+    state.ownedCardSearchTerm = "";
+    render();
+  });
+  document.getElementById("nc-go-wallet")?.addEventListener("click", () => {
+    state.viewMode = "wallet";
+    render();
+  });
+
+  renderOwnedCardsResults(catalog);
+  renderOwnedCardsChips();
+}
+
+function renderOwnedCardsResults(catalogArg) {
+  const container = document.getElementById("nc-owned-results");
+  if (!container) return;
+  const catalog = catalogArg || getAllCardsCatalog();
+  const term = (state.ownedCardSearchTerm || "").toLowerCase();
+  // Only show suggestions when user is typing; otherwise keep panel quiet.
+  if (!term) { container.innerHTML = ""; return; }
+  const results = catalog
+    .filter((c) => !state.ownedCards.has(c.cardKey))
+    .filter((c) => `${c.bank} ${c.card}`.toLowerCase().includes(term))
+    .slice(0, 12);
+
+  container.innerHTML = "";
+  if (results.length === 0) {
+    container.innerHTML = `<div class="nc-search-empty">No matching cards. Try the bank name (e.g. "HBL", "Meezan").</div>`;
+    return;
+  }
+  results.forEach((entry) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "s-search-item nc-search-item";
+    item.innerHTML = `
+      <span class="nc-search-item-text">
+        <span class="nc-search-item-card">${escapeHtml(entry.card)}</span>
+        <span class="nc-search-item-bank">${escapeHtml(entry.bank)}</span>
+      </span>
+      <span class="s-search-item-add">+ Add</span>
+    `;
+    item.addEventListener("click", () => {
+      state.ownedCards.add(entry.cardKey);
+      state.ownedCardSearchTerm = "";
+      const input = document.getElementById("nc-owned-search");
+      if (input) input.value = "";
+      render();
+    });
+    container.appendChild(item);
+  });
+}
+
+function renderOwnedCardsChips() {
+  const container = document.getElementById("nc-owned-chips");
+  if (!container) return;
+  container.innerHTML = "";
+  Array.from(state.ownedCards).sort().forEach((cardKey) => {
+    const [bank, card] = cardKey.split(" || ");
+    const chip = document.createElement("div");
+    chip.className = "s-chip nc-chip";
+    chip.innerHTML = `
+      <span class="nc-chip-text">
+        <span class="nc-chip-card">${escapeHtml(card || "")}</span>
+        <span class="nc-chip-bank">${escapeHtml(bank || "")}</span>
+      </span>
+    `;
+    const rm = document.createElement("button");
+    rm.className = "s-chip-remove";
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.setAttribute("aria-label", `Remove ${card}`);
+    rm.addEventListener("click", () => { state.ownedCards.delete(cardKey); render(); });
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  });
+}
+
+function renderNextCardView(resultsGrid) {
+  const setupContainer = document.getElementById("next-card-setup");
+  const topPick = document.getElementById("top-pick");
+  const emptyState = document.getElementById("empty-state");
+  const countEl = document.getElementById("result-count");
+  const countLabel = document.getElementById("result-count-label");
+  const rhSub = document.getElementById("rh-sub");
+  const summaryBest = document.getElementById("summary-best");
+
+  // No cards entered → setup-only state (no wallet stats yet)
+  if (state.ownedCards.size === 0) {
+    renderOwnedCardsPanel(setupContainer, null);
+    if (countEl) countEl.textContent = "0";
+    if (countLabel) countLabel.textContent = "cards yet — add yours above";
+    if (rhSub) rhSub.textContent = "Add the cards in your wallet to see what they're worth and the best one to add";
+    if (summaryBest) summaryBest.textContent = "—";
+    if (emptyState) {
+      emptyState.classList.remove("hidden");
+      const title = document.getElementById("empty-state-title");
+      const msg = document.getElementById("empty-state-message");
+      if (title) title.textContent = "Your wallet is empty";
+      if (msg) msg.textContent = "Add the cards you carry above. You'll see what your wallet is worth and the best next card to add.";
+    }
+    if (topPick) topPick.innerHTML = "";
+    if (resultsGrid) resultsGrid.innerHTML = "";
+    return;
+  }
+
+  const { ranked, stats } = computeNextCardRecommendations();
+  const walletStats = stats.wallet;
+  renderOwnedCardsPanel(setupContainer, walletStats);
+
+  if (countEl) countEl.textContent = String(ranked.length);
+  if (countLabel) countLabel.textContent = "cards would add extra savings";
+  if (rhSub) {
+    rhSub.textContent = `Your wallet covers ${walletStats.coveredVenues} of ${walletStats.venueCount} restaurants · ${formatCurrency(state.orderValue)} bill`;
+  }
+  if (summaryBest) {
+    summaryBest.textContent = ranked.length > 0
+      ? `+${formatCurrency(ranked[0].avgDeltaPerOuting)} / outing`
+      : "—";
+  }
+
+  if (ranked.length === 0) {
+    if (emptyState) {
+      emptyState.classList.remove("hidden");
+      const title = document.getElementById("empty-state-title");
+      const msg = document.getElementById("empty-state-message");
+      if (title) title.textContent = "Nothing beats what you already have";
+      if (msg) msg.textContent = "With your current wallet, no other card meaningfully improves savings in this scope. Try a different city, broader days, or a higher bill.";
+    }
+    if (topPick) topPick.innerHTML = "";
+    if (resultsGrid) resultsGrid.innerHTML = "";
+    return;
+  }
+
+  if (emptyState) emptyState.classList.add("hidden");
+
+  // Section header + featured top pick
+  if (topPick) {
+    topPick.innerHTML = "";
+    const header = document.createElement("div");
+    header.className = "mw-section-header";
+    header.innerHTML = `
+      <span class="mw-section-label">Best next card to add</span>
+      <span class="mw-section-sub">Ranked by extra savings on top of your wallet</span>
+    `;
+    topPick.appendChild(header);
+    const slot = document.createElement("div");
+    topPick.appendChild(slot);
+    renderNextCardFeatured(ranked[0], slot);
+  }
+  // Ranked list (skip the featured one)
+  if (resultsGrid) {
+    resultsGrid.innerHTML = "";
+    const rest = ranked.slice(1, 21);
+    rest.forEach((result, idx) => {
+      renderNextCardItem(result, resultsGrid, idx + 2);
+    });
+  }
+}
+
+function buildNextCardReason(result) {
+  const bits = [];
+  if (result.newVenues > 0) {
+    bits.push(`<strong>${result.newVenues}</strong> new restaurant${result.newVenues === 1 ? "" : "s"} unlocked`);
+  }
+  if (result.boostedVenues > 0) {
+    bits.push(`<strong>${result.boostedVenues}</strong> existing restaurant${result.boostedVenues === 1 ? "" : "s"} boosted`);
+  }
+  if (!bits.length) bits.push(`covers ${result.coveredVenues} restaurants in scope`);
+  return bits.join(" · ");
+}
+
+function renderNextCardFeatured(result, container) {
+  if (!container) return;
+  const cardKey = buildCardKey(result.bank, result.card);
+  const score = Number(result.score).toFixed(1);
+  const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
+  const sc = scoreColor(scorePct);
+  const showEligibility = isEligibilityContextActive();
+  const eligStatus = result.requirementStatus;
+  const reason = buildNextCardReason(result);
+  const yearly = result.yearlyDelta;
+  const topVenues = result.topVenueWins.slice(0, 3).map((v) => escapeHtml(v.restaurant)).join(", ");
+
+  container.innerHTML = `
+    <article class="card-item card-item--featured nc-featured" data-key="${escapeAttr(cardKey)}" tabindex="0" role="button" aria-label="Open details for ${escapeAttr(result.card)} from ${escapeAttr(result.bank)}">
+      <div class="card-row card-row--clickable">
+        <div class="card-rank rank-1">1</div>
+        ${renderBankLogo(result.bank, "card-logo-box")}
+        <div class="card-info">
+          <div class="card-badges">
+            <span class="badge-top-pick">💎 BEST NEXT CARD</span>
+            ${showEligibility ? renderEligibilityBadge(eligStatus) : ""}
+          </div>
+          <div class="card-name">${escapeHtml(result.card)}</div>
+          <div class="card-bank">${escapeHtml(result.bank)}</div>
+          <div class="nc-reason">${reason}</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num" style="color:${sc}">${score}</div>
+          <div class="score-label">Fit Score</div>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-stats-row card-stats-row--clickable">
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("Extra Saving")}</div>
+          <div class="cs-v green">+${formatCurrency(result.avgDeltaPerOuting)} / outing</div>
+        </div>
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("Estimated Yearly")}</div>
+          <div class="cs-v green">~+${formatCurrency(yearly)}</div>
+        </div>
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("New Restaurants")}</div>
+          <div class="cs-v">${result.newVenues}</div>
+        </div>
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("Improves On")}</div>
+          <div class="cs-v">${result.boostedVenues}</div>
+        </div>
+      </div>
+      ${topVenues ? `<div class="nc-feat-topvenues"><span class="nc-feat-topvenues-l">Best wins:</span> ${topVenues}</div>` : ""}
+    </article>
+  `;
+  bindCardOpenInteractions(container.querySelector("article"), cardKey);
+}
+
+function renderNextCardItem(result, container, rank) {
+  const cardKey = buildCardKey(result.bank, result.card);
+  const score = Number(result.score).toFixed(1);
+  const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
+  const sc = scoreColor(scorePct);
+  const showEligibility = isEligibilityContextActive();
+  const eligStatus = result.requirementStatus;
+  const reason = buildNextCardReason(result);
+
+  const article = document.createElement("article");
+  article.className = "card-item nc-item";
+  article.style.animationDelay = `${Math.min(rank, 12) * 0.04}s`;
+  article.dataset.key = cardKey;
+  article.innerHTML = `
+    <div class="card-row card-row--clickable">
+      <div class="card-rank">${rank}</div>
+      ${renderBankLogo(result.bank, "card-logo-box")}
+      <div class="card-info">
+        <div class="card-badges">
+          ${showEligibility ? renderEligibilityBadge(eligStatus) : ""}
+        </div>
+        <div class="card-name">${escapeHtml(result.card)}</div>
+        <div class="card-bank">${escapeHtml(result.bank)}</div>
+        <div class="nc-reason nc-reason--row">${reason}</div>
+      </div>
+      <div class="score-box">
+        <div class="score-num" style="color:${sc}">${score}</div>
+        <div class="score-label">Fit</div>
+        <div class="score-bar">
+          <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-stats-row card-stats-row--clickable">
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("Extra Saving")}</div>
+        <div class="cs-v green">+${formatCurrency(result.avgDeltaPerOuting)} / outing</div>
+      </div>
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("Yearly")}</div>
+        <div class="cs-v green">~+${formatCurrency(result.yearlyDelta)}</div>
+      </div>
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("New")}</div>
+        <div class="cs-v">${result.newVenues}</div>
+      </div>
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("Boosts")}</div>
+        <div class="cs-v">${result.boostedVenues}</div>
+      </div>
+    </div>
+  `;
+  container.appendChild(article);
+  bindCardOpenInteractions(article, cardKey);
+}
+
+/* ── BUILD WALLET: VIEW + SETUP PANEL ── */
+function renderWalletSetupPanel(container) {
+  if (!container) return;
+  const K = state.walletSize;
+  const ownedCount = state.ownedCards.size;
+  const canBuildOnOwned = ownedCount > 0;
+  const buildOnOwned = state.walletBuildOnOwned && canBuildOnOwned;
+  const sizeOptions = [2, 3, 4];
+  const objectiveOptions = [
+    { v: "savings",  label: "Savings",  hint: "Maximum gross saving per outing" },
+    { v: "coverage", label: "Coverage", hint: "Most restaurants helped" },
+    { v: "roi",      label: "ROI",      hint: "Best net of annual fees" },
+  ];
+  const obj = state.walletObjective || "savings";
+  const noSameBank = !!state.walletNoSameBank;
+  const mixedTypes = !!state.walletMixedTypes;
+  const maxFeeRaw = state.walletMaxFee;
+  const mustCount = state.walletMustInclude.size;
+
+  container.innerHTML = `
+    <div class="wo-setup">
+      <div class="wo-setup-head">
+        <div class="wo-setup-title-wrap">
+          <div class="wo-setup-kicker">Wallet Builder</div>
+          <div class="wo-setup-title">Best ${K}-card wallet for you</div>
+          <div class="wo-setup-sub">We pick a combination of cards that <strong>together</strong> covers the most restaurants and saves the most. Unlike Next Card, this designs your wallet from scratch.</div>
+        </div>
+      </div>
+
+      <div class="wo-controls-grid">
+        <div class="wo-control">
+          <div class="wo-control-label">Wallet size</div>
+          <div class="wo-pill-group" id="wo-k-pills">
+            ${sizeOptions.map((n) => `<button class="wo-pill${n === K ? " active" : ""}" type="button" data-k="${n}">${n} cards</button>`).join("")}
+          </div>
+        </div>
+
+        <div class="wo-control">
+          <div class="wo-control-label">Start from</div>
+          <div class="wo-mode-toggle">
+            <button class="wo-mode-btn${!buildOnOwned ? " active" : ""}" type="button" data-mode="scratch">Scratch</button>
+            <button class="wo-mode-btn${buildOnOwned ? " active" : ""}${canBuildOnOwned ? "" : " disabled"}" type="button" data-mode="owned" ${canBuildOnOwned ? "" : "disabled"}>
+              My ${ownedCount} card${ownedCount === 1 ? "" : "s"}
+            </button>
+          </div>
+        </div>
+
+        <div class="wo-control">
+          <div class="wo-control-label">Optimize for</div>
+          <div class="wo-pill-group" id="wo-obj-pills">
+            ${objectiveOptions.map((o) => `<button class="wo-pill${o.v === obj ? " active" : ""}" type="button" data-obj="${o.v}" title="${escapeAttr(o.hint)}">${o.label}</button>`).join("")}
+          </div>
+        </div>
+
+        <div class="wo-control">
+          <div class="wo-control-label">Max annual fee</div>
+          <div class="wo-fee-wrap">
+            <span class="wo-fee-prefix">PKR</span>
+            <input id="wo-max-fee" type="number" inputmode="numeric" min="0" step="1000" placeholder="No cap" value="${maxFeeRaw !== null ? String(maxFeeRaw) : ""}" />
+            <span class="wo-fee-suffix">/ year</span>
+            ${maxFeeRaw !== null ? `<button class="wo-fee-clear" id="wo-max-fee-clear" type="button" aria-label="Clear cap">×</button>` : ""}
+          </div>
+        </div>
+      </div>
+
+      <details class="wo-advanced" ${state.walletAdvancedOpen || noSameBank || mixedTypes || mustCount > 0 ? "open" : ""}>
+        <summary class="wo-advanced-summary">
+          <span class="wo-advanced-summary-text">
+            <span class="wo-advanced-icon">⚙</span>
+            Advanced options
+          </span>
+          ${(() => {
+            const activeBits = [];
+            if (noSameBank) activeBits.push("No same bank");
+            if (mixedTypes) activeBits.push("Mixed types");
+            if (mustCount > 0) activeBits.push(`${mustCount} pinned`);
+            return activeBits.length > 0
+              ? `<span class="wo-advanced-badges">${activeBits.map((b) => `<span class="wo-advanced-badge">${escapeHtml(b)}</span>`).join("")}</span>`
+              : `<span class="wo-advanced-hint">Diversity, mixed types, pin specific cards</span>`;
+          })()}
+          <span class="wo-advanced-chevron" aria-hidden="true"></span>
+        </summary>
+
+        <div class="wo-advanced-body">
+          <div class="wo-toggles">
+            <label class="wo-toggle">
+              <input type="checkbox" id="wo-nobank" ${noSameBank ? "checked" : ""} />
+              <span class="wo-toggle-slider"></span>
+              <span class="wo-toggle-label">No two cards from the same bank</span>
+            </label>
+            <label class="wo-toggle">
+              <input type="checkbox" id="wo-mix" ${mixedTypes ? "checked" : ""} />
+              <span class="wo-toggle-slider"></span>
+              <span class="wo-toggle-label">Mix card types (≥1 debit + ≥1 credit)</span>
+            </label>
+          </div>
+
+          <div class="wo-must-section">
+            <div class="wo-must-head">
+              <div class="wo-control-label">Must include cards <span class="wo-must-count">${mustCount > 0 ? `(${mustCount})` : ""}</span></div>
+              ${mustCount > 0 ? `<button class="wo-must-clear" id="wo-must-clear" type="button">Clear</button>` : ""}
+            </div>
+            <input id="wo-must-search" class="s-search wo-must-search" type="search" placeholder="Pin specific cards to the wallet…" autocomplete="off" value="${escapeAttr(state.walletMustIncludeSearchTerm)}" />
+            <div id="wo-must-results" class="s-search-results wo-must-results"></div>
+            <div id="wo-must-chips" class="s-chips wo-must-chips"></div>
+          </div>
+        </div>
+      </details>
+
+      ${buildOnOwned ? `
+        <div class="wo-anchor-note">
+          Building on top of: ${Array.from(state.ownedCards).slice(0, 3).map((ck) => {
+            const [bank, card] = ck.split(" || ");
+            return `<span class="wo-anchor-pill">${escapeHtml(card)}</span>`;
+          }).join(" ")}${state.ownedCards.size > 3 ? ` <span class="wo-anchor-pill wo-anchor-pill--more">+${state.ownedCards.size - 3} more</span>` : ""}
+        </div>
+      ` : `
+        <div class="wo-crosslink">
+          ${canBuildOnOwned
+            ? `Already added your cards in <a class="wo-link" id="wo-go-next-card">My Wallet</a>? <a class="wo-link" id="wo-switch-build-owned">Build on top of them →</a>`
+            : `Have cards already? <a class="wo-link" id="wo-go-next-card">Open My Wallet →</a> to add them and see the best next card.`
+          }
+        </div>
+      `}
+    </div>
+  `;
+
+  // Event wiring
+  container.querySelectorAll("#wo-k-pills .wo-pill").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const k = Number(btn.dataset.k);
+      if (k >= 2 && k <= 4 && k !== state.walletSize) {
+        state.walletSize = k;
+        render();
+      }
+    });
+  });
+  container.querySelectorAll(".wo-mode-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.classList.contains("disabled")) return;
+      const mode = btn.dataset.mode;
+      const next = mode === "owned";
+      if (next !== state.walletBuildOnOwned) {
+        state.walletBuildOnOwned = next;
+        render();
+      }
+    });
+  });
+  container.querySelectorAll("#wo-obj-pills .wo-pill").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const o = btn.dataset.obj;
+      if (o && o !== state.walletObjective) {
+        state.walletObjective = o;
+        render();
+      }
+    });
+  });
+  const maxFeeInput = container.querySelector("#wo-max-fee");
+  if (maxFeeInput) {
+    maxFeeInput.addEventListener("input", debounce((e) => {
+      const v = parseOptionalNumber(e.target.value);
+      state.walletMaxFee = (v !== null && v >= 0) ? v : null;
+      render();
+    }, 220));
+  }
+  container.querySelector("#wo-max-fee-clear")?.addEventListener("click", () => {
+    state.walletMaxFee = null;
+    render();
+  });
+  container.querySelector("#wo-nobank")?.addEventListener("change", (e) => {
+    state.walletNoSameBank = !!e.target.checked;
+    render();
+  });
+  container.querySelector("#wo-mix")?.addEventListener("change", (e) => {
+    state.walletMixedTypes = !!e.target.checked;
+    render();
+  });
+  container.querySelector("#wo-must-clear")?.addEventListener("click", () => {
+    state.walletMustInclude = new Set();
+    state.walletMustIncludeSearchTerm = "";
+    render();
+  });
+  const mustSearch = container.querySelector("#wo-must-search");
+  if (mustSearch) {
+    mustSearch.addEventListener("input", (e) => {
+      state.walletMustIncludeSearchTerm = e.target.value.trim();
+      renderWalletMustResults();
+    });
+  }
+  container.querySelector(".wo-advanced")?.addEventListener("toggle", (e) => {
+    state.walletAdvancedOpen = !!e.target.open;
+  });
+  container.querySelector("#wo-switch-build-owned")?.addEventListener("click", () => {
+    state.walletBuildOnOwned = true;
+    render();
+  });
+  container.querySelector("#wo-go-next-card")?.addEventListener("click", () => {
+    state.viewMode = "my-wallet";
+    render();
+  });
+
+  renderWalletMustResults();
+  renderWalletMustChips();
+}
+
+// Tiny debounce helper for the fee input
+function debounce(fn, delay) {
+  let t = null;
+  return (...args) => {
+    if (t) clearTimeout(t);
+    t = setTimeout(() => fn(...args), delay);
+  };
+}
+
+function renderWalletMustResults() {
+  const container = document.getElementById("wo-must-results");
+  if (!container) return;
+  const term = (state.walletMustIncludeSearchTerm || "").toLowerCase();
+  if (!term) { container.innerHTML = ""; return; }
+  const catalog = getAllCardsCatalog();
+  const results = catalog
+    .filter((c) => !state.walletMustInclude.has(c.cardKey))
+    .filter((c) => `${c.bank} ${c.card}`.toLowerCase().includes(term))
+    .slice(0, 12);
+  container.innerHTML = "";
+  if (results.length === 0) {
+    container.innerHTML = `<div class="nc-search-empty">No matching cards.</div>`;
+    return;
+  }
+  results.forEach((entry) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "s-search-item nc-search-item";
+    item.innerHTML = `
+      <span class="nc-search-item-text">
+        <span class="nc-search-item-card">${escapeHtml(entry.card)}</span>
+        <span class="nc-search-item-bank">${escapeHtml(entry.bank)}</span>
+      </span>
+      <span class="s-search-item-add">+ Pin</span>
+    `;
+    item.addEventListener("click", () => {
+      state.walletMustInclude.add(entry.cardKey);
+      state.walletMustIncludeSearchTerm = "";
+      const input = document.getElementById("wo-must-search");
+      if (input) input.value = "";
+      render();
+    });
+    container.appendChild(item);
+  });
+}
+
+function renderWalletMustChips() {
+  const container = document.getElementById("wo-must-chips");
+  if (!container) return;
+  container.innerHTML = "";
+  Array.from(state.walletMustInclude).sort().forEach((cardKey) => {
+    const [bank, card] = cardKey.split(" || ");
+    const chip = document.createElement("div");
+    chip.className = "s-chip nc-chip wo-must-chip";
+    chip.innerHTML = `
+      <span class="wo-must-pin-icon">📌</span>
+      <span class="nc-chip-text">
+        <span class="nc-chip-card">${escapeHtml(card || "")}</span>
+        <span class="nc-chip-bank">${escapeHtml(bank || "")}</span>
+      </span>
+    `;
+    const rm = document.createElement("button");
+    rm.className = "s-chip-remove";
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.setAttribute("aria-label", `Unpin ${card}`);
+    rm.addEventListener("click", () => { state.walletMustInclude.delete(cardKey); render(); });
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  });
+}
+
+function renderWalletView(resultsGrid) {
+  const setupContainer = document.getElementById("wallet-setup");
+  const topPick = document.getElementById("top-pick");
+  const emptyState = document.getElementById("empty-state");
+  const countEl = document.getElementById("result-count");
+  const countLabel = document.getElementById("result-count-label");
+  const rhSub = document.getElementById("rh-sub");
+  const summaryBest = document.getElementById("summary-best");
+
+  renderWalletSetupPanel(setupContainer);
+
+  const { ranked, stats } = computeWalletRecommendations();
+  const K = stats.K;
+
+  if (countEl) countEl.textContent = ranked.length ? String(K) : "0";
+  if (countLabel) countLabel.textContent = ranked.length ? `card wallet recommended` : "wallets possible";
+  if (rhSub) {
+    const ctx = stats.buildOnOwned
+      ? `Best ${K} cards to add on top of your ${stats.anchorCount} · ${formatCurrency(state.orderValue)} bill`
+      : `Best ${K}-card combination from scratch · ${formatCurrency(state.orderValue)} bill`;
+    rhSub.textContent = ctx;
+  }
+  if (summaryBest) {
+    summaryBest.textContent = ranked.length > 0
+      ? `${formatCurrency(ranked[0].perOutingTotal)} / outing`
+      : "—";
+  }
+
+  if (ranked.length === 0) {
+    if (emptyState) {
+      emptyState.classList.remove("hidden");
+      const title = document.getElementById("empty-state-title");
+      const msg = document.getElementById("empty-state-message");
+      if (title) title.textContent = "Couldn't build a wallet with current filters";
+      const baseMsg = "Try a broader scope: clear bank/card-type filters, pick a city with more coverage, or turn off eligibility mode.";
+      if (msg) msg.textContent = (stats.warnings || []).length > 0 ? stats.warnings.join(" ") : baseMsg;
+    }
+    if (topPick) topPick.innerHTML = "";
+    if (resultsGrid) resultsGrid.innerHTML = "";
+    return;
+  }
+  if (emptyState) emptyState.classList.add("hidden");
+
+  if (topPick) {
+    topPick.innerHTML = "";
+    // Surface warnings (over budget, missing types, etc.)
+    if ((stats.warnings || []).length > 0) {
+      const banner = document.createElement("div");
+      banner.className = "wo-warning-banner";
+      banner.innerHTML = stats.warnings.map((w) => `<div class="wo-warning-line"><span class="wo-warning-icon">⚠️</span><span>${escapeHtml(w)}</span></div>`).join("");
+      topPick.appendChild(banner);
+    }
+    const slot = document.createElement("div");
+    topPick.appendChild(slot);
+    renderWalletFeatured(ranked[0], slot, stats);
+  }
+  if (resultsGrid) {
+    resultsGrid.innerHTML = "";
+    const alternates = ranked.slice(1);
+    if (alternates.length > 0) {
+      const header = document.createElement("div");
+      header.className = "wo-alt-header";
+      header.innerHTML = `<span class="wo-alt-header-label">Alternative wallets</span> <span class="wo-alt-header-sub">other strong ${K}-card combinations</span>`;
+      resultsGrid.appendChild(header);
+      alternates.forEach((wallet, idx) => renderWalletAlternative(wallet, resultsGrid, idx + 2, stats));
+    }
+  }
+}
+
+function renderWalletFeatured(wallet, container, stats) {
+  if (!container) return;
+  const K = wallet.picks.length;
+  const yearly = wallet.perOutingTotal * (state.outingsPerWeek || 1) * 52 * wallet.coverage;
+  const totalFee = wallet.totalAnnualFee || 0;
+  const feeNote = wallet.feeUnknown ? " <span class='wo-fee-note'>(some unlisted)</span>" : "";
+  const showEligibility = isEligibilityContextActive();
+
+  const picksHtml = wallet.picks.map((p, idx) => {
+    const eligBadge = showEligibility ? renderEligibilityBadge(p.requirementStatus) : "";
+    const role = p.pinned
+      ? "Pinned by you"
+      : (idx === 0
+          ? "Anchor"
+          : `Adds${p.newVenues > 0 ? ` ${p.newVenues} new` : ""}${p.newVenues > 0 && p.boostedVenues > 0 ? "," : ""}${p.boostedVenues > 0 ? ` boosts ${p.boostedVenues}` : ""}`);
+    return `
+      <div class="wo-stack-card${p.pinned ? " wo-stack-card--pinned" : ""}" data-key="${escapeAttr(p.cardKey)}" tabindex="0" role="button">
+        <div class="wo-stack-card-rank">${p.pinned ? "📌" : idx + 1}</div>
+        ${renderBankLogo(p.bank, "wo-stack-logo")}
+        <div class="wo-stack-card-info">
+          <div class="wo-stack-card-name">${escapeHtml(p.card)}</div>
+          <div class="wo-stack-card-bank">${escapeHtml(p.bank)}</div>
+          <div class="wo-stack-card-meta">
+            <span class="wo-stack-card-role">${escapeHtml(role)}</span>
+            ${!p.pinned && p.newVenues > 0 ? `<span class="wo-stack-card-tag wo-stack-card-tag--new">+${p.newVenues} new</span>` : ""}
+            ${!p.pinned && p.boostedVenues > 0 ? `<span class="wo-stack-card-tag">${p.boostedVenues} boosts</span>` : ""}
+          </div>
+          ${eligBadge ? `<div class="wo-stack-card-elig">${eligBadge}</div>` : ""}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  container.innerHTML = `
+    <article class="card-item card-item--featured wo-featured">
+      <div class="wo-featured-head">
+        <div class="wo-featured-head-left">
+          <div class="card-badges">
+            <span class="badge-top-pick">🧩 BEST WALLET</span>
+          </div>
+          <div class="wo-featured-title">${K}-card wallet · ${stats.buildOnOwned ? `on top of your ${stats.anchorCount}` : "from scratch"}</div>
+          <div class="wo-featured-sub">Combined savings across all your restaurants — coverage: <strong>${Math.round(wallet.coverage * 100)}%</strong> · ${wallet.coveredVenues} of ${wallet.venueCount} restaurants</div>
+        </div>
+      </div>
+
+      <div class="wo-stack">
+        ${picksHtml}
+      </div>
+
+      <div class="wo-combined-stats">
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Combined Saving</div>
+          <div class="wo-combined-v green">${formatCurrency(wallet.perOutingTotal)} / outing</div>
+        </div>
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Restaurants Covered</div>
+          <div class="wo-combined-v">${wallet.coveredVenues} of ${wallet.venueCount}</div>
+        </div>
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Est. Yearly</div>
+          <div class="wo-combined-v green">~${formatCurrency(yearly)}</div>
+        </div>
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Total Annual Fees</div>
+          <div class="wo-combined-v">${totalFee === 0 ? "Free / not listed" : formatCurrency(totalFee)}${feeNote}</div>
+        </div>
+      </div>
+    </article>
+  `;
+
+  container.querySelectorAll(".wo-stack-card").forEach((node) => {
+    const key = node.dataset.key;
+    if (!key) return;
+    node.addEventListener("click", () => openCardDetail(key));
+    node.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCardDetail(key); }
+    });
+  });
+}
+
+function renderWalletAlternative(wallet, container, rank, stats) {
+  const article = document.createElement("article");
+  article.className = "card-item wo-alt-item";
+  article.style.animationDelay = `${Math.min(rank, 12) * 0.05}s`;
+  const picksLine = wallet.picks.map((p) =>
+    `<span class="wo-alt-card-chip" data-key="${escapeAttr(p.cardKey)}">${escapeHtml(p.card)} <span class="wo-alt-card-chip-bank">· ${escapeHtml(p.bank)}</span></span>`
+  ).join("");
+  const totalFee = wallet.totalAnnualFee || 0;
+  article.innerHTML = `
+    <div class="card-row wo-alt-row">
+      <div class="card-rank">${rank}</div>
+      <div class="wo-alt-body">
+        <div class="wo-alt-cards">${picksLine}</div>
+        <div class="wo-alt-stats">
+          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Combined:</span> <span class="green">${formatCurrency(wallet.perOutingTotal)} / outing</span></span>
+          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Coverage:</span> ${Math.round(wallet.coverage * 100)}%</span>
+          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Fees:</span> ${totalFee === 0 ? "Free" : formatCurrency(totalFee)}</span>
+        </div>
+      </div>
+    </div>
+  `;
+  container.appendChild(article);
+  article.querySelectorAll(".wo-alt-card-chip").forEach((chip) => {
+    const key = chip.dataset.key;
+    if (!key) return;
+    chip.addEventListener("click", (e) => { e.stopPropagation(); openCardDetail(key); });
+  });
+}
+
+/* ── NEXT CARD RECOMMENDATIONS ──
+   For each card the user does NOT own, compute the incremental savings it
+   would add on top of their current cards. Marginal value per (venue,day):
+     delta = max(0, candidate_best_saving - current_best_saving_from_owned)
+*/
+function computeNextCardRecommendations() {
+  if (!state.data) return { ranked: [], stats: { ownedCount: 0, venuesInScope: 0, totalCandidates: 0 } };
+
+  const ownedKeys = state.ownedCards;
+  const selectedDays = getEffectiveSelectedDays();
+  const totalSelectedDays = selectedDays.size || 1;
+
+  // Scope: all venues in the chosen city (or restaurant filter, if any)
+  const scopeKey = (offer) => `${offer.city} || ${offer.restaurant}`;
+  const scopeOffers = state.data.offers.filter((offer) => {
+    if (!cityMatches(offer.city)) return false;
+    if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
+    return true;
+  });
+
+  // Collect all venues in scope (whether or not anyone has a card for them)
+  const venuesInScope = new Set();
+  state.data.offers.forEach((offer) => {
+    if (!cityMatches(offer.city)) return;
+    if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return;
+    venuesInScope.add(scopeKey(offer));
+  });
+  const venueCount = venuesInScope.size;
+
+  // Step 1: build current_best[venueKey][day] from owned cards' offers
+  const currentBest = new Map(); // venueKey -> Map<day, saving>
+  if (ownedKeys.size > 0) {
+    scopeOffers.forEach((offer) => {
+      const cardKey = buildCardKey(offer.bank, offer.card);
+      if (!ownedKeys.has(cardKey)) return;
+      const saving = getOfferSavingValue(offer, state.orderValue);
+      if (!Number.isFinite(saving) || saving <= 0) return;
+      const venueKey = scopeKey(offer);
+      let dayMap = currentBest.get(venueKey);
+      if (!dayMap) { dayMap = new Map(); currentBest.set(venueKey, dayMap); }
+      selectedDays.forEach((day) => {
+        if (!offer.days.includes(day)) return;
+        const prev = dayMap.get(day) || 0;
+        if (saving > prev) dayMap.set(day, saving);
+      });
+    });
+  }
+
+  // Step 2: walk all non-owned card offers and compute delta per venue/day
+  // Aggregate into per-card records.
+  const cardMap = new Map(); // cardKey -> record
+  scopeOffers.forEach((offer) => {
+    const cardKey = buildCardKey(offer.bank, offer.card);
+    if (ownedKeys.has(cardKey)) return;
+    const saving = getOfferSavingValue(offer, state.orderValue);
+    if (!Number.isFinite(saving) || saving <= 0) return;
+    const venueKey = scopeKey(offer);
+
+    let record = cardMap.get(cardKey);
+    if (!record) {
+      record = {
+        bank: offer.bank,
+        card: offer.card,
+        cardCategory: offer.cardCategory || null,
+        // venueKey -> Map<day, { candidateBest, currentBest }>
+        venueDayCells: new Map(),
+      };
+      cardMap.set(cardKey, record);
+    }
+    if (!record.cardCategory && offer.cardCategory) record.cardCategory = offer.cardCategory;
+
+    let venueMap = record.venueDayCells.get(venueKey);
+    if (!venueMap) { venueMap = new Map(); record.venueDayCells.set(venueKey, venueMap); }
+    selectedDays.forEach((day) => {
+      if (!offer.days.includes(day)) return;
+      const cell = venueMap.get(day);
+      if (!cell || saving > cell.candidateBest) {
+        const currentBestVal = currentBest.get(venueKey)?.get(day) || 0;
+        venueMap.set(day, {
+          candidateBest: saving,
+          currentBest: currentBestVal,
+          discountPct: getOfferDiscountPct(offer),
+          discountLabel: offer.discountLabel,
+          offerTitle: offer.offerTitle,
+          orderTypes: offer.orderTypes || [],
+          capPkr: offer.capPkr,
+          fixedDiscountPkr: offer.fixedDiscountPkr ?? null,
+          city: offer.city,
+          restaurant: offer.restaurant,
+        });
+      }
+    });
+  });
+
+  // Step 3: aggregate per card
+  const aggregates = Array.from(cardMap.values()).map((record) => {
+    let newVenues = 0;     // venues where owned cards had no offer at all
+    let boostedVenues = 0; // venues where owned cards already had something but candidate beats it on at least one day
+    let totalDeltaSaving = 0;     // sum of per-day deltas across venues (raw)
+    let coveredVenues = 0;        // venues where candidate delivers any positive delta
+    const venueSummaries = [];
+
+    record.venueDayCells.forEach((dayMap, venueKey) => {
+      let venueDeltaSum = 0;
+      let venueAnyDelta = false;
+      const venueOwnedAny = currentBest.has(venueKey) && Array.from(currentBest.get(venueKey).values()).some((v) => v > 0);
+      let bestSampleCell = null;
+      dayMap.forEach((cell) => {
+        const delta = Math.max(0, cell.candidateBest - cell.currentBest);
+        if (delta > 0) {
+          venueDeltaSum += delta;
+          venueAnyDelta = true;
+        }
+        if (!bestSampleCell || cell.candidateBest > bestSampleCell.candidateBest) bestSampleCell = cell;
+      });
+      if (!venueAnyDelta) return;
+      coveredVenues += 1;
+      totalDeltaSaving += venueDeltaSum;
+      if (venueOwnedAny) boostedVenues += 1; else newVenues += 1;
+      venueSummaries.push({
+        venueKey,
+        city: bestSampleCell.city,
+        restaurant: bestSampleCell.restaurant,
+        perOutingDelta: venueDeltaSum / totalSelectedDays,
+        candidatePctLabel: bestSampleCell.discountLabel,
+        candidatePct: bestSampleCell.discountPct,
+        offerTitle: bestSampleCell.offerTitle,
+        orderTypes: bestSampleCell.orderTypes,
+        wasUncovered: !venueOwnedAny,
+      });
+    });
+
+    // avg delta per outing = (total delta across days) / (covered venues * selectedDays)
+    // Same shape as existing avgExpectedSaving but for the delta. Captures the user's
+    // typical experience visiting one of the boosted venues.
+    const avgDeltaPerOuting = coveredVenues > 0 ? totalDeltaSaving / (coveredVenues * totalSelectedDays) : 0;
+    const coverageDelta = venueCount > 0 ? coveredVenues / venueCount : 0;
+
+    // Yearly value estimate: how many of the user's typical outings hit boosted venues
+    const outingsPerYear = (state.outingsPerWeek || 1) * 52;
+    const hitRate = coverageDelta; // probability an outing is at a boosted venue (rough)
+    const yearlyDelta = outingsPerYear * hitRate * avgDeltaPerOuting;
+
+    const topVenueWins = venueSummaries
+      .sort((a, b) => b.perOutingDelta - a.perOutingDelta)
+      .slice(0, 3);
+
+    return {
+      bank: record.bank,
+      card: record.card,
+      cardCategory: record.cardCategory,
+      newVenues,
+      boostedVenues,
+      coveredVenues,
+      venueCount,
+      avgDeltaPerOuting,
+      coverageDelta,
+      yearlyDelta,
+      totalDeltaSaving,
+      topVenueWins,
+    };
+  });
+
+  // Step 4: eligibility + filtering (mirrors normal recs)
+  aggregates.forEach((item) => {
+    item.requirementStatus = evaluateEligibility(item.bank, item.card);
+  });
+
+  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
+
+  // Score 0..100 from blended (avgDelta × sqrt(coverageDelta))
+  aggregates.forEach((item) => {
+    item.E = item.avgDeltaPerOuting * (0.35 + 0.65 * Math.sqrt(item.coverageDelta));
+  });
+  const eSorted = aggregates.map((i) => i.E).sort((a, b) => a - b);
+  const p95E = eSorted.length > 0
+    ? eSorted[Math.max(0, Math.ceil(0.95 * eSorted.length) - 1)]
+    : 1;
+  const p95Safe = Math.max(p95E, 1);
+  aggregates.forEach((item) => {
+    const Ns = Math.min(1, item.E / p95Safe);
+    const R = 0.65 * Ns + 0.25 * item.coverageDelta + 0.10 * Math.min(1, item.newVenues / Math.max(1, venueCount * 0.1));
+    item.baseScore = 20 + 80 * R;
+    item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
+    item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
+      ? 30 * (item.qualificationConfidence - 0.5)
+      : 0;
+    item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta));
+  });
+
+  let visible = aggregates.filter((item) => item.coveredVenues > 0);
+  visible = visible.filter((item) => {
+    if (state.selectedBanks.size > 0 && !state.selectedBanks.has(item.bank)) return false;
+    if (state.selectedCardTypes.size > 0 && !state.selectedCardTypes.has(item.cardCategory)) return false;
+    return true;
+  });
+  if (state.useEligibility && hasEligibilityInput) {
+    visible = visible.filter((item) => item.requirementStatus.status !== "ineligible");
+  }
+
+  visible.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    if (b.yearlyDelta !== a.yearlyDelta) return b.yearlyDelta - a.yearlyDelta;
+    return b.avgDeltaPerOuting - a.avgDeltaPerOuting;
+  });
+
+  // Portfolio stats: what is the user's current wallet actually worth in scope?
+  // Walk currentBest (best saving per venue/day from owned cards) and aggregate.
+  let walletTotalDailyBest = 0;
+  let walletCoveredVenues = 0;
+  currentBest.forEach((dayMap) => {
+    let any = false;
+    dayMap.forEach((s) => { if (s > 0) { walletTotalDailyBest += s; any = true; } });
+    if (any) walletCoveredVenues += 1;
+  });
+  const walletPerOuting = walletCoveredVenues > 0
+    ? walletTotalDailyBest / (walletCoveredVenues * totalSelectedDays)
+    : 0;
+  const walletCoverage = venueCount > 0 ? walletCoveredVenues / venueCount : 0;
+  const walletYearly = walletPerOuting * (state.outingsPerWeek || 1) * 52 * walletCoverage;
+
+  // Total annual fees from owned cards (when published)
+  let walletAnnualFee = 0;
+  let walletFeeUnknown = false;
+  ownedKeys.forEach((ck) => {
+    const [bank, card] = ck.split(" || ");
+    const status = evaluateEligibility(bank, card);
+    const fee = status?.annualFeePkr;
+    if (fee === null || fee === undefined) walletFeeUnknown = true;
+    else if (Number.isFinite(fee)) walletAnnualFee += fee;
+  });
+
+  return {
+    ranked: visible,
+    stats: {
+      ownedCount: ownedKeys.size,
+      venuesInScope: venueCount,
+      totalCandidates: aggregates.length,
+      wallet: {
+        perOuting: walletPerOuting,
+        coverage: walletCoverage,
+        coveredVenues: walletCoveredVenues,
+        venueCount,
+        yearly: walletYearly,
+        annualFee: walletAnnualFee,
+        feeUnknown: walletFeeUnknown,
+      },
+    },
+  };
+}
+
+/* ── BUILD WALLET RECOMMENDATIONS ──
+   Greedy K-card selection. Repeatedly pick the card that adds the most
+   marginal saving on top of what the current wallet already gives. This
+   solves the "best 2 / 3 / 4 cards together" problem that Next Card can't
+   answer (Next Card is one-step greedy from a fixed starting wallet).
+
+   Greedy is near-optimal here because the objective (sum of per-(venue,day)
+   max saving over wallet cards) is monotone submodular. For extra polish
+   we also generate alternative wallets by branching from the 2nd / 3rd
+   best first picks.
+*/
+
+// Precompute card -> venue -> day -> best saving for the current scope.
+// Used by both wallet greedy and downstream stats.
+function precomputeCardSavingsByVenueDay(scopeOffers, selectedDays, orderValue) {
+  const out = new Map();
+  scopeOffers.forEach((offer) => {
+    const saving = getOfferSavingValue(offer, orderValue);
+    if (!Number.isFinite(saving) || saving <= 0) return;
+    const cardKey = buildCardKey(offer.bank, offer.card);
+    const venueKey = `${offer.city} || ${offer.restaurant}`;
+    let venueMap = out.get(cardKey);
+    if (!venueMap) {
+      venueMap = { bank: offer.bank, card: offer.card, cardCategory: offer.cardCategory || null, venues: new Map() };
+      out.set(cardKey, venueMap);
+    }
+    if (!venueMap.cardCategory && offer.cardCategory) venueMap.cardCategory = offer.cardCategory;
+    let dayMap = venueMap.venues.get(venueKey);
+    if (!dayMap) { dayMap = new Map(); venueMap.venues.set(venueKey, dayMap); }
+    selectedDays.forEach((day) => {
+      if (!offer.days.includes(day)) return;
+      const prev = dayMap.get(day) || 0;
+      if (saving > prev) dayMap.set(day, saving);
+    });
+  });
+  return out;
+}
+
+// Given current best saving per (venue,day), compute marginal value of adding cardKey.
+// Returns: { delta (sum over venues/days), boostedVenues, newVenues, coveredVenues }
+function marginalForCard(cardEntry, currentBest) {
+  let delta = 0;
+  let boosted = 0;
+  let unlocked = 0;
+  let coveredByCandidate = 0;
+  cardEntry.venues.forEach((dayMap, venueKey) => {
+    let venueImproves = false;
+    let venueWasUncovered = true;
+    const cur = currentBest.get(venueKey);
+    if (cur) {
+      for (const v of cur.values()) {
+        if (v > 0) { venueWasUncovered = false; break; }
+      }
+    }
+    dayMap.forEach((s, day) => {
+      const curVal = cur ? (cur.get(day) || 0) : 0;
+      if (s > curVal) {
+        delta += (s - curVal);
+        venueImproves = true;
+      }
+    });
+    if (venueImproves) {
+      coveredByCandidate += 1;
+      if (venueWasUncovered) unlocked += 1; else boosted += 1;
+    }
+  });
+  return { delta, boostedVenues: boosted, newVenues: unlocked, coveredVenues: coveredByCandidate };
+}
+
+function applyCardToCurrentBest(cardEntry, currentBest) {
+  cardEntry.venues.forEach((dayMap, venueKey) => {
+    let cur = currentBest.get(venueKey);
+    if (!cur) { cur = new Map(); currentBest.set(venueKey, cur); }
+    dayMap.forEach((s, day) => {
+      if (s > (cur.get(day) || 0)) cur.set(day, s);
+    });
+  });
+}
+
+// Snapshot stats for a finished wallet given the resulting currentBest map.
+function summarizeWallet(currentBest, totalSelectedDays, venueCount) {
+  let totalDailyBest = 0;
+  let coveredVenues = 0;
+  currentBest.forEach((dayMap) => {
+    let any = false;
+    dayMap.forEach((s) => { if (s > 0) { totalDailyBest += s; any = true; } });
+    if (any) coveredVenues += 1;
+  });
+  const perOutingTotal = coveredVenues > 0 ? totalDailyBest / (coveredVenues * Math.max(1, totalSelectedDays)) : 0;
+  const coverage = venueCount > 0 ? coveredVenues / venueCount : 0;
+  return { perOutingTotal, coverage, coveredVenues };
+}
+
+function annualFeeForCard(bank, card) {
+  const status = evaluateEligibility(bank, card);
+  return Number.isFinite(status?.annualFeePkr) ? status.annualFeePkr : null;
+}
+
+function computeWalletRecommendations() {
+  if (!state.data) return { ranked: [], stats: { venueCount: 0, candidateCount: 0, warnings: [] } };
+
+  const K = Math.max(2, Math.min(4, Number(state.walletSize) || 2));
+  const selectedDays = getEffectiveSelectedDays();
+  const totalSelectedDays = selectedDays.size || 1;
+  const buildOnOwned = !!state.walletBuildOnOwned && state.ownedCards.size > 0;
+  const objective = state.walletObjective || "savings";
+  const noSameBank = !!state.walletNoSameBank;
+  const requireMixedTypes = !!state.walletMixedTypes;
+  const maxFee = (Number.isFinite(state.walletMaxFee) && state.walletMaxFee >= 0) ? state.walletMaxFee : null;
+  const outingsPerYear = (state.outingsPerWeek || 1) * 52;
+  const warnings = [];
+
+  // Scope: same filters as Next Card
+  const scopeOffers = state.data.offers.filter((offer) => {
+    if (!cityMatches(offer.city)) return false;
+    if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
+    return true;
+  });
+  const venuesInScope = new Set();
+  scopeOffers.forEach((o) => venuesInScope.add(`${o.city} || ${o.restaurant}`));
+  const venueCount = venuesInScope.size;
+  if (!venueCount) return { ranked: [], stats: { venueCount: 0, candidateCount: 0, warnings } };
+
+  const cardIndex = precomputeCardSavingsByVenueDay(scopeOffers, selectedDays, state.orderValue);
+
+  // Eligibility precompute
+  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
+  const eligibilityCache = new Map();
+  cardIndex.forEach((entry, key) => {
+    const status = evaluateEligibility(entry.bank, entry.card);
+    eligibilityCache.set(key, status);
+  });
+
+  function feeFor(cardKey) {
+    const s = eligibilityCache.get(cardKey);
+    const f = s?.annualFeePkr;
+    return Number.isFinite(f) ? f : null;
+  }
+
+  // Filter by bank / card-type / eligibility (must-include cards bypass these)
+  function isCandidate(cardKey, entry) {
+    if (state.selectedBanks.size > 0 && !state.selectedBanks.has(entry.bank)) return false;
+    if (state.selectedCardTypes.size > 0 && !state.selectedCardTypes.has(entry.cardCategory)) return false;
+    if (state.useEligibility && hasEligibilityInput) {
+      const status = eligibilityCache.get(cardKey);
+      if (status?.status === "ineligible") return false;
+    }
+    return true;
+  }
+
+  function buildInitialCurrentBest() {
+    const cb = new Map();
+    if (!buildOnOwned) return cb;
+    state.ownedCards.forEach((ck) => {
+      const entry = cardIndex.get(ck);
+      if (entry) applyCardToCurrentBest(entry, cb);
+    });
+    return cb;
+  }
+  const ownedExclusion = buildOnOwned ? state.ownedCards : new Set();
+
+  // Score a candidate by the chosen objective.
+  // - savings: marginal delta sum (gross saving improvement)
+  // - coverage: number of venues the candidate helps (new + boosted)
+  // - roi:     annualized net value (gross yearly improvement - annual fee)
+  function scoreCandidate(marginal, cardKey) {
+    if (marginal.delta <= 0) return -Infinity;
+    if (objective === "coverage") return marginal.coveredVenues;
+    if (objective === "roi") {
+      // Yearly value of this card's marginal contribution.
+      // marginalDelta = sum over selected days of saving improvement at covered venues.
+      // Normalize to one outing, scaled by outings/year and hit-rate (coveredByCard / venueCount).
+      const perOutingAtCoveredVenue = marginal.delta / Math.max(1, marginal.coveredVenues * totalSelectedDays);
+      const hitRate = marginal.coveredVenues / Math.max(1, venueCount);
+      const yearlyValue = perOutingAtCoveredVenue * hitRate * outingsPerYear;
+      const fee = feeFor(cardKey) || 0;
+      return yearlyValue - fee;
+    }
+    return marginal.delta; // savings
+  }
+
+  // Mixed-type feasibility helper.
+  // Returns true if the candidate's category is allowed given remaining slots
+  // and which mandatory categories (debit/credit) are still needed.
+  function passesMixedTypeConstraint(entry, slotsLeft, missingMandatory) {
+    if (!requireMixedTypes || missingMandatory.length === 0) return true;
+    const freeSlots = slotsLeft - missingMandatory.length;
+    if (freeSlots <= 0) {
+      return missingMandatory.includes(entry.cardCategory || "other");
+    }
+    return true;
+  }
+
+  function computeMissingMandatory(categoriesPicked) {
+    if (!requireMixedTypes) return [];
+    const need = [];
+    if (!categoriesPicked.has("debit"))  need.push("debit");
+    if (!categoriesPicked.has("credit")) need.push("credit");
+    return need;
+  }
+
+  // Run greedy from a given "forced first greedy pick" (or null for normal).
+  // Must-include cards always go in first regardless.
+  function greedyRun(forcedFirstKey) {
+    const currentBest = buildInitialCurrentBest();
+    const pickedKeys = new Set();
+    const banksUsed = new Set();
+    const categoriesPicked = new Set();
+    const picks = [];
+    let runningFee = 0;
+    let feeBudgetBreached = false;
+
+    function recordPick(cardKey, entry, marginal, pinned) {
+      pickedKeys.add(cardKey);
+      banksUsed.add(entry.bank);
+      categoriesPicked.add(entry.cardCategory || "other");
+      const fee = feeFor(cardKey);
+      if (Number.isFinite(fee)) runningFee += fee;
+      applyCardToCurrentBest(entry, currentBest);
+      picks.push({
+        cardKey,
+        bank: entry.bank,
+        card: entry.card,
+        cardCategory: entry.cardCategory,
+        marginalDelta: marginal.delta,
+        boostedVenues: marginal.boostedVenues,
+        newVenues: marginal.newVenues,
+        coveredByCard: marginal.coveredVenues,
+        requirementStatus: eligibilityCache.get(cardKey),
+        pinned: !!pinned,
+      });
+    }
+
+    // 1) Must-include cards seed the wallet (up to K slots).
+    //    Must-includes override candidate filters (bank/type/eligibility) and fee budget —
+    //    they are the user's explicit choice. Owned anchors take priority over must-includes
+    //    that duplicate them.
+    const mustList = Array.from(state.walletMustInclude).filter((ck) => !ownedExclusion.has(ck));
+    for (const ck of mustList) {
+      if (picks.length >= K) break;
+      const entry = cardIndex.get(ck);
+      if (!entry) continue; // out of scope; skip silently
+      const m = marginalForCard(entry, currentBest);
+      recordPick(ck, entry, m, true);
+    }
+
+    // 2) Optional forced first greedy pick (used to seed alternative wallets)
+    if (forcedFirstKey && picks.length < K) {
+      if (pickedKeys.has(forcedFirstKey)) {
+        // already pinned via must-include — proceed with greedy normally
+      } else {
+        const entry = cardIndex.get(forcedFirstKey);
+        if (!entry || ownedExclusion.has(forcedFirstKey) || !isCandidate(forcedFirstKey, entry)) {
+          return null; // forced first infeasible
+        }
+        // Check mandatory constraints
+        const missing = computeMissingMandatory(categoriesPicked);
+        if (!passesMixedTypeConstraint(entry, K - picks.length, missing)) return null;
+        if (noSameBank && banksUsed.has(entry.bank)) return null;
+        const fee = feeFor(forcedFirstKey) || 0;
+        if (maxFee !== null && runningFee + fee > maxFee) return null;
+        const m = marginalForCard(entry, currentBest);
+        if (m.delta <= 0) return null;
+        recordPick(forcedFirstKey, entry, m, false);
+      }
+    }
+
+    // 3) Greedy fill remaining slots
+    while (picks.length < K) {
+      const slotsLeft = K - picks.length;
+      const missing = computeMissingMandatory(categoriesPicked);
+      let bestKey = null, bestEntry = null, bestMarg = null, bestScore = -Infinity;
+      cardIndex.forEach((entry, key) => {
+        if (pickedKeys.has(key)) return;
+        if (ownedExclusion.has(key)) return;
+        if (!isCandidate(key, entry)) return;
+        if (noSameBank && banksUsed.has(entry.bank)) return;
+        if (!passesMixedTypeConstraint(entry, slotsLeft, missing)) return;
+        const fee = feeFor(key) || 0;
+        if (maxFee !== null && runningFee + fee > maxFee) return;
+        const m = marginalForCard(entry, currentBest);
+        const sc = scoreCandidate(m, key);
+        if (sc <= 0) return;
+        if (sc > bestScore) {
+          bestScore = sc; bestKey = key; bestEntry = entry; bestMarg = m;
+        }
+      });
+      if (!bestKey) break;
+      recordPick(bestKey, bestEntry, bestMarg, false);
+    }
+
+    if (picks.length === 0) return null;
+
+    const summary = summarizeWallet(currentBest, totalSelectedDays, venueCount);
+    let totalAnnualFee = 0;
+    let feeUnknown = false;
+    picks.forEach((p) => {
+      const fee = p.requirementStatus?.annualFeePkr;
+      if (fee === null || fee === undefined) feeUnknown = true;
+      else if (Number.isFinite(fee)) totalAnnualFee += fee;
+    });
+    if (maxFee !== null && totalAnnualFee > maxFee) feeBudgetBreached = true;
+
+    // Mixed-type satisfaction check
+    const mixedTypeSatisfied = !requireMixedTypes || (categoriesPicked.has("debit") && categoriesPicked.has("credit"));
+
+    return {
+      picks,
+      perOutingTotal: summary.perOutingTotal,
+      coverage: summary.coverage,
+      coveredVenues: summary.coveredVenues,
+      venueCount,
+      totalAnnualFee,
+      feeUnknown,
+      feeBudgetBreached,
+      mixedTypeSatisfied,
+      walletKey: picks.map((p) => p.cardKey).sort().join(" | "),
+    };
+  }
+
+  // Surface algorithm warnings
+  if (state.walletMustInclude.size > K) {
+    warnings.push(`Pinned ${state.walletMustInclude.size} cards but wallet size is ${K}. Only the first ${K} are used. Increase wallet size to include all.`);
+  }
+  if (requireMixedTypes && K < 2) {
+    warnings.push(`Mixed-type rule needs wallet size of at least 2.`);
+  }
+
+  // Find candidates for alternative-wallet seeding (greedy first picks).
+  // Skip already-pinned must-include cards.
+  const seedCurrentBest = buildInitialCurrentBest();
+  // Apply pins to the seed map so first-pick alternatives respect them.
+  state.walletMustInclude.forEach((ck) => {
+    if (ownedExclusion.has(ck)) return;
+    const entry = cardIndex.get(ck);
+    if (entry) applyCardToCurrentBest(entry, seedCurrentBest);
+  });
+  const pinnedKeys = new Set(Array.from(state.walletMustInclude).filter((k) => !ownedExclusion.has(k)));
+  const firstPickRanked = [];
+  cardIndex.forEach((entry, key) => {
+    if (ownedExclusion.has(key) || pinnedKeys.has(key)) return;
+    if (!isCandidate(key, entry)) return;
+    if (noSameBank) {
+      // Skip banks already used by pinned/owned (cheap pre-filter; still re-checked in greedy)
+      const pinnedBanks = new Set();
+      pinnedKeys.forEach((pk) => { const e = cardIndex.get(pk); if (e) pinnedBanks.add(e.bank); });
+      if (buildOnOwned) state.ownedCards.forEach((ok) => { const e = cardIndex.get(ok); if (e) pinnedBanks.add(e.bank); });
+      if (pinnedBanks.has(entry.bank)) return;
+    }
+    const m = marginalForCard(entry, seedCurrentBest);
+    const sc = scoreCandidate(m, key);
+    if (sc > 0) firstPickRanked.push({ key, score: sc });
+  });
+  firstPickRanked.sort((a, b) => b.score - a.score);
+
+  // Default greedy + up to 9 alternates (10 wallets total). Alternates are
+  // generated by forcing each of the next-best first picks as the seed pick.
+  // We scan up to MAX_ALT_SEEDS first picks because some alternates may
+  // collapse onto the same wallet shape (deduplicated by walletKey).
+  const MAX_WALLETS = 10;
+  const MAX_ALT_SEEDS = 30;
+  const seenKeys = new Set();
+  const wallets = [];
+  const optimal = greedyRun(null);
+  if (optimal) { wallets.push(optimal); seenKeys.add(optimal.walletKey); }
+  for (let i = 1; i < Math.min(firstPickRanked.length, MAX_ALT_SEEDS) && wallets.length < MAX_WALLETS; i++) {
+    const alt = greedyRun(firstPickRanked[i].key);
+    if (alt && !seenKeys.has(alt.walletKey)) {
+      wallets.push(alt);
+      seenKeys.add(alt.walletKey);
+    }
+  }
+
+  // Score 0..100 normalized to optimal wallet (uses chosen objective implicitly via
+  // perOutingTotal/coverage; both reflect well-built wallets regardless of objective).
+  const refE = wallets.length ? (wallets[0].perOutingTotal * (0.35 + 0.65 * Math.sqrt(wallets[0].coverage))) : 1;
+  wallets.forEach((w) => {
+    const e = w.perOutingTotal * (0.35 + 0.65 * Math.sqrt(w.coverage));
+    w.score = Math.max(0, Math.min(100, refE > 0 ? (e / refE) * 100 : 100));
+  });
+
+  // Surface common infeasibility warnings on the top wallet
+  if (wallets.length > 0) {
+    const w = wallets[0];
+    if (w.feeBudgetBreached) {
+      const over = w.totalAnnualFee - (maxFee || 0);
+      warnings.push(`Wallet exceeds your fee budget by ${formatCurrency(over)}/year (driven by pinned cards). Unpin or raise the cap.`);
+    }
+    if (requireMixedTypes && !w.mixedTypeSatisfied) {
+      warnings.push(`Could not include both a debit and a credit card given the other constraints. Try relaxing bank or card-type filters, or raise the fee budget.`);
+    }
+    if (w.picks.length < K) {
+      warnings.push(`Only ${w.picks.length} of ${K} cards could be picked under current constraints.`);
+    }
+  } else if (state.walletMustInclude.size === 0) {
+    warnings.push("No wallet possible under current constraints. Try relaxing filters, raising the fee budget, or turning off diversity rules.");
+  }
+
+  return {
+    ranked: wallets,
+    stats: {
+      K,
+      venueCount,
+      candidateCount: firstPickRanked.length,
+      anchorCount: buildOnOwned ? state.ownedCards.size : 0,
+      buildOnOwned,
+      objective,
+      noSameBank,
+      requireMixedTypes,
+      maxFee,
+      mustIncludeCount: state.walletMustInclude.size,
+      warnings,
+    },
+  };
+}
+
 /* ── ELIGIBILITY ── */
 function inferCardTier(cardName) {
   const n = (cardName || "").toLowerCase();
@@ -3618,6 +5156,12 @@ function updateTonightButton() {
 function updateViewToggle() {
   document.getElementById("btn-view-cards")?.classList.toggle("active", state.viewMode === "cards");
   document.getElementById("btn-view-restaurants")?.classList.toggle("active", state.viewMode === "restaurants");
+  document.getElementById("btn-view-next-card")?.classList.toggle("active", state.viewMode === "my-wallet");
+  document.getElementById("btn-view-wallet")?.classList.toggle("active", state.viewMode === "wallet");
+  const ncSetup = document.getElementById("next-card-setup");
+  if (ncSetup) ncSetup.style.display = state.viewMode === "my-wallet" ? "" : "none";
+  const woSetup = document.getElementById("wallet-setup");
+  if (woSetup) woSetup.style.display = state.viewMode === "wallet" ? "" : "none";
 }
 
 function setupMobileNavMenu() {
@@ -4447,6 +5991,21 @@ function encodeStateToUrl() {
   if (state.useEligibility) params.set("elig", "1");
   if (state.monthlySalary !== null) params.set("salary", state.monthlySalary);
   if (state.accountBalance !== null) params.set("balance", state.accountBalance);
+  if (state.viewMode && state.viewMode !== "cards") params.set("view", state.viewMode);
+  if (state.ownedCards.size > 0) {
+    for (const key of state.ownedCards) {
+      params.append("owned", key);
+    }
+  }
+  if (state.walletSize !== 2) params.set("k", state.walletSize);
+  if (state.walletBuildOnOwned) params.set("build", "owned");
+  if (state.walletMaxFee !== null) params.set("maxfee", state.walletMaxFee);
+  if (state.walletNoSameBank) params.set("nobank", "1");
+  if (state.walletMixedTypes) params.set("mix", "1");
+  if (state.walletObjective && state.walletObjective !== "savings") params.set("obj", state.walletObjective);
+  if (state.walletMustInclude.size > 0) {
+    for (const key of state.walletMustInclude) params.append("must", key);
+  }
   const qs = params.toString();
   history.replaceState(null, "", qs ? `${location.pathname}?${qs}` : location.pathname);
 }
@@ -4489,6 +6048,33 @@ function restoreStateFromUrl() {
     state.useEligibility = true;
     if (params.has("salary")) state.monthlySalary = Number(params.get("salary"));
     if (params.has("balance")) state.accountBalance = Number(params.get("balance"));
+  }
+  if (params.has("view")) {
+    const v = String(params.get("view") || "").trim();
+    // Legacy alias: view=next-card → my-wallet (the feature was renamed)
+    if (v === "next-card" || v === "my-wallet") state.viewMode = "my-wallet";
+    else if (v === "restaurants" || v === "cards" || v === "wallet") state.viewMode = v;
+  }
+  if (params.has("owned")) {
+    state.ownedCards = new Set(params.getAll("owned").filter(Boolean));
+  }
+  if (params.has("k")) {
+    const k = Number(params.get("k"));
+    if (k >= 2 && k <= 4) state.walletSize = k;
+  }
+  if (params.get("build") === "owned") state.walletBuildOnOwned = true;
+  if (params.has("maxfee")) {
+    const n = Number(params.get("maxfee"));
+    if (Number.isFinite(n) && n >= 0) state.walletMaxFee = n;
+  }
+  if (params.get("nobank") === "1") state.walletNoSameBank = true;
+  if (params.get("mix") === "1") state.walletMixedTypes = true;
+  if (params.has("obj")) {
+    const o = String(params.get("obj") || "").trim();
+    if (o === "coverage" || o === "roi" || o === "savings") state.walletObjective = o;
+  }
+  if (params.has("must")) {
+    state.walletMustInclude = new Set(params.getAll("must").filter(Boolean));
   }
 }
 

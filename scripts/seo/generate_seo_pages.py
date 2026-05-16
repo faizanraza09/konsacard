@@ -51,12 +51,14 @@ COMPONENT_CSS = """\
       :root { --brand-deep: #9E4530; }
       .content {
         display: grid;
+        grid-template-columns: minmax(0, 1fr);
         gap: 22px;
         width: 100%;
         max-width: 1180px;
         margin: 0 auto;
         padding: 24px 20px 56px;
       }
+      .content > * { min-width: 0; }
       .section {
         padding: 28px;
         border-radius: 22px;
