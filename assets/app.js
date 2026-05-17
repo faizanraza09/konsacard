@@ -18,6 +18,9 @@ async function init() {
   state.data = payload;
   state.requirements = requirements;
 
+  // Order matters: defaults (from state.js) → localStorage → URL.
+  // URL takes the last word so shared links keep working.
+  restoreStateFromLocal();
   restoreStateFromUrl();
   bindEvents();
   syncDomToState();
@@ -3043,6 +3046,80 @@ function encodeStateToUrl() {
   }
   const qs = params.toString();
   history.replaceState(null, "", qs ? `${location.pathname}?${qs}` : location.pathname);
+  // Mirror to localStorage so settings survive across sessions (URL params
+  // already cover shared-link state; this layer covers returning users).
+  saveStateToLocal();
+}
+
+/* ── LOCAL PERSISTENCE ──
+   Stores wallet + filter + eligibility state in localStorage so a returning
+   user finds the app as they left it. URL params still take precedence on
+   init, so shared links keep working. No expiry: localStorage persists until
+   the user explicitly clears browser data. Search terms, chat messages, and
+   pagination state are intentionally not persisted (they're transient). */
+const LS_KEY = "konsacard_state_v1";
+function saveStateToLocal() {
+  try {
+    const payload = {
+      v: 1,
+      selectedCity: state.selectedCity,
+      orderValue: state.orderValue,
+      outingsPerWeek: state.outingsPerWeek,
+      selectedDays: Array.from(state.selectedDays),
+      selectedCardTypes: Array.from(state.selectedCardTypes),
+      selectedBanks: Array.from(state.selectedBanks),
+      selectedRestaurants: Array.from(state.selectedRestaurants),
+      selectedCards: Array.from(state.selectedCards),
+      useEligibility: state.useEligibility,
+      monthlySalary: state.monthlySalary,
+      accountBalance: state.accountBalance,
+      viewMode: state.viewMode,
+      ownedCards: Array.from(state.ownedCards),
+      walletSize: state.walletSize,
+      walletBuildOnOwned: state.walletBuildOnOwned,
+      walletMaxFee: state.walletMaxFee,
+      walletNoSameBank: state.walletNoSameBank,
+      walletMixedTypes: state.walletMixedTypes,
+      walletObjective: state.walletObjective,
+      walletMustInclude: Array.from(state.walletMustInclude),
+      walletAdvancedOpen: state.walletAdvancedOpen,
+    };
+    localStorage.setItem(LS_KEY, JSON.stringify(payload));
+  } catch (_) { /* quota or disabled — silently skip */ }
+}
+
+function restoreStateFromLocal() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return;
+    const p = JSON.parse(raw);
+    if (!p || p.v !== 1) return;
+    if (typeof p.selectedCity === "string") state.selectedCity = p.selectedCity;
+    if (Number.isFinite(p.orderValue)) state.orderValue = p.orderValue;
+    if (Number.isFinite(p.outingsPerWeek)) state.outingsPerWeek = Math.max(1, Math.min(4, p.outingsPerWeek));
+    if (Array.isArray(p.selectedDays)) state.selectedDays = new Set(p.selectedDays.filter((n) => n >= 0 && n <= 6));
+    if (Array.isArray(p.selectedCardTypes)) state.selectedCardTypes = new Set(p.selectedCardTypes.filter(Boolean));
+    if (Array.isArray(p.selectedBanks)) state.selectedBanks = new Set(p.selectedBanks.filter(Boolean));
+    if (Array.isArray(p.selectedRestaurants)) state.selectedRestaurants = new Set(p.selectedRestaurants.filter(Boolean));
+    if (Array.isArray(p.selectedCards)) state.selectedCards = new Set(p.selectedCards.filter(Boolean));
+    if (typeof p.useEligibility === "boolean") state.useEligibility = p.useEligibility;
+    if (p.monthlySalary === null || Number.isFinite(p.monthlySalary)) state.monthlySalary = p.monthlySalary;
+    if (p.accountBalance === null || Number.isFinite(p.accountBalance)) state.accountBalance = p.accountBalance;
+    if (typeof p.viewMode === "string" && ["cards", "restaurants", "my-wallet", "wallet"].includes(p.viewMode)) state.viewMode = p.viewMode;
+    if (Array.isArray(p.ownedCards)) state.ownedCards = new Set(p.ownedCards.filter(Boolean));
+    if (Number.isFinite(p.walletSize) && p.walletSize >= 2 && p.walletSize <= 4) state.walletSize = p.walletSize;
+    if (typeof p.walletBuildOnOwned === "boolean") state.walletBuildOnOwned = p.walletBuildOnOwned;
+    if (p.walletMaxFee === null || Number.isFinite(p.walletMaxFee)) state.walletMaxFee = p.walletMaxFee;
+    if (typeof p.walletNoSameBank === "boolean") state.walletNoSameBank = p.walletNoSameBank;
+    if (typeof p.walletMixedTypes === "boolean") state.walletMixedTypes = p.walletMixedTypes;
+    if (typeof p.walletObjective === "string" && ["savings", "coverage", "roi"].includes(p.walletObjective)) state.walletObjective = p.walletObjective;
+    if (Array.isArray(p.walletMustInclude)) state.walletMustInclude = new Set(p.walletMustInclude.filter(Boolean));
+    if (typeof p.walletAdvancedOpen === "boolean") state.walletAdvancedOpen = p.walletAdvancedOpen;
+  } catch (_) { /* corrupted payload — ignore */ }
+}
+
+function clearLocalState() {
+  try { localStorage.removeItem(LS_KEY); } catch (_) {}
 }
 
 function restoreStateFromUrl() {
