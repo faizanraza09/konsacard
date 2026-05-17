@@ -68,6 +68,8 @@
         });
       })();
     </script>
+    <!-- Modules load in dependency order; classic scripts so they share global scope. -->
+    <script defer src="./assets/state.js"></script>
     <script defer src="./assets/algorithms.js"></script>
     <script defer src="./assets/chat.js"></script>
     <script defer src="./assets/quiz.js"></script>
