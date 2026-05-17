@@ -24,6 +24,7 @@ const DATA_CACHE  = `konsa-data-${SHELL_VERSION}`;
 const SHELL_URLS = [
   "/",
   "/assets/styles.css",
+  "/assets/algorithms.js",
   "/assets/app.js",
   "/assets/logo/favicon.svg",
   "/assets/logo/mark-32.png",
