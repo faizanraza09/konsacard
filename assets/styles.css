@@ -391,20 +391,6 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 
 /* ── FEATURED CARD (top pick) ── */
 .top-pick-wrap { padding: 0 20px 10px; }
-
-/* Reserve vertical space on initial load so the guide/footer don't sit high
-   in the viewport before offers.json finishes loading. Without this, the
-   page initially renders with empty result containers, then cards drop in
-   and push everything down by ~700px in one frame — a CLS catastrophe
-   (measured 0.7). The reserved space is roughly: featured card (~250px)
-   + 10 ranked cards (~110px each) = ~1350px. Once rendered, the actual
-   content fills this space without further shift. */
-#top-pick:empty       { min-height: 240px; }
-#results-grid:empty   { min-height: 1100px; }
-@media (max-width: 768px) {
-  #top-pick:empty     { min-height: 260px; }
-  #results-grid:empty { min-height: 1000px; }
-}
 .card-item--featured {
   background: linear-gradient(135deg, #FDF3F0 0%, #FAE8E2 100%);
   border: 1.5px solid var(--brand-mid);
