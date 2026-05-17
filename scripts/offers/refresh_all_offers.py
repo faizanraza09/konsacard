@@ -13,6 +13,7 @@ PEEKABOO_REFRESH = ROOT / "scripts" / "offers" / "refresh_peekaboo.py"
 EASYPAISA_REFRESH = ROOT / "scripts" / "offers" / "extract_easypaisa_discountworld.py"
 NBP_REFRESH = ROOT / "scripts" / "offers" / "extract_nbp_merchants.py"
 OFFERS_VALIDATION = ROOT / "scripts" / "offers" / "validate_offers_dataset.py"
+OFFERS_SPLIT = ROOT / "scripts" / "offers" / "split_offers_by_city.py"
 SEO_PAGE_GENERATION = ROOT / "scripts" / "seo" / "generate_seo_pages.py"
 
 
@@ -37,6 +38,7 @@ def main() -> None:
     print("[offers] Merging NBP into data/offers.json...")
     payload = merge_nbp_into_offers()
     run_step("Validating merged offers dataset", [python, str(OFFERS_VALIDATION)])
+    run_step("Splitting offers.json by city for faster client loads", [python, str(OFFERS_SPLIT)])
     run_step("Generating bank, restaurant, and sitemap SEO pages", [python, str(SEO_PAGE_GENERATION)])
     print("[offers] Done.")
     print(f"[offers] Offers: {payload['stats']['offers']}")

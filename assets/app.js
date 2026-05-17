@@ -133,8 +133,14 @@ const BANK_APPLY_URLS = {
 
 /* ── INIT ── */
 async function init() {
+  // The offers payload is now split per city (data/offers-<city>.json) with a
+  // lightweight index (data/offers-index.json) that holds metadata + the
+  // restaurantsByCity map. Loading three smaller files in parallel beats one
+  // ~25MB JSON over the wire (especially on mobile 4G). If the split files
+  // aren't available (older builds, dev that hasn't run the split script),
+  // we fall back to the original monolithic offers.json.
   const [payload, requirements] = await Promise.all([
-    fetchJson("./data/offers.json"),
+    loadOffersPayload(),
     loadRequirementsContext(),
   ]);
   state.data = payload;
@@ -144,6 +150,81 @@ async function init() {
   bindEvents();
   syncDomToState();
   render();
+}
+
+async function loadOffersPayload() {
+  let payload;
+  try {
+    const index = await fetchJson("./data/offers-index.json");
+    if (!index || !index.cityFiles || !Array.isArray(index.cities)) {
+      throw new Error("offers-index.json missing cityFiles or cities");
+    }
+    // Fetch all city files in parallel
+    const cityFetches = index.cities.map((city) => {
+      const url = index.cityFiles[city];
+      if (!url) return Promise.resolve({ offers: [] });
+      return fetchJson(url).catch((err) => {
+        console.warn(`[offers] failed to load ${url}:`, err);
+        return { offers: [] };
+      });
+    });
+    const cityPayloads = await Promise.all(cityFetches);
+    const offers = cityPayloads.flatMap((p) => (Array.isArray(p?.offers) ? p.offers : []));
+    payload = { ...index, offers };
+  } catch (err) {
+    console.warn("[offers] split payload unavailable, falling back to offers.json", err);
+    payload = await fetchJson("./data/offers.json");
+  }
+  validateOffersPayload(payload);
+  return payload;
+}
+
+/**
+ * Lightweight runtime schema check on the offers payload. We don't pull in
+ * Zod or Ajv — instead we assert the shape the rest of the app assumes,
+ * and surface a clear error in the UI if the build pipeline ever emits
+ * something malformed (rather than silently rendering blank cards).
+ *
+ * Throws OffersSchemaError; the boot handler catches this and shows a
+ * visible error block.
+ */
+function validateOffersPayload(payload) {
+  const errors = [];
+  if (!payload || typeof payload !== "object") errors.push("payload is not an object");
+  if (!Array.isArray(payload?.cities) || payload.cities.length === 0) errors.push("cities[] missing or empty");
+  if (!Array.isArray(payload?.dayNames) || payload.dayNames.length !== 7) errors.push("dayNames must be a 7-element array");
+  if (!Array.isArray(payload?.offers)) errors.push("offers[] missing");
+  if (!payload?.stats || typeof payload.stats.offers !== "number") errors.push("stats.offers must be a number");
+
+  if (Array.isArray(payload?.offers) && payload.offers.length > 0) {
+    // Spot-check the first few offers — full validation across 26k+ rows would be wasteful.
+    const sampleSize = Math.min(50, payload.offers.length);
+    for (let i = 0; i < sampleSize; i++) {
+      const o = payload.offers[i];
+      if (!o || typeof o !== "object") { errors.push(`offer[${i}] not an object`); continue; }
+      const required = ["city", "restaurant", "bank", "card", "days"];
+      for (const k of required) {
+        if (o[k] === undefined || o[k] === null) {
+          errors.push(`offer[${i}].${k} missing (bank=${o.bank || "?"} card=${o.card || "?"})`);
+          break;
+        }
+      }
+      if (!Array.isArray(o.days)) { errors.push(`offer[${i}].days must be an array`); continue; }
+      // discountPct OR fixedDiscountPkr must be present for the saving math to work
+      if (!Number.isFinite(o.discountPct) && !Number.isFinite(o.fixedDiscountPkr)) {
+        // Some legitimate offers may have neither (e.g., text-only), so this is a warning, not an error.
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    const err = new Error(
+      "Offers payload failed schema validation:\n  - " + errors.slice(0, 8).join("\n  - ") +
+      (errors.length > 8 ? `\n  ...and ${errors.length - 8} more` : "")
+    );
+    err.name = "OffersSchemaError";
+    throw err;
+  }
 }
 
 async function fetchJson(path) {
@@ -293,7 +374,10 @@ function bindEvents() {
 
   // Quiz
   const openQuizBtn = document.getElementById("btn-open-quiz");
-  if (openQuizBtn) openQuizBtn.addEventListener("click", () => openQuiz());
+  if (openQuizBtn) openQuizBtn.addEventListener("click", () => {
+    trackEvent("quiz_open");
+    openQuiz();
+  });
 
   // Find My Card FAB (mobile)
 
@@ -367,18 +451,22 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
   // View toggle
   document.getElementById("btn-view-cards")?.addEventListener("click", () => {
     state.viewMode = "cards";
+    trackEvent("view_change", { view: "cards" });
     render();
   });
   document.getElementById("btn-view-restaurants")?.addEventListener("click", () => {
     state.viewMode = "restaurants";
+    trackEvent("view_change", { view: "restaurants" });
     render();
   });
   document.getElementById("btn-view-next-card")?.addEventListener("click", () => {
     state.viewMode = "my-wallet";
+    trackEvent("view_change", { view: "my-wallet" });
     render();
   });
   document.getElementById("btn-view-wallet")?.addEventListener("click", () => {
     state.viewMode = "wallet";
+    trackEvent("view_change", { view: "wallet" });
     render();
   });
 
@@ -1921,6 +2009,13 @@ function handleQuizDone(ans) {
   state.useEligibility = state.monthlySalary !== null || state.accountBalance !== null;
   state.bankSearchTerm = "";
   state.restSearchTerm = "";
+  trackEvent("quiz_complete", {
+    city: state.selectedCity,
+    bill: state.orderValue,
+    banks_count: state.selectedBanks.size,
+    restaurants_count: state.selectedRestaurants.size,
+    eligibility: state.useEligibility ? 1 : 0,
+  });
 
   syncDomToState();
   renderNavCityTabs();
@@ -3287,6 +3382,7 @@ function renderOwnedCardsResults(catalogArg) {
       state.ownedCardSearchTerm = "";
       const input = document.getElementById("nc-owned-search");
       if (input) input.value = "";
+      trackEvent("owned_card_add", { bank: entry.bank, total: state.ownedCards.size });
       render();
     });
     container.appendChild(item);
@@ -3659,6 +3755,7 @@ function renderWalletSetupPanel(container) {
       const k = Number(btn.dataset.k);
       if (k >= 2 && k <= 4 && k !== state.walletSize) {
         state.walletSize = k;
+        trackEvent("wallet_k_change", { k });
         render();
       }
     });
@@ -3670,6 +3767,7 @@ function renderWalletSetupPanel(container) {
       const next = mode === "owned";
       if (next !== state.walletBuildOnOwned) {
         state.walletBuildOnOwned = next;
+        trackEvent("wallet_mode_change", { mode: next ? "owned" : "scratch" });
         render();
       }
     });
@@ -3679,6 +3777,7 @@ function renderWalletSetupPanel(container) {
       const o = btn.dataset.obj;
       if (o && o !== state.walletObjective) {
         state.walletObjective = o;
+        trackEvent("wallet_objective_change", { objective: o });
         render();
       }
     });
@@ -3688,6 +3787,7 @@ function renderWalletSetupPanel(container) {
     maxFeeInput.addEventListener("input", debounce((e) => {
       const v = parseOptionalNumber(e.target.value);
       state.walletMaxFee = (v !== null && v >= 0) ? v : null;
+      trackEvent("wallet_max_fee_set", { cap: state.walletMaxFee });
       render();
     }, 220));
   }
@@ -3697,10 +3797,12 @@ function renderWalletSetupPanel(container) {
   });
   container.querySelector("#wo-nobank")?.addEventListener("change", (e) => {
     state.walletNoSameBank = !!e.target.checked;
+    trackEvent("wallet_diversity_toggle", { rule: "no_same_bank", on: state.walletNoSameBank });
     render();
   });
   container.querySelector("#wo-mix")?.addEventListener("change", (e) => {
     state.walletMixedTypes = !!e.target.checked;
+    trackEvent("wallet_diversity_toggle", { rule: "mixed_types", on: state.walletMixedTypes });
     render();
   });
   container.querySelector("#wo-must-clear")?.addEventListener("click", () => {
@@ -3771,6 +3873,7 @@ function renderWalletMustResults() {
       state.walletMustIncludeSearchTerm = "";
       const input = document.getElementById("wo-must-search");
       if (input) input.value = "";
+      trackEvent("wallet_pin_card", { bank: entry.bank, pinned: state.walletMustInclude.size });
       render();
     });
     container.appendChild(item);
@@ -5528,7 +5631,7 @@ function renderRestaurantDetailModal(inner) {
     <div class="cd-wrap">
       <div class="cd-head">
         <div class="cd-head-left">
-          <div class="cd-logo rd-logo">${restaurant.slice(0, 1).toUpperCase()}</div>
+          <div class="cd-logo rd-logo">${escapeHtml(restaurant.slice(0, 1).toUpperCase())}</div>
           <div class="cd-head-info">
             <div class="cd-card-name">${escapeHtml(restaurant)}</div>
             <div class="cd-bank-name">${escapeHtml(city)} · ${cards.length} matching cards</div>
@@ -6110,19 +6213,71 @@ if (typeof window !== "undefined") {
   };
 }
 
+/* ── ANALYTICS ──
+   Thin wrapper over gtag (already wired in index.html). Calls into the global
+   gtag if it's loaded, swallows errors, and namespaces all events under
+   "konsa_*" so they're easy to filter in GA. Pass small JSON-safe values only. */
+function trackEvent(name, params) {
+  try {
+    const fn = /** @type {any} */ (window).gtag;
+    if (typeof fn !== "function") return;
+    fn("event", `konsa_${name}`, params || {});
+  } catch (_) { /* no-op */ }
+}
+
+// Delegated apply-link tracking — covers every .btn-apply rendered anywhere,
+// including inside modals and dynamically-rendered cards. Capture before the
+// link navigates so the event has time to dispatch.
+document.addEventListener("click", (e) => {
+  const target = /** @type {HTMLElement | null} */ (e.target);
+  const link = target && target.closest && target.closest("a.btn-apply, a.btn-feat-apply");
+  if (!link) return;
+  const href = /** @type {HTMLAnchorElement} */ (link).href || "";
+  try {
+    const host = new URL(href).hostname;
+    trackEvent("apply_click", { host });
+  } catch (_) { /* no-op */ }
+}, true);
+
+/* ── SERVICE WORKER ──
+   Registered after first paint so it never blocks initial render. Skipped on
+   localhost (always-fresh during dev) and when the SW API isn't available. */
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  const host = location.hostname;
+  if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") return;
+  // Defer to idle time so registration doesn't compete with the first render.
+  const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1500));
+  idle(() => {
+    navigator.serviceWorker.register("/sw.js").catch((err) => {
+      console.warn("[sw] registration failed", err);
+    });
+  });
+}
+
 /* ── BOOT ── */
 init().then(() => {
   renderNavCityTabs();
   updateCityChip();
   // Check first visit and show quick quiz
   checkFirstVisitAndShowQuickQuiz();
+  registerServiceWorker();
 }).catch((error) => {
   console.error(error);
+  // Report to Sentry if loaded
+  try { /** @type {any} */(window).Sentry?.captureException?.(error); } catch {}
+
+  const isSchema = error?.name === "OffersSchemaError";
+  const title = isSchema ? "App data is malformed" : "Could not load app data";
+  const detail = isSchema
+    ? "The offers payload has a shape problem. This usually means the data pipeline emitted an incompatible build. Try refreshing in a minute, or check the browser console for details."
+    : "Check that data/offers-index.json (or offers.json) exists and is being served over HTTP.";
+
   const grid = document.getElementById("results-grid");
   if (grid) grid.innerHTML = `
     <div style="padding:40px 20px;text-align:center;background:var(--surface);border-radius:var(--r);border:1px solid var(--line);">
-      <div style="font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px">Could not load app data</div>
-      <div style="font-size:13px;color:var(--muted)">Check that data/offers.json exists and is being served over HTTP.</div>
+      <div style="font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px">${escapeHtml(title)}</div>
+      <div style="font-size:13px;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.5">${escapeHtml(detail)}</div>
     </div>
   `;
 });

@@ -1,0 +1,37 @@
+{
+  "name": "KonsaCard — Restaurant Card Discounts in Pakistan",
+  "short_name": "KonsaCard",
+  "description": "Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Karachi, Lahore, and Islamabad.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#BD5B3D",
+  "background_color": "#F1F5F9",
+  "lang": "en-PK",
+  "categories": ["finance", "shopping", "food", "lifestyle"],
+  "icons": [
+    {
+      "src": "/assets/logo/mark-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo/mark-64.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/logo/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/assets/logo/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
