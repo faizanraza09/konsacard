@@ -1460,8 +1460,8 @@ function renderNextCardView(resultsGrid) {
   if (state.ownedCards.size === 0) {
     renderOwnedCardsPanel(setupContainer, null);
     if (countEl) countEl.textContent = "0";
-    if (countLabel) countLabel.textContent = "cards yet — add yours above";
-    if (rhSub) rhSub.textContent = "Add the cards in your wallet to see what they're worth and the best one to add";
+    if (countLabel) countLabel.textContent = "cards in wallet";
+    if (rhSub) rhSub.textContent = "Add the cards you carry to find the best next one";
     if (summaryBest) summaryBest.textContent = "—";
     if (emptyState) {
       emptyState.classList.remove("hidden");

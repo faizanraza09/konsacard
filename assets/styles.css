@@ -312,30 +312,37 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 /* ── RESULT HEADER ── */
 .rh {
   padding: 18px 20px 12px;
-  display: grid;
-  /* Anchored layout: the view-toggle (column 2) sits in a stable position
-     between two 1fr columns regardless of count-text or chip-value width
-     changes. Without this the toggle shifted when switching to My Wallet
-     (empty "Best Saving" → narrower chip → toggle slides right). */
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto;
+  display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
-.rh > :nth-child(1) { grid-column: 1; min-width: 0; }      /* count + sub */
-.rh > :nth-child(2) { display: none; }                      /* hidden flex spacer (grid handles spacing) */
-.rh > :nth-child(3) { grid-column: 2; }                     /* view-toggle (anchored) */
-.rh > :nth-child(4) { grid-column: 3; justify-self: end; }  /* rh-chip */
-.rh > :nth-child(5) { grid-column: 4; }                     /* rh-city-tabs */
 .rh-count-row { display: flex; align-items: baseline; gap: 8px; }
 .rh-count { font-size: 28px; font-weight: 800; color: var(--ink); line-height: 1; }
 .rh-count-label { font-size: 15px; font-weight: 500; color: var(--muted); }
-.rh-sub { font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.rh-sub {
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 2px;
+  /* Single line so the count block stays one row tall — prevents the flex
+     row from wrapping and pushing the view-toggle to a new line when the
+     subtitle is long (e.g. on the empty My Wallet view). */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
 .rh-chip {
   padding: 8px 14px;
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 9px;
   box-shadow: var(--shadow-sm);
+  /* min-width keeps the chip from collapsing when the value is "—",
+     which would otherwise pull the view-toggle (to its left) sideways
+     when switching to empty views like My Wallet. */
+  min-width: 156px;
+  text-align: center;
 }
 .rh-chip-l { font-size: 9.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted2); margin-bottom: 2px; }
 .rh-chip-v { font-size: 14px; font-weight: 700; color: var(--ink); }
@@ -379,7 +386,7 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .empty-state {
   text-align: center;
   padding: 60px 20px;
-  margin: 0 20px;
+  margin: 0 20px 14px;
   background: var(--surface);
   border-radius: var(--r);
   border: 1px solid var(--line);
@@ -1786,17 +1793,7 @@ html.content-page-root .content > * { min-width: 0; }
   .chat-panel { bottom: 70px; right: 10px; width: calc(100vw - 20px); }
   .footer-grid { grid-template-columns: 1fr; gap: 20px; }
   .guide-grid { grid-template-columns: 1fr; }
-  /* On mobile, drop the desktop grid and let everything stack/wrap normally. */
-  .rh {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  .rh > :nth-child(2) { display: none; }
-  .rh > :nth-child(1),
-  .rh > :nth-child(3),
-  .rh > :nth-child(4),
-  .rh > :nth-child(5) { grid-column: unset; justify-self: unset; }
+  .rh { gap: 8px; }
   #rh-chip-saving { display: none; }
   .rh-city-tabs { display: flex; }
   .hamburger-btn { display: flex; }
