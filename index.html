@@ -229,6 +229,9 @@
         <!-- ── MAIN ── -->
         <main class="main" id="main-content">
 
+          <!-- Stale-data banner (shown only if data is >60 days old) -->
+          <div id="stale-banner" class="stale-banner hidden" role="status"></div>
+
           <!-- Result Header -->
           <div class="rh" id="result-header">
             <div>
@@ -326,6 +329,7 @@
             </div>
             <div class="footer-fine">
               Offers can change. Always confirm terms directly with your bank.
+              <span class="footer-freshness" id="footer-freshness"></span>
             </div>
           </footer>
 

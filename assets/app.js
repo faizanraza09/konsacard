@@ -24,7 +24,65 @@ async function init() {
   restoreStateFromUrl();
   bindEvents();
   syncDomToState();
+  renderDataFreshness();
   render();
+}
+
+/* ── DATA FRESHNESS ──
+   The offers payload carries a single dataset-level generatedAt timestamp
+   (no per-offer timestamps in the schema today). We surface this in two
+   places: a calm "verified Xd ago" line in the footer, and a stale-data
+   banner at the top if the data is more than 60 days old. */
+function getDataFreshnessDaysAgo() {
+  const ts = state.data?.generatedAt;
+  if (!ts) return null;
+  const then = new Date(ts);
+  if (Number.isNaN(then.getTime())) return null;
+  const days = Math.floor((Date.now() - then.getTime()) / (1000 * 60 * 60 * 24));
+  return Math.max(0, days);
+}
+
+function formatDaysAgo(d) {
+  if (d === null || d === undefined) return "";
+  if (d === 0) return "today";
+  if (d === 1) return "1 day ago";
+  if (d < 30) return `${d} days ago`;
+  if (d < 60) return `~${Math.round(d / 7)} weeks ago`;
+  return `~${Math.round(d / 30)} months ago`;
+}
+
+function buildReportMailto(bank, card) {
+  const subject = `Offer correction: ${bank || ""} — ${card || ""}`.trim();
+  const body = [
+    `Bank: ${bank || ""}`,
+    `Card: ${card || ""}`,
+    `URL: ${typeof location !== "undefined" ? location.href : ""}`,
+    "",
+    "What's incorrect about this card or its offers? (e.g., discount %, cap, days, eligibility):",
+    "",
+  ].join("\n");
+  return `mailto:hello@konsacard.pk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+function renderDataFreshness() {
+  const days = getDataFreshnessDaysAgo();
+  if (days === null) return;
+  const label = formatDaysAgo(days);
+  const footer = document.getElementById("footer-freshness");
+  if (footer) footer.textContent = ` Data last verified ${label}.`;
+  const banner = document.getElementById("stale-banner");
+  if (banner) {
+    if (days > 60) {
+      banner.classList.remove("hidden");
+      banner.innerHTML = `
+        <span class="stale-banner-icon">⏳</span>
+        <span>Our offers data was last verified <strong>${escapeHtml(label)}</strong>. Some deals may have changed — always confirm with your bank.</span>
+      `;
+    } else {
+      banner.classList.add("hidden");
+      banner.innerHTML = "";
+    }
+  }
 }
 
 async function loadOffersPayload() {
@@ -2481,6 +2539,12 @@ function renderCardDetailModal(inner) {
         </div>
         <input type="search" class="s-search cd-rest-search" placeholder="Search restaurants…" autocomplete="off" />
         <div class="cd-rest-list"></div>
+      </div>
+
+      <div class="cd-report">
+        <span class="cd-report-l">See something wrong?</span>
+        <a class="cd-report-link" href="${escapeAttr(buildReportMailto(bank, card))}">Report this card →</a>
+        <span class="cd-report-fresh">${escapeHtml(getDataFreshnessDaysAgo() !== null ? `Data verified ${formatDaysAgo(getDataFreshnessDaysAgo())}` : "")}</span>
       </div>
     </div>
   `;

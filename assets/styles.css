@@ -917,6 +917,47 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .footer-banks-chips { display: flex; flex-wrap: wrap; gap: 5px; }
 .footer-banks-chips span { font-size: 11px; font-weight: 500; color: rgba(255,255,255,.45); background: rgba(255,255,255,.07); border-radius: 5px; padding: 3px 8px; }
 .footer-fine { padding-top: 16px; border-top: 1px solid rgba(255,255,255,.07); font-size: 11.5px; color: rgba(255,255,255,.3); }
+.footer-freshness { color: rgba(255,255,255,.45); }
+
+/* Stale-data banner (only rendered when generatedAt is >60 days ago) */
+.stale-banner {
+  margin: 14px 20px 0;
+  padding: 10px 14px;
+  background: var(--amber-light);
+  border: 1px solid #FDE68A;
+  border-radius: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--amber);
+  line-height: 1.45;
+}
+.stale-banner.hidden { display: none; }
+.stale-banner-icon { flex-shrink: 0; }
+.stale-banner strong { color: var(--ink); font-weight: 700; }
+
+/* "Report this card" CTA in the card-detail modal */
+.cd-report {
+  padding: 12px 20px 18px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 11.5px;
+  color: var(--muted);
+  border-top: 1px dashed var(--line2);
+}
+.cd-report-l { font-weight: 600; }
+.cd-report-link {
+  color: var(--brand);
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 1px dashed var(--brand-mid);
+  padding-bottom: 1px;
+}
+.cd-report-link:hover { border-bottom-color: var(--brand); }
+.cd-report-fresh { margin-left: auto; font-size: 11px; color: var(--muted2); }
 
 /* ── COMPARE TRAY ── */
 .cmp-tray {
