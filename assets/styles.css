@@ -312,11 +312,20 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 /* ── RESULT HEADER ── */
 .rh {
   padding: 18px 20px 12px;
-  display: flex;
+  display: grid;
+  /* Anchored layout: the view-toggle (column 2) sits in a stable position
+     between two 1fr columns regardless of count-text or chip-value width
+     changes. Without this the toggle shifted when switching to My Wallet
+     (empty "Best Saving" → narrower chip → toggle slides right). */
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto;
   align-items: center;
   gap: 12px;
-  flex-wrap: wrap;
 }
+.rh > :nth-child(1) { grid-column: 1; min-width: 0; }      /* count + sub */
+.rh > :nth-child(2) { display: none; }                      /* hidden flex spacer (grid handles spacing) */
+.rh > :nth-child(3) { grid-column: 2; }                     /* view-toggle (anchored) */
+.rh > :nth-child(4) { grid-column: 3; justify-self: end; }  /* rh-chip */
+.rh > :nth-child(5) { grid-column: 4; }                     /* rh-city-tabs */
 .rh-count-row { display: flex; align-items: baseline; gap: 8px; }
 .rh-count { font-size: 28px; font-weight: 800; color: var(--ink); line-height: 1; }
 .rh-count-label { font-size: 15px; font-weight: 500; color: var(--muted); }
@@ -1777,7 +1786,17 @@ html.content-page-root .content > * { min-width: 0; }
   .chat-panel { bottom: 70px; right: 10px; width: calc(100vw - 20px); }
   .footer-grid { grid-template-columns: 1fr; gap: 20px; }
   .guide-grid { grid-template-columns: 1fr; }
-  .rh { gap: 8px; }
+  /* On mobile, drop the desktop grid and let everything stack/wrap normally. */
+  .rh {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .rh > :nth-child(2) { display: none; }
+  .rh > :nth-child(1),
+  .rh > :nth-child(3),
+  .rh > :nth-child(4),
+  .rh > :nth-child(5) { grid-column: unset; justify-self: unset; }
   #rh-chip-saving { display: none; }
   .rh-city-tabs { display: flex; }
   .hamburger-btn { display: flex; }
