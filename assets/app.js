@@ -62,7 +62,7 @@ function buildReportMailto(bank, card) {
     "What's incorrect about this card or its offers? (e.g., discount %, cap, days, eligibility):",
     "",
   ].join("\n");
-  return `mailto:hello@konsacard.pk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return `mailto:faizan@konsacard.pk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
 
 /* ── FAVORITES + NEW-OFFER ALERTS ──

@@ -555,7 +555,7 @@ def build_bank_faqs(summary: dict, top_restaurants: list) -> list[tuple[str, str
         faqs.append((
             f"Which {name} card has the highest restaurant discount?",
             f"The {best_card} carries the deepest dining discount among {name} cards on KonsaCard, reaching {best_pct} at participating restaurants. "
-            f"Headline % alone isn't always the best signal though — caps and which restaurants are covered matter just as much. "
+            f"Headline % alone isn't always the best signal though. Caps and which restaurants are covered matter just as much. "
             f"Use the comparison tool to find the {name} card that maximises your actual savings."
         ))
     faqs.append((
@@ -591,7 +591,7 @@ def build_restaurant_faqs(summary: dict) -> list[tuple[str, str]]:
     faqs.append((
         f"What is the best discount at {name}?",
         f"The deepest discount available at {name} on KonsaCard right now is {best_pct}. "
-        f"But the highest headline % isn't always the most you'll save — many cards cap the discount per transaction. "
+        f"But the highest headline % isn't always the most you'll save, because many cards cap the discount per transaction. "
         f"Open the comparison tool to enter your typical bill size and see actual estimated savings rather than just the % off."
     ))
     faqs.append((
@@ -601,7 +601,7 @@ def build_restaurant_faqs(summary: dict) -> list[tuple[str, str]]:
     ))
     faqs.append((
         f"How do I get a {name} discount?",
-        f"Pay your bill with one of the listed cards on a qualifying day, and the discount is applied automatically at the till — no coupon code needed. "
+        f"Pay your bill with one of the listed cards on a qualifying day, and the discount is applied automatically at the till. No coupon code needed. "
         f"Always confirm current terms with your bank or the restaurant before assuming an offer is still active, as discounts can change."
     ))
     return faqs
@@ -873,7 +873,7 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
     best_pct_str = format_pct(best_pct_num) if best_pct_num else None
     description = (
         f"Compare {summary['card_count']} {summary['name']} cards across {summary['restaurant_count']} restaurants in {', '.join(summary['cities'])}. "
-        f"{('Discounts up to ' + best_pct_str + '.') if best_pct_str else ''} Independent rankings — not sponsored."
+        f"{('Discounts up to ' + best_pct_str + '.') if best_pct_str else ''} Independent rankings. Not sponsored."
     ).strip()
     top_restaurants: list[RelatedItem] = summary["top_restaurants"]
     table_rows = "".join(
@@ -914,7 +914,7 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
     
     # Internal linking: Show all cards
     all_cards_list = "".join(
-        f'<li><a href="/banks/{summary["slug"]}/{card["slug"]}/">{escape(card["name"])}</a> ({card["card_type"]}) – {card["restaurant_count"]} restaurants, up to {format_pct(card["max_discount_pct"])} off</li>'
+        f'<li><a href="/banks/{summary["slug"]}/{card["slug"]}/">{escape(card["name"])}</a> ({card["card_type"]}), {card["restaurant_count"]} restaurants, up to {format_pct(card["max_discount_pct"])} off</li>'
         for card in summary["cards"]
     )
     
@@ -931,7 +931,7 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
       <div class="content">
         <section class="section">
           <h2>Cards listed for {escape(summary['name'])}</h2>
-          <p>Each card below shows how many restaurants it covers and its headline discount. Headline % alone isn't the full picture — caps and restaurant overlap matter just as much, which is why the comparison tool ranks by estimated savings on your typical bill rather than raw discount %. Click Compare to pre-select this bank.</p>
+          <p>Each card below shows how many restaurants it covers and its headline discount. Headline % alone isn't the full picture, because caps and restaurant overlap matter just as much. That is why the comparison tool ranks by estimated savings on your typical bill rather than raw discount %. Click Compare to pre-select this bank.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -1077,7 +1077,7 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
     
     # Internal linking: Show all banks with offers
     all_banks_list = "".join(
-        f'<li><a href="/banks/{bank_slug_map.get(bank["name"], "#")}/">{escape(bank["name"])}</a> – {bank["card_count"]} cards, up to {format_pct(bank["max_discount_pct"])} off</li>'
+        f'<li><a href="/banks/{bank_slug_map.get(bank["name"], "#")}/">{escape(bank["name"])}</a>: {bank["card_count"]} cards, up to {format_pct(bank["max_discount_pct"])} off</li>'
         for bank in summary["banks"]
     )
     
@@ -1088,13 +1088,13 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
       <header class="content-hero">
         <p class="eyebrow">Restaurant Guide</p>
         <h1>{escape(summary['name'])} bank discount coverage</h1>
-        <p>Diners at <strong>{escape(summary['name'])}</strong> can claim discounts with {summary['card_count']} different cards across {summary['bank_count']} banks in {', '.join(summary['cities'])}. {('The headline discount on the best card is currently ' + escape(best_offer_str) + '.') if best_offer_str else ''} Compare every offer below — including which days each card's discount is valid, and what the per-transaction cap is — or open the comparison tool for a ranking on your typical bill size.</p>
+        <p>Diners at <strong>{escape(summary['name'])}</strong> can claim discounts with {summary['card_count']} different cards across {summary['bank_count']} banks in {', '.join(summary['cities'])}. {('The headline discount on the best card is currently ' + escape(best_offer_str) + '.') if best_offer_str else ''} Compare every offer below, including which days each card's discount is valid and what the per-transaction cap is, or open the comparison tool for a ranking on your typical bill size.</p>
       </header>
 
       <div class="content">
         <section class="section">
           <h2>Cards available at {escape(summary['name'])}</h2>
-          <p>Every deal that shows a discount at {escape(summary['name'])}, sorted by headline discount. Headline % isn't always the best signal — many offers cap savings per transaction, so what looks like a big discount may save less than a smaller % with no cap. Open the tool with Compare to rank by estimated actual savings on your bill.</p>
+          <p>Every deal that shows a discount at {escape(summary['name'])}, sorted by headline discount. Headline % isn't always the best signal, because many offers cap savings per transaction, so what looks like a big discount may save less than a smaller % with no cap. Open the tool with Compare to rank by estimated actual savings on your bill.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -1197,7 +1197,7 @@ def render_eligibility_section(card: dict | None) -> str:
     if reqs.get("minimum_age_years"):
         age_str = f"{reqs['minimum_age_years']}+"
         if reqs.get("maximum_age_years"):
-            age_str = f"{reqs['minimum_age_years']}–{reqs['maximum_age_years']}"
+            age_str = f"{reqs['minimum_age_years']} to {reqs['maximum_age_years']}"
         items.append(("Age", age_str))
     if reqs.get("existing_account_required"):
         items.append(("Existing account", "Required"))
@@ -1243,7 +1243,7 @@ def render_eligibility_section(card: dict | None) -> str:
 
 def render_card_page(bank_summary: dict, card: dict) -> str:
     canonical_path = f"/banks/{bank_summary['slug']}/{card['slug']}/"
-    title = f"{card['name']} – {bank_summary['name']} restaurant discounts | KonsaCard"
+    title = f"{card['name']} from {bank_summary['name']}: restaurant discounts | KonsaCard"
     description = (
         f"See every restaurant where {bank_summary['name']} {card['name']} ({card['card_type']}) "
         f"gives a dining discount in Pakistan. {card['restaurant_count']} restaurants, "
@@ -1270,7 +1270,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
     related_cards_html = ""
     if other_cards:
         card_links = "".join(
-            f'<li><a href="/banks/{bank_summary["slug"]}/{c["slug"]}/">{escape(c["name"])} ({c["card_type"]})</a> – {c["restaurant_count"]} restaurants</li>'
+            f'<li><a href="/banks/{bank_summary["slug"]}/{c["slug"]}/">{escape(c["name"])} ({c["card_type"]})</a>: {c["restaurant_count"]} restaurants</li>'
             for c in other_cards
         )
         related_cards_html = f"""
@@ -1339,7 +1339,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
         
         {related_cards_html}
       </div>
-      <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change — always confirm current terms directly with the bank or restaurant.</div>
+      <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change. Always confirm current terms directly with the bank or restaurant.</div>
     """
     schema = [
         {

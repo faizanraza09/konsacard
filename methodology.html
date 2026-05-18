@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Methodology — How KonsaCard Ranks Cards | konsacard.pk</title>
+    <title>Methodology: How KonsaCard Ranks Cards | konsacard.pk</title>
     <meta name="description" content="How konsacard.pk sources offer data, calculates the Fit Score, and ranks Pakistan restaurant discount cards based on your actual inputs." />
     <link rel="canonical" href="https://konsacard.pk/methodology" />
     <link rel="icon" type="image/svg+xml" href="./assets/logo/favicon.svg" />
@@ -13,12 +13,12 @@
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://konsacard.pk/methodology" />
-    <meta property="og:title" content="Methodology — How KonsaCard Ranks Cards | konsacard.pk" />
+    <meta property="og:title" content="Methodology: How KonsaCard Ranks Cards | konsacard.pk" />
     <meta property="og:description" content="How konsacard.pk sources offer data, calculates the Fit Score, and ranks Pakistan restaurant discount cards based on your actual inputs." />
     <meta property="og:site_name" content="konsacard.pk" />
     <meta property="og:image" content="https://konsacard.pk/assets/og-image.png" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Methodology — How KonsaCard Ranks Cards | konsacard.pk" />
+    <meta name="twitter:title" content="Methodology: How KonsaCard Ranks Cards | konsacard.pk" />
     <meta name="twitter:description" content="How konsacard.pk sources offer data, calculates the Fit Score, and ranks Pakistan restaurant discount cards based on your actual inputs." />
     <meta name="twitter:image" content="https://konsacard.pk/assets/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -104,18 +104,18 @@
         <section class="content-main">
 
           <article class="content-card">
-            <h2>The Fit Score — how it's calculated</h2>
+            <h2>The Fit Score: how it's calculated</h2>
             <p>
-              Each card receives a Fit Score from 0–100 built in three stages. The inputs are
-              <strong>S</strong> (avg saving per matched outing), <strong>C</strong> (coverage — fraction
-              of your selected restaurants this card covers), and <strong>D</strong> (day-fit — fraction
+              Each card receives a Fit Score from 0 to 100 built in three stages. The inputs are
+              <strong>S</strong> (avg saving per matched outing), <strong>C</strong> (coverage, meaning the fraction
+              of your selected restaurants this card covers), and <strong>D</strong> (day-fit, meaning the fraction
               of your selected dining days this card's offers apply on).
             </p>
 
-            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 1 — Savings-strength index (E)</h3>
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 1: Savings-strength index (E)</h3>
             <p>
               Raw saving per outing is blended with coverage using a square-root curve, so a card with
-              strong deals and partial coverage still earns meaningful credit — while full-coverage cards
+              strong deals and partial coverage still earns meaningful credit, while full-coverage cards
               are rewarded most:
             </p>
             <div class="tip-box" style="margin-top:10px; margin-bottom:16px">
@@ -123,10 +123,10 @@
             </div>
             <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
               At full coverage (C = 1) this equals S. At half coverage (C = 0.5) it equals ~0.81 × S
-              rather than 0.5 × S — preserving more signal from high-saving cards.
+              rather than 0.5 × S, preserving more signal from high-saving cards.
             </p>
 
-            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 2 — Peer-relative normalization (N<sub>s</sub>)</h3>
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 2: Peer-relative normalization (N<sub>s</sub>)</h3>
             <p>
               E is normalized against the 95th-percentile E across all visible cards in your current
               search. Using P95 instead of the single best card prevents one outlier from compressing
@@ -140,9 +140,9 @@
               proportionally. This keeps scores spread out even when one card dominates the field.
             </p>
 
-            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 3 — Weighted composite (R → Fit Score)</h3>
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Stage 3: Weighted composite (R → Fit Score)</h3>
             <p>
-              Three components are combined and scaled to the 20–100 range:
+              Three components are combined and scaled to the 20 to 100 range:
             </p>
             <div class="score-breakdown" style="margin-top:12px">
               <div class="score-row">
@@ -162,7 +162,7 @@
               <div class="score-row">
                 <div class="score-weight"><strong>10</strong><span>%</span></div>
                 <div style="flex:1">
-                  <div class="score-desc"><strong>Day alignment (D)</strong><span>How well the card's offer days match your selected dining days. An offer valid only Tuesday–Thursday scores poorly if you always dine on weekends.</span></div>
+                  <div class="score-desc"><strong>Day alignment (D)</strong><span>How well the card's offer days match your selected dining days. An offer valid only Tuesday to Thursday scores poorly if you always dine on weekends.</span></div>
                   <div class="score-bar-track" style="margin-top:8px"><div class="score-bar-fill" style="width:10%"></div></div>
                 </div>
               </div>
@@ -192,11 +192,11 @@
             <h2>How the saving calculation works</h2>
             <p>
               Not all discounts work the same way. We classify every offer into one of four types
-              and apply a different formula for each. This is critical — a "Up to 45% off" is
+              and apply a different formula for each. This is critical, because "Up to 45% off" is
               not the same as a flat "20% off", and treating them identically would mis-rank cards.
             </p>
 
-            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 1 — Flat percentage</h3>
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 1: Flat percentage</h3>
             <p>
               A guaranteed percentage off the entire bill, optionally capped. E.g. "20% off entire menu
               (max discount Rs. 500)". The saving is:
@@ -205,9 +205,9 @@
               <strong>Saving = min( bill × % , cap )</strong>
             </div>
 
-            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 2 — "Up to" percentage</h3>
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 2: "Up to" percentage</h3>
             <p>
-              A maximum advertised percentage that isn't guaranteed — e.g. "Up to 45% off". Most
+              A maximum advertised percentage that isn't guaranteed, for example "Up to 45% off". Most
               items will receive a lower discount. We apply a <strong>60% conservatism factor</strong>
               to avoid overstating savings:
             </p>
@@ -219,9 +219,9 @@
               aggressive marketing claims from unfairly dominating cards with honest flat rates.
             </p>
 
-            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 3 — Fixed-price combo</h3>
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 3: Fixed-price combo</h3>
             <p>
-              A specific meal deal with a fixed saving — e.g. "Zinger Burger + Drink Rs. 400
+              A specific meal deal with a fixed saving, for example "Zinger Burger + Drink Rs. 400
               (save Rs. 380)". These are item-specific, so we use the fixed PKR amount directly
               rather than treating it as a percentage of your bill:
             </p>
@@ -229,10 +229,10 @@
               <strong>Saving = min( fixed PKR , bill )</strong>
             </div>
             <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
-              The saving is capped at your bill size — you can't save Rs. 380 on a Rs. 200 order.
+              The saving is capped at your bill size. You can't save Rs. 380 on a Rs. 200 order.
             </p>
 
-            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 4 — Buy One Get One (BOGO)</h3>
+            <h3 style="margin-top:20px; font-size:15px; font-weight:700">Discount type 4: Buy One Get One (BOGO)</h3>
             <p>
               E.g. "Buy 1 Get 1 Free on Coffee". BOGO only applies to specific items, not your
               entire bill. We apply a <strong>30% conservatism factor</strong> to reflect this:
@@ -242,7 +242,7 @@
             </div>
             <p style="margin-top:0; margin-bottom:0; font-size:13px; color:var(--muted)">
               A "Buy 1 Get 1 Free" (50% mathematical equivalent) is estimated at 15% effective
-              savings — assuming the BOGO items represent roughly 30% of a typical order.
+              savings, assuming the BOGO items represent roughly 30% of a typical order.
             </p>
 
             <h3 style="margin-top:20px; font-size:16px; font-weight:700">Why this matters</h3>
@@ -320,7 +320,7 @@
                 <tbody>
                   <tr>
                     <td>Bill size slider</td>
-                    <td>Which cards hit or avoid their cap — biggest impact on ranking order</td>
+                    <td>Which cards hit or avoid their cap. Biggest impact on ranking order.</td>
                     <td>Always. Enter what you actually spend per outing, not an aspirational number.</td>
                   </tr>
                   <tr>
@@ -331,12 +331,12 @@
                   <tr>
                     <td>Restaurant selection</td>
                     <td>Only counts savings at your chosen venues; most precise ranking</td>
-                    <td>Add 3–5 places you actually go. The ranking becomes specific to you.</td>
+                    <td>Add 3 to 5 places you actually go. The ranking becomes specific to you.</td>
                   </tr>
                   <tr>
                     <td>Dining days</td>
                     <td>Penalises cards whose offers don't apply on those days</td>
-                    <td>Set if you mostly dine on weekends — many offers exclude Fri/Sat.</td>
+                    <td>Set if you mostly dine on weekends. Many offers exclude Fri/Sat.</td>
                   </tr>
                   <tr>
                     <td>Card type</td>
@@ -368,18 +368,18 @@
             </p>
             <p>
               Separately, we maintain a card requirements dataset covering eligibility criteria
-              and fees for 192 cards across all banks — minimum salary requirements, account
-              balance thresholds, annual fees, and age limits — sourced from official bank
+              and fees for 192 cards across all banks. Minimum salary requirements, account
+              balance thresholds, annual fees, and age limits, all sourced from official bank
               product pages and Schedule of Charges documents. This powers the Eligibility
               Mode on the tool.
             </p>
             <ul>
-              <li><strong>Discount caps</strong> are included when published. When unpublished, the cap field is left blank — not assumed unlimited.</li>
+              <li><strong>Discount caps</strong> are included when published. When unpublished, the cap field is left blank, not assumed unlimited.</li>
               <li><strong>Day restrictions</strong> are captured at the offer level so day filtering works correctly.</li>
               <li><strong>Conflicting sources:</strong> when two public sources disagree, the more specific one takes precedence. Where sources still conflict without a clear hierarchy, the more conservative number is used.</li>
             </ul>
             <div class="tip-box amber">
-              <strong>Data freshness:</strong> The dataset is updated when bank offer pages change. Pakistani banks update their offer pages irregularly — sometimes monthly, sometimes quarterly. Always confirm current terms directly with the bank before making a card decision.
+              <strong>Data freshness:</strong> The dataset is updated when bank offer pages change. Pakistani banks update their offer pages irregularly, sometimes monthly, sometimes quarterly. Always confirm current terms directly with the bank before making a card decision.
             </div>
           </article>
 
@@ -400,11 +400,11 @@
                 <tbody>
                   <tr>
                     <td>Non-dining benefits (cashback, travel rewards, lounge access)</td>
-                    <td>Different comparison entirely — use the bank's website for these</td>
+                    <td>Different comparison entirely. Use the bank's website for these.</td>
                   </tr>
                   <tr>
                     <td>Card approval likelihood</td>
-                    <td>Too individual — income, credit history, and branch decisions vary</td>
+                    <td>Too individual. Income, credit history, and branch decisions all vary.</td>
                   </tr>
                   <tr>
                     <td>Bank app quality, customer service</td>
@@ -441,13 +441,13 @@
                 <div class="step-num">1</div>
                 <div class="step-body">
                   <strong>Set your city</strong>
-                  <span>Karachi, Lahore, or Islamabad — or leave on all.</span>
+                  <span>Karachi, Lahore, or Islamabad. Or leave on All.</span>
                 </div>
               </div>
               <div class="step-row">
                 <div class="step-num">2</div>
                 <div class="step-body">
-                  <strong>Add 3–5 restaurants</strong>
+                  <strong>Add 3 to 5 restaurants</strong>
                   <span>Pick places you actually revisit, not restaurants you've tried once.</span>
                 </div>
               </div>
@@ -455,7 +455,7 @@
                 <div class="step-num">3</div>
                 <div class="step-body">
                   <strong>Set your real bill size</strong>
-                  <span>What you typically spend per outing — this is the biggest variable in the ranking.</span>
+                  <span>What you typically spend per outing. This is the biggest variable in the ranking.</span>
                 </div>
               </div>
             </div>
@@ -507,7 +507,7 @@
           </div>
         </div>
         <div class="footer-fine">
-          Offers can change — always confirm terms directly with your bank.
+          Offers can change. Always confirm terms directly with your bank.
         </div>
       </footer>
     </div>
