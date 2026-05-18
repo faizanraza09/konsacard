@@ -1,7 +1,21 @@
 User-agent: *
 Allow: /
 
-# Crawl-delay to be respectful
+# Block crawling of home-page filter/state URLs.
+#
+# When users interact with the comparison tool we mirror their selections
+# (city, banks, restaurants, owned cards, wallet customizations, etc.) into
+# the URL as query strings so they can share a link. Every one of these
+# URLs already declares <link rel="canonical" href="https://konsacard.pk/">
+# so Google does not index them. But Google was still crawling them, eating
+# crawl budget that should go to the 1,400+ unique bank/restaurant/card
+# pages. Blocking the entire query-string namespace on `/` stops the waste.
+#
+# This affects only the home page. Bank pages at /banks/<slug>/ and
+# restaurant pages at /restaurants/<slug>/ remain fully crawlable.
+Disallow: /?
+
+# Be respectful of crawl rate.
 Crawl-delay: 1
 
 Sitemap: https://konsacard.pk/sitemap.xml

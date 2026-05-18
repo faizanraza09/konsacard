@@ -1605,12 +1605,23 @@ def regenerate_sitemap(payload: dict, bank_count: int, restaurant_count: int, ca
     dynamic_urls: list[str] = []
     for path in bank_paths + restaurant_paths:
         relative = "/" + path.relative_to(ROOT).as_posix().replace("index.html", "")
+        # Sitemap priority by depth:
+        #   /banks/ and /restaurants/         (depth 2) → 0.8  index hubs
+        #   /banks/<slug>/, /restaurants/<slug>/ (depth 3) → 0.7  entity pages
+        #   /banks/<slug>/<card-slug>/       (depth 4+) → 0.6  card pages
+        depth = relative.count("/")
+        if depth <= 2:
+            priority = "0.8"
+        elif depth == 3:
+            priority = "0.7"
+        else:
+            priority = "0.6"
         dynamic_urls.append(
             f"""  <url>
     <loc>{SITE_URL}{relative}</loc>
     <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>{"0.7" if relative.count("/") <= 2 else "0.6"}</priority>
+    <priority>{priority}</priority>
   </url>"""
         )
 
