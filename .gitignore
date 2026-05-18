@@ -18,3 +18,14 @@ node_modules/
 .playwright/
 test-results/
 playwright-report/
+
+# Generated SEO pages — built at deploy time by scripts/seo/generate_seo_pages.py.
+# These are build artifacts, not source. Keep them out of git so:
+#   - PRs stay reviewable on data refreshes (~1500 files would diff every time)
+#   - Visual edits to bank/restaurant templates take effect without
+#     regenerating every page
+#   - No merge conflicts when two devs run the generator on different branches
+# Cloudflare Pages runs `npm run build` (which runs the generator) at deploy.
+# Locally, run `npm run generate:seo` after pulling to view banks/restaurants.
+/banks/
+/restaurants/

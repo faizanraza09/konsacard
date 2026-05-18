@@ -1,137 +1,234 @@
-/* ── STATE ── */
-const state = {
-  data: null,
-  requirements: null,
-  selectedCity: "all",           // nav city tab
-  selectedDays: new Set(),
-  selectedRestaurants: new Set(),
-  selectedBanks: new Set(),
-  selectedCardTypes: new Set(),
-  selectedCards: new Set(),      // card name search filter
-  bankSearchTerm: "",
-  restSearchTerm: "",
-  cardSearchTerm: "",            // card name search term
-  orderValue: 10000,
-  useEligibility: false,
-  monthlySalary: null,
-  accountBalance: null,
-  outingsPerWeek: 1,
-  viewMode: "cards",
-  detailCardKey: null,
-  detailRestaurantKey: null,
-  compareList: [],               // up to 2 card keys "bank || card"
-  expandedCard: null,            // card key of expanded detail
-  pagination: {
-    results: 1,
-    restaurantView: 1,
-    cardDetailRestaurants: 1,
-    restaurantDetailCards: 1,
-    compareRestaurants: 1,
-  },
-  chatOpen: false,
-  chatMessages: [],
-  chatApiMessages: [],  // OpenAI-format messages including tool call/result history
-  chatLoading: false,
-};
+// @ts-check
+/* ── STATE + CONSTANTS + UTIL HELPERS ── moved to assets/state.js */
 
-const QUICK_QUESTIONS = [
-  "Best card for Karachi?",
-  "No credit card options?",
-  "Highest discount %?",
-  "Best low-fee options?",
-];
-const PAGINATION_ITEMS_PER_PAGE = 10;
-const PAGE_ONE_LIST_SIZE = PAGINATION_ITEMS_PER_PAGE - 1;
 
-const CITY_LABELS = {
-  all: "All",
-  karachi: "Karachi",
-  lahore: "Lahore",
-  islamabad: "Islamabad",
-};
-
-const CITY_ICON_ALL = `<svg viewBox="0 0 32 32" width="26" height="26" xmlns="http://www.w3.org/2000/svg">
-  <ellipse cx="16" cy="15" rx="2.5" ry="11" fill="currentColor"/>
-  <path d="M4.5 18.5 L16 14 L27.5 18.5 L16 21 Z" fill="currentColor"/>
-  <path d="M12.5 25.5 L16 27.5 L19.5 25.5 L16 23.5 Z" fill="currentColor"/>
-</svg>`;
-
-const QUIZ_CITY_OPTIONS = [
-  { value: "all",       label: "Multiple Cities", icon: CITY_ICON_ALL },
-  { value: "karachi",   label: "Karachi",         iconSrc: "./assets/mazar-e-quaid.svg", iconAlt: "Mazar-e-Quaid icon" },
-  { value: "lahore",    label: "Lahore",          iconSrc: "./assets/minar-e-pakistan.svg", iconAlt: "Minar-e-Pakistan icon" },
-  { value: "islamabad", label: "Islamabad",       iconSrc: "./assets/faisal-mosque.svg", iconAlt: "Faisal Mosque icon" },
-];
-
-const DAY_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const COLLAPSIBLE_FILTER_BREAKPOINT = 768;
-const CARD_TYPE_OPTIONS = [
-  { value: "debit",  label: "Debit" },
-  { value: "credit", label: "Credit" },
-  { value: "other",  label: "Other" },
-];
-const QUIZ_CARD_TYPE_OPTIONS = [
-  { value: "debit", label: "Debit Card", icon: "🏦" },
-  { value: "credit", label: "Credit Card", icon: "💳" },
-  { value: "other", label: "Digital Wallet", icon: "📱" },
-];
-const BANK_LOGO_FILES = {
-  albarakabank: "al-baraka-bank.png",
-  alliedbank: "allied-bank.png",
-  askaribanklimited: "askari-bank.png",
-  bankalhabib: "bank-al-habib.png",
-  bankalfalah: "bank-alfalah.png",
-  bankofpunjab: "bank-of-punjab.png",
-  bankislami: "bankislami.png",
-  easypaisa: "easypaisa.png",
-  faysalbanklimited: "faysal-bank.png",
-  habibbanklimited: "hbl.png",
-  habibmetrobank: "habib-metro.png",
-  hblislamicbanklimited: "hbl-islamic.png",
-  jsbank: "js-bank.png",
-  mcbbanklimited: "mcb-bank.png",
-  mcbislamicbankltd: "mcb-islamic.png",
-  meezanbank: "meezan-bank.png",
-  nationalbankofpakistan: "national-bank-of-pakistan.png",
-  standardcharteredbank: "standard-chartered.png",
-  unitedbanklimitedubl: "ubl.png",
-};
-
-const BANK_APPLY_URLS = {
-  albarakabank:          "https://www.albaraka.com.pk/",
-  alliedbank:            "https://www.abl.com/Cards",
-  askaribanklimited:     "https://www.askaribank.com.pk/Cards/",
-  bankalhabib:           "https://www.bankalhabib.com/cards",
-  bankalfalah:           "https://www.bankalfalah.com/personal-banking/credit-cards/",
-  bankofpunjab:          "https://www.bop.com.pk/personal/cards",
-  bankislami:            "https://www.bankislami.com.pk/personal/",
-  easypaisa:             "https://www.easypaisa.com.pk/wallet/",
-  faysalbanklimited:     "https://faysalbank.com/personal/cards/",
-  habibbanklimited:      "https://www.hbl.com/personal/cards/",
-  habibmetrobank:        "https://www.habibmetro.com/personal-banking/cards/",
-  hblislamicbanklimited: "https://www.hbl.com/islamic/",
-  jsbank:                "https://www.jsbl.com/personal/debit-card/",
-  mcbbanklimited:        "https://www.mcb.com.pk/personal/cards/",
-  mcbislamicbankltd:     "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/",
-  meezanbank:            "https://www.meezanbank.com/",
-  nationalbankofpakistan: "https://www.nbp.com.pk/",
-  standardcharteredbank: "https://www.sc.com/pk/credit-cards/",
-  unitedbanklimitedubl:  "https://www.ubl.com.pk/consumer-banking/cards/",
-};
 
 /* ── INIT ── */
 async function init() {
+  // The offers payload is now split per city (data/offers-<city>.json) with a
+  // lightweight index (data/offers-index.json) that holds metadata + the
+  // restaurantsByCity map. Loading three smaller files in parallel beats one
+  // ~25MB JSON over the wire (especially on mobile 4G). If the split files
+  // aren't available (older builds, dev that hasn't run the split script),
+  // we fall back to the original monolithic offers.json.
   const [payload, requirements] = await Promise.all([
-    fetchJson("./data/offers.json"),
+    loadOffersPayload(),
     loadRequirementsContext(),
   ]);
   state.data = payload;
   state.requirements = requirements;
 
+  // Order matters: defaults (from state.js) → localStorage → URL.
+  // URL takes the last word so shared links keep working.
+  restoreStateFromLocal();
   restoreStateFromUrl();
   bindEvents();
   syncDomToState();
+  renderDataFreshness();
+  renderFavoritesAlert();
   render();
+}
+
+/* ── DATA FRESHNESS ──
+   The offers payload carries a single dataset-level generatedAt timestamp
+   (no per-offer timestamps in the schema today). We surface this in two
+   places: a calm "verified Xd ago" line in the footer, and a stale-data
+   banner at the top if the data is more than 60 days old. */
+function getDataFreshnessDaysAgo() {
+  const ts = state.data?.generatedAt;
+  if (!ts) return null;
+  const then = new Date(ts);
+  if (Number.isNaN(then.getTime())) return null;
+  const days = Math.floor((Date.now() - then.getTime()) / (1000 * 60 * 60 * 24));
+  return Math.max(0, days);
+}
+
+function formatDaysAgo(d) {
+  if (d === null || d === undefined) return "";
+  if (d === 0) return "today";
+  if (d === 1) return "1 day ago";
+  if (d < 30) return `${d} days ago`;
+  if (d < 60) return `~${Math.round(d / 7)} weeks ago`;
+  return `~${Math.round(d / 30)} months ago`;
+}
+
+function buildReportMailto(bank, card) {
+  const subject = `Offer correction: ${bank || ""} — ${card || ""}`.trim();
+  const body = [
+    `Bank: ${bank || ""}`,
+    `Card: ${card || ""}`,
+    `URL: ${typeof location !== "undefined" ? location.href : ""}`,
+    "",
+    "What's incorrect about this card or its offers? (e.g., discount %, cap, days, eligibility):",
+    "",
+  ].join("\n");
+  return `mailto:faizan@konsacard.pk?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
+
+/* ── FAVORITES + NEW-OFFER ALERTS ──
+   Users can star restaurants. On every boot we snapshot which offers exist
+   at each favorite restaurant, store that snapshot, then on the next boot
+   diff current vs stored. New offers → in-app banner inviting them to
+   open the restaurant detail. No backend, no push permission needed —
+   just a localStorage diff at visit time. */
+const FAVS_SNAPSHOT_KEY = "konsacard_fav_offers_v1";
+
+function toggleFavoriteRestaurant(name) {
+  if (state.favoriteRestaurants.has(name)) state.favoriteRestaurants.delete(name);
+  else state.favoriteRestaurants.add(name);
+  saveStateToLocal();
+  trackEvent("favorite_toggle", { count: state.favoriteRestaurants.size });
+}
+
+function buildFavoritesSnapshot() {
+  // Snapshot = { restaurantName: [list of "bank||card" offer keys] }
+  const snap = {};
+  if (!state.data?.offers) return snap;
+  state.favoriteRestaurants.forEach((name) => snap[name] = []);
+  state.data.offers.forEach((o) => {
+    if (!state.favoriteRestaurants.has(o.restaurant)) return;
+    snap[o.restaurant].push(`${o.bank}||${o.card}`);
+  });
+  Object.keys(snap).forEach((k) => { snap[k] = [...new Set(snap[k])].sort(); });
+  return snap;
+}
+
+function detectNewOffersForFavorites() {
+  let stored = {};
+  try { stored = JSON.parse(localStorage.getItem(FAVS_SNAPSHOT_KEY) || "{}"); } catch (_) {}
+  const current = buildFavoritesSnapshot();
+  /** @type {{restaurant: string, added: string[]}[]} */
+  const newOffers = [];
+  for (const r of Object.keys(current)) {
+    const before = new Set(stored[r] || []);
+    const added = current[r].filter((k) => !before.has(k));
+    if (added.length > 0) newOffers.push({ restaurant: r, added });
+  }
+  // Save the new snapshot for next visit
+  try { localStorage.setItem(FAVS_SNAPSHOT_KEY, JSON.stringify(current)); } catch (_) {}
+  return newOffers;
+}
+
+function renderFavoritesAlert() {
+  // Only check after first visit (avoid alerting a brand-new user about
+  // every offer on their first favorite). buildFavoritesSnapshot itself
+  // doesn't gate this — we check whether stored has any keys.
+  let stored = null;
+  try { stored = localStorage.getItem(FAVS_SNAPSHOT_KEY); } catch (_) {}
+  if (state.favoriteRestaurants.size === 0) return;
+  const newOffers = detectNewOffersForFavorites();
+  // Skip on first-ever check (nothing stored before) — we just seeded the snapshot.
+  if (!stored) return;
+  if (newOffers.length === 0) return;
+  const banner = document.getElementById("favs-alert");
+  if (!banner) return;
+  const total = newOffers.reduce((sum, r) => sum + r.added.length, 0);
+  const names = newOffers.slice(0, 3).map((r) => r.restaurant).join(", ");
+  const more = newOffers.length > 3 ? ` and ${newOffers.length - 3} more` : "";
+  banner.innerHTML = `
+    <span class="favs-alert-icon">✨</span>
+    <span><strong>${total} new offer${total === 1 ? "" : "s"}</strong> at your favorites — ${escapeHtml(names)}${escapeHtml(more)}.</span>
+    <button class="favs-alert-close" id="favs-alert-close" type="button" aria-label="Dismiss">×</button>
+  `;
+  banner.classList.remove("hidden");
+  document.getElementById("favs-alert-close")?.addEventListener("click", () => banner.classList.add("hidden"));
+  trackEvent("favorites_new_offers_shown", { restaurants: newOffers.length, total });
+}
+
+function renderDataFreshness() {
+  const days = getDataFreshnessDaysAgo();
+  if (days === null) return;
+  const label = formatDaysAgo(days);
+  const footer = document.getElementById("footer-freshness");
+  if (footer) footer.textContent = ` Data last verified ${label}.`;
+  const banner = document.getElementById("stale-banner");
+  if (banner) {
+    if (days > 60) {
+      banner.classList.remove("hidden");
+      banner.innerHTML = `
+        <span class="stale-banner-icon">⏳</span>
+        <span>Our offers data was last verified <strong>${escapeHtml(label)}</strong>. Some deals may have changed — always confirm with your bank.</span>
+      `;
+    } else {
+      banner.classList.add("hidden");
+      banner.innerHTML = "";
+    }
+  }
+}
+
+async function loadOffersPayload() {
+  let payload;
+  try {
+    const index = await fetchJson("./data/offers-index.json");
+    if (!index || !index.cityFiles || !Array.isArray(index.cities)) {
+      throw new Error("offers-index.json missing cityFiles or cities");
+    }
+    // Fetch all city files in parallel
+    const cityFetches = index.cities.map((city) => {
+      const url = index.cityFiles[city];
+      if (!url) return Promise.resolve({ offers: [] });
+      return fetchJson(url).catch((err) => {
+        console.warn(`[offers] failed to load ${url}:`, err);
+        return { offers: [] };
+      });
+    });
+    const cityPayloads = await Promise.all(cityFetches);
+    const offers = cityPayloads.flatMap((p) => (Array.isArray(p?.offers) ? p.offers : []));
+    payload = { ...index, offers };
+  } catch (err) {
+    console.warn("[offers] split payload unavailable, falling back to offers.json", err);
+    payload = await fetchJson("./data/offers.json");
+  }
+  validateOffersPayload(payload);
+  return payload;
+}
+
+/**
+ * Lightweight runtime schema check on the offers payload. We don't pull in
+ * Zod or Ajv — instead we assert the shape the rest of the app assumes,
+ * and surface a clear error in the UI if the build pipeline ever emits
+ * something malformed (rather than silently rendering blank cards).
+ *
+ * Throws OffersSchemaError; the boot handler catches this and shows a
+ * visible error block.
+ */
+function validateOffersPayload(payload) {
+  const errors = [];
+  if (!payload || typeof payload !== "object") errors.push("payload is not an object");
+  if (!Array.isArray(payload?.cities) || payload.cities.length === 0) errors.push("cities[] missing or empty");
+  if (!Array.isArray(payload?.dayNames) || payload.dayNames.length !== 7) errors.push("dayNames must be a 7-element array");
+  if (!Array.isArray(payload?.offers)) errors.push("offers[] missing");
+  if (!payload?.stats || typeof payload.stats.offers !== "number") errors.push("stats.offers must be a number");
+
+  if (Array.isArray(payload?.offers) && payload.offers.length > 0) {
+    // Spot-check the first few offers — full validation across 26k+ rows would be wasteful.
+    const sampleSize = Math.min(50, payload.offers.length);
+    for (let i = 0; i < sampleSize; i++) {
+      const o = payload.offers[i];
+      if (!o || typeof o !== "object") { errors.push(`offer[${i}] not an object`); continue; }
+      const required = ["city", "restaurant", "bank", "card", "days"];
+      for (const k of required) {
+        if (o[k] === undefined || o[k] === null) {
+          errors.push(`offer[${i}].${k} missing (bank=${o.bank || "?"} card=${o.card || "?"})`);
+          break;
+        }
+      }
+      if (!Array.isArray(o.days)) { errors.push(`offer[${i}].days must be an array`); continue; }
+      // discountPct OR fixedDiscountPkr must be present for the saving math to work
+      if (!Number.isFinite(o.discountPct) && !Number.isFinite(o.fixedDiscountPkr)) {
+        // Some legitimate offers may have neither (e.g., text-only), so this is a warning, not an error.
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    const err = new Error(
+      "Offers payload failed schema validation:\n  - " + errors.slice(0, 8).join("\n  - ") +
+      (errors.length > 8 ? `\n  ...and ${errors.length - 8} more` : "")
+    );
+    err.name = "OffersSchemaError";
+    throw err;
+  }
 }
 
 async function fetchJson(path) {
@@ -281,7 +378,10 @@ function bindEvents() {
 
   // Quiz
   const openQuizBtn = document.getElementById("btn-open-quiz");
-  if (openQuizBtn) openQuizBtn.addEventListener("click", () => openQuiz());
+  if (openQuizBtn) openQuizBtn.addEventListener("click", () => {
+    trackEvent("quiz_open");
+    openQuiz();
+  });
 
   // Find My Card FAB (mobile)
 
@@ -355,10 +455,22 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
   // View toggle
   document.getElementById("btn-view-cards")?.addEventListener("click", () => {
     state.viewMode = "cards";
+    trackEvent("view_change", { view: "cards" });
     render();
   });
   document.getElementById("btn-view-restaurants")?.addEventListener("click", () => {
     state.viewMode = "restaurants";
+    trackEvent("view_change", { view: "restaurants" });
+    render();
+  });
+  document.getElementById("btn-view-next-card")?.addEventListener("click", () => {
+    state.viewMode = "my-wallet";
+    trackEvent("view_change", { view: "my-wallet" });
+    render();
+  });
+  document.getElementById("btn-view-wallet")?.addEventListener("click", () => {
+    state.viewMode = "wallet";
+    trackEvent("view_change", { view: "wallet" });
     render();
   });
 
@@ -401,6 +513,17 @@ function resetFilters() {
   state.useEligibility = false;
   state.monthlySalary = null;
   state.accountBalance = null;
+  state.ownedCards = new Set();
+  state.ownedCardSearchTerm = "";
+  state.walletSize = 2;
+  state.walletBuildOnOwned = false;
+  state.walletMaxFee = null;
+  state.walletNoSameBank = false;
+  state.walletMixedTypes = false;
+  state.walletObjective = "savings";
+  state.walletMustInclude = new Set();
+  state.walletMustIncludeSearchTerm = "";
+  state.walletAdvancedOpen = false;
 
   const orderSlider = document.getElementById("order-value");
   if (orderSlider) orderSlider.value = "10000";
@@ -748,6 +871,16 @@ function renderRecommendations() {
   updateCityChip();
 
   const countLabel = document.getElementById("result-count-label");
+  if (state.viewMode === "my-wallet") {
+    renderNextCardView(resultsGrid);
+    renderCompareTray();
+    return;
+  }
+  if (state.viewMode === "wallet") {
+    renderWalletView(resultsGrid);
+    renderCompareTray();
+    return;
+  }
   if (state.viewMode === "restaurants") {
     const deals = computeRestaurantDeals();
     if (countEl) countEl.textContent = String(deals.length);
@@ -1262,2054 +1395,873 @@ function closeCompareModal() {
   if (modal) modal.style.display = "none";
 }
 
-/* ── QUIZ ── */
-let quizState = null;
+/* ── QUIZ + LANDING + ONBOARDING ── moved to assets/quiz.js */
 
-/* ── LANDING + ONBOARDING SCREENS ── */
-const OB_STEP_DEFS = [
-  { id: "city", q: "Which city do you usually dine in?",      hint: "We'll focus the ranking on where you actually use the card." },
-  { id: "bill", q: "What's your typical restaurant bill?",    hint: "Per outing for your group. This directly affects your estimated savings." },
-  { id: "type", q: "Which card types work for you?",          hint: "Pick all that apply. We'll only show cards you can actually get." },
-];
 
-let obState = { step: 0, city: null, type: [], bill: 8000 };
-
-function checkFirstVisitAndShowQuickQuiz() {
-  const visited = localStorage.getItem("konsacard_visited_v2");
-  if (!visited) {
-    localStorage.setItem("konsacard_visited_v2", "true");
-    showLandingScreen();
-  }
-}
-
-function showLandingScreen() {
-  const el = document.getElementById("landing-screen");
-  if (!el) return;
-  el.style.display = "";
-  document.getElementById("landing-start-btn")?.addEventListener("click", showOnboardingScreen, { once: true });
-  document.getElementById("landing-skip-btn")?.addEventListener("click", skipToApp, { once: true });
-  document.getElementById("landing-skip-nav-btn")?.addEventListener("click", skipToApp, { once: true });
-}
-
-function hideLandingScreen() {
-  const el = document.getElementById("landing-screen");
-  if (el) el.style.display = "none";
-}
-
-function showOnboardingScreen() {
-  obState = { step: 0, city: null, type: [], bill: 8000 };
-  hideLandingScreen();
-  const el = document.getElementById("onboarding-screen");
-  if (!el) return;
-  el.style.display = "";
-  document.getElementById("ob-skip-btn")?.addEventListener("click", skipToApp, { once: true });
-  renderOnboardingStep();
-}
-
-function hideOnboardingScreen() {
-  const el = document.getElementById("onboarding-screen");
-  if (el) el.style.display = "none";
-}
-
-function skipToApp() {
-  hideLandingScreen();
-  hideOnboardingScreen();
-}
-
-function renderOnboardingStep() {
-  const inner = document.getElementById("ob-inner");
-  if (!inner) return;
-
-  const step = obState.step;
-  const cur = OB_STEP_DEFS[step];
-  const isLast = step === OB_STEP_DEFS.length - 1;
-
-  const progressBars = OB_STEP_DEFS.map((_, i) =>
-    `<div class="ob-prog-bar${i <= step ? " done" : ""}"></div>`
-  ).join("");
-
-  let bodyHtml = "";
-  let canNext = false;
-
-  if (cur.id === "city") {
-    canNext = Boolean(obState.city);
-    const cityOpts = [
-      { value: "all",       label: "Multiple Cities", iconHtml: `<span style="display:flex;align-items:center">${CITY_ICON_ALL}</span>` },
-      { value: "karachi",   label: "Karachi",         iconHtml: `<img src="./assets/mazar-e-quaid.svg" alt="Karachi" />` },
-      { value: "lahore",    label: "Lahore",           iconHtml: `<img src="./assets/minar-e-pakistan.svg" alt="Lahore" />` },
-      { value: "islamabad", label: "Islamabad",        iconHtml: `<img src="./assets/faisal-mosque.svg" alt="Islamabad" />` },
-    ];
-    bodyHtml = `<div class="ob-opts">${cityOpts.map(opt => `
-      <button class="ob-opt${obState.city === opt.value ? " sel" : ""}" data-ob-city="${escapeAttr(opt.value)}" type="button">
-        <span class="ob-opt-icon">${opt.iconHtml}</span>
-        <span>${escapeHtml(opt.label)}</span>
-        ${obState.city === opt.value ? `<span class="ob-opt-check">✓</span>` : ""}
-      </button>`).join("")}</div>`;
-
-  } else if (cur.id === "bill") {
-    canNext = true;
-    bodyHtml = `
-      <div>
-        <div class="ob-slider-val">${formatCurrency(obState.bill)}</div>
-        <input type="range" id="ob-slider" min="1000" max="30000" step="500" value="${obState.bill}" style="width:100%;accent-color:var(--brand)" />
-        <div style="display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px"><span>PKR 1,000</span><span>PKR 30,000</span></div>
-      </div>`;
-
-  } else if (cur.id === "type") {
-    const types = obState.type;
-    canNext = types.length > 0;
-    const typeOpts = [
-      ...QUIZ_CARD_TYPE_OPTIONS,
-      { value: "any", label: "I'm open to all", icon: "🎯" },
-    ];
-    bodyHtml = `<div class="ob-opts">${typeOpts.map(opt => `
-      <button class="ob-opt${types.includes(opt.value) ? " sel" : ""}" data-ob-type="${escapeAttr(opt.value)}" type="button">
-        <span class="ob-opt-icon" style="font-size:28px">${opt.icon}</span>
-        <span>${escapeHtml(opt.label)}</span>
-        ${types.includes(opt.value) ? `<span class="ob-opt-check">✓</span>` : ""}
-      </button>`).join("")}</div>`;
-  }
-
-  inner.innerHTML = `
-    <div style="max-width:520px;width:100%;animation:fadeUp .3s ease both">
-      <div class="ob-prog">${progressBars}</div>
-      <div class="ob-step-label">Question ${step + 1} of ${OB_STEP_DEFS.length}</div>
-      <h2 class="ob-q">${escapeHtml(cur.q)}</h2>
-      <p class="ob-hint">${escapeHtml(cur.hint)}</p>
-      ${bodyHtml}
-      <div class="ob-nav-row">
-        ${step > 0 ? `<button class="ob-back" id="ob-back-btn" type="button">← Back</button>` : `<div></div>`}
-        ${isLast
-          ? `<button class="ob-next-btn" id="ob-finish-btn" type="button"${!canNext ? " disabled" : ""}>See My Cards →</button>`
-          : `<button class="ob-next-btn" id="ob-next-btn" type="button"${!canNext ? " disabled" : ""}>Next →</button>`}
-      </div>
-    </div>`;
-
-  const obSlider = document.getElementById("ob-slider");
-  obSlider?.addEventListener("input", (e) => {
-    obState.bill = parseInt(e.target.value);
-    const valEl = document.querySelector(".ob-slider-val");
-    if (valEl) valEl.textContent = formatCurrency(obState.bill);
-  });
-  obSlider?.addEventListener("change", () => {
-    renderOnboardingStep();
-  });
-
-  document.querySelectorAll("[data-ob-city]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      obState.city = btn.dataset.obCity;
-      renderOnboardingStep();
-    });
-  });
-
-  document.querySelectorAll("[data-ob-type]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const v = btn.dataset.obType;
-      if (v === "any") {
-        obState.type = obState.type.includes("any") ? [] : ["any"];
-      } else {
-        const without = obState.type.filter(x => x !== "any");
-        obState.type = without.includes(v) ? without.filter(x => x !== v) : [...without, v];
-      }
-      renderOnboardingStep();
-    });
-  });
-
-  document.getElementById("ob-next-btn")?.addEventListener("click", () => {
-    obState.step++;
-    renderOnboardingStep();
-  });
-
-  document.getElementById("ob-back-btn")?.addEventListener("click", () => {
-    obState.step--;
-    renderOnboardingStep();
-  });
-
-  document.getElementById("ob-finish-btn")?.addEventListener("click", applyOnboardingResults);
-}
-
-function applyOnboardingResults() {
-  if (obState.city && obState.city !== "all") {
-    state.selectedCity = obState.city;
-    updateCityChip();
-    renderNavCityTabs();
-  }
-  if (obState.type.length > 0 && !obState.type.includes("any")) {
-    obState.type.forEach(t => state.selectedCardTypes.add(t));
-  }
-  if (obState.bill) {
-    state.orderValue = obState.bill;
-  }
-  syncDomToState();
-  renderRecommendations();
-  hideOnboardingScreen();
-}
-
-/* Quick Quiz (First Visit Onboarding — kept for openQuickQuiz fallback) */
-let quickQuizState = { step: 0, city: null, type: null, bill: 10000 };
-
-function openQuickQuiz() {
-  quickQuizState = { step: 0, city: null, type: null, bill: 10000 };
-  renderQuickQuiz();
-  const modal = document.getElementById("quiz-modal");
-  if (modal) modal.style.display = "flex";
-}
-
-function renderQuickQuiz() {
-  const inner = document.getElementById("quiz-modal-inner");
-  if (!inner) return;
-
-  const steps = ["city", "type", "bill"];
-  const step = quickQuizState.step;
-  const isLast = step === steps.length - 1;
-  
-  const progressBars = steps.map((_, index) => `<div class="q-bar${index <= step ? " done" : ""}"></div>`).join("");
-  
-  let bodyHtml = "";
-  let title = "";
-  let canNext = false;
-
-  if (steps[step] === "city") {
-    title = "Which city are you in?";
-    canNext = Boolean(quickQuizState.city);
-    bodyHtml = `
-      <div class="q-grid">
-        ${QUIZ_CITY_OPTIONS.slice(1).map((option) => `
-          <button class="q-opt${quickQuizState.city === option.value ? " sel" : ""}" data-qquiz-city="${escapeAttr(option.value)}" type="button">
-            <span class="q-icon"><img class="q-icon-img" src="${escapeAttr(option.iconSrc)}" alt="${escapeAttr(option.iconAlt)}" style="width:32px;height:32px;" /></span>
-            <span>${escapeHtml(option.label)}</span>
-            ${quickQuizState.city === option.value ? `<span class="q-check">✓</span>` : ""}
-          </button>
-        `).join("")}
-      </div>
-    `;
-  } else if (steps[step] === "type") {
-    title = "What type of card?";
-    canNext = Boolean(quickQuizState.type);
-    bodyHtml = `
-      <div class="q-grid">
-        ${QUIZ_CARD_TYPE_OPTIONS.map((option) => `
-          <button class="q-opt${quickQuizState.type === option.value ? " sel" : ""}" data-qquiz-type="${escapeAttr(option.value)}" type="button">
-            <span class="q-icon" style="font-size:32px;">${option.icon}</span>
-            <span>${escapeHtml(option.label)}</span>
-            ${quickQuizState.type === option.value ? `<span class="q-check">✓</span>` : ""}
-          </button>
-        `).join("")}
-      </div>
-    `;
-  } else if (steps[step] === "bill") {
-    title = "Typical bill amount?";
-    canNext = true;
-    bodyHtml = `
-      <div style="display:flex;gap:8px;flex-direction:column;align-items:center;">
-        <div class="q-slider-val">${formatCurrency(quickQuizState.bill)}</div>
-        <input type="range" min="1000" max="50000" step="500" value="${quickQuizState.bill}" id="qquiz-slider" style="width:100%;accent-color:var(--brand)" />
-        <div class="q-slider-ends" style="font-size:12px;color:var(--muted2);"><span>1K</span><span>50K</span></div>
-      </div>
-    `;
-  }
-
-  inner.innerHTML = `
-    <div style="width:100%;max-width:400px;display:flex;flex-direction:column;gap:24px;">
-      <div style="display:flex;gap:4px;justify-content:center;">${progressBars}</div>
-      <div>
-        <h2 style="font-size:20px;font-weight:600;margin-bottom:16px;color:var(--ink);">${title}</h2>
-        ${bodyHtml}
-      </div>
-      <div style="display:flex;gap:8px;">
-        ${step > 0 ? `<button class="btn-secondary qquiz-prev" style="flex:1;padding:12px;border-radius:var(--r-sm);background:var(--surface2);color:var(--ink);font-weight:500;cursor:pointer;border:1px solid var(--line);">Back</button>` : ""}
-        ${!isLast ? `<button class="btn-primary qquiz-next" style="flex:1;padding:12px;border-radius:var(--r-sm);background:${canNext ? "var(--brand)" : "var(--muted2)"};color:#fff;font-weight:500;cursor:${canNext ? "pointer" : "not-allowed"};opacity:${canNext ? "1" : "0.5"};" ${!canNext ? "disabled" : ""}>Next</button>` : `<button class="btn-primary qquiz-finish" style="flex:1;padding:12px;border-radius:var(--r-sm);background:var(--brand);color:#fff;font-weight:500;cursor:pointer;">See Results</button>`}
-      </div>
-      <button class="qquiz-skip" style="padding:8px;background:none;color:var(--muted2);text-align:center;font-size:13px;cursor:pointer;text-decoration:underline;">Skip for now</button>
-    </div>
-  `;
-
-  // Event listeners
-  const slider = document.getElementById("qquiz-slider");
-  if (slider) {
-    slider.addEventListener("input", (e) => {
-      quickQuizState.bill = parseInt(e.target.value);
-      const valEl = document.querySelector(".q-slider-val");
-      if (valEl) valEl.textContent = formatCurrency(quickQuizState.bill);
-    });
-    slider.addEventListener("change", () => renderQuickQuiz());
-  }
-
-  document.querySelectorAll("[data-qquiz-city]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      quickQuizState.city = btn.dataset.qquizCity;
-      renderQuickQuiz();
-    });
-  });
-
-  document.querySelectorAll("[data-qquiz-type]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      quickQuizState.type = btn.dataset.qquizType;
-      renderQuickQuiz();
-    });
-  });
-
-  const nextBtn = document.querySelector(".qquiz-next");
-  if (nextBtn && canNext) {
-    nextBtn.addEventListener("click", () => {
-      quickQuizState.step++;
-      renderQuickQuiz();
-    });
-  }
-
-  const prevBtn = document.querySelector(".qquiz-prev");
-  if (prevBtn) {
-    prevBtn.addEventListener("click", () => {
-      quickQuizState.step--;
-      renderQuickQuiz();
-    });
-  }
-
-  const finishBtn = document.querySelector(".qquiz-finish");
-  if (finishBtn) {
-    finishBtn.addEventListener("click", () => {
-      applyQuickQuizResults();
-    });
-  }
-
-  const skipBtn = document.querySelector(".qquiz-skip");
-  if (skipBtn) {
-    skipBtn.addEventListener("click", () => {
-      closeQuiz();
-    });
-  }
-}
-
-function applyQuickQuizResults() {
-  if (quickQuizState.city) {
-    state.selectedCity = quickQuizState.city;
-    updateCityChip();
-    renderNavCityTabs();
-  }
-  if (quickQuizState.type) {
-    state.selectedCardTypes.add(quickQuizState.type);
-  }
-  if (quickQuizState.bill) {
-    state.orderValue = quickQuizState.bill;
-  }
-  renderRecommendations();
-  closeQuiz();
-}
-
-function openQuiz() {
-  quizState = buildQuizStateFromCurrent();
-  renderQuiz();
-  const modal = document.getElementById("quiz-modal");
-  if (modal) modal.style.display = "flex";
-}
-
-function closeQuiz() {
-  const modal = document.getElementById("quiz-modal");
-  if (modal) modal.style.display = "none";
-}
-
-function renderQuiz() {
-  const inner = document.getElementById("quiz-modal-inner");
-  if (!inner || !quizState) return;
-
-  pruneQuizRestaurants();
-  const steps = getQuizSteps();
-  const step = Math.min(quizState.step || 0, steps.length - 1);
-  quizState.step = step;
-  const current = steps[step];
-  const isLast = step === steps.length - 1;
-  const progressBars = steps.map((_, index) => `<div class="q-bar${index <= step ? " done" : ""}"></div>`).join("");
-  const bankResults = getAvailableBanksForQuiz()
-    .filter((bank) => !quizState.banks.includes(bank))
-    .filter((bank) => !quizState.bankSearchTerm || bank.toLowerCase().includes(quizState.bankSearchTerm.toLowerCase()))
-    .slice(0, 10);
-  const restaurantResults = getAvailableRestaurantsForQuiz()
-    .filter((restaurant) => !quizState.restaurants.includes(restaurant))
-    .filter((restaurant) => !quizState.restSearchTerm || restaurant.toLowerCase().includes(quizState.restSearchTerm.toLowerCase()))
-    .slice(0, 14);
-
-  let bodyHtml = "";
-  let canNext = true;
-
-  if (current.id === "city") {
-    canNext = Boolean(quizState.city);
-    bodyHtml = `
-      <div class="q-grid">
-        ${QUIZ_CITY_OPTIONS.map((option) => `
-          <button class="q-opt${quizState.city === option.value ? " sel" : ""}" data-quiz-city="${escapeAttr(option.value)}" type="button">
-            <span class="q-icon">${option.iconSrc
-              ? `<img class="q-icon-img" src="${escapeAttr(option.iconSrc)}" alt="${escapeAttr(option.iconAlt || option.label)}" />`
-              : option.icon}</span>
-            <span style="flex:1">${escapeHtml(option.label)}</span>
-            ${quizState.city === option.value ? `<span class="q-check">✓</span>` : ""}
-          </button>
-        `).join("")}
-      </div>
-    `;
-  } else if (current.id === "bill") {
-    bodyHtml = `
-      <div class="q-slider-val">${formatCurrency(quizState.bill)}</div>
-      <input type="range" min="1000" max="50000" step="500" value="${quizState.bill}" id="quiz-slider" style="width:100%;accent-color:var(--brand)" />
-      <div class="q-slider-ends"><span>PKR 1,000</span><span>PKR 50,000</span></div>
-    `;
-  } else if (current.id === "days") {
-    bodyHtml = `
-      <div class="quiz-pills">
-        ${state.data.dayNames.map((dayName, index) => `
-          <button class="s-pill${quizState.days.includes(index) ? " active" : ""}" data-quiz-day="${index}" type="button" title="${escapeAttr(dayName)}">${DAY_SHORT[index]}</button>
-        `).join("")}
-      </div>
-      <p class="q-hint" style="margin-top:14px;margin-bottom:0">Leave this blank if your days vary.</p>
-    `;
-  } else if (current.id === "types") {
-    canNext = quizState.types.length > 0;
-    const allTypeOpts = [...QUIZ_CARD_TYPE_OPTIONS, { value: "any", label: "I'm open to all", icon: "🎯" }];
-    bodyHtml = `
-      <div class="q-grid">
-        ${allTypeOpts.map((option) => `
-          <button class="q-opt${quizState.types.includes(option.value) ? " sel" : ""}" data-quiz-type="${escapeAttr(option.value)}" type="button">
-            <span class="q-icon">${option.icon}</span>
-            <span style="flex:1">${escapeHtml(option.label)}</span>
-            ${quizState.types.includes(option.value) ? `<span class="q-check">✓</span>` : ""}
-          </button>
-        `).join("")}
-      </div>
-    `;
-  } else if (current.id === "banks") {
-    bodyHtml = `
-      <input id="quiz-bank-search" class="s-search" type="search" placeholder="Search banks..." autocomplete="off" value="${escapeAttr(quizState.bankSearchTerm)}" />
-      <div class="quiz-search-results">
-        ${bankResults.map((bank) => `
-          <button class="s-search-item" data-quiz-add-bank="${escapeAttr(bank)}" type="button">
-            <span>${escapeHtml(bank)}</span><span class="s-search-item-add">Add</span>
-          </button>
-        `).join("")}
-      </div>
-      <div class="quiz-chip-list">
-        ${quizState.banks.slice().sort((a, b) => a.localeCompare(b)).map((bank) => `
-          <div class="s-chip">
-            <span>${escapeHtml(bank)}</span>
-            <button class="s-chip-remove" data-quiz-remove-bank="${escapeAttr(bank)}" type="button">×</button>
-          </div>
-        `).join("")}
-      </div>
-      <p class="q-hint" style="margin-top:14px;margin-bottom:0">Optional. Skip if you want the widest shortlist.</p>
-    `;
-  } else if (current.id === "restaurants") {
-    bodyHtml = `
-      <input id="quiz-restaurant-search" class="s-search" type="search" placeholder="Search restaurants..." autocomplete="off" value="${escapeAttr(quizState.restSearchTerm)}" />
-      <div class="quiz-search-results">
-        ${restaurantResults.map((restaurant) => `
-          <button class="s-search-item" data-quiz-add-restaurant="${escapeAttr(restaurant)}" type="button">
-            <span>${escapeHtml(restaurant)}</span><span class="s-search-item-add">Add</span>
-          </button>
-        `).join("")}
-      </div>
-      <div class="quiz-chip-list">
-        ${quizState.restaurants.slice().sort((a, b) => a.localeCompare(b)).map((restaurant) => `
-          <div class="s-chip">
-            <span>${escapeHtml(restaurant)}</span>
-            <button class="s-chip-remove" data-quiz-remove-restaurant="${escapeAttr(restaurant)}" type="button">×</button>
-          </div>
-        `).join("")}
-      </div>
-      <p class="q-hint" style="margin-top:14px;margin-bottom:0">Optional, but this gives the ranking much better signal.</p>
-    `;
-  } else if (current.id === "eligibility") {
-    canNext = true;
-    bodyHtml = `
-      <div class="quiz-inline-grid">
-        <div>
-          <div class="quiz-field-label">Monthly salary</div>
-          <input id="quiz-monthly-salary" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 100,000" value="${quizState.monthlySalary ?? ""}" />
-          <p class="q-hint" style="margin-top:6px;margin-bottom:0">Leave blank for no restriction</p>
-        </div>
-        <div>
-          <div class="quiz-field-label">Account balance</div>
-          <input id="quiz-account-balance" class="s-search" type="number" inputmode="numeric" min="0" step="1000" placeholder="e.g. 250,000" value="${quizState.accountBalance ?? ""}" />
-          <p class="q-hint" style="margin-top:6px;margin-bottom:0">Leave blank for no restriction</p>
-        </div>
-      </div>
-    `;
-  }
-
-  inner.innerHTML = `
-    <div class="quiz-wrap">
-      <div class="quiz-header">
-        <div class="quiz-brand">
-          <div class="quiz-brand-icon">🎯</div>
-          <div class="quiz-brand-name">Find My Card</div>
-        </div>
-        <button class="btn-quiz-close" id="btn-quiz-close" type="button">×</button>
-      </div>
-      <div class="q-prog">${progressBars}</div>
-      <div class="q-step-label">Question ${step + 1} of ${steps.length}</div>
-      <h2 class="q-text">${escapeHtml(current.title)}</h2>
-      <p class="q-hint">${escapeHtml(current.hint)}</p>
-      ${bodyHtml}
-      <div class="q-nav">
-        ${step > 0
-          ? `<button class="btn-q-back" id="btn-q-back" type="button">← Back</button>`
-          : `<button class="btn-q-back" id="btn-quiz-reset" type="button">Reset</button>`}
-        <button class="btn-q-next" id="btn-q-next" type="button" ${!canNext ? "disabled" : ""}>
-          ${isLast ? "Show My Cards →" : "Next →"}
-        </button>
-      </div>
-    </div>
-  `;
-
-  inner.querySelector("#btn-quiz-close")?.addEventListener("click", closeQuiz);
-  inner.querySelector("#btn-quiz-reset")?.addEventListener("click", () => {
-    quizState = buildDefaultQuizState();
-    renderQuiz();
-  });
-  inner.querySelector("#btn-q-back")?.addEventListener("click", () => {
-    quizState.step = Math.max(0, quizState.step - 1);
-    renderQuiz();
-  });
-  inner.querySelector("#btn-q-next")?.addEventListener("click", () => {
-    if (isLast) {
-      handleQuizDone(quizState);
-      closeQuiz();
-      return;
-    }
-    quizState.step += 1;
-    renderQuiz();
-  });
-  inner.querySelector("#quiz-slider")?.addEventListener("input", (e) => {
-    quizState.bill = Number(e.target.value);
-    const valueEl = inner.querySelector(".q-slider-val");
-    if (valueEl) valueEl.textContent = formatCurrency(quizState.bill);
-  });
-
-  inner.querySelectorAll("[data-quiz-city]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      quizState.city = btn.dataset.quizCity;
-      pruneQuizRestaurants();
-      renderQuiz();
-    });
-  });
-  inner.querySelectorAll("[data-quiz-day]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      toggleQuizArrayValue("days", Number(btn.dataset.quizDay));
-      renderQuiz();
-    });
-  });
-  inner.querySelectorAll("[data-quiz-type]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const v = btn.dataset.quizType;
-      if (v === "any") {
-        quizState.types = quizState.types.includes("any") ? [] : ["any"];
-      } else {
-        const without = quizState.types.filter(x => x !== "any");
-        quizState.types = without.includes(v) ? without.filter(x => x !== v) : [...without, v];
-      }
-      pruneQuizRestaurants();
-      renderQuiz();
-    });
-  });
-  inner.querySelector("#quiz-bank-search")?.addEventListener("input", (e) => {
-    quizState.bankSearchTerm = e.target.value.trim();
-    renderQuiz();
-    restoreQuizFocus("quiz-bank-search");
-  });
-  inner.querySelector("#quiz-restaurant-search")?.addEventListener("input", (e) => {
-    quizState.restSearchTerm = e.target.value.trim();
-    renderQuiz();
-    restoreQuizFocus("quiz-restaurant-search");
-  });
-  inner.querySelectorAll("[data-quiz-add-bank]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const bank = btn.dataset.quizAddBank;
-      if (!quizState.banks.includes(bank)) quizState.banks.push(bank);
-      quizState.bankSearchTerm = "";
-      pruneQuizRestaurants();
-      renderQuiz();
-    });
-  });
-  inner.querySelectorAll("[data-quiz-remove-bank]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      quizState.banks = quizState.banks.filter((bank) => bank !== btn.dataset.quizRemoveBank);
-      pruneQuizRestaurants();
-      renderQuiz();
-    });
-  });
-  inner.querySelectorAll("[data-quiz-add-restaurant]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const restaurant = btn.dataset.quizAddRestaurant;
-      if (!quizState.restaurants.includes(restaurant)) quizState.restaurants.push(restaurant);
-      quizState.restSearchTerm = "";
-      renderQuiz();
-    });
-  });
-  inner.querySelectorAll("[data-quiz-remove-restaurant]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      quizState.restaurants = quizState.restaurants.filter((restaurant) => restaurant !== btn.dataset.quizRemoveRestaurant);
-      renderQuiz();
-    });
-  });
-  inner.querySelector("#quiz-monthly-salary")?.addEventListener("input", (e) => {
-    quizState.monthlySalary = parseOptionalNumber(e.target.value);
-  });
-  inner.querySelector("#quiz-account-balance")?.addEventListener("input", (e) => {
-    quizState.accountBalance = parseOptionalNumber(e.target.value);
-  });
-}
-
-function getQuizSteps() {
-  return [
-    { id: "city",        title: "Which city do you usually dine in?",          hint: "We’ll focus the ranking on where you actually use the card." },
-    { id: "bill",        title: "What’s your typical restaurant bill?",         hint: "Per outing. Caps and savings change a lot with bill size." },
-    { id: "days",        title: "What days do you usually go out?",             hint: "Optional. We’ll keep all days if your pattern varies." },
-    { id: "types",       title: "What type of card can you get?",               hint: "Select one or more. This one matters, so pick at least one." },
-    { id: "banks",       title: "Do you want to limit this to certain banks?",  hint: "Optional. Add banks only if you want to narrow the shortlist." },
-    { id: "restaurants", title: "Which restaurants should we prioritize?",      hint: "Optional, but this produces much better recommendations." },
-    { id: "eligibility", title: "What’s your monthly salary and balance?",      hint: "Optional. Helps us hide cards you likely won’t qualify for." },
-  ];
-}
-
-function handleQuizDone(ans) {
-  state.selectedCity = normalizeCityValue(ans.city);
-  state.orderValue = ans.bill || 10000;
-  state.selectedDays = new Set(ans.days || []);
-  state.selectedCardTypes = new Set((ans.types || []).includes("any") ? [] : (ans.types || []));
-  state.selectedBanks = new Set(ans.banks || []);
-  state.selectedRestaurants = new Set(ans.restaurants || []);
-  state.monthlySalary = parseOptionalNumber(ans.monthlySalary);
-  state.accountBalance = parseOptionalNumber(ans.accountBalance);
-  state.useEligibility = state.monthlySalary !== null || state.accountBalance !== null;
-  state.bankSearchTerm = "";
-  state.restSearchTerm = "";
-
-  syncDomToState();
-  renderNavCityTabs();
-  render();
-}
-
-function buildDefaultQuizState() {
-  return {
-    step: 0,
-    city: "all",
-    bill: 10000,
-    days: [],
-    types: [],
-    banks: [],
-    restaurants: [],
-    useEligibility: false,
-    monthlySalary: null,
-    accountBalance: null,
-    bankSearchTerm: "",
-    restSearchTerm: "",
-  };
-}
-
-function buildQuizStateFromCurrent() {
-  return {
-    step: 0,
-    city: normalizeCityValue(state.selectedCity),
-    bill: state.orderValue,
-    days: Array.from(state.selectedDays),
-    types: Array.from(state.selectedCardTypes),
-    banks: Array.from(state.selectedBanks),
-    restaurants: Array.from(state.selectedRestaurants),
-    useEligibility: state.useEligibility,
-    monthlySalary: state.monthlySalary,
-    accountBalance: state.accountBalance,
-    bankSearchTerm: "",
-    restSearchTerm: "",
-  };
-}
-
-function toggleQuizArrayValue(key, value) {
-  if (!quizState) return;
-  const current = new Set(quizState[key]);
-  if (current.has(value)) current.delete(value);
-  else current.add(value);
-  quizState[key] = Array.from(current);
-}
-
-function getAvailableBanksForQuiz() {
-  if (!state.data || !quizState) return [];
-  const bankCounts = new Map();
-  const selectedCity = normalizeCityValue(quizState.city);
-  state.data.offers.forEach((offer) => {
-    if (selectedCity !== "all" && normalizeCityValue(offer.city) !== selectedCity) return;
-    if (quizState.types.length > 0 && !quizState.types.includes("any") && !quizState.types.includes(offer.cardCategory)) return;
-    bankCounts.set(offer.bank, (bankCounts.get(offer.bank) || 0) + 1);
-  });
-  return Array.from(bankCounts.keys()).sort((a, b) => a.localeCompare(b));
-}
-
-function getAvailableRestaurantsForQuiz() {
-  if (!state.data || !quizState) return [];
-  const names = new Set();
-  const selectedCity = normalizeCityValue(quizState.city);
-  state.data.offers.forEach((offer) => {
-    if (selectedCity !== "all" && normalizeCityValue(offer.city) !== selectedCity) return;
-    if (quizState.types.length > 0 && !quizState.types.includes("any") && !quizState.types.includes(offer.cardCategory)) return;
-    if (quizState.banks.length > 0 && !quizState.banks.includes(offer.bank)) return;
-    names.add(offer.restaurant);
-  });
-  return Array.from(names).sort((a, b) => a.localeCompare(b));
-}
-
-function pruneQuizRestaurants() {
-  if (!quizState) return;
-  const available = new Set(getAvailableRestaurantsForQuiz());
-  quizState.restaurants = quizState.restaurants.filter((restaurant) => available.has(restaurant));
-}
-
-function restoreQuizFocus(id) {
-  const input = document.getElementById(id);
-  if (!input) return;
-  const end = input.value.length;
-  input.focus();
-  input.setSelectionRange?.(end, end);
-}
 
 /* ══════════════════════════════════════════════════════
    CHAT — Gemini 2.5 Flash with streaming (via /api/chat proxy)
    ══════════════════════════════════════════════════════ */
 
-/* ── FUZZY NAME MATCH ── */
-function fuzzyMatch(query, target) {
-  if (!query || !target) return false;
-  const norm = (s) => s.toLowerCase().replace(/[‘’’`]/g, "").replace(/[^a-z0-9\s]/g, " ").replace(/\s+/g, " ").trim();
-  const q = norm(query), t = norm(target);
-  if (t.includes(q) || q.includes(t)) return true;
-  // Strip generic banking words before prefix matching — they appear in almost
-  // every card/bank name and cause false positives ("card" matching any card, etc.)
-  const STOP = new Set(["card", "bank", "debit", "credit", "visa", "gold", "silver", "plus", "lite", "easy"]);
-  const sig = (s) => s.split(" ").filter((w) => w.length >= 4 && !STOP.has(w));
-  const qw = sig(q);
-  const tw = sig(t);
-  if (!qw.length || !tw.length) return false;
-  return qw.some((qword) => tw.some((tword) => tword.startsWith(qword) || qword.startsWith(tword)));
-}
+/* ── CHAT PANEL + AI TOOLS ── moved to assets/chat.js */
 
-/* ── TOOL DEFINITIONS (OpenAI format) ── */
-const CHAT_TOOL_DEFINITIONS = [
-  {
-    type: "function",
-    function: {
-      name: "search_offers",
-      description: "Search and filter the full offers database. Use for: all deals at a restaurant, all offers from a bank, day-of-week deals, offers above a discount threshold, or any combination of filters. Returns raw offer rows with full detail.",
-      parameters: {
-        type: "object",
-        properties: {
-          restaurants: { type: "array", items: { type: "string" }, description: "Restaurant name(s) — partial/fuzzy match ok. Pass multiple to get deals at all of them." },
-          banks:       { type: "array", items: { type: "string" }, description: "Bank name(s) — partial match ok, e.g. 'HBL', 'Meezan', 'Alfalah'." },
-          cards:       { type: "array", items: { type: "string" }, description: "Card name(s) — partial match ok." },
-          card_types:  { type: "array", items: { type: "string" }, description: "Card category: debit, credit, or other (digital wallets)." },
-          city:        { type: "string", description: "City filter: karachi, lahore, islamabad, or all." },
-          days:        { type: "array", items: { type: "number" }, description: "Valid-on-day filter: 0=Mon 1=Tue 2=Wed 3=Thu 4=Fri 5=Sat 6=Sun." },
-          min_discount_pct: { type: "number", description: "Minimum discount percentage to include." },
-          sort_by:     { type: "string", description: "Sort: discount (default), cap, restaurant, bank." },
-          limit:       { type: "number", description: "Max results (default 30, max 60)." },
-        },
-      },
-    },
-  },
-  {
-    type: "function",
-    function: {
-      name: "rank_cards",
-      description: "Get cards ranked by estimated savings and restaurant coverage for a given context. Use for: best card overall, best card for specific restaurants (pass multiple for AND logic), best card for specific days, best card within a budget.",
-      parameters: {
-        type: "object",
-        properties: {
-          city:        { type: "string", description: "City: karachi, lahore, islamabad, or all." },
-          bill_size:   { type: "number", description: "Typical bill size in PKR for savings estimate." },
-          card_types:  { type: "array", items: { type: "string" }, description: "Restrict to these card types: debit, credit, other." },
-          restaurants: { type: "array", items: { type: "string" }, description: "Only rank cards covering ALL of these restaurants (AND logic)." },
-          days:        { type: "array", items: { type: "number" }, description: "Only count offers valid on these days (0=Mon...6=Sun)." },
-          limit:       { type: "number", description: "Max results (default 15)." },
-        },
-      },
-    },
-  },
-  {
-    type: "function",
-    function: {
-      name: "get_bank_cards",
-      description: "Get all cards and deal stats for one bank or every bank. Use for: what cards does bank X have, which bank covers the most restaurants, bank-level comparisons.",
-      parameters: {
-        type: "object",
-        properties: {
-          bank: { type: "string", description: "Bank name (partial match ok). Omit to get a summary of all 19 banks." },
-          city: { type: "string", description: "City filter (optional)." },
-        },
-      },
-    },
-  },
-  {
-    type: "function",
-    function: {
-      name: "get_restaurant_rankings",
-      description: "Get restaurants ranked by max discount, total deal count, or number of banks covering them. Use for: highest discount restaurant, most deals in a city, which places are covered by the most banks.",
-      parameters: {
-        type: "object",
-        properties: {
-          city:       { type: "string", description: "City filter (optional)." },
-          card_types: { type: "array", items: { type: "string" }, description: "Card type filter (optional)." },
-          sort_by:    { type: "string", description: "max_discount (default), deal_count, bank_count." },
-          limit:      { type: "number", description: "Max results (default 20)." },
-        },
-      },
-    },
-  },
-  {
-    type: "function",
-    function: {
-      name: "compare_cards",
-      description: "Head-to-head comparison of 2-4 specific cards: savings estimate, restaurant coverage, day-by-day deal breakdown, caps, and eligibility side by side.",
-      parameters: {
-        type: "object",
-        properties: {
-          cards: {
-            type: "array",
-            items: { type: "object", properties: { bank: { type: "string" }, card: { type: "string" } } },
-            description: "Array of {bank, card} pairs to compare.",
-          },
-          bill_size: { type: "number", description: "Bill size in PKR for savings estimates." },
-          city:      { type: "string", description: "City filter (optional)." },
-        },
-      },
-    },
-  },
-  {
-    type: "function",
-    function: {
-      name: "get_card_requirements",
-      description: "Get eligibility requirements and annual fee details for specific cards or the current top recommendations.",
-      parameters: {
-        type: "object",
-        properties: {
-          cards: {
-            type: "array",
-            items: { type: "object", properties: { bank: { type: "string" }, card: { type: "string" } } },
-            description: "Array of {bank, card} pairs. Omit to fetch requirements for top ranked cards.",
-          },
-          limit: { type: "number", description: "If cards are omitted, max top cards to return (default 5)." },
-        },
-      },
-    },
-  },
-];
 
-/* ── TOOL IMPLEMENTATIONS ── */
 
-function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, days, min_discount_pct, sort_by = "discount", limit = 30 } = {}) {
-  if (!state.data?.offers) return { error: "Offers data not loaded." };
-  let results = state.data.offers;
-  if (city && city !== "all") {
-    const c = normalizeCityValue(city);
-    results = results.filter((o) => normalizeCityValue(o.city) === c);
-  }
-  if (restaurants?.length) results = results.filter((o) => restaurants.some((r) => fuzzyMatch(r, o.restaurant)));
-  if (banks?.length)       results = results.filter((o) => banks.some((b) => fuzzyMatch(b, o.bank)));
-  if (cards?.length)       results = results.filter((o) => cards.some((c) => fuzzyMatch(c, o.card)));
-  if (card_types?.length)  results = results.filter((o) => card_types.includes(o.cardCategory));
-  if (days?.length)        results = results.filter((o) => days.some((d) => o.days.includes(d)));
-  if (min_discount_pct)    results = results.filter((o) => o.discountPct != null && o.discountPct >= min_discount_pct);
-  const total = results.length;
-  if (sort_by === "discount")        results = results.slice().sort((a, b) => (b.discountPct || 0) - (a.discountPct || 0));
-  else if (sort_by === "cap")        results = results.slice().sort((a, b) => (b.capPkr || 0) - (a.capPkr || 0));
-  else if (sort_by === "restaurant") results = results.slice().sort((a, b) => a.restaurant.localeCompare(b.restaurant));
-  else if (sort_by === "bank")       results = results.slice().sort((a, b) => a.bank.localeCompare(b.bank));
-  const cap = Math.min(limit, 60);
-  return {
-    total_matching: total, returned: Math.min(total, cap),
-    offers: results.slice(0, cap).map((o) => ({
-      offer_id: `${o.bank}||${o.card}||${o.restaurant}||${o.city}`.toLowerCase(),
-      restaurant: o.restaurant,
-      city: o.city,
-      bank: o.bank,
-      card: o.card,
-      card_type: o.cardCategory,
-      discount_pct: o.discountPct,
-      cap_pkr: o.capPkr,
-      valid_days: o.daysLabel,
-      offer_title: o.offerTitle,
-    })),
-  };
-}
+/* ── COMPUTE RECOMMENDATIONS ── moved to assets/algorithms.js */
 
-function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, limit = 15 } = {}) {
-  if (!state.data?.offers) return { error: "Offers data not loaded." };
-  const saved = {
-    selectedCity: state.selectedCity, orderValue: state.orderValue,
-    selectedCardTypes: state.selectedCardTypes, selectedRestaurants: state.selectedRestaurants,
-    selectedDays: state.selectedDays,
-    selectedBanks: state.selectedBanks, selectedCards: state.selectedCards,
-  };
-  // Chat is independent of UI filters — reset bank/card constraints so the AI
-  // sees the full dataset, not whatever the user happens to have filtered.
-  state.selectedBanks = new Set();
-  state.selectedCards = new Set();
-  if (city)               state.selectedCity = normalizeCityValue(city);
-  if (bill_size)          state.orderValue = bill_size;
-  if (card_types?.length) state.selectedCardTypes = new Set(card_types);
-  if (days?.length)       state.selectedDays = new Set(days);
-  if (restaurants?.length) {
-    const allNames = [...new Set(state.data.offers.map((o) => o.restaurant))];
-    state.selectedRestaurants = new Set(allNames.filter((n) => restaurants.some((r) => fuzzyMatch(r, n))));
-  }
-  const results = computeRecommendations().slice(0, Math.min(limit, 30));
-  Object.assign(state, saved);
-  return {
-    ranked_cards: results.map((r, i) => {
-      // Get discount stats for this card
-      let cardOffers = state.data.offers.filter((o) => o.card === r.card && o.bank === r.bank);
-      
-      // If restaurants were specified, show stats only for those restaurants
-      if (restaurants?.length && state.selectedRestaurants.size > 0) {
-        cardOffers = cardOffers.filter((o) => state.selectedRestaurants.has(o.restaurant));
-      }
-      
-      const discounts = cardOffers.map((o) => o.discountPct).filter((v) => v != null);
-      const avgDiscount = discounts.length ? discounts.reduce((a, b) => a + b, 0) / discounts.length : 0;
-      const caps = cardOffers.map((o) => o.capPkr).filter((v) => v != null);
-      
-      // When restaurants are specified, show coverage relative to those restaurants only
-      let restaurantsCovered = r.coveredVenueCount;
-      let totalInFilter = r.totalVenueCount;
-      if (restaurants?.length && state.selectedRestaurants.size > 0) {
-        const coveredRestaurants = new Set();
-        cardOffers.forEach((o) => {
-          if (state.selectedRestaurants.has(o.restaurant)) {
-            coveredRestaurants.add(o.restaurant);
-          }
-        });
-        restaurantsCovered = coveredRestaurants.size;
-        totalInFilter = state.selectedRestaurants.size;
-      }
-      
-      return {
-        rank: i + 1, 
-        card: r.card, 
-        bank: r.bank, 
-        card_type: r.cardCategory,
-        fit_score: Number(r.score).toFixed(1),
-        avg_discount_pct: Math.round(avgDiscount * 10) / 10,
-        median_cap_pkr: r.medianCap || null,
-        restaurants_covered: restaurantsCovered,
-        total_restaurants_in_filter: totalInFilter,
-        day_fit_pct: Math.round(r.avgDayFit * 100),
-      };
-    }),
-  };
-}
 
-function chatTool_getBankCards({ bank, city } = {}) {
-  if (!state.data?.offers) return { error: "Offers data not loaded." };
-  let offers = state.data.offers;
-  if (city && city !== "all") {
-    const c = normalizeCityValue(city);
-    offers = offers.filter((o) => normalizeCityValue(o.city) === c);
-  }
-  const allBanks = [...new Set(offers.map((o) => o.bank))].sort((a, b) => a.localeCompare(b));
-  const targetBanks = bank ? allBanks.filter((b) => fuzzyMatch(bank, b)) : allBanks;
-  if (bank && !targetBanks.length) return { error: `No bank found matching "${bank}". Available: ${allBanks.join(", ")}` };
-  return {
-    banks: targetBanks.map((bankName) => {
-      const bo = offers.filter((o) => o.bank === bankName);
-      const cardMap = new Map();
-      bo.forEach((o) => {
-        if (!cardMap.has(o.card)) cardMap.set(o.card, { card: o.card, card_type: o.cardCategory, restaurants: new Set(), discounts: new Set(), caps: [], cities: new Set() });
-        const e = cardMap.get(o.card);
-        e.restaurants.add(o.restaurant); e.discounts.add(o.discountLabel);
-        if (o.capPkr) e.caps.push(o.capPkr); e.cities.add(o.city);
-      });
-      return {
-        bank: bankName, total_cards: cardMap.size, total_deals: bo.length,
-        unique_restaurants: new Set(bo.map((o) => o.restaurant)).size,
-        cards: Array.from(cardMap.values()).map((c) => ({
-          card: c.card, card_type: c.card_type, restaurants_covered: c.restaurants.size,
-          discount_range: [...c.discounts].join(", "),
-          avg_cap_pkr: c.caps.length ? Math.round(c.caps.reduce((a, b) => a + b, 0) / c.caps.length) : null,
-          cities: [...c.cities].join(", "),
-        })),
-      };
-    }),
-  };
-}
-
-function chatTool_getRestaurantRankings({ city, card_types, sort_by = "max_discount", limit = 20 } = {}) {
-  if (!state.data?.offers) return { error: "Offers data not loaded." };
-  let offers = state.data.offers;
-  if (city && city !== "all") {
-    const c = normalizeCityValue(city);
-    offers = offers.filter((o) => normalizeCityValue(o.city) === c);
-  }
-  if (card_types?.length) offers = offers.filter((o) => card_types.includes(o.cardCategory));
-  const byRest = new Map();
-  offers.forEach((o) => {
-    if (!byRest.has(o.restaurant)) byRest.set(o.restaurant, { restaurant: o.restaurant, city: o.city, max_discount_pct: 0, best_deal: null, best_bank: null, best_card: null, total_deals: 0, banks: new Set() });
-    const r = byRest.get(o.restaurant);
-    r.total_deals++; r.banks.add(o.bank);
-    if (o.discountPct != null && o.discountPct > r.max_discount_pct) {
-      r.max_discount_pct = o.discountPct;
-      r.best_deal = `${o.offerTitle} (${o.daysLabel}${o.capPkr ? ", cap PKR " + Number(o.capPkr).toLocaleString() : ""})`;
-      r.best_bank = o.bank; r.best_card = o.card;
-    }
-  });
-  let results = Array.from(byRest.values());
-  if (sort_by === "max_discount")   results.sort((a, b) => b.max_discount_pct - a.max_discount_pct);
-  else if (sort_by === "deal_count") results.sort((a, b) => b.total_deals - a.total_deals);
-  else if (sort_by === "bank_count") results.sort((a, b) => b.banks.size - a.banks.size);
-  return {
-    restaurants: results.slice(0, Math.min(limit, 50)).map((r) => ({
-      restaurant: r.restaurant, city: r.city, max_discount_pct: r.max_discount_pct,
-      best_deal: r.best_deal, best_bank: r.best_bank, best_card: r.best_card,
-      total_deals: r.total_deals, banks_covering: r.banks.size, banks: [...r.banks].join(", "),
-    })),
-  };
-}
-
-function chatTool_compareCards({ cards, bill_size, city } = {}) {
-  if (!state.data?.offers) return { error: "Offers data not loaded." };
-  if (!cards?.length) return { error: "No cards specified." };
-  const cityFilter = normalizeCityValue(city || state.selectedCity);
-  return {
-    city_filter: cityFilter,
-    cards: cards.map(({ bank, card }) => {
-      const offers = state.data.offers.filter((o) =>
-        fuzzyMatch(bank, o.bank) && fuzzyMatch(card, o.card) &&
-        (cityFilter === "all" || normalizeCityValue(o.city) === cityFilter)
-      );
-      if (!offers.length) return { bank, card, error: "No offers found. Check bank/card name spelling." };
-      const rests = new Set(offers.map((o) => o.restaurant));
-      const discounts = offers.map((o) => o.discountPct).filter((v) => v != null);
-      const caps = offers.map((o) => o.capPkr).filter((v) => v != null);
-      const avgDiscount = discounts.length ? discounts.reduce((a, b) => a + b, 0) / discounts.length : 0;
-      const avgCap = caps.length ? caps.reduce((a, b) => a + b, 0) / caps.length : null;
-      const elig = evaluateEligibility(offers[0].bank, offers[0].card);
-      return {
-        bank: offers[0].bank, card: offers[0].card, card_type: offers[0].cardCategory,
-        restaurants_covered: rests.size,
-        avg_discount_pct: Math.round(avgDiscount * 10) / 10,
-        avg_cap_pkr: avgCap ? Math.round(avgCap) : "no cap",
-        day_breakdown: [0,1,2,3,4,5,6].map((d) => ({ day: ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"][d], valid_deals: offers.filter((o) => o.days.includes(d)).length })),
-        salary_required_pkr: elig.salaryReq, balance_required_pkr: elig.balanceReq,
-        annual_fee_pkr: elig.annualFeePkr, fee_waiver: elig.annualFeeWaiverRule || null,
-        sample_restaurants: [...rests].slice(0, 8),
-      };
-    }),
-  };
-}
-
-function resolveCanonicalCardPair(bank, card) {
-  const match = state.data?.offers?.find((o) => fuzzyMatch(bank, o.bank) && fuzzyMatch(card, o.card));
-  return {
-    bank: match?.bank || bank,
-    card: match?.card || card,
-  };
-}
-
-function chatTool_getCardRequirements({ cards, limit = 5 } = {}) {
-  if (!state.requirements?.available) {
-    return { error: "Card requirements data unavailable." };
-  }
-  let candidates;
-  if (Array.isArray(cards) && cards.length) {
-    candidates = cards.map(({ bank, card }) => resolveCanonicalCardPair(bank, card));
-  } else {
-    const savedBanks = state.selectedBanks;
-    const savedCards = state.selectedCards;
-    state.selectedBanks = new Set();
-    state.selectedCards = new Set();
-    candidates = computeRecommendations().slice(0, Math.min(limit, 8)).map((r) => ({ bank: r.bank, card: r.card }));
-    state.selectedBanks = savedBanks;
-    state.selectedCards = savedCards;
-  }
-
-  return {
-    cards: candidates.map(({ bank, card }) => {
-      const status = evaluateEligibility(bank, card);
-      return {
-        bank,
-        card,
-        status: status.status,
-        status_label: status.label,
-        salary_required_pkr: status.salaryReq,
-        balance_required_pkr: status.balanceReq,
-        annual_fee_pkr: status.annualFeePkr,
-        fee_waiver: status.annualFeeWaiverRule || null,
-        requirements: status.criteria || [],
-        is_estimated: !!status.isEstimated,
-        estimation_note: status.estimationNote || null,
-      };
-    }),
-  };
-}
-
-function compactToolResultForModel(name, result) {
-  if (!result || result.error) return result;
-  if (name === "search_offers") {
-    return {
-      total_matching: result.total_matching,
-      returned: result.returned,
-      offers: (result.offers || []).slice(0, 20),
-    };
-  }
-  if (name === "rank_cards") {
-    return { ranked_cards: (result.ranked_cards || []).slice(0, 12) };
-  }
-  if (name === "get_restaurant_rankings") {
-    return { restaurants: (result.restaurants || []).slice(0, 20) };
-  }
-  if (name === "get_bank_cards") {
-    return {
-      banks: (result.banks || []).slice(0, 8).map((b) => ({
-        bank: b.bank,
-        total_cards: b.total_cards,
-        total_deals: b.total_deals,
-        unique_restaurants: b.unique_restaurants,
-        cards: (b.cards || []).slice(0, 8),
-      })),
-    };
-  }
-  if (name === "compare_cards") {
-    return { bill_size_pkr: result.bill_size_pkr, city_filter: result.city_filter, cards: (result.cards || []).slice(0, 4) };
-  }
-  if (name === "get_card_requirements") {
-    return {
-      cards: (result.cards || []).map((c) => ({
-        bank: c.bank,
-        card: c.card,
-        status: c.status,
-        status_label: c.status_label,
-        salary_required_pkr: c.salary_required_pkr,
-        balance_required_pkr: c.balance_required_pkr,
-        annual_fee_pkr: c.annual_fee_pkr,
-        fee_waiver: c.fee_waiver,
-      })),
-    };
-  }
-  return result;
-}
-
-function executeChatTool(name, args) {
-  try {
-    switch (name) {
-      case "search_offers":           return chatTool_searchOffers(args);
-      case "rank_cards":              return chatTool_rankCards(args);
-      case "get_bank_cards":          return chatTool_getBankCards(args);
-      case "get_restaurant_rankings": return chatTool_getRestaurantRankings(args);
-      case "compare_cards":           return chatTool_compareCards(args);
-      case "get_card_requirements":   return chatTool_getCardRequirements(args);
-      default: return { error: `Unknown tool: ${name}` };
-    }
-  } catch (e) {
-    return { error: `Tool error: ${e.message}` };
-  }
-}
-
-/* ── System prompt ── */
-function buildSystemPrompt() {
-  const cityLabel = state.selectedCity === "all" ? "all cities (Karachi, Lahore, Islamabad)" : state.selectedCity;
-  const userCtx = `City: ${cityLabel}`;
-
-  // Compute top 3 independent of UI bank/card filters so the AI sees the full dataset.
-  // JS is single-threaded so the mutation+restore is safe, but try/finally guarantees
-  // state is always restored even if computeRecommendations throws.
-  const savedBanks = state.selectedBanks;
-  const savedCards = state.selectedCards;
-  let top3 = [];
-  try {
-    state.selectedBanks = new Set();
-    state.selectedCards = new Set();
-    top3 = computeRecommendations().slice(0, 3);
-  } finally {
-    state.selectedBanks = savedBanks;
-    state.selectedCards = savedCards;
-  }
-
-  const top3text = top3.length
-    ? `TOP CARDS (city context only):\n` +
-      top3.map((r, i) => `${i + 1}. ${r.card} (${r.bank}) — ${Math.round((r.averageDiscount || 0) * 10) / 10}% avg discount`).join("\n")
-    : "No cards available.";
-
-  return `You are KonsaCard AI, the expert assistant for konsacard.pk — Pakistan's independent restaurant discount card comparison tool.
-
-USER CONTEXT:
-${userCtx}
-
-${top3text}
-
-## QUESTION TYPES — identify which applies, then follow the strategy:
-
-**LOOKUP** — specific fact ("what discount does HBL give at Hardee's?", "which days is this deal valid?")
-→ Call the most relevant tool and present the data directly.
-→ Best tools: search_offers (offer-level detail), get_bank_cards, get_card_requirements.
-
-**RECOMMENDATION** — best-fit query ("best card for me?", "best card at X?", "best card on Fridays?")
-→ Call rank_cards with all relevant filters. Pass restaurant name(s) if mentioned, pass days if mentioned.
-→ Optionally follow with get_card_requirements if eligibility hasn't been shown yet.
-→ Present top 2-3 options with specific discount %, cap, and a one-line reason each fits.
-
-**COMPARISON** — head-to-head ("HBL vs MCB", "debit vs credit for dining?")
-→ For specific cards: call compare_cards.
-→ For type-level comparison (debit vs credit): call rank_cards twice with card_types filter and contrast the results.
-→ Highlight the single deciding factor clearly.
-
-**ADVISORY** — judgment or strategy ("is a premium card worth it?", "how do caps affect me?", "should I get two cards?")
-→ Answer from domain knowledge. Pull one grounding data point with a tool only if it sharpens the answer.
-→ Give a direct recommendation; explain the key tradeoff in one sentence.
-
-**OVERVIEW/BROAD** — landscape question ("which bank has the most deals?", "best restaurants for discounts?", "which city has the most offers?")
-→ Call get_bank_cards (omit bank param for all banks), get_restaurant_rankings, or rank_cards without a restaurant filter.
-→ Summarize the pattern — top 3-4 entries with the key distinguishing stat, not every row.
-
-## TOOLS (never answer data questions from memory — always call a tool):
-* search_offers — offer-level detail; filters by restaurant, bank, card, day, discount threshold
-* rank_cards — cards scored by savings + coverage; use restaurants/days/city params to narrow
-* get_bank_cards — bank-level card inventory and coverage stats across restaurants
-* get_restaurant_rankings — restaurants ranked by max discount, deal count, or bank coverage
-* compare_cards — head-to-head comparison of 2-4 cards
-* get_card_requirements — eligibility (salary/balance), annual fee, and waiver conditions
-
-## CONSTANTS:
-- Fit Score (0-100) = savings 70% + coverage 20% + day fit 10%
-- Monthly savings estimate = per-outing saving × outings/week × 4.3
-- Fuzzy matching is built in — "Xanders" finds "Xander's", "hbl" finds "HBL"
-- Always use PKR for amounts. Always name the specific card and bank.
-- Personalize savings ("at PKR 5,000 that's PKR 750 off") ONLY if the user stated their bill size. Otherwise give the % and cap only.
-- If no data exists for a query, say so and suggest checking with the bank directly.`;
-}
-
-
-class GeminiError extends Error {
-  constructor(message, status, reason) {
-    super(message);
-    this.status = status;
-    this.reason = reason;
-  }
-}
-
-/* ── Retry helper: retries on network errors and 5xx/429 with backoff ── */
-async function withRetry(fn, { maxAttempts = 3, signal } = {}) {
-  let lastErr;
-  for (let attempt = 0; attempt < maxAttempts; attempt++) {
-    if (signal?.aborted) throw new DOMException("Aborted", "AbortError");
-    try {
-      return await fn();
-    } catch (err) {
-      if (err.name === "AbortError") throw err;
-      lastErr = err;
-      const retryable = !(err instanceof GeminiError) || err.status === 429 || err.status >= 500;
-      if (!retryable || attempt === maxAttempts - 1) throw err;
-      const delay = err instanceof GeminiError && err.status === 429 ? 3000 : 1000 * (attempt + 1);
-      await new Promise((res) => setTimeout(res, delay));
-    }
-  }
-  throw lastErr;
-}
-
-/* ── Gemini streaming generator (Gemini SSE format) ── */
-async function* streamGemini(messages, systemPrompt, signal, maxTokens = 1000) {
-  const resp = await fetch("/api/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages, systemPrompt, stream: true, maxTokens }),
-    signal,
-  });
-
-  if (!resp.ok) {
-    let msg = `Chat error ${resp.status}`, reason;
-    try { const b = await resp.json(); msg = b?.error || msg; reason = b?.reason; } catch { /* ignore */ }
-    throw new GeminiError(msg, resp.status, reason);
-  }
-
-  // Get token estimate from response if available
-  const tokenEstimate = resp.headers.get("X-Token-Estimate");
-  // (Token logging kept in backend server logs only)
-
-  const reader = resp.body.getReader();
-  const dec = new TextDecoder();
-  let buf = "";
-
-  while (true) {
-    const { done, value } = await reader.read();
-    if (done) break;
-    buf += dec.decode(value, { stream: true });
-    const lines = buf.split("\n");
-    buf = lines.pop() ?? "";
-
-    for (const line of lines) {
-      if (!line.startsWith("data: ")) continue;
-      const raw = line.slice(6).trim();
-      if (!raw) continue;
-      try {
-        const parsed = JSON.parse(raw);
-        // Extract text from Gemini response format
-        if (parsed?.candidates?.[0]?.content?.parts) {
-          for (const part of parsed.candidates[0].content.parts) {
-            if (part.text) yield part.text;
-          }
-        }
-      } catch { /* skip malformed chunk */ }
-    }
-  }
-}
-
-/* ── Non-streaming Gemini call (used for tool resolution loop) ── */
-async function callGeminiNonStreaming(messages, systemPrompt, signal, maxTokens = 700, firstCall = false) {
-  const resp = await fetch("/api/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ messages, systemPrompt, stream: false, maxTokens, firstCall }),
-    signal,
-  });
-  if (!resp.ok) {
-    let msg = `Chat error ${resp.status}`, reason;
-    try { const b = await resp.json(); msg = b?.error || msg; reason = b?.reason; } catch { /* ignore */ }
-    throw new GeminiError(msg, resp.status, reason);
-  }
-  const data = await resp.json();
-  
-  // Convert Gemini response to OpenAI-compatible format for rest of code
-  if (data?.candidates?.[0]) {
-    const candidate = data.candidates[0];
-    const content = candidate.content?.parts?.map((p) => p.text || "").join("") || "";
-    const toolCalls = [];
-    
-    if (candidate.content?.parts) {
-      for (const part of candidate.content.parts) {
-        if (part.functionCall) {
-          toolCalls.push({
-            type: "function",
-            function: {
-              name: part.functionCall.name,
-              arguments: JSON.stringify(part.functionCall.args || {}),
-            },
-          });
-        }
-      }
-    }
-    
-    data.choices = [
-      {
-        message: {
-          role: "assistant",
-          content,
-          tool_calls: toolCalls.length ? toolCalls : undefined,
-        },
-      },
-    ];
-  }
-  
-  return data;
-}
-
-/* ── Convert internal message history to OpenAI messages format ── */
-function truncateModelMessage(text, maxChars = 900) {
-  if (!text || text.length <= maxChars) return text;
-  return `${text.slice(0, maxChars)}\n[truncated for context budget]`;
-}
-
-function trimOpenAiMessages(messages, { maxMessages = 16, maxChars = 14000 } = {}) {
-  const kept = [];
-  let used = 0;
-  for (let i = messages.length - 1; i >= 0; i--) {
-    const row = messages[i];
-    const len = JSON.stringify(row).length;
-    if (kept.length && (kept.length >= maxMessages || used + len > maxChars)) break;
-    kept.push(row);
-    used += len;
-  }
-  const normalized = kept.reverse();
-  const firstUser = normalized.findIndex((m) => m.role === "user");
-  return firstUser > 0 ? normalized.slice(firstUser) : normalized;
-}
-
-/* ── Open / close ── */
-function openChat() {
-  const panel = document.getElementById("chat-panel");
-  const fab   = document.getElementById("chat-fab");
-  if (panel) panel.style.display = "flex";
-  if (fab)   fab.style.display   = "none";
-
-  if (state.chatMessages.length === 0) {
-    const cityLabel = state.selectedCity === "all" ? "all cities" : state.selectedCity;
-    state.chatMessages = [{
-      role: "bot",
-      text: `Hi! I'm KonsaCard AI. I can see you're browsing ${cityLabel} deals — ask me anything about restaurant discounts, card comparisons, or eligibility. 💳`,
-    }];
-  }
-  renderChatBody();
-}
-
-function closeChat() {
-  const panel = document.getElementById("chat-panel");
-  const fab   = document.getElementById("chat-fab");
-  if (panel) panel.style.display = "none";
-  if (fab)   fab.style.display   = "";
-}
-
-
-/* ── Main chat body render ── */
-function renderChatBody() {
-  const msgs = document.getElementById("chat-msgs");
-  const inputWrap = document.querySelector(".chat-input-wrap");
-  if (!msgs) return;
-  if (inputWrap) inputWrap.style.display = "";
-
-  msgs.innerHTML = "";
-
-  state.chatMessages.forEach((msg, idx) => {
-    if (msg.role === "system") return;
-    const row = document.createElement("div");
-    row.className = `msg-row ${msg.role}`;
-    row.dataset.idx = String(idx);
-
-    const bubble = document.createElement("div");
-    bubble.className = `bubble ${msg.role}`;
-    if (msg.streaming) bubble.classList.add("streaming");
-    bubble.innerHTML = formatBubbleText(msg.text);
-
-    if (msg.retryText) {
-      const retryBtn = document.createElement("button");
-      retryBtn.className = "chat-retry-btn";
-      retryBtn.textContent = "Retry";
-      retryBtn.addEventListener("click", () => {
-        const retryText = msg.retryText;
-        // Remove the failed bot message and re-send
-        state.chatMessages = state.chatMessages.filter((m) => m !== msg);
-        // Also remove the user message that preceded it
-        const lastUser = [...state.chatMessages].reverse().find((m) => m.role === "user");
-        if (lastUser) state.chatMessages = state.chatMessages.filter((m) => m !== lastUser);
-        sendChatMessage(retryText);
-      });
-      bubble.appendChild(retryBtn);
-    }
-
-    row.appendChild(bubble);
-    msgs.appendChild(row);
-  });
-
-  if (state.chatLoading && !state.chatMessages.some((m) => m.streaming)) {
-    const row = document.createElement("div");
-    row.className = "msg-row bot";
-    row.innerHTML = `<div class="bubble bot typing-dots"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>`;
-    msgs.appendChild(row);
-  }
-
-  const visibleMsgs = state.chatMessages.filter((m) => m.role !== "system");
-  const lastVisible = visibleMsgs[visibleMsgs.length - 1];
-  if (lastVisible?.role === "bot" && !lastVisible.streaming && !state.chatLoading) {
-    const isGreeting = visibleMsgs.length === 1;
-    const chips = isGreeting ? getContextualQuickQuestions() : getFollowUpChips();
-    if (chips.length) {
-      const qcWrap = document.createElement("div");
-      qcWrap.className = "quick-chips";
-      chips.forEach((q) => {
-        const btn = document.createElement("button");
-        btn.className = "quick-chip";
-        btn.textContent = q;
-        btn.addEventListener("click", () => sendChatMessage(q));
-        qcWrap.appendChild(btn);
-      });
-      msgs.appendChild(qcWrap);
-    }
-  }
-
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-/* Update just the last streaming bubble without full re-render */
-function updateStreamingBubble(text, slow = false) {
-  const msgs = document.getElementById("chat-msgs");
-  if (!msgs) return;
-  const bubbles = msgs.querySelectorAll(".bubble.bot.streaming");
-  const last = bubbles[bubbles.length - 1];
-  if (!last) return;
-  if (slow && !text) {
-    last.innerHTML = `<span class="chat-slow-hint">Taking a moment…</span>`;
-  } else {
-    last.innerHTML = formatBubbleText(text);
-  }
-  msgs.scrollTop = msgs.scrollHeight;
-}
-
-/* Markdown: **bold**, ## headers, bullet + numbered lists, line breaks */
-function formatBubbleText(text) {
-  if (!text) return "";
-  let html = escapeHtml(text);
-  // Bold
-  html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
-  // Headers (### and ##)
-  html = html.replace(/^###\s+(.+)$/gm, "<strong>$1</strong>");
-  html = html.replace(/^##\s+(.+)$/gm, "<strong><u>$1</u></strong>");
-  // Numbered list items: "1. text"
-  html = html.replace(/^\d+\.\s+(.+)$/gm, "<li>$1</li>");
-  // Bullet list items: "- text" or "• text" or "* text"
-  html = html.replace(/^[-•*]\s+(.+)$/gm, "<li>$1</li>");
-  // Wrap consecutive <li> blocks in <ul> (non-greedy, respects breaks between lists)
-  html = html.replace(/((?:<li>[^\n]*<\/li>\n?)+)/g, "<ul>$1</ul>");
-  // Line breaks (after list processing so <br> doesn't break list grouping)
-  html = html.replace(/\n/g, "<br>");
-  return html;
-}
-
-/* ── In-flight abort controller ── */
-let _chatAbort = null;
-
-/* ── Send message with tool-calling loop + streaming final answer ── */
-async function sendChatMessage(text) {
-  const t = (text || "").trim();
-  if (!t || state.chatLoading) return;
-
-  // Cancel any previous in-flight request
-  if (_chatAbort) { _chatAbort.abort(); _chatAbort = null; }
-  const abort = new AbortController();
-  _chatAbort = abort;
-  const { signal } = abort;
-
-  const input = document.getElementById("chat-input");
-  if (input) input.value = "";
-
-  state.chatMessages.push({ role: "user", text: t });
-  state.chatLoading = true;
-  renderChatBody();
-
-  const systemPrompt = buildSystemPrompt();
-  const streamingMsg = { role: "bot", text: "", streaming: true };
-  state.chatMessages.push(streamingMsg);
-  renderChatBody();
-
-  // Show "still thinking" hint if first token takes > 9s
-  const slowTimer = setTimeout(() => {
-    if (streamingMsg.streaming && !streamingMsg.text) {
-      updateStreamingBubble("", true);
-    }
-  }, 9000);
-
-  // Overall 50s hard timeout
-  const timeoutTimer = setTimeout(() => abort.abort(), 50000);
-
-  const queryStartTime = Date.now();
-
-  try {
-    // Start from the persisted API message history (includes prior tool call/result turns),
-    // then append the new user message.
-    let messages = trimOpenAiMessages([
-      ...state.chatApiMessages,
-      { role: "user", content: t },
-    ]);
-    let directText = "";
-    let toolsUsed = false;
-    const MAX_TOOL_ROUNDS = 4;
-
-    for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
-      const data = await withRetry(
-        () => callGeminiNonStreaming(messages, systemPrompt, signal, 1200, round === 0),
-        { maxAttempts: 3, signal }
-      );
-      const msg   = data?.choices?.[0]?.message;
-      const toolCalls = msg?.tool_calls || [];
-
-      if (!toolCalls.length) {
-        if (!toolsUsed) directText = msg?.content || "";
-        break;
-      }
-
-      toolsUsed = true;
-      // Append assistant's tool-call message, then each tool result
-      const toolResults = toolCalls.map((tc) => ({
-        role: "tool",
-        tool_call_id: tc.id,
-        name: tc.function.name,
-        content: JSON.stringify(compactToolResultForModel(
-          tc.function.name,
-          executeChatTool(tc.function.name, JSON.parse(tc.function.arguments || "{}"))
-        )),
-      }));
-      messages = [
-        ...messages,
-        { role: "assistant", content: msg.content || null, tool_calls: toolCalls },
-        ...toolResults,
-      ];
-      messages = trimOpenAiMessages(messages);
-    }
-
-    let finalText = "";
-    if (directText) {
-      // Stream word-by-word so direct answers feel consistent with tool-backed ones.
-      finalText = directText;
-      const words = finalText.split(" ");
-      let built = "";
-      for (const word of words) {
-        if (signal.aborted) break;
-        built += (built ? " " : "") + word;
-        streamingMsg.text = built;
-        updateStreamingBubble(built);
-        await new Promise((r) => setTimeout(r, 18));
-      }
-      streamingMsg.text = finalText;
-      streamingMsg.streaming = false;
-    } else {
-      for await (const chunk of streamGemini(messages, systemPrompt, signal, 1600)) {
-        finalText += chunk;
-        streamingMsg.text = finalText;
-        updateStreamingBubble(finalText);
-      }
-      streamingMsg.text = finalText || "…";
-      streamingMsg.streaming = false;
-    }
-
-    // Persist the full message exchange (including tool history) for the next turn
-    state.chatApiMessages = trimOpenAiMessages([
-      ...messages,
-      { role: "assistant", content: finalText || streamingMsg.text },
-    ]);
-  } catch (err) {
-    streamingMsg.streaming = false;
-    if (err.name === "AbortError") {
-      // Timed out or superseded by new message — remove the empty bubble
-      state.chatMessages = state.chatMessages.filter((m) => m !== streamingMsg);
-      if (signal.aborted && !_chatAbort?.signal.aborted) return; // superseded, new message handling it
-      streamingMsg.text = "⚠️ Request timed out. Please try again.";
-      state.chatMessages.push(streamingMsg);
-    } else if (err instanceof GeminiError && (err.status === 400 || err.status === 403)) {
-      streamingMsg.text = "⚠️ Chat configuration error. Please try again later.";
-    } else if (err instanceof GeminiError && err.status === 429) {
-      streamingMsg.text = err.reason === "daily"
-        ? "You're officially today's most curious user! 🏆 I've hit my daily limit but I'll be fully recharged tomorrow — come back then and let's keep finding you great deals! 💳"
-        : "You're on a roll! 🔥 I need a quick hourly breather — check back in a bit and let's keep going! 💳";
-    } else if (err instanceof GeminiError && err.status >= 500) {
-      streamingMsg.text = "⚠️ Chat service is temporarily unavailable. Please try again shortly.";
-    } else {
-      streamingMsg.text = "⚠️ Connection error. Check your internet and try again.";
-    }
-    streamingMsg.retryText = t;
-  } finally {
-    clearTimeout(slowTimer);
-    clearTimeout(timeoutTimer);
-    if (_chatAbort === abort) _chatAbort = null;
-  }
-
-  state.chatLoading = false;
-  renderChatBody();
-}
-
-/* ── Clear conversation ── */
-function clearChat() {
-  state.chatMessages = [];
-  state.chatApiMessages = [];
-  state.chatLoading = false;
-  openChat();
-}
-
-/* ── COMPUTE RECOMMENDATIONS ── */
-function computeRecommendations() {
+/* ── NEXT CARD: OWNED CARDS INPUT + VIEW ── */
+function getAllCardsCatalog() {
+  // List of { cardKey, bank, card, cardCategory } across the entire dataset.
   if (!state.data) return [];
-
-  const allCityVenues = new Set();
+  const seen = new Map();
   state.data.offers.forEach((offer) => {
-    if (!cityMatches(offer.city)) return;
-    allCityVenues.add(`${offer.city} || ${offer.restaurant}`);
+    const key = buildCardKey(offer.bank, offer.card);
+    if (!seen.has(key)) {
+      seen.set(key, { cardKey: key, bank: offer.bank, card: offer.card, cardCategory: offer.cardCategory || "other" });
+    }
   });
-  const totalVenueCount = allCityVenues.size;
-  if (!totalVenueCount) return [];
+  return Array.from(seen.values()).sort((a, b) => {
+    const bankCmp = a.bank.localeCompare(b.bank);
+    if (bankCmp !== 0) return bankCmp;
+    return a.card.localeCompare(b.card);
+  });
+}
 
-  // Determine the baseline set of venues we are scoring against.
-  // If user selected restaurants, use those. 
-  // Otherwise, use all restaurants in the current city.
-  // Crucially, we do NOT filter this by bank, otherwise filtering to a single
-  // bank makes that bank's coverage look like 100%.
-  const scoringVenues = new Map();
-  if (state.selectedRestaurants.size > 0) {
-    state.selectedRestaurants.forEach(name => {
-      // Find the specific city-restaurant keys for the selected names
-      const found = state.data.offers.find(o => o.restaurant === name && cityMatches(o.city));
-      if (found) scoringVenues.set(`${found.city} || ${name}`, { city: found.city, restaurant: name });
+function renderOwnedCardsPanel(container, walletStats) {
+  if (!container) return;
+  const catalog = getAllCardsCatalog();
+  const ownedCount = state.ownedCards.size;
+  const hasWallet = ownedCount > 0;
+  const summaryHtml = hasWallet && walletStats ? `
+    <div class="mw-summary">
+      <div class="mw-summary-head">
+        <div class="mw-summary-title-wrap">
+          <div class="mw-summary-kicker">Your wallet</div>
+          <div class="mw-summary-title">${ownedCount} card${ownedCount === 1 ? "" : "s"} · ${formatCurrency(walletStats.perOuting)} / outing</div>
+          <div class="mw-summary-sub">What your current wallet is worth at a ${formatCurrency(state.orderValue)} bill</div>
+        </div>
+      </div>
+      <div class="mw-summary-stats">
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Savings / outing</div>
+          <div class="mw-summary-v green">${formatCurrency(walletStats.perOuting)}</div>
+        </div>
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Restaurants Covered</div>
+          <div class="mw-summary-v">${walletStats.coveredVenues} of ${walletStats.venueCount}</div>
+        </div>
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Est. Yearly</div>
+          <div class="mw-summary-v green">~${formatCurrency(walletStats.yearly)}</div>
+        </div>
+        <div class="mw-summary-stat">
+          <div class="mw-summary-l">Total Annual Fees</div>
+          <div class="mw-summary-v">${walletStats.annualFee === 0 ? (walletStats.feeUnknown ? "Not listed" : "Free") : formatCurrency(walletStats.annualFee)}${walletStats.feeUnknown ? ` <span class="wo-fee-note">(some unlisted)</span>` : ""}</div>
+        </div>
+      </div>
+    </div>
+  ` : "";
+
+  container.innerHTML = `
+    ${summaryHtml}
+    <div class="nc-setup">
+      <div class="nc-setup-head">
+        <div class="nc-setup-title-wrap">
+          <div class="nc-setup-kicker">${hasWallet ? "Manage" : "Step 1"}</div>
+          <div class="nc-setup-title">${hasWallet ? "Cards in your wallet" : "Add the cards you carry"}</div>
+          <div class="nc-setup-sub">${hasWallet
+            ? "Add or remove cards to see how it changes your savings and the best card to add next."
+            : "Tell us what's in your wallet and we'll show what it's worth — plus the single best card to add next."}</div>
+        </div>
+        <div class="nc-setup-count">
+          <span class="nc-setup-count-num">${ownedCount}</span>
+          <span class="nc-setup-count-label">${ownedCount === 1 ? "card" : "cards"}</span>
+        </div>
+      </div>
+      <div class="nc-setup-body">
+        <input id="nc-owned-search" class="s-search nc-search" type="search" placeholder="Search bank or card name…" autocomplete="off" value="${escapeAttr(state.ownedCardSearchTerm)}" />
+        <div id="nc-owned-results" class="s-search-results nc-search-results"></div>
+        <div id="nc-owned-chips" class="s-chips nc-chips"></div>
+        <div class="nc-setup-foot">
+          ${ownedCount > 0 ? `<button id="nc-owned-clear" class="nc-clear-btn" type="button">Clear all</button>` : `<span class="nc-setup-foot-spacer"></span>`}
+          <span class="nc-crosslink">
+            Want to redesign? <a class="nc-link" id="nc-go-wallet">Try Build Wallet →</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  `;
+
+  const searchInput = document.getElementById("nc-owned-search");
+  if (searchInput) {
+    searchInput.addEventListener("input", (e) => {
+      state.ownedCardSearchTerm = e.target.value.trim();
+      renderOwnedCardsResults(catalog);
     });
-  } else {
-    allCityVenues.forEach(key => {
-      const [city, restaurant] = key.split(" || ");
-      scoringVenues.set(key, { city, restaurant });
+  }
+  document.getElementById("nc-owned-clear")?.addEventListener("click", () => {
+    state.ownedCards = new Set();
+    state.ownedCardSearchTerm = "";
+    render();
+  });
+  document.getElementById("nc-go-wallet")?.addEventListener("click", () => {
+    state.viewMode = "wallet";
+    render();
+  });
+
+  renderOwnedCardsResults(catalog);
+  renderOwnedCardsChips();
+}
+
+function renderOwnedCardsResults(catalogArg) {
+  const container = document.getElementById("nc-owned-results");
+  if (!container) return;
+  const catalog = catalogArg || getAllCardsCatalog();
+  const term = (state.ownedCardSearchTerm || "").toLowerCase();
+  // Only show suggestions when user is typing; otherwise keep panel quiet.
+  if (!term) { container.innerHTML = ""; return; }
+  const results = catalog
+    .filter((c) => !state.ownedCards.has(c.cardKey))
+    .filter((c) => `${c.bank} ${c.card}`.toLowerCase().includes(term))
+    .slice(0, 12);
+
+  container.innerHTML = "";
+  if (results.length === 0) {
+    container.innerHTML = `<div class="nc-search-empty">No matching cards. Try the bank name (e.g. "HBL", "Meezan").</div>`;
+    return;
+  }
+  results.forEach((entry) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "s-search-item nc-search-item";
+    item.innerHTML = `
+      <span class="nc-search-item-text">
+        <span class="nc-search-item-card">${escapeHtml(entry.card)}</span>
+        <span class="nc-search-item-bank">${escapeHtml(entry.bank)}</span>
+      </span>
+      <span class="s-search-item-add">+ Add</span>
+    `;
+    item.addEventListener("click", () => {
+      state.ownedCards.add(entry.cardKey);
+      state.ownedCardSearchTerm = "";
+      const input = document.getElementById("nc-owned-search");
+      if (input) input.value = "";
+      trackEvent("owned_card_add", { bank: entry.bank, total: state.ownedCards.size });
+      render();
+    });
+    container.appendChild(item);
+  });
+}
+
+function renderOwnedCardsChips() {
+  const container = document.getElementById("nc-owned-chips");
+  if (!container) return;
+  container.innerHTML = "";
+  Array.from(state.ownedCards).sort().forEach((cardKey) => {
+    const [bank, card] = cardKey.split(" || ");
+    const chip = document.createElement("div");
+    chip.className = "s-chip nc-chip";
+    chip.innerHTML = `
+      <span class="nc-chip-text">
+        <span class="nc-chip-card">${escapeHtml(card || "")}</span>
+        <span class="nc-chip-bank">${escapeHtml(bank || "")}</span>
+      </span>
+    `;
+    const rm = document.createElement("button");
+    rm.className = "s-chip-remove";
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.setAttribute("aria-label", `Remove ${card}`);
+    rm.addEventListener("click", () => { state.ownedCards.delete(cardKey); render(); });
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  });
+}
+
+function renderNextCardView(resultsGrid) {
+  const setupContainer = document.getElementById("next-card-setup");
+  const topPick = document.getElementById("top-pick");
+  const emptyState = document.getElementById("empty-state");
+  const countEl = document.getElementById("result-count");
+  const countLabel = document.getElementById("result-count-label");
+  const rhSub = document.getElementById("rh-sub");
+  const summaryBest = document.getElementById("summary-best");
+
+  // No cards entered → setup-only state (no wallet stats yet)
+  if (state.ownedCards.size === 0) {
+    renderOwnedCardsPanel(setupContainer, null);
+    if (countEl) countEl.textContent = "0";
+    if (countLabel) countLabel.textContent = "cards in wallet";
+    if (rhSub) rhSub.textContent = "Add the cards you carry to find the best next one";
+    if (summaryBest) summaryBest.textContent = "—";
+    if (emptyState) {
+      emptyState.classList.remove("hidden");
+      const title = document.getElementById("empty-state-title");
+      const msg = document.getElementById("empty-state-message");
+      if (title) title.textContent = "Your wallet is empty";
+      if (msg) msg.textContent = "Add the cards you carry above. You'll see what your wallet is worth and the best next card to add.";
+    }
+    if (topPick) topPick.innerHTML = "";
+    if (resultsGrid) resultsGrid.innerHTML = "";
+    return;
+  }
+
+  const { ranked, stats } = computeNextCardRecommendations();
+  const walletStats = stats.wallet;
+  renderOwnedCardsPanel(setupContainer, walletStats);
+
+  if (countEl) countEl.textContent = String(ranked.length);
+  if (countLabel) countLabel.textContent = "cards would add extra savings";
+  if (rhSub) {
+    rhSub.textContent = `Your wallet covers ${walletStats.coveredVenues} of ${walletStats.venueCount} restaurants · ${formatCurrency(state.orderValue)} bill`;
+  }
+  if (summaryBest) {
+    summaryBest.textContent = ranked.length > 0
+      ? `+${formatCurrency(ranked[0].avgDeltaPerOuting)} / outing`
+      : "—";
+  }
+
+  if (ranked.length === 0) {
+    if (emptyState) {
+      emptyState.classList.remove("hidden");
+      const title = document.getElementById("empty-state-title");
+      const msg = document.getElementById("empty-state-message");
+      if (title) title.textContent = "Nothing beats what you already have";
+      if (msg) msg.textContent = "With your current wallet, no other card meaningfully improves savings in this scope. Try a different city, broader days, or a higher bill.";
+    }
+    if (topPick) topPick.innerHTML = "";
+    if (resultsGrid) resultsGrid.innerHTML = "";
+    return;
+  }
+
+  if (emptyState) emptyState.classList.add("hidden");
+
+  // Section header + featured top pick
+  if (topPick) {
+    topPick.innerHTML = "";
+    const header = document.createElement("div");
+    header.className = "mw-section-header";
+    header.innerHTML = `
+      <span class="mw-section-label">Best next card to add</span>
+      <span class="mw-section-sub">Ranked by extra savings on top of your wallet</span>
+    `;
+    topPick.appendChild(header);
+    const slot = document.createElement("div");
+    topPick.appendChild(slot);
+    renderNextCardFeatured(ranked[0], slot);
+  }
+  // Ranked list (skip the featured one)
+  if (resultsGrid) {
+    resultsGrid.innerHTML = "";
+    const rest = ranked.slice(1, 21);
+    rest.forEach((result, idx) => {
+      renderNextCardItem(result, resultsGrid, idx + 2);
     });
   }
+}
 
-  const scoringVenueCount = scoringVenues.size || 1; // Prevent div by zero
+function buildNextCardReason(result) {
+  const bits = [];
+  if (result.newVenues > 0) {
+    bits.push(`<strong>${result.newVenues}</strong> new restaurant${result.newVenues === 1 ? "" : "s"} unlocked`);
+  }
+  if (result.boostedVenues > 0) {
+    bits.push(`<strong>${result.boostedVenues}</strong> existing restaurant${result.boostedVenues === 1 ? "" : "s"} boosted`);
+  }
+  if (!bits.length) bits.push(`covers ${result.coveredVenues} restaurants in scope`);
+  return bits.join(" · ");
+}
 
-  // Score against the use-case only. Narrowing filters like bank/card/type
-  // should not rebase fit scores.
-  const scoringOffers = state.data.offers.filter((offer) => {
-    if (!cityMatches(offer.city)) return false;
-    if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
-    return true;
-  });
+function renderNextCardFeatured(result, container) {
+  if (!container) return;
+  const cardKey = buildCardKey(result.bank, result.card);
+  const score = Number(result.score).toFixed(1);
+  const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
+  const sc = scoreColor(scorePct);
+  const showEligibility = isEligibilityContextActive();
+  const eligStatus = result.requirementStatus;
+  const reason = buildNextCardReason(result);
+  const yearly = result.yearlyDelta;
+  const topVenues = result.topVenueWins.slice(0, 3).map((v) => escapeHtml(v.restaurant)).join(", ");
 
-  const selectedDays = getEffectiveSelectedDays();
-  const totalSelectedDays = selectedDays.size;
-  const cardMap = new Map();
+  container.innerHTML = `
+    <article class="card-item card-item--featured nc-featured" data-key="${escapeAttr(cardKey)}" tabindex="0" role="button" aria-label="Open details for ${escapeAttr(result.card)} from ${escapeAttr(result.bank)}">
+      <div class="card-row card-row--clickable">
+        <div class="card-rank rank-1">1</div>
+        ${renderBankLogo(result.bank, "card-logo-box")}
+        <div class="card-info">
+          <div class="card-badges">
+            <span class="badge-top-pick">💎 BEST NEXT CARD</span>
+            ${showEligibility ? renderEligibilityBadge(eligStatus) : ""}
+          </div>
+          <div class="card-name">${escapeHtml(result.card)}</div>
+          <div class="card-bank">${escapeHtml(result.bank)}</div>
+          <div class="nc-reason">${reason}</div>
+        </div>
+        <div class="score-box">
+          <div class="score-num" style="color:${sc}">${score}</div>
+          <div class="score-label">Fit Score</div>
+          <div class="score-bar">
+            <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
+          </div>
+        </div>
+      </div>
+      <div class="card-stats-row card-stats-row--clickable">
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("Extra Saving")}</div>
+          <div class="cs-v green">+${formatCurrency(result.avgDeltaPerOuting)} / outing</div>
+        </div>
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("Estimated Yearly")}</div>
+          <div class="cs-v green">~+${formatCurrency(yearly)}</div>
+        </div>
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("New Restaurants")}</div>
+          <div class="cs-v">${result.newVenues}</div>
+        </div>
+        <div class="card-stat">
+          <div class="cs-l">${renderMetricLabel("Improves On")}</div>
+          <div class="cs-v">${result.boostedVenues}</div>
+        </div>
+      </div>
+      ${topVenues ? `<div class="nc-feat-topvenues"><span class="nc-feat-topvenues-l">Best wins:</span> ${topVenues}</div>` : ""}
+    </article>
+  `;
+  bindCardOpenInteractions(container.querySelector("article"), cardKey);
+}
 
-  scoringOffers.forEach((offer) => {
-    const offerSaving = getOfferSavingValue(offer, state.orderValue);
-    if (!Number.isFinite(offerSaving) || offerSaving <= 0) return;
+function renderNextCardItem(result, container, rank) {
+  const cardKey = buildCardKey(result.bank, result.card);
+  const score = Number(result.score).toFixed(1);
+  const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
+  const sc = scoreColor(scorePct);
+  const showEligibility = isEligibilityContextActive();
+  const eligStatus = result.requirementStatus;
+  const reason = buildNextCardReason(result);
 
-    const venueKey = `${offer.city} || ${offer.restaurant}`;
-    const cardKey = `${offer.bank} || ${offer.card}`;
+  const article = document.createElement("article");
+  article.className = "card-item nc-item";
+  article.style.animationDelay = `${Math.min(rank, 12) * 0.04}s`;
+  article.dataset.key = cardKey;
+  article.innerHTML = `
+    <div class="card-row card-row--clickable">
+      <div class="card-rank">${rank}</div>
+      ${renderBankLogo(result.bank, "card-logo-box")}
+      <div class="card-info">
+        <div class="card-badges">
+          ${showEligibility ? renderEligibilityBadge(eligStatus) : ""}
+        </div>
+        <div class="card-name">${escapeHtml(result.card)}</div>
+        <div class="card-bank">${escapeHtml(result.bank)}</div>
+        <div class="nc-reason nc-reason--row">${reason}</div>
+      </div>
+      <div class="score-box">
+        <div class="score-num" style="color:${sc}">${score}</div>
+        <div class="score-label">Fit</div>
+        <div class="score-bar">
+          <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-stats-row card-stats-row--clickable">
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("Extra Saving")}</div>
+        <div class="cs-v green">+${formatCurrency(result.avgDeltaPerOuting)} / outing</div>
+      </div>
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("Yearly")}</div>
+        <div class="cs-v green">~+${formatCurrency(result.yearlyDelta)}</div>
+      </div>
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("New")}</div>
+        <div class="cs-v">${result.newVenues}</div>
+      </div>
+      <div class="card-stat">
+        <div class="cs-l">${renderMetricLabel("Boosts")}</div>
+        <div class="cs-v">${result.boostedVenues}</div>
+      </div>
+    </div>
+  `;
+  container.appendChild(article);
+  bindCardOpenInteractions(article, cardKey);
+}
 
-    if (!cardMap.has(cardKey)) {
-      cardMap.set(cardKey, { bank: offer.bank, card: offer.card, cardCategory: offer.cardCategory || null, venueDailyBest: new Map() });
-    }
+/* ── BUILD WALLET: VIEW + SETUP PANEL ── */
+function renderWalletSetupPanel(container) {
+  if (!container) return;
+  const K = state.walletSize;
+  const ownedCount = state.ownedCards.size;
+  const canBuildOnOwned = ownedCount > 0;
+  const buildOnOwned = state.walletBuildOnOwned && canBuildOnOwned;
+  const sizeOptions = [2, 3, 4];
+  const objectiveOptions = [
+    { v: "savings",  label: "Savings",  hint: "Maximum gross saving per outing" },
+    { v: "coverage", label: "Coverage", hint: "Most restaurants helped" },
+    { v: "roi",      label: "ROI",      hint: "Best net of annual fees" },
+  ];
+  const obj = state.walletObjective || "savings";
+  const noSameBank = !!state.walletNoSameBank;
+  const mixedTypes = !!state.walletMixedTypes;
+  const maxFeeRaw = state.walletMaxFee;
+  const mustCount = state.walletMustInclude.size;
 
-    const cardRecord = cardMap.get(cardKey);
-    if (!cardRecord.cardCategory && offer.cardCategory) cardRecord.cardCategory = offer.cardCategory;
-    if (!cardRecord.venueDailyBest.has(venueKey)) {
-      cardRecord.venueDailyBest.set(venueKey, new Map());
-    }
+  container.innerHTML = `
+    <div class="wo-setup">
+      <div class="wo-setup-head">
+        <div class="wo-setup-title-wrap">
+          <div class="wo-setup-kicker">Wallet Builder</div>
+          <div class="wo-setup-title">Best ${K}-card wallet for you</div>
+          <div class="wo-setup-sub">We pick a combination of cards that <strong>together</strong> covers the most restaurants and saves the most. Unlike Next Card, this designs your wallet from scratch.</div>
+        </div>
+      </div>
 
-    const dayMap = cardRecord.venueDailyBest.get(venueKey);
-    selectedDays.forEach((day) => {
-      if (!offer.days.includes(day)) return;
-      const current = dayMap.get(day);
-      const candidate = {
-        city: offer.city,
-        restaurant: offer.restaurant,
-        saving: offerSaving,
-        discountPct: getOfferDiscountPct(offer),
-        discountLabel: offer.discountLabel,
-        offerTitle: offer.offerTitle,
-        offerDescription: offer.offerDescription,
-        orderTypes: offer.orderTypes || [],
-        daysLabel: offer.daysLabel,
-        capPkr: offer.capPkr,
-        fixedDiscountPkr: offer.fixedDiscountPkr ?? null,
-      };
-      if (!current || candidate.saving > current.saving) {
-        dayMap.set(day, candidate);
+      <div class="wo-controls-grid">
+        <div class="wo-control">
+          <div class="wo-control-label">Wallet size</div>
+          <div class="wo-pill-group" id="wo-k-pills">
+            ${sizeOptions.map((n) => `<button class="wo-pill${n === K ? " active" : ""}" type="button" data-k="${n}">${n} cards</button>`).join("")}
+          </div>
+        </div>
+
+        <div class="wo-control">
+          <div class="wo-control-label">Start from</div>
+          <div class="wo-mode-toggle">
+            <button class="wo-mode-btn${!buildOnOwned ? " active" : ""}" type="button" data-mode="scratch">Scratch</button>
+            <button class="wo-mode-btn${buildOnOwned ? " active" : ""}${canBuildOnOwned ? "" : " disabled"}" type="button" data-mode="owned" ${canBuildOnOwned ? "" : "disabled"}>
+              My ${ownedCount} card${ownedCount === 1 ? "" : "s"}
+            </button>
+          </div>
+        </div>
+
+        <div class="wo-control">
+          <div class="wo-control-label">Optimize for</div>
+          <div class="wo-pill-group" id="wo-obj-pills">
+            ${objectiveOptions.map((o) => `<button class="wo-pill${o.v === obj ? " active" : ""}" type="button" data-obj="${o.v}" title="${escapeAttr(o.hint)}">${o.label}</button>`).join("")}
+          </div>
+        </div>
+
+        <div class="wo-control">
+          <div class="wo-control-label">Max annual fee</div>
+          <div class="wo-fee-wrap">
+            <span class="wo-fee-prefix">PKR</span>
+            <input id="wo-max-fee" type="number" inputmode="numeric" min="0" step="1000" placeholder="No cap" value="${maxFeeRaw !== null ? String(maxFeeRaw) : ""}" />
+            <span class="wo-fee-suffix">/ year</span>
+            ${maxFeeRaw !== null ? `<button class="wo-fee-clear" id="wo-max-fee-clear" type="button" aria-label="Clear cap">×</button>` : ""}
+          </div>
+        </div>
+      </div>
+
+      <details class="wo-advanced" ${state.walletAdvancedOpen || noSameBank || mixedTypes || mustCount > 0 ? "open" : ""}>
+        <summary class="wo-advanced-summary">
+          <span class="wo-advanced-summary-text">
+            <span class="wo-advanced-icon">⚙</span>
+            Advanced options
+          </span>
+          ${(() => {
+            const activeBits = [];
+            if (noSameBank) activeBits.push("No same bank");
+            if (mixedTypes) activeBits.push("Mixed types");
+            if (mustCount > 0) activeBits.push(`${mustCount} pinned`);
+            return activeBits.length > 0
+              ? `<span class="wo-advanced-badges">${activeBits.map((b) => `<span class="wo-advanced-badge">${escapeHtml(b)}</span>`).join("")}</span>`
+              : `<span class="wo-advanced-hint">Diversity, mixed types, pin specific cards</span>`;
+          })()}
+          <span class="wo-advanced-chevron" aria-hidden="true"></span>
+        </summary>
+
+        <div class="wo-advanced-body">
+          <div class="wo-toggles">
+            <label class="wo-toggle">
+              <input type="checkbox" id="wo-nobank" ${noSameBank ? "checked" : ""} />
+              <span class="wo-toggle-slider"></span>
+              <span class="wo-toggle-label">No two cards from the same bank</span>
+            </label>
+            <label class="wo-toggle">
+              <input type="checkbox" id="wo-mix" ${mixedTypes ? "checked" : ""} />
+              <span class="wo-toggle-slider"></span>
+              <span class="wo-toggle-label">Mix card types (≥1 debit + ≥1 credit)</span>
+            </label>
+          </div>
+
+          <div class="wo-must-section">
+            <div class="wo-must-head">
+              <div class="wo-control-label">Must include cards <span class="wo-must-count">${mustCount > 0 ? `(${mustCount})` : ""}</span></div>
+              ${mustCount > 0 ? `<button class="wo-must-clear" id="wo-must-clear" type="button">Clear</button>` : ""}
+            </div>
+            <input id="wo-must-search" class="s-search wo-must-search" type="search" placeholder="Pin specific cards to the wallet…" autocomplete="off" value="${escapeAttr(state.walletMustIncludeSearchTerm)}" />
+            <div id="wo-must-results" class="s-search-results wo-must-results"></div>
+            <div id="wo-must-chips" class="s-chips wo-must-chips"></div>
+          </div>
+        </div>
+      </details>
+
+      ${buildOnOwned ? `
+        <div class="wo-anchor-note">
+          Building on top of: ${Array.from(state.ownedCards).slice(0, 3).map((ck) => {
+            const [bank, card] = ck.split(" || ");
+            return `<span class="wo-anchor-pill">${escapeHtml(card)}</span>`;
+          }).join(" ")}${state.ownedCards.size > 3 ? ` <span class="wo-anchor-pill wo-anchor-pill--more">+${state.ownedCards.size - 3} more</span>` : ""}
+        </div>
+      ` : `
+        <div class="wo-crosslink">
+          ${canBuildOnOwned
+            ? `Already added your cards in <a class="wo-link" id="wo-go-next-card">My Wallet</a>? <a class="wo-link" id="wo-switch-build-owned">Build on top of them →</a>`
+            : `Have cards already? <a class="wo-link" id="wo-go-next-card">Open My Wallet →</a> to add them and see the best next card.`
+          }
+        </div>
+      `}
+    </div>
+  `;
+
+  // Event wiring
+  container.querySelectorAll("#wo-k-pills .wo-pill").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const k = Number(btn.dataset.k);
+      if (k >= 2 && k <= 4 && k !== state.walletSize) {
+        state.walletSize = k;
+        trackEvent("wallet_k_change", { k });
+        render();
       }
     });
   });
-
-  const aggregates = Array.from(cardMap.values()).map((cardRecord) => {
-    const venueSummaries = Array.from(cardRecord.venueDailyBest.entries())
-      .map(([venueKey, dayMap]) => {
-        if (!dayMap.size) return null;
-        const bestByDay = Array.from(dayMap.entries()).sort((a, b) => a[0] - b[0]);
-        const totalExpectedSaving = bestByDay.reduce((sum, [, match]) => sum + match.saving, 0);
-        const coveredDayCount = bestByDay.length;
-        const expectedSaving = totalExpectedSaving / totalSelectedDays;
-        const dayFit = coveredDayCount / totalSelectedDays;
-        const strongestMatch = bestByDay.reduce((best, [, match]) =>
-          !best || match.saving > best.saving ? match : best, null);
-        const averageDiscount = average(
-          bestByDay.map(([, match]) => match.discountPct).filter((v) => Number.isFinite(v)),
-        );
-        const caps = bestByDay
-          .map(([, match]) => match.capPkr)
-          .filter((v) => Number.isFinite(v));
-
-        return {
-          venueKey,
-          city: strongestMatch.city,
-          restaurant: strongestMatch.restaurant,
-          rawSaving: strongestMatch.saving,
-          expectedSaving,
-          dayFit,
-          coveredDayCount,
-          discountPct: averageDiscount,
-          discountLabel: strongestMatch.discountLabel,
-          offerTitle: strongestMatch.offerTitle,
-          offerDescription: strongestMatch.offerDescription,
-          orderTypes: strongestMatch.orderTypes,
-          daysLabel: coveredDayCount === totalSelectedDays
-            ? "Matches all your chosen days"
-            : bestByDay.map(([day]) => DAY_SHORT[day]).join(", "),
-          capPkr: caps.length ? Math.max(...caps) : null,
-          fixedDiscountPkr: strongestMatch.fixedDiscountPkr,
-        };
-      })
-      .filter(Boolean);
-
-    const matches = venueSummaries;
-    const coveredVenueCount = matches.length;
-    const coverage = coveredVenueCount / scoringVenueCount;
-    const totalExpectedSaving = matches.reduce((sum, match) => sum + match.expectedSaving, 0);
-    const totalDayFit = matches.reduce((sum, match) => sum + match.dayFit, 0);
-    const avgExpectedSaving = coveredVenueCount > 0 ? totalExpectedSaving / coveredVenueCount : 0;
-    
-    // Day fit should be relative to COVERED venues (Reliability)
-    // not scoringVenueCount (Broadness), otherwise the number is confusingly diluted.
-    const avgDayFit = coveredVenueCount > 0 ? totalDayFit / coveredVenueCount : 0;
-    const averageDiscount = average(
-      matches.map((match) => match.discountPct).filter((v) => Number.isFinite(v)),
-    );
-    const caps = matches
-      .map((match) => match.capPkr)
-      .filter((v) => Number.isFinite(v));
-    const medianCap = caps.length ? median(caps) : null;
-    const topMatches = matches.sort((a, b) => b.expectedSaving - a.expectedSaving).slice(0, 3);
-
-    return {
-      bank: cardRecord.bank,
-      card: cardRecord.card,
-      score: 0,
-      avgExpectedSaving,
-      coverage,
-      avgDayFit,
-      coveredVenueCount,
-      totalVenueCount: scoringVenues.size,
-      averageDiscount,
-      medianCap,
-      topMatches,
-    };
+  container.querySelectorAll(".wo-mode-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (btn.classList.contains("disabled")) return;
+      const mode = btn.dataset.mode;
+      const next = mode === "owned";
+      if (next !== state.walletBuildOnOwned) {
+        state.walletBuildOnOwned = next;
+        trackEvent("wallet_mode_change", { mode: next ? "owned" : "scratch" });
+        render();
+      }
+    });
   });
-
-  aggregates.forEach((item) => {
-    item.requirementStatus = evaluateEligibility(item.bank, item.card);
+  container.querySelectorAll("#wo-obj-pills .wo-pill").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const o = btn.dataset.obj;
+      if (o && o !== state.walletObjective) {
+        state.walletObjective = o;
+        trackEvent("wallet_objective_change", { objective: o });
+        render();
+      }
+    });
   });
-
-  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
-
-  // Step 1: compute blended savings-strength index E for each card
-  aggregates.forEach((item) => {
-    item.coverageAdjustedSaving = item.avgExpectedSaving * item.coverage;
-    item.E = item.avgExpectedSaving * (0.35 + 0.65 * Math.sqrt(item.coverage));
-  });
-
-  // Step 2: P95 of E (robust normalization — one outlier card won't compress all others)
-  const eSorted = aggregates.map((item) => item.E).sort((a, b) => a - b);
-  const p95E = eSorted.length > 0
-    ? eSorted[Math.max(0, Math.ceil(0.95 * eSorted.length) - 1)]
-    : 1;
-  const p95ESafe = Math.max(p95E, 1);
-
-  aggregates.forEach((item) => {
-    const Ns = Math.min(1, item.E / p95ESafe);
-    const R = 0.65 * Ns + 0.25 * item.coverage + 0.10 * item.avgDayFit;
-    item.baseScore = 20 + 80 * R;
-    item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
-    item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
-      ? 30 * (item.qualificationConfidence - 0.5)
-      : 0;
-    item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta));
-  });
-
-  let visible = aggregates.filter((item) => {
-    if (state.selectedBanks.size > 0 && !state.selectedBanks.has(item.bank)) return false;
-    if (state.selectedCardTypes.size > 0 && !state.selectedCardTypes.has(item.cardCategory)) return false;
-    if (state.selectedCards.size > 0 && !state.selectedCards.has(item.card)) return false;
-    return true;
-  });
-
-  if (state.useEligibility && hasEligibilityInput) {
-    visible = visible.filter((item) => item.requirementStatus.status !== "ineligible");
+  const maxFeeInput = container.querySelector("#wo-max-fee");
+  if (maxFeeInput) {
+    maxFeeInput.addEventListener("input", debounce((e) => {
+      const v = parseOptionalNumber(e.target.value);
+      state.walletMaxFee = (v !== null && v >= 0) ? v : null;
+      trackEvent("wallet_max_fee_set", { cap: state.walletMaxFee });
+      render();
+    }, 220));
   }
-
-  return visible.sort((a, b) => {
-    if (b.score !== a.score) return b.score - a.score;
-    if (b.coverageAdjustedSaving !== a.coverageAdjustedSaving) return b.coverageAdjustedSaving - a.coverageAdjustedSaving;
-    return b.coverage - a.coverage;
+  container.querySelector("#wo-max-fee-clear")?.addEventListener("click", () => {
+    state.walletMaxFee = null;
+    render();
   });
+  container.querySelector("#wo-nobank")?.addEventListener("change", (e) => {
+    state.walletNoSameBank = !!e.target.checked;
+    trackEvent("wallet_diversity_toggle", { rule: "no_same_bank", on: state.walletNoSameBank });
+    render();
+  });
+  container.querySelector("#wo-mix")?.addEventListener("change", (e) => {
+    state.walletMixedTypes = !!e.target.checked;
+    trackEvent("wallet_diversity_toggle", { rule: "mixed_types", on: state.walletMixedTypes });
+    render();
+  });
+  container.querySelector("#wo-must-clear")?.addEventListener("click", () => {
+    state.walletMustInclude = new Set();
+    state.walletMustIncludeSearchTerm = "";
+    render();
+  });
+  const mustSearch = container.querySelector("#wo-must-search");
+  if (mustSearch) {
+    mustSearch.addEventListener("input", (e) => {
+      state.walletMustIncludeSearchTerm = e.target.value.trim();
+      renderWalletMustResults();
+    });
+  }
+  container.querySelector(".wo-advanced")?.addEventListener("toggle", (e) => {
+    state.walletAdvancedOpen = !!e.target.open;
+  });
+  container.querySelector("#wo-switch-build-owned")?.addEventListener("click", () => {
+    state.walletBuildOnOwned = true;
+    render();
+  });
+  container.querySelector("#wo-go-next-card")?.addEventListener("click", () => {
+    state.viewMode = "my-wallet";
+    render();
+  });
+
+  renderWalletMustResults();
+  renderWalletMustChips();
 }
 
-/* ── ELIGIBILITY ── */
-function inferCardTier(cardName) {
-  const n = (cardName || "").toLowerCase();
-  if (n.includes("world") || n.includes("infinite") || n.includes("signature") || n.includes("privilege")) return "world";
-  if (n.includes("platinum")) return "platinum";
-  if (n.includes("titanium")) return "titanium";
-  if (n.includes("gold")) return "gold";
-  if (n.includes("silver")) return "silver";
-  if (n.includes("classic") || n.includes("standard") || n.includes("basic")) return "classic";
-  return "other";
-}
-
-function buildEstimatesByTier(requirementsPayload) {
-  const groups = {};
-  requirementsPayload.forEach((row) => {
-    const salary  = normalizeRequirementNumber(row.requirements?.minimum_monthly_salary_pkr);
-    const balance = normalizeRequirementNumber(row.requirements?.minimum_account_balance_pkr);
-    if (salary === null && balance === null) return;
-    const tier = inferCardTier(row.card_name);
-    if (!groups[tier]) groups[tier] = { salaries: [], balances: [], count: 0 };
-    if (salary  !== null && salary  > 0) groups[tier].salaries.push(salary);
-    if (balance !== null && balance > 0) groups[tier].balances.push(balance);
-    groups[tier].count++;
-  });
-
-  function median(arr) {
-    if (!arr.length) return null;
-    const s = [...arr].sort((a, b) => a - b);
-    const m = Math.floor(s.length / 2);
-    return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
-  }
-
-  const map = new Map();
-  Object.entries(groups).forEach(([tier, g]) => {
-    map.set(tier, { tier, medianSalary: median(g.salaries), medianBalance: median(g.balances), peerCount: g.count });
-  });
-  return map;
-}
-
-function evaluateEligibility(bank, card) {
-  const _emptyNotes = { cardNotes: [], bankGaps: [] };
-  if (!state.requirements?.available) {
-    return { status: "unavailable", label: "Requirements unavailable", tone: "unclear", sortRank: 1, detail: "Requirements data could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
-  }
-
-  const mapping = state.requirements.mappingByDealKey.get(buildDealCardKey(bank, card));
-  if (!mapping?.matched || !mapping.requirement_card_id) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "This deal-side card is not yet mapped to a verified requirements record.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
-  }
-
-  const record = state.requirements.byCardId.get(mapping.requirement_card_id);
-  if (!record) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "A mapped requirements record could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
-  }
-
-  const requirements = record.requirements || {};
-  let salaryReq  = normalizeRequirementNumber(requirements.minimum_monthly_salary_pkr);
-  
-  // Consolidate various balance-like fields into a single effective balance requirement
-  let balanceReq = normalizeRequirementNumber(requirements.minimum_account_balance_pkr);
-  if (balanceReq === null) {
-    const alts = [
-      requirements.minimum_average_balance_pkr,
-      requirements.minimum_relationship_balance_pkr,
-      requirements.minimum_deposit_pkr
-    ].map(normalizeRequirementNumber).filter(v => v !== null);
-    if (alts.length > 0) balanceReq = Math.max(...alts);
-  }
-
-  const annualFeePkr       = normalizeRequirementNumber(requirements.annual_fee_pkr);
-  const annualFeeWaiverRule = requirements.annual_fee_waiver_rule || null;
-  const benefitSummary      = record.benefits || requirements.benefits || null;
-  const sourceIds  = record.source_ids || [];
-  const cardNotes  = (record.notes || []).filter((n) => n && typeof n === "string");
-  const bankGaps   = (record.bank_gaps || []).filter((n) => n && typeof n === "string");
-
-  // Fill missing salary/balance from tier-peer medians
-  let salaryIsEstimated  = false;
-  let balanceIsEstimated = false;
-  let estimationNote     = null;
-  if (salaryReq === null || balanceReq === null) {
-    const tier    = inferCardTier(record.card_name);
-    const tierEst = state.requirements.estimatesByTier?.get(tier);
-    if (tierEst) {
-      if (salaryReq  === null && tierEst.medianSalary  !== null) { salaryReq  = tierEst.medianSalary;  salaryIsEstimated  = true; }
-      if (balanceReq === null && tierEst.medianBalance !== null) { balanceReq = tierEst.medianBalance; balanceIsEstimated = true; }
-      if (salaryIsEstimated || balanceIsEstimated) {
-        const tierLabel = tier === "other" ? "similar" : tier.charAt(0).toUpperCase() + tier.slice(1);
-        estimationNote  = `Estimated from ${tierEst.peerCount} similar ${tierLabel} cards`;
-      }
-    }
-  }
-  const isEstimated = salaryIsEstimated || balanceIsEstimated;
-
-  const criteria = [];
-  const blockers = [];
-  let salaryPassed  = true;
-  let balancePassed = true;
-  let missingInput  = false;
-
-  if (salaryReq !== null) {
-    criteria.push(formatRequirementCriterion(salaryReq, "salary"));
-    if (salaryReq > 0) {
-      if (state.monthlySalary === null) {
-        missingInput = true;
-      } else if (state.monthlySalary < salaryReq) {
-        salaryPassed = false;
-        const qualifier = salaryIsEstimated ? "estimated " : "listed ";
-        blockers.push(`Below the ${qualifier}salary threshold of ${formatCurrency(salaryReq)} / month`);
-      }
-    }
-  }
-
-  if (balanceReq !== null) {
-    criteria.push(formatRequirementCriterion(balanceReq, "balance"));
-    if (balanceReq > 0) {
-      if (state.accountBalance === null) {
-        missingInput = true;
-      } else if (state.accountBalance < balanceReq) {
-        balancePassed = false;
-        const qualifier = balanceIsEstimated ? "estimated " : "listed ";
-        blockers.push(`Below the ${qualifier}account balance threshold of ${formatCurrency(balanceReq)}`);
-      }
-    }
-  }
-
-  if (annualFeePkr !== null) criteria.push(formatRequirementCriterion(annualFeePkr, "fee"));
-
-  const base = { criteria, annualFeePkr, annualFeeWaiverRule, benefitSummary, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds, cardNotes, bankGaps };
-
-  // Treat Salary and Balance as ALTERNATIVE paths (OR logic)
-  // A card is only "ineligible" if it has requirements and the user fails BOTH.
-  const hasSalaryReq  = salaryReq !== null && salaryReq > 0;
-  const hasBalanceReq = balanceReq !== null && balanceReq > 0;
-  const isBlocked     = (hasSalaryReq || hasBalanceReq) && (!salaryPassed && !balancePassed);
-
-  if (isBlocked) {
-    const detail = blockers.length > 1 ? `${blockers[0]} (and balance)` : blockers[0];
-    if (isEstimated) return { ...base, status: "est_ineligible",  label: "May not qualify (est.)",    tone: "est-ineligible",  sortRank: 0.5, detail };
-    return               { ...base, status: "ineligible",         label: "Likely ineligible",          tone: "ineligible",      sortRank: 0,   detail };
-  }
-  if (salaryReq === null && balanceReq === null) {
-    return               { ...base, status: "unclear",            label: "Requirements unclear",       tone: "unclear",         sortRank: 1,   detail: "No public salary or balance threshold was captured for this card." };
-  }
-  if (missingInput) {
-    if (isEstimated) return { ...base, status: "est_needs_input", label: "Est. requirements exist",   tone: "est-needs-input", sortRank: 1.5, detail: estimationNote || "Estimated thresholds exist but salary or balance details have not been entered." };
-    return               { ...base, status: "needs_input",        label: "Salary/balance not entered", tone: "needs-input",     sortRank: 2,   detail: "Public thresholds exist, but salary or balance details have not been entered." };
-  }
-  if (isEstimated) return  { ...base, status: "est_eligible",     label: "Possibly eligible (est.)",  tone: "est-eligible",    sortRank: 2.5, detail: estimationNote || "Entered salary and balance meet the estimated thresholds for this card." };
-  return                   { ...base, status: "eligible",          label: "Likely eligible",            tone: "eligible",        sortRank: 3,   detail: "Entered salary and balance meet the public thresholds captured for this card." };
-}
-
-function computeQualificationConfidence(status) {
-  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
-  if (!hasEligibilityInput || !status?.hasRequirementRecord) return 0.5;
-
-  // Hard penalty for known ineligibility (unifies filter and score)
-  if (status.status === "ineligible" || status.status === "est_ineligible") return 0.0;
-
-  const scores = [];
-  const scoreDimension = (inputValue, requirementValue, isEstimated = false) => {
-    const input = normalizeRequirementNumber(inputValue);
-    const req = normalizeRequirementNumber(requirementValue);
-    if (req === null) return;
-
-    let q = 0.5;
-    if (req <= 0) {
-      q = 1.0;
-    } else if (input === null) {
-      q = 0.5;
-    } else {
-      const ratio = input / req;
-      // Smooth piecewise linear curve
-      if (ratio >= 1.3) {
-        q = 1.0;
-      } else if (ratio >= 1.0) {
-        // Linear between 1.0 (0.8 score) and 1.3 (1.0 score)
-        q = 0.8 + (ratio - 1.0) * (0.2 / 0.3);
-      } else if (ratio >= 0.7) {
-        // Linear between 0.7 (0.0 score) and 1.0 (0.8 score)
-        q = 0.0 + (ratio - 0.7) * (0.8 / 0.3);
-      } else {
-        q = 0.0;
-      }
-    }
-
-    if (isEstimated) {
-      q = 0.5 + (q - 0.5) * 0.7;
-    }
-
-    scores.push(q);
+// Tiny debounce helper for the fee input
+function debounce(fn, delay) {
+  let t = null;
+  return (...args) => {
+    if (t) clearTimeout(t);
+    t = setTimeout(() => fn(...args), delay);
   };
-
-  scoreDimension(state.monthlySalary, status.salaryReq, status.salaryIsEstimated);
-  scoreDimension(state.accountBalance, status.balanceReq, status.balanceIsEstimated);
-
-  if (!scores.length) return 0.5;
-  // Use Math.max to support alternative qualification paths (OR logic)
-  const maxScore = Math.max(...scores);
-  return Math.max(0, Math.min(1, maxScore));
 }
+
+function renderWalletMustResults() {
+  const container = document.getElementById("wo-must-results");
+  if (!container) return;
+  const term = (state.walletMustIncludeSearchTerm || "").toLowerCase();
+  if (!term) { container.innerHTML = ""; return; }
+  const catalog = getAllCardsCatalog();
+  const results = catalog
+    .filter((c) => !state.walletMustInclude.has(c.cardKey))
+    .filter((c) => `${c.bank} ${c.card}`.toLowerCase().includes(term))
+    .slice(0, 12);
+  container.innerHTML = "";
+  if (results.length === 0) {
+    container.innerHTML = `<div class="nc-search-empty">No matching cards.</div>`;
+    return;
+  }
+  results.forEach((entry) => {
+    const item = document.createElement("button");
+    item.type = "button";
+    item.className = "s-search-item nc-search-item";
+    item.innerHTML = `
+      <span class="nc-search-item-text">
+        <span class="nc-search-item-card">${escapeHtml(entry.card)}</span>
+        <span class="nc-search-item-bank">${escapeHtml(entry.bank)}</span>
+      </span>
+      <span class="s-search-item-add">+ Pin</span>
+    `;
+    item.addEventListener("click", () => {
+      state.walletMustInclude.add(entry.cardKey);
+      state.walletMustIncludeSearchTerm = "";
+      const input = document.getElementById("wo-must-search");
+      if (input) input.value = "";
+      trackEvent("wallet_pin_card", { bank: entry.bank, pinned: state.walletMustInclude.size });
+      render();
+    });
+    container.appendChild(item);
+  });
+}
+
+function renderWalletMustChips() {
+  const container = document.getElementById("wo-must-chips");
+  if (!container) return;
+  container.innerHTML = "";
+  Array.from(state.walletMustInclude).sort().forEach((cardKey) => {
+    const [bank, card] = cardKey.split(" || ");
+    const chip = document.createElement("div");
+    chip.className = "s-chip nc-chip wo-must-chip";
+    chip.innerHTML = `
+      <span class="wo-must-pin-icon">📌</span>
+      <span class="nc-chip-text">
+        <span class="nc-chip-card">${escapeHtml(card || "")}</span>
+        <span class="nc-chip-bank">${escapeHtml(bank || "")}</span>
+      </span>
+    `;
+    const rm = document.createElement("button");
+    rm.className = "s-chip-remove";
+    rm.type = "button";
+    rm.textContent = "×";
+    rm.setAttribute("aria-label", `Unpin ${card}`);
+    rm.addEventListener("click", () => { state.walletMustInclude.delete(cardKey); render(); });
+    chip.appendChild(rm);
+    container.appendChild(chip);
+  });
+}
+
+function renderWalletView(resultsGrid) {
+  const setupContainer = document.getElementById("wallet-setup");
+  const topPick = document.getElementById("top-pick");
+  const emptyState = document.getElementById("empty-state");
+  const countEl = document.getElementById("result-count");
+  const countLabel = document.getElementById("result-count-label");
+  const rhSub = document.getElementById("rh-sub");
+  const summaryBest = document.getElementById("summary-best");
+
+  renderWalletSetupPanel(setupContainer);
+
+  const { ranked, stats } = computeWalletRecommendations();
+  const K = stats.K;
+
+  if (countEl) countEl.textContent = ranked.length ? String(K) : "0";
+  if (countLabel) countLabel.textContent = ranked.length ? `card wallet recommended` : "wallets possible";
+  if (rhSub) {
+    const ctx = stats.buildOnOwned
+      ? `Best ${K} cards to add on top of your ${stats.anchorCount} · ${formatCurrency(state.orderValue)} bill`
+      : `Best ${K}-card combination from scratch · ${formatCurrency(state.orderValue)} bill`;
+    rhSub.textContent = ctx;
+  }
+  if (summaryBest) {
+    summaryBest.textContent = ranked.length > 0
+      ? `${formatCurrency(ranked[0].perOutingTotal)} / outing`
+      : "—";
+  }
+
+  if (ranked.length === 0) {
+    if (emptyState) {
+      emptyState.classList.remove("hidden");
+      const title = document.getElementById("empty-state-title");
+      const msg = document.getElementById("empty-state-message");
+      if (title) title.textContent = "Couldn't build a wallet with current filters";
+      const baseMsg = "Try a broader scope: clear bank/card-type filters, pick a city with more coverage, or turn off eligibility mode.";
+      if (msg) msg.textContent = (stats.warnings || []).length > 0 ? stats.warnings.join(" ") : baseMsg;
+    }
+    if (topPick) topPick.innerHTML = "";
+    if (resultsGrid) resultsGrid.innerHTML = "";
+    return;
+  }
+  if (emptyState) emptyState.classList.add("hidden");
+
+  if (topPick) {
+    topPick.innerHTML = "";
+    // Surface warnings (over budget, missing types, etc.)
+    if ((stats.warnings || []).length > 0) {
+      const banner = document.createElement("div");
+      banner.className = "wo-warning-banner";
+      banner.innerHTML = stats.warnings.map((w) => `<div class="wo-warning-line"><span class="wo-warning-icon">⚠️</span><span>${escapeHtml(w)}</span></div>`).join("");
+      topPick.appendChild(banner);
+    }
+    const slot = document.createElement("div");
+    topPick.appendChild(slot);
+    renderWalletFeatured(ranked[0], slot, stats);
+  }
+  if (resultsGrid) {
+    resultsGrid.innerHTML = "";
+    const alternates = ranked.slice(1);
+    if (alternates.length > 0) {
+      const header = document.createElement("div");
+      header.className = "wo-alt-header";
+      header.innerHTML = `<span class="wo-alt-header-label">Alternative wallets</span> <span class="wo-alt-header-sub">other strong ${K}-card combinations</span>`;
+      resultsGrid.appendChild(header);
+      alternates.forEach((wallet, idx) => renderWalletAlternative(wallet, resultsGrid, idx + 2, stats));
+    }
+  }
+}
+
+function renderWalletFeatured(wallet, container, stats) {
+  if (!container) return;
+  const K = wallet.picks.length;
+  const yearly = wallet.perOutingTotal * (state.outingsPerWeek || 1) * 52 * wallet.coverage;
+  const totalFee = wallet.totalAnnualFee || 0;
+  const feeNote = wallet.feeUnknown ? " <span class='wo-fee-note'>(some unlisted)</span>" : "";
+  const showEligibility = isEligibilityContextActive();
+
+  const picksHtml = wallet.picks.map((p, idx) => {
+    const eligBadge = showEligibility ? renderEligibilityBadge(p.requirementStatus) : "";
+    const role = p.pinned
+      ? "Pinned by you"
+      : (idx === 0
+          ? "Anchor"
+          : `Adds${p.newVenues > 0 ? ` ${p.newVenues} new` : ""}${p.newVenues > 0 && p.boostedVenues > 0 ? "," : ""}${p.boostedVenues > 0 ? ` boosts ${p.boostedVenues}` : ""}`);
+    return `
+      <div class="wo-stack-card${p.pinned ? " wo-stack-card--pinned" : ""}" data-key="${escapeAttr(p.cardKey)}" tabindex="0" role="button">
+        <div class="wo-stack-card-rank">${p.pinned ? "📌" : idx + 1}</div>
+        ${renderBankLogo(p.bank, "wo-stack-logo")}
+        <div class="wo-stack-card-info">
+          <div class="wo-stack-card-name">${escapeHtml(p.card)}</div>
+          <div class="wo-stack-card-bank">${escapeHtml(p.bank)}</div>
+          <div class="wo-stack-card-meta">
+            <span class="wo-stack-card-role">${escapeHtml(role)}</span>
+            ${!p.pinned && p.newVenues > 0 ? `<span class="wo-stack-card-tag wo-stack-card-tag--new">+${p.newVenues} new</span>` : ""}
+            ${!p.pinned && p.boostedVenues > 0 ? `<span class="wo-stack-card-tag">${p.boostedVenues} boosts</span>` : ""}
+          </div>
+          ${eligBadge ? `<div class="wo-stack-card-elig">${eligBadge}</div>` : ""}
+        </div>
+      </div>
+    `;
+  }).join("");
+
+  container.innerHTML = `
+    <article class="card-item card-item--featured wo-featured">
+      <div class="wo-featured-head">
+        <div class="wo-featured-head-left">
+          <div class="card-badges">
+            <span class="badge-top-pick">🧩 BEST WALLET</span>
+          </div>
+          <div class="wo-featured-title">${K}-card wallet · ${stats.buildOnOwned ? `on top of your ${stats.anchorCount}` : "from scratch"}</div>
+          <div class="wo-featured-sub">Combined savings across all your restaurants — coverage: <strong>${Math.round(wallet.coverage * 100)}%</strong> · ${wallet.coveredVenues} of ${wallet.venueCount} restaurants</div>
+        </div>
+      </div>
+
+      <div class="wo-stack">
+        ${picksHtml}
+      </div>
+
+      <div class="wo-combined-stats">
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Combined Saving</div>
+          <div class="wo-combined-v green">${formatCurrency(wallet.perOutingTotal)} / outing</div>
+        </div>
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Restaurants Covered</div>
+          <div class="wo-combined-v">${wallet.coveredVenues} of ${wallet.venueCount}</div>
+        </div>
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Est. Yearly</div>
+          <div class="wo-combined-v green">~${formatCurrency(yearly)}</div>
+        </div>
+        <div class="wo-combined-stat">
+          <div class="wo-combined-l">Total Annual Fees</div>
+          <div class="wo-combined-v">${totalFee === 0 ? "Free / not listed" : formatCurrency(totalFee)}${feeNote}</div>
+        </div>
+      </div>
+    </article>
+  `;
+
+  container.querySelectorAll(".wo-stack-card").forEach((node) => {
+    const key = node.dataset.key;
+    if (!key) return;
+    node.addEventListener("click", () => openCardDetail(key));
+    node.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCardDetail(key); }
+    });
+  });
+}
+
+function renderWalletAlternative(wallet, container, rank, stats) {
+  const article = document.createElement("article");
+  article.className = "card-item wo-alt-item";
+  article.style.animationDelay = `${Math.min(rank, 12) * 0.05}s`;
+  const picksLine = wallet.picks.map((p) =>
+    `<span class="wo-alt-card-chip" data-key="${escapeAttr(p.cardKey)}">${escapeHtml(p.card)} <span class="wo-alt-card-chip-bank">· ${escapeHtml(p.bank)}</span></span>`
+  ).join("");
+  const totalFee = wallet.totalAnnualFee || 0;
+  article.innerHTML = `
+    <div class="card-row wo-alt-row">
+      <div class="card-rank">${rank}</div>
+      <div class="wo-alt-body">
+        <div class="wo-alt-cards">${picksLine}</div>
+        <div class="wo-alt-stats">
+          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Combined:</span> <span class="green">${formatCurrency(wallet.perOutingTotal)} / outing</span></span>
+          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Coverage:</span> ${Math.round(wallet.coverage * 100)}%</span>
+          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Fees:</span> ${totalFee === 0 ? "Free" : formatCurrency(totalFee)}</span>
+        </div>
+      </div>
+    </div>
+  `;
+  container.appendChild(article);
+  article.querySelectorAll(".wo-alt-card-chip").forEach((chip) => {
+    const key = chip.dataset.key;
+    if (!key) return;
+    chip.addEventListener("click", (e) => { e.stopPropagation(); openCardDetail(key); });
+  });
+}
+
+/* ── NEXT CARD RECOMMENDATIONS ── moved to assets/algorithms.js */
+
+
+/* ── BUILD WALLET RECOMMENDATIONS ──
+   Moved to assets/algorithms.js — loaded before this file via <script> in
+   index.html. The functions (precomputeCardSavingsByVenueDay, marginalForCard,
+   applyCardToCurrentBest, summarizeWallet, annualFeeForCard,
+   computeWalletRecommendations) are accessible globally by name. */
+
+
+/* ── ELIGIBILITY MATH ── moved to assets/algorithms.js (renderEligibilityBadge/Meta remain below) */
+
+
 
 function renderEligibilityBadge(status) {
   return `<span class="status-badge status-badge--${escapeHtml(status.tone)}">${escapeHtml(status.label)}</span>`;
@@ -3333,140 +2285,6 @@ function setEmptyStateCopy() {
   }
 }
 
-/* ── HELPERS ── */
-function cityMatches(city) {
-  const selectedCity = normalizeCityValue(state.selectedCity);
-  return selectedCity === "all" || selectedCity === normalizeCityValue(city);
-}
-
-function normalizeCityValue(city) {
-  const normalized = String(city || "").trim().toLowerCase();
-  return normalized || "all";
-}
-
-function formatCityLabel(city) {
-  const normalized = normalizeCityValue(city);
-  return CITY_LABELS[normalized] || normalized.charAt(0).toUpperCase() + normalized.slice(1);
-}
-
-function cardTypeMatches(cardType) {
-  const normalized = String(cardType || "other").trim().toLowerCase() || "other";
-  return state.selectedCardTypes.size === 0 || state.selectedCardTypes.has(normalized);
-}
-
-function isEligibilityContextActive() {
-  return state.useEligibility || state.monthlySalary !== null || state.accountBalance !== null;
-}
-
-function getEffectiveSelectedDays() {
-  return state.selectedDays.size === 0
-    ? new Set(state.data.dayNames.map((_, idx) => idx))
-    : state.selectedDays;
-}
-
-function getTopPickCitiesLabel() {
-  if (state.selectedCity !== "all") {
-    return formatCityLabel(state.selectedCity);
-  }
-  return "All cities";
-}
-
-function getOfferSavingValue(offer, orderValue) {
-  const discountType = offer.discountType || "percentage";
-  const discountPct = getOfferDiscountPct(offer);
-  const fixedDiscountPkr = Number.isFinite(offer.fixedDiscountPkr) ? offer.fixedDiscountPkr : null;
-  const capPkr = Number.isFinite(offer.capPkr) ? offer.capPkr : null;
-
-  switch (discountType) {
-    case "fixed":
-      if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) {
-        return Math.min(fixedDiscountPkr, orderValue);
-      }
-      return null;
-
-    case "up_to":
-      if (Number.isFinite(discountPct) && discountPct > 0) {
-        var effectivePct = discountPct * 0.6;
-        var pctSaving = (orderValue * effectivePct) / 100;
-        return Math.min(pctSaving, capPkr || Number.POSITIVE_INFINITY);
-      }
-      return null;
-
-    case "bogo":
-      if (Number.isFinite(discountPct) && discountPct > 0) {
-        var bogoEffectivePct = discountPct * 0.3;
-        var bogoPctSaving = (orderValue * bogoEffectivePct) / 100;
-        return Math.min(bogoPctSaving, capPkr || Number.POSITIVE_INFINITY);
-      }
-      return null;
-
-    case "percentage":
-    default:
-      if (Number.isFinite(discountPct) && discountPct > 0) {
-        return Math.min(
-          (orderValue * discountPct) / 100,
-          fixedDiscountPkr || capPkr || Number.POSITIVE_INFINITY,
-        );
-      }
-      if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) return Math.min(fixedDiscountPkr, orderValue);
-      return null;
-  }
-}
-
-function getOfferDiscountPct(offer) {
-  if (Number.isFinite(offer.discountPct)) return Number(offer.discountPct);
-  const text = `${offer.discountLabel || ""} ${offer.offerTitle || ""}`;
-  const matches = text.match(/(\d+(?:\.\d+)?)\s*%/g) || [];
-  if (!matches.length) return null;
-  return Math.max(...matches.map((m) => Number.parseFloat(m)));
-}
-
-function buildDealCardKey(bank, card) {
-  return `${normalizeDealCardFragment(bank)} || ${normalizeDealCardFragment(card)}`;
-}
-
-function normalizeRequirementNumber(value) {
-  if (value === null || value === undefined || value === "") return null;
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : null;
-}
-
-function formatRequirementCriterion(value, kind) {
-  if (value === null) return null;
-  if (kind === "salary") {
-    return value === 0 ? "No minimum salary" : `Salary at least ${formatCurrency(value)} / month`;
-  }
-  if (kind === "balance") {
-    return value === 0 ? "No minimum balance" : `Balance at least ${formatCurrency(value)}`;
-  }
-  if (kind === "fee") {
-    return value === 0 ? "No annual fee" : `Annual fee ${formatCurrency(value)}`;
-  }
-  return null;
-}
-
-function formatRequirementFieldValue(status, field) {
-  if (!status?.hasRequirementRecord) return "Unavailable";
-  const value = status[field];
-  if (field === "annualFeePkr" && value === null && status.annualFeeWaiverRule) return "Conditional";
-  if (value === null) return "Not listed";
-  const est = (field === "salaryReq" && status.salaryIsEstimated) || (field === "balanceReq" && status.balanceIsEstimated);
-  const prefix = est ? "~" : "";
-  if (field === "benefitSummary") return value;
-  if (field === "salaryReq")  return value === 0 ? "No minimum salary"  : `${prefix}${formatCurrency(value)} / month`;
-  if (field === "balanceReq") return value === 0 ? "No minimum balance" : `${prefix}${formatCurrency(value)}`;
-  if (field === "annualFeePkr") return value === 0 ? "No annual fee" : formatCurrency(value);
-  return "Not listed";
-}
-
-function formatQualificationDeltaLabel(delta) {
-  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
-  if (!hasEligibilityInput) return "";
-  const value = Number(delta);
-  if (!Number.isFinite(value) || Math.abs(value) < 0.05) return "";
-  const sign = value > 0 ? "+" : "";
-  return `${sign}${value.toFixed(1)} qual`;
-}
 
 function renderRequirementSummary(status, options = {}) {
   const { showStatus = false } = options;
@@ -3549,60 +2367,6 @@ function bindCardOpenInteractions(article, cardKey) {
   });
 }
 
-function normalizeDealCardFragment(value) {
-  return String(value || "").trim().replace(/\s+/g, " ").toLowerCase();
-}
-
-function parseOptionalNumber(value) {
-  const trimmed = String(value ?? "").trim();
-  if (!trimmed) return null;
-  const parsed = Number(trimmed);
-  return Number.isFinite(parsed) ? parsed : null;
-}
-
-function scoreColor(score) {
-  return score >= 70 ? "var(--green)" : score >= 50 ? "var(--amber)" : "var(--red)";
-}
-
-function formatCurrency(value) {
-  return `PKR ${Math.round(value).toLocaleString("en-US")}`;
-}
-
-function formatSavingsAmount(value, options = {}) {
-  const { per = "", signed = false } = options;
-  const rounded = Math.round(Number(value) || 0);
-  const unit = per ? `/${per}` : "";
-  if (signed && rounded < 0) return `~Cost ${formatCurrency(Math.abs(rounded))}${unit}`;
-  return `~Save ${formatCurrency(Math.abs(rounded))}${unit}`;
-}
-
-function formatNumber(value) {
-  return Number(value).toLocaleString("en-US");
-}
-
-function median(values) {
-  const sorted = [...values].sort((a, b) => a - b);
-  const mid = Math.floor(sorted.length / 2);
-  return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
-}
-
-function average(values) {
-  if (!values.length) return null;
-  return values.reduce((sum, v) => sum + v, 0) / values.length;
-}
-
-function escapeHtml(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-function escapeAttr(value) {
-  return String(value).replaceAll('"', "&quot;").replaceAll("'", "&#039;");
-}
 
 /* ── TONIGHT BUTTON ── */
 function updateTonightButton() {
@@ -3618,6 +2382,12 @@ function updateTonightButton() {
 function updateViewToggle() {
   document.getElementById("btn-view-cards")?.classList.toggle("active", state.viewMode === "cards");
   document.getElementById("btn-view-restaurants")?.classList.toggle("active", state.viewMode === "restaurants");
+  document.getElementById("btn-view-next-card")?.classList.toggle("active", state.viewMode === "my-wallet");
+  document.getElementById("btn-view-wallet")?.classList.toggle("active", state.viewMode === "wallet");
+  const ncSetup = document.getElementById("next-card-setup");
+  if (ncSetup) ncSetup.style.display = state.viewMode === "my-wallet" ? "" : "none";
+  const woSetup = document.getElementById("wallet-setup");
+  if (woSetup) woSetup.style.display = state.viewMode === "wallet" ? "" : "none";
 }
 
 function setupMobileNavMenu() {
@@ -3841,6 +2611,12 @@ function renderCardDetailModal(inner) {
         <input type="search" class="s-search cd-rest-search" placeholder="Search restaurants…" autocomplete="off" />
         <div class="cd-rest-list"></div>
       </div>
+
+      <div class="cd-report">
+        <span class="cd-report-l">See something wrong?</span>
+        <a class="cd-report-link" href="${escapeAttr(buildReportMailto(bank, card))}">Report this card →</a>
+        <span class="cd-report-fresh">${escapeHtml(getDataFreshnessDaysAgo() !== null ? `Data verified ${formatDaysAgo(getDataFreshnessDaysAgo())}` : "")}</span>
+      </div>
     </div>
   `;
 
@@ -3983,13 +2759,17 @@ function renderRestaurantDetailModal(inner) {
     <div class="cd-wrap">
       <div class="cd-head">
         <div class="cd-head-left">
-          <div class="cd-logo rd-logo">${restaurant.slice(0, 1).toUpperCase()}</div>
+          <div class="cd-logo rd-logo">${escapeHtml(restaurant.slice(0, 1).toUpperCase())}</div>
           <div class="cd-head-info">
             <div class="cd-card-name">${escapeHtml(restaurant)}</div>
             <div class="cd-bank-name">${escapeHtml(city)} · ${cards.length} matching cards</div>
           </div>
         </div>
         <div class="cd-head-actions">
+          <button class="btn-fav${state.favoriteRestaurants.has(restaurant) ? " active" : ""}" id="btn-rd-fav" type="button" aria-label="Favorite this restaurant" aria-pressed="${state.favoriteRestaurants.has(restaurant)}" title="Get notified about new offers here">
+            <span class="btn-fav-star">${state.favoriteRestaurants.has(restaurant) ? "★" : "☆"}</span>
+            <span class="btn-fav-label">${state.favoriteRestaurants.has(restaurant) ? "Saved" : "Save"}</span>
+          </button>
           <button class="btn-modal-close" id="btn-rd-close" type="button">×</button>
         </div>
       </div>
@@ -4006,6 +2786,11 @@ function renderRestaurantDetailModal(inner) {
   `;
 
   inner.querySelector("#btn-rd-close")?.addEventListener("click", closeRestaurantDetail);
+  inner.querySelector("#btn-rd-fav")?.addEventListener("click", () => {
+    toggleFavoriteRestaurant(restaurant);
+    // Re-render so the star/label flips
+    renderRestaurantDetailModal(inner);
+  });
   const searchInput = inner.querySelector(".rd-card-search");
   const listContainer = inner.querySelector(".rd-card-list");
   const renderRows = () => {
@@ -4336,67 +3121,8 @@ function buildTopPickReason(result) {
   return `Ranked #1: ${venueCtx}, with the ${savingCtx}.`;
 }
 
-/* ── CONTEXTUAL CHAT CHIPS ── */
-function getContextualQuickQuestions() {
-  const results = computeRecommendations();
-  if (!results.length) {
-    return ["What filters should I try?", "How does the Fit Score work?", "Best low-fee cards?", "Debit cards only?"];
-  }
-  const top = results[0];
-  const chips = [`Why is ${top.card} ranked #1?`];
-  if (results.length >= 2) chips.push(`Compare ${top.card} vs ${results[1].card}`);
-  if (top.topMatches.length > 0) chips.push(`Best deal at ${top.topMatches[0].restaurant}?`);
-  chips.push("What's the highest discount %?");
-  return chips.slice(0, 4);
-}
+/* ── CHAT CHIPS ── moved to assets/chat.js */
 
-/* ── FOLLOW-UP CHIPS after each bot turn ── */
-function getFollowUpChips() {
-  const results = computeRecommendations();
-  if (!results.length) {
-    return ["Change city filter?", "How does the Fit Score work?", "Best low-fee cards?"];
-  }
-  const top = results[0];
-  const asked = state.chatMessages
-    .filter((m) => m.role === "user")
-    .map((m) => m.text.toLowerCase());
-
-  const POOL = [
-    {
-      text: `What's my estimated monthly saving with ${top.card.split(" ").slice(-2).join(" ")}?`,
-      skip: asked.some((a) => a.includes("month") || a.includes("saving")),
-    },
-    {
-      text: `What are the eligibility requirements for the top card?`,
-      skip: asked.some((a) => a.includes("eligib") || a.includes("salary") || a.includes("fee")),
-    },
-    {
-      text: results.length >= 2 ? `Compare ${top.card} vs ${results[1].card}` : null,
-      skip: asked.some((a) => a.includes("compar") || a.includes(" vs ")),
-    },
-    {
-      text: top.topMatches[0] ? `All deals at ${top.topMatches[0].restaurant}?` : null,
-      skip: top.topMatches[0] && asked.some((a) => a.includes(top.topMatches[0].restaurant.toLowerCase().split(" ")[0])),
-    },
-    {
-      text: "Which card has the highest discount cap?",
-      skip: asked.some((a) => a.includes("discount cap") || a.includes("highest discount")),
-    },
-    {
-      text: "Which card works best on weekends?",
-      skip: asked.some((a) => a.includes("weekend") || a.includes("saturday") || a.includes("sunday")),
-    },
-    {
-      text: "Show me debit cards only?",
-      skip: state.selectedCardTypes.has("debit") || asked.some((a) => a.includes("debit")),
-    },
-  ];
-
-  return POOL
-    .filter((c) => c.text && !c.skip)
-    .map((c) => c.text)
-    .slice(0, 3);
-}
 
 /* ── MOBILE FILTER BADGE ── */
 function getActiveFilterCount() {
@@ -4447,8 +3173,99 @@ function encodeStateToUrl() {
   if (state.useEligibility) params.set("elig", "1");
   if (state.monthlySalary !== null) params.set("salary", state.monthlySalary);
   if (state.accountBalance !== null) params.set("balance", state.accountBalance);
+  if (state.viewMode && state.viewMode !== "cards") params.set("view", state.viewMode);
+  if (state.ownedCards.size > 0) {
+    for (const key of state.ownedCards) {
+      params.append("owned", key);
+    }
+  }
+  if (state.walletSize !== 2) params.set("k", state.walletSize);
+  if (state.walletBuildOnOwned) params.set("build", "owned");
+  if (state.walletMaxFee !== null) params.set("maxfee", state.walletMaxFee);
+  if (state.walletNoSameBank) params.set("nobank", "1");
+  if (state.walletMixedTypes) params.set("mix", "1");
+  if (state.walletObjective && state.walletObjective !== "savings") params.set("obj", state.walletObjective);
+  if (state.walletMustInclude.size > 0) {
+    for (const key of state.walletMustInclude) params.append("must", key);
+  }
   const qs = params.toString();
   history.replaceState(null, "", qs ? `${location.pathname}?${qs}` : location.pathname);
+  // Mirror to localStorage so settings survive across sessions (URL params
+  // already cover shared-link state; this layer covers returning users).
+  saveStateToLocal();
+}
+
+/* ── LOCAL PERSISTENCE ──
+   Stores wallet + filter + eligibility state in localStorage so a returning
+   user finds the app as they left it. URL params still take precedence on
+   init, so shared links keep working. No expiry: localStorage persists until
+   the user explicitly clears browser data. Search terms, chat messages, and
+   pagination state are intentionally not persisted (they're transient). */
+const LS_KEY = "konsacard_state_v1";
+function saveStateToLocal() {
+  try {
+    const payload = {
+      v: 1,
+      selectedCity: state.selectedCity,
+      orderValue: state.orderValue,
+      outingsPerWeek: state.outingsPerWeek,
+      selectedDays: Array.from(state.selectedDays),
+      selectedCardTypes: Array.from(state.selectedCardTypes),
+      selectedBanks: Array.from(state.selectedBanks),
+      selectedRestaurants: Array.from(state.selectedRestaurants),
+      selectedCards: Array.from(state.selectedCards),
+      useEligibility: state.useEligibility,
+      monthlySalary: state.monthlySalary,
+      accountBalance: state.accountBalance,
+      viewMode: state.viewMode,
+      ownedCards: Array.from(state.ownedCards),
+      walletSize: state.walletSize,
+      walletBuildOnOwned: state.walletBuildOnOwned,
+      walletMaxFee: state.walletMaxFee,
+      walletNoSameBank: state.walletNoSameBank,
+      walletMixedTypes: state.walletMixedTypes,
+      walletObjective: state.walletObjective,
+      walletMustInclude: Array.from(state.walletMustInclude),
+      walletAdvancedOpen: state.walletAdvancedOpen,
+      favoriteRestaurants: Array.from(state.favoriteRestaurants),
+    };
+    localStorage.setItem(LS_KEY, JSON.stringify(payload));
+  } catch (_) { /* quota or disabled — silently skip */ }
+}
+
+function restoreStateFromLocal() {
+  try {
+    const raw = localStorage.getItem(LS_KEY);
+    if (!raw) return;
+    const p = JSON.parse(raw);
+    if (!p || p.v !== 1) return;
+    if (typeof p.selectedCity === "string") state.selectedCity = p.selectedCity;
+    if (Number.isFinite(p.orderValue)) state.orderValue = p.orderValue;
+    if (Number.isFinite(p.outingsPerWeek)) state.outingsPerWeek = Math.max(1, Math.min(4, p.outingsPerWeek));
+    if (Array.isArray(p.selectedDays)) state.selectedDays = new Set(p.selectedDays.filter((n) => n >= 0 && n <= 6));
+    if (Array.isArray(p.selectedCardTypes)) state.selectedCardTypes = new Set(p.selectedCardTypes.filter(Boolean));
+    if (Array.isArray(p.selectedBanks)) state.selectedBanks = new Set(p.selectedBanks.filter(Boolean));
+    if (Array.isArray(p.selectedRestaurants)) state.selectedRestaurants = new Set(p.selectedRestaurants.filter(Boolean));
+    if (Array.isArray(p.selectedCards)) state.selectedCards = new Set(p.selectedCards.filter(Boolean));
+    if (typeof p.useEligibility === "boolean") state.useEligibility = p.useEligibility;
+    if (p.monthlySalary === null || Number.isFinite(p.monthlySalary)) state.monthlySalary = p.monthlySalary;
+    if (p.accountBalance === null || Number.isFinite(p.accountBalance)) state.accountBalance = p.accountBalance;
+    if (typeof p.viewMode === "string" && ["cards", "restaurants", "my-wallet", "wallet"].includes(p.viewMode)) state.viewMode = p.viewMode;
+    if (Array.isArray(p.ownedCards)) state.ownedCards = new Set(p.ownedCards.filter(Boolean));
+    if (Number.isFinite(p.walletSize) && p.walletSize >= 2 && p.walletSize <= 4) state.walletSize = p.walletSize;
+    if (typeof p.walletBuildOnOwned === "boolean") state.walletBuildOnOwned = p.walletBuildOnOwned;
+    if (p.walletMaxFee === null || Number.isFinite(p.walletMaxFee)) state.walletMaxFee = p.walletMaxFee;
+    if (typeof p.walletNoSameBank === "boolean") state.walletNoSameBank = p.walletNoSameBank;
+    if (typeof p.walletMixedTypes === "boolean") state.walletMixedTypes = p.walletMixedTypes;
+    if (typeof p.walletObjective === "string" && ["savings", "coverage", "roi"].includes(p.walletObjective)) state.walletObjective = p.walletObjective;
+    if (Array.isArray(p.walletMustInclude)) state.walletMustInclude = new Set(p.walletMustInclude.filter(Boolean));
+    if (typeof p.walletAdvancedOpen === "boolean") state.walletAdvancedOpen = p.walletAdvancedOpen;
+    if (Array.isArray(p.favoriteRestaurants)) state.favoriteRestaurants = new Set(p.favoriteRestaurants.filter(Boolean));
+  } catch (_) { /* corrupted payload — ignore */ }
+}
+
+function clearLocalState() {
+  try { localStorage.removeItem(LS_KEY); } catch (_) {}
 }
 
 function restoreStateFromUrl() {
@@ -4490,6 +3307,33 @@ function restoreStateFromUrl() {
     if (params.has("salary")) state.monthlySalary = Number(params.get("salary"));
     if (params.has("balance")) state.accountBalance = Number(params.get("balance"));
   }
+  if (params.has("view")) {
+    const v = String(params.get("view") || "").trim();
+    // Legacy alias: view=next-card → my-wallet (the feature was renamed)
+    if (v === "next-card" || v === "my-wallet") state.viewMode = "my-wallet";
+    else if (v === "restaurants" || v === "cards" || v === "wallet") state.viewMode = v;
+  }
+  if (params.has("owned")) {
+    state.ownedCards = new Set(params.getAll("owned").filter(Boolean));
+  }
+  if (params.has("k")) {
+    const k = Number(params.get("k"));
+    if (k >= 2 && k <= 4) state.walletSize = k;
+  }
+  if (params.get("build") === "owned") state.walletBuildOnOwned = true;
+  if (params.has("maxfee")) {
+    const n = Number(params.get("maxfee"));
+    if (Number.isFinite(n) && n >= 0) state.walletMaxFee = n;
+  }
+  if (params.get("nobank") === "1") state.walletNoSameBank = true;
+  if (params.get("mix") === "1") state.walletMixedTypes = true;
+  if (params.has("obj")) {
+    const o = String(params.get("obj") || "").trim();
+    if (o === "coverage" || o === "roi" || o === "savings") state.walletObjective = o;
+  }
+  if (params.has("must")) {
+    state.walletMustInclude = new Set(params.getAll("must").filter(Boolean));
+  }
 }
 
 function syncDomToState() {
@@ -4509,19 +3353,85 @@ function syncDomToState() {
   if (accountBalance) accountBalance.value = state.accountBalance ?? "";
 }
 
+/* ── DEBUG HOOK ──
+   Expose state + compute fns on window for tests and devtools. No prod risk:
+   nothing reads from this in app code paths; classic-script let/const bindings
+   already share the same script scope so this is just discoverability sugar. */
+if (typeof window !== "undefined") {
+  window.__app = {
+    get state() { return state; },
+    computeRecommendations,
+    computeNextCardRecommendations,
+    computeWalletRecommendations,
+    getOfferSavingValue,
+  };
+}
+
+/* ── ANALYTICS ──
+   Thin wrapper over gtag (already wired in index.html). Calls into the global
+   gtag if it's loaded, swallows errors, and namespaces all events under
+   "konsa_*" so they're easy to filter in GA. Pass small JSON-safe values only. */
+function trackEvent(name, params) {
+  try {
+    const fn = /** @type {any} */ (window).gtag;
+    if (typeof fn !== "function") return;
+    fn("event", `konsa_${name}`, params || {});
+  } catch (_) { /* no-op */ }
+}
+
+// Delegated apply-link tracking — covers every .btn-apply rendered anywhere,
+// including inside modals and dynamically-rendered cards. Capture before the
+// link navigates so the event has time to dispatch.
+document.addEventListener("click", (e) => {
+  const target = /** @type {HTMLElement | null} */ (e.target);
+  const link = target && target.closest && target.closest("a.btn-apply, a.btn-feat-apply");
+  if (!link) return;
+  const href = /** @type {HTMLAnchorElement} */ (link).href || "";
+  try {
+    const host = new URL(href).hostname;
+    trackEvent("apply_click", { host });
+  } catch (_) { /* no-op */ }
+}, true);
+
+/* ── SERVICE WORKER ──
+   Registered after first paint so it never blocks initial render. Skipped on
+   localhost (always-fresh during dev) and when the SW API isn't available. */
+function registerServiceWorker() {
+  if (!("serviceWorker" in navigator)) return;
+  const host = location.hostname;
+  if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") return;
+  // Defer to idle time so registration doesn't compete with the first render.
+  const idle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1500));
+  idle(() => {
+    navigator.serviceWorker.register("/sw.js").catch((err) => {
+      console.warn("[sw] registration failed", err);
+    });
+  });
+}
+
 /* ── BOOT ── */
 init().then(() => {
   renderNavCityTabs();
   updateCityChip();
   // Check first visit and show quick quiz
   checkFirstVisitAndShowQuickQuiz();
+  registerServiceWorker();
 }).catch((error) => {
   console.error(error);
+  // Report to Sentry if loaded
+  try { /** @type {any} */(window).Sentry?.captureException?.(error); } catch {}
+
+  const isSchema = error?.name === "OffersSchemaError";
+  const title = isSchema ? "App data is malformed" : "Could not load app data";
+  const detail = isSchema
+    ? "The offers payload has a shape problem. This usually means the data pipeline emitted an incompatible build. Try refreshing in a minute, or check the browser console for details."
+    : "Check that data/offers-index.json (or offers.json) exists and is being served over HTTP.";
+
   const grid = document.getElementById("results-grid");
   if (grid) grid.innerHTML = `
     <div style="padding:40px 20px;text-align:center;background:var(--surface);border-radius:var(--r);border:1px solid var(--line);">
-      <div style="font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px">Could not load app data</div>
-      <div style="font-size:13px;color:var(--muted)">Check that data/offers.json exists and is being served over HTTP.</div>
+      <div style="font-weight:800;font-size:18px;color:var(--ink);margin-bottom:8px">${escapeHtml(title)}</div>
+      <div style="font-size:13px;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.5">${escapeHtml(detail)}</div>
     </div>
   `;
 });

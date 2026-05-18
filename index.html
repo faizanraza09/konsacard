@@ -11,6 +11,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/mark-32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="./assets/logo/mark-64.png" />
     <link rel="apple-touch-icon" href="./assets/logo/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#BD5B3D" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://konsacard.pk/" />
@@ -34,6 +36,43 @@
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552095742304526" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/styles.css" />
+
+    <!-- Sentry error monitoring via the official Loader Script.
+         The hex string in the URL is the project's public key — safe to expose.
+         The Sentry.onLoad() block tunes defaults for our traffic: trace sampling
+         dropped from 1.0 (100%) to 0.1 (10%) to stay within free quota; session
+         replay kept at 10% normal / 100% on error. Production / preview tag
+         lets us filter the dashboard. Skipped on localhost so dev errors
+         don't pollute the dashboard. -->
+    <script
+      src="https://js.sentry-cdn.com/83b7ee8d2efa25d11bb8a6c5fef6da4c.min.js"
+      crossorigin="anonymous"></script>
+    <script>
+      (function () {
+        var host = location.hostname;
+        if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") return;
+        if (typeof Sentry === "undefined" || !Sentry.onLoad) return;
+        Sentry.onLoad(function () {
+          // Note: we use the basic (error-only) Loader Script bundle. To enable
+          // performance tracing later, switch the script URL above to the
+          // .tracing.min.js variant and add tracesSampleRate here.
+          Sentry.init({
+            environment: host === "konsacard.pk" ? "production" : "preview",
+            ignoreErrors: [
+              "ResizeObserver loop limit exceeded",
+              "Non-Error promise rejection captured",
+              /chrome-extension:/,
+              /^Script error\.?$/,
+            ],
+          });
+        });
+      })();
+    </script>
+    <!-- Modules load in dependency order; classic scripts so they share global scope. -->
+    <script defer src="./assets/state.js"></script>
+    <script defer src="./assets/algorithms.js"></script>
+    <script defer src="./assets/chat.js"></script>
+    <script defer src="./assets/quiz.js"></script>
     <script defer src="./assets/app.js"></script>
     <script type="application/ld+json">
       {
@@ -190,6 +229,13 @@
         <!-- ── MAIN ── -->
         <main class="main" id="main-content">
 
+          <!-- Stale-data banner (shown only if data is >60 days old) -->
+          <div id="stale-banner" class="stale-banner hidden" role="status"></div>
+
+          <!-- New-offers-at-favorites banner (shown if a favorite restaurant
+               has new offers since the user's last visit) -->
+          <div id="favs-alert" class="favs-alert hidden" role="status"></div>
+
           <!-- Result Header -->
           <div class="rh" id="result-header">
             <div>
@@ -203,6 +249,8 @@
             <div class="view-toggle">
               <button class="view-toggle-btn active" id="btn-view-cards" type="button">💳 Cards</button>
               <button class="view-toggle-btn" id="btn-view-restaurants" type="button">🍽️ Restaurants</button>
+              <button class="view-toggle-btn" id="btn-view-next-card" type="button">💼 My Wallet</button>
+              <button class="view-toggle-btn" id="btn-view-wallet" type="button">🧩 Build Wallet</button>
             </div>
             <div class="rh-chip" id="rh-chip-saving">
               <div class="rh-chip-l">Best Saving</div>
@@ -219,6 +267,12 @@
             <div class="empty-title" id="empty-state-title">No cards match your filters</div>
             <div class="empty-msg" id="empty-state-message">Try a different city or reset the filters</div>
           </div>
+
+          <!-- Next Card setup panel (owned cards input) — only shown in next-card view -->
+          <div id="next-card-setup" class="nc-setup-wrap" style="display:none"></div>
+
+          <!-- Build Wallet setup panel — only shown in wallet view -->
+          <div id="wallet-setup" class="wo-setup-wrap" style="display:none"></div>
 
           <!-- Top pick (featured card) -->
           <div id="top-pick" class="top-pick-wrap"></div>
@@ -279,6 +333,7 @@
             </div>
             <div class="footer-fine">
               Offers can change. Always confirm terms directly with your bank.
+              <span class="footer-freshness" id="footer-freshness"></span>
             </div>
           </footer>
 

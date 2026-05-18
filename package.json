@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "wrangler pages dev . --port 8002",
     "dev:static": "python scripts/dev/local_dev_server.py --host 0.0.0.0 --port 8002",
-    "generate:seo": "python scripts/seo/generate_seo_pages.py",
+    "generate:seo": "python3 scripts/seo/generate_seo_pages.py",
+    "build": "python3 scripts/seo/generate_seo_pages.py",
     "refresh:offers": "python scripts/offers/refresh_all_offers.py",
     "refresh:requirements": "python scripts/card_requirements/build_card_requirements_normalized.py && python scripts/card_requirements/build_deal_requirement_card_map.py",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed"
   },
   "repository": {
     "type": "git",
@@ -25,6 +28,8 @@
   "homepage": "https://github.com/faizanraza09/card-match-pk#readme",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
+    "@types/node": "^25.8.0",
+    "typescript": "^6.0.3",
     "wrangler": "^3"
   }
 }

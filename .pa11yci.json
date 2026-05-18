@@ -1,0 +1,19 @@
+{
+  "defaults": {
+    "standard": "WCAG2AA",
+    "timeout": 30000,
+    "wait": 1000,
+    "chromeLaunchConfig": { "args": ["--no-sandbox", "--disable-dev-shm-usage"] },
+    "ignore": [
+      "color-contrast",
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail",
+      "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Abs"
+    ]
+  },
+  "urls": [
+    "http://127.0.0.1:8003/",
+    "http://127.0.0.1:8003/about",
+    "http://127.0.0.1:8003/methodology",
+    "http://127.0.0.1:8003/contact"
+  ]
+}

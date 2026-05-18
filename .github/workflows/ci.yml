@@ -1,0 +1,101 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: Smoke + algorithm tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps chromium
+
+      - name: Type check (jsconfig)
+        run: npx tsc --noEmit -p jsconfig.json
+        continue-on-error: true # @ts-check is informational at first; tighten later
+
+      - name: Playwright tests
+        run: npm test
+        env:
+          CI: 'true'
+
+      - name: Upload Playwright report on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
+
+  quality:
+    name: Lighthouse + Pa11y
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    needs: test
+    continue-on-error: true # Quality checks are advisory until thresholds are tuned
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate SEO pages (so Lighthouse can audit them)
+        run: npm run build
+
+      - name: Lighthouse CI
+        run: npx --yes @lhci/cli@0.13 autorun --config=lighthouserc.json
+        continue-on-error: true
+
+      - name: Start static server for Pa11y
+        run: python3 scripts/dev/local_dev_server.py --host 127.0.0.1 --port 8003 &
+        shell: bash
+
+      - name: Wait for server
+        run: |
+          until curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8003/ | grep -q "200"; do sleep 1; done
+        shell: bash
+
+      - name: Pa11y accessibility audit
+        run: npx --yes pa11y-ci --config .pa11yci.json
+        continue-on-error: true

@@ -51,12 +51,14 @@ COMPONENT_CSS = """\
       :root { --brand-deep: #9E4530; }
       .content {
         display: grid;
+        grid-template-columns: minmax(0, 1fr);
         gap: 22px;
         width: 100%;
         max-width: 1180px;
         margin: 0 auto;
         padding: 24px 20px 56px;
       }
+      .content > * { min-width: 0; }
       .section {
         padding: 28px;
         border-radius: 22px;
@@ -72,6 +74,40 @@ COMPONENT_CSS = """\
         color: var(--ink);
       }
       .section > p { color: var(--muted); line-height: 1.75; margin-bottom: 12px; }
+      .faq-item {
+        border-bottom: 1px solid rgba(226,232,240,0.9);
+        padding: 12px 0;
+      }
+      .faq-item:last-child { border-bottom: none; }
+      .faq-item summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ink);
+        font-size: 0.97rem;
+        list-style: none;
+        position: relative;
+        padding-right: 24px;
+      }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 1.3rem;
+        line-height: 1;
+        color: var(--brand);
+        font-weight: 600;
+        transition: transform .15s;
+      }
+      .faq-item[open] summary::after { content: "−"; }
+      .faq-item summary:hover { color: var(--brand); }
+      .faq-answer {
+        margin-top: 10px;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 0.93rem;
+      }
       .breadcrumbs {
         display: flex; flex-wrap: wrap; gap: 8px;
         font-size: 0.88rem; color: var(--muted); margin-bottom: 14px; overflow-wrap: anywhere;
@@ -343,9 +379,15 @@ def nav_html(current: str = "") -> str:
 
     learn_active = any(href.rstrip("/") == f"/{current}".rstrip("/") for href, _ in learn_pages)
     learn_trigger_cur = ' aria-current="page"' if learn_active else ""
+
+    def _learn_dropdown_link(href: str, text: str) -> str:
+        # Extracted into a helper so Python 3.11 doesn't choke on backslashes
+        # inside the f-string expression (that restriction was lifted in 3.12).
+        cur_attr = ' aria-current="page"' if href.rstrip("/") == f"/{current}".rstrip("/") else ""
+        return f'                <a class="nav-dropdown-link" href="{href}"{cur_attr}>{text}</a>'
+
     learn_dropdown_items = "\n".join(
-        f'                <a class="nav-dropdown-link" href="{href}"{" aria-current=\"page\"" if href.rstrip("/") == f"/{current}".rstrip("/") else ""}>{text}</a>'
-        for href, text in learn_pages
+        _learn_dropdown_link(href, text) for href, text in learn_pages
     )
     contact_link = d_link("/contact", "Contact")
     desk_primary = "\n".join(d_link(h, t) for h, t in primary)
@@ -447,6 +489,122 @@ def make_breadcrumb_schema(path_parts: list[tuple[str, str]]) -> dict:
             for index, (label, path) in enumerate(path_parts)
         ],
     }
+
+
+def faq_schema(faqs: list[tuple[str, str]]) -> dict:
+    """Build FAQPage JSON-LD from a list of (question, answer) pairs.
+
+    Google rewards pages that combine FAQPage schema with the same Q&A
+    visible in the HTML — the page can earn a rich snippet that shows
+    the questions inline in the SERP, dramatically boosting CTR.
+    """
+    return {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": q,
+                "acceptedAnswer": {"@type": "Answer", "text": a},
+            }
+            for q, a in faqs
+        ],
+    }
+
+
+def render_faq_section(title: str, faqs: list[tuple[str, str]]) -> str:
+    """Render the FAQ section as <details>/<summary> for native accessibility,
+    matching the FAQPage schema. The answers MUST be visible on-page for
+    Google to honor the schema."""
+    if not faqs:
+        return ""
+    items = "".join(
+        f"""
+        <details class="faq-item">
+          <summary>{escape(q)}</summary>
+          <div class="faq-answer">{escape(a)}</div>
+        </details>
+        """
+        for q, a in faqs
+    )
+    return f"""
+      <section class="section">
+        <h2>{escape(title)}</h2>
+        {items}
+      </section>
+    """
+
+
+def build_bank_faqs(summary: dict, top_restaurants: list) -> list[tuple[str, str]]:
+    """Templated FAQ list for a bank page, parameterized from data."""
+    name = summary["name"]
+    n_rest = summary["restaurant_count"]
+    n_cards = summary["card_count"]
+    cities = ", ".join(summary["cities"])
+    best_card = summary["cards"][0]["name"] if summary["cards"] else None
+    best_pct = format_pct(max((c.get("max_discount_pct") or 0) for c in summary["cards"])) if summary["cards"] else "—"
+    top_rest_names = ", ".join(r.name for r in top_restaurants[:3]) if top_restaurants else None
+
+    faqs: list[tuple[str, str]] = []
+    faqs.append((
+        f"How many restaurants offer {name} card discounts in Pakistan?",
+        f"{name} cards work at {n_rest} restaurants across {cities}. KonsaCard lists every active dining offer for {n_cards} {name} cards "
+        f"{'including ' + top_rest_names + '.' if top_rest_names else 'in our database.'}"
+    ))
+    if best_card:
+        faqs.append((
+            f"Which {name} card has the highest restaurant discount?",
+            f"The {best_card} carries the deepest dining discount among {name} cards on KonsaCard, reaching {best_pct} at participating restaurants. "
+            f"Headline % alone isn't always the best signal though. Caps and which restaurants are covered matter just as much. "
+            f"Use the comparison tool to find the {name} card that maximises your actual savings."
+        ))
+    faqs.append((
+        f"Do {name} restaurant discounts apply every day?",
+        f"It depends on the offer. Many {name} dining offers run on specific days of the week (e.g. weekday-only) while others apply daily. "
+        f"Each row in the table above shows the days a given card's discount is valid. Filter by day in the main tool to see only offers active when you plan to dine out."
+    ))
+    faqs.append((
+        f"Are {name} discounts available for delivery and takeaway?",
+        f"Offer types vary by deal. Some {name} cards cover dine-in only, others extend to takeaway or delivery. The 'Order' column on each card's individual page shows which order types qualify. "
+        f"If you mostly order delivery, filter for delivery-eligible cards in the comparison tool."
+    ))
+    return faqs
+
+
+def build_restaurant_faqs(summary: dict) -> list[tuple[str, str]]:
+    """Templated FAQ list for a restaurant page."""
+    name = summary["name"]
+    n_cards = summary["card_count"]
+    n_banks = summary["bank_count"]
+    cities = ", ".join(summary.get("cities", []))
+    offers = summary.get("card_offers", []) or []
+    best_pct = format_pct(max((o.get("max_discount_pct") or 0) for o in offers)) if offers else "—"
+    best_bank = offers[0]["bank"] if offers else None
+
+    faqs: list[tuple[str, str]] = []
+    faqs.append((
+        f"Which bank cards work at {name}?",
+        f"{n_cards} cards from {n_banks} banks offer discounts at {name}{' in ' + cities if cities else ''}. "
+        f"The cards range from basic debit cards to premium credit cards, with the top performer being {best_bank or 'multiple options'}. "
+        f"Use the table above to compare every active offer."
+    ))
+    faqs.append((
+        f"What is the best discount at {name}?",
+        f"The deepest discount available at {name} on KonsaCard right now is {best_pct}. "
+        f"But the highest headline % isn't always the most you'll save, because many cards cap the discount per transaction. "
+        f"Open the comparison tool to enter your typical bill size and see actual estimated savings rather than just the % off."
+    ))
+    faqs.append((
+        f"Do {name} discounts work every day?",
+        f"Offers at {name} vary by day. Some cards run weekday-only offers, others apply across the full week. "
+        f"The 'Days' column on each row shows when the offer is active. Filter by your dining day in the main tool to see only relevant cards."
+    ))
+    faqs.append((
+        f"How do I get a {name} discount?",
+        f"Pay your bill with one of the listed cards on a qualifying day, and the discount is applied automatically at the till. No coupon code needed. "
+        f"Always confirm current terms with your bank or the restaurant before assuming an offer is still active, as discounts can change."
+    ))
+    return faqs
 
 
 def entity_page_schema(
@@ -711,10 +869,12 @@ def render_restaurant_index(restaurant_summaries: list[dict], bank_count: int) -
 
 def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
     title = f"{summary['name']} restaurant discounts in Pakistan | KonsaCard"
+    best_pct_num = max((c.get("max_discount_pct") or 0) for c in summary["cards"]) if summary["cards"] else 0
+    best_pct_str = format_pct(best_pct_num) if best_pct_num else None
     description = (
-        f"See restaurant discount coverage for {summary['name']} across {summary['restaurant_count']} restaurants "
-        f"and {summary['card_count']} cards in {', '.join(summary['cities'])}."
-    )
+        f"Compare {summary['card_count']} {summary['name']} cards across {summary['restaurant_count']} restaurants in {', '.join(summary['cities'])}. "
+        f"{('Discounts up to ' + best_pct_str + '.') if best_pct_str else ''} Independent rankings. Not sponsored."
+    ).strip()
     top_restaurants: list[RelatedItem] = summary["top_restaurants"]
     table_rows = "".join(
         f"""
@@ -754,23 +914,24 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
     
     # Internal linking: Show all cards
     all_cards_list = "".join(
-        f'<li><a href="/banks/{summary["slug"]}/{card["slug"]}/">{escape(card["name"])}</a> ({card["card_type"]}) – {card["restaurant_count"]} restaurants, up to {format_pct(card["max_discount_pct"])} off</li>'
+        f'<li><a href="/banks/{summary["slug"]}/{card["slug"]}/">{escape(card["name"])}</a> ({card["card_type"]}), {card["restaurant_count"]} restaurants, up to {format_pct(card["max_discount_pct"])} off</li>'
         for card in summary["cards"]
     )
     
+    bank_faqs = build_bank_faqs(summary, top_restaurants)
     body = f"""
       {nav_html('banks')}
 
       <header class="content-hero">
         <p class="eyebrow">Bank Guide</p>
         <h1>{escape(summary['name'])} restaurant discounts</h1>
-        <p>{escape(summary['name'])} covers {summary['restaurant_count']} restaurants across {summary['card_count']} cards. Browse cards and top restaurant links below, or open the tool for a personalised comparison.</p>
+        <p>{escape(summary['name'])} cardholders can save at <strong>{summary['restaurant_count']} restaurants</strong> across {', '.join(summary['cities'])}, with {summary['card_count']} different cards each carrying their own dining offers. {('The highest headline discount on a ' + escape(summary['name']) + ' card right now is ' + escape(best_pct_str) + '.') if best_pct_str else ''} Browse every active offer below, or open the comparison tool for a personalised ranking by city, bill size, and day of week.</p>
       </header>
 
       <div class="content">
         <section class="section">
           <h2>Cards listed for {escape(summary['name'])}</h2>
-          <p>Each card below shows how many restaurants it covers and its headline discount. Use Compare to open the tool with this bank pre-selected.</p>
+          <p>Each card below shows how many restaurants it covers and its headline discount. Headline % alone isn't the full picture, because caps and restaurant overlap matter just as much. That is why the comparison tool ranks by estimated savings on your typical bill rather than raw discount %. Click Compare to pre-select this bank.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -805,6 +966,8 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
             {all_cards_list}
           </ul>
         </section>
+
+        {render_faq_section(f"Frequently asked about {summary['name']} discounts", bank_faqs)}
       </div>
       <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
     """
@@ -816,6 +979,7 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
         top_restaurants,
         "/restaurants/",
     )
+    schema.append(faq_schema(bank_faqs))
     return html_page(
         title=title,
         description=description,
@@ -823,6 +987,32 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
         schema=schema,
         body=body,
     )
+
+
+def render_offer_details_cell(title: str, description: str | None) -> str:
+    """Build the 'Offer Details' table cell.
+
+    Extracted into its own function because Python 3.11 forbids backslashes
+    inside f-string `{...}` expressions, and the inline HTML below uses
+    escaped quotes throughout the `onclick` attribute. Building the string
+    here keeps the call site clean and 3.11-compatible.
+    """
+    head = escape(title or "")
+    if not description:
+        return head
+    toggle = (
+        '<div class="offer-detail-toggle" '
+        'onclick="var d=this.nextElementSibling;'
+        "d.style.display=d.style.display==='none'?'block':'none';"
+        'this.textContent=d.style.display===\'none\'?\'Details ▾\':\'Details ▴\'" '
+        'style="cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px"'
+        ">Details ▾</div>"
+        '<div class="offer-detail-text" '
+        'style="display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4">'
+        + escape(description)
+        + "</div>"
+    )
+    return head + toggle
 
 
 def render_order_type_badges(order_types: list[str]) -> str:
@@ -842,17 +1032,19 @@ def render_order_type_badges(order_types: list[str]) -> str:
 
 def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
     title = f"{summary['name']} bank discounts in Pakistan | KonsaCard"
+    best_offer_pct = max((o.get("max_discount_pct") or 0) for o in summary.get("card_offers", [])) if summary.get("card_offers") else 0
+    best_offer_str = format_pct(best_offer_pct) if best_offer_pct else None
     description = (
-        f"See which banks and cards show restaurant discount coverage for {summary['name']} "
-        f"across {', '.join(summary['cities'])}. Compare {summary['bank_count']} banks and {summary['card_count']} cards."
-    )
+        f"Compare {summary['card_count']} cards from {summary['bank_count']} banks with discounts at {summary['name']} in {', '.join(summary['cities'])}. "
+        f"{('Up to ' + best_offer_str + ' off.') if best_offer_str else ''} Independent, not sponsored."
+    ).strip()
     card_rows = "".join(
         f"""
         <tr>
           <td data-label="Bank"><a href="/banks/{bank_slug_map.get(offer['bank'], '#')}/">{escape(offer['bank'])}</a></td>
           <td data-label="Card"><a href="/banks/{offer['bank_slug']}/{offer['card_slug']}/" style="color:var(--ink);font-weight:600">{escape(offer['card'])}</a></td>
           <td data-label="Type">{escape(offer['card_type'])}</td>
-          <td data-label="Offer Details">{escape(offer['offer_title'] or offer['discount_label'] or '')}{"<div class=\"offer-detail-toggle\" onclick=\"var d=this.nextElementSibling;d.style.display=d.style.display===\'none\'?'block':'none';this.textContent=d.style.display===\'none\'?'Details \u25be':'Details \u25b4'\" style=\"cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px\">Details \u25be</div><div class=\"offer-detail-text\" style=\"display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4\">" + escape(offer["offer_description"]) + "</div>" if offer.get('offer_description') else ""}</td>
+          <td data-label="Offer Details">{render_offer_details_cell(offer.get('offer_title') or offer.get('discount_label') or '', offer.get('offer_description'))}</td>
           <td data-label="Discount">{escape(offer['discount_label'] or format_pct(offer['max_discount_pct']))}</td>
           <td data-label="Cap">{escape(format_pkr(offer['max_cap_pkr']))}</td>
           <td data-label="Days">{escape(offer['days_label'] or 'All Days')}</td>
@@ -885,23 +1077,24 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
     
     # Internal linking: Show all banks with offers
     all_banks_list = "".join(
-        f'<li><a href="/banks/{bank_slug_map.get(bank["name"], "#")}/">{escape(bank["name"])}</a> – {bank["card_count"]} cards, up to {format_pct(bank["max_discount_pct"])} off</li>'
+        f'<li><a href="/banks/{bank_slug_map.get(bank["name"], "#")}/">{escape(bank["name"])}</a>: {bank["card_count"]} cards, up to {format_pct(bank["max_discount_pct"])} off</li>'
         for bank in summary["banks"]
     )
     
+    rest_faqs = build_restaurant_faqs(summary)
     body = f"""
       {nav_html('restaurants')}
 
       <header class="content-hero">
         <p class="eyebrow">Restaurant Guide</p>
         <h1>{escape(summary['name'])} bank discount coverage</h1>
-        <p>{escape(summary['name'])} has offers from {summary['bank_count']} banks across {summary['card_count']} cards. See every card deal available here, or open the tool for a personalised ranking.</p>
+        <p>Diners at <strong>{escape(summary['name'])}</strong> can claim discounts with {summary['card_count']} different cards across {summary['bank_count']} banks in {', '.join(summary['cities'])}. {('The headline discount on the best card is currently ' + escape(best_offer_str) + '.') if best_offer_str else ''} Compare every offer below, including which days each card's discount is valid and what the per-transaction cap is, or open the comparison tool for a ranking on your typical bill size.</p>
       </header>
 
       <div class="content">
         <section class="section">
           <h2>Cards available at {escape(summary['name'])}</h2>
-          <p>Every deal that shows a discount for this restaurant, sorted by headline discount. Use the Compare link to open the tool with that bank and restaurant pre-selected.</p>
+          <p>Every deal that shows a discount at {escape(summary['name'])}, sorted by headline discount. Headline % isn't always the best signal, because many offers cap savings per transaction, so what looks like a big discount may save less than a smaller % with no cap. Open the tool with Compare to rank by estimated actual savings on your bill.</p>
           <div class="table-wrap">
             <table>
               <thead>
@@ -939,6 +1132,8 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
             {all_banks_list}
           </ul>
         </section>
+
+        {render_faq_section(f"Frequently asked about {summary['name']} discounts", rest_faqs)}
       </div>
       <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
     """
@@ -951,6 +1146,7 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
         "/banks/",
         summary.get("cities", []),
     )
+    schema.append(faq_schema(rest_faqs))
     return html_page(
         title=title,
         description=description,
@@ -1001,7 +1197,7 @@ def render_eligibility_section(card: dict | None) -> str:
     if reqs.get("minimum_age_years"):
         age_str = f"{reqs['minimum_age_years']}+"
         if reqs.get("maximum_age_years"):
-            age_str = f"{reqs['minimum_age_years']}–{reqs['maximum_age_years']}"
+            age_str = f"{reqs['minimum_age_years']} to {reqs['maximum_age_years']}"
         items.append(("Age", age_str))
     if reqs.get("existing_account_required"):
         items.append(("Existing account", "Required"))
@@ -1047,7 +1243,7 @@ def render_eligibility_section(card: dict | None) -> str:
 
 def render_card_page(bank_summary: dict, card: dict) -> str:
     canonical_path = f"/banks/{bank_summary['slug']}/{card['slug']}/"
-    title = f"{card['name']} – {bank_summary['name']} restaurant discounts | KonsaCard"
+    title = f"{card['name']} from {bank_summary['name']}: restaurant discounts | KonsaCard"
     description = (
         f"See every restaurant where {bank_summary['name']} {card['name']} ({card['card_type']}) "
         f"gives a dining discount in Pakistan. {card['restaurant_count']} restaurants, "
@@ -1057,7 +1253,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
         f"""
         <tr>
           <td data-label="Restaurant"><a href="/restaurants/{r['slug']}/" style="color:var(--ink);font-weight:600">{escape(r['name'])}</a></td>
-          <td data-label="Offer Details">{escape(r['offer_title'] or r['discount_label'] or '')}{"<div class=\"offer-detail-toggle\" onclick=\"var d=this.nextElementSibling;d.style.display=d.style.display===\'none\'?'block':'none';this.textContent=d.style.display===\'none\'?'Details \u25be':'Details \u25b4'\" style=\"cursor:pointer;font-size:0.72rem;color:var(--brand);font-weight:600;margin-top:2px\">Details \u25be</div><div class=\"offer-detail-text\" style=\"display:none;font-size:0.78rem;color:var(--muted);margin-top:3px;line-height:1.4\">" + escape(r["offer_description"]) + "</div>" if r.get('offer_description') else ""}</td>
+          <td data-label="Offer Details">{render_offer_details_cell(r.get('offer_title') or r.get('discount_label') or '', r.get('offer_description'))}</td>
           <td data-label="Discount">{escape(format_pct(r['max_discount_pct']))}</td>
           <td data-label="Cap">{escape(format_pkr(r['max_cap_pkr']))}</td>
           <td data-label="Days">{escape(r['days_label'] or 'All Days')}</td>
@@ -1074,7 +1270,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
     related_cards_html = ""
     if other_cards:
         card_links = "".join(
-            f'<li><a href="/banks/{bank_summary["slug"]}/{c["slug"]}/">{escape(c["name"])} ({c["card_type"]})</a> – {c["restaurant_count"]} restaurants</li>'
+            f'<li><a href="/banks/{bank_summary["slug"]}/{c["slug"]}/">{escape(c["name"])} ({c["card_type"]})</a>: {c["restaurant_count"]} restaurants</li>'
             for c in other_cards
         )
         related_cards_html = f"""
@@ -1143,7 +1339,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
         
         {related_cards_html}
       </div>
-      <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change — always confirm current terms directly with the bank or restaurant.</div>
+      <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change. Always confirm current terms directly with the bank or restaurant.</div>
     """
     schema = [
         {
@@ -1409,12 +1605,23 @@ def regenerate_sitemap(payload: dict, bank_count: int, restaurant_count: int, ca
     dynamic_urls: list[str] = []
     for path in bank_paths + restaurant_paths:
         relative = "/" + path.relative_to(ROOT).as_posix().replace("index.html", "")
+        # Sitemap priority by depth:
+        #   /banks/ and /restaurants/         (depth 2) → 0.8  index hubs
+        #   /banks/<slug>/, /restaurants/<slug>/ (depth 3) → 0.7  entity pages
+        #   /banks/<slug>/<card-slug>/       (depth 4+) → 0.6  card pages
+        depth = relative.count("/")
+        if depth <= 2:
+            priority = "0.8"
+        elif depth == 3:
+            priority = "0.7"
+        else:
+            priority = "0.6"
         dynamic_urls.append(
             f"""  <url>
     <loc>{SITE_URL}{relative}</loc>
     <lastmod>{today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>{"0.7" if relative.count("/") <= 2 else "0.6"}</priority>
+    <priority>{priority}</priority>
   </url>"""
         )
 
