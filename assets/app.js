@@ -515,6 +515,7 @@ function resetFilters() {
   state.accountBalance = null;
   state.ownedCards = new Set();
   state.ownedCardSearchTerm = "";
+  state.manageWalletExpanded = false;
   state.walletSize = 2;
   state.walletBuildOnOwned = false;
   state.walletMaxFee = null;
@@ -1463,23 +1464,36 @@ function renderOwnedCardsPanel(container, walletStats) {
     </div>
   ` : "";
 
+  // When the wallet already has cards, collapse the manage panel by default
+  // so the "Best Next Card" sits closer to the fold. The wallet-empty case
+  // is always expanded since adding cards is the primary action there.
+  const isCollapsible = hasWallet;
+  const isExpanded = !isCollapsible || state.manageWalletExpanded;
+  const headTag = isCollapsible ? "button" : "div";
+  const headAttrs = isCollapsible
+    ? `type="button" id="nc-manage-toggle" class="nc-setup-head nc-setup-head--toggle" aria-expanded="${isExpanded}" aria-controls="nc-setup-body"`
+    : `class="nc-setup-head"`;
+
   container.innerHTML = `
     ${summaryHtml}
-    <div class="nc-setup">
-      <div class="nc-setup-head">
+    <div class="nc-setup${isCollapsible && !isExpanded ? " nc-setup--collapsed" : ""}">
+      <${headTag} ${headAttrs}>
         <div class="nc-setup-title-wrap">
           <div class="nc-setup-kicker">${hasWallet ? "Manage" : "Step 1"}</div>
           <div class="nc-setup-title">${hasWallet ? "Cards in your wallet" : "Add the cards you carry"}</div>
-          <div class="nc-setup-sub">${hasWallet
-            ? "Add or remove cards to see how it changes your savings and the best card to add next."
-            : "Tell us what's in your wallet and we'll show what it's worth — plus the single best card to add next."}</div>
+          ${hasWallet
+            ? ""
+            : `<div class="nc-setup-sub">Tell us what's in your wallet and we'll show what it's worth — plus the single best card to add next.</div>`}
         </div>
-        <div class="nc-setup-count">
-          <span class="nc-setup-count-num">${ownedCount}</span>
-          <span class="nc-setup-count-label">${ownedCount === 1 ? "card" : "cards"}</span>
+        <div class="nc-setup-meta">
+          <div class="nc-setup-count">
+            <span class="nc-setup-count-num">${ownedCount}</span>
+            <span class="nc-setup-count-label">${ownedCount === 1 ? "card" : "cards"}</span>
+          </div>
+          ${isCollapsible ? `<span class="nc-setup-chevron${isExpanded ? " nc-setup-chevron--open" : ""}" aria-hidden="true"><svg viewBox="0 0 12 12" width="10" height="10"><path d="M2 4.5 L6 8.5 L10 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>` : ""}
         </div>
-      </div>
-      <div class="nc-setup-body">
+      </${headTag}>
+      <div id="nc-setup-body" class="nc-setup-body" ${isCollapsible && !isExpanded ? `hidden` : ""}>
         <input id="nc-owned-search" class="s-search nc-search" type="search" placeholder="Search bank or card name…" autocomplete="off" value="${escapeAttr(state.ownedCardSearchTerm)}" />
         <div id="nc-owned-results" class="s-search-results nc-search-results"></div>
         <div id="nc-owned-chips" class="s-chips nc-chips"></div>
@@ -1492,6 +1506,11 @@ function renderOwnedCardsPanel(container, walletStats) {
       </div>
     </div>
   `;
+
+  document.getElementById("nc-manage-toggle")?.addEventListener("click", () => {
+    state.manageWalletExpanded = !state.manageWalletExpanded;
+    render();
+  });
 
   const searchInput = document.getElementById("nc-owned-search");
   if (searchInput) {
