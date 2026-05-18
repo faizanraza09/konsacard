@@ -45,6 +45,7 @@ STATIC_ROUTES = [
     ("/how-discount-caps-work", ROOT / "how-discount-caps-work.html", "weekly", "0.8"),
     ("/contact", ROOT / "contact.html", "monthly", "0.5"),
     ("/privacy-policy", ROOT / "privacy-policy.html", "monthly", "0.4"),
+    ("/terms", ROOT / "terms.html", "monthly", "0.4"),
 ]
 
 COMPONENT_CSS = """\
@@ -366,6 +367,7 @@ def nav_html(current: str = "") -> str:
     ]
     all_pages = primary + learn_pages + [
         ("/privacy-policy", "Privacy"),
+        ("/terms", "Terms"),
         ("/contact", "Contact"),
     ]
 
