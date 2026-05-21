@@ -15,7 +15,7 @@
  * users always see fresh content.
  */
 
-const SHELL_VERSION = "v1";
+const SHELL_VERSION = "v2";
 const SHELL_CACHE = `konsa-shell-${SHELL_VERSION}`;
 const DATA_CACHE  = `konsa-data-${SHELL_VERSION}`;
 

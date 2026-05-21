@@ -23,6 +23,95 @@ RESTAURANTS_DIR = ROOT / "restaurants"
 SITEMAP_PATH = ROOT / "sitemap.xml"
 SITE_URL = "https://konsacard.pk"
 
+# Mirror of BANK_LOGO_FILES from assets/state.js. Keys are normalized bank names
+# (lowercase, alphanumeric only). Values are filenames in /assets/bank-logos/.
+BANK_LOGO_FILES = {
+    "albarakabank": "al-baraka-bank.png",
+    "alliedbank": "allied-bank.png",
+    "askaribanklimited": "askari-bank.png",
+    "bankalhabib": "bank-al-habib.png",
+    "bankalfalah": "bank-alfalah.png",
+    "bankofpunjab": "bank-of-punjab.png",
+    "bankislami": "bankislami.png",
+    "easypaisa": "easypaisa.png",
+    "faysalbanklimited": "faysal-bank.png",
+    "habibbanklimited": "hbl.png",
+    "habibmetrobank": "habib-metro.png",
+    "hblislamicbanklimited": "hbl-islamic.png",
+    "jsbank": "js-bank.png",
+    "mcbbanklimited": "mcb-bank.png",
+    "mcbislamicbankltd": "mcb-islamic.png",
+    "meezanbank": "meezan-bank.png",
+    "nationalbankofpakistan": "national-bank-of-pakistan.png",
+    "standardcharteredbank": "standard-chartered.png",
+    "unitedbanklimitedubl": "ubl.png",
+}
+
+
+def bank_logo_url(bank_name: str) -> str | None:
+    key = "".join(c for c in bank_name.lower() if c.isalnum())
+    filename = BANK_LOGO_FILES.get(key)
+    return f"/assets/bank-logos/{filename}" if filename else None
+
+
+def bank_logo_img(bank_name: str, *, css_class: str = "bank-logo-image", lazy: bool = True) -> str:
+    src = bank_logo_url(bank_name)
+    if not src:
+        return ""
+    loading = ' loading="lazy"' if lazy else ""
+    return (
+        f'<img class="{css_class}" src="{src}" alt="{escape(bank_name)} logo"'
+        f' width="64" height="64"{loading} />'
+    )
+
+
+def format_dataset_date(timestamp_str: str) -> tuple[str, str]:
+    """Parse an ISO timestamp and return (iso_date, human_date) e.g.
+    ("2026-05-20", "May 20, 2026"). Empty strings on failure.
+    """
+    if not timestamp_str:
+        return "", ""
+    try:
+        dt = datetime.fromisoformat(timestamp_str.replace("Z", "+00:00"))
+    except ValueError:
+        return "", ""
+    iso = dt.date().isoformat()
+    human = dt.strftime("%B ") + str(dt.day) + dt.strftime(", %Y")
+    return iso, human
+
+
+def last_updated_html(iso_date: str, human_date: str) -> str:
+    if not iso_date:
+        return ""
+    return f'Last updated <time datetime="{iso_date}">{human_date}</time>. '
+
+
+ATTRIBUTION_FOOTER = (
+    '<div class="page-footer">'
+    'Restaurant data, branch addresses, and offer details are sourced from '
+    '<a href="https://peekaboo.guru" target="_blank" rel="noopener noreferrer">Peekaboo Guru</a>, '
+    '<a href="https://easypaisa.com.pk" target="_blank" rel="noopener noreferrer">Easypaisa</a>, '
+    'and bank-published material. KonsaCard is an independent comparison and is not affiliated with any bank or merchant.'
+    '</div>'
+)
+
+
+def freshness_chip_html(iso_date: str, human_date: str) -> str:
+    """Small always-visible chip at the top of bank/restaurant/card pages —
+    mirrors the homepage chip styling. Uses absolute date so it doesn't lie
+    when the page is viewed weeks after deploy. Wrapped in a max-width
+    container so the chip aligns with the hero/content gutter."""
+    if not iso_date:
+        return ""
+    return (
+        '<div class="freshness-chip-wrap">'
+        '<div class="freshness-chip" role="status">'
+        '<span class="freshness-chip-dot" aria-hidden="true"></span>'
+        f'<span>Offers verified <strong><time datetime="{iso_date}">{human_date}</time></strong></span>'
+        "</div>"
+        "</div>"
+    )
+
 
 def build_req_lookup(req_records: list[dict], mapping: list[dict]) -> dict[tuple[str, str], dict]:
     by_card_id = {r["card_id"]: r for r in req_records}
@@ -39,13 +128,13 @@ def find_req(lookup: dict[tuple[str, str], dict], bank: str, card: str) -> dict 
     return lookup.get((bank, card))
 STATIC_ROUTES = [
     ("/", ROOT / "index.html", "daily", "1.0"),
-    ("/about", ROOT / "about.html", "monthly", "0.6"),
-    ("/methodology", ROOT / "methodology.html", "monthly", "0.7"),
-    ("/how-card-tiers-affect-discounts", ROOT / "how-card-tiers-affect-discounts.html", "weekly", "0.8"),
-    ("/how-discount-caps-work", ROOT / "how-discount-caps-work.html", "weekly", "0.8"),
-    ("/contact", ROOT / "contact.html", "monthly", "0.5"),
-    ("/privacy-policy", ROOT / "privacy-policy.html", "monthly", "0.4"),
-    ("/terms", ROOT / "terms.html", "monthly", "0.4"),
+    ("/about/", ROOT / "about" / "index.html", "monthly", "0.6"),
+    ("/methodology/", ROOT / "methodology" / "index.html", "monthly", "0.7"),
+    ("/how-card-tiers-affect-discounts/", ROOT / "how-card-tiers-affect-discounts" / "index.html", "weekly", "0.8"),
+    ("/how-discount-caps-work/", ROOT / "how-discount-caps-work" / "index.html", "weekly", "0.8"),
+    ("/contact/", ROOT / "contact" / "index.html", "monthly", "0.5"),
+    ("/privacy-policy/", ROOT / "privacy-policy" / "index.html", "monthly", "0.4"),
+    ("/terms/", ROOT / "terms" / "index.html", "monthly", "0.4"),
 ]
 
 COMPONENT_CSS = """\
@@ -316,26 +405,31 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <title>{escaped_title}</title>
     <meta name="description" content="{escaped_description}" />
     <link rel="canonical" href="{canonical_url}" />
+    <link rel="alternate" hreflang="en-PK" href="{canonical_url}" />
+    <link rel="alternate" hreflang="x-default" href="{canonical_url}" />
     <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/mark-32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/logo/mark-64.png" />
     <link rel="apple-touch-icon" href="/assets/logo/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#BD5B3D" />
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{canonical_url}" />
     <meta property="og:title" content="{escaped_title}" />
     <meta property="og:description" content="{escaped_description}" />
     <meta property="og:site_name" content="konsacard.pk" />
-    <meta property="og:image" content="{SITE_URL}/assets/og-image.png" />
+    <meta property="og:image" content="{SITE_URL}/assets/og-image.jpg" />
     <meta property="og:image:alt" content="KonsaCard - Restaurant discount comparison for Pakistan" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="{escaped_title}" />
     <meta name="twitter:description" content="{escaped_description}" />
-    <meta name="twitter:image" content="{SITE_URL}/assets/og-image.png" />
+    <meta name="twitter:image" content="{SITE_URL}/assets/og-image.jpg" />
     <meta name="twitter:image:alt" content="KonsaCard - Restaurant discount comparison for Pakistan" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
     <link rel="stylesheet" href="/assets/styles.css" />
     <style>
 {COMPONENT_CSS}
@@ -360,15 +454,15 @@ def nav_html(current: str = "") -> str:
         ("/restaurants/", "Restaurants"),
     ]
     learn_pages = [
-        ("/about", "About"),
-        ("/methodology", "Methodology"),
-        ("/how-discount-caps-work", "Discount Caps"),
-        ("/how-card-tiers-affect-discounts", "Card Tiers"),
+        ("/about/", "About"),
+        ("/methodology/", "Methodology"),
+        ("/how-discount-caps-work/", "Discount Caps"),
+        ("/how-card-tiers-affect-discounts/", "Card Tiers"),
     ]
     all_pages = primary + learn_pages + [
-        ("/privacy-policy", "Privacy"),
-        ("/terms", "Terms"),
-        ("/contact", "Contact"),
+        ("/privacy-policy/", "Privacy"),
+        ("/terms/", "Terms"),
+        ("/contact/", "Contact"),
     ]
 
     def d_link(href: str, text: str) -> str:
@@ -391,7 +485,7 @@ def nav_html(current: str = "") -> str:
     learn_dropdown_items = "\n".join(
         _learn_dropdown_link(href, text) for href, text in learn_pages
     )
-    contact_link = d_link("/contact", "Contact")
+    contact_link = d_link("/contact/", "Contact")
     desk_primary = "\n".join(d_link(h, t) for h, t in primary)
     util = "\n".join(u_link(h, t) for h, t in all_pages)
 
@@ -652,6 +746,85 @@ def entity_page_schema(
     ]
 
 
+def bank_page_schema(
+    title: str,
+    description: str,
+    canonical_path: str,
+    bank_name: str,
+    cities: list[str],
+    top_restaurants: list[RelatedItem],
+) -> list[dict]:
+    """Schema graph for bank pages.
+
+    The page is a CollectionPage whose `about` is a FinancialService entity
+    (the bank). FinancialService is a subtype of Organization and is the
+    right schema.org type for a bank/card issuer.
+    """
+    item_list = [
+        {
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": item.name,
+            "url": f"{SITE_URL}/restaurants/{item.slug}/",
+        }
+        for index, item in enumerate(top_restaurants[:10])
+    ]
+
+    bank_entity: dict = {
+        "@type": "FinancialService",
+        "@id": f"{SITE_URL}{canonical_path}#bank",
+        "name": bank_name,
+        "url": f"{SITE_URL}{canonical_path}",
+    }
+    # Use the real bank logo if we have one — accurate and tied to the entity.
+    logo_path = bank_logo_url(bank_name)
+    if logo_path:
+        bank_entity["logo"] = f"{SITE_URL}{logo_path}"
+        bank_entity["image"] = f"{SITE_URL}{logo_path}"
+    if cities:
+        bank_entity["areaServed"] = [
+            {"@type": "City", "name": city} for city in cities
+        ]
+
+    return [
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "CollectionPage",
+                    "name": title,
+                    "url": f"{SITE_URL}{canonical_path}",
+                    "description": description,
+                    "about": {"@id": f"{SITE_URL}{canonical_path}#bank"},
+                    "isPartOf": {"@id": f"{SITE_URL}/#website"},
+                },
+                make_breadcrumb_schema([
+                    ("Home", "/"),
+                    ("Banks", "/banks/"),
+                    (bank_name, canonical_path),
+                ]),
+                bank_entity,
+                {
+                    "@type": "ItemList",
+                    "name": f"Top restaurants for {bank_name}",
+                    "itemListElement": item_list,
+                },
+            ],
+        }
+    ]
+
+
+SCHEMA_DAY_TO_FULL = {
+    "Monday": "https://schema.org/Monday",
+    "Tuesday": "https://schema.org/Tuesday",
+    "Wednesday": "https://schema.org/Wednesday",
+    "Thursday": "https://schema.org/Thursday",
+    "Friday": "https://schema.org/Friday",
+    "Saturday": "https://schema.org/Saturday",
+    "Sunday": "https://schema.org/Sunday",
+}
+
+
 def restaurant_page_schema(
     title: str,
     description: str,
@@ -660,8 +833,17 @@ def restaurant_page_schema(
     related_banks: list[RelatedItem],
     related_base_path: str,
     cities: list[str],
+    branches: list[dict] | None = None,
+    enrichment: dict | None = None,
 ) -> list[dict]:
-    """Schema for restaurant pages with LocalBusiness information."""
+    """Schema graph for restaurant pages.
+
+    Emits only fields we can substantiate. The cheap path (no `enrichment`)
+    uses Peekaboo's nearestBranch labels + coords. The rich path uses
+    `/api/v6/entity/branch/_all` data: real street address, geo, telephone,
+    opening hours per branch, plus entity-level description, photos,
+    cuisine tags, social links, and aggregateRating.
+    """
     item_list = [
         {
             "@type": "ListItem",
@@ -671,36 +853,143 @@ def restaurant_page_schema(
         }
         for index, item in enumerate(related_banks[:10])
     ]
-    
-    # LocalBusiness schema for restaurant
-    local_business = {
-        "@type": "LocalBusiness",
+
+    restaurant_entity: dict = {
+        "@type": "Restaurant",
+        "@id": f"{SITE_URL}{canonical_path}#restaurant",
         "name": restaurant_name,
         "url": f"{SITE_URL}{canonical_path}",
-        "description": description,
     }
-    
-    # Add addresses for known cities
     if cities:
-        local_business["areaServed"] = cities
-    
+        restaurant_entity["areaServed"] = [
+            {"@type": "City", "name": city} for city in cities
+        ]
+
+    enr = enrichment or {}
+
+    # Entity-level fields from Peekaboo's /api/v8/entity/detail.
+    if enr.get("description"):
+        restaurant_entity["description"] = enr["description"]
+    images: list[str] = []
+    if enr.get("logo"):
+        images.append(enr["logo"])
+    images.extend(u for u in (enr.get("images") or []) if isinstance(u, str))
+    # De-dupe in order
+    seen_img: set[str] = set()
+    deduped_images: list[str] = []
+    for u in images:
+        if u in seen_img:
+            continue
+        seen_img.add(u)
+        deduped_images.append(u)
+    if deduped_images:
+        restaurant_entity["image"] = deduped_images
+    if enr.get("telephone"):
+        restaurant_entity["telephone"] = enr["telephone"]
+    cuisines = enr.get("servesCuisine") or []
+    if cuisines:
+        restaurant_entity["servesCuisine"] = cuisines
+    social = enr.get("social") or {}
+    same_as = [
+        v for k, v in social.items()
+        if k in ("facebook", "website", "instagram", "android", "ios") and isinstance(v, str) and v.startswith("http")
+    ]
+    if same_as:
+        restaurant_entity["sameAs"] = same_as
+    # Branches: prefer enriched (street address + geo + phone + hours) over
+    # the legacy nearestBranch-labelled fallback.
+    rich_branches: list[dict] = []
+    if enr.get("branchesByCity"):
+        for city, items in (enr["branchesByCity"] or {}).items():
+            for b in items or []:
+                rich_branches.append({**b, "city": b.get("city") or city})
+
+    location_entries: list[dict] = []
+    if rich_branches:
+        for b in rich_branches:
+            addr = b.get("address")
+            city = b.get("city")
+            if not addr or not city:
+                continue
+            place: dict = {
+                "@type": "Place",
+                "name": b.get("name") or addr,
+                "address": {
+                    "@type": "PostalAddress",
+                    "streetAddress": addr,
+                    "addressLocality": city,
+                    "addressCountry": b.get("country") or "PK",
+                },
+            }
+            lat, lng = b.get("lat"), b.get("lng")
+            if lat is not None and lng is not None:
+                place["geo"] = {
+                    "@type": "GeoCoordinates",
+                    "latitude": lat,
+                    "longitude": lng,
+                }
+            tel = b.get("telephone")
+            if tel:
+                place["telephone"] = tel
+            hours = b.get("openingHours") or []
+            ohs = [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": SCHEMA_DAY_TO_FULL[h["day"]],
+                    "opens": h["opens"],
+                    "closes": h["closes"],
+                }
+                for h in hours
+                if isinstance(h, dict) and h.get("day") in SCHEMA_DAY_TO_FULL and h.get("opens") and h.get("closes")
+            ]
+            if ohs:
+                place["openingHoursSpecification"] = ohs
+            location_entries.append(place)
+    else:
+        # Legacy path: Peekaboo's nearestBranch label only, no real street.
+        for branch in branches or []:
+            addr_label = branch.get("address")
+            city = branch.get("city")
+            if not addr_label or not city:
+                continue
+            place = {
+                "@type": "Place",
+                "name": addr_label,
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": city,
+                    "addressCountry": "PK",
+                },
+            }
+            lat, lng = branch.get("lat"), branch.get("lng")
+            if lat is not None and lng is not None:
+                place["geo"] = {
+                    "@type": "GeoCoordinates",
+                    "latitude": lat,
+                    "longitude": lng,
+                }
+            location_entries.append(place)
+    if location_entries:
+        restaurant_entity["location"] = location_entries
+
     return [
         {
             "@context": "https://schema.org",
             "@graph": [
                 {
-                    "@type": "WebPage",
+                    "@type": "CollectionPage",
                     "name": title,
                     "url": f"{SITE_URL}{canonical_path}",
                     "description": description,
-                    "about": restaurant_name,
+                    "about": {"@id": f"{SITE_URL}{canonical_path}#restaurant"},
+                    "isPartOf": {"@id": f"{SITE_URL}/#website"},
                 },
                 make_breadcrumb_schema([
                     ("Home", "/"),
                     ("Restaurants", "/restaurants/"),
                     (restaurant_name, canonical_path),
                 ]),
-                local_business,
+                restaurant_entity,
                 {
                     "@type": "ItemList",
                     "name": f"Banks with offers at {restaurant_name}",
@@ -769,9 +1058,11 @@ def render_bank_index(bank_summaries: list[dict]) -> str:
     cards = []
     for bank in bank_summaries:
         city_list = ", ".join(bank["cities"])
+        logo_html = bank_logo_img(bank["name"])
         cards.append(
             f"""
             <article class="entity-card">
+              {f'<div class="entity-card-logo">{logo_html}</div>' if logo_html else ''}
               <h3><a href="/banks/{bank['slug']}/">{escape(bank['name'])}</a></h3>
               <div class="pill-row">
                 <span class="pill">{bank['restaurant_count']} restaurants</span>
@@ -809,6 +1100,7 @@ def render_bank_index(bank_summaries: list[dict]) -> str:
         </section>
       </div>
       <div class="page-footer">Independent restaurant discount coverage directory for Pakistan. Offers can change, so always confirm with the bank before relying on any deal.</div>
+      {ATTRIBUTION_FOOTER}
     """
     schema = directory_page_schema(
         title,
@@ -859,6 +1151,7 @@ def render_restaurant_index(restaurant_summaries: list[dict], bank_count: int) -
         </section>
       </div>
       <div class="page-footer">Independent restaurant discount coverage directory for Pakistan. Offers can change, so always confirm with the bank or restaurant before relying on any deal.</div>
+      {ATTRIBUTION_FOOTER}
     """
     schema = directory_page_schema(
         title,
@@ -869,7 +1162,7 @@ def render_restaurant_index(restaurant_summaries: list[dict], bank_count: int) -
     return html_page(title=title, description=description, canonical_path="/restaurants/", schema=schema, body=body)
 
 
-def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
+def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str], *, last_updated: str = "", freshness_chip: str = "") -> str:
     title = f"{summary['name']} restaurant discounts in Pakistan | KonsaCard"
     best_pct_num = max((c.get("max_discount_pct") or 0) for c in summary["cards"]) if summary["cards"] else 0
     best_pct_str = format_pct(best_pct_num) if best_pct_num else None
@@ -925,10 +1218,15 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
       {nav_html('banks')}
 
       <header class="content-hero">
-        <p class="eyebrow">Bank Guide</p>
+        <div class="hero-meta-row">
+          {f'<div class="content-hero-logo">{bank_logo_img(summary["name"], lazy=False)}</div>' if bank_logo_url(summary['name']) else ''}
+          <p class="eyebrow">Bank Guide</p>
+        </div>
         <h1>{escape(summary['name'])} restaurant discounts</h1>
         <p>{escape(summary['name'])} cardholders can save at <strong>{summary['restaurant_count']} restaurants</strong> across {', '.join(summary['cities'])}, with {summary['card_count']} different cards each carrying their own dining offers. {('The highest headline discount on a ' + escape(summary['name']) + ' card right now is ' + escape(best_pct_str) + '.') if best_pct_str else ''} Browse every active offer below, or open the comparison tool for a personalised ranking by city, bill size, and day of week.</p>
       </header>
+
+      {freshness_chip}
 
       <div class="content">
         <section class="section">
@@ -971,15 +1269,16 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str]) -> str:
 
         {render_faq_section(f"Frequently asked about {summary['name']} discounts", bank_faqs)}
       </div>
-      <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
+      <div class="page-footer">{last_updated}Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
+      {ATTRIBUTION_FOOTER}
     """
-    schema = entity_page_schema(
+    schema = bank_page_schema(
         title,
         description,
         f"/banks/{summary['slug']}/",
         summary["name"],
+        summary["cities"],
         top_restaurants,
-        "/restaurants/",
     )
     schema.append(faq_schema(bank_faqs))
     return html_page(
@@ -1017,6 +1316,162 @@ def render_offer_details_cell(title: str, description: str | None) -> str:
     return head + toggle
 
 
+_DAY_ORDER_FULL = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+_SOCIAL_LABELS_SEO = {
+    "website": "Website",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "android": "Android app",
+    "ios": "iOS app",
+}
+
+
+def render_entity_photos(images: list[str] | None, logo: str | None) -> str:
+    """Horizontal photo strip — cover first, then gallery, up to 6 thumbs."""
+    seen: set[str] = set()
+    picks: list[str] = []
+    if logo and logo not in seen:
+        seen.add(logo)
+        picks.append(logo)
+    for u in (images or [])[:6]:
+        if isinstance(u, str) and u not in seen:
+            seen.add(u)
+            picks.append(u)
+        if len(picks) >= 6:
+            break
+    if not picks:
+        return ""
+    imgs = "".join(
+        f'<img src="{escape(u)}" alt="" loading="lazy" />'
+        for u in picks
+    )
+    return f'<div class="entity-hero-photos">{imgs}</div>'
+
+
+def render_entity_cuisines(cuisines: list[str] | None) -> str:
+    if not cuisines:
+        return ""
+    chips = "".join(
+        f'<span class="entity-cuisine-tag">{escape(c)}</span>'
+        for c in cuisines
+    )
+    return f'<div class="entity-cuisine-row" aria-label="Cuisines">{chips}</div>'
+
+
+def render_entity_socials(social: dict | None) -> str:
+    if not social:
+        return ""
+    links: list[str] = []
+    for key in ("website", "facebook", "instagram", "android", "ios"):
+        url = social.get(key)
+        if isinstance(url, str) and url.startswith("http"):
+            label = _SOCIAL_LABELS_SEO.get(key, key)
+            links.append(
+                f'<a class="entity-social-link" href="{escape(url)}" target="_blank" rel="noopener noreferrer">{escape(label)}</a>'
+            )
+    if not links:
+        return ""
+    return f'<div class="entity-social-row">{"".join(links)}</div>'
+
+
+def render_branch_card_seo(branch: dict) -> str:
+    name = branch.get("name") or branch.get("address") or "Branch"
+    addr = branch.get("address") or ""
+    lat = branch.get("lat")
+    lng = branch.get("lng")
+    tel = branch.get("telephone")
+    maps_href = None
+    if isinstance(lat, (int, float)) and isinstance(lng, (int, float)):
+        maps_href = f"https://www.google.com/maps?q={lat},{lng}"
+    elif addr:
+        from urllib.parse import quote
+        maps_href = f"https://www.google.com/maps/search/?api=1&query={quote(addr)}"
+
+    hours = branch.get("openingHours") or []
+    hours_by_day = {h.get("day"): h for h in hours if isinstance(h, dict)}
+    hours_dl = ""
+    if hours_by_day:
+        rows = "".join(
+            f"<dt>{escape(day[:3])}</dt><dd>{escape(hours_by_day[day]['opens'])}–{escape(hours_by_day[day]['closes'])}</dd>"
+            for day in _DAY_ORDER_FULL
+            if day in hours_by_day
+        )
+        if rows:
+            hours_dl = f'<dl class="branch-hours-list">{rows}</dl>'
+
+    meta_parts: list[str] = []
+    if maps_href:
+        meta_parts.append(f'<a href="{escape(maps_href)}" target="_blank" rel="noopener noreferrer">Directions</a>')
+    if tel:
+        clean_tel = "".join(c for c in str(tel) if c.isdigit() or c == "+")
+        meta_parts.append(f'<a href="tel:{escape(clean_tel)}">Call</a>')
+    meta_html = f'<div class="branch-card-meta">{"".join(meta_parts)}</div>' if meta_parts else ""
+
+    return (
+        '<div class="branch-card">'
+        f'<div class="branch-card-name">{escape(name)}</div>'
+        + (f'<div class="branch-card-addr">{escape(addr)}</div>' if addr else "")
+        + meta_html
+        + hours_dl
+        + "</div>"
+    )
+
+
+def render_restaurant_enrichment_section(enrichment: dict | None, restaurant_name: str, cities: list[str]) -> str:
+    """Visible-HTML rendering of the enrichment so humans see the same data
+    that's in the JSON-LD. Matching content is what Google requires before
+    honoring Restaurant rich-result fields.
+
+    No photos here intentionally — we don't have a license to display the
+    restaurant's own imagery. See refresh_peekaboo.py for the same call-out
+    on the data-collection side.
+    """
+    if not enrichment:
+        return ""
+
+    desc = enrichment.get("description") or ""
+    cuisines = enrichment.get("servesCuisine") or []
+    social = enrichment.get("social") or {}
+    branches_by_city = enrichment.get("branchesByCity") or {}
+
+    desc_html = f'<p class="entity-description">{escape(desc)}</p>' if desc else ""
+    cuisines_html = render_entity_cuisines(cuisines)
+    socials_html = render_entity_socials(social)
+
+    intro_section = ""
+    if desc_html or cuisines_html or socials_html:
+        intro_section = f"""
+        <section class="section">
+          <h2>About {escape(restaurant_name)}</h2>
+          {desc_html}
+          {cuisines_html}
+          {socials_html}
+        </section>
+        """
+
+    branches_section = ""
+    branch_blocks: list[str] = []
+    for city in cities:
+        items = branches_by_city.get(city) or []
+        if not items:
+            continue
+        cards_html = "".join(render_branch_card_seo(b) for b in items)
+        branch_blocks.append(
+            f'<h3>{escape(city)} <span style="font-weight:500;color:var(--muted)">· {len(items)} branch{"es" if len(items) != 1 else ""}</span></h3>'
+            f'<div class="branch-grid">{cards_html}</div>'
+        )
+    if branch_blocks:
+        branches_section = f"""
+        <section class="section">
+          <h2>{escape(restaurant_name)} branches</h2>
+          <p>Verified branch locations, addresses, and opening hours. Tap Directions to open in Google Maps.</p>
+          {''.join(branch_blocks)}
+        </section>
+        """
+
+    return intro_section + branches_section
+
+
 def render_order_type_badges(order_types: list[str]) -> str:
     badge_styles = {
         "Dine-In": "background:#e8f5e9;color:#2e7d32",
@@ -1032,7 +1487,7 @@ def render_order_type_badges(order_types: list[str]) -> str:
     return badges
 
 
-def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
+def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str], *, last_updated: str = "", freshness_chip: str = "") -> str:
     title = f"{summary['name']} bank discounts in Pakistan | KonsaCard"
     best_offer_pct = max((o.get("max_discount_pct") or 0) for o in summary.get("card_offers", [])) if summary.get("card_offers") else 0
     best_offer_str = format_pct(best_offer_pct) if best_offer_pct else None
@@ -1084,6 +1539,12 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
     )
     
     rest_faqs = build_restaurant_faqs(summary)
+    enrichment = summary.get("enrichment") or {}
+    enrichment_section = render_restaurant_enrichment_section(
+        enrichment if enrichment else None,
+        summary["name"],
+        summary.get("cities", []),
+    )
     body = f"""
       {nav_html('restaurants')}
 
@@ -1093,7 +1554,10 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
         <p>Diners at <strong>{escape(summary['name'])}</strong> can claim discounts with {summary['card_count']} different cards across {summary['bank_count']} banks in {', '.join(summary['cities'])}. {('The headline discount on the best card is currently ' + escape(best_offer_str) + '.') if best_offer_str else ''} Compare every offer below, including which days each card's discount is valid and what the per-transaction cap is, or open the comparison tool for a ranking on your typical bill size.</p>
       </header>
 
+      {freshness_chip}
+
       <div class="content">
+        {enrichment_section}
         <section class="section">
           <h2>Cards available at {escape(summary['name'])}</h2>
           <p>Every deal that shows a discount at {escape(summary['name'])}, sorted by headline discount. Headline % isn't always the best signal, because many offers cap savings per transaction, so what looks like a big discount may save less than a smaller % with no cap. Open the tool with Compare to rank by estimated actual savings on your bill.</p>
@@ -1137,7 +1601,8 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
 
         {render_faq_section(f"Frequently asked about {summary['name']} discounts", rest_faqs)}
       </div>
-      <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
+      <div class="page-footer">{last_updated}Independent restaurant discount comparison for Pakistan. Offers can change, so always confirm current terms directly with the bank or restaurant.</div>
+      {ATTRIBUTION_FOOTER}
     """
     schema = restaurant_page_schema(
         title,
@@ -1147,6 +1612,8 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str]) -> str:
         summary["top_banks"],
         "/banks/",
         summary.get("cities", []),
+        summary.get("branches", []),
+        summary.get("enrichment"),
     )
     schema.append(faq_schema(rest_faqs))
     return html_page(
@@ -1243,7 +1710,7 @@ def render_eligibility_section(card: dict | None) -> str:
         </section>"""
 
 
-def render_card_page(bank_summary: dict, card: dict) -> str:
+def render_card_page(bank_summary: dict, card: dict, *, last_updated: str = "", freshness_chip: str = "") -> str:
     canonical_path = f"/banks/{bank_summary['slug']}/{card['slug']}/"
     title = f"{card['name']} from {bank_summary['name']}: restaurant discounts | KonsaCard"
     description = (
@@ -1288,10 +1755,15 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
       {nav_html('banks')}
 
       <header class="content-hero">
-        <p class="eyebrow">Card Guide</p>
+        <div class="hero-meta-row">
+          {f'<div class="content-hero-logo">{bank_logo_img(bank_summary["name"], lazy=False)}</div>' if bank_logo_url(bank_summary['name']) else ''}
+          <p class="eyebrow">Card Guide</p>
+        </div>
         <h1>{escape(card['name'])}</h1>
         <p>{escape(bank_summary['name'])} &middot; {escape(card['card_type'])} &middot; {card['restaurant_count']} restaurants &middot; up to {escape(format_pct(card['max_discount_pct']))} off</p>
       </header>
+
+      {freshness_chip}
 
       <div class="content">
         {breadcrumbs_html([("Home", "/"), ("Banks", "/banks/"), (bank_summary["name"], f"/banks/{bank_summary['slug']}/"), (card["name"], None)])}
@@ -1341,8 +1813,29 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
         
         {related_cards_html}
       </div>
-      <div class="page-footer">Independent restaurant discount comparison for Pakistan. Offers can change. Always confirm current terms directly with the bank or restaurant.</div>
+      <div class="page-footer">{last_updated}Independent restaurant discount comparison for Pakistan. Offers can change. Always confirm current terms directly with the bank or restaurant.</div>
+      {ATTRIBUTION_FOOTER}
     """
+    is_credit = "credit" in (card.get("card_type") or "").lower()
+    card_entity_type = "CreditCard" if is_credit else "FinancialProduct"
+    issuer_logo = bank_logo_url(bank_summary["name"])
+    card_entity: dict = {
+        "@type": card_entity_type,
+        "@id": f"{SITE_URL}{canonical_path}#card",
+        "name": card["name"],
+        "url": f"{SITE_URL}{canonical_path}",
+        "category": card.get("card_type"),
+        "provider": {
+            "@type": "FinancialService",
+            "name": bank_summary["name"],
+            "url": f"{SITE_URL}/banks/{bank_summary['slug']}/",
+            **({"logo": f"{SITE_URL}{issuer_logo}"} if issuer_logo else {}),
+        },
+        "areaServed": [
+            {"@type": "City", "name": city}
+            for city in card.get("cities", [])
+        ],
+    }
     schema = [
         {
             "@context": "https://schema.org",
@@ -1352,6 +1845,8 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
                     "name": title,
                     "url": f"{SITE_URL}{canonical_path}",
                     "description": description,
+                    "about": {"@id": f"{SITE_URL}{canonical_path}#card"},
+                    "isPartOf": {"@id": f"{SITE_URL}/#website"},
                 },
                 make_breadcrumb_schema([
                     ("Home", "/"),
@@ -1359,6 +1854,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
                     (bank_summary["name"], f"/banks/{bank_summary['slug']}/"),
                     (card["name"], canonical_path),
                 ]),
+                card_entity,
             ],
         }
     ]
@@ -1367,6 +1863,7 @@ def render_card_page(bank_summary: dict, card: dict) -> str:
 
 def build_summaries(payload: dict) -> tuple[list[dict], list[dict]]:
     offers = payload["offers"]
+    restaurants_enrichment: dict[str, dict] = payload.get("restaurants") or {}
     bank_slug_map = build_unique_slug_map(offer["bank"] for offer in offers)
     restaurant_slug_map = build_unique_slug_map(offer["restaurant"] for offer in offers)
 
@@ -1542,6 +2039,27 @@ def build_summaries(payload: dict) -> tuple[list[dict], list[dict]]:
                     })
         card_offers.sort(key=lambda x: (x["bank"].casefold(), x["card"].casefold(), -(x["max_discount_pct"] or 0), -(x["max_cap_pkr"] or 0)))
 
+        # Collect unique branches per restaurant. Banks list the same physical
+        # branch under multiple offers (one per card), so dedupe by (city,
+        # address) — coords for the same branch should match across rows.
+        branches_seen: set[tuple[str, str]] = set()
+        branches: list[dict] = []
+        for row in rows:
+            addr = (row.get("sourceAddress") or "").strip()
+            city = row.get("city") or ""
+            if not addr or not city:
+                continue
+            key = (city, addr)
+            if key in branches_seen:
+                continue
+            branches_seen.add(key)
+            branches.append({
+                "city": city,
+                "address": addr,
+                "lat": row.get("sourceLat"),
+                "lng": row.get("sourceLng"),
+            })
+
         restaurant_summaries_all.append(
             {
                 "name": restaurant_name,
@@ -1555,6 +2073,8 @@ def build_summaries(payload: dict) -> tuple[list[dict], list[dict]]:
                 "banks": bank_summaries_for_restaurant,
                 "top_banks": top_banks[:8],
                 "card_offers": card_offers,
+                "branches": branches,
+                "enrichment": restaurants_enrichment.get(restaurant_name) or None,
             }
         )
 
@@ -1563,10 +2083,14 @@ def build_summaries(payload: dict) -> tuple[list[dict], list[dict]]:
     return bank_summaries, restaurant_summaries_all
 
 
-def render_and_write_pages(payload: dict) -> tuple[int, int]:
+def render_and_write_pages(payload: dict) -> tuple[int, int, int]:
     bank_summaries, restaurant_summaries = build_summaries(payload)
     bank_slug_map = {item["name"]: item["slug"] for item in bank_summaries}
     restaurant_slug_map = {item["name"]: item["slug"] for item in restaurant_summaries}
+
+    iso_date, human_date = format_dataset_date(payload.get("generatedAt", ""))
+    last_updated = last_updated_html(iso_date, human_date)
+    chip = freshness_chip_html(iso_date, human_date)
 
     clear_directory(BANKS_DIR)
     clear_directory(RESTAURANTS_DIR)
@@ -1576,13 +2100,13 @@ def render_and_write_pages(payload: dict) -> tuple[int, int]:
 
     card_count = 0
     for summary in bank_summaries:
-        write_file(BANKS_DIR / summary["slug"] / "index.html", render_bank_page(summary, restaurant_slug_map))
+        write_file(BANKS_DIR / summary["slug"] / "index.html", render_bank_page(summary, restaurant_slug_map, last_updated=last_updated, freshness_chip=chip))
         for card in summary["cards"]:
-            write_file(BANKS_DIR / summary["slug"] / card["slug"] / "index.html", render_card_page(summary, card))
+            write_file(BANKS_DIR / summary["slug"] / card["slug"] / "index.html", render_card_page(summary, card, last_updated=last_updated, freshness_chip=chip))
             card_count += 1
 
     for summary in restaurant_summaries:
-        write_file(RESTAURANTS_DIR / summary["slug"] / "index.html", render_restaurant_page(summary, bank_slug_map))
+        write_file(RESTAURANTS_DIR / summary["slug"] / "index.html", render_restaurant_page(summary, bank_slug_map, last_updated=last_updated, freshness_chip=chip))
 
     return len(bank_summaries), len(restaurant_summaries), card_count
 

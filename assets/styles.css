@@ -919,6 +919,49 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .footer-fine { padding-top: 16px; border-top: 1px solid rgba(255,255,255,.07); font-size: 11.5px; color: rgba(255,255,255,.3); }
 .footer-freshness { color: rgba(255,255,255,.45); }
 
+/* Always-visible "offers verified" chip at the top of the main column.
+   Calm green when fresh, amber when 30–60 days, hidden when >60 days
+   (the stale-banner takes over as a louder warning at that point). */
+.freshness-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 14px 20px 0;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.2;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #047857;
+  width: fit-content;
+}
+.freshness-chip.is-aging {
+  background: #fffbeb;
+  border-color: #fde68a;
+  color: #92400e;
+}
+.freshness-chip.hidden { display: none; }
+.freshness-chip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+.freshness-chip strong { color: inherit; font-weight: 700; }
+
+/* SEO pages: wrap so the chip aligns with the 1180-wide hero/content. */
+.freshness-chip-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px 12px;
+}
+.freshness-chip-wrap .freshness-chip {
+  margin: 0;
+}
+
 /* Stale-data banner (only rendered when generatedAt is >60 days ago) */
 .stale-banner {
   margin: 14px 20px 0;
@@ -1725,6 +1768,163 @@ html.content-page-root .content > * { min-width: 0; }
   margin-bottom: 7px;
 }
 
+.content-card h3.subsection-heading {
+  margin-top: 20px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* Logo sits inline with the "Card Guide" / "Bank Guide" eyebrow rather than
+   on its own row, so the actual content (h1, breadcrumb, table) stays high
+   on the page. */
+.hero-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.content-hero-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  padding: 5px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hero-meta-row .eyebrow {
+  margin-bottom: 0;
+}
+.entity-card-logo {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  background: #fff;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Visible enrichment block on restaurant SEO pages — matches the JSON-LD so
+   Google sees the same data humans see. */
+.entity-hero-photos {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 4px;
+}
+.entity-hero-photos img {
+  height: 180px;
+  width: auto;
+  border-radius: 14px;
+  object-fit: cover;
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+@media (max-width: 760px) {
+  .entity-hero-photos img { height: 130px; }
+}
+.entity-description {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink2);
+  margin: 8px 0 18px;
+  max-width: 720px;
+}
+.entity-cuisine-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 18px;
+}
+.entity-cuisine-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background: var(--surface2, #f3f4f6);
+  color: var(--ink2);
+  border: 1px solid rgba(226,232,240,0.9);
+}
+.entity-social-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 22px;
+}
+.entity-social-link {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 10px;
+  background: var(--surface2, #f3f4f6);
+  border: 1px solid rgba(226,232,240,0.9);
+  color: var(--brand);
+  text-decoration: none;
+}
+.entity-social-link:hover { background: #fff; border-color: var(--brand); }
+.branch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
+}
+.branch-card {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(226,232,240,0.9);
+  background: #fff;
+}
+.branch-card-name {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.branch-card-addr {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.branch-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--ink2);
+}
+.branch-card-meta a {
+  color: var(--brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+.branch-card-today { font-weight: 600; }
+.branch-hours-list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  color: var(--ink2);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 4px 10px;
+}
+.branch-hours-list dt { font-weight: 600; color: var(--muted); }
+.branch-hours-list dd { margin: 0; }
+.content-card h3.subsection-heading--lg {
+  font-size: 16px;
+}
+.content-card h3.subsection-heading--spaced {
+  margin-top: 24px;
+}
+
 .content-card p,
 .content-card li,
 .content-card span,
@@ -2338,6 +2538,52 @@ html.content-page-root .content > * { min-width: 0; }
 .cd-logo { width: 44px; height: 44px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; background: var(--surface2); flex-shrink: 0; }
 .cd-logo .bank-logo-image { width: 100%; height: 100%; object-fit: contain; }
 .cd-logo .bank-logo-fallback { display: none; }
+
+/* Restaurant logo (uses Peekaboo enrichment when available, falls back to
+   the first letter of the name). Mirrors .bank-logo-image styling so the
+   container sizes the image. */
+.restaurant-logo { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; position: relative; background: #fff; }
+.restaurant-logo-image { width: 100%; height: 100%; object-fit: contain; display: block; }
+.restaurant-logo-fallback { font-weight: 800; color: var(--muted); font-size: 16px; letter-spacing: -0.02em; }
+
+/* "Open now" / "Closed" pill on restaurant rows */
+.rest-open-pill { display: inline-flex; align-items: center; gap: 4px; padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 700; letter-spacing: .02em; text-transform: uppercase; }
+.rest-open-pill.is-open { background: #e8f5e9; color: #2e7d32; }
+.rest-open-pill.is-closed { background: #fceaea; color: #9e2e2e; }
+.rest-open-pill .dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+/* Distance chip (from user geolocation). Subtle, sits next to city label. */
+.rest-distance { color: var(--muted2); font-weight: 600; }
+
+/* Restaurant detail modal: branches block + socials. */
+.rd-branches { display: grid; gap: 10px; margin-top: 6px; }
+.rd-branch { padding: 10px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface2); }
+.rd-branch-name { font-weight: 700; font-size: 13px; color: var(--ink); margin-bottom: 2px; }
+.rd-branch-addr { font-size: 12px; color: var(--muted); line-height: 1.45; }
+.rd-branch-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; font-size: 11px; color: var(--muted2); }
+.rd-branch-meta a { color: var(--brand); font-weight: 600; }
+.rd-branch-today { font-weight: 600; color: var(--ink2); }
+
+.rd-cuisine-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.rd-cuisine-tag { font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 8px; background: var(--surface2); color: var(--ink2); border: 1px solid var(--line); }
+
+.rd-social-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.rd-social-link { font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 8px; background: var(--surface2); border: 1px solid var(--line); color: var(--brand); text-decoration: none; }
+.rd-social-link:hover { background: var(--surface); border-color: var(--brand-mid); }
+
+.rd-desc { font-size: 13px; line-height: 1.55; color: var(--ink2); margin-top: 6px; }
+
+/* Cuisine sidebar chips (acts like banks/restaurants pill row). */
+.s-cuisine-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.s-cuisine-chip { font-size: 11px; font-weight: 600; padding: 4px 9px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--ink2); cursor: pointer; }
+.s-cuisine-chip:hover { border-color: var(--brand-mid); }
+.s-cuisine-chip.active { background: var(--brand); border-color: var(--brand); color: #fff; }
+.s-cuisine-chip-count { opacity: .7; margin-left: 4px; }
+
+.btn-locate { font-size: 11px; font-weight: 700; padding: 5px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--brand); cursor: pointer; }
+.btn-locate:hover { border-color: var(--brand-mid); }
+.btn-locate[disabled] { opacity: .55; cursor: progress; }
+.btn-locate.is-active { background: var(--brand); color: #fff; border-color: var(--brand); }
 .cd-score { font-size: 10.5px; font-weight: 700; margin-bottom: 2px; }
 .cd-score-adjust { font-size: 11px; font-weight: 600; color: var(--muted); margin-bottom: 2px; }
 .cd-card-name { font-size: 16px; font-weight: 800; color: var(--ink); line-height: 1.2; }
@@ -2759,6 +3005,12 @@ html.content-page-root .content > * { min-width: 0; }
   max-width: 100%;
 }
 .nc-chip-text { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.nc-chip--clickable { cursor: pointer; transition: border-color .15s, background .15s; }
+.nc-chip--clickable:hover { border-color: var(--brand); background: var(--brand-light); }
+.nc-chip--clickable:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+
+.nc-rests { margin-top: 12px; }
+.nc-rests-list { display: flex; flex-direction: column; }
 .nc-chip-card {
   font-size: 12px;
   font-weight: 700;
