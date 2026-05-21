@@ -35,6 +35,8 @@ const state = {
   walletMustIncludeSearchTerm: "",
   walletAdvancedOpen: false,         // disclosure state for "Advanced options" panel
   favoriteRestaurants: new Set(),    // restaurant names the user has starred
+  selectedCuisines: new Set(),       // cuisine filter from enrichment (e.g. "BBQ", "Italian")
+  userLocation: null,                // {lat, lng, ts} once user grants geolocation; persisted via localStorage
   detailCardKey: null,
   detailRestaurantKey: null,
   compareList: [],               // up to 2 card keys "bank || card"

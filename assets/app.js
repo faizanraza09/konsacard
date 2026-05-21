@@ -141,6 +141,25 @@ function renderDataFreshness() {
   const label = formatDaysAgo(days);
   const footer = document.getElementById("footer-freshness");
   if (footer) footer.textContent = ` Data last verified ${label}.`;
+
+  // Top-of-page always-visible chip. Hidden once data is stale enough
+  // that the louder stale-banner shows instead (>60 days).
+  const chip = document.getElementById("freshness-chip");
+  if (chip) {
+    if (days > 60) {
+      chip.classList.add("hidden");
+      chip.innerHTML = "";
+    } else {
+      chip.classList.remove("hidden");
+      chip.classList.toggle("is-aging", days > 30);
+      const prefix = days > 30 ? "Offers verified" : "Offers verified";
+      chip.innerHTML = `
+        <span class="freshness-chip-dot" aria-hidden="true"></span>
+        <span>${escapeHtml(prefix)} <strong>${escapeHtml(label)}</strong></span>
+      `;
+    }
+  }
+
   const banner = document.getElementById("stale-banner");
   if (banner) {
     if (days > 60) {
@@ -163,7 +182,10 @@ async function loadOffersPayload() {
     if (!index || !index.cityFiles || !Array.isArray(index.cities)) {
       throw new Error("offers-index.json missing cityFiles or cities");
     }
-    // Fetch all city files in parallel
+    // Fetch all city files + the optional restaurants enrichment in
+    // parallel. The enrichment file (descriptions, branches, social,
+    // cuisine, opening hours) is treated as best-effort: if it's missing
+    // we still render fine, just without the richer UI.
     const cityFetches = index.cities.map((city) => {
       const url = index.cityFiles[city];
       if (!url) return Promise.resolve({ offers: [] });
@@ -172,9 +194,21 @@ async function loadOffersPayload() {
         return { offers: [] };
       });
     });
-    const cityPayloads = await Promise.all(cityFetches);
+    const restaurantsFetch = index.restaurantsFile
+      ? fetchJson(index.restaurantsFile).catch((err) => {
+          console.warn(`[offers] failed to load ${index.restaurantsFile}:`, err);
+          return null;
+        })
+      : Promise.resolve(null);
+    const [cityPayloads, restaurantsPayload] = await Promise.all([
+      Promise.all(cityFetches),
+      restaurantsFetch,
+    ]);
     const offers = cityPayloads.flatMap((p) => (Array.isArray(p?.offers) ? p.offers : []));
     payload = { ...index, offers };
+    if (restaurantsPayload && restaurantsPayload.restaurants) {
+      payload.restaurants = restaurantsPayload.restaurants;
+    }
   } catch (err) {
     console.warn("[offers] split payload unavailable, falling back to offers.json", err);
     payload = await fetchJson("./data/offers.json");
@@ -516,6 +550,7 @@ function resetFilters() {
   state.ownedCards = new Set();
   state.ownedCardSearchTerm = "";
   state.manageWalletExpanded = false;
+  state.walletRestaurantsExpanded = false;
   state.walletSize = 2;
   state.walletBuildOnOwned = false;
   state.walletMaxFee = null;
@@ -557,6 +592,7 @@ function render() {
   renderSelectedBanks();
   renderRestaurantSearch();
   renderSelectedRestaurants();
+  renderCuisinePills();
   renderRecommendations();
   updateMobileFilterBadge();
   updateTonightButton();
@@ -1474,6 +1510,30 @@ function renderOwnedCardsPanel(container, walletStats) {
     ? `type="button" id="nc-manage-toggle" class="nc-setup-head nc-setup-head--toggle" aria-expanded="${isExpanded}" aria-controls="nc-setup-body"`
     : `class="nc-setup-head"`;
 
+  // When the wallet has cards, also surface the restaurants it covers.
+  // Collapsed by default; counts shown in the head so users see scope without expanding.
+  const walletRestExpanded = !!state.walletRestaurantsExpanded;
+  const restaurantsHtml = hasWallet && walletStats ? `
+    <div class="nc-setup${!walletRestExpanded ? " nc-setup--collapsed" : ""} nc-rests">
+      <button type="button" id="nc-rests-toggle" class="nc-setup-head nc-setup-head--toggle" aria-expanded="${walletRestExpanded}" aria-controls="nc-rests-body">
+        <div class="nc-setup-title-wrap">
+          <div class="nc-setup-kicker">Coverage</div>
+          <div class="nc-setup-title">Restaurants your wallet covers</div>
+        </div>
+        <div class="nc-setup-meta">
+          <div class="nc-setup-count">
+            <span class="nc-setup-count-num">${walletStats.coveredVenues}</span>
+            <span class="nc-setup-count-label">of ${walletStats.venueCount}</span>
+          </div>
+          <span class="nc-setup-chevron${walletRestExpanded ? " nc-setup-chevron--open" : ""}" aria-hidden="true"><svg viewBox="0 0 12 12" width="10" height="10"><path d="M2 4.5 L6 8.5 L10 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </div>
+      </button>
+      <div id="nc-rests-body" class="nc-setup-body" ${!walletRestExpanded ? "hidden" : ""}>
+        <div id="nc-rests-list" class="nc-rests-list"></div>
+      </div>
+    </div>
+  ` : "";
+
   container.innerHTML = `
     ${summaryHtml}
     <div class="nc-setup${isCollapsible && !isExpanded ? " nc-setup--collapsed" : ""}">
@@ -1505,10 +1565,16 @@ function renderOwnedCardsPanel(container, walletStats) {
         </div>
       </div>
     </div>
+    ${restaurantsHtml}
   `;
 
   document.getElementById("nc-manage-toggle")?.addEventListener("click", () => {
     state.manageWalletExpanded = !state.manageWalletExpanded;
+    render();
+  });
+
+  document.getElementById("nc-rests-toggle")?.addEventListener("click", () => {
+    state.walletRestaurantsExpanded = !state.walletRestaurantsExpanded;
     render();
   });
 
@@ -1531,6 +1597,18 @@ function renderOwnedCardsPanel(container, walletStats) {
 
   renderOwnedCardsResults(catalog);
   renderOwnedCardsChips();
+  if (hasWallet && walletRestExpanded) renderWalletRestaurants();
+}
+
+function renderWalletRestaurants() {
+  const container = document.getElementById("nc-rests-list");
+  if (!container) return;
+  const deals = computeWalletRestaurantCoverage();
+  if (deals.length === 0) {
+    container.innerHTML = `<div class="cd-empty">No restaurants in scope match your wallet under the current filters.</div>`;
+    return;
+  }
+  renderRestaurantDealRows(container, deals);
 }
 
 function renderOwnedCardsResults(catalogArg) {
@@ -1580,19 +1658,30 @@ function renderOwnedCardsChips() {
   Array.from(state.ownedCards).sort().forEach((cardKey) => {
     const [bank, card] = cardKey.split(" || ");
     const chip = document.createElement("div");
-    chip.className = "s-chip nc-chip";
+    chip.className = "s-chip nc-chip nc-chip--clickable";
+    chip.setAttribute("role", "button");
+    chip.setAttribute("tabindex", "0");
+    chip.setAttribute("aria-label", `View details for ${card}`);
     chip.innerHTML = `
       <span class="nc-chip-text">
         <span class="nc-chip-card">${escapeHtml(card || "")}</span>
         <span class="nc-chip-bank">${escapeHtml(bank || "")}</span>
       </span>
     `;
+    chip.addEventListener("click", () => openCardDetail(cardKey));
+    chip.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openCardDetail(cardKey); }
+    });
     const rm = document.createElement("button");
     rm.className = "s-chip-remove";
     rm.type = "button";
     rm.textContent = "×";
     rm.setAttribute("aria-label", `Remove ${card}`);
-    rm.addEventListener("click", () => { state.ownedCards.delete(cardKey); render(); });
+    rm.addEventListener("click", (e) => {
+      e.stopPropagation();
+      state.ownedCards.delete(cardKey);
+      render();
+    });
     chip.appendChild(rm);
     container.appendChild(chip);
   });
@@ -2659,12 +2748,19 @@ function computeRestaurantDeals() {
   const validKeys = new Set(computeRecommendations().map((r) => `${r.bank} || ${r.card}`));
   const effectiveDays = getEffectiveSelectedDays();
   const best = new Map();
+  const cuisineFilter = state.selectedCuisines;
+  const hasCuisineFilter = cuisineFilter && cuisineFilter.size > 0;
 
   state.data.offers.forEach((offer) => {
     if (!cityMatches(offer.city)) return;
     if (!validKeys.has(`${offer.bank} || ${offer.card}`)) return;
     if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return;
     if (!offer.days.some((d) => effectiveDays.has(d))) return;
+    if (hasCuisineFilter) {
+      const enr = getRestaurantEnrichment(offer.restaurant);
+      const cuisines = enr?.servesCuisine || [];
+      if (!cuisines.some((c) => cuisineFilter.has(c))) return;
+    }
 
     const saving = getOfferSavingValue(offer, state.orderValue);
     if (!Number.isFinite(saving) || saving <= 0) return;
@@ -2685,7 +2781,22 @@ function computeRestaurantDeals() {
     }
   });
 
-  return [...best.values()].sort((a, b) => b.saving - a.saving);
+  const userLoc = getUserLocation();
+  const deals = [...best.values()];
+  // When the user has granted location, sort by distance to nearest branch.
+  // Restaurants without coords fall to the end (saving-sorted within).
+  if (userLoc) {
+    return deals
+      .map((d) => ({ d, km: getNearestBranchDistanceKm(d.restaurant, d.city, userLoc) }))
+      .sort((a, b) => {
+        if (a.km === null && b.km === null) return b.d.saving - a.d.saving;
+        if (a.km === null) return 1;
+        if (b.km === null) return -1;
+        return a.km - b.km;
+      })
+      .map(({ d }) => d);
+  }
+  return deals.sort((a, b) => b.saving - a.saving);
 }
 
 function renderRestaurantView(resultsGrid) {
@@ -2697,9 +2808,14 @@ function renderRestaurantView(resultsGrid) {
     return;
   }
 
+  const userLoc = getUserLocation();
+  const locateLabel = userLoc ? "📍 Sorted by distance" : "📍 Sort by distance";
+  const hasGeo = typeof navigator !== "undefined" && "geolocation" in navigator;
+
   resultsGrid.innerHTML = `
-    <div class="rest-view-search-wrap">
-      <input type="search" class="s-search rest-view-search" placeholder="Search ${deals.length} restaurants…" autocomplete="off" />
+    <div class="rest-view-search-wrap" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <input type="search" class="s-search rest-view-search" placeholder="Search ${deals.length} restaurants…" autocomplete="off" style="flex:1;min-width:200px" />
+      ${hasGeo ? `<button class="btn-locate ${userLoc ? "is-active" : ""}" id="btn-locate-restaurants" type="button">${escapeHtml(locateLabel)}</button>` : ""}
     </div>
     <div class="rest-view-list"></div>
   `;
@@ -2714,6 +2830,26 @@ function renderRestaurantView(resultsGrid) {
   searchInput?.addEventListener("input", () => {
     state.pagination.restaurantView = 1;
     renderRows();
+  });
+  const locateBtn = resultsGrid.querySelector("#btn-locate-restaurants");
+  locateBtn?.addEventListener("click", async () => {
+    if (getUserLocation()) {
+      // Already located — clicking again clears the location preference.
+      state.userLocation = null;
+      try { localStorage.removeItem(USER_LOCATION_KEY); } catch {}
+      render();
+      return;
+    }
+    locateBtn.disabled = true;
+    locateBtn.textContent = "Locating…";
+    const loc = await requestUserLocation();
+    locateBtn.disabled = false;
+    if (!loc) {
+      locateBtn.textContent = "Location unavailable";
+      setTimeout(() => { locateBtn.textContent = locateLabel; }, 2500);
+      return;
+    }
+    render();
   });
   renderRows();
 }
@@ -2774,14 +2910,25 @@ function renderRestaurantDetailModal(inner) {
     return b.discountPct - a.discountPct;
   });
 
+  const enr = getRestaurantEnrichment(restaurant);
+  const openStatus = getRestaurantOpenStatus(restaurant, city);
+  const cuisines = enr?.servesCuisine || [];
+  const branches = getBranchesForRestaurant(restaurant, city);
+  const description = enr?.description || "";
+  const socialsHtml = renderSocialLinks(restaurant);
+
+  const openPillHtml = openStatus
+    ? `<span class="rest-open-pill ${openStatus === "open" ? "is-open" : "is-closed"}"><span class="dot"></span>${openStatus === "open" ? "Open now" : "Closed"}</span>`
+    : "";
+
   inner.innerHTML = `
     <div class="cd-wrap">
       <div class="cd-head">
         <div class="cd-head-left">
-          <div class="cd-logo rd-logo">${escapeHtml(restaurant.slice(0, 1).toUpperCase())}</div>
+          <div class="cd-logo rd-logo">${renderRestaurantLogo(restaurant, "restaurant-logo")}</div>
           <div class="cd-head-info">
             <div class="cd-card-name">${escapeHtml(restaurant)}</div>
-            <div class="cd-bank-name">${escapeHtml(city)} · ${cards.length} matching cards</div>
+            <div class="cd-bank-name">${escapeHtml(city)} · ${cards.length} matching cards ${openPillHtml ? "· " + openPillHtml : ""}</div>
           </div>
         </div>
         <div class="cd-head-actions">
@@ -2792,6 +2939,21 @@ function renderRestaurantDetailModal(inner) {
           <button class="btn-modal-close" id="btn-rd-close" type="button">×</button>
         </div>
       </div>
+
+      ${(description || cuisines.length || socialsHtml) ? `
+      <div class="cd-section">
+        ${description ? `<div class="rd-desc">${escapeHtml(description)}</div>` : ""}
+        ${cuisines.length ? `<div class="rd-cuisine-row">${cuisines.map((c) => `<span class="rd-cuisine-tag">${escapeHtml(c)}</span>`).join("")}</div>` : ""}
+        ${socialsHtml}
+      </div>` : ""}
+
+      ${branches.length ? `
+      <div class="cd-section">
+        <div class="cd-section-title">Branches in ${escapeHtml(city)} <span class="cd-section-sub">${branches.length}</span></div>
+        <div class="rd-branches">
+          ${branches.map((b) => renderBranchCard(b)).join("")}
+        </div>
+      </div>` : ""}
 
       <div class="cd-section">
         <div class="cd-section-title">
@@ -2927,13 +3089,21 @@ function renderRestaurantDealRows(container, deals) {
   }
 
   const pageData = paginateItems(deals, "restaurantView", PAGINATION_ITEMS_PER_PAGE);
+  const userLoc = getUserLocation();
   container.innerHTML = `
-    ${pageData.items.map((deal, index) => `
+    ${pageData.items.map((deal, index) => {
+      const openStatus = getRestaurantOpenStatus(deal.restaurant, deal.city);
+      const openPill = openStatus
+        ? `<span class="rest-open-pill ${openStatus === "open" ? "is-open" : "is-closed"}"><span class="dot"></span>${openStatus === "open" ? "Open" : "Closed"}</span>`
+        : "";
+      const distanceKm = userLoc ? getNearestBranchDistanceKm(deal.restaurant, deal.city, userLoc) : null;
+      const distanceLabel = distanceKm !== null ? ` · <span class="rest-distance">${escapeHtml(formatDistanceKm(distanceKm))}</span>` : "";
+      return `
       <button class="rest-deal-row" style="animation-delay:${index * 0.04}s" data-restaurant-key="${escapeAttr(`${deal.city}|||${deal.restaurant}`)}" type="button">
         <div class="rest-deal-rank">${pageData.startIndex + index + 1}</div>
         <div class="rest-deal-body">
-          <div class="rest-deal-name">${escapeHtml(deal.restaurant)}</div>
-          <div class="rest-deal-sub">${escapeHtml(deal.city)} · ${escapeHtml(deal.daysLabel)}</div>
+          <div class="rest-deal-name">${escapeHtml(deal.restaurant)} ${openPill}</div>
+          <div class="rest-deal-sub">${escapeHtml(deal.city)} · ${escapeHtml(deal.daysLabel)}${distanceLabel}</div>
           <div class="rest-deal-card">Best with: <strong>${escapeHtml(deal.bestCard)}</strong> <span style="color:var(--muted)">by ${escapeHtml(deal.bestBank)}</span></div>
         </div>
         <div class="rest-deal-right">
@@ -2941,7 +3111,8 @@ function renderRestaurantDealRows(container, deals) {
           <div class="rest-deal-saving">${formatCurrency(deal.saving)}</div>
         </div>
       </button>
-    `).join("")}
+    `;
+    }).join("")}
     ${renderPaginationControls("restaurantView", pageData)}
   `;
 
@@ -3247,6 +3418,7 @@ function saveStateToLocal() {
       walletMustInclude: Array.from(state.walletMustInclude),
       walletAdvancedOpen: state.walletAdvancedOpen,
       favoriteRestaurants: Array.from(state.favoriteRestaurants),
+      selectedCuisines: Array.from(state.selectedCuisines),
     };
     localStorage.setItem(LS_KEY, JSON.stringify(payload));
   } catch (_) { /* quota or disabled — silently skip */ }
@@ -3280,6 +3452,7 @@ function restoreStateFromLocal() {
     if (Array.isArray(p.walletMustInclude)) state.walletMustInclude = new Set(p.walletMustInclude.filter(Boolean));
     if (typeof p.walletAdvancedOpen === "boolean") state.walletAdvancedOpen = p.walletAdvancedOpen;
     if (Array.isArray(p.favoriteRestaurants)) state.favoriteRestaurants = new Set(p.favoriteRestaurants.filter(Boolean));
+    if (Array.isArray(p.selectedCuisines)) state.selectedCuisines = new Set(p.selectedCuisines.filter(Boolean));
   } catch (_) { /* corrupted payload — ignore */ }
 }
 
@@ -3426,6 +3599,274 @@ function registerServiceWorker() {
       console.warn("[sw] registration failed", err);
     });
   });
+}
+
+function renderCuisinePills() {
+  const section = document.getElementById("cuisine-section");
+  const container = document.getElementById("cuisine-pills");
+  const countEl = document.getElementById("selected-cuisine-count");
+  if (!section || !container) return;
+  const all = getAllCuisinesFromEnrichment();
+  if (!all.length) {
+    section.style.display = "none";
+    return;
+  }
+  section.style.display = "";
+  // Show top 12 by frequency; selected chips always included
+  const topN = 12;
+  const top = all.slice(0, topN);
+  const selectedExtras = [...state.selectedCuisines].filter((c) => !top.some((t) => t.name === c));
+  const visible = [
+    ...top,
+    ...selectedExtras.map((c) => ({ name: c, count: all.find((t) => t.name === c)?.count || 0 })),
+  ];
+  container.innerHTML = visible.map((c) => {
+    const active = state.selectedCuisines.has(c.name);
+    return `<button type="button" class="s-cuisine-chip${active ? " active" : ""}" data-cuisine="${escapeAttr(c.name)}">${escapeHtml(c.name)}${c.count ? `<span class="s-cuisine-chip-count">${c.count}</span>` : ""}</button>`;
+  }).join("");
+  container.querySelectorAll(".s-cuisine-chip").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const name = btn.dataset.cuisine;
+      if (!name) return;
+      if (state.selectedCuisines.has(name)) state.selectedCuisines.delete(name);
+      else state.selectedCuisines.add(name);
+      render();
+    });
+  });
+  if (countEl) {
+    if (state.selectedCuisines.size > 0) {
+      countEl.style.display = "";
+      countEl.textContent = `${state.selectedCuisines.size}`;
+    } else {
+      countEl.style.display = "none";
+    }
+  }
+}
+
+function renderBranchCard(branch) {
+  if (!branch) return "";
+  const name = branch.name || branch.address || "Branch";
+  const addr = branch.address || "";
+  const todayHours = (() => {
+    const hours = branch.openingHours;
+    if (!Array.isArray(hours) || !hours.length) return null;
+    const todayName = _DAY_INDEX_TO_NAME[new Date().getDay()];
+    return hours.find((h) => h.day === todayName) || null;
+  })();
+  const userLoc = getUserLocation();
+  const distance = (userLoc && typeof branch.lat === "number" && typeof branch.lng === "number")
+    ? haversineKm(userLoc.lat, userLoc.lng, branch.lat, branch.lng)
+    : null;
+  const mapsHref = (typeof branch.lat === "number" && typeof branch.lng === "number")
+    ? `https://www.google.com/maps?q=${branch.lat},${branch.lng}`
+    : (branch.address ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(branch.address)}` : null);
+  const phoneHref = branch.telephone ? `tel:${String(branch.telephone).replace(/[^0-9+]/g, "")}` : null;
+  return `
+    <div class="rd-branch">
+      <div class="rd-branch-name">${escapeHtml(name)}</div>
+      ${addr ? `<div class="rd-branch-addr">${escapeHtml(addr)}</div>` : ""}
+      <div class="rd-branch-meta">
+        ${todayHours ? `<span class="rd-branch-today">Today ${escapeHtml(todayHours.opens)}–${escapeHtml(todayHours.closes)}</span>` : ""}
+        ${distance !== null ? `<span>${escapeHtml(formatDistanceKm(distance))} away</span>` : ""}
+        ${mapsHref ? `<a href="${escapeAttr(mapsHref)}" target="_blank" rel="noopener noreferrer">Directions</a>` : ""}
+        ${phoneHref ? `<a href="${escapeAttr(phoneHref)}">Call</a>` : ""}
+      </div>
+    </div>
+  `;
+}
+
+/* ── RESTAURANT ENRICHMENT HELPERS ──
+   Backed by data/offers-restaurants.json, which is loaded in parallel with
+   the per-city offer files at boot. Every helper here is defensive: if
+   enrichment is missing for a restaurant we degrade gracefully (no logo,
+   no "open now", no socials) — never throw or block the UI. */
+
+function getRestaurantEnrichment(name) {
+  const map = state.data?.restaurants;
+  if (!map || !name) return null;
+  return map[name] || null;
+}
+
+function renderRestaurantLogo(name, className) {
+  // We intentionally don't show restaurant photos — Peekaboo serves them
+  // from their CDN and we don't have a license to redistribute them.
+  // Show the initial as a stable, license-free fallback.
+  const initial = (name || "?").trim().slice(0, 1).toUpperCase();
+  const cls = className || "restaurant-logo";
+  return `<div class="${escapeAttr(cls)}"><span class="restaurant-logo-fallback">${escapeHtml(initial)}</span></div>`;
+}
+
+function getBranchesForRestaurant(name, city) {
+  const enr = getRestaurantEnrichment(name);
+  if (!enr || !enr.branchesByCity) return [];
+  if (city) return enr.branchesByCity[city] || [];
+  // No city filter: return all branches across cities
+  return Object.values(enr.branchesByCity).flat();
+}
+
+const _DAY_INDEX_TO_NAME = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+function _hhmmToMinutes(hhmm) {
+  if (typeof hhmm !== "string") return null;
+  const m = hhmm.match(/^(\d{1,2}):(\d{2})$/);
+  if (!m) return null;
+  const h = +m[1], mm = +m[2];
+  if (h < 0 || h > 24 || mm < 0 || mm >= 60) return null;
+  return h * 60 + mm;
+}
+
+/**
+ * Return one of: "open", "closed", null (unknown — no hours data).
+ * A branch is "open" if any branch in the city is currently within its
+ * opening window for today (handles past-midnight ranges like 16:30-01:00).
+ */
+function getRestaurantOpenStatus(name, city, now) {
+  const branches = getBranchesForRestaurant(name, city);
+  if (!branches.length) return null;
+  const d = now || new Date();
+  const todayName = _DAY_INDEX_TO_NAME[d.getDay()];
+  const yesterdayName = _DAY_INDEX_TO_NAME[(d.getDay() + 6) % 7];
+  const nowMin = d.getHours() * 60 + d.getMinutes();
+  let sawHours = false;
+  for (const b of branches) {
+    const hours = b.openingHours;
+    if (!Array.isArray(hours) || !hours.length) continue;
+    sawHours = true;
+    for (const h of hours) {
+      const opens = _hhmmToMinutes(h.opens);
+      const closes = _hhmmToMinutes(h.closes);
+      if (opens === null || closes === null) continue;
+      if (h.day === todayName) {
+        // Same-day window
+        if (closes > opens && nowMin >= opens && nowMin < closes) return "open";
+        // Past-midnight window: opens today, closes after midnight
+        if (closes <= opens && nowMin >= opens) return "open";
+      }
+      if (h.day === yesterdayName && closes <= opens) {
+        // Yesterday's past-midnight window may still be active
+        if (nowMin < closes) return "open";
+      }
+    }
+  }
+  return sawHours ? "closed" : null;
+}
+
+function getAllCuisinesFromEnrichment() {
+  const map = state.data?.restaurants;
+  if (!map) return [];
+  const counts = new Map();
+  for (const v of Object.values(map)) {
+    const list = v?.servesCuisine;
+    if (!Array.isArray(list)) continue;
+    for (const c of list) {
+      if (typeof c !== "string" || !c.trim()) continue;
+      counts.set(c, (counts.get(c) || 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([name, count]) => ({ name, count }));
+}
+
+function getRestaurantSocialLinks(name) {
+  const enr = getRestaurantEnrichment(name);
+  const social = enr?.social;
+  if (!social || typeof social !== "object") return [];
+  const links = [];
+  const order = ["website", "facebook", "instagram", "android", "ios"];
+  for (const k of order) {
+    const url = social[k];
+    if (typeof url === "string" && url.startsWith("http")) links.push({ kind: k, url });
+  }
+  return links;
+}
+
+const _SOCIAL_LABELS = {
+  website: "Website",
+  facebook: "Facebook",
+  instagram: "Instagram",
+  android: "Android app",
+  ios: "iOS app",
+};
+
+function renderSocialLinks(name) {
+  const links = getRestaurantSocialLinks(name);
+  if (!links.length) return "";
+  return `
+    <div class="rd-social-row">
+      ${links.map((l) => `<a class="rd-social-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(_SOCIAL_LABELS[l.kind] || l.kind)}</a>`).join("")}
+    </div>
+  `;
+}
+
+/* ── DISTANCE / GEOLOCATION ── */
+const USER_LOCATION_KEY = "konsacard_user_location_v1";
+
+function _readSavedLocation() {
+  try {
+    const raw = localStorage.getItem(USER_LOCATION_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (typeof parsed?.lat === "number" && typeof parsed?.lng === "number") return parsed;
+  } catch {}
+  return null;
+}
+
+function _saveLocation(loc) {
+  try { localStorage.setItem(USER_LOCATION_KEY, JSON.stringify(loc)); } catch {}
+}
+
+function getUserLocation() {
+  return state.userLocation || _readSavedLocation();
+}
+
+async function requestUserLocation() {
+  if (!("geolocation" in navigator)) return null;
+  return new Promise((resolve) => {
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const loc = {
+          lat: pos.coords.latitude,
+          lng: pos.coords.longitude,
+          ts: Date.now(),
+        };
+        state.userLocation = loc;
+        _saveLocation(loc);
+        resolve(loc);
+      },
+      () => resolve(null),
+      { timeout: 10000, maximumAge: 5 * 60 * 1000 },
+    );
+  });
+}
+
+function haversineKm(lat1, lng1, lat2, lng2) {
+  const toRad = (d) => (d * Math.PI) / 180;
+  const R = 6371; // km
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat / 2) ** 2 +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(a));
+}
+
+function getNearestBranchDistanceKm(name, city, userLoc) {
+  if (!userLoc) return null;
+  const branches = getBranchesForRestaurant(name, city);
+  let best = null;
+  for (const b of branches) {
+    if (typeof b.lat !== "number" || typeof b.lng !== "number") continue;
+    const km = haversineKm(userLoc.lat, userLoc.lng, b.lat, b.lng);
+    if (best === null || km < best) best = km;
+  }
+  return best;
+}
+
+function formatDistanceKm(km) {
+  if (km === null || km === undefined) return "";
+  if (km < 1) return `${Math.round(km * 1000)} m`;
+  if (km < 10) return `${km.toFixed(1)} km`;
+  return `${Math.round(km)} km`;
 }
 
 /* ── BOOT ── */

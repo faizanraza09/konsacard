@@ -672,6 +672,46 @@ function computeNextCardRecommendations() {
   };
 }
 
+/* ── WALLET RESTAURANT COVERAGE ──
+   For each restaurant in scope, find the best offer reachable using a card
+   already in state.ownedCards. Returns rows in the same shape as
+   computeRestaurantDeals so renderRestaurantDealRows can render them
+   unchanged. Used by the "Restaurants your wallet covers" panel in My Wallet. */
+function computeWalletRestaurantCoverage() {
+  if (!state.data || state.ownedCards.size === 0) return [];
+  const effectiveDays = getEffectiveSelectedDays();
+  const ownedKeys = state.ownedCards;
+  const best = new Map();
+
+  state.data.offers.forEach((offer) => {
+    if (!cityMatches(offer.city)) return;
+    if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return;
+    const cardKey = buildCardKey(offer.bank, offer.card);
+    if (!ownedKeys.has(cardKey)) return;
+    if (!offer.days.some((d) => effectiveDays.has(d))) return;
+
+    const saving = getOfferSavingValue(offer, state.orderValue);
+    if (!Number.isFinite(saving) || saving <= 0) return;
+
+    const rk = `${offer.city}|||${offer.restaurant}`;
+    const cur = best.get(rk);
+    if (!cur || saving > cur.saving) {
+      best.set(rk, {
+        restaurant: offer.restaurant,
+        city: offer.city,
+        saving,
+        discountLabel: offer.discountLabel,
+        discountPct: getOfferDiscountPct(offer) || 0,
+        daysLabel: offer.daysLabel,
+        bestCard: offer.card,
+        bestBank: offer.bank,
+      });
+    }
+  });
+
+  return [...best.values()].sort((a, b) => b.saving - a.saving);
+}
+
 /* ── COMPUTE RECOMMENDATIONS ──
    Fit-score ranking of every card by saving + coverage + day-fit, with an
    eligibility-based boost/penalty when the user has entered salary/balance.
@@ -709,9 +749,16 @@ function computeRecommendations() {
 
   // Score against the use-case only. Narrowing filters like bank/card/type
   // should not rebase fit scores.
+  const cuisineFilter = state.selectedCuisines;
+  const hasCuisineFilter = cuisineFilter && cuisineFilter.size > 0;
   const scoringOffers = state.data.offers.filter((offer) => {
     if (!cityMatches(offer.city)) return false;
     if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
+    if (hasCuisineFilter) {
+      const enr = (typeof getRestaurantEnrichment === "function") ? getRestaurantEnrichment(offer.restaurant) : null;
+      const cuisines = enr?.servesCuisine || [];
+      if (!cuisines.some((c) => cuisineFilter.has(c))) return false;
+    }
     return true;
   });
 
