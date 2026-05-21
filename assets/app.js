@@ -3605,6 +3605,7 @@ function renderCuisinePills() {
   const section = document.getElementById("cuisine-section");
   const container = document.getElementById("cuisine-pills");
   const countEl = document.getElementById("selected-cuisine-count");
+  const searchInput = /** @type {HTMLInputElement|null} */ (document.getElementById("cuisine-search"));
   if (!section || !container) return;
   const all = getAllCuisinesFromEnrichment();
   if (!all.length) {
@@ -3612,27 +3613,57 @@ function renderCuisinePills() {
     return;
   }
   section.style.display = "";
-  // Show top 12 by frequency; selected chips always included
-  const topN = 12;
-  const top = all.slice(0, topN);
-  const selectedExtras = [...state.selectedCuisines].filter((c) => !top.some((t) => t.name === c));
-  const visible = [
-    ...top,
-    ...selectedExtras.map((c) => ({ name: c, count: all.find((t) => t.name === c)?.count || 0 })),
-  ];
-  container.innerHTML = visible.map((c) => {
-    const active = state.selectedCuisines.has(c.name);
-    return `<button type="button" class="s-cuisine-chip${active ? " active" : ""}" data-cuisine="${escapeAttr(c.name)}">${escapeHtml(c.name)}${c.count ? `<span class="s-cuisine-chip-count">${c.count}</span>` : ""}</button>`;
-  }).join("");
-  container.querySelectorAll(".s-cuisine-chip").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const name = btn.dataset.cuisine;
-      if (!name) return;
-      if (state.selectedCuisines.has(name)) state.selectedCuisines.delete(name);
-      else state.selectedCuisines.add(name);
-      render();
+
+  // Sync the input value to state (handles initial render + filter changes
+  // from other paths) without clobbering the cursor when the user is typing.
+  if (searchInput && searchInput.value !== state.cuisineSearchTerm) {
+    searchInput.value = state.cuisineSearchTerm;
+  }
+
+  const term = (state.cuisineSearchTerm || "").trim().toLowerCase();
+  // When the user is searching, show every cuisine that matches — gives
+  // access to the long-tail (~65 total) without overwhelming the default
+  // view. When not searching, keep the top 12 + already-selected chips.
+  let visible;
+  if (term) {
+    visible = all.filter((c) => c.name.toLowerCase().includes(term));
+  } else {
+    const topN = 12;
+    const top = all.slice(0, topN);
+    const selectedExtras = [...state.selectedCuisines].filter((c) => !top.some((t) => t.name === c));
+    visible = [
+      ...top,
+      ...selectedExtras.map((c) => ({ name: c, count: all.find((t) => t.name === c)?.count || 0 })),
+    ];
+  }
+
+  if (visible.length === 0) {
+    container.innerHTML = `<div style="font-size:12px;color:var(--muted);padding:6px 2px">No cuisines match "${escapeHtml(term)}".</div>`;
+  } else {
+    container.innerHTML = visible.map((c) => {
+      const active = state.selectedCuisines.has(c.name);
+      return `<button type="button" class="s-cuisine-chip${active ? " active" : ""}" data-cuisine="${escapeAttr(c.name)}">${escapeHtml(c.name)}${c.count ? `<span class="s-cuisine-chip-count">${c.count}</span>` : ""}</button>`;
+    }).join("");
+    container.querySelectorAll(".s-cuisine-chip").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const name = btn.dataset.cuisine;
+        if (!name) return;
+        if (state.selectedCuisines.has(name)) state.selectedCuisines.delete(name);
+        else state.selectedCuisines.add(name);
+        render();
+      });
     });
-  });
+  }
+
+  if (searchInput && !searchInput.dataset.bound) {
+    // Bind once; subsequent renders only sync the .value above.
+    searchInput.dataset.bound = "1";
+    searchInput.addEventListener("input", (e) => {
+      state.cuisineSearchTerm = /** @type {HTMLInputElement} */ (e.target).value;
+      renderCuisinePills();
+    });
+  }
+
   if (countEl) {
     if (state.selectedCuisines.size > 0) {
       countEl.style.display = "";
