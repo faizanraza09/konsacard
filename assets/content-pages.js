@@ -1,27 +1,68 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const navToggle = document.getElementById("nav-toggle");
-  const mainNav = document.getElementById("main-nav");
+  // Mobile nav: rebuild the utility-nav dropdown from .nav-links-desk anchors
+  // so every page (home + every sub-page) shows the SAME items in the hamburger.
+  // The hardcoded #main-nav on legacy sub-pages had different items (Home,
+  // Privacy, Terms, etc.) — we keep the element but overwrite its contents so
+  // mobile is visually identical to the home page's JS-built menu.
+  (function setupMobileNav() {
+    const nav = document.querySelector(".nav");
+    const toggle = document.getElementById("nav-toggle");
+    if (!nav || !toggle) return;
 
-  if (navToggle && mainNav) {
-    navToggle.addEventListener("click", () => {
-      const open = mainNav.classList.toggle("nav-open");
-      navToggle.setAttribute("aria-expanded", String(open));
+    let utilityNav = nav.querySelector(".utility-nav");
+    if (!utilityNav) {
+      utilityNav = document.createElement("nav");
+      utilityNav.className = "utility-nav";
+      utilityNav.setAttribute("aria-label", "Site links");
+      nav.appendChild(utilityNav);
+    }
+
+    const escAttr = (s) => String(s).replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+    const escHtml = (s) =>
+      String(s)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    const links = Array.from(nav.querySelectorAll(".nav-links-desk a"));
+    utilityNav.innerHTML = links
+      .map((a) => {
+        const href = a.getAttribute("href") || "#";
+        const text = (a.textContent || "").trim();
+        const cur = a.getAttribute("aria-current") === "page" ? ' aria-current="page"' : "";
+        return `<a class="nav-link utility-link" href="${escAttr(href)}"${cur}>${escHtml(text)}</a>`;
+      })
+      .join("");
+
+    const toggleMenu = (forceOpen) => {
+      const willOpen =
+        typeof forceOpen === "boolean" ? forceOpen : !utilityNav.classList.contains("nav-open");
+      utilityNav.classList.toggle("nav-open", willOpen);
+      toggle.setAttribute("aria-expanded", willOpen ? "true" : "false");
+      toggle.setAttribute("aria-label", willOpen ? "Close menu" : "Open menu");
+    };
+
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleMenu();
     });
 
-    document.addEventListener("click", (event) => {
-      if (!mainNav.classList.contains("nav-open")) return;
-      if (mainNav.contains(event.target) || navToggle.contains(event.target)) return;
-      mainNav.classList.remove("nav-open");
-      navToggle.setAttribute("aria-expanded", "false");
+    utilityNav.addEventListener("click", (e) => {
+      if (e.target.closest("a")) toggleMenu(false);
     });
 
-    mainNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        mainNav.classList.remove("nav-open");
-        navToggle.setAttribute("aria-expanded", "false");
-      });
+    document.addEventListener("click", (e) => {
+      if (!utilityNav.classList.contains("nav-open")) return;
+      if (nav.contains(e.target)) return;
+      toggleMenu(false);
     });
-  }
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 960) toggleMenu(false);
+    });
+  })();
 
   // FAQ accordion
   document.querySelectorAll(".faq-q").forEach((btn) => {

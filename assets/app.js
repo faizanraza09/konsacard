@@ -2505,18 +2505,25 @@ function setupMobileNavMenu() {
 
   let utilityNav = nav.querySelector(".utility-nav");
   if (!utilityNav) {
-    const deskLinks = Array.from(nav.querySelectorAll(".nav-links-desk a"))
-      .map((link) => `<a class="nav-link utility-link" href="${escapeAttr(link.getAttribute("href") || "#")}">${escapeHtml(link.textContent || "")}</a>`)
-      .join("");
     utilityNav = document.createElement("div");
     utilityNav.className = "utility-nav";
-    utilityNav.innerHTML = deskLinks;
     nav.appendChild(utilityNav);
-    utilityNav.querySelector("#nav-mobile-quiz")?.addEventListener("click", () => {
-      closeMobileNavMenu();
-      openQuiz();
-    });
   }
+  // Always rebuild contents so home and sub-pages render an identical mobile
+  // dropdown. Mirrors the same JS in assets/content-pages.js.
+  const deskLinks = Array.from(nav.querySelectorAll(".nav-links-desk a"))
+    .map((link) => {
+      const href = link.getAttribute("href") || "#";
+      const text = link.textContent || "";
+      const cur = link.getAttribute("aria-current") === "page" ? ' aria-current="page"' : "";
+      return `<a class="nav-link utility-link" href="${escapeAttr(href)}"${cur}>${escapeHtml(text)}</a>`;
+    })
+    .join("");
+  utilityNav.innerHTML = deskLinks;
+  utilityNav.querySelector("#nav-mobile-quiz")?.addEventListener("click", () => {
+    closeMobileNavMenu();
+    openQuiz();
+  });
 
   const toggleMenu = (forceOpen) => {
     const willOpen = typeof forceOpen === "boolean" ? forceOpen : !utilityNav.classList.contains("nav-open");
