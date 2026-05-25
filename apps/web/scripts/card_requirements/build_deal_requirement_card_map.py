@@ -91,7 +91,10 @@ MANUAL_ALIASES = {
         "Bank Alfalah Mastercard Optimus Credit Card": "Bank Alfalah Mastercard Optimus Credit Card",
         "Bank Alfalah PayPak Classic Debit Card": "Bank Alfalah PayPak Classic Debit Card",
         "Bank Alfalah PayPak Islamic Classic Debit Card": "Bank Alfalah PayPak Islamic Classic Debit Card",
+        "Bank Alfalah Islamic Premier Visa Infinite Debit Card": "Bank Alfalah Visa Infinite Islamic Debit Card",
         "Bank Alfalah Pehchaan Visa Debit Card": "Bank Alfalah Pehchaan Debit Card",
+        "Bank Alfalah Premier Visa Infinite Credit Card": "Bank Alfalah Premier Visa Signature Credit Card",
+        "Bank Alfalah Premier Visa Infinite Debit Card": "Bank Alfalah Visa Infinite Debit Card",
         "Bank Alfalah Premier Visa Platinum Credit Card": "Bank Alfalah Premier Visa Platinum Credit Card",
         "Bank Alfalah Premier Visa Signature Debit Card": "Bank Alfalah Premier Visa Signature Debit Card",
         "Bank Alfalah Ultra Visa Credit Card": "Bank Alfalah Visa Ultra Cashback Card",
@@ -110,6 +113,7 @@ MANUAL_ALIASES = {
     "Bank of Punjab": {
         "KHAAS Platinum Mastercard Debit Card": "BOP KHAAS Platinum Debit Card",
         "Lahore Qalandar's Mastercard Debit Card": "BOP Lahore Qalandars Debit Card",
+        "Lahore Qalandars Gold Credit Card": "BOP Mastercard Lahore Qalandar Business Credit Card",
         "Mastercard Gold Debit Card": "BOP Mastercard Gold Debit Card",
         "Mastercard Platinum Credit Card": "BOP Mastercard Platinum Credit Card",
         "Mastercard Platinum Debit Card": "BOP Mastercard Platinum Debit Card",
@@ -118,7 +122,7 @@ MANUAL_ALIASES = {
         "Mastercard Taqwa Platinum Islamic Debit Card": "BOP Taqwa Platinum Islamic Debit Card",
         "Mastercard Taqwa World Islamic Debit Card": "BOP Taqwa World Islamic Debit Card",
         "Mastercard Women Naaz Debit Card": "BOP Naaz Debit Card",
-        "Mastercard World Credit Card": "BOP World Credit Card",
+        "Mastercard World Credit Card": "BOP Mastercard World Credit Card",
         "Mastercard World Debit Card": "BOP World Debit Card",
     },
     "BankIslami": {
@@ -126,11 +130,11 @@ MANUAL_ALIASES = {
         "Mastercard Titanium Debit Card": "Titanium Debit Mastercard",
     },
     "Faysal Bank Limited": {
+        "Amal Mastercard Gold Debit Card": "Faysal Islami Mastercard Amal Gold Debit Card",
+        "Amal Mastercard Platinum Debit Card": "Faysal Islami Mastercard Amal Platinum Debit Card",
         "Faysal Islami Noor Gold  Card": "Faysal Islami Noor Gold Card",
         "Faysal Islami Noor Titanium  Card": "Faysal Islami Noor Titanium Card",
         "Faysal Islami Noor World  Card": "Faysal Islami Noor World Card",
-        "Faysal Islami Priority Platinum Debit Card": "Priority Platinum Debit Card",
-        "Faysal Islami Priority World Debit Card": "Priority World Debit Card",
     },
     "HBL Islamic Bank Limited": {
         "HBL Islamic Classic Business DebitCard": "HBL Islamic Business DebitCard",
@@ -144,6 +148,7 @@ MANUAL_ALIASES = {
         "HBL DebitCard": "HBL Classic DebitCard",
         "HBL Classic Business DebitCard": "HBL Business DebitCard",
         "HBL Gold DebitCard": "HBL Gold DebitCard",
+        "HBL Visa Infinite CreditCard": "HBL Platinum CreditCard",
         "HBL World Business DebitCard": "HBL World Business DebitCard",
         "HBL World DebitCard": "HBL World DebitCard",
         "HBL World Elite DebitCard": "HBL Prestige World Elite DebitCard",
@@ -153,6 +158,7 @@ MANUAL_ALIASES = {
         "Visa Classic Debit Card": "Visa Classic Debit Card",
         "Visa Gold Debit Card": "Visa Gold Debit Card",
         "Visa Platinum Debit Card": "Visa Platinum Debit Card",
+        "Visa Signature Business Card": "Business Debit Card",
     },
     "JS Bank": {
         "Visa Classic Credit Card": "JS Credit Card Classic",

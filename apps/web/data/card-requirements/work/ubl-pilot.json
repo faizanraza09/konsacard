@@ -1,7 +1,7 @@
 {
   "bank_slug": "ubl",
   "bank_name": "United Bank Limited (UBL)",
-  "retrieved_note": "Pilot agent extraction from official public pages, fee-reversal page, summary boxes, and debit-card product pages. Normalize before shipping to UI.",
+  "retrieved_note": "Re-verified 2026-05-25 against the official Schedule of Charges Jan-Jun 2026 PDF (SOC-English-Jan-to-June-2026.pdf), the UBL Credit Card Summary Box (KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf), the fee-reversal page, Signature - Priority Banking section of the SOC, and individual UBL product pages.",
   "cards": [
     {
       "card_name": "UBL Credit Card Classic",
@@ -12,23 +12,27 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 6000,
         "supplementary_annual_fee_pkr": 3000,
-        "annual_fee_waiver_rule": "Reversed if PKR 50,000 spent within 60 days of issuance",
+        "annual_fee_waiver_rule": "Annual fee reversed if primary + supplementary combined retail spend reaches PKR 50,000 within 60 days of the statement on which the annual fee is levied; reversal request must be made within 120 days; FED on annual fee is not reversed.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
       },
       "sources": [
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
-        "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
-        "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf"
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product"
       ],
       "confidence": "high",
       "notes": [
-        "Spend-based full fee reversal. No public income or balance threshold.",
-        "Annual fee changed from PKR 5,000 in Jul-Dec 2025 to PKR 6,000 in Jan-Jun 2026.",
-        "Supplementary annual fee changed from PKR 2,500 to PKR 3,000.",
-        "Official fee-reversal page says the annual fee is charged at card activation and annually on the anniversary date, while FED on annual fee is not reversed.",
-        "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
+        "SOC Jan-Jun 2026 p.37 Section F (Credit Cards): Primary Card Annual Fee Visa Classic PKR 6,000; Supplementary Card Fee Visa Classic PKR 3,000.",
+        "KFS Summary Box (Jan-Jun 2026) confirms Classic credit limit band of PKR 25,000 to PKR 124,999 - this is a card credit-limit range, not a customer-side eligibility threshold.",
+        "UBL does NOT publish a public minimum-monthly-salary or minimum-account-balance criterion for the Classic credit card on the product page, the fee-reversal page, the SOC, or the KFS. Salary and balance therefore remain null (silence is not zero).",
+        "CNIC is required as a SBP KYC baseline for any consumer-credit product in Pakistan, but no separate income proof is published; the bank evaluates via internal underwriting.",
+        "Mukammal Current Account's PKR 25,000 YTD average is a fee-WAIVER trigger for the account, not a credit-card eligibility threshold - explicitly rejected as a candidate."
       ]
     },
     {
@@ -40,24 +44,25 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 12000,
         "supplementary_annual_fee_pkr": 6000,
-        "annual_fee_waiver_rule": "Reversed if PKR 100,000 spent within 60 days of issuance",
+        "annual_fee_waiver_rule": "Annual fee reversed if primary + supplementary combined retail spend reaches PKR 100,000 within 60 days of the statement on which the annual fee is levied; reversal request must be made within 120 days; FED on annual fee is not reversed.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
       },
       "sources": [
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
-        "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/www.yayvo.com/",
-        "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf"
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product"
       ],
       "confidence": "high",
       "notes": [
-        "Spend-based full fee reversal. No public income or balance threshold.",
-        "Annual fee changed from PKR 10,000 in Jul-Dec 2025 to PKR 12,000 in Jan-Jun 2026.",
-        "Supplementary annual fee changed from PKR 5,000 to PKR 6,000.",
-        "Official fee-reversal page says the annual fee is charged at card activation and annually on the anniversary date, while FED on annual fee is not reversed.",
-        "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
+        "SOC Jan-Jun 2026 p.37 Section F: Primary Annual Fee Visa Gold PKR 12,000; Supplementary PKR 6,000. Verified vs prior pilot value (unchanged).",
+        "KFS Summary Box confirms Gold credit-limit band of PKR 125,000 to PKR 499,999 (credit line, not eligibility).",
+        "No publicly stated minimum-monthly-salary or minimum-account-balance criterion - left null."
       ]
     },
     {
@@ -69,23 +74,26 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 20000,
         "supplementary_annual_fee_pkr": 10000,
-        "annual_fee_waiver_rule": "Reversed if PKR 300,000 spent within 60 days of issuance",
+        "annual_fee_waiver_rule": "Annual fee reversed if primary + supplementary combined retail spend reaches PKR 300,000 within 60 days of the statement on which the annual fee is levied; reversal request must be made within 120 days; FED on annual fee is not reversed.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
       },
       "sources": [
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
-        "https://www.ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf",
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-Jan-2026-to-Jun-2026.pdf",
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum",
-        "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf"
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Credit-Card-Product/Criteria-for-Annual-Fee-Reversal",
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Credit-Card/UBL-Platinum"
       ],
       "confidence": "high",
       "notes": [
-        "Spend-based full fee reversal. No public income or balance threshold.",
-        "Annual fee stayed at PKR 20,000 across the two surfaced summary-box periods.",
-        "Official fee-reversal page says the annual fee is charged at card activation and annually on the anniversary date, while FED on annual fee is not reversed.",
-        "Recovered as an unsecured credit-card product with fee and income-based public criteria rather than a deposit threshold."
+        "SOC Jan-Jun 2026 p.37 Section F: Primary Annual Fee Visa Platinum PKR 20,000; Supplementary PKR 10,000. Verified - matches pilot.",
+        "KFS Summary Box confirms Platinum credit-limit band PKR 500,000 to PKR 7,000,000 (credit line, not eligibility).",
+        "Audit flag: no public salary/balance threshold. The supplementary cardholder section on the product page states 'Anyone with minimum age of 14 years can be your supplementary cardholder with no maximum age limit' - this is the only age threshold UBL publishes and applies only to supplementary cards, not to the primary applicant.",
+        "SOC also lists a Visa Signature (SBL legacy) credit card at PKR 30,000 annual / PKR 15,000 supplementary that is not in the current pilot card list - flagged in bank_gaps."
       ]
     },
     {
@@ -93,21 +101,29 @@
       "card_type": "debit",
       "tier": "premium",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2800,
+        "annual_fee_pkr": 2900,
+        "joining_fee_pkr": 2900,
         "supplementary_annual_fee_pkr": 1500,
-        "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "Issuance/annual fee waived for UBL Mukammal, Urooj, Freelancer, Good Citizen, Pensioner, Business Partner Plus, and Zindagi accountholders maintaining the relevant YTD/monthly-average-balance trigger (commonly PKR 25,000); first debit card issuance is free across these accounts. See SOC waiver grids p.5-8.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Premium-Visa-Debit-Card",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Premium-Visa-Debit-Card/FAQ"
       ],
       "confidence": "high",
       "notes": [
-        "Official product page says all existing and new account holders can apply."
+        "Corrected annual fee from PKR 2,800 -> PKR 2,900 per SOC Jan-Jun 2026 p.33 ('UBL Debit Card Fees' table, Premium Category): PKR 2,900 issuance, PKR 2,900 annual, PKR 1,800 replacement, PKR 1,500 supplementary.",
+        "Inherits from linked Conventional Current/Savings account; the Mukammal/Urooj/Freelancer/Good Citizen accounts publish no minimum-balance floor, hence 0.",
+        "Salary changed from 0 -> null: UBL does not publish a salary requirement for the debit card; silence is not zero."
       ]
     },
     {
@@ -115,23 +131,29 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2000,
+        "joining_fee_pkr": 2000,
         "supplementary_annual_fee_pkr": 1200,
-        "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "First debit card issuance is free for Mukammal/Urooj/Freelancer/Good Citizen/Pensioner/Business Partner Plus accountholders; ongoing annual waiver requires meeting the relevant account YTD-average trigger (PKR 25,000 on most accounts).",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Paypak-Debit-Card",
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Paypak-Debit-Card/Frequently-Ask-Questions",
-        "https://www.ubldigital.com/ublpay/DebitCard"
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Paypak-Debit-Card/Frequently-Ask-Questions"
       ],
       "confidence": "high",
       "notes": [
-        "Official product page says all existing and new current and saving account holders can apply.",
-        "Omni Paypak variant is for digital wallet account holders who do not have a UBL card."
+        "Verified vs SOC Jan-Jun 2026 p.33 ('UBL Debit Card Fees' table, Classic Category): PKR 2,000 issuance, PKR 2,000 annual, PKR 1,800 replacement, PKR 1,200 supplementary. Unchanged.",
+        "Salary changed from 0 -> null: no salary threshold is published.",
+        "Linked-account inheritance: all standard UBL current/savings accounts can issue this card."
       ]
     },
     {
@@ -139,20 +161,29 @@
       "card_type": "debit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 3000000,
-        "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Free annual fee and replacement fee on surfaced product page.",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_average_balance_pkr": 3000000,
+        "annual_fee_pkr": 45000,
+        "joining_fee_pkr": 45000,
+        "supplementary_annual_fee_pkr": 45000,
+        "annual_fee_waiver_rule": "Issuance, annual, supplementary, and replacement fees are waived as long as the customer maintains UBL Signature - Priority Banking criteria (PKR 3 million quarterly average balance in any LCY current account, or equivalent in FCY/deposits). On downgrade, the rack fees in the SOC apply.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Visa-Infinite-Debit-Card"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Product is tied to UBL Signature Priority Banking rather than a mass-market debit-card flow.",
-        "Official Signature Banking page shows a PKR 3 million quarterly average-balance threshold for qualifying local-currency current accounts."
+        "Critical correction: annual_fee_pkr changed from 0 -> 45,000. SOC Jan-Jun 2026 p.33 'UBL Debit Card Fees' table, Priority Banking Category: UBL VISA Infinite Debit Card Issuance/Annual PKR 45,000, Replacement PKR 1,800, Supplementary PKR 45,000. The card is FREE only on maintaining Signature - Priority Banking criteria, per SOC p.11 Section 8(a).",
+        "Eligibility threshold confirmed at SOC p.11 Section A ('UBL Signature - Priority Banking'): 'Any Local Currency Current Account: PKR 3 Million Quarterly' or equivalent FCY at PKR 6M, or 100% Current + 50% FCY deposits combined to PKR 3M. minimum_average_balance_pkr field added to capture the relationship-balance framing.",
+        "Note in SOC: 'Fee waivers shall not continue to apply for Signature Priority Banking customers who are affected by a downgrade.'"
       ]
     },
     {
@@ -160,21 +191,29 @@
       "card_type": "debit",
       "tier": "signature",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 3000000,
-        "annual_fee_pkr": 0,
-        "supplementary_annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Free annual, supplementary, and replacement fees on the surfaced product page.",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_average_balance_pkr": 3000000,
+        "annual_fee_pkr": 25000,
+        "joining_fee_pkr": 25000,
+        "supplementary_annual_fee_pkr": 25000,
+        "annual_fee_waiver_rule": "Issuance, annual, supplementary, and replacement fees waived on maintaining UBL Signature - Priority Banking criteria (PKR 3 million quarterly average balance in any LCY current account, or equivalent in FCY/deposits). Rack fees apply on downgrade.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/CardsProducts/UBLSignatureDebitMasterCard"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Public page positions it as a relationship-tier debit product.",
-        "Official Signature Banking page shows a PKR 3 million quarterly average-balance threshold for qualifying local-currency current accounts."
+        "Critical correction: annual_fee_pkr changed from 0 -> 25,000 and supplementary_annual_fee_pkr changed from 0 -> 25,000. SOC Jan-Jun 2026 p.33 'UBL Debit Card Fees' table, Priority Banking Category: UBL Signature Master Debit Card Issuance/Annual PKR 25,000, Replacement PKR 1,800, Supplementary PKR 25,000.",
+        "Free-on-product-page wording is reconciled in SOC p.11 Section 8(b): 'Signature Debit Master Card - Basic, Supplementary & Replacement: Free on maintaining Signature Priority Banking Criteria.'",
+        "Signature Priority Banking criteria (SOC p.11 Section A): PKR 3M quarterly average in any LCY current account, or PKR 6M equivalent FCY, or combined."
       ]
     },
     {
@@ -182,25 +221,28 @@
       "card_type": "debit",
       "tier": "premium",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2800,
+        "annual_fee_pkr": 2900,
+        "joining_fee_pkr": 2900,
         "supplementary_annual_fee_pkr": 1500,
-        "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "First debit card issuance free for Ameen Mukammal/Urooj/Freelancer/Good Citizen accountholders; ongoing fee waiver requires meeting the relevant account YTD/monthly-average trigger.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking/AmeenPremiumDebitMasterCard",
-        "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking",
-        "https://ubldigital.com/portals/0/Pdf/UBL-SBL-Merged-SOC-V3.pdf",
-        "https://ubldigital.com/portals/0/pdf/KFS-Change-in-SOC-July-2025-to-Dec-2025.pdf"
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
+        "https://www.ubldigital.com/Banking/UBL-Ameen/Self-Service-Banking/AmeenPremiumDebitMasterCard"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "No publicly disclosed salary threshold.",
-        "Product page exists but does not show a fee table; the official UBL merged SOC PDF lists PKR 2,800 primary annual fee and PKR 1,500 supplementary annual fee.",
-        "Ameen Premium Account page says there is no minimum balance requirement."
+        "Corrected annual fee from PKR 2,800 -> PKR 2,900 per SOC Jan-Jun 2026 p.72 'UBL Ameen Debit Card Fees' table, Premium Category: UBL Ameen Premium Mastercard Issuance/Annual PKR 2,900, Replacement PKR 1,800, Supplementary PKR 1,500.",
+        "Salary changed from 0 -> null (no salary threshold published).",
+        "Linked Ameen current accounts publish no minimum-balance floor."
       ]
     },
     {
@@ -208,23 +250,29 @@
       "card_type": "prepaid",
       "tier": "virtual",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
         "joining_fee_pkr": 300,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "No annual fee surfaced; issuance fee is PKR 300 plus FED.",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "No annual fee on the virtual prepaid card; one-time issuance fee PKR 300 plus FED is the only card-level charge.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
       },
       "sources": [
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Virtual-Card/Fee-Structure",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Virtual-Card/UBL-Virtual-Card-FAQs",
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-Virtual-Card/Fee-Structure"
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Virtual prepaid card with PKR 100,000 max balance/load at a time.",
-        "Public fee page also lists refund and international transaction charges.",
-        "Official terms say the dedicated card account has no minimum balance penalty."
+        "Verified: Fee Structure page lists PKR 300 + FED issuance fee, no annual fee.",
+        "SOC Jan-Jun 2026 p.33 (Classic Category) shows 'UBL Mastercard WIZ Virtual Debit Card' at PKR 600 issuance only (different SKU - the physical/dedicated WIZ Mastercard). The Wiz Virtual Prepaid product (the one in this pilot) is the dedicated-card-account variant priced at PKR 300 + FED.",
+        "PKR 100,000 max load/balance at a time; dedicated card-account has no minimum-balance penalty per FAQ."
       ]
     },
     {
@@ -232,22 +280,29 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 2300,
+        "joining_fee_pkr": 2300,
         "supplementary_annual_fee_pkr": 1500,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-UNION-PAY-INTERNATIONAL-DEBIT-CARD",
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-UNION-PAY-INTERNATIONAL-DEBIT-CARD/FAQs",
-        "https://www.ubldigital.com/Loans/Cards-Products/UBL-UNION-PAY-INTERNATIONAL-DEBIT-CARD/Features-Benefits"
+        "https://www.ubldigital.com/Loans/Cards-Products/UBL-UNION-PAY-INTERNATIONAL-DEBIT-CARD/FAQs"
       ],
       "confidence": "high",
       "notes": [
-        "All new and existing account holders can apply according to public FAQ and features pages."
+        "Verified vs SOC Jan-Jun 2026 p.33 ('UBL Debit Card Fees' table, Classic Category): UBL UnionPay Debit Card Issuance/Annual PKR 2,300, Replacement PKR 1,800, Supplementary PKR 1,500. Unchanged.",
+        "FAQ states all new and existing UBL account holders can apply - account-linked, no separate balance/salary floor.",
+        "Salary changed from 0 -> null."
       ]
     },
     {
@@ -255,22 +310,29 @@
       "card_type": "debit",
       "tier": "urooj",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2800,
+        "annual_fee_pkr": 2900,
+        "joining_fee_pkr": 2900,
         "supplementary_annual_fee_pkr": 1500,
-        "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "Issuance/annual debit-card fee is free for UBL Urooj Current Account holders maintaining the published monthly-average tier waivers (PKR 500k tier per SOC p.5); first card issuance is free regardless of balance.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-Urooj-Debit-Card"
       ],
       "confidence": "high",
       "notes": [
-        "Official product page exposes PKR 2,800 primary annual fee and PKR 1,500 supplementary annual fee.",
-        "Page positions the card as available for UBL Urooj account holders.",
-        "Official Urooj Account page says there is no minimum balance requirement."
+        "Corrected annual fee from PKR 2,800 -> PKR 2,900 per SOC Jan-Jun 2026 p.33 (Premium Category): UBL VISA Urooj Debit Card Issuance/Annual PKR 2,900, Replacement PKR 1,800, Supplementary PKR 1,500.",
+        "Urooj Current Account has no minimum-balance floor (SOC p.5 Waiver Grid: minimum balance charges 'Free' at any tier).",
+        "Eligibility positioned as 'for women', but SOC does not publish a separate income or balance threshold on the card itself.",
+        "Salary changed from 0 -> null."
       ]
     },
     {
@@ -278,22 +340,28 @@
       "card_type": "debit",
       "tier": "freelancer",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2800,
+        "annual_fee_pkr": 2900,
+        "joining_fee_pkr": 2900,
         "supplementary_annual_fee_pkr": 1500,
-        "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "First debit card issuance free for UBL Freelancer Account holders; full ongoing waiver requires PKR 500,000 monthly average balance per SOC p.6 Freelancer Waiver Grid.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-Freelancer-Debit-Card"
       ],
       "confidence": "high",
       "notes": [
-        "Official product page exposes PKR 2,800 primary annual fee and PKR 1,500 supplementary annual fee.",
-        "Page positions the card as available for UBL Freelancer Account holders.",
-        "Official digital-account page says the Freelancer Account has no minimum balance requirement."
+        "Corrected annual fee from PKR 2,800 -> PKR 2,900 per SOC Jan-Jun 2026 p.33 (Premium Category): UBL VISA Freelancer Debit Card Issuance/Annual PKR 2,900, Replacement PKR 1,800, Supplementary PKR 1,500.",
+        "Linked Freelancer Account itself has no minimum-balance floor (SOC p.6 shows only tier-based waiver grid, not a floor).",
+        "Salary changed from 0 -> null."
       ]
     },
     {
@@ -301,20 +369,28 @@
       "card_type": "debit",
       "tier": "business-fcy",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": null,
+        "annual_fee_pkr_note": "Fee published in FCY only: USD 15 / GBP 12 / EUR 14 / AED 56 / SAR 57 per annum (matching issuance fee). Supplementary not published. Replacement USD 10 / GBP 10 / EUR 10 / AED 35 / SAR 35.",
+        "joining_fee_pkr": null,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Debit-Card/UBL-Visa-FCY-Business-Debit-Card"
       ],
       "confidence": "medium",
       "notes": [
-        "Offered to UBL ESFC account holders.",
-        "Public page lists annual charges in foreign currencies rather than PKR, so the current normalized requirement fields do not capture the full fee detail."
+        "Verified at SOC Jan-Jun 2026 p.33 'FCY Business Category' row: USD 15 / GBP 12 / EUR 14 / AED 56 / SAR 57 for both issuance and annual; USD 10 / GBP 10 / EUR 10 / AED 35 / SAR 35 replacement. UBL does not publish a PKR-equivalent annual fee on this card. annual_fee_pkr remains null - this is a deliberate null because the bank prices the card in foreign currency by account currency.",
+        "Linked account: UBL ESFC (Exporters Special FC) Account. No minimum-balance threshold for the card itself is published on the card page or SOC; the account-side criteria are governed by SBP exchange-control rules rather than a UBL retail minimum-balance figure - left null.",
+        "International transaction charges are waived on POS and e-commerce channels for this FCY Business card (SOC p.33 note)."
       ]
     },
     {
@@ -322,28 +398,37 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2800,
+        "annual_fee_pkr": 2900,
+        "joining_fee_pkr": 2900,
         "supplementary_annual_fee_pkr": 1500,
-        "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "Issuance/annual fee waived for Mukammal, Urooj, Freelancer, Good Citizen, Pensioner, Business Partner Plus, and Zindagi accountholders on meeting the relevant YTD-average trigger; first issuance free across these accounts.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://ubldigital.com/portals/0/Pdf/SOC-English-Jan-to-June-2026.pdf",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Premium-Debit-Master-Card",
         "https://www.ubldigital.com/Loans/Cards-Products/UBL-Premium-Debit-Master-Card/FAQ"
       ],
       "confidence": "high",
       "notes": [
-        "Official product page exposes PKR 2,800 basic annual/issuance fee and PKR 1,500 supplementary annual/issuance fee.",
-        "FAQ says all new and existing account holders are eligible, so no separate salary or balance threshold was publicly surfaced."
+        "Corrected annual fee from PKR 2,800 -> PKR 2,900 per SOC Jan-Jun 2026 p.33 (Premium Category): UBL Mastercard Premium Debit Card Issuance/Annual PKR 2,900, Replacement PKR 1,800, Supplementary PKR 1,500.",
+        "FAQ states all new and existing account holders can apply - no separate salary/balance threshold.",
+        "Salary changed from 0 -> null."
       ]
     }
   ],
   "gaps": [
-    "Credit-card salary and age criteria were weakly surfaced in public pages reviewed.",
-    "Credit-card fees changed across official summary-box periods, so source period must be preserved.",
-    "Debit-card eligibility is mostly account-linked rather than salary-gated."
+    "UBL does NOT publish a public minimum-monthly-salary or minimum-account-balance threshold on any of its three primary credit cards (Classic / Gold / Platinum) - all are evaluated via internal underwriting. Salary and balance therefore remain null across the credit-card tier.",
+    "SOC Jan-Jun 2026 p.37 lists a 'Visa Signature (SBL)' credit card at PKR 30,000 primary annual / PKR 15,000 supplementary, plus four Mastercard (SBL) credit-card tiers (Standard / Gold / Titanium / Platinum) at PKR 3,500 / 8,000 / 14,000 / 18,000 - these are former Silkbank portfolio products not currently captured in the pilot's 14-card list.",
+    "UBL Visa Premium Plus Debit Card (Gold Category, PKR 3,500 / 3,500 / 1,800 / 2,400 per SOC p.33) is published in the SOC but is not in the current pilot.",
+    "UBL Visa FCY Business Debit Card fees are published only in FCY (USD/GBP/EUR/AED/SAR); annual_fee_pkr remains null because UBL does not publish a PKR equivalent.",
+    "All four Ameen variants (Infinite/Premium Plus/Premium/Urooj/Freelancer/PayPak) appear in the Ameen SOC table (p.72) at the same fee structure as the conventional cards; only the Ameen Premium Mastercard is captured in the pilot."
   ]
 }

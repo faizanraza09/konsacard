@@ -1,7 +1,7 @@
 {
   "bank_slug": "allied-bank",
   "bank_name": "Allied Bank",
-  "retrieved_note": "Pilot agent extraction from official public pages and SOC PDF. Normalize before shipping to UI.",
+  "retrieved_note": "Re-verified 2026-05-25 against official ABL pages, Jul-Dec 2025 and Jan-Jun 2026 Schedule of Charges PDFs, and the Q2-2025 Credit Card Summary Box. See notes/verification-2026-05-25/banks/allied-bank.md.",
   "cards": [
     {
       "card_name": "Allied Visa Gold Credit Card",
@@ -11,19 +11,26 @@
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2500,
-        "annual_fee_waiver_rule": "Spend PKR 25,000 within 3 months.",
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": 600,
+        "annual_fee_waiver_rule": "Annual Membership Fee reversed on spending Rs. 25,000 through the card within 3 months.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": null
       },
       "sources": [
         "https://www.abl.com/personal/cards/credit-cards/allied-visa-gold-credit-card/",
         "https://www.abl.com/wp-content/uploads/2025/07/Allied-Visa-Credit-Card-Summary-Box-Q2-2025_30-06-25_05-03-56-1.pdf",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Current official pages did not cleanly expose salary, balance, or age criteria.",
-        "Latest public Allied Visa Credit Card Summary Box effective July 1, 2025 shows Gold annual fee of PKR 2,500 and reversal on PKR 25,000 spend within 3 months."
+        "Summary Box (Q2 2025, effective Jul 1, 2025): basic Gold annual membership Rs. 2,500; supplementary Rs. 600; no issuance/joining fee; reversal on Rs. 25,000 spend within 3 months.",
+        "Jan-Jun 2026 SOC confirms Visa Credit Card Gold annual fee Rs. 2,500 basic and Rs. 600 supplementary.",
+        "The product page and Summary Box do not publish a salary, balance, or age threshold; CNIC is implicit for any Pakistani-resident credit card."
       ]
     },
     {
@@ -34,19 +41,26 @@
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 5000,
-        "annual_fee_waiver_rule": "Spend PKR 50,000 within 3 months.",
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": 1200,
+        "annual_fee_waiver_rule": "Annual Membership Fee reversed on spending Rs. 50,000 through the card within 3 months.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": null
       },
       "sources": [
         "https://www.abl.com/personal/cards/credit-cards/visa-platinum-credit-card/",
         "https://www.abl.com/wp-content/uploads/2025/07/Allied-Visa-Credit-Card-Summary-Box-Q2-2025_30-06-25_05-03-56-1.pdf",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Latest public Allied Visa Credit Card Summary Box effective July 1, 2025 shows Platinum annual fee of PKR 5,000 and reversal on PKR 50,000 spend within 3 months.",
-        "Current official pages still do not expose a public salary, balance, or age threshold."
+        "Summary Box (Q2 2025, effective Jul 1, 2025): basic Platinum annual membership Rs. 5,000; supplementary Rs. 1,200; no issuance/joining fee; reversal on Rs. 50,000 spend within 3 months.",
+        "Jan-Jun 2026 SOC confirms Visa Credit Card Platinum annual fee Rs. 5,000 basic and Rs. 1,200 supplementary.",
+        "The product page and Summary Box do not publish a salary, balance, or age threshold."
       ]
     },
     {
@@ -56,18 +70,25 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 41667,
         "minimum_account_balance_pkr": 100000,
-        "annual_fee_pkr": 2900,
+        "annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/allied-unionpay-paypak-gold-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Product page states PKR 500,000 annual income and PKR 100,000 account balance."
+        "Product page: eligibility is minimum annual income Rs. 500,000 (Rs. 41,667 monthly) OR account balance Rs. 100,000+; either-or, not both.",
+        "Annual fee corrected from Rs. 2,900 to Rs. 3,000: the SOC line 'UPI & PayPak Gold & Visa Sapphire — Annual Fee / Issuance Fee / Renewal Fee Rs. 3,000' applies (Jul-Dec 2025 and Jan-Jun 2026 SOC are identical).",
+        "Card requires an existing ABL account (debit card is account-linked)."
       ]
     },
     {
@@ -75,24 +96,32 @@
       "card_type": "debit",
       "tier": "premium",
       "requirements": {
-        "minimum_monthly_salary_pkr": 416667,
+        "minimum_monthly_salary_pkr": null,
         "minimum_deposit_pkr": 2000000,
         "annual_fee_pkr": 19500,
-        "annual_fee_waiver_rule": "Eligible if maintaining PKR 500,000 daily average in current account or PKR 1,000,000 in savings over the last 11 months.",
+        "supplementary_annual_fee_pkr": 15000,
+        "annual_fee_waiver_rule": "Annual fee waiver if customer maintains a daily average balance of PKR 500,000 in a Current Account or PKR 1,000,000 in a Savings Account over the last 11 months.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/visa-premium-debit-card/",
         "https://www.abl.com/ur/personal/cards/debit-cards/visa-premium-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
-        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf"
+        "https://www.abl.com/personal/cards/debit-cards/foreign-currency-visa-debit-cards-for-roshan-digital-and-foreign-currency-accounts/",
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
-      "confidence": "low",
+      "confidence": "medium",
       "notes": [
-        "Official product page states PKR 5 million annual income eligibility.",
-        "Official product page also states a PKR 2 million deposit route and the annual-fee-waiver balance conditions.",
-        "Official Jul-Dec 2025 SOC lists a PKR 19,500 annual / issuance / renewal fee."
+        "Corrected minimum_monthly_salary_pkr from 416,667 to null: the current English product page lists 4 eligibility paths — PKR 2M deposit (CA/SA/TD/FCY), PKR 2M AMC investment, PKR 20M active house loan, or senior executive of a PKR 10M+ turnover company business account with 12+ month bank relationship — and does NOT list an annual-income path. The PKR 5M annual income path still appears on the Urdu mirror page (treated as a stale path).",
+        "minimum_deposit_pkr 2,000,000 verified against the current English product page and the foreign-currency Roshan Digital debit cards page.",
+        "Annual fee Rs. 19,500 verified against both Jul-Dec 2025 SOC and Jan-Jun 2026 SOC. Supplementary fee corrected to Rs. 15,000 (Jan-Jun 2026 SOC) — was Rs. 13,750 in Jul-Dec 2025 SOC.",
+        "Annual fee waiver wording sourced verbatim from the product page.",
+        "Non-maintenance penalty (separate from waiver): SOC says Rs. 3,000 per month if monthly average balance of Rs. 2M is not maintained in the savings account; card downgraded after non-maintenance for the whole year."
       ]
     },
     {
@@ -103,19 +132,26 @@
         "minimum_monthly_salary_pkr": 83333,
         "minimum_account_balance_pkr": 300000,
         "annual_fee_pkr": 6000,
+        "supplementary_annual_fee_pkr": 3300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.abl.com/personal-banking/credit-debit-cards/allied-visa-platinum-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
-        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf"
+        "https://www.abl.com/personal/cards/debit-cards/visa-platinum-debit-card/",
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Product page states PKR 1 million annual income and PKR 300,000 account balance.",
-        "Official Jul-Dec 2025 SOC lists a PKR 6,000 annual / issuance / renewal fee."
+        "Product page: eligibility is annual income of PKR 1,000,000 (PKR 83,333 monthly) OR account balance of PKR 300,000+; either-or.",
+        "Annual fee Rs. 6,000 (primary) verified against both Jul-Dec 2025 SOC and Jan-Jun 2026 SOC.",
+        "Supplementary fee corrected from null to Rs. 3,300 per Jan-Jun 2026 SOC (was Rs. 3,000 in Jul-Dec 2025 SOC).",
+        "Existing Visa Sapphire 200 Debit Card holders are auto-eligible for upgrade per product page."
       ]
     },
     {
@@ -123,23 +159,29 @@
       "card_type": "debit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 5000000,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "If required balance is not maintained, PKR 8,000 per month is charged; after 3 consecutive months of non-maintenance the card is downgraded.",
+        "annual_fee_waiver_rule": "Annual fee is free; however if monthly average balance of PKR 5M (current) or PKR 10M (savings/term deposit) is not maintained, PKR 8,000/month is charged. After 3 consecutive months of non-maintenance the card is downgraded.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/visa-infinite-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
-        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Conventional route says PKR 5m current or PKR 10m savings/term deposit.",
-        "Islamic route says PKR 10m current or PKR 10m savings/term deposit.",
-        "Official Jul-Dec 2025 SOC lists annual / issuance / renewal fee as free, while the product page separately states the PKR 8,000 monthly non-maintenance charge."
+        "Conventional eligibility: PKR 5M in current account or PKR 10M in savings/term deposit.",
+        "Islamic eligibility: PKR 10M in current account or PKR 10M in savings/term deposit.",
+        "Senior executives: PKR 100M monthly average balance in company business account.",
+        "minimum_monthly_salary_pkr corrected from 0 to null: the product page is silent on salary; the card is balance/deposit-gated, not salary-gated, so silence here should not be encoded as '0 required'.",
+        "Annual fee 'Free' verified against both Jul-Dec 2025 SOC and Jan-Jun 2026 SOC; non-maintenance fee of Rs. 8,000/month and 3-month downgrade rule both verified."
       ]
     },
     {
@@ -152,18 +194,22 @@
         "annual_fee_pkr": 2900,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/allied-visa-classic-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
-        "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx"
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "PKR 1,000 minimum balance from KFS.",
-        "Eligibility is account-holder based rather than salary-gated on the surfaced public page.",
-        "Public page also lists current daily ATM, POS/e-commerce, and funds-transfer limits."
+        "Product page states the card is offered to existing ABL account holders only — eligibility is account-holder based, not salary-gated.",
+        "Annual fee Rs. 2,900 (Visa Classic Primary) verified against both Jul-Dec 2025 and Jan-Jun 2026 SOC.",
+        "PKR 1,000 minimum balance inherited from the linked LCY current/savings account per Jan-Jun 2025 KFS."
       ]
     },
     {
@@ -176,18 +222,22 @@
         "annual_fee_pkr": 2800,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/allied-unionpay-paypak-classic-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
-        "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx"
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "PKR 1,000 minimum balance from KFS.",
-        "Product page distinguishes Regular and Asaan account-holder limits.",
-        "Public sources did not expose salary or age thresholds."
+        "Annual fee Rs. 2,800 verified against both Jul-Dec 2025 and Jan-Jun 2026 SOC.",
+        "Available to both Asaan and Regular account holders per product page.",
+        "PKR 1,000 minimum balance inherited from the linked LCY current/savings account per Jan-Jun 2025 KFS."
       ]
     },
     {
@@ -200,17 +250,21 @@
         "annual_fee_pkr": 2900,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/temporary-limit-enhancement-on-abl-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
-        "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx"
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "PKR 1,000 minimum balance from KFS.",
-        "Recovered from SOC plus current official debit-limit grouping rather than a clean standalone product page."
+        "Annual fee Rs. 2,900 verified against both Jul-Dec 2025 and Jan-Jun 2026 SOC (under 'UPI & PayPak Classic Plus').",
+        "There is no standalone product page for this card; eligibility/limits are surfaced only through the temporary-limit enhancement page (ATM Rs. 100,000/200,000; POS Rs. 100,000/200,000; transfer Rs. 250,000/500,000)."
       ]
     },
     {
@@ -223,17 +277,22 @@
         "annual_fee_pkr": 2000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/cards/debit-cards/allied-basic-debit-card/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf",
-        "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx"
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "PKR 1,000 minimum balance from KFS. No salary threshold.",
-        "Product is targeted to photo-account / shaky-signature style eligibility and specific account categories."
+        "Annual fee Rs. 2,000 verified against both Jul-Dec 2025 and Jan-Jun 2026 SOC.",
+        "Product is restricted to specific account categories — illiterate customers with photo account / shaky-signature account, plus Individual, Joint, Sole Proprietor, Basic Banking, Asaan, and Regular accounts. SOC also notes: 'Illiterate customers can apply for ABL Basic Debit Card only.'",
+        "PKR 1,000 minimum balance inherited from the linked LCY current/savings account per Jan-Jun 2025 KFS."
       ]
     },
     {
@@ -243,20 +302,26 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 10000,
-        "annual_fee_pkr": 2400,
+        "annual_fee_pkr": 2900,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 18,
+        "maximum_age_years": 35,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.abl.com/personal/accounts/exclusive-account/allied-youth-account/",
-        "https://www.abl.com/wp-content/uploads/2024/12/Schedule-of-Charges-Conventional-Banking.pdf"
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Balance varies by age (PKR 10,000 for 18-25, PKR 50,000 for 26-35). Fee of PKR 2,400 from youth account documentation.",
-        "Public account page says the youth account includes a youth-branded Visa debit card.",
-        "SOC shows youth-account balance thresholds of PKR 10,000 for ages 18-25 and PKR 50,000 for ages 26-35."
+        "Inherits eligibility from the Allied Youth Account: ages 18-35, minimum balance Rs. 10,000 for 18-25 / Rs. 50,000 for 26-35; balance threshold and tiered fee-exemption grid confirmed in Jan-Jun 2026 SOC.",
+        "minimum_account_balance_pkr is recorded at the entry-tier (18-25) threshold of Rs. 10,000 with the higher 26-35 tier called out in this note.",
+        "Annual fee corrected from Rs. 2,400 to Rs. 2,900: the youth card is a Visa-branded debit card, so it falls under 'Visa Debit Cards - Primary - Classic' Rs. 2,900 in the current SOC; the prior Rs. 2,400 line could not be matched on the current SOC. Confidence kept medium because the SOC does not have a dedicated 'Youth' card row.",
+        "Ages 18 and 35 added: lifted directly from the Allied Youth Account page eligibility text."
       ]
     },
     {
@@ -269,14 +334,26 @@
         "annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf",
+        "https://www.abl.com/personal/cards/debit-cards/"
+      ],
+      "sources_unreachable": [
         "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "notes": [
-        "PKR 1,000 minimum balance from KFS. Transitioning to UPI-PayPak Gold on renewal."
+        "Legacy card with no standalone product page on the current abl.com debit-cards listing (which lists 10 active variants and does not include Cash+Shop Sapphire).",
+        "Annual fee Rs. 3,000 verified against the SOC line 'UPI & PayPak Gold & Visa Sapphire' which absorbs Visa Sapphire variants on renewal.",
+        "minimum_account_balance_pkr Rs. 1,000 inherited from the standard LCY current/savings account threshold; flagged as low confidence because no card-specific eligibility text remains on official pages.",
+        "Existing notes indicated transition to UPI-PayPak Gold on renewal — corroborated by the SOC's combined 'Gold & Visa Sapphire' grouping."
       ]
     },
     {
@@ -289,20 +366,33 @@
         "annual_fee_pkr": 2900,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://www.abl.com/wp-content/uploads/2025/05/Schedule-of-Charges-July-Dec-2025-Conventional-Banking.pdf",
+        "https://www.abl.com/wp-content/uploads/2025/11/Schedule-of-Charges-Jan-Jun-2026-Conventional-Banking-1.pdf",
+        "https://www.abl.com/islamic/key-fact-statements-islamic-banking-deposits/",
+        "https://www.abl.com/personal/cards/debit-cards/"
+      ],
+      "sources_unreachable": [
         "https://www.abl.com/wp-content/uploads/2025/01/1.-KFS-LCY-Current-Accounts-Jan-June-2025-1.xlsx"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "notes": [
-        "PKR 1,000 minimum balance from KFS."
+        "No standalone 'Islamic Banking VISA Debit Card' product page on abl.com. The current debit-card landing page lists 10 variants and does not name this card separately — Islamic Banking customers are issued the same Visa variants (Classic / Platinum / Premium / Infinite), with the Islamic eligibility split called out only on the Infinite page (PKR 10M in current vs PKR 5M for conventional).",
+        "Annual fee Rs. 2,900 mapped to 'Visa Debit Cards - Primary - Classic' in both Jul-Dec 2025 and Jan-Jun 2026 SOC, since the Islamic variant is not separately priced.",
+        "Confidence kept low because the card lacks a dedicated public landing page; the entry exists primarily for the Islamic Visa Classic equivalent."
       ]
     }
   ],
   "gaps": [
-    "Credit-card salary, balance, and age thresholds were not cleanly exposed on the official pages found.",
-    "Some debit-card annual fees are visible in the SOC, but not every row could be assigned to a named card with high confidence.",
-    "Ages are mostly missing for Allied debit cards."
+    "Credit-card minimum salary, balance, and age thresholds are not published on the public Allied product pages or the Q2-2025 Summary Box; only fees, APR, and reversal rules are public.",
+    "The current English Premium Debit Card product page no longer lists the 'PKR 5M annual income' eligibility path that previously appeared (and still appears on the Urdu mirror) — this is a documented drift between the two language mirrors.",
+    "Two legacy cards (Cash+Shop Sapphire, Islamic Visa Debit Card) no longer have standalone product pages and are inferred from the consolidated SOC entries.",
+    "Allied does not publish a 'maximum age' on any debit card product page; all upper-age limits except the Youth Account (35) remain unpublished."
   ]
 }

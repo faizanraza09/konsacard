@@ -1,28 +1,39 @@
 {
   "bank_slug": "al-baraka",
   "bank_name": "Al Baraka Bank",
-  "retrieved_note": "Pilot agent extraction from official public pages and SOC PDFs. Normalize before shipping to UI.",
+  "retrieved_note": "Re-verified 2026-05-25 against Jan-Jun 2026 KFS (current/saving), Jan-Jun 2025 SOC, and forthcoming Jul-Dec 2026 SOC. Pilot fees reflect the Jan-Jun 2026 KFS, which is the schedule in force as of the verification date.",
   "cards": [
     {
       "card_name": "UnionPay Classic Debit Card",
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2500,
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+        "https://www.albaraka.com.pk/page/al-baraka-unionpay-debit-card/",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Jan-Jun 2026 current-account and saving-account KFS pages list Classic UnionPay annual fee at PKR 2,500.",
-        "Jan-Jun 2026 current-account KFS also shows PKR 100 to open and NIL balance to keep across the ordinary PKR current-account variants surfaced publicly in this pass."
+        "Jan-Jun 2026 current-account and saving-account KFS list 'Classic Union Pay Int.' annual fee at PKR 2,500.",
+        "Joining/issuance fee is free per Jul-Dec 2026 SOC section 6.i.a (\"Issuance of Debit Card: Free\"); the same free-issuance convention is implied across all Al Baraka debit cards in the Jan-Jun 2026 KFS.",
+        "Bank product page still markets this card as 'Al Baraka UnionPay Silver Debit Card'; the KFS uses 'Classic Union Pay Int.' for the matching fee row.",
+        "No public salary, balance, or age threshold tied specifically to the UnionPay Classic card; eligibility flows from the linked PKR current/saving account.",
+        "Forthcoming Jul-Dec 2026 SOC raises this annual fee to PKR 2,800."
       ]
     },
     {
@@ -31,21 +42,33 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 100000,
+        "minimum_account_balance_pkr": null,
+        "minimum_average_balance_pkr": 100000,
         "annual_fee_pkr": 3500,
-        "annual_fee_waiver_rule": "Waived if PKR 100,000 maintained for 3 consecutive months",
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Free for Tier-2 customers who maintain a Monthly Average Balance of PKR 100,000 for 3 consecutive months (per Al Baraka SOC).",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf",
+        "https://www.albaraka.com.pk/page/al-baraka-unionpay-debit-card/"
       ],
       "confidence": "high",
       "notes": [
-        "Jan-Jun 2026 KFS pages list UnionPay Gold annual fee at PKR 3,500.",
-        "The retained PKR 100,000 balance threshold comes from the official Jan-Jun 2025 SOC; current KFS pages do not restate a numeric Gold balance requirement."
+        "Jan-Jun 2026 current-account and saving-account KFS list 'Gold Union Pay Int.' annual fee at PKR 3,500.",
+        "Gold-tier waiver: Jan-Jun 2025 SOC and Jul-Dec 2026 SOC both state a Tier-1 customer can upgrade to Tier-2 by maintaining MAB of PKR 100K for 3 months, after which the Gold Debit Card fee is waived.",
+        "Threshold recorded under minimum_average_balance_pkr (the bank's own term is Monthly Average Balance), not account-opening balance.",
+        "Joining fee free per Jul-Dec 2026 SOC \"Issuance of Debit Card: Free\".",
+        "Forthcoming Jul-Dec 2026 SOC raises annual fee to PKR 4,000."
       ]
     },
     {
@@ -54,21 +77,30 @@
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 100000,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 10000,
-        "annual_fee_waiver_rule": "Waived if PKR 100,000 maintained for 3 consecutive months",
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
+        "https://www.albaraka.com.pk/page/al-baraka-platinum-debit-mastercard/",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Jan-Jun 2026 KFS pages list Platinum MasterCard annual fee at PKR 10,000.",
-        "The retained PKR 100,000 balance threshold comes from the official Jan-Jun 2025 SOC; current KFS pages do not restate a numeric Platinum balance requirement."
+        "Jan-Jun 2026 KFS rows list 'Platinum MasterCard' annual fee at PKR 10,000.",
+        "Corrected balance and waiver: pilot previously inherited a PKR 100,000 / 3-month rule from the Gold-tier SOC clause. The Jan-Jun 2025 and Jul-Dec 2026 SOC tier-upgrade text explicitly references the Gold Debit Card waiver only, not Platinum. No public Platinum-specific balance threshold was found; both fields reset to null.",
+        "Joining fee free per Jul-Dec 2026 SOC \"Issuance of Debit Card: Free\".",
+        "Forthcoming Jul-Dec 2026 SOC raises this annual fee to PKR 12,000."
       ]
     },
     {
@@ -76,21 +108,31 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2200,
-        "annual_fee_waiver_rule": null,
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "First-year fee waived for Shafqaat, Banaat, Consumer Business Partner, and Business Plus account holders maintaining the published MAB threshold (per Jan-Jun 2025 / Jul-Dec 2026 SOC).",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+        "https://www.albaraka.com.pk/page/al-baraka-paypak/",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Jan-Jun 2026 current-account and saving-account KFS pages list PayPak Standard annual fee at PKR 2,200.",
-        "Jan-Jun 2026 current-account KFS also shows PKR 100 to open and NIL balance to keep across the ordinary PKR current-account variants surfaced publicly in this pass."
+        "Jan-Jun 2026 KFS rows list 'Paypak Standard' annual fee at PKR 2,200.",
+        "Waiver: Jul-Dec 2026 SOC lists 'Free ATM/Debit Card (Paypak) for the first year' as a benefit of Shafqaat (MAB 10K), Banaat (MAB 10K), Consumer Business Partner (MAB 25K), and Business Plus Tier-1 (MAB 25K).",
+        "Joining fee free per Jul-Dec 2026 SOC \"Issuance of Debit Card: Free\".",
+        "Forthcoming Jul-Dec 2026 SOC raises this annual fee to PKR 2,500."
       ]
     },
     {
@@ -99,20 +141,32 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 100000,
+        "minimum_account_balance_pkr": null,
+        "minimum_average_balance_pkr": 100000,
         "annual_fee_pkr": 4500,
-        "annual_fee_waiver_rule": "Waived if PKR 100,000 maintained for 3 consecutive months",
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Free for Tier-2 customers who maintain a Monthly Average Balance of PKR 100,000 for 3 consecutive months (Al Baraka SOC Gold Debit Card waiver).",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf",
+        "https://www.albaraka.com.pk/page/al-baraka-debit-mastercard/"
       ],
       "confidence": "high",
       "notes": [
-        "Jan-Jun 2026 saving-account KFS lists Gold MasterCard annual fee at PKR 4,500.",
-        "The retained balance requirement comes from the official Jan-Jun 2025 SOC; the current KFS does not restate a numeric Gold balance threshold."
+        "Jan-Jun 2026 current-account and saving-account KFS list 'Gold MasterCard' annual fee at PKR 4,500.",
+        "Gold-tier waiver: SOC explicitly states the Tier-2 (PKR 100K MAB sustained 3 months) free Gold Debit Card. Recorded under minimum_average_balance_pkr rather than minimum_account_balance_pkr.",
+        "Joining fee free per Jul-Dec 2026 SOC \"Issuance of Debit Card: Free\".",
+        "Forthcoming Jul-Dec 2026 SOC raises annual fee to PKR 5,000."
       ]
     },
     {
@@ -120,21 +174,33 @@
       "card_type": "debit",
       "tier": "silver",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 10000,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3200,
-        "annual_fee_waiver_rule": "Waiver available for specific savings account holders",
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Free for Freelancer (ESFCA) account customers maintaining MAB of PKR 10,000 and above; free for Plus-tier Payroll Account holders (per Jan-Jun 2026 Payroll KFS).",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-SOC-Jan-June-2025-English.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Employee-Banking-Payroll-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/page/al-baraka-debit-mastercard/",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Jan-Jun 2026 saving-account KFS labels the product slot as Classic MasterCard and lists PKR 3,200 annual fee.",
-        "The retained PKR 10,000 balance and waiver note come from older official public material; the current KFS does not restate a silver-tier balance rule."
+        "Jan-Jun 2026 saving-account and current-account KFS list 'Classic MasterCard' annual fee at PKR 3,200; the product page markets the same tier as 'Al Baraka Silver debit Mastercard'.",
+        "Corrected: previous pilot listed minimum_account_balance_pkr=10000 sourced to older material; the current Jan-Jun 2026 KFS does not restate any Silver-specific balance threshold, so balance is reset to null (per verification methodology silence != 0).",
+        "Waivers identified: Freelancer Account footnote (\"Free for Freelancer Account customers on opening or maintaining monthly average balance of 10k and above\"); Jan-Jun 2026 Payroll KFS shows Plus tier gets Classic MasterCard FREE.",
+        "Joining fee free per Jul-Dec 2026 SOC \"Issuance of Debit Card: Free\".",
+        "Forthcoming Jul-Dec 2026 SOC raises annual fee to PKR 3,500."
       ]
     },
     {
@@ -142,20 +208,32 @@
       "card_type": "debit",
       "tier": "silver",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2500,
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
+        "https://www.albaraka.com.pk/page/al-baraka-unionpay-debit-card/",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Jan-Jun 2026 saving-account KFS labels the active fee row as Classic Union Pay Int. and lists PKR 2,500 annual fee.",
-        "The pilot record keeps the older Silver naming, but the current public KFS uses Classic rather than Silver terminology."
+        "Jan-Jun 2026 KFS rows list 'Classic Union Pay Int.' at PKR 2,500. The bank's UnionPay debit-card product page markets two tiers ('Al Baraka UnionPay Silver Debit Card' and 'Al Baraka UnionPay Gold Debit Card'); the KFS fee table calls the entry-tier 'Classic'. The pilot keeps both 'Classic' and 'Silver' entries because the product page uses Silver naming.",
+        "Corrected: salary and balance reset from 0 to null per methodology (silence is not zero).",
+        "Joining fee free per Jul-Dec 2026 SOC \"Issuance of Debit Card: Free\".",
+        "Forthcoming Jul-Dec 2026 SOC raises annual fee to PKR 2,800.",
+        "Confidence medium because UnionPay Silver and UnionPay Classic may in fact be the same product under two marketing names; the bank does not publish a separate fee row for Silver."
       ]
     },
     {
@@ -163,27 +241,39 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 100,
         "annual_fee_pkr": 2200,
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 0,
+        "maximum_age_years": 18,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.albaraka.com.pk/uploads/Al-Baraka-Current-Accounts.pdf",
-        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf"
+        "https://www.albaraka.com.pk/uploads/Al-Baraka-Saving-Accounts.pdf",
+        "https://www.albaraka.com.pk/page/al-baraka-tifl-young-savers-account/",
+        "https://www.albaraka.com.pk/uploads/Schedule-of-Charges-(Jul-Dec-2026)-English.pdf"
       ],
-      "confidence": "high",
+      "confidence": "medium",
       "notes": [
-        "Jan-Jun 2026 KFS pages list PayPak NexGen annual fee at PKR 2,200.",
-        "Current-account KFS shows PKR 100 opening amount and NIL balance to keep for the public PKR current-account variants surfaced in this pass."
+        "Jan-Jun 2026 KFS list 'Paypak NexGen' annual fee at PKR 2,200; Jul-Dec 2026 SOC re-labels it 'NexGen Banking PayPak Debit Card' at PKR 2,500.",
+        "Eligibility inherited from the Al Baraka Tifl-Young Savers Account, the bank's underage-saver product (\"can be opened for any child and teenager aged between one day and 18 years\"). Linked-account opening balance PKR 100; saving KFS confirms Tifl 'To open PKR 100' and 'To keep NIL'.",
+        "Min age recorded as 0 (Tifl explicitly accepts one-day-old; parent/guardian operated). Max age 18 per the Tifl page.",
+        "Joining fee free per Jul-Dec 2026 SOC \"Issuance of Debit Card: Free\".",
+        "Confidence medium because Al Baraka does not publish a card-specific eligibility KFS; the Tifl linkage is inferred from the NexGen brand (a minors-focused product) and from the segment match between the Tifl account and the NexGen card."
       ]
     }
   ],
   "gaps": [
-    "No public consumer credit-card catalogue was found in this pass.",
-    "Public debit-card sources did not expose clear salary, age, or account-balance eligibility thresholds.",
-    "SOC values changed across periods, so effective period must be preserved in normalization."
+    "No public consumer credit-card catalogue was found on the Al Baraka domain in this verification pass; Al Baraka Pakistan only issues debit cards.",
+    "Jan-Jun 2026 KFS additionally lists a 'Paypak Aura' debit card (PKR 3,000) and a women-focused 'Aura Card' product page — not currently in the pilot set.",
+    "Bank product pages do not publish per-card salary, age, or absolute balance thresholds; all derived thresholds come from linked-account inheritance or the SOC's Tier-2 / Freelancer / Shafqaat / Banaat / CBP / Payroll waiver footnotes.",
+    "Annual fees change every six months in the SOC cycle; Jul-Dec 2026 SOC raises every debit card variant. Current pilot values reflect the Jan-Jun 2026 KFS, which is the schedule in force on the 2026-05-25 verification date."
   ]
 }

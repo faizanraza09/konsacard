@@ -1,27 +1,38 @@
 {
   "bank_slug": "easypaisa",
-  "bank_name": "Easypaisa",
-  "retrieved_note": "Pilot extraction for Easypaisa debit cards. Easypaisa cards are modeled as zero minimum salary and zero minimum balance products.",
+  "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
+  "retrieved_note": "Re-verified 2026-05-25 against the easypaisa Bank Ltd. Schedule of Bank Charges (Branchless Banking, Apr-Jun 2026 and Retail Banking, Jan-Jun 2026), the debit-cards landing page, and the Asaan Account and My Account pages on easypaisa.com.pk. All three cards (Visa, UnionPay, PayPak) are wallet-linked debit cards that inherit eligibility from the underlying easypaisa mobile / digital / Asaan account. Bank rebranded from Telenor Microfinance Bank to easypaisa Bank Ltd.",
   "cards": [
     {
       "card_name": "Easy Paisa DebitCard",
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "One-time issuance fee only; no annual fee",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "joining_fee_pkr": 1000,
+        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 1,000 (incl. tax) for the easypaisa Visa Debit Card per the Branchless Banking Schedule of Bank Charges, Apr-Jun 2026.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": false,
+        "salary_transfer_required": false
       },
       "sources": [
-        "https://easypaisa.com.pk/easypaisa-debit-card/"
+        "https://easypaisa.com.pk/debit-cards/",
+        "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Branchless-Banking-English.pdf",
+        "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Retail-Banking-English.pdf",
+        "https://easypaisa.com.pk/asaan-account/",
+        "https://easypaisa.com.pk/my-account/"
       ],
       "confidence": "high",
       "notes": [
-        "One-time issuance fee model. Zero annual fee. 5-year card validity. Mass-market inclusion product.",
-        "Mass-market inclusion card product with no published salary or minimum-balance threshold."
+        "Default Visa-branded debit card on easypaisa wallet / digital account. One-time issuance fee PKR 1,000 (incl. tax); no annual / renewal fee published in either the Branchless Banking SOC (Apr-Jun 2026, p.4) or the Retail Banking SOC (Jan-Jun 2026, p.4).",
+        "Card requires an easypaisa mobile / digital account. New mobile account opening fee PKR 0. Asaan Account opens with PKR 100; Digital Current / Savings accounts have no published minimum balance.",
+        "CNIC is mandatory for account opening per Asaan Account page and easypaisa FAQ. NewGEN minor-account (12-17) holders are parent-supervised; standalone account holders are adults (18+).",
+        "ATM card replacement is PKR 500; not relevant to issuance economics."
       ]
     },
     {
@@ -29,20 +40,29 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "One-time issuance fee only; no annual fee",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "joining_fee_pkr": 1000,
+        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 1,000 (incl. tax) for the easypaisa PayPak Debit Card per the Branchless Banking Schedule of Bank Charges, Apr-Jun 2026.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": false,
+        "salary_transfer_required": false
       },
       "sources": [
-        "https://easypaisa.com.pk/easypaisa-debit-card/"
+        "https://easypaisa.com.pk/debit-cards/",
+        "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Branchless-Banking-English.pdf",
+        "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Retail-Banking-English.pdf",
+        "https://easypaisa.com.pk/asaan-account/"
       ],
       "confidence": "high",
       "notes": [
-        "One-time issuance fee model. Zero annual fee.",
-        "No published salary or minimum-balance threshold for the Easypaisa PayPak variant."
+        "PayPak (domestic scheme) variant of the easypaisa debit card. One-time issuance fee PKR 1,000 (incl. tax) per the Branchless Banking SOC Apr-Jun 2026, p.4 ('Debit Card Issuance' row); no annual fee.",
+        "Eligibility inherited from the linked easypaisa mobile / digital account (CNIC required, no minimum balance for Digital accounts, PKR 100 for Asaan).",
+        "Marketed on easypaisa.com.pk/debit-cards as 'local payments, zero stress'."
       ]
     },
     {
@@ -50,24 +70,33 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "One-time issuance fee only; no annual fee",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "joining_fee_pkr": 999,
+        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 999 (incl. tax) for the easypaisa UnionPay Debit Card per the Branchless Banking Schedule of Bank Charges, Apr-Jun 2026.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": false,
+        "salary_transfer_required": false
       },
       "sources": [
-        "https://easypaisa.com.pk/easypaisa-debit-card/"
+        "https://easypaisa.com.pk/debit-cards/",
+        "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Branchless-Banking-English.pdf",
+        "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Retail-Banking-English.pdf",
+        "https://easypaisa.com.pk/asaan-account/"
       ],
       "confidence": "high",
       "notes": [
-        "One-time issuance fee model. Zero annual fee.",
-        "No published salary or minimum-balance threshold for the Easypaisa UnionPay variant."
+        "UnionPay variant. One-time issuance fee PKR 999 (incl. tax) per Branchless Banking SOC Apr-Jun 2026, p.4; no annual fee in either SOC. Marketed as 'travel easy, pay kaheen bhi'.",
+        "Eligibility inherited from the linked easypaisa mobile / digital account."
       ]
     }
   ],
   "gaps": [
-    "Public details for Easypaisa cards are light; source-backed requirement data is treated as zero-threshold unless official policy changes."
+    "Neither SOC nor the debit-cards landing page publishes an explicit minimum monthly salary or income-document requirement; modeled as null (not published).",
+    "Minimum age is not stated explicitly on the debit-cards page; inferred at 18 from the Asaan Account / mobile-account framing (NewGEN 12-17 is parent-supervised, not a standalone card holder)."
   ]
 }

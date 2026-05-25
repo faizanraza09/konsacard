@@ -1,27 +1,35 @@
 {
   "bank_slug": "habib-metro",
   "bank_name": "Habib Metro Bank",
-  "retrieved_note": "Pilot extraction from official public card pages. Normalize before shipping to UI.",
+  "retrieved_note": "Re-verified 2026-05-25 against habibmetro.com product pages and the Schedule of Charges 1 Jan to 30 Jun 2026 (English) PDF.",
   "cards": [
     {
       "card_name": "Visa Platinum Debit Card",
       "card_type": "debit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_average_balance_pkr": 3000000,
         "annual_fee_pkr": 7500,
+        "supplementary_annual_fee_pkr": 7500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Page states PKR 3mn last 3 months average balance for Platinum.",
-        "Eligibility is balance-based on the public debit-card page rather than salary-gated."
+        "SOC Jan-Jun 2026 p.18 (section 8) confirms Platinum issuance/annual/re-issuance fee PKR 7,500.",
+        "SOC eligibility footnote: 'ELIGIBILITY CRITERIA FOR PLATINUM DEBIT CARD: 3 MILLION AVERAGE BALANCE FOR LAST 3 MONTHS'.",
+        "Supplementary card fee 'will be the same as those of primary cards' per SOC section 8.",
+        "Salary not published as a separate threshold; eligibility is balance-based."
       ]
     },
     {
@@ -29,20 +37,27 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 4400,
+        "supplementary_annual_fee_pkr": 4400,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Page states no minimum balance.",
-        "Public debit-card page frames this as an account-linked card with no salary threshold surfaced."
+        "SOC Jan-Jun 2026 p.18 (section 8) confirms Gold issuance/annual/re-issuance fee PKR 4,400.",
+        "Product page lists 'no minimum balance' for Gold; no salary threshold published.",
+        "Account-linked debit card; eligibility inherited from the linked HABIBMETRO account."
       ]
     },
     {
@@ -50,19 +65,26 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3300,
+        "supplementary_annual_fee_pkr": 3300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Public debit-card page frames this as an account-linked card with no salary threshold surfaced."
+        "SOC Jan-Jun 2026 p.18 (section 8) lists Premium/Classic issuance/annual/re-issuance fee PKR 3,300.",
+        "Account-linked debit card; eligibility inherited from the linked HABIBMETRO account; no published salary threshold."
       ]
     },
     {
@@ -70,19 +92,28 @@
       "card_type": "debit",
       "tier": "infinite",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_relationship_balance_pkr": 100000000,
+        "minimum_account_balance_pkr": 100000000,
         "annual_fee_pkr": 35000,
+        "supplementary_annual_fee_pkr": 35000,
         "annual_fee_waiver_rule": "Annual fee for additional spouse card is waived for Priority Banking customers.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/visa-infinite-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/visa-infinite-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Card is offered on invitation basis only."
+        "SOC Jan-Jun 2026 p.18 (section 8) lists Visa Infinite Metal Debit Card issuance/annual/re-issuance fee PKR 35,000.",
+        "Product page states 'Card will be offered on invitation basis only' to 'Account holders maintaining a relationship balance of PKR 100 MN and above'.",
+        "Supplementary cards fee per SOC: same as primary."
       ]
     },
     {
@@ -90,19 +121,27 @@
       "card_type": "debit",
       "tier": "paypak",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2200,
+        "supplementary_annual_fee_pkr": 2200,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/paypak-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/paypak-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Public PayPak page states balance required: none."
+        "SOC Jan-Jun 2026 p.17 (section 7) confirms PayPak issuance/annual/re-issuance fee PKR 2,200.",
+        "Product page states 'Balance required: None'. No salary threshold published.",
+        "Local-only card; cannot be used internationally or for e-commerce per product page."
       ]
     },
     {
@@ -110,21 +149,27 @@
       "card_type": "debit",
       "tier": "fcy",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3300,
+        "supplementary_annual_fee_pkr": 3300,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/fcy-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/fcy-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Classic annual fee is PKR 3,300; Gold PKR 4,400; Platinum PKR 7,500.",
-        "Card is available with Freelancer and Exporters Special Foreign Currency Account.",
-        "Freelancer account page states no minimum monthly balance requirement on the linked PKR-side relationship, but no separate public ESFCA balance threshold was surfaced."
+        "SOC Jan-Jun 2026 p.18-19 (section 9) lists FCY Premium/Classic PKR 3,300, FCY Gold PKR 4,400, FCY Platinum PKR 7,500. Same Platinum 3M-3-months balance eligibility footnote applies.",
+        "FCY Classic fee used here as the default tier; if a customer takes Gold/Platinum the fee scales up.",
+        "Card is available with Freelancer and Exporters Special Foreign Currency Account (ESFCA); no public salary or FCY balance threshold."
       ]
     },
     {
@@ -132,44 +177,64 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3300,
-        "annual_fee_waiver_rule": "Free in the first year",
+        "supplementary_annual_fee_pkr": 3300,
+        "annual_fee_waiver_rule": "Free for the first year; PKR 3,300 for subsequent years.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Women-targeted card. PKR 3,300 annual fee from second year. First year free."
+        "SOC Jan-Jun 2026 p.20 (section 12) HABIBMETRO LADIES DEBIT CARD: 'FREE (FOR THE 1ST YEAR) / RS. 3,300/- (FOR SUBSEQUENT YEARS)'.",
+        "Women-targeted card; inherits from the HABIBMETRO Ladies current account on the customer side.",
+        "Note: product debit-card marketing page mentions Rs. 2,200/year for Ladies; SOC is the authoritative fee schedule and is used here."
       ]
     },
     {
-      "card_name": "Visa Signature Debit Card",
+      "card_name": "Business Debit Card",
       "card_type": "debit",
-      "tier": "signature",
+      "tier": "business",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 3000000,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 16000,
-        "annual_fee_waiver_rule": "Waived if PKR 3,000,000 average balance maintained for 3 months",
+        "supplementary_annual_fee_pkr": 16000,
+        "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "income_document_required": null,
+        "salary_transfer_required": null
       },
       "sources": [
-        "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/"
+        "https://www.habibmetro.com/digital-banking/cards/business-debit-card/",
+        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "PKR 3M average balance for 3 months for fee waiver. PKR 16,000 annual fee includes insurance bundle."
+        "Renamed from 'Visa Signature Debit Card' to 'Business Debit Card' (the Visa Signature Business variant) — this is the same card the previous pilot mis-classified as a consumer Signature card.",
+        "SOC Jan-Jun 2026 p.18 (section 8) lists BUSINESS DEBIT CARD issuance/annual/re-issuance fee PKR 16,000.",
+        "Eligibility per product page: 'Business Entity / Company Account (Private & Public Limited) excluding corporate customers availing Running Facility/Debit Balance' and Partnership Accounts. No consumer salary/balance threshold.",
+        "Previous 'PKR 3,000,000 average balance / waiver' rule from the pilot was not found on the current Business Debit Card product page or SOC and has been removed."
       ]
     }
   ],
   "gaps": [
-    "No clean public consumer credit-card catalogue was found in this pass.",
-    "Public debit-card pages did not expose age criteria."
+    "No clean public consumer credit-card catalogue surfaced on habibmetro.com in this pass; SOC sections beyond debit cards were not catalogued here.",
+    "Public debit-card pages and SOC do not publish age criteria (min/max) for any debit-card variant.",
+    "Salary thresholds are not published anywhere on the official debit-card pages or SOC; all consumer debit cards are gated on linked-account eligibility instead.",
+    "FCY card SOC fee row is shown by tier (Classic/Gold/Platinum) but the public product page does not state which FCY tier the page is describing; pilot defaults to Classic.",
+    "Pilot's prior 'Visa Signature Debit Card' (PKR 16,000, 3M-balance waiver) was a mis-mapping of the Business (Signature Business) card and has been corrected."
   ]
 }

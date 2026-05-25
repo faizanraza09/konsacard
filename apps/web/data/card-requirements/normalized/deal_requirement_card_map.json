@@ -499,9 +499,9 @@
     "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "bank-alfalah--bank-alfalah-islamic-premier-visa-infinite-debit-card",
-    "requirement_card_name": "Bank Alfalah Islamic Premier Visa Infinite Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-infinite-islamic-debit-card",
+    "requirement_card_name": "Bank Alfalah Visa Infinite Islamic Debit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
@@ -542,15 +542,6 @@
   {
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
-    "deal_card_name": "Bank Alfalah Mastercard Titanium Credit Card",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "bank-alfalah--bank-alfalah-mastercard-titanium-credit-card",
-    "requirement_card_name": "Bank Alfalah Mastercard Titanium Credit Card"
-  },
-  {
-    "deal_bank_name": "Bank Alfalah",
-    "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah PayPak Classic Debit Card",
     "matched": true,
     "match_method": "manual_alias",
@@ -580,18 +571,18 @@
     "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah Premier Visa Infinite Credit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-credit-card",
-    "requirement_card_name": "Bank Alfalah Premier Visa Infinite Credit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-premier-visa-signature-credit-card",
+    "requirement_card_name": "Bank Alfalah Premier Visa Signature Credit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
     "deal_card_name": "Bank Alfalah Premier Visa Infinite Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "bank-alfalah--bank-alfalah-premier-visa-infinite-debit-card",
-    "requirement_card_name": "Bank Alfalah Premier Visa Infinite Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-alfalah--bank-alfalah-visa-infinite-debit-card",
+    "requirement_card_name": "Bank Alfalah Visa Infinite Debit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
@@ -742,9 +733,9 @@
     "requirement_bank_name": "Bank of Punjab",
     "deal_card_name": "Lahore Qalandars Gold Credit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "bank-of-punjab--lahore-qalandars-gold-credit-card",
-    "requirement_card_name": "Lahore Qalandars Gold Credit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-of-punjab--bop-mastercard-lahore-qalandar-business-credit-card",
+    "requirement_card_name": "BOP Mastercard Lahore Qalandar Business Credit Card"
   },
   {
     "deal_bank_name": "Bank of Punjab",
@@ -833,8 +824,8 @@
     "deal_card_name": "Mastercard World Credit Card",
     "matched": true,
     "match_method": "manual_alias",
-    "requirement_card_id": "bank-of-punjab--bop-world-credit-card",
-    "requirement_card_name": "BOP World Credit Card"
+    "requirement_card_id": "bank-of-punjab--bop-mastercard-world-credit-card",
+    "requirement_card_name": "BOP Mastercard World Credit Card"
   },
   {
     "deal_bank_name": "Bank of Punjab",
@@ -873,49 +864,22 @@
     "requirement_card_name": "PayPak Debit Card"
   },
   {
-    "deal_bank_name": "Easypaisa",
-    "requirement_bank_name": "Easypaisa",
-    "deal_card_name": "Easy Paisa DebitCard",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "easypaisa--easy-paisa-debitcard",
-    "requirement_card_name": "Easy Paisa DebitCard"
-  },
-  {
-    "deal_bank_name": "Easypaisa",
-    "requirement_bank_name": "Easypaisa",
-    "deal_card_name": "Easy Paisa Pay Pak Debit Card",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "easypaisa--easy-paisa-pay-pak-debit-card",
-    "requirement_card_name": "Easy Paisa Pay Pak Debit Card"
-  },
-  {
-    "deal_bank_name": "Easypaisa",
-    "requirement_bank_name": "Easypaisa",
-    "deal_card_name": "Easy Paisa Union Pay Debit Card",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "easypaisa--easy-paisa-union-pay-debit-card",
-    "requirement_card_name": "Easy Paisa Union Pay Debit Card"
-  },
-  {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Amal Mastercard Gold Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "faysal-bank--amal-mastercard-gold-debit-card",
-    "requirement_card_name": "Amal Mastercard Gold Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-amal-gold-debit-card",
+    "requirement_card_name": "Faysal Islami Mastercard Amal Gold Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Amal Mastercard Platinum Debit Card",
     "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "faysal-bank--amal-mastercard-platinum-debit-card",
-    "requirement_card_name": "Amal Mastercard Platinum Debit Card"
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-amal-platinum-debit-card",
+    "requirement_card_name": "Faysal Islami Mastercard Amal Platinum Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -960,7 +924,7 @@
     "matched": true,
     "match_method": "canonical_exact",
     "requirement_card_id": "faysal-bank--faysal-islami-noor-platinum-card",
-    "requirement_card_name": "Faysal Islami Noor Platinum  Card"
+    "requirement_card_name": "Faysal Islami Noor Platinum Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -994,18 +958,18 @@
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Priority Platinum Debit Card",
     "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "faysal-bank--priority-platinum-debit-card",
-    "requirement_card_name": "Priority Platinum Debit Card"
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-priority-platinum-debit-card",
+    "requirement_card_name": "Faysal Islami Priority Platinum Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Priority World Debit Card",
     "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "faysal-bank--priority-world-debit-card",
-    "requirement_card_name": "Priority World Debit Card"
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-priority-world-debit-card",
+    "requirement_card_name": "Faysal Islami Priority World Debit Card"
   },
   {
     "deal_bank_name": "HBL Islamic Bank Limited",
@@ -1154,6 +1118,15 @@
   {
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Visa Infinite CreditCard",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "hbl--hbl-platinum-creditcard",
+    "requirement_card_name": "HBL Platinum CreditCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
     "deal_card_name": "HBL World Business DebitCard",
     "matched": true,
     "match_method": "manual_alias",
@@ -1218,10 +1191,10 @@
     "deal_bank_name": "Habib Metro Bank",
     "requirement_bank_name": "Habib Metro Bank",
     "deal_card_name": "Visa Signature Business Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "habib-metro--business-debit-card",
+    "requirement_card_name": "Business Debit Card"
   },
   {
     "deal_bank_name": "JS Bank",
@@ -1627,69 +1600,6 @@
     "match_method": "manual_alias",
     "requirement_card_id": "meezan--meezan-women-first-debit-card",
     "requirement_card_name": "Meezan Women First Debit Card"
-  },
-  {
-    "deal_bank_name": "National Bank of Pakistan",
-    "requirement_bank_name": "National Bank of Pakistan",
-    "deal_card_name": "PayPak Classic",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "nbp--paypak-classic",
-    "requirement_card_name": "PayPak Classic"
-  },
-  {
-    "deal_bank_name": "National Bank of Pakistan",
-    "requirement_bank_name": "National Bank of Pakistan",
-    "deal_card_name": "PayPak Edge co-badge Mastercard",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "nbp--paypak-edge-co-badge-mastercard",
-    "requirement_card_name": "PayPak Edge co-badge Mastercard"
-  },
-  {
-    "deal_bank_name": "National Bank of Pakistan",
-    "requirement_bank_name": "National Bank of Pakistan",
-    "deal_card_name": "PayPak Pink",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "nbp--paypak-pink",
-    "requirement_card_name": "PayPak Pink"
-  },
-  {
-    "deal_bank_name": "National Bank of Pakistan",
-    "requirement_bank_name": "National Bank of Pakistan",
-    "deal_card_name": "UPI Classic",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "nbp--upi-classic",
-    "requirement_card_name": "UPI Classic"
-  },
-  {
-    "deal_bank_name": "National Bank of Pakistan",
-    "requirement_bank_name": "National Bank of Pakistan",
-    "deal_card_name": "UPI Gold",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "nbp--upi-gold",
-    "requirement_card_name": "UPI Gold"
-  },
-  {
-    "deal_bank_name": "Standard Chartered Bank",
-    "requirement_bank_name": "Standard Chartered Bank Pakistan",
-    "deal_card_name": "Mastercard Platinum Credit Card",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "standard-chartered--mastercard-platinum-credit-card",
-    "requirement_card_name": "Mastercard Platinum Credit Card"
-  },
-  {
-    "deal_bank_name": "Standard Chartered Bank",
-    "requirement_bank_name": "Standard Chartered Bank Pakistan",
-    "deal_card_name": "Mastercard World Credit Card",
-    "matched": true,
-    "match_method": "canonical_exact",
-    "requirement_card_id": "standard-chartered--mastercard-world-credit-card",
-    "requirement_card_name": "Mastercard World Credit Card"
   },
   {
     "deal_bank_name": "United Bank Limited (UBL)",

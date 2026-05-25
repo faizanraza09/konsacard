@@ -1,31 +1,35 @@
 {
   "bank_slug": "meezan",
   "bank_name": "Meezan Bank",
-  "retrieved_note": "Pilot agent extraction from official public pages and SOC PDF. Normalize before shipping to UI.",
+  "retrieved_note": "Verification pass 2026-05-25 against official Meezan SOC (Jan-Jun 2026 PDF) and product / Premium Banking / Plus Account pages. Premium-page vs SOC contradictions are preserved in notes[].",
   "cards": [
     {
       "card_name": "Meezan Visa Silver Debit Card",
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "minimum_average_balance_pkr": 200000,
+        "joining_fee_pkr": 3500,
         "annual_fee_pkr": 3500,
-        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
+        "supplementary_annual_fee_pkr": 3500,
+        "annual_fee_waiver_rule": "Free issuance and annual fee for Meezan Plus account holders maintaining PKR 200,000 monthly average balance; also free issuance for Meezan Digital Account, Asaan Current Account and Meezan Rupee Current Account holders (one primary card per account).",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.meezanbank.com/visa-debit-card",
-        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/plus-account/",
-        "https://www.meezanbank.com/"
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists Visa Silver issuance and annual fee at PKR 3,500 each.",
-        "Meezan Plus account holders maintaining PKR 200,000 monthly average balance receive an annual-fee waiver.",
-        "General eligibility appears to be tied to having a Meezan account."
+        "SOC Jan-Jun 2026 (Section K - ADC Services): Visa Classic / Silver tier issuance PKR 3,500 and annual fee PKR 3,500. Supplementary card same as annual.",
+        "Issuance waived for Meezan Digital Account, Asaan Current Account and Meezan Rupee Current Account holders (one card per account) per SOC Waiver / Issuance Criteria 1-2.",
+        "Meezan Plus Account section (SOC Section M): annual fee waived for Plus account holders with PKR 200,000 monthly average balance maintained in the previous month.",
+        "Card itself does not publish a salary threshold; eligibility is account-linked."
       ]
     },
     {
@@ -33,23 +37,27 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "minimum_average_balance_pkr": 200000,
+        "joining_fee_pkr": 4500,
         "annual_fee_pkr": 4500,
-        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
+        "supplementary_annual_fee_pkr": 4500,
+        "annual_fee_waiver_rule": "Free issuance and annual fee for Meezan Plus account holders maintaining PKR 200,000 monthly average balance; first-card free issuance for Meezan Rupee Current / Asaan Current account holders and Meezan Senior Citizen account holders.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.meezanbank.com/visa-debit-card",
-        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/plus-account/",
-        "https://www.meezanbank.com/"
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists Visa Gold issuance and annual fee at PKR 4,500 each.",
-        "Meezan Plus account holders maintaining PKR 200,000 monthly average balance receive an annual-fee waiver."
+        "SOC Jan-Jun 2026 Section K: Visa Gold issuance PKR 4,500 and annual fee PKR 4,500.",
+        "SOC Waiver criteria: free Gold issuance for Senior Citizen accounts (first card only) and for Asaan / Rupee Current account holders selecting Gold as their one free primary card.",
+        "Meezan Plus Account section: annual fee waived at PKR 200,000 monthly average balance."
       ]
     },
     {
@@ -61,21 +69,27 @@
         "minimum_account_balance_pkr": 1000000,
         "minimum_average_balance_pkr": 1000000,
         "minimum_relationship_balance_pkr": 15000000,
+        "joining_fee_pkr": 42500,
         "annual_fee_pkr": 42500,
-        "annual_fee_waiver_rule": "Charges are waived for Premium customers maintaining average monthly balance of PKR 15,000,000 in checking accounts, PKR 20,000,000 across checking accounts and TDCs, or PKR 50,000,000 across checking accounts, TDCs, and Islamic Naya Pakistan Certificates from Meezan RDA.",
+        "supplementary_annual_fee_pkr": 42500,
+        "annual_fee_waiver_rule": "Waived for Premium customers maintaining average monthly balance of PKR 15M in checking accounts, PKR 20M across checking + Term Deposit Certificates, or PKR 50M across checking + TDCs + Islamic Naya Pakistan Certificates from Meezan RDA. PKR 3,500 monthly fee levied if Premium eligibility not maintained.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.meezanbank.com/visa-infinite-debit-card/",
-        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/premium-banking/"
+        "https://www.meezanbank.com/premium-banking/",
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
-      "confidence": "high",
+      "confidence": "medium",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists Visa Infinite issuance and annual fee at PKR 42,500 each.",
-        "There are two competing eligibility frames: premium-customer thresholds on the Premium Banking page and a lower PKR 1,000,000 issuance or average-balance threshold in the SOC PDF.",
-        "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 1,000,000) while the higher premium-banking relationship criteria are preserved separately."
+        "SOC Jan-Jun 2026 Section K: Visa Infinite issuance PKR 42,500 / annual PKR 42,500.",
+        "SOC Waiver / Issuance Criteria #4: 'The VISA Infinite Debit Card will only be issued to customers who make an initial deposit or maintain an average monthly balance of at least PKR 1,000,000.' This is the floor for issuance.",
+        "Premium Banking page and SOC Section L disagree in granularity: Premium thresholds for waiver are PKR 15M / 20M / 50M (RDA route) while the card-page surfaces 15M / 20M / 20M. The SOC L numbers (15 / 20 / 50) are treated as authoritative.",
+        "SOC Section L Note: PKR 3,500 monthly fee on Visa Infinite if Premium eligibility not maintained.",
+        "Replacement charge is complimentary for Premium-customer Visa Infinite holders per SOC footnote."
       ]
     },
     {
@@ -84,25 +98,29 @@
       "tier": "world",
       "requirements": {
         "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": 5000000,
+        "minimum_account_balance_pkr": 500000,
         "minimum_average_balance_pkr": 500000,
         "minimum_relationship_balance_pkr": 5000000,
+        "joining_fee_pkr": 27500,
         "annual_fee_pkr": 27500,
-        "annual_fee_waiver_rule": "Free for Meezan Premium Banking customers with PKR 5M in accounts or PKR 7M in TDCs",
+        "supplementary_annual_fee_pkr": 27500,
+        "annual_fee_waiver_rule": "Waived for Premium customers maintaining average monthly balance of PKR 5M in checking accounts, PKR 7M across checking + Term Deposit Certificates, or PKR 25M across checking + TDCs + Islamic Naya Pakistan Certificates from Meezan RDA. PKR 2,200 monthly fee levied if Premium eligibility not maintained.",
         "minimum_age_years": null,
-        "maximum_age_years": null
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.meezanbank.com/world-debit-card/",
-        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/premium-banking/"
+        "https://www.meezanbank.com/premium-banking/",
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
-      "confidence": "high",
+      "confidence": "medium",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists Mastercard World issuance and annual fee at PKR 27,500 each.",
-        "World Debit Card is part of Meezan Premium Banking. PKR 5,000,000 in accounts or PKR 7,000,000 in Term Deposit Certificates required. No annual fee for qualifying customers.",
-        "There are two competing eligibility frames: premium-customer thresholds on the card page and a lower PKR 500,000 issuance or average-balance threshold in the SOC PDF.",
-        "minimum_account_balance_pkr is anchored to the lower explicit bank-account threshold (PKR 500,000) while the higher relationship-balance criterion is preserved separately."
+        "SOC Jan-Jun 2026 Section K: Mastercard World issuance PKR 27,500 / annual PKR 27,500.",
+        "SOC Waiver / Issuance Criteria #5: 'The MasterCard World Debit Card will only be issued to customers who make an initial deposit or maintain an average monthly balance of at least PKR 500,000.' This is the floor for issuance.",
+        "Premium proposition (card page + SOC Section L) defines waiver bands at PKR 5M / 7M / 25M which differ from the card-page wording of '5M accounts or 7M TDCs'. The SOC L numbers (5 / 7 / 25) are treated as authoritative; the card-page text is preserved here as a contradiction.",
+        "SOC Section L Note: PKR 2,200 monthly fee on Mastercard World if Premium eligibility not maintained."
       ]
     },
     {
@@ -110,23 +128,27 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 40000,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "joining_fee_pkr": 500,
         "annual_fee_pkr": 3500,
-        "annual_fee_waiver_rule": "Public pages mention first-year special pricing but do not clearly state a standing waiver rule.",
-        "minimum_age_years": 25,
-        "maximum_age_years": 65
+        "supplementary_annual_fee_pkr": 3500,
+        "annual_fee_waiver_rule": "First-year discounted pricing on Women First Visa Debit Card per women-account page; thereafter SOC rates apply with no standing waiver published.",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.meezanbank.com/women-account",
-        "https://www.meezanbank.com/meezan-women-first/",
+        "https://www.meezanbank.com/women-account/",
         "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Businesswomen/self-employed threshold: PKR 75,000/month.",
-        "NRP threshold: PKR 150,000/month.",
-        "Account page says no minimum balance requirement and PKR 100 opening investment for the associated account."
+        "SOC Jan-Jun 2026 Section K: Women First Card issuance PKR 500, annual fee PKR 3,500.",
+        "Account page (women-account/) states 'exclusively offered to Resident Pakistani women', minimum opening investment PKR 100 (any currency), no minimum balance.",
+        "Account page does NOT publish a salary or age threshold for the card; the salary PKR 40,000 and age 25-65 values previously held in this record were sourced from House Finance / Easy Home product on the same domain and are not card eligibility. Corrected to null.",
+        "First-year special pricing applies on Women First Visa Debit Card per women-account page footnote."
       ]
     },
     {
@@ -134,20 +156,27 @@
       "card_type": "debit",
       "tier": "other",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "joining_fee_pkr": 0,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "First issuance and annual fee are free.",
+        "supplementary_annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "First issuance and annual fee are free per SOC; only available with Meezan Asaan Student Account (age 18-24).",
         "minimum_age_years": 18,
-        "maximum_age_years": 24
+        "maximum_age_years": 24,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
         "https://www.meezanbank.com/student-debit-card/",
-        "https://www.meezanbank.com/digital-asaan-student-account/"
+        "https://www.meezanbank.com/digital-asaan-student-account/",
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Only for customers with Meezan Asaan Student Account."
+        "SOC Jan-Jun 2026 Section K: Student Card issuance Free, annual fee Free.",
+        "Student card page restricts eligibility to customers aged 18-24 with a Meezan Asaan Student Account.",
+        "Asaan Student Account page confirms no initial deposit requirement and CNIC + proof of studentship."
       ]
     },
     {
@@ -155,24 +184,26 @@
       "card_type": "debit",
       "tier": "classic-mastercard",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "minimum_average_balance_pkr": 200000,
+        "joining_fee_pkr": 3500,
         "annual_fee_pkr": 3500,
-        "annual_fee_waiver_rule": "Waived for Meezan Plus account holders maintaining PKR 200,000 monthly average balance.",
+        "supplementary_annual_fee_pkr": 3500,
+        "annual_fee_waiver_rule": "Free issuance and annual fee for Meezan Plus account holders maintaining PKR 200,000 monthly average balance; free issuance for Meezan Digital Account / Asaan Current / Rupee Current account holders selecting Master Classic as their one free primary card.",
         "minimum_age_years": null,
         "maximum_age_years": null,
+        "pakistani_cnic_required": true,
         "existing_account_required": true
       },
       "sources": [
-        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/asaan-current-account/",
-        "https://www.meezanbank.com/ways-to-bank/"
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Recovered as an account-linked Mastercard classic tier.",
-        "Public sources confirm issuance against Meezan account relationships rather than salary underwriting."
+        "SOC Jan-Jun 2026 Section K (Mastercard Debit row): Classic Card issuance PKR 3,500 / annual fee PKR 3,500.",
+        "SOC Waiver / Issuance Criteria #1-2 include Master Classic in the free-issuance list for MDA, Asaan Current and Rupee Current account holders.",
+        "SOC Section M (Meezan Plus): waived at PKR 200,000 monthly average balance."
       ]
     },
     {
@@ -180,26 +211,29 @@
       "card_type": "debit",
       "tier": "paypak",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "minimum_average_balance_pkr": 200000,
-        "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "joining_fee_pkr": 2500,
+        "annual_fee_pkr": 2500,
+        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_waiver_rule": "Free issuance and annual fee for Meezan Plus account holders maintaining PKR 200,000 monthly average balance; free issuance for Meezan Digital Account / Asaan Current / Rupee Current account holders selecting PayPak as their one free primary card.",
         "minimum_age_years": null,
         "maximum_age_years": null,
+        "pakistani_cnic_required": true,
         "existing_account_required": true
       },
       "sources": [
         "https://www.meezanbank.com/paypak-debit-card/",
-        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/asaan-current-account/",
-        "https://www.meezanbank.com/kids-club-account",
-        "https://www.meezanbank.com/"
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "low",
       "notes": [
-        "No salary or balance threshold for standard PayPak.",
-        "PayPak page and current SOC disagree on some fee values, so the fee should be treated as an unresolved official-source conflict."
+        "SOC Jan-Jun 2026 Section K: Meezan PayPak Debit Card issuance PKR 2,500 / annual PKR 2,500.",
+        "CONFLICT: paypak-debit-card/ product page advertises 'Rs. 1,600 per annum plus tax' annual charge, while SOC PDF lists PKR 2,500. Recorded as SOC value (authoritative for billing) but conflict preserved.",
+        "SOC Waiver / Issuance Criteria #1-2 include PayPak as a free-issuance option for MDA, Asaan Current and Rupee Current account holders.",
+        "SOC Section M (Meezan Plus): annual fee waived at PKR 200,000 monthly average balance.",
+        "Separate product 'Meezan Smart PayPak Card' is priced at Rs. 500 per annum in SOC Section R - do not conflate."
       ]
     },
     {
@@ -207,12 +241,15 @@
       "card_type": "debit",
       "tier": "kids",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 500,
+        "joining_fee_pkr": 0,
         "annual_fee_pkr": 1250,
-        "annual_fee_waiver_rule": "First issuance free.",
+        "supplementary_annual_fee_pkr": 1250,
+        "annual_fee_waiver_rule": "First issuance free per SOC; annual fee applies from second year onwards as per SOC.",
         "minimum_age_years": null,
         "maximum_age_years": 11,
+        "pakistani_cnic_required": false,
         "existing_account_required": true
       },
       "sources": [
@@ -221,7 +258,10 @@
       ],
       "confidence": "high",
       "notes": [
-        "Applies to both boys and girls design variants."
+        "SOC Jan-Jun 2026 Section K: Kids & Teens Card issuance Free / annual fee PKR 1,250.",
+        "Kids Club Account page: PKR 500 minimum opening investment; account for children under 12; upgrades to Teens Club at 12.",
+        "First issuance free per account page; subsequent annual fees per SOC.",
+        "CNIC not required (child uses B-Form / guardian CNIC); account is guardian-operated."
       ]
     },
     {
@@ -229,23 +269,28 @@
       "card_type": "debit",
       "tier": "platinum-mastercard",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 3000000,
         "minimum_relationship_balance_pkr": 3000000,
+        "joining_fee_pkr": 0,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Published as free for Premium customers maintaining the required Premium Banking criteria.",
+        "supplementary_annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "Free for Premium customers maintaining Premium Banking criteria (PKR 3M checking balance for Individual / Sole Proprietor or PKR 750,000 monthly salary via Meezan Payroll Partner). PKR 800 monthly fee levied if Premium status not maintained.",
         "minimum_age_years": null,
         "maximum_age_years": null,
+        "pakistani_cnic_required": true,
         "existing_account_required": true
       },
       "sources": [
         "https://www.meezanbank.com/premium-banking/",
-        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf",
-        "https://www.meezanbank.com/ways-to-bank/"
+        "https://www.meezanbank.com/wp-content/themes/mbl/downloads/home-downloads/SOC-ENG-Jan-Jun-2026.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "Premium relationship recovered from public premium-banking eligibility rather than a salary rule.",
-        "Current public Premium Banking page publishes the Platinum Mastercard Debit Card as free for Premium customers; no separate standard annual-fee line for this card was surfaced in the Jan-Jun 2026 public SOC."
+        "SOC Jan-Jun 2026 Section L (Premium Banking) membership thresholds (quarterly average): Individual / Sole Proprietor PKR 3M (checking only), PKR 5M (checking + TDCs); Partnership PKR 10M; Roshan Digital PKR 3M / 5M / 10M; Salaried customers PKR 750,000+ gross salary credited to Meezan Payroll Partner.",
+        "Platinum Mastercard Debit Card is bundled with Premium Banking and shown as free for Premium customers on the Premium Banking page.",
+        "SOC Section L Note: PKR 800 monthly fee levied if relationship status no longer Premium.",
+        "Standalone annual-fee line for Platinum Mastercard Debit is NOT published in SOC Section K (Mastercard Debit) - the card exists only inside the Premium proposition. Annual_fee_pkr recorded as 0 to reflect the published Premium-customer price, but note that economically the monthly fee converts to PKR 9,600 per year if Premium status lapses."
       ]
     },
     {
@@ -253,12 +298,15 @@
       "card_type": "debit",
       "tier": "platinum-visa",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
+        "joining_fee_pkr": 10000,
         "annual_fee_pkr": 10000,
+        "supplementary_annual_fee_pkr": 10000,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
+        "pakistani_cnic_required": true,
         "existing_account_required": true
       },
       "sources": [
@@ -267,7 +315,9 @@
       ],
       "confidence": "high",
       "notes": [
-        "Public page frames it as linked to the customer's Meezan Bank account."
+        "SOC Jan-Jun 2026 Section K: Visa Platinum issuance PKR 10,000 / annual fee PKR 10,000.",
+        "Visa Platinum is NOT listed in the Meezan Plus (PKR 200,000) waiver block, so no standing balance-driven waiver is published for this tier.",
+        "Card page frames eligibility as linked to a Meezan Bank account; no published salary or balance threshold for the card itself."
       ]
     },
     {
@@ -275,12 +325,15 @@
       "card_type": "debit",
       "tier": "titanium-mastercard",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
+        "joining_fee_pkr": 5000,
         "annual_fee_pkr": 5000,
-        "annual_fee_waiver_rule": null,
+        "supplementary_annual_fee_pkr": 5000,
+        "annual_fee_waiver_rule": "Free for first year on Meezan Roshan Digital Account holders who have remitted funds in their PKR RDA per SOC Section N; no standing balance waiver in SOC Section M.",
         "minimum_age_years": null,
         "maximum_age_years": null,
+        "pakistani_cnic_required": true,
         "existing_account_required": true
       },
       "sources": [
@@ -289,13 +342,17 @@
       ],
       "confidence": "high",
       "notes": [
-        "Public page frames it as linked to the customer's Meezan Bank account."
+        "SOC Jan-Jun 2026 Section K (Mastercard Debit row): Titanium Card issuance PKR 5,000 / annual fee PKR 5,000.",
+        "SOC Section N (Roshan Digital Account): Titanium Card free for first year for customers who have remitted funds into their PKR Roshan Digital Account; subsequent years per ADC SOC.",
+        "Titanium is NOT in the Meezan Plus PKR 200,000 waiver list."
       ]
     }
   ],
   "gaps": [
-    "No public Meezan consumer credit-card catalogue was found in this pass.",
-    "PayPak fees conflict between the card page and the 2026 SOC PDF.",
-    "Most ordinary debit-card pages do not publish salary or age requirements."
+    "No public Meezan consumer credit-card catalogue was found in this pass; Meezan operates only a debit-card line as of Jan-Jun 2026 SOC.",
+    "PayPak annual fee conflicts between the product page (PKR 1,600/yr) and the Jan-Jun 2026 SOC PDF (PKR 2,500/yr). SOC treated as authoritative.",
+    "Most ordinary debit-card product pages do not publish salary or age requirements; eligibility is account-linked rather than card-linked.",
+    "Mastercard Platinum Debit is not listed as a stand-alone row in SOC Section K (Mastercard Debit) - it is only published inside the Premium Banking proposition with an effective PKR 800 / month fee if Premium status lapses.",
+    "Premium-card waiver bands on the Visa Infinite product page (15M / 20M / 20M) disagree with SOC Section L (15M / 20M / 50M). SOC treated as authoritative; conflict preserved in notes."
   ]
 }

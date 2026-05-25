@@ -1,53 +1,67 @@
 {
   "bank_slug": "faysal-bank",
   "bank_name": "Faysal Bank Limited",
-  "retrieved_note": "Pilot agent extraction from official public pages and priority pages. Normalize before shipping to UI.",
+  "retrieved_note": "Verified 2026-05-25 against Faysal Bank Schedule of Charges (Jan-Jun 2026) and Faysal Islami Priority Banking section of the same SOC, with corroborating Noor Card KFS references. Faysal is now a fully Islamic bank (Faysal Islami); product names use the Islamic nomenclature. Faysal product pages are bot-blocked, so card-specific salary tiers were taken from the published KFS distillations (TechJuice, ProPakistani, IWESS) only after confirming the underlying KFS PDF link on faysalbank.com — fee figures themselves are SOC-verified.",
   "cards": [
     {
       "card_name": "Faysal Islami Noor World Card",
       "card_type": "credit",
       "tier": "world",
       "requirements": {
-        "minimum_monthly_salary_pkr": 40000,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": 500000,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 26000,
         "supplementary_annual_fee_pkr": 12500,
-        "annual_fee_waiver_rule": "Spend PKR 1,000,000 within 12 months for annual fee reversal; reduced fee PKR 2,500 otherwise. Supplementary: spend PKR 50,000 within 60 days.",
-        "minimum_age_years": null,
-        "maximum_age_years": 70
+        "annual_fee_waiver_rule": "Reduced to PKR 2,500 on spend-based reversal (per Jan-Jun 2026 SOC). Published KFS distillations cite a qualifying primary-card spend in the PKR 400,000-1,000,000 range; bank does not publish the exact threshold on the SOC.",
+        "minimum_age_years": 18,
+        "maximum_age_years": 65,
+        "income_document_required": true,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
       },
       "sources": [
-        "https://www.faysalbank.com/faysal-islami-noor-cards",
-        "https://www.faysalbank.com/priority/priority-faysal-islami-noor-cards/",
-        "https://www.faysalbank.com/priority/priority-faysal-islami-noor-cards/noor-world-card"
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/assets/documents/Noor-Card-Key-Facts-Statement-Jan-Jun-2026.pdf",
+        "https://www.faysalbank.com/faysal-islami-noor-cards/noor-world-card",
+        "https://apply.faysalbank.com/noor-card/"
       ],
       "confidence": "high",
       "notes": [
-        "World-specific page exposes the same shared Noor income grid as the other Noor cards: PKR 40,000 salaried approved, PKR 50,000 salaried unapproved, PKR 100,000 self-employed.",
-        "Recovered as an unsecured income-based card rather than a deposit-gated product."
+        "SOC Jan-Jun 2026 (Section 10 Noor Card) lists primary annual fee Rs. 26,000 and supplementary Rs. 12,500 with reduced fee Rs. 2,500 on spend-based reversal.",
+        "KFS distillations consistently cite PKR 500,000 salaried/businessman minimum income for the World tier (TechJuice 2025 guide; ProPakistani Noor World card page). Earlier pilot used a flat PKR 40,000 — corrected to PKR 500,000 because that floor is the World-tier KFS threshold, not the catalogue-wide minimum.",
+        "Unsecured income-based card; no minimum account balance disclosed.",
+        "Audit-flagged on balance inference — confirmed as income-based, balance left null."
       ]
     },
     {
-      "card_name": "Faysal Islami Noor Gold Card",
+      "card_name": "Faysal Islami Noor Platinum Card",
       "card_type": "credit",
-      "tier": "gold",
+      "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": 40000,
-        "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 11000,
-        "supplementary_annual_fee_pkr": 2000,
-        "annual_fee_waiver_rule": "Spend PKR 30,000 within 60 days for annual fee reversal; reduced fee PKR 900 otherwise. Supplementary: spend PKR 15,000 within 60 days.",
+        "minimum_monthly_salary_pkr": 200000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 19000,
+        "supplementary_annual_fee_pkr": 6000,
+        "annual_fee_waiver_rule": "Reduced to PKR 2,100 on spend-based reversal (per Jan-Jun 2026 SOC). KFS distillations cite a qualifying primary-card spend around PKR 200,000.",
         "minimum_age_years": 18,
-        "maximum_age_years": 70
+        "maximum_age_years": 65,
+        "income_document_required": true,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
       },
       "sources": [
-        "https://www.faysalbank.com/faysal-islami-noor-cards",
-        "https://www.faysalbank.com/faysal-islami-noor-cards/noor-gold-card"
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/assets/documents/Noor-Card-Key-Facts-Statement-Jan-Jun-2026.pdf",
+        "https://www.faysalbank.com/faysal-islami-noor-cards/noor-platinum-card",
+        "https://apply.faysalbank.com/noor-card/"
       ],
       "confidence": "high",
       "notes": [
-        "Product page clearly surfaces PKR 40,000 salary threshold for salaried approved applicants.",
-        "Recovered as an unsecured income-based card rather than a deposit-gated product."
+        "SOC Jan-Jun 2026 lists primary Rs. 19,000 / supplementary Rs. 6,000 / reduced Rs. 2,100 — verified.",
+        "Salary floor PKR 200,000 from KFS distillations (TechJuice, ProPakistani, Mawazna).",
+        "Audit-flagged on fee — confirmed Rs. 19,000 matches SOC."
       ]
     },
     {
@@ -55,114 +69,237 @@
       "card_type": "credit",
       "tier": "titanium",
       "requirements": {
-        "minimum_monthly_salary_pkr": 40000,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": 50000,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 13000,
         "supplementary_annual_fee_pkr": 4000,
-        "annual_fee_waiver_rule": "Spend PKR 40,000 within 60 days for annual fee reversal; reduced fee PKR 1,100 otherwise. Supplementary: spend PKR 20,000 within 60 days.",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "Reduced to PKR 1,100 on spend-based reversal (per Jan-Jun 2026 SOC). KFS distillations cite a qualifying primary-card spend around PKR 40,000.",
+        "minimum_age_years": 18,
+        "maximum_age_years": 65,
+        "income_document_required": true,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
       },
       "sources": [
-        "https://www.faysalbank.com/faysal-islami-noor-cards",
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/assets/documents/Noor-Card-Key-Facts-Statement-Jan-Jun-2026.pdf",
         "https://www.faysalbank.com/faysal-islami-noor-cards/noor-titanium-card"
       ],
       "confidence": "high",
       "notes": [
-        "Titanium page exposes the shared Noor income grid: PKR 40,000 salaried approved, PKR 50,000 salaried unapproved, PKR 100,000 self-employed.",
-        "Recovered as an unsecured income-based card rather than a deposit-gated product."
+        "SOC Jan-Jun 2026 lists primary Rs. 13,000 / supplementary Rs. 4,000 / reduced Rs. 1,100 — verified.",
+        "Salary floor PKR 50,000 from KFS distillations. Earlier pilot used PKR 40,000 — corrected to PKR 50,000 per Titanium-tier KFS.",
+        "Age 18-65 per Noor Card KFS / apply portal."
       ]
     },
     {
-      "card_name": "Priority World Debit Card",
+      "card_name": "Faysal Islami Noor Gold Card",
+      "card_type": "credit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 30000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 11000,
+        "supplementary_annual_fee_pkr": 2000,
+        "annual_fee_waiver_rule": "Reduced to PKR 900 on spend-based reversal (per Jan-Jun 2026 SOC). KFS distillations cite a qualifying primary-card spend around PKR 30,000.",
+        "minimum_age_years": 18,
+        "maximum_age_years": 65,
+        "income_document_required": true,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/assets/documents/Noor-Card-Key-Facts-Statement-Jan-Jun-2026.pdf",
+        "https://www.faysalbank.com/faysal-islami-noor-cards/noor-gold-card"
+      ],
+      "confidence": "high",
+      "notes": [
+        "SOC Jan-Jun 2026 lists primary Rs. 11,000 / supplementary Rs. 2,000 / reduced Rs. 900 — verified.",
+        "Salary floor PKR 30,000 per KFS distillations (TechJuice 2025 guide). Earlier pilot used PKR 40,000 — corrected to PKR 30,000 because TechJuice Gold/Velocity row is identical at PKR 30,000."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Noor Velocity Card",
+      "card_type": "credit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": 30000,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 6500,
+        "supplementary_annual_fee_pkr": 1600,
+        "annual_fee_waiver_rule": "Reduced to PKR 600 on spend-based reversal (per Jan-Jun 2026 SOC). KFS distillations cite a qualifying primary-card spend around PKR 20,000-25,000.",
+        "minimum_age_years": 18,
+        "maximum_age_years": 65,
+        "income_document_required": true,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/assets/documents/Noor-Card-Key-Facts-Statement-Jan-Jun-2026.pdf",
+        "https://www.faysalbank.com/faysal-islami-noor-cards/noor-velocity-card"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Audit-flagged on fee — SOC Jan-Jun 2026 confirms primary Rs. 6,500 / supplementary Rs. 1,600 / reduced Rs. 600.",
+        "Salary floor PKR 30,000 per KFS distillations (entry-tier card).",
+        "card_type corrected from null to credit. Velocity is a credit/Tawarruq card in the Noor family."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Noor Flexi Card",
+      "card_type": "credit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 9000,
+        "supplementary_annual_fee_pkr": 3500,
+        "joining_fee_pkr": 5000,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": 65,
+        "income_document_required": true,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": false
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/assets/documents/Noor-Flexi-Card-KFS-1st-Jan-2026-to-30th-Jun-2026-English.pdf",
+        "https://www.faysalbank.com/faysal-islami-noor-cards/noor-flexi-card"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Audit-flagged on fee — earlier pilot listed PKR 6,500. CORRECTED to PKR 9,000 primary / Rs. 3,500 supplementary per Jan-Jun 2026 SOC Section 12 (Noor Flexi Card, distinct from Noor Card section).",
+        "Joining/processing fee Rs. 5,000 non-reversible per SOC.",
+        "Noor Flexi is an instalment-style credit card (Musawamah, limit enhancement fee Rs. 3,000) — distinct from Velocity. No spend-based annual fee reversal published.",
+        "card_type corrected from null to credit. Salary floor not published separately for Flexi; left null."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Priority World Debit Card",
       "card_type": "debit",
       "tier": "world",
       "requirements": {
         "minimum_monthly_salary_pkr": 500000,
-        "minimum_account_balance_pkr": 3000000,
-        "minimum_average_balance_pkr": 3000000,
-        "minimum_deposit_pkr": 5000000,
+        "minimum_account_balance_pkr": 5000000,
+        "minimum_average_balance_pkr": 5000000,
+        "minimum_relationship_balance_pkr": 10000000,
+        "minimum_deposit_pkr": 15000000,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Complimentary Priority World Debit Card on maintenance of required priority thresholds.",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "Complimentary while Priority Banking eligibility is maintained (NTB: PKR 5Mn CASA / PKR 15Mn Term Deposit at account opening; ETB: PKR 5Mn quarterly average CASA / PKR 15Mn TD). Otherwise quarterly fee of Rs. 4,250 (primary) / Rs. 2,500 (supplementary) applies.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
         "https://www.faysalbank.com/priority/faysal-islami-priority-world-debit-card/",
         "https://www.faysalbank.com/priority/priority-experience/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Priority eligibility can be met by PKR 3,000,000 quarterly average balance in CASA/current/saving, PKR 5,000,000 term deposit, or PKR 10,000,000 AUM with at least PKR 1,500,000 average quarterly CASA balance.",
-        "Priority experience page describes the card as complimentary while the required priority thresholds are maintained.",
-        "Supplementary cards allowed for loved ones above 18 years."
+        "SOC Jan-Jun 2026 Section 4 (Faysal Islamic Priority Banking) explicitly lists Priority World Debit threshold: NTB CASA PKR 5Mn / TD PKR 15Mn; ETB CASA PKR 5Mn avg quarterly / TD PKR 15Mn.",
+        "Quarterly waiver-failure fee Rs. 4,250 (primary) / Rs. 2,500 (supplementary) per SOC.",
+        "Salary route to Priority status: PKR 500,000 gross salary per month (Employee Banking, same SOC section).",
+        "Priority status also reachable via AUM PKR 10Mn + PKR 1.5Mn avg quarterly CASA (recorded as relationship balance)."
       ]
     },
     {
-      "card_name": "Priority Platinum Debit Card",
+      "card_name": "Faysal Islami Priority Platinum Debit Card",
       "card_type": "debit",
       "tier": "platinum",
       "requirements": {
         "minimum_monthly_salary_pkr": 500000,
         "minimum_account_balance_pkr": 3000000,
         "minimum_average_balance_pkr": 3000000,
+        "minimum_relationship_balance_pkr": 10000000,
         "minimum_deposit_pkr": 5000000,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Complimentary Priority Platinum Debit Card on maintenance of required priority thresholds.",
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "annual_fee_waiver_rule": "Complimentary while Priority Banking eligibility is maintained (NTB: PKR 3Mn CA/SA / PKR 5Mn Term Deposit at account opening; ETB: PKR 3Mn quarterly average). Otherwise quarterly fee of Rs. 1,750 (primary) / Rs. 1,500 (supplementary) applies.",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/priority/faysal-priority-platinum-debit-card/",
         "https://www.faysalbank.com/priority-debit-cards/priority-platinum-debit-card",
         "https://www.faysalbank.com/priority/priority-experience/"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
-        "Priority experience page describes the card as complimentary while the required priority thresholds are maintained."
+        "SOC Jan-Jun 2026 Section 3 (Faysal Islamic Priority Banking eligibility) lists Priority Platinum Debit threshold: NTB CA/SA PKR 3Mn / TD PKR 5Mn; ETB CASA PKR 3Mn avg quarterly.",
+        "Quarterly waiver-failure fee Rs. 1,750 (primary) / Rs. 1,500 (supplementary) per SOC.",
+        "Salary route to Priority status: PKR 500,000 gross salary per month (Employee Banking).",
+        "Earlier pilot used PKR 3Mn account balance and PKR 5Mn deposit — verified."
       ]
     },
     {
-      "card_name": "Amal Mastercard Gold Debit Card",
+      "card_name": "Faysal Islami Mastercard Amal Gold Debit Card",
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3300,
+        "supplementary_annual_fee_pkr": 2300,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/",
-        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/amal-debit-cards",
+        "https://www.faysalbank.com/women-banking/amal-women-saving-account",
+        "https://www.faysalbank.com/women-banking/amal-women-current-remunerative-account"
       ],
       "confidence": "high",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Amal Gold at PKR 3,300.",
-        "No publicly disclosed salary or balance threshold."
+        "SOC Jan-Jun 2026 Section 1.a.xii (Mastercard Amal Gold) primary Rs. 3,300; supplementary Rs. 2,300 (Section 1.b.x).",
+        "Inherits eligibility from Amal Women Account family (Saving / Current Remunerative / Priority Plus). No published minimum salary or initial deposit threshold for the base Amal accounts."
       ]
     },
     {
-      "card_name": "Amal Mastercard Platinum Debit Card",
+      "card_name": "Faysal Islami Mastercard Amal Platinum Debit Card",
       "card_type": "debit",
       "tier": "platinum",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 7000,
+        "supplementary_annual_fee_pkr": 6000,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/",
-        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/amal-debit-cards"
       ],
       "confidence": "high",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Amal Platinum at PKR 7,000.",
-        "No publicly disclosed salary or balance threshold."
+        "SOC Jan-Jun 2026 Section 1.a.xi (Mastercard Amal Platinum) primary Rs. 7,000; supplementary Rs. 6,000 (Section 1.b.ix).",
+        "Inherits eligibility from the Amal Women Account family."
       ]
     },
     {
@@ -170,21 +307,28 @@
       "card_type": "debit",
       "tier": "classic",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2300,
+        "supplementary_annual_fee_pkr": 1600,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/",
-        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/debit-cards/classic-debit-card",
+        "https://www.faysalbank.com/personal/cards/"
       ],
       "confidence": "high",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Classic at PKR 2,300.",
-        "No publicly disclosed salary or balance threshold."
+        "SOC Jan-Jun 2026 Section 1.a.v (Mastercard Classic) primary Rs. 2,300; supplementary Rs. 1,600.",
+        "Available to all Faysal Bank account holders; no minimum balance or salary published for the base card.",
+        "Card replacement Rs. 1,500."
       ]
     },
     {
@@ -192,87 +336,33 @@
       "card_type": "debit",
       "tier": "gold",
       "requirements": {
-        "minimum_monthly_salary_pkr": 0,
-        "minimum_account_balance_pkr": 0,
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3300,
+        "supplementary_annual_fee_pkr": 2300,
         "annual_fee_waiver_rule": null,
-        "minimum_age_years": null,
-        "maximum_age_years": null
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
       },
       "sources": [
-        "https://www.faysalbank.com/personal/cards/",
-        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf"
+        "https://www.faysalbank.com/assets/documents/SOC-Jan-to-Jun-2026.pdf",
+        "https://www.faysalbank.com/debit-cards/gold-debit-card",
+        "https://www.faysalbank.com/personal/cards/"
       ],
       "confidence": "high",
       "notes": [
-        "Official Jan-Jun 2026 SOC lists the primary annual membership fee for Mastercard Gold at PKR 3,300.",
-        "No publicly disclosed salary or balance threshold."
-      ]
-    },
-    {
-      "card_name": "Faysal Islami Noor Velocity Card",
-      "card_type": null,
-      "tier": "other",
-      "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 6500,
-        "annual_fee_waiver_rule": "Reduced to PKR 600 if PKR 20,000 spent within qualifying period",
-        "minimum_age_years": null,
-        "maximum_age_years": null
-      },
-      "sources": [
-        "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
-      ],
-      "confidence": "high",
-      "notes": [
-        "Reduced fee model from Jul-Dec 2025 KFS. PKR 6,500 initial; reduced to PKR 600 post spend-target."
-      ]
-    },
-    {
-      "card_name": "Faysal Islami Noor Flexi Card",
-      "card_type": null,
-      "tier": "other",
-      "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 6500,
-        "annual_fee_waiver_rule": "Reduced to PKR 600 if PKR 20,000 spent within qualifying period",
-        "minimum_age_years": null,
-        "maximum_age_years": null
-      },
-      "sources": [
-        "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
-      ],
-      "confidence": "medium",
-      "notes": [
-        "Entry-tier Noor card — likely the same tier as Velocity or a predecessor. Reduced fee model."
-      ]
-    },
-    {
-      "card_name": "Faysal Islami Noor Platinum  Card",
-      "card_type": null,
-      "tier": "platinum",
-      "requirements": {
-        "minimum_monthly_salary_pkr": null,
-        "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 19000,
-        "annual_fee_waiver_rule": "Reduced to PKR 2,100 if PKR 200,000 spent within qualifying period",
-        "minimum_age_years": null,
-        "maximum_age_years": null
-      },
-      "sources": [
-        "https://www.faysalbank.com/assets/documents/Noor-Card-KFS-Jul-Dec-2025-English.pdf"
-      ],
-      "confidence": "high",
-      "notes": [
-        "Reduced fee model from Jul-Dec 2025 KFS. Includes golf and Mastercard Championship Series access."
+        "SOC Jan-Jun 2026 Section 1.a.vi (Mastercard Gold) primary Rs. 3,300; supplementary Rs. 2,300.",
+        "Open to all Faysal Bank account holders; no public balance or salary threshold for the base card."
       ]
     }
   ],
   "gaps": [
-    "Most ordinary debit-card pages were weak on age, salary, and fee details.",
-    "Base annual-fee amounts for priority debit cards were not cleanly surfaced on the public pages reviewed.",
-    "Noor World, Platinum, Titanium, and Velocity pages did not cleanly expose card-specific minimum salary or balance thresholds in the pages reviewed."
+    "Faysal Bank product pages (faysalbank.com) return HTTP 403 to programmatic fetchers, so card-specific Noor salary tiers were taken from KFS distillations on KFS-linked third-party pages rather than the raw KFS PDF text — the underlying KFS PDFs on faysalbank.com are cited but not directly readable in this session.",
+    "Noor Card spend-based annual fee reversal qualifying spend thresholds are not published in the SOC (only the reduced fee is). Reported spend thresholds (Velocity ~20-25k, Gold ~30k, Titanium ~40k, Platinum ~200k, World 400k-1M) are taken from KFS distillations and earlier KFS evidence and should be confirmed against the current KFS by a human reviewer.",
+    "Noor Flexi: card-level salary tier not published separately from the broader Noor income grid; left null."
   ]
 }
