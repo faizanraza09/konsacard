@@ -2,18 +2,15 @@
   "name": "konsacard",
   "private": true,
   "version": "0.0.0",
-  "description": "Monorepo for the KonsaCard web + mobile apps",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
+  "description": "Monorepo for the KonsaCard web + mobile apps. Each app under apps/ keeps its own lockfile and node_modules; npm workspaces will be wired up in Phase 2 when packages/algorithms/ is introduced.",
   "scripts": {
-    "dev:web": "npm run dev --workspace=apps/web",
-    "dev:mobile": "npm start --workspace=apps/mobile",
-    "test:web": "npm test --workspace=apps/web",
-    "test:mobile": "npx --workspace=apps/mobile jest",
-    "build:web": "npm run build --workspace=apps/web",
-    "refresh:offers": "npm run refresh:offers --workspace=apps/web",
-    "refresh:requirements": "npm run refresh:requirements --workspace=apps/web"
+    "dev:web": "cd apps/web && npm run dev",
+    "dev:web:static": "cd apps/web && npm run dev:static",
+    "dev:mobile": "cd apps/mobile && npm start",
+    "test:web": "cd apps/web && npm test",
+    "test:mobile": "cd apps/mobile && npx jest",
+    "build:web": "cd apps/web && npm run build",
+    "refresh:offers": "cd apps/web && npm run refresh:offers",
+    "refresh:requirements": "cd apps/web && npm run refresh:requirements"
   }
 }
