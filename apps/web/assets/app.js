@@ -1968,7 +1968,6 @@ function renderNextCardFeatured(result, container) {
           </div>
           <div class="card-name">${escapeHtml(result.card)}</div>
           <div class="card-bank">${escapeHtml(result.bank)}</div>
-          <div class="nc-reason">${reason}</div>
         </div>
         <div class="score-box">
           <div class="score-num" style="color:${sc}">${score}</div>
@@ -1978,17 +1977,16 @@ function renderNextCardFeatured(result, container) {
           </div>
         </div>
       </div>
-      <!-- Clean meta block: hero saving + natural-language meta line, instead
-           of a 4-cell stat grid where the short counts (295, 41) crowded their
-           labels. Reads the same on mobile and desktop. -->
+      <!-- Hero saving driven by the toolbar saving-window toggle so the
+           number matches the user's chosen unit (no more both /outing AND
+           /year shown side-by-side). The counts (295 new, 41 boosted)
+           live in the meta line ONLY — used to be repeated above in a
+           "reason" string, removed now to avoid the triple-redundancy. -->
       <div class="nc-meta nc-meta--featured">
-        <div class="nc-meta-hero">+${formatCurrency(result.avgDeltaPerOuting)}<span class="nc-meta-unit"> / outing</span></div>
+        <div class="nc-meta-hero">+${formatCurrencyShort(result.avgDeltaPerOuting * savingWindowMultiplier())}<span class="nc-meta-unit"> ${savingWindowSuffix()}</span></div>
         <div class="nc-meta-line">
-          <span><strong>~+${formatCurrencyShort(yearly)}</strong> per year</span>
-          <span class="nc-meta-sep">·</span>
           <span>Adds <strong>${result.newVenues}</strong> ${result.newVenues === 1 ? "restaurant" : "restaurants"}</span>
-          <span class="nc-meta-sep">·</span>
-          <span>Boosts <strong>${result.boostedVenues}</strong> existing</span>
+          ${result.boostedVenues > 0 ? `<span class="nc-meta-sep">·</span><span>Boosts <strong>${result.boostedVenues}</strong> existing</span>` : ""}
         </div>
       </div>
       ${topVenues ? `<div class="nc-feat-topvenues"><span class="nc-feat-topvenues-l">Best wins:</span> ${topVenues}</div>` : ""}
@@ -2020,7 +2018,6 @@ function renderNextCardItem(result, container, rank) {
         </div>
         <div class="card-name">${escapeHtml(result.card)}</div>
         <div class="card-bank">${escapeHtml(result.bank)}</div>
-        <div class="nc-reason nc-reason--row">${reason}</div>
       </div>
       <div class="score-box">
         <div class="score-num" style="color:${sc}">${score}</div>
@@ -2031,13 +2028,10 @@ function renderNextCardItem(result, container, rank) {
       </div>
     </div>
     <div class="nc-meta">
-      <span class="nc-meta-pri">+${formatCurrency(result.avgDeltaPerOuting)}<span class="nc-meta-unit"> / outing</span></span>
-      <span class="nc-meta-sep">·</span>
-      <span><strong>~+${formatCurrencyShort(result.yearlyDelta)}</strong>/yr</span>
+      <span class="nc-meta-pri">+${formatCurrencyShort(result.avgDeltaPerOuting * savingWindowMultiplier())}<span class="nc-meta-unit"> ${savingWindowSuffix()}</span></span>
       <span class="nc-meta-sep">·</span>
       <span>Adds <strong>${result.newVenues}</strong></span>
-      <span class="nc-meta-sep">·</span>
-      <span>Boosts <strong>${result.boostedVenues}</strong></span>
+      ${result.boostedVenues > 0 ? `<span class="nc-meta-sep">·</span><span>Boosts <strong>${result.boostedVenues}</strong></span>` : ""}
     </div>
   `;
   container.appendChild(article);
@@ -2438,7 +2432,7 @@ function renderWalletFeatured(wallet, container, stats) {
             <span class="badge-top-pick">🧩 BEST WALLET</span>
           </div>
           <div class="wo-featured-title">${K}-card wallet · ${stats.buildOnOwned ? `on top of your ${stats.anchorCount}` : "from scratch"}</div>
-          <div class="wo-featured-sub">Combined savings across all your restaurants — coverage: <strong>${Math.round(wallet.coverage * 100)}%</strong> · ${wallet.coveredVenues} of ${wallet.venueCount} restaurants</div>
+          <div class="wo-featured-sub">Covers <strong>${wallet.coveredVenues} of ${wallet.venueCount}</strong> restaurants in your scope</div>
         </div>
       </div>
 
@@ -2446,22 +2440,19 @@ function renderWalletFeatured(wallet, container, stats) {
         ${picksHtml}
       </div>
 
+      <!-- Hero combined-saving driven by the saving-window toggle. The
+           coverage info already lives in .wo-featured-sub at the top of
+           the card (498 of 860 restaurants), so we don't repeat it here.
+           Fee surfaces alongside since it's the one stat the user cares
+           about that isn't in the header. -->
       <div class="wo-combined-stats">
-        <div class="wo-combined-stat">
-          <div class="wo-combined-l">Combined Saving</div>
-          <div class="wo-combined-v green">${formatCurrency(wallet.perOutingTotal)} / outing</div>
+        <div class="wo-combined-stat wo-combined-stat--hero">
+          <div class="wo-combined-l">Combined saving</div>
+          <div class="wo-combined-v green">${formatCurrencyShort(wallet.perOutingTotal * savingWindowMultiplier())} ${savingWindowSuffix()}</div>
         </div>
         <div class="wo-combined-stat">
-          <div class="wo-combined-l">Restaurants Covered</div>
-          <div class="wo-combined-v">${wallet.coveredVenues} of ${wallet.venueCount}</div>
-        </div>
-        <div class="wo-combined-stat">
-          <div class="wo-combined-l">Est. Yearly</div>
-          <div class="wo-combined-v green">~${formatCurrency(yearly)}</div>
-        </div>
-        <div class="wo-combined-stat">
-          <div class="wo-combined-l">Total Annual Fees</div>
-          <div class="wo-combined-v">${totalFee === 0 ? "Free / not listed" : formatCurrency(totalFee)}${feeNote}</div>
+          <div class="wo-combined-l">Annual fees</div>
+          <div class="wo-combined-v">${totalFee === 0 ? "Free / not listed" : formatCurrencyShort(totalFee) + " / yr"}${feeNote}</div>
         </div>
       </div>
     </article>
@@ -2491,9 +2482,11 @@ function renderWalletAlternative(wallet, container, rank, stats) {
       <div class="wo-alt-body">
         <div class="wo-alt-cards">${picksLine}</div>
         <div class="wo-alt-stats">
-          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Combined:</span> <span class="green">${formatCurrency(wallet.perOutingTotal)} / outing</span></span>
-          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Coverage:</span> ${Math.round(wallet.coverage * 100)}%</span>
-          <span class="wo-alt-stat"><span class="wo-alt-stat-l">Fees:</span> ${totalFee === 0 ? "Free" : formatCurrency(totalFee)}</span>
+          <span class="wo-alt-stat"><span class="green">${formatCurrencyShort(wallet.perOutingTotal * savingWindowMultiplier())} ${savingWindowSuffix()}</span></span>
+          <span class="wo-alt-stat-sep">·</span>
+          <span class="wo-alt-stat">${wallet.coveredVenues} of ${wallet.venueCount}</span>
+          <span class="wo-alt-stat-sep">·</span>
+          <span class="wo-alt-stat">${totalFee === 0 ? "Free" : "Fee " + formatCurrencyShort(totalFee)}</span>
         </div>
       </div>
     </div>
