@@ -3281,16 +3281,48 @@ html.content-page-root .content > * { min-width: 0; }
 .mw-summary-v { font-size: 14px; font-weight: 800; color: var(--ink); letter-spacing: -.01em; }
 .mw-summary-v.green { color: var(--green); }
 
-/* Mobile: collapse the 4-stat grid on My Wallet. The summary title
- * already shows "1 card · PKR X / outing"; the Coverage section directly
- * below covers restaurants matched; fees show in the BEST NEXT CARD
- * stats area. Saves ~200px of vertical space so the next-card list
- * appears closer to the fold. Placed AFTER the global .mw-summary-stats
- * rule so the cascade resolves correctly. */
+/* YOUR WALLET on My Wallet is a <details>; on mobile the 4-stat grid
+ * is collapsed by default so the Best Next Card surfaces closer to the
+ * fold, and the user can tap the chevron to reveal the stats. On
+ * desktop the <details> is forced open and the chevron is hidden — the
+ * always-visible layout is preserved. Placed AFTER the global
+ * .mw-summary-stats rule so the cascade resolves correctly. */
+.mw-summary--collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.mw-summary--collapsible > summary::-webkit-details-marker { display: none; }
+.mw-summary--collapsible > summary .mw-summary-title-wrap { flex: 1; min-width: 0; }
+.mw-summary-chevron {
+  display: none;
+  align-self: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--brand-mid);
+  color: var(--brand);
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.mw-summary--collapsible[open] .mw-summary-chevron { transform: rotate(180deg); }
+
 @media (max-width: 768px) {
-  .mw-summary-stats { display: none; }
   .mw-summary { padding: 14px 16px; }
   .mw-summary-sub { font-size: 12px; }
+  .mw-summary-chevron { display: inline-flex; }
+}
+@media (min-width: 769px) {
+  .mw-summary--collapsible > summary { cursor: default; }
+  /* On desktop, ensure the stats grid stays visible regardless of
+   * <details> open state — same end behaviour as the original always-
+   * visible layout. */
+  .mw-summary--collapsible > .mw-summary-stats { display: grid !important; }
 }
 
 .mw-section-header {
@@ -3518,18 +3550,18 @@ html.content-page-root .content > * { min-width: 0; }
   padding: 14px 18px;
   border-top-color: var(--brand-mid);
 }
+/* Featured next-card uses the same calm stat sizing as the list rows;
+ * the previous oversized hero treatment was too loud per user feedback. */
 .nc-meta-hero {
-  font-size: 26px;
-  font-weight: 900;
+  font-size: 16px;
+  font-weight: 800;
   color: var(--green);
-  letter-spacing: -0.01em;
-  line-height: 1.1;
+  line-height: 1.25;
 }
 .nc-meta-hero .nc-meta-unit {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: var(--muted);
-  letter-spacing: 0;
 }
 .nc-meta--featured .nc-meta-line {
   display: flex;
@@ -3541,7 +3573,7 @@ html.content-page-root .content > * { min-width: 0; }
 @media (max-width: 480px) {
   .nc-meta { padding: 10px 14px; font-size: 12px; }
   .nc-meta-pri { font-size: 15px; }
-  .nc-meta-hero { font-size: 22px; }
+  .nc-meta-hero { font-size: 15px; }
   .nc-meta--featured { padding: 12px 16px; }
   .nc-meta--featured .nc-meta-line { font-size: 12px; }
 }
@@ -3891,10 +3923,10 @@ html.content-page-root .content > * { min-width: 0; }
 }
 .wo-combined-v { font-size: 14px; font-weight: 800; color: var(--ink); letter-spacing: -.01em; }
 .wo-combined-v.green { color: var(--green); }
-/* Hero variant gets a bigger number — used now that the combined-saving
- * stat is the visual anchor of the wallet card (was one of four cells). */
-.wo-combined-stat--hero { padding: 16px 18px; }
-.wo-combined-stat--hero .wo-combined-v { font-size: 22px; font-weight: 900; letter-spacing: -0.01em; }
+/* .wo-combined-stat--hero kept as a class hook in case we want to bring
+ * back the oversized hero in future, but currently styled the same as a
+ * normal cell — the previous 22px/900 was loud per user feedback. */
+.wo-combined-stat--hero { padding: 12px 14px; }
 .wo-fee-note { font-weight: 500; font-size: 10.5px; color: var(--muted); }
 
 /* Alternative wallets list */

@@ -1632,15 +1632,28 @@ function renderOwnedCardsPanel(container, walletStats) {
   const catalog = getAllCardsCatalog();
   const ownedCount = state.ownedCards.size;
   const hasWallet = ownedCount > 0;
+  // Wrapped in <details> so users on mobile can tap to expand and see the
+  // full 4-stat grid. Desktop defaults to open (always visible — same as
+  // before); mobile defaults to closed so the Best Next Card surfaces
+  // near the top. User toggles persist via state.walletSummaryOpen.
+  const isPhoneSummary = typeof window !== "undefined"
+    && window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+  const summaryOpen = state.walletSummaryOpen === undefined
+    ? !isPhoneSummary
+    : state.walletSummaryOpen;
+
   const summaryHtml = hasWallet && walletStats ? `
-    <div class="mw-summary">
-      <div class="mw-summary-head">
+    <details class="mw-summary mw-summary--collapsible"${summaryOpen ? " open" : ""}>
+      <summary class="mw-summary-head">
         <div class="mw-summary-title-wrap">
           <div class="mw-summary-kicker">Your wallet</div>
           <div class="mw-summary-title">${ownedCount} card${ownedCount === 1 ? "" : "s"} · ${formatCurrency(walletStats.perOuting)} / outing</div>
           <div class="mw-summary-sub">What your current wallet is worth at a ${formatCurrency(state.orderValue)} bill</div>
         </div>
-      </div>
+        <span class="mw-summary-chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2 4.5 L6 8.5 L10 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </summary>
       <div class="mw-summary-stats">
         <div class="mw-summary-stat">
           <div class="mw-summary-l">Savings / outing</div>
@@ -1652,14 +1665,14 @@ function renderOwnedCardsPanel(container, walletStats) {
         </div>
         <div class="mw-summary-stat">
           <div class="mw-summary-l">Est. Yearly</div>
-          <div class="mw-summary-v green">~${formatCurrency(walletStats.yearly)}</div>
+          <div class="mw-summary-v green">${formatCurrency(walletStats.yearly)}</div>
         </div>
         <div class="mw-summary-stat">
           <div class="mw-summary-l">Total Annual Fees</div>
           <div class="mw-summary-v">${walletStats.annualFee === 0 ? (walletStats.feeUnknown ? "Not listed" : "Free") : formatCurrency(walletStats.annualFee)}${walletStats.feeUnknown ? ` <span class="wo-fee-note">(some unlisted)</span>` : ""}</div>
         </div>
       </div>
-    </div>
+    </details>
   ` : "";
 
   // When the wallet already has cards, collapse the manage panel by default
@@ -1729,6 +1742,14 @@ function renderOwnedCardsPanel(container, walletStats) {
     </div>
     ${restaurantsHtml}
   `;
+
+  // Persist the YOUR WALLET <details> open/closed state so the user's
+  // toggle survives re-renders. The first render defaults to closed on
+  // phones (set via openMobileSheet/initial flag below) and open on
+  // desktop via CSS.
+  container.querySelector(".mw-summary--collapsible")?.addEventListener("toggle", (e) => {
+    state.walletSummaryOpen = e.target.open;
+  });
 
   document.getElementById("nc-manage-toggle")?.addEventListener("click", () => {
     state.manageWalletExpanded = !state.manageWalletExpanded;
@@ -2082,7 +2103,7 @@ function renderWalletSetupPanel(container) {
         <div class="wo-setup-title-wrap">
           <div class="wo-setup-kicker">Wallet Builder</div>
           <div class="wo-setup-title">Best ${K}-card wallet for you</div>
-          <div class="wo-setup-sub">We pick a combination of cards that <strong>together</strong> covers the most restaurants and saves the most. Unlike Next Card, this designs your wallet from scratch.</div>
+          <div class="wo-setup-sub">We pick a combination of cards that <strong>together</strong> covers the most restaurants and saves the most.</div>
           <div class="wo-setup-summary"><span>${escapeHtml(summaryBits)}</span><span class="wo-setup-summary-edit">Edit</span></div>
         </div>
         <span class="wo-setup-chevron" aria-hidden="true">
