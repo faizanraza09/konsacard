@@ -1632,16 +1632,15 @@ function renderOwnedCardsPanel(container, walletStats) {
   const catalog = getAllCardsCatalog();
   const ownedCount = state.ownedCards.size;
   const hasWallet = ownedCount > 0;
-  // Wrapped in <details> so users on mobile can tap to expand and see the
-  // full 4-stat grid. Desktop is ALWAYS open (chevron hidden, full grid
-  // visible — same as before this card was collapsible). Mobile defaults
-  // to closed so the Best Next Card surfaces near the top; user toggles
-  // there persist via state.walletSummaryOpen.
+  // Wrapped in <details> so users can tap to expand the 4-stat grid.
+  // Defaults: open on desktop (familiar), closed on phones (so Best
+  // Next Card surfaces near the top). User toggles persist on either
+  // platform via state.walletSummaryOpen.
   const isPhoneSummary = typeof window !== "undefined"
     && window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
-  const summaryOpen = isPhoneSummary
-    ? (state.walletSummaryOpen ?? false)
-    : true;
+  const summaryOpen = state.walletSummaryOpen === undefined
+    ? !isPhoneSummary
+    : state.walletSummaryOpen;
 
   const summaryHtml = hasWallet && walletStats ? `
     <details class="mw-summary mw-summary--collapsible"${summaryOpen ? " open" : ""}>
@@ -2088,16 +2087,14 @@ function renderWalletSetupPanel(container) {
   const feeLabel = maxFeeRaw !== null ? `Max fee ${formatCurrencyShort(maxFeeRaw)}/yr` : "No fee cap";
   const summaryBits = `${K} cards · ${startLabel} · ${objLabel} · ${feeLabel}`;
 
-  // On phones the config is closed by default so the wallet list rises
-  // to the top. On desktop the config is ALWAYS open — toggling doesn't
-  // make sense there (the chevron is hidden by CSS), and we don't want a
-  // user who closed it on mobile to land on desktop and find an empty
-  // card with no way to expand.
+  // First-load defaults: open on desktop (so the user sees the controls
+  // they're used to), closed on phones (so the wallet list rises to the
+  // top). After the user toggles, that choice sticks on either platform.
   const isPhone = typeof window !== "undefined"
     && window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
-  const configOpen = isPhone
-    ? (state.walletConfigOpen ?? false)
-    : true;
+  const configOpen = state.walletConfigOpen === undefined
+    ? !isPhone
+    : state.walletConfigOpen;
 
   container.innerHTML = `
     <details class="wo-setup wo-setup--collapsible"${configOpen ? " open" : ""}>

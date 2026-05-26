@@ -3319,11 +3319,10 @@ html.content-page-root .content > * { min-width: 0; }
   .mw-summary-chevron { display: inline-flex; }
 }
 @media (min-width: 769px) {
-  .mw-summary--collapsible > summary { cursor: default; }
-  /* On desktop, ensure the stats grid stays visible regardless of
-   * <details> open state — same end behaviour as the original always-
-   * visible layout. */
-  .mw-summary--collapsible > .mw-summary-stats { display: grid !important; }
+  /* Chevron is the affordance — show it on desktop too. Click anywhere
+   * on the summary toggles open/closed (same as mobile). */
+  .mw-summary--collapsible > summary { cursor: pointer; }
+  .mw-summary-chevron { display: inline-flex; }
 }
 
 .mw-section-header {
@@ -3720,12 +3719,14 @@ html.content-page-root .content > * { min-width: 0; }
  * visible layout for users with screen real-estate. */
 @media (min-width: 769px) {
   .wo-setup--collapsible { padding: 18px 20px 16px; }
-  .wo-setup--collapsible > summary { padding: 0; cursor: default; }
+  .wo-setup--collapsible > summary { padding: 0; cursor: pointer; }
   .wo-setup--collapsible > summary .wo-setup-summary-line { display: none; }
   .wo-setup--collapsible > .wo-controls-grid,
   .wo-setup--collapsible > .wo-advanced,
   .wo-setup--collapsible > .wo-anchor-note,
   .wo-setup--collapsible > .wo-crosslink { padding-left: 0; padding-right: 0; }
+  /* Chevron stays visible on desktop too — user can collapse if they want. */
+  .wo-setup-chevron { display: inline-flex; }
 }
 
 .wo-controls,
