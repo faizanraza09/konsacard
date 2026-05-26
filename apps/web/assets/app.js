@@ -499,13 +499,14 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
     });
   });
 
-  // Mobile header icons replace the secondary bottom-strip nav. Gear opens
-  // the filter sheet, chat opens the AI panel.
-  document.getElementById("mob-icon-filters")?.addEventListener("click", openMobileSheet);
+  // Mobile chat icon — replaces the FAB on phone widths.
   document.getElementById("mob-icon-chat")?.addEventListener("click", () => {
     closeMobileSheet();
     openChat();
   });
+  // Filters live in the result header now (closer to the user's eye-line
+  // than a small icon in the top nav). Tap → bottom sheet opens.
+  document.getElementById("rh-filters-btn")?.addEventListener("click", openMobileSheet);
   // Tap scrim to close the bottom sheet.
   document.getElementById("mob-sheet-scrim")?.addEventListener("click", closeMobileSheet);
 
@@ -3501,9 +3502,10 @@ function getActiveFilterCount() {
 }
 
 function updateMobileFilterBadge() {
-  // The badge now sits on the gear icon in the top nav, not the old
-  // bottom-strip Filters tab (which has been replaced by the 4 view tabs).
-  const badge = document.getElementById("mob-icon-filters-badge");
+  // The badge sits inside the result-header Filters button on mobile.
+  // The button itself is hidden on desktop via CSS, so writing to it on
+  // every render is a no-op there.
+  const badge = document.getElementById("rh-filters-btn-badge");
   if (!badge) return;
   const n = getActiveFilterCount();
   if (n > 0) {

@@ -375,6 +375,43 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .rh-chip-v { font-size: 14px; font-weight: 700; color: var(--ink); }
 .rh-chip-v.green { color: var(--green); }
 
+/* Mobile-only Filters button in the result header. Hidden on desktop
+ * (the sidebar is always visible there); shown on mobile where it sits
+ * directly above the cards list and is impossible to miss. */
+.rh-filters-btn {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: var(--brand-light);
+  border: 1px solid var(--brand-mid);
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.rh-filters-btn:hover, .rh-filters-btn:focus-visible {
+  background: var(--brand);
+  color: #fff;
+  border-color: var(--brand);
+}
+.rh-filters-btn .ic { font-size: 15px; }
+.rh-filters-btn-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 9px;
+  background: var(--brand);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 800;
+  line-height: 1;
+}
+
 .rh-city-tabs {
   display: none;
   background: var(--bg);
@@ -2297,9 +2334,18 @@ html.content-page-root .content > * { min-width: 0; }
   .saving-window { align-self: flex-start; }
 
   /* The result header should breathe on mobile — drop the heavy padding
-   * and let the count stack above the saving toggle. */
-  .rh { gap: 8px; padding: 12px 16px 8px; }
+   * and let the count stack above the saving toggle. The Filters chip is
+   * mobile-only and lives here so it's impossible to miss. */
+  .rh { gap: 10px; padding: 12px 16px 8px; align-items: flex-start; }
   .rh-city-tabs { display: flex; }
+  .rh-filters-btn { display: inline-flex; }
+
+  /* Tighten the top nav so the wordmark + Find My Card pill + chat icon
+   * + hamburger don't crash into each other on narrow phones. */
+  .nav { gap: 8px; padding: 0 12px; }
+  .mob-header-icons { margin-left: 0; gap: 4px; }
+  .mob-header-icons + .hamburger-btn { margin-left: 4px; }
+  .hamburger-btn { width: 38px; height: 38px; }
 
   /* Compare tray sits above the bottom strip. Keep some space for the
    * persistent chat FAB removed — chat is in the header now. */
@@ -2408,25 +2454,35 @@ html.content-page-root .content > * { min-width: 0; }
   }
 
   /* Stats strip: single horizontal line with the most useful numbers.
-   * Mobile-app pattern: "X/Y rests · Fee Yk". Hide cap + estimated-saving
-   * column (saving is the headline in the right-rail anyway). */
+   * Mobile-app pattern: "X/Y rests · Fee Yk". Cap hidden because saving
+   * is the headline in the right-rail anyway. We add a small inner
+   * gutter so the leftmost value (PKR saving) doesn't sit flush against
+   * the card's peach band edge. */
   .card-stats-row {
     flex-wrap: nowrap;
-    gap: 6px;
-    padding: 0;
-    margin-top: 8px;
+    gap: 4px;
+    padding: 10px 14px 8px;
+    margin-top: 4px;
   }
   .card-stats-row .card-stat {
     min-width: 0;
-    flex: 1 1 auto;
-    padding: 0;
+    padding: 0 4px;
+    text-align: left;
   }
+  /* Saving column gets more space than the others — "PKR 1.73 lakh /year"
+   * is the longest string and was truncating with equal-flex columns. */
+  .card-stats-row .card-stat:nth-child(1) { flex: 1.5 1 0; padding-left: 0; }
+  .card-stats-row .card-stat:nth-child(2) { flex: 1 1 0; }
+  .card-stats-row .card-stat:nth-child(3) { flex: 1 1 0; padding-right: 0; }
   .card-stats-row .card-stat:nth-child(4) { display: none; }   /* hide cap */
   .card-stat .cs-l { display: none; }                           /* labels off */
   .card-stat .cs-v {
-    font-size: 12px;
+    font-size: 12.5px;
     font-weight: 600;
     color: var(--muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .card-stat .cs-v.green { color: var(--green); font-weight: 700; }
 
@@ -2448,10 +2504,17 @@ html.content-page-root .content > * { min-width: 0; }
   .rest-deal-pct { font-size: 12px; }
   .rest-deal-saving { font-size: 16px; }
 
-  /* Build Wallet pick rows: tight 1-col layout. */
+  /* Build Wallet pick rows + controls: 1-col layout. The 768px block
+   * forces wo-controls to a 2-col grid, but at narrow phone widths each
+   * column doesn't have room for 3 pills (the third "4 cards" pill was
+   * truncating). Drop to a single column so each control breathes. */
   .wo-pick-row { padding: 10px 12px; }
   .wo-pick-card { font-size: 13.5px; }
   .wo-pick-bank { font-size: 11px; }
+  .wo-controls,
+  .wo-controls-grid { grid-template-columns: 1fr; gap: 10px; }
+  .wo-pill-group { flex-wrap: wrap; }
+  .wo-pill { flex: 1 1 auto; min-width: 64px; text-align: center; padding: 7px 10px; font-size: 11.5px; }
   .wo-combined-stats { grid-template-columns: 1fr 1fr; }
   .wo-combined-stat { padding: 10px 12px; }
   .wo-combined-stat-l { font-size: 9.5px; }
