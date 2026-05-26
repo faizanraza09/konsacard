@@ -1,7 +1,10 @@
-# Redirect old query-parameter filter URLs to clean canonical paths
-# Bank-specific landing page redirects (these have separate pages now)
-# Skip these for now - the homepage already canonicalizes filtered states to /
+# Redirect old query-parameter filter URLs to clean canonical paths.
+# Bank-specific landing-page redirects have separate /banks/<slug>/ pages now,
+# and the homepage canonicalizes filtered states to / via the canonical meta
+# tag in index.html, so /?banks=...&rests=... URLs are kept as-is.
 
-# Keep all homepage query-param URLs (/?banks=...&rests=...) 
-# They all canonicalize to / via the canonical meta tag in index.html
-
+# 404 fallback: any path that doesn't match a real file falls through to
+# 404.html with HTTP 404. Cloudflare Pages serves 404.html by default for
+# missing routes, but stating it explicitly survives wrangler-dev and any
+# future routing changes. Order matters — this MUST stay last.
+/*  /404.html  404

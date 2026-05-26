@@ -1,5 +1,6 @@
-import { FlashList } from "@shopify/flash-list";
-import { useMemo, useRef } from "react";
+import { FlashList, type FlashListRef } from "@shopify/flash-list";
+import { useEffect, useMemo, useRef } from "react";
+import type { RestaurantDeal } from "@/components/RestaurantRow";
 import { StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
@@ -14,8 +15,13 @@ import { colors } from "@/theme";
 export default function RestaurantsScreen() {
   const state = useAppStore();
   const sheet = useRef<FilterSheetHandle>(null);
+  const listRef = useRef<FlashListRef<RestaurantDeal>>(null);
 
   const deals = useMemo(() => computeRestaurantDeals(state), [state]);
+
+  useEffect(() => {
+    listRef.current?.scrollToOffset({ offset: 0, animated: false });
+  }, [state.selectedCity]);
 
   const activeFilters =
     state.selectedDays.size +
@@ -39,13 +45,14 @@ export default function RestaurantsScreen() {
       />
       <View style={styles.flex}>
         <FlashList
+          ref={listRef}
           data={deals}
           renderItem={({ item }) => <RestaurantRow item={item} />}
           keyExtractor={(item) => `${item.city}|||${item.restaurant}`}
           contentContainerStyle={styles.list}
         />
       </View>
-      <FilterSheet ref={sheet} />
+      <FilterSheet ref={sheet} matchCount={deals.length} matchLabel="restaurants" />
     </SafeAreaView>
   );
 }

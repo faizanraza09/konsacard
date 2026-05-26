@@ -248,6 +248,24 @@ function formatCurrency(value) {
   return `PKR ${Math.round(value).toLocaleString("en-US")}`;
 }
 
+// Pakistani consumers think in lakh/crore for large rupee amounts. For values
+// ≥ 1 lakh (100,000) we render the lakh form ("PKR 1.7 lakh"); ≥ 1 crore we
+// render the crore form. Below 1 lakh we fall back to the precise format,
+// which is the right grain for per-outing / per-month savings.
+function formatCurrencyShort(value) {
+  const v = Math.round(Number(value) || 0);
+  const abs = Math.abs(v);
+  if (abs >= 10_000_000) {
+    const crore = v / 10_000_000;
+    return `PKR ${crore.toFixed(crore >= 10 ? 1 : 2)} crore`;
+  }
+  if (abs >= 100_000) {
+    const lakh = v / 100_000;
+    return `PKR ${lakh.toFixed(lakh >= 10 ? 1 : 2)} lakh`;
+  }
+  return formatCurrency(v);
+}
+
 function formatSavingsAmount(value, options = {}) {
   const { per = "", signed = false } = options;
   const rounded = Math.round(Number(value) || 0);

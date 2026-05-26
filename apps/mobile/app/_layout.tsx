@@ -39,15 +39,37 @@ export default function RootLayout() {
           ) : err ? (
             <BootError msg={err} onRetry={() => setErr(null)} />
           ) : (
-            <Stack screenOptions={{ headerShown: false }}>
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                // iOS still leaks the parent route's name ("(tabs)") as the
+                // back-button label when `headerBackTitle: ""` is set on the
+                // child screen. `minimal` is the RN-Screens-blessed way to
+                // render an icon-only back button across both platforms.
+                headerBackButtonDisplayMode: "minimal",
+                headerBackTitle: " ",
+              }}
+            >
               <Stack.Screen name="(tabs)" />
               <Stack.Screen
                 name="card/[id]"
-                options={{ headerShown: true, title: "Card detail", headerTintColor: colors.text }}
+                options={{
+                  headerShown: true,
+                  title: "Card",
+                  headerTintColor: colors.text,
+                  headerBackButtonDisplayMode: "minimal",
+                  headerBackTitle: " ",
+                }}
               />
               <Stack.Screen
                 name="restaurant/[name]"
-                options={{ headerShown: true, title: "Restaurant", headerTintColor: colors.text }}
+                options={{
+                  headerShown: true,
+                  title: "Restaurant",
+                  headerTintColor: colors.text,
+                  headerBackButtonDisplayMode: "minimal",
+                  headerBackTitle: " ",
+                }}
               />
               <Stack.Screen
                 name="onboarding"
@@ -72,6 +94,15 @@ export default function RootLayout() {
               <Stack.Screen
                 name="settings"
                 options={{ headerShown: true, title: "Settings", headerTintColor: colors.text }}
+              />
+              <Stack.Screen
+                name="compare"
+                options={{
+                  presentation: "modal",
+                  headerShown: true,
+                  title: "Compare",
+                  headerTintColor: colors.text,
+                }}
               />
             </Stack>
           )}

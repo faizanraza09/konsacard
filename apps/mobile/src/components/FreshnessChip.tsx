@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   chipFresh: { backgroundColor: colors.toneEligibleBg },
-  chipAging: { backgroundColor: "#FBEFD9" },
+  chipAging: { backgroundColor: colors.toneNeedsInputBg },
   dot: { width: 6, height: 6, borderRadius: 3 },
   text: { fontSize: typography.size.xs, fontWeight: typography.weight.semibold },
   bold: { fontWeight: typography.weight.bold },

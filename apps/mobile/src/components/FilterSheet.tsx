@@ -4,12 +4,7 @@ import BottomSheet, {
   BottomSheetTextInput,
 } from "@gorhom/bottom-sheet";
 import { forwardRef, useCallback, useImperativeHandle, useMemo, useRef, useState } from "react";
-import {
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import { useAppStore } from "@/store";
 import { colors, radii, spacing, typography } from "@/theme";
 import { Pill } from "./Pill";
@@ -20,7 +15,40 @@ export interface FilterSheetHandle {
   close: () => void;
 }
 
-export const FilterSheet = forwardRef<FilterSheetHandle, {}>(function FilterSheet(_props, ref) {
+interface Props {
+  matchCount?: number;
+  matchLabel?: string;
+}
+
+// Banks that the average Pakistani user recognizes first. Shown by default;
+// the rest are revealed under "Show all banks".
+const POPULAR_BANKS = [
+  "Habib Bank Limited",
+  "United Bank Limited (UBL)",
+  "Allied Bank",
+  "Faysal Bank Limited",
+  "Meezan Bank",
+  "Bank Alfalah",
+  "Standard Chartered Bank",
+  "MCB Bank Limited",
+];
+
+// Cuisines that index well for Pakistani diners. Top of the list by default.
+const POPULAR_CUISINES = [
+  "Pakistani",
+  "BBQ",
+  "Karahi",
+  "Biryani",
+  "Chinese",
+  "Burgers",
+  "Pizza",
+  "Desserts",
+];
+
+export const FilterSheet = forwardRef<FilterSheetHandle, Props>(function FilterSheet(
+  { matchCount, matchLabel = "results" },
+  ref
+) {
   const sheet = useRef<BottomSheet>(null);
   useImperativeHandle(ref, () => ({
     open: () => sheet.current?.expand(),
@@ -28,6 +56,7 @@ export const FilterSheet = forwardRef<FilterSheetHandle, {}>(function FilterShee
   }));
 
   const snapPoints = useMemo(() => ["75%", "95%"], []);
+  const close = useCallback(() => sheet.current?.close(), []);
 
   return (
     <BottomSheet
@@ -54,16 +83,37 @@ export const FilterSheet = forwardRef<FilterSheetHandle, {}>(function FilterShee
         <CuisineSection />
         <EligibilitySection />
         <DaysSection />
-        <View style={{ height: spacing.xxxl }} />
+        <View style={{ height: 100 }} />
       </BottomSheetScrollView>
+      <ApplyBar matchCount={matchCount} matchLabel={matchLabel} onPress={close} />
     </BottomSheet>
   );
 });
 
+function ApplyBar({
+  matchCount,
+  matchLabel,
+  onPress,
+}: {
+  matchCount?: number;
+  matchLabel: string;
+  onPress: () => void;
+}) {
+  const count = typeof matchCount === "number" ? matchCount : null;
+  const label = count === null ? "Apply filters" : `Show ${count.toLocaleString("en-US")} ${matchLabel}`;
+  return (
+    <View style={styles.applyBar}>
+      <Pressable style={styles.applyBtn} onPress={onPress} accessibilityRole="button">
+        <Text style={styles.applyBtnText}>{label}</Text>
+      </Pressable>
+    </View>
+  );
+}
+
 function ResetButton() {
   const reset = useAppStore((s) => s.resetFilters);
   return (
-    <Pressable onPress={reset}>
+    <Pressable onPress={reset} hitSlop={8}>
       <Text style={styles.resetBtn}>Reset all</Text>
     </Pressable>
   );
@@ -78,10 +128,28 @@ function SectionLabel({ children, count }: { children: string; count?: number })
   );
 }
 
+function ShowMoreToggle({
+  expanded,
+  hiddenCount,
+  onPress,
+}: {
+  expanded: boolean;
+  hiddenCount: number;
+  onPress: () => void;
+}) {
+  if (hiddenCount <= 0) return null;
+  return (
+    <Pressable onPress={onPress} hitSlop={8}>
+      <Text style={styles.showMore}>
+        {expanded ? "Show less" : `Show all (+${hiddenCount})`}
+      </Text>
+    </Pressable>
+  );
+}
+
 function TypicalBill() {
   const value = useAppStore((s) => s.orderValue);
   const setValue = useAppStore((s) => s.setOrderValue);
-  // RN core doesn't ship a slider in SDK 56; rough proxy with 5 quick presets.
   const presets = [1000, 3000, 5000, 10000, 20000, 30000];
   return (
     <View style={styles.section}>
@@ -132,9 +200,6 @@ function CardTypeSection() {
 }
 
 function BankSection() {
-  // Selectors must return a stable reference when nothing changed — building a
-  // fresh array inside the selector breaks Zustand's equality check and loops.
-  // Pull the raw offers array out and derive the sorted bank list with useMemo.
   const offers = useAppStore((s) => s.data?.offers);
   const banksInData = useMemo(() => {
     const set = new Set<string>();
@@ -144,14 +209,37 @@ function BankSection() {
   const selected = useAppStore((s) => s.selectedBanks);
   const toggle = useAppStore((s) => s.toggleBank);
   const [q, setQ] = useState("");
+  const [expanded, setExpanded] = useState(false);
+
   const filtered = useMemo(() => {
     const qq = q.trim().toLowerCase();
     if (!qq) return banksInData;
     return banksInData.filter((b) => b.toLowerCase().includes(qq));
   }, [banksInData, q]);
+
+  // When searching, show all matches. Otherwise show the popular list +
+  // any selected-but-unpopular, with the rest behind "Show all".
+  const searching = q.trim().length > 0;
+  const popularInData = POPULAR_BANKS.filter((p) => banksInData.includes(p));
+  const collapsed = useMemo(() => {
+    const set = new Set<string>([...popularInData, ...Array.from(selected)]);
+    return Array.from(set).filter((b) => banksInData.includes(b));
+  }, [popularInData, selected, banksInData]);
+  const visible = searching ? filtered : expanded ? filtered : collapsed;
+  const hiddenCount = searching ? 0 : Math.max(0, filtered.length - collapsed.length);
+
   return (
     <View style={styles.section}>
-      <SectionLabel count={selected.size}>Banks</SectionLabel>
+      <View style={styles.sectionLabelRow}>
+        <Text style={styles.sectionLabel}>Banks</Text>
+        {selected.size ? <Text style={styles.sectionCount}>{selected.size}</Text> : null}
+        <View style={{ flex: 1 }} />
+        <ShowMoreToggle
+          expanded={expanded}
+          hiddenCount={hiddenCount}
+          onPress={() => setExpanded(!expanded)}
+        />
+      </View>
       <BottomSheetTextInput
         style={styles.searchInput}
         placeholder="Search banks…"
@@ -162,7 +250,7 @@ function BankSection() {
         autoCapitalize="none"
       />
       <View style={styles.pillRow}>
-        {filtered.slice(0, 30).map((b) => (
+        {visible.slice(0, 60).map((b) => (
           <Pill key={b} label={b} active={selected.has(b)} onPress={() => toggle(b)} />
         ))}
       </View>
@@ -225,12 +313,32 @@ function CuisineSection() {
   }, [enrichment]);
   const selected = useAppStore((s) => s.selectedCuisines);
   const toggle = useAppStore((s) => s.toggleCuisine);
+  const [expanded, setExpanded] = useState(false);
+
   if (cuisines.length === 0) return null;
+
+  const popularInData = POPULAR_CUISINES.filter((c) => cuisines.includes(c));
+  const collapsed = useMemo(() => {
+    const set = new Set<string>([...popularInData, ...Array.from(selected)]);
+    return Array.from(set).filter((c) => cuisines.includes(c));
+  }, [popularInData, selected, cuisines]);
+  const visible = expanded ? cuisines : collapsed;
+  const hiddenCount = Math.max(0, cuisines.length - collapsed.length);
+
   return (
     <View style={styles.section}>
-      <SectionLabel count={selected.size}>Cuisines</SectionLabel>
+      <View style={styles.sectionLabelRow}>
+        <Text style={styles.sectionLabel}>Cuisines</Text>
+        {selected.size ? <Text style={styles.sectionCount}>{selected.size}</Text> : null}
+        <View style={{ flex: 1 }} />
+        <ShowMoreToggle
+          expanded={expanded}
+          hiddenCount={hiddenCount}
+          onPress={() => setExpanded(!expanded)}
+        />
+      </View>
       <View style={styles.pillRow}>
-        {cuisines.map((c) => (
+        {visible.map((c) => (
           <Pill key={c} label={c} active={selected.has(c)} onPress={() => toggle(c)} />
         ))}
       </View>
@@ -318,7 +426,6 @@ const styles = StyleSheet.create({
     marginBottom: spacing.sm,
   },
   sectionLabel: {
-    flex: 1,
     color: colors.textMuted,
     fontSize: typography.size.xs,
     fontWeight: typography.weight.bold,
@@ -326,6 +433,7 @@ const styles = StyleSheet.create({
     letterSpacing: 0.5,
   },
   sectionCount: {
+    marginLeft: spacing.xs,
     backgroundColor: colors.brand,
     color: colors.textOnBrand,
     paddingHorizontal: 8,
@@ -334,11 +442,17 @@ const styles = StyleSheet.create({
     borderRadius: radii.pill,
     overflow: "hidden",
   },
+  showMore: {
+    color: colors.brand,
+    fontSize: typography.size.xs,
+    fontWeight: typography.weight.semibold,
+  },
   bigValue: {
     fontSize: typography.size.xxl,
     fontWeight: typography.weight.bold,
     color: colors.text,
     marginBottom: spacing.sm,
+    fontVariant: ["tabular-nums"],
   },
   pillRow: {
     flexDirection: "row",
@@ -364,5 +478,30 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: typography.size.xs,
     marginBottom: spacing.xs,
+  },
+  applyBar: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: 0,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.lg,
+    backgroundColor: colors.bgElev,
+    borderTopWidth: StyleSheet.hairlineWidth,
+    borderTopColor: colors.border,
+  },
+  applyBtn: {
+    backgroundColor: colors.brand,
+    paddingVertical: spacing.md,
+    borderRadius: radii.pill,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  applyBtnText: {
+    color: colors.textOnBrand,
+    fontSize: typography.size.md,
+    fontWeight: typography.weight.bold,
+    fontVariant: ["tabular-nums"],
   },
 });

@@ -5,7 +5,6 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import type { StyleProp, ViewStyle } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
-import { EligibilityBadge } from "@/components/EligibilityBadge";
 import { FilterSheet, FilterSheetHandle } from "@/components/FilterSheet";
 import { OwnedCardPicker } from "@/components/OwnedCardPicker";
 import { ResultsHeader } from "@/components/ResultsHeader";
@@ -15,7 +14,15 @@ import { formatCurrency } from "@/lib/format";
 import { getBankLogoUrl } from "@/lib/bankLogo";
 import { useAppStore } from "@/store";
 import { NextCardRecommendation } from "@/types";
-import { colors, radii, scoreColor, shadow, spacing, typography } from "@/theme";
+import {
+  colors,
+  eligibilityTone,
+  radii,
+  scoreColor,
+  shadow,
+  spacing,
+  typography,
+} from "@/theme";
 
 export default function MyWalletScreen() {
   const state = useAppStore();
@@ -28,11 +35,11 @@ export default function MyWalletScreen() {
       <CityTabs />
       <ResultsHeader
         count={result.ranked.length}
-        countLabel="next-card picks"
+        countLabel="cards to add next"
         subtitle={
           state.ownedCards.size > 0
             ? `Your wallet covers ${result.stats.wallet?.coveredVenues ?? 0} of ${result.stats.venuesInScope} venues`
-            : "Add your cards to unlock personalised picks"
+            : "Add the cards you own to unlock personal picks"
         }
         onPressFilters={() => sheet.current?.open()}
       />
@@ -54,18 +61,26 @@ export default function MyWalletScreen() {
         renderItem={({ item, index }) => <NextCardRow item={item} rank={index + 1} />}
         contentContainerStyle={styles.list}
       />
-      <FilterSheet ref={sheet} />
+      <FilterSheet ref={sheet} matchCount={result.ranked.length} matchLabel="picks" />
     </SafeAreaView>
   );
 }
 
+// Compact next-card recommendation row. Mirrors CardRow's 3-line shape so
+// users get the same visual rhythm across tabs; differs only in that the
+// "saving" here is a *marginal delta* (+PKR over what the user's wallet
+// already saves) rather than absolute savings.
 function NextCardRow({ item, rank }: { item: NextCardRecommendation; rank: number }) {
   const isTopPick = rank === 1;
   const rowStyle = StyleSheet.flatten<ViewStyle>([
     styles.row,
     isTopPick ? styles.rowTop : null,
   ] as StyleProp<ViewStyle>);
-  const logoUrl = getBankLogoUrl(item.bank);
+  const categoryLabel = item.cardCategory
+    ? item.cardCategory.charAt(0).toUpperCase() + item.cardCategory.slice(1)
+    : null;
+  const tone = eligibilityTone(item.requirementStatus.tone);
+  const elig = compactEligibilityLabel(item.requirementStatus.label);
 
   return (
     <Link
@@ -79,63 +94,70 @@ function NextCardRow({ item, rank }: { item: NextCardRecommendation; rank: numbe
           </View>
         ) : null}
 
-        <View style={styles.head}>
-          <View style={styles.logoWrap}>
-            {logoUrl ? (
-              <Image source={{ uri: logoUrl }} style={{ width: "78%", height: "78%" }} resizeMode="contain" />
-            ) : (
-              <Text style={styles.logoFallbackText}>{item.bank.slice(0, 2).toUpperCase()}</Text>
-            )}
-          </View>
+        <View style={styles.body}>
+          <BankLogo bank={item.bank} />
           <View style={styles.titleCol}>
-            <Text style={[styles.bank, isTopPick && styles.bankTop]} numberOfLines={1}>
-              {item.bank}
-            </Text>
-            <Text style={styles.cardName} numberOfLines={2}>
+            <Text style={[styles.cardName, isTopPick && styles.cardNameTop]} numberOfLines={1}>
               {item.card}
             </Text>
+            <Text style={styles.subline} numberOfLines={1}>
+              <Text style={styles.bankBold}>{item.bank}</Text>
+              {categoryLabel ? ` · ${categoryLabel}` : ""}
+            </Text>
+            <View style={styles.metaRow}>
+              <View style={[styles.eligDot, { backgroundColor: tone.color }]} />
+              <Text style={[styles.eligText, { color: tone.color }]} numberOfLines={1}>
+                {elig}
+              </Text>
+              {!isTopPick ? <Text style={styles.rankTag}>#{rank}</Text> : null}
+            </View>
           </View>
-          <View style={styles.scoreCol}>
+          <View style={styles.statCol}>
+            <Text style={styles.savingValue} numberOfLines={1}>
+              +{formatCurrency(item.avgDeltaPerOuting)}
+            </Text>
+            <Text style={styles.savingUnit}>/outing</Text>
             <Text style={[styles.scoreNum, { color: scoreColor(item.score) }]}>
               {item.score.toFixed(1)}
             </Text>
-            <Text style={styles.scoreLabel}>FIT</Text>
-            <View style={[styles.scoreBar, { backgroundColor: scoreColor(item.score) }]} />
           </View>
         </View>
 
-        <View style={styles.tagsRow}>
-          <EligibilityBadge status={item.requirementStatus} />
-          {item.cardCategory ? (
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>{item.cardCategory}</Text>
-            </View>
-          ) : null}
-          <Text style={styles.rankTag}>#{rank}</Text>
-        </View>
-
-        <View style={styles.divider} />
-
-        <Text style={styles.heroLabel}>Extra saving on top of your wallet</Text>
-        <View style={styles.heroRow}>
-          <Text style={styles.heroValue}>+{formatCurrency(item.avgDeltaPerOuting)}</Text>
-          <Text style={styles.heroUnit}> /outing</Text>
-        </View>
-
-        <Text style={styles.microStats} numberOfLines={1}>
-          <Text style={styles.microBold}>{item.newVenues}</Text> new venue
-          {item.newVenues === 1 ? "" : "s"} · <Text style={styles.microBold}>{item.boostedVenues}</Text> boosted · est.{" "}
-          <Text style={styles.microBold}>{formatCurrency(item.yearlyDelta)}</Text>/yr
-        </Text>
-
-        {item.topVenueWins[0] ? (
-          <Text style={styles.topMatch} numberOfLines={1}>
-            <Text style={styles.topMatchPrefix}>Biggest win: </Text>
-            <Text style={styles.topMatchName}>{item.topVenueWins[0].restaurant}</Text>
+        {isTopPick ? (
+          <Text style={styles.bottomLine} numberOfLines={1}>
+            <Text style={styles.bottomBold}>{item.newVenues}</Text> new venue
+            {item.newVenues === 1 ? "" : "s"}
+            {" · est. "}
+            <Text style={styles.bottomBold}>{formatCurrency(item.yearlyDelta)}</Text>/yr
+            {item.topVenueWins[0] ? ` · top: ${item.topVenueWins[0].restaurant}` : ""}
           </Text>
         ) : null}
       </Pressable>
     </Link>
+  );
+}
+
+function compactEligibilityLabel(label: string): string {
+  if (label === "Salary/balance not entered") return "Add salary to check";
+  if (label === "Est. requirements exist") return "Approx. eligible";
+  if (label === "Requirements unclear") return "Requirements unclear";
+  return label;
+}
+
+function BankLogo({ bank }: { bank: string }) {
+  const url = getBankLogoUrl(bank);
+  const size = 36;
+  if (!url) {
+    return (
+      <View style={[styles.logoFallback, { width: size, height: size, borderRadius: size / 2 }]}>
+        <Text style={styles.logoFallbackText}>{(bank || "?").slice(0, 2).toUpperCase()}</Text>
+      </View>
+    );
+  }
+  return (
+    <View style={[styles.logoWrap, { width: size, height: size, borderRadius: size / 2 }]}>
+      <Image source={{ uri: url }} style={{ width: "78%", height: "78%" }} resizeMode="contain" />
+    </View>
   );
 }
 
@@ -151,24 +173,27 @@ function WalletStat({ label, value }: { label: string; value: string }) {
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
   list: { paddingBottom: 80, paddingTop: 4 },
+
   setup: {
     backgroundColor: colors.bgElev,
     marginHorizontal: spacing.lg,
     padding: spacing.md,
     borderRadius: radii.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
     marginBottom: spacing.md,
-    ...shadow.card,
   },
   walletStats: { flexDirection: "row", gap: spacing.sm, marginTop: spacing.md },
   statBox: {
     flex: 1,
     backgroundColor: colors.bgSubtle,
-    padding: spacing.sm,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.sm,
     borderRadius: radii.md,
   },
   statBoxLabel: {
     color: colors.textDim,
-    fontSize: 10,
+    fontSize: 9,
     fontWeight: typography.weight.bold,
     textTransform: "uppercase",
     letterSpacing: 0.5,
@@ -177,22 +202,25 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: typography.size.md,
     fontWeight: typography.weight.bold,
+    fontVariant: ["tabular-nums"],
     marginTop: 2,
   },
+
   row: {
     backgroundColor: colors.bgElev,
     borderRadius: radii.lg,
-    paddingHorizontal: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    paddingHorizontal: spacing.md,
     paddingTop: spacing.md,
     paddingBottom: spacing.md,
     marginHorizontal: spacing.lg,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
     ...shadow.card,
   },
   rowTop: {
     backgroundColor: colors.bgTint,
-    borderWidth: 1,
-    borderColor: colors.brandLight,
+    borderColor: colors.brandMid,
     paddingTop: spacing.sm,
   },
   topRibbon: {
@@ -201,7 +229,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     paddingVertical: 3,
     borderRadius: radii.sm,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs,
   },
   topRibbonText: {
     color: colors.textOnBrand,
@@ -209,11 +237,9 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     letterSpacing: 1,
   },
-  head: { flexDirection: "row", alignItems: "flex-start", gap: spacing.sm },
+
+  body: { flexDirection: "row", alignItems: "flex-start", gap: spacing.sm },
   logoWrap: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
     backgroundColor: colors.bgElev,
     borderWidth: 1,
     borderColor: colors.border,
@@ -221,92 +247,85 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     overflow: "hidden",
   },
+  logoFallback: {
+    backgroundColor: colors.bgSubtle,
+    alignItems: "center",
+    justifyContent: "center",
+  },
   logoFallbackText: {
     color: colors.textMuted,
     fontWeight: typography.weight.bold,
     fontSize: typography.size.sm,
   },
-  titleCol: { flex: 1, minWidth: 0, paddingTop: 2 },
-  bank: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: typography.weight.bold,
-    textTransform: "uppercase",
-    letterSpacing: 0.6,
-  },
-  bankTop: { color: colors.brand },
+
+  titleCol: { flex: 1, minWidth: 0, gap: 2 },
   cardName: {
     color: colors.text,
-    fontSize: typography.size.lg,
+    fontSize: typography.size.md,
     fontWeight: typography.weight.bold,
-    marginTop: 2,
+    lineHeight: typography.size.md + 4,
+  },
+  cardNameTop: {
+    fontSize: typography.size.lg,
     lineHeight: typography.size.lg + 4,
   },
-  scoreCol: { alignItems: "flex-end", minWidth: 50 },
-  scoreNum: {
-    fontSize: typography.size.xxl,
-    fontWeight: typography.weight.black,
-    lineHeight: typography.size.xxl + 2,
-  },
-  scoreLabel: {
+  subline: {
     color: colors.textDim,
-    fontSize: 9,
-    fontWeight: typography.weight.semibold,
-    textTransform: "uppercase",
-    letterSpacing: 0.6,
-    marginTop: 1,
+    fontSize: typography.size.xs,
+    fontWeight: typography.weight.medium,
   },
-  scoreBar: { width: 28, height: 3, borderRadius: 2, marginTop: 4 },
-  tagsRow: {
+  bankBold: {
+    color: colors.textMuted,
+    fontWeight: typography.weight.bold,
+    textTransform: "uppercase",
+    letterSpacing: 0.4,
+  },
+  metaRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.xs,
-    marginTop: spacing.sm,
+    gap: 6,
+    marginTop: 4,
     flexWrap: "wrap",
   },
-  tag: {
-    backgroundColor: colors.bgSubtle,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 3,
-    borderRadius: radii.pill,
-  },
-  tagText: {
-    color: colors.textMuted,
-    fontSize: typography.size.xs,
-    fontWeight: typography.weight.semibold,
-    textTransform: "capitalize",
-  },
+  eligDot: { width: 7, height: 7, borderRadius: 4 },
+  eligText: { fontSize: typography.size.xs, fontWeight: typography.weight.semibold },
   rankTag: {
     color: colors.textDim,
     fontSize: typography.size.xs,
     fontWeight: typography.weight.semibold,
+    marginLeft: spacing.xs,
   },
-  divider: {
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: colors.border,
-    marginVertical: spacing.md,
+
+  statCol: {
+    alignItems: "flex-end",
+    minWidth: 96,
+    gap: 1,
   },
-  heroLabel: {
-    color: colors.textDim,
-    fontSize: 10,
-    fontWeight: typography.weight.bold,
-    textTransform: "uppercase",
-    letterSpacing: 0.8,
-  },
-  heroRow: { flexDirection: "row", alignItems: "baseline", marginTop: 2 },
-  heroValue: {
+  savingValue: {
     color: colors.brand,
-    fontSize: typography.size.xxl,
+    fontSize: typography.size.lg,
     fontWeight: typography.weight.black,
+    lineHeight: typography.size.lg + 2,
+    fontVariant: ["tabular-nums"],
   },
-  heroUnit: {
-    color: colors.textMuted,
+  savingUnit: {
+    color: colors.textDim,
+    fontSize: typography.size.xs,
+    fontWeight: typography.weight.medium,
+  },
+  scoreNum: {
     fontSize: typography.size.sm,
-    fontWeight: typography.weight.semibold,
+    fontWeight: typography.weight.bold,
+    fontVariant: ["tabular-nums"],
+    opacity: 0.85,
+    marginTop: 4,
   },
-  microStats: { color: colors.textMuted, fontSize: typography.size.sm, marginTop: 4 },
-  microBold: { color: colors.text, fontWeight: typography.weight.bold },
-  topMatch: { color: colors.textMuted, fontSize: typography.size.sm, marginTop: 6 },
-  topMatchPrefix: { fontWeight: typography.weight.semibold },
-  topMatchName: { color: colors.text, fontWeight: typography.weight.semibold },
+
+  bottomLine: {
+    color: colors.textMuted,
+    fontSize: typography.size.xs,
+    marginTop: spacing.sm,
+    fontVariant: ["tabular-nums"],
+  },
+  bottomBold: { color: colors.text, fontWeight: typography.weight.bold },
 });

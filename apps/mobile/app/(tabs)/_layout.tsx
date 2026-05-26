@@ -1,18 +1,15 @@
 import { Tabs } from "expo-router";
-import { Text } from "react-native";
+import { CreditCard, Layers, UtensilsCrossed, Wallet } from "lucide-react-native";
+import type { LucideIcon } from "lucide-react-native";
 import { colors, typography } from "@/theme";
 
-function TabIcon({ glyph, focused }: { glyph: string; focused: boolean }) {
+function TabIcon({ Icon, focused }: { Icon: LucideIcon; focused: boolean }) {
   return (
-    <Text
-      style={{
-        fontSize: 22,
-        opacity: focused ? 1 : 0.55,
-        transform: [{ scale: focused ? 1.05 : 1 }],
-      }}
-    >
-      {glyph}
-    </Text>
+    <Icon
+      size={24}
+      color={focused ? colors.brand : colors.textDim}
+      strokeWidth={focused ? 2.25 : 1.75}
+    />
   );
 }
 
@@ -37,28 +34,28 @@ export default function TabsLayout() {
         name="index"
         options={{
           title: "Cards",
-          tabBarIcon: ({ focused }) => <TabIcon glyph="💳" focused={focused} />,
+          tabBarIcon: ({ focused }) => <TabIcon Icon={CreditCard} focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="restaurants"
         options={{
           title: "Restaurants",
-          tabBarIcon: ({ focused }) => <TabIcon glyph="🍽️" focused={focused} />,
+          tabBarIcon: ({ focused }) => <TabIcon Icon={UtensilsCrossed} focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="my-wallet"
         options={{
           title: "My Wallet",
-          tabBarIcon: ({ focused }) => <TabIcon glyph="💼" focused={focused} />,
+          tabBarIcon: ({ focused }) => <TabIcon Icon={Wallet} focused={focused} />,
         }}
       />
       <Tabs.Screen
         name="wallet"
         options={{
           title: "Build Wallet",
-          tabBarIcon: ({ focused }) => <TabIcon glyph="🧩" focused={focused} />,
+          tabBarIcon: ({ focused }) => <TabIcon Icon={Layers} focused={focused} />,
         }}
       />
     </Tabs>

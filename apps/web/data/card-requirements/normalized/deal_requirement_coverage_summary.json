@@ -35,9 +35,11 @@
     "deal_bank_name": "Bank Alfalah",
     "requirement_bank_name": "Bank Alfalah",
     "matched_cards": 26,
-    "total_deal_cards": 26,
-    "coverage_pct": 100.0,
-    "unmatched_deal_cards": []
+    "total_deal_cards": 27,
+    "coverage_pct": 96.3,
+    "unmatched_deal_cards": [
+      "Bank Alfalah Mastercard Titanium Credit Card"
+    ]
   },
   {
     "deal_bank_name": "Bank of Punjab",
@@ -50,6 +52,16 @@
   {
     "deal_bank_name": "BankIslami",
     "requirement_bank_name": "BankIslami",
+    "matched_cards": 3,
+    "total_deal_cards": 4,
+    "coverage_pct": 75.0,
+    "unmatched_deal_cards": [
+      "Priority Mastercard Debit Card"
+    ]
+  },
+  {
+    "deal_bank_name": "Easypaisa",
+    "requirement_bank_name": "Easypaisa",
     "matched_cards": 3,
     "total_deal_cards": 3,
     "coverage_pct": 100.0,
@@ -116,6 +128,14 @@
     "requirement_bank_name": "Meezan Bank",
     "matched_cards": 14,
     "total_deal_cards": 14,
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
+  },
+  {
+    "deal_bank_name": "National Bank of Pakistan",
+    "requirement_bank_name": "National Bank of Pakistan",
+    "matched_cards": 5,
+    "total_deal_cards": 5,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },

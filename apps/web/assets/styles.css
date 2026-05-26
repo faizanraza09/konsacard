@@ -5,8 +5,11 @@
   --surface2: #F8FAFC;
   --ink: #0F172A;
   --ink2: #334155;
-  --muted: #64748B;
-  --muted2: #94A3B8;
+  /* Muted text bumped to slate-600 so labels on the slate-100 page pass WCAG
+   * AA (4.5:1). The previous #64748B sat at 3.4:1 — accessibility only,
+   * unrelated to the brief reverted cream background. */
+  --muted: #475569;
+  --muted2: #64748B;
   --brand: #BD5B3D;
   --brand-dark: #9E4530;
   --brand-light: #FDF3F0;
@@ -18,6 +21,7 @@
   --red: #DC2626;
   --line: #E2E8F0;
   --line2: #F1F5F9;
+  --focus-ring: 0 0 0 3px rgba(189,91,61,0.35);
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
   --shadow: 0 4px 16px rgba(0,0,0,0.08);
   --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
@@ -26,6 +30,29 @@
   --r-lg: 16px;
   --nav-h: 56px;
   --sidebar-w: 260px;
+}
+
+/* ── FOCUS RING SYSTEM ──
+ * Keyboard-only :focus-visible so mouse users don't see rings, but Tab users
+ * get a clear brand-tinted halo on every interactive surface. */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--r-sm);
+}
+/* The result cards listen for keyboard activation (role=button, tabindex=0)
+ * and already have their own rounded corners — match them. */
+.card-item:focus-visible,
+.rest-deal-row:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring), var(--shadow);
+  border-radius: var(--r-lg);
 }
 
 /* ── RESET ── */
@@ -970,6 +997,14 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
   margin: 0;
 }
 
+/* When the freshness wrap is dropped inside the hero-actions flex row, kill
+ * its outer padding/centering so the chip sits inline next to the CTA. */
+.hero-actions .freshness-chip-wrap {
+  padding: 0;
+  margin: 0;
+  max-width: none;
+}
+
 /* Stale-data banner (only rendered when generatedAt is >60 days ago) */
 .stale-banner {
   margin: 14px 20px 0;
@@ -1605,10 +1640,11 @@ body.content-page {
 }
 
 body.content-page {
-  background:
-    radial-gradient(circle at top left, rgba(189,91,61,0.14), transparent 32%),
-    radial-gradient(circle at top right, rgba(5,150,105,0.08), transparent 24%),
-    linear-gradient(180deg, #FCFAF7 0%, #F1F5F9 100%);
+  /* Match the homepage exactly so methodology / contact / SEO pages don't
+   * feel like a different product. Previously these had a peach+green
+   * radial gradient layered over a cream-to-slate fade that fought the
+   * brand-orange accent and read as "warm". */
+  background: var(--bg);
   color: var(--ink);
 }
 
@@ -1704,15 +1740,14 @@ html.content-page-root .content > * { min-width: 0; }
   max-width: 1180px;
   width: 100%;
   margin: 0 auto;
-  padding: 34px 20px 20px;
-  display: grid;
-  grid-template-columns: minmax(0, 1.55fr) minmax(280px, .8fr);
-  gap: 20px;
+  padding: 28px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .content-hero > * {
   max-width: none;
-  grid-column: 1;
 }
 
 .eyebrow {
@@ -1721,21 +1756,76 @@ html.content-page-root .content > * { min-width: 0; }
   letter-spacing: .16em;
   text-transform: uppercase;
   color: var(--brand);
-  margin-bottom: 12px;
+  margin-bottom: 4px;
 }
 
 .content-hero h1 {
-  font-size: clamp(34px, 6vw, 60px);
+  /* Dropped from 60px editorial display to a transactional 40px max — these
+   * pages are tools, not landing pages, and the old size pushed the actual
+   * data far below the fold. */
+  font-size: clamp(28px, 4vw, 40px);
   font-weight: 800;
-  letter-spacing: -.045em;
-  line-height: .95;
-  margin-bottom: 16px;
+  letter-spacing: -.03em;
+  line-height: 1.05;
+  margin: 0;
 }
 
 .content-hero p {
-  font-size: 17px;
-  line-height: 1.75;
+  font-size: 15px;
+  line-height: 1.65;
   color: var(--ink2);
+  margin: 0;
+  max-width: 720px;
+}
+
+/* Quick-stats strip below the SEO hero h1. Surfaces the numbers that used to
+ * be buried in the intro paragraph ("121 restaurants · 10 cards · Best 50%
+ * off") so a search-arrived visitor sees the scope of the page instantly. */
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-sm);
+}
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  min-width: 90px;
+}
+.hero-stat-label {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.hero-stat-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+  line-height: 1.05;
+}
+.hero-stat-value.green { color: var(--green); }
+.hero-stat-sub {
+  font-size: 11px;
+  color: var(--muted);
+  margin-top: 1px;
+}
+
+/* Make the CTA + freshness chip sit on one line on desktop so the hero
+ * collapses to ~280px tall instead of ~520px. */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 2px;
 }
 
 .content-layout {
@@ -3650,8 +3740,42 @@ html.content-page-root .content > * { min-width: 0; }
     overflow-x: auto;
     max-width: 100%;
     scrollbar-width: none;
+    /* Reveal the right edge fade so users feel the scrollability rather than
+     * thinking the 4th tab is missing. */
+    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%);
   }
   .view-toggle::-webkit-scrollbar { display: none; }
+  .view-toggle-btn { flex-shrink: 0; }
+
+  /* City tabs use the same trick so "+1 city" never gets clipped. */
+  .rh-city-tabs {
+    overflow-x: auto;
+    max-width: 100%;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%);
+  }
+  .rh-city-tabs::-webkit-scrollbar { display: none; }
+  .rh-city-tab { flex-shrink: 0; }
+
+  /* Compare modal on mobile — make the per-card columns sticky-readable and
+   * the grid scrollable as one unit. The previous layout cropped Card 2. */
+  .cmp-modal-inner { width: 100%; max-width: 100%; border-radius: 16px 16px 0 0; }
+  .cmp-grid {
+    grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1fr);
+    font-size: 12.5px;
+  }
+  .cmp-label-cell { font-size: 11px; padding: 10px 8px; }
+  .cmp-val-cell { padding: 10px 8px; font-size: 13px; }
+  .cmp-head-cell { padding: 14px 10px; }
+  .cmp-modal-head { padding: 16px 18px; }
+  .cmp-modal-title { font-size: 17px; }
+  .cmp-tally { font-size: 28px; }
+
+  /* Persona-preset chips wrap to two rows comfortably on narrow phones. */
+  .persona-presets { flex-wrap: wrap; gap: 6px; }
+  .persona-chip { font-size: 11.5px; padding: 6px 10px; }
+}
 
   .wo-setup-wrap { padding: 0 12px 12px; }
   .wo-setup { padding: 14px 14px 12px; border-radius: 12px; }
@@ -3687,3 +3811,115 @@ html.content-page-root .content > * { min-width: 0; }
   .wo-controls,
   .wo-controls-grid { grid-template-columns: 1fr; }
 }
+
+/* ──────────────────────────────────────────────────────────────────────
+   NEW COMPONENTS (May 2026 UI refresh)
+   ────────────────────────────────────────────────────────────────────── */
+
+/* Persona-preset chips above the bill slider. Each one sets the bill +
+ * outings + day cadence to a sensible Pakistani-consumer scenario. */
+.persona-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 10px 0;
+}
+.persona-chip {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 11px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.persona-chip:hover {
+  border-color: var(--brand-mid);
+  color: var(--brand);
+}
+.persona-chip.active {
+  background: var(--brand-light);
+  border-color: var(--brand-mid);
+  color: var(--brand-dark);
+}
+.persona-chip-emoji { font-size: 13px; opacity: 0.9; }
+
+/* Fit-label that replaces the "/ 100" suffix with a short qualitative tag.
+ * Tier text uses the same color band as scoreColor() so badge + bar agree. */
+.fit-tier {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 2px;
+  opacity: 0.85;
+}
+
+/* Saving-window toggle in the result header. Replaces the duplicate "Best
+ * Saving" chip on desktop. */
+.saving-window {
+  display: inline-flex;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 2px;
+  gap: 1px;
+  align-self: center;
+}
+.saving-window-btn {
+  padding: 4px 10px;
+  font-size: 11.5px;
+  font-weight: 600;
+  border-radius: 999px;
+  color: var(--muted);
+  background: transparent;
+}
+.saving-window-btn.active {
+  background: var(--brand);
+  color: white;
+}
+
+/* Share button on card-detail modal. Sits next to Apply, but in a softer,
+ * secondary green so it doesn't fight for primary attention. */
+.btn-share-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 14px;
+  background: #25D366;     /* WhatsApp brand green */
+  color: white;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+.btn-share-wa:hover { filter: brightness(0.94); }
+.btn-share-wa svg { width: 14px; height: 14px; }
+
+/* Inline icon helper for the Lucide SVG set (matches the mobile app's
+ * lucide-react-native usage). Sizes here keep the strokes readable at the
+ * 2px stroke-width Lucide standard. */
+.ic {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  vertical-align: -2px;
+  line-height: 1;
+}
+.ic svg { width: 1em; height: 1em; display: block; }
+.view-toggle-btn .ic { font-size: 16px; margin-right: 2px; }
+.btn-find-my-card .ic { font-size: 14px; }
+.mob-tab .ic { font-size: 20px; display: block; margin: 0 auto 2px; }
+.chat-fab .ic { font-size: 22px; color: white; }
+.chat-avatar .ic { font-size: 22px; color: var(--brand); }
+.chat-top-btn .ic { font-size: 16px; }
+.empty-icon .ic { font-size: 34px; color: var(--muted); }
+

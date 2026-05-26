@@ -935,6 +935,39 @@
     "pilot_position": 3
   },
   {
+    "card_id": "easypaisa--easy-paisa-debitcard",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "card_name": "Easy Paisa DebitCard",
+    "card_slug": "easy-paisa-debitcard",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 1
+  },
+  {
+    "card_id": "easypaisa--easy-paisa-pay-pak-debit-card",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "card_name": "Easy Paisa Pay Pak Debit Card",
+    "card_slug": "easy-paisa-pay-pak-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 2
+  },
+  {
+    "card_id": "easypaisa--easy-paisa-union-pay-debit-card",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "card_name": "Easy Paisa Union Pay Debit Card",
+    "card_slug": "easy-paisa-union-pay-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 3
+  },
+  {
     "card_id": "faysal-bank--faysal-islami-noor-flexi-card",
     "bank_slug": "faysal-bank",
     "bank_name": "Faysal Bank Limited",
@@ -2082,38 +2115,5 @@
     "tier": "virtual",
     "confidence": "high",
     "pilot_position": 9
-  },
-  {
-    "card_id": "easypaisa--easy-paisa-debitcard",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "card_name": "Easy Paisa DebitCard",
-    "card_slug": "easy-paisa-debitcard",
-    "card_type": "debit",
-    "tier": "classic",
-    "confidence": "high",
-    "pilot_position": 1
-  },
-  {
-    "card_id": "easypaisa--easy-paisa-pay-pak-debit-card",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "card_name": "Easy Paisa Pay Pak Debit Card",
-    "card_slug": "easy-paisa-pay-pak-debit-card",
-    "card_type": "debit",
-    "tier": "classic",
-    "confidence": "high",
-    "pilot_position": 2
-  },
-  {
-    "card_id": "easypaisa--easy-paisa-union-pay-debit-card",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "card_name": "Easy Paisa Union Pay Debit Card",
-    "card_slug": "easy-paisa-union-pay-debit-card",
-    "card_type": "debit",
-    "tier": "classic",
-    "confidence": "high",
-    "pilot_position": 3
   }
 ]

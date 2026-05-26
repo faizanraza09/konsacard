@@ -143,7 +143,7 @@
         </div>
 
         <button class="btn-find-my-card" id="btn-open-quiz" type="button">
-          <span>🎯</span> Find My Card
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span> Find My Card
         </button>
 
         <button class="hamburger-btn" id="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
@@ -164,6 +164,22 @@
           <!-- Typical Bill -->
           <div class="s-section">
             <div class="s-label">Typical Bill</div>
+            <!-- Persona presets — quick anchors so first-time users don't have
+                 to "find their number" on a slider with no reference points. -->
+            <div class="persona-presets" id="persona-presets" role="group" aria-label="Bill presets">
+              <button class="persona-chip" type="button" data-bill="3000" data-outings="2" data-label="solo">
+                <span class="persona-chip-emoji">☕</span> Solo cafe
+              </button>
+              <button class="persona-chip" type="button" data-bill="6000" data-outings="1" data-label="date">
+                <span class="persona-chip-emoji">🍷</span> Date night
+              </button>
+              <button class="persona-chip" type="button" data-bill="10000" data-outings="1" data-label="family">
+                <span class="persona-chip-emoji">👨‍👩‍👧</span> Family of 4
+              </button>
+              <button class="persona-chip" type="button" data-bill="18000" data-outings="1" data-label="premium">
+                <span class="persona-chip-emoji">✨</span> Premium
+              </button>
+            </div>
             <div class="s-range-val" id="order-value-label">PKR 10,000</div>
             <input id="order-value" type="range" min="1000" max="50000" step="500" value="10000" />
             <div class="range-ends"><span>1K</span><span>50K</span></div>
@@ -260,15 +276,35 @@
               <div class="rh-sub" id="rh-sub">Ranked by estimated savings</div>
             </div>
             <div style="flex:1"></div>
+            <!-- Icons are the same Lucide set the mobile app uses
+                 (lucide-react-native: CreditCard / UtensilsCrossed / Wallet
+                 / Layers) — kept stroke-width 2 + rounded caps for visual
+                 parity across surfaces. -->
             <div class="view-toggle">
-              <button class="view-toggle-btn active" id="btn-view-cards" type="button">💳 Cards</button>
-              <button class="view-toggle-btn" id="btn-view-restaurants" type="button">🍽️ Restaurants</button>
-              <button class="view-toggle-btn" id="btn-view-next-card" type="button">💼 My Wallet</button>
-              <button class="view-toggle-btn" id="btn-view-wallet" type="button">🧩 Build Wallet</button>
+              <button class="view-toggle-btn active" id="btn-view-cards" type="button">
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></span>
+                Cards
+              </button>
+              <button class="view-toggle-btn" id="btn-view-restaurants" type="button">
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"/><path d="m2.1 21.8 6.4-6.3"/><path d="m19 5-7 7"/></svg></span>
+                Restaurants
+              </button>
+              <button class="view-toggle-btn" id="btn-view-next-card" type="button">
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg></span>
+                My Wallet
+              </button>
+              <button class="view-toggle-btn" id="btn-view-wallet" type="button">
+                <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.91a1 1 0 0 0 0-1.83Z"/><path d="m6.08 9.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/><path d="m6.08 14.5-3.5 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.59"/></svg></span>
+                Build Wallet
+              </button>
             </div>
-            <div class="rh-chip" id="rh-chip-saving">
-              <div class="rh-chip-l">Best Saving</div>
-              <div class="rh-chip-v green" id="summary-best">—</div>
+            <!-- Saving-window toggle replaces the old "Best Saving" chip:
+                 lets users reframe the per-card hero number as /outing, /month
+                 or /yr — the same math, in the units they actually shop in. -->
+            <div class="saving-window" id="saving-window" role="group" aria-label="Saving window">
+              <button class="saving-window-btn" type="button" data-window="outing">/outing</button>
+              <button class="saving-window-btn" type="button" data-window="month">/month</button>
+              <button class="saving-window-btn active" type="button" data-window="yr">/year</button>
             </div>
             <div class="rh-city-tabs" id="rh-city-tabs">
               <!-- populated by JS -->
@@ -277,7 +313,9 @@
 
           <!-- Empty state -->
           <div class="empty-state hidden" id="empty-state">
-            <div class="empty-icon">🔍</div>
+            <div class="empty-icon">
+              <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg></span>
+            </div>
             <div class="empty-title" id="empty-state-title">No cards match your filters</div>
             <div class="empty-msg" id="empty-state-message">Try a different city or reset the filters</div>
           </div>
@@ -358,16 +396,20 @@
         </main>
       </div><!-- /.body -->
 
-      <!-- Mobile bottom tabs -->
+      <!-- Mobile bottom tabs — same Lucide icon set (SlidersHorizontal /
+           CreditCard / MessageCircle) the mobile app uses. -->
       <div class="mob-tabs" id="mob-tabs">
         <button class="mob-tab" id="mob-tab-filters" type="button">
-          <span>⚙️</span><span class="mob-tab-label">Filters</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="21" x2="14" y1="4" y2="4"/><line x1="10" x2="3" y1="4" y2="4"/><line x1="21" x2="12" y1="12" y2="12"/><line x1="8" x2="3" y1="12" y2="12"/><line x1="21" x2="16" y1="20" y2="20"/><line x1="12" x2="3" y1="20" y2="20"/><line x1="14" x2="14" y1="2" y2="6"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="16" x2="16" y1="18" y2="22"/></svg></span>
+          <span class="mob-tab-label">Filters</span>
         </button>
         <button class="mob-tab active" id="mob-tab-results" type="button">
-          <span>📊</span><span class="mob-tab-label">Results</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg></span>
+          <span class="mob-tab-label">Results</span>
         </button>
         <button class="mob-tab" id="mob-tab-chat" type="button">
-          <span>💬</span><span class="mob-tab-label">Ask AI</span>
+          <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
+          <span class="mob-tab-label">Ask AI</span>
         </button>
       </div>
 
@@ -384,18 +426,20 @@
     </div>
 
     <!-- ── CHAT FAB ── -->
-    <button class="chat-fab" id="chat-fab" type="button" aria-label="Open AI assistant">💬</button>
+    <button class="chat-fab" id="chat-fab" type="button" aria-label="Open AI assistant">
+      <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg></span>
+    </button>
 
     <!-- ── CHAT PANEL ── -->
     <div class="chat-panel" id="chat-panel" style="display:none">
       <div class="chat-top">
-        <div class="chat-avatar">🤖</div>
+        <div class="chat-avatar"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></span></div>
         <div>
           <div class="chat-top-name">KonsaCard AI</div>
           <div class="chat-top-sub">AI assistant</div>
         </div>
         <div class="chat-top-actions">
-          <button class="chat-top-btn" id="chat-clear-btn" type="button" title="Clear conversation">🗑</button>
+          <button class="chat-top-btn" id="chat-clear-btn" type="button" title="Clear conversation" aria-label="Clear conversation"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg></span></button>
           <button class="chat-close" id="chat-close" type="button">×</button>
         </div>
       </div>

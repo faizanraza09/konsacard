@@ -1251,6 +1251,64 @@
     ]
   },
   {
+    "source_id": "easypaisa-src-82e400e285",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "url": "https://easypaisa.com.pk/asaan-account/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "easypaisa--easy-paisa-debitcard",
+      "easypaisa--easy-paisa-pay-pak-debit-card",
+      "easypaisa--easy-paisa-union-pay-debit-card"
+    ]
+  },
+  {
+    "source_id": "easypaisa-src-c81b25d9d2",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "url": "https://easypaisa.com.pk/debit-cards/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "easypaisa--easy-paisa-debitcard",
+      "easypaisa--easy-paisa-pay-pak-debit-card",
+      "easypaisa--easy-paisa-union-pay-debit-card"
+    ]
+  },
+  {
+    "source_id": "easypaisa-src-5606bf9d32",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "url": "https://easypaisa.com.pk/my-account/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "easypaisa--easy-paisa-debitcard"
+    ]
+  },
+  {
+    "source_id": "easypaisa-src-0d2787db7e",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "url": "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Branchless-Banking-English.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "easypaisa--easy-paisa-debitcard",
+      "easypaisa--easy-paisa-pay-pak-debit-card",
+      "easypaisa--easy-paisa-union-pay-debit-card"
+    ]
+  },
+  {
+    "source_id": "easypaisa-src-531cc08cd2",
+    "bank_slug": "easypaisa",
+    "bank_name": "Easypaisa",
+    "url": "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Retail-Banking-English.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "easypaisa--easy-paisa-debitcard",
+      "easypaisa--easy-paisa-pay-pak-debit-card",
+      "easypaisa--easy-paisa-union-pay-debit-card"
+    ]
+  },
+  {
     "source_id": "faysal-bank-src-65ccb87d7b",
     "bank_slug": "faysal-bank",
     "bank_name": "Faysal Bank Limited",
@@ -2684,64 +2742,6 @@
     "source_type": "html",
     "used_by_card_ids": [
       "ubl--ubl-mastercard-signature-debit-card"
-    ]
-  },
-  {
-    "source_id": "easypaisa-src-82e400e285",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "url": "https://easypaisa.com.pk/asaan-account/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "easypaisa--easy-paisa-debitcard",
-      "easypaisa--easy-paisa-pay-pak-debit-card",
-      "easypaisa--easy-paisa-union-pay-debit-card"
-    ]
-  },
-  {
-    "source_id": "easypaisa-src-c81b25d9d2",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "url": "https://easypaisa.com.pk/debit-cards/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "easypaisa--easy-paisa-debitcard",
-      "easypaisa--easy-paisa-pay-pak-debit-card",
-      "easypaisa--easy-paisa-union-pay-debit-card"
-    ]
-  },
-  {
-    "source_id": "easypaisa-src-5606bf9d32",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "url": "https://easypaisa.com.pk/my-account/",
-    "source_type": "html",
-    "used_by_card_ids": [
-      "easypaisa--easy-paisa-debitcard"
-    ]
-  },
-  {
-    "source_id": "easypaisa-src-0d2787db7e",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "url": "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Branchless-Banking-English.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "easypaisa--easy-paisa-debitcard",
-      "easypaisa--easy-paisa-pay-pak-debit-card",
-      "easypaisa--easy-paisa-union-pay-debit-card"
-    ]
-  },
-  {
-    "source_id": "easypaisa-src-531cc08cd2",
-    "bank_slug": "easypaisa",
-    "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
-    "url": "https://easypaisa.com.pk/public-information/Schedule-of-Bank-Charges/Schedule-of-Bank-Charges-Retail-Banking-English.pdf",
-    "source_type": "pdf",
-    "used_by_card_ids": [
-      "easypaisa--easy-paisa-debitcard",
-      "easypaisa--easy-paisa-pay-pak-debit-card",
-      "easypaisa--easy-paisa-union-pay-debit-card"
     ]
   }
 ]

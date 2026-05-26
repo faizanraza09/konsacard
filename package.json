@@ -11,6 +11,7 @@
     "test:mobile": "cd apps/mobile && npx jest",
     "build:web": "cd apps/web && npm run build",
     "refresh:offers": "cd apps/web && npm run refresh:offers",
-    "refresh:requirements": "cd apps/web && npm run refresh:requirements"
+    "refresh:requirements": "cd apps/web && npm run refresh:requirements",
+    "refresh:all": "cd apps/web && npm run refresh:all"
   }
 }

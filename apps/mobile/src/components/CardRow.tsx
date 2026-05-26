@@ -2,31 +2,49 @@ import { Link } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import type { StyleProp, ViewStyle } from "react-native";
 import { CardRecommendation } from "@/types";
-import { formatCurrency } from "@/lib/format";
+import { buildCardKey, formatCurrency, formatCurrencyShort } from "@/lib/format";
 import { getBankLogoUrl } from "@/lib/bankLogo";
+import { useAppStore } from "@/store";
 import { colors, radii, scoreColor, shadow, spacing, typography } from "@/theme";
-import { EligibilityBadge } from "./EligibilityBadge";
 
-// Mobile card row — designed for thumb-scrolling, not desktop scanning.
+// Compact mobile card row — height target ~110px (a touch taller than v1 so
+// the stats strip fits without truncation).
 //
-//   [logo]  BANK NAME              fit score (right)
-//           Card name               ____
-//           [eligibility] [type]
-//   ─────────────────────────────────────────
-//   Estimated saving
-//   PKR 3,318  /outing             ← hero stat
-//   348 venues · 34% avg · cap PKR 10K
-//   Top: Ginsoy · PKR 5K/visit
+//   [logo]  Card name                       PKR 3,357
+//           BANK · Debit                       /outing
+//           12/45 rests · Fee PKR 5k          86.2  #3
+//                                            [+ Compare]
 //
-// Rank #1 gets a tinted background + "TOP PICK" ribbon. Everyone else is plain
-// white. The 4-stat grid that worked on desktop is intentionally collapsed:
-// mobile users get one big number plus a one-line micro-stat strip.
+// Hero is the PKR saving (brand color, tabular). Score is supporting metric.
+// The stats strip mirrors the web "card-stats-row" surface (Restaurants
+// Matched + Annual Fees), per user feedback that the eligibility chip was
+// less useful than seeing fee/coverage at a glance.
+//
+// Compare toggle lives at the bottom-right so two-finger compare flow is
+// reachable from the list without opening the detail. Cap is 2 (managed by
+// `toggleCompare` in the store).
 export function CardRow({ item, rank }: { item: CardRecommendation; rank: number }) {
   const isTopPick = rank === 1;
+  const categoryLabel = item.cardCategory
+    ? item.cardCategory.charAt(0).toUpperCase() + item.cardCategory.slice(1)
+    : null;
+
+  const cardKey = buildCardKey(item.bank, item.card);
+  const inCompare = useAppStore((s) => s.compareList.includes(cardKey));
+  const compareCount = useAppStore((s) => s.compareList.length);
+  const toggleCompare = useAppStore((s) => s.toggleCompare);
+  const disabled = compareCount >= 2 && !inCompare;
+
+  // expo-router's <Link asChild> only accepts a single style prop on its
+  // child, so we pre-flatten variant styles into one object instead of
+  // passing an array.
   const rowStyle = StyleSheet.flatten<ViewStyle>([
     styles.row,
     isTopPick ? styles.rowTop : null,
+    inCompare ? styles.rowInCompare : null,
   ] as StyleProp<ViewStyle>);
+
+  const feeLabel = formatFeeLabel(item);
 
   return (
     <Link
@@ -40,82 +58,102 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
           </View>
         ) : null}
 
-        <View style={styles.head}>
-          <BankLogo bank={item.bank} large={isTopPick} />
+        <View style={styles.body}>
+          <BankLogo bank={item.bank} />
           <View style={styles.titleCol}>
-            <Text style={[styles.bank, isTopPick && styles.bankTop]} numberOfLines={1}>
-              {item.bank}
-            </Text>
-            <Text style={[styles.card, isTopPick && styles.cardTop]} numberOfLines={2}>
+            <Text
+              style={[styles.cardName, isTopPick && styles.cardNameTop]}
+              numberOfLines={1}
+            >
               {item.card}
             </Text>
-          </View>
-          <View style={styles.scoreCol}>
-            <Text style={[styles.scoreNum, { color: scoreColor(item.score) }]}>
-              {item.score.toFixed(1)}
+            <Text style={styles.subline} numberOfLines={1}>
+              <Text style={styles.bankBold}>{item.bank}</Text>
+              {categoryLabel ? ` · ${categoryLabel}` : ""}
             </Text>
-            <Text style={styles.scoreLabel}>FIT SCORE</Text>
-            <View style={[styles.scoreBar, { backgroundColor: scoreColor(item.score) }]} />
+            <View style={styles.metaRow}>
+              <Text style={styles.metaText} numberOfLines={1}>
+                <Text style={styles.metaBold}>
+                  {item.coveredVenueCount}/{item.totalVenueCount}
+                </Text>{" "}
+                rests
+              </Text>
+              <Text style={styles.metaSep}>·</Text>
+              <Text style={styles.metaText} numberOfLines={1}>
+                Fee <Text style={styles.metaBold}>{feeLabel}</Text>
+              </Text>
+            </View>
+          </View>
+          <View style={styles.statCol}>
+            <Text style={styles.savingValue} numberOfLines={1}>
+              {formatCurrency(item.avgExpectedSaving)}
+            </Text>
+            <Text style={styles.savingUnit}>/outing</Text>
+            <View style={styles.scoreRow}>
+              <Text style={[styles.scoreNum, { color: scoreColor(item.score) }]}>
+                {item.score.toFixed(1)}
+              </Text>
+              {!isTopPick && rank ? (
+                <Text style={styles.rankTag}>#{rank}</Text>
+              ) : null}
+            </View>
           </View>
         </View>
 
-        <View style={styles.tagsRow}>
-          <EligibilityBadge status={item.requirementStatus} />
-          {item.cardCategory ? (
-            <View style={styles.tag}>
-              <Text style={styles.tagText}>{item.cardCategory}</Text>
-            </View>
-          ) : null}
-          {!isTopPick && rank ? (
-            <Text style={styles.rankTag}>#{rank}</Text>
-          ) : null}
-        </View>
-
-        <View style={styles.divider} />
-
-        <Text style={styles.heroLabel}>Estimated saving</Text>
-        <View style={styles.heroRow}>
-          <Text style={styles.heroValue}>{formatCurrency(item.avgExpectedSaving)}</Text>
-          <Text style={styles.heroUnit}> /outing</Text>
-        </View>
-
-        <Text style={styles.microStats} numberOfLines={1}>
-          <Text style={styles.microBold}>
-            {item.coveredVenueCount}
-          </Text>{" "}
-          of {item.totalVenueCount} venues
-          {item.averageDiscount !== null ? `  ·  ${Math.round(item.averageDiscount)}% avg` : ""}
-          {item.medianCap ? `  ·  cap ${formatCurrency(item.medianCap)}` : ""}
-        </Text>
-
-        {item.topMatches[0] ? (
+        {isTopPick && item.topMatches[0] ? (
           <Text style={styles.topMatch} numberOfLines={1}>
-            <Text style={styles.topMatchPrefix}>Top: </Text>
-            <Text style={styles.topMatchName}>{item.topMatches[0].restaurant}</Text>{" "}
-            · {formatCurrency(item.topMatches[0].expectedSaving)}/visit
+            <Text style={styles.topMatchPrefix}>Best at </Text>
+            <Text style={styles.topMatchName}>{item.topMatches[0].restaurant}</Text>
+            {" · "}
+            {formatCurrency(item.topMatches[0].expectedSaving)}/visit
           </Text>
         ) : null}
 
-        {item.saturationBill !== null ? (
-          <Text style={styles.sweetSpot} numberOfLines={1}>
-            Sweet spot:{" "}
-            <Text style={styles.sweetSpotBold}>
-              bills ≤ {formatCurrency(item.saturationBill as number)}
+        <View style={styles.footer}>
+          <Pressable
+            hitSlop={10}
+            disabled={disabled}
+            onPress={(e) => {
+              e.stopPropagation?.();
+              toggleCompare(cardKey);
+            }}
+            style={[
+              styles.cmpBtn,
+              inCompare && styles.cmpBtnActive,
+              disabled && styles.cmpBtnDisabled,
+            ]}
+            accessibilityRole="button"
+            accessibilityLabel={inCompare ? "Remove from compare" : "Add to compare"}
+          >
+            <Text
+              style={[
+                styles.cmpBtnText,
+                inCompare && styles.cmpBtnTextActive,
+                disabled && styles.cmpBtnTextDisabled,
+              ]}
+            >
+              {inCompare ? "✓ Comparing" : "+ Compare"}
             </Text>
-          </Text>
-        ) : (
-          <Text style={styles.sweetSpot} numberOfLines={1}>
-            <Text style={styles.sweetSpotBold}>Uncapped saving</Text> at any bill size
-          </Text>
-        )}
+          </Pressable>
+        </View>
       </Pressable>
     </Link>
   );
 }
 
-function BankLogo({ bank, large }: { bank: string; large?: boolean }) {
+function formatFeeLabel(item: CardRecommendation): string {
+  const status = item.requirementStatus;
+  if (!status?.hasRequirementRecord) return "—";
+  const fee = status.annualFeePkr;
+  if (fee === null && status.annualFeeWaiverRule) return "waivable";
+  if (fee === null) return "n/a";
+  if (fee === 0) return "free";
+  return formatCurrencyShort(fee);
+}
+
+function BankLogo({ bank }: { bank: string }) {
   const url = getBankLogoUrl(bank);
-  const size = large ? 48 : 40;
+  const size = 36;
   if (!url) {
     return (
       <View style={[styles.logoFallback, { width: size, height: size, borderRadius: size / 2 }]}>
@@ -134,18 +172,23 @@ const styles = StyleSheet.create({
   row: {
     backgroundColor: colors.bgElev,
     borderRadius: radii.lg,
-    paddingHorizontal: spacing.lg,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    paddingHorizontal: spacing.md,
     paddingTop: spacing.md,
-    paddingBottom: spacing.md,
+    paddingBottom: spacing.sm,
     marginHorizontal: spacing.lg,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
     ...shadow.card,
   },
   rowTop: {
     backgroundColor: colors.bgTint,
-    borderWidth: 1,
-    borderColor: colors.brandLight,
+    borderColor: colors.brandMid,
     paddingTop: spacing.sm,
+  },
+  rowInCompare: {
+    borderColor: colors.brand,
+    borderWidth: 1.5,
   },
   topRibbon: {
     alignSelf: "flex-start",
@@ -153,7 +196,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     paddingVertical: 3,
     borderRadius: radii.sm,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs,
   },
   topRibbonText: {
     color: colors.textOnBrand,
@@ -161,7 +204,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     letterSpacing: 1,
   },
-  head: { flexDirection: "row", alignItems: "flex-start", gap: spacing.sm },
+  body: { flexDirection: "row", alignItems: "flex-start", gap: spacing.sm },
   logoWrap: {
     backgroundColor: colors.bgElev,
     borderWidth: 1,
@@ -180,110 +223,117 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     fontSize: typography.size.sm,
   },
-  titleCol: { flex: 1, minWidth: 0, paddingTop: 2 },
-  bank: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: typography.weight.bold,
-    textTransform: "uppercase",
-    letterSpacing: 0.6,
-  },
-  bankTop: { color: colors.brand },
-  card: {
+  titleCol: { flex: 1, minWidth: 0, gap: 2 },
+  cardName: {
     color: colors.text,
-    fontSize: typography.size.lg,
+    fontSize: typography.size.md,
     fontWeight: typography.weight.bold,
-    marginTop: 2,
+    lineHeight: typography.size.md + 4,
+  },
+  cardNameTop: {
+    fontSize: typography.size.lg,
     lineHeight: typography.size.lg + 4,
   },
-  cardTop: { fontSize: typography.size.xl },
-  scoreCol: { alignItems: "flex-end", minWidth: 60 },
-  scoreNum: {
-    fontSize: typography.size.xxl,
-    fontWeight: typography.weight.black,
-    lineHeight: typography.size.xxl + 2,
-  },
-  scoreLabel: {
+  subline: {
     color: colors.textDim,
-    fontSize: 9,
-    fontWeight: typography.weight.semibold,
+    fontSize: typography.size.xs,
+    fontWeight: typography.weight.medium,
+  },
+  bankBold: {
+    color: colors.textMuted,
+    fontWeight: typography.weight.bold,
     textTransform: "uppercase",
-    letterSpacing: 0.6,
-    marginTop: 1,
+    letterSpacing: 0.4,
   },
-  scoreBar: {
-    width: 32,
-    height: 3,
-    borderRadius: 2,
-    marginTop: 4,
-  },
-  tagsRow: {
+  metaRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.xs,
-    marginTop: spacing.sm,
+    gap: 5,
+    marginTop: 5,
     flexWrap: "wrap",
   },
-  tag: {
-    backgroundColor: colors.bgSubtle,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: 3,
-    borderRadius: radii.pill,
-  },
-  tagText: {
-    color: colors.textMuted,
+  metaText: {
+    color: colors.textDim,
     fontSize: typography.size.xs,
-    fontWeight: typography.weight.semibold,
-    textTransform: "capitalize",
+    fontWeight: typography.weight.medium,
+    fontVariant: ["tabular-nums"],
+  },
+  metaBold: {
+    color: colors.text,
+    fontWeight: typography.weight.bold,
+  },
+  metaSep: {
+    color: colors.borderStrong,
+    fontSize: typography.size.xs,
+  },
+  statCol: {
+    alignItems: "flex-end",
+    minWidth: 90,
+    gap: 1,
+  },
+  savingValue: {
+    color: colors.brand,
+    fontSize: typography.size.lg,
+    fontWeight: typography.weight.black,
+    lineHeight: typography.size.lg + 2,
+    fontVariant: ["tabular-nums"],
+  },
+  savingUnit: {
+    color: colors.textDim,
+    fontSize: typography.size.xs,
+    fontWeight: typography.weight.medium,
+  },
+  scoreRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+    marginTop: 6,
+  },
+  scoreNum: {
+    fontSize: typography.size.sm,
+    fontWeight: typography.weight.bold,
+    fontVariant: ["tabular-nums"],
+    opacity: 0.85,
   },
   rankTag: {
     color: colors.textDim,
     fontSize: typography.size.xs,
     fontWeight: typography.weight.semibold,
   },
-  divider: {
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: colors.border,
-    marginVertical: spacing.md,
-  },
-  heroLabel: {
-    color: colors.textDim,
-    fontSize: 10,
-    fontWeight: typography.weight.bold,
-    textTransform: "uppercase",
-    letterSpacing: 0.8,
-  },
-  heroRow: { flexDirection: "row", alignItems: "baseline", marginTop: 2 },
-  heroValue: {
-    color: colors.brand,
-    fontSize: typography.size.xxl,
-    fontWeight: typography.weight.black,
-  },
-  heroUnit: {
-    color: colors.textMuted,
-    fontSize: typography.size.sm,
-    fontWeight: typography.weight.semibold,
-  },
-  microStats: {
-    color: colors.textMuted,
-    fontSize: typography.size.sm,
-    marginTop: 4,
-  },
-  microBold: {
-    color: colors.text,
-    fontWeight: typography.weight.bold,
-  },
   topMatch: {
     color: colors.textMuted,
-    fontSize: typography.size.sm,
-    marginTop: 6,
-  },
-  topMatchPrefix: { fontWeight: typography.weight.semibold },
-  topMatchName: { color: colors.text, fontWeight: typography.weight.semibold },
-  sweetSpot: {
-    color: colors.textDim,
     fontSize: typography.size.xs,
-    marginTop: 4,
+    marginTop: spacing.sm,
   },
-  sweetSpotBold: { color: colors.textMuted, fontWeight: typography.weight.semibold },
+  topMatchPrefix: { fontWeight: typography.weight.semibold, color: colors.textDim },
+  topMatchName: { color: colors.text, fontWeight: typography.weight.semibold },
+
+  footer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    marginTop: spacing.xs,
+  },
+  cmpBtn: {
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 4,
+    borderRadius: radii.pill,
+    backgroundColor: colors.bgSubtle,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  cmpBtnActive: {
+    backgroundColor: colors.brand,
+    borderColor: colors.brand,
+  },
+  cmpBtnDisabled: {
+    opacity: 0.4,
+  },
+  cmpBtnText: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: typography.weight.bold,
+    letterSpacing: 0.3,
+  },
+  cmpBtnTextActive: { color: colors.textOnBrand },
+  cmpBtnTextDisabled: { color: colors.textDim },
 });

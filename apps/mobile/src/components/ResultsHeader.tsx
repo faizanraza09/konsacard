@@ -91,6 +91,7 @@ const styles = StyleSheet.create({
     color: colors.toneEligible,
     fontSize: typography.size.sm,
     fontWeight: typography.weight.black,
+    fontVariant: ["tabular-nums"],
   },
   filterBtn: {
     flexDirection: "row",

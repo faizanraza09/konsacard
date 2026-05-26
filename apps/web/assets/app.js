@@ -339,9 +339,41 @@ function bindEvents() {
   if (orderSlider) {
     orderSlider.addEventListener("input", (e) => {
       state.orderValue = Number(e.target.value);
+      syncPersonaActive();
       render();
     });
   }
+
+  // Persona-preset chips. Each chip sets the bill + outings to a typical
+  // Pakistani-consumer scenario, so first-timers don't have to guess where
+  // their number sits on a 1k–50k slider.
+  document.querySelectorAll(".persona-chip").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const bill = Number(btn.dataset.bill);
+      const outings = Number(btn.dataset.outings || 1);
+      if (Number.isFinite(bill)) state.orderValue = bill;
+      if (Number.isFinite(outings)) state.outingsPerWeek = outings;
+      const slider = document.getElementById("order-value");
+      if (slider) slider.value = String(bill);
+      syncPersonaActive();
+      trackEvent("persona_chip", { label: btn.dataset.label, bill, outings });
+      render();
+    });
+  });
+
+  // Saving-window toggle. Reframes the per-card hero stat as /outing | /month
+  // | /year — same underlying number, different mental anchor. Default is
+  // "year" because the annual figure is the one users get excited about.
+  state.savingWindow = state.savingWindow || "yr";
+  document.querySelectorAll(".saving-window-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      state.savingWindow = btn.dataset.window;
+      document.querySelectorAll(".saving-window-btn").forEach((b) =>
+        b.classList.toggle("active", b === btn)
+      );
+      render();
+    });
+  });
 
   // Restaurant search
   const restSearch = document.getElementById("restaurant-search");
@@ -486,23 +518,29 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
     render();
   });
 
-  // View toggle
+  // View toggle. We close any still-mounted modal before switching views,
+  // otherwise an overlay from the previous view can intercept clicks behind
+  // it (Playwright caught this on the cards→detail→cards path).
   document.getElementById("btn-view-cards")?.addEventListener("click", () => {
+    closeAllModals();
     state.viewMode = "cards";
     trackEvent("view_change", { view: "cards" });
     render();
   });
   document.getElementById("btn-view-restaurants")?.addEventListener("click", () => {
+    closeAllModals();
     state.viewMode = "restaurants";
     trackEvent("view_change", { view: "restaurants" });
     render();
   });
   document.getElementById("btn-view-next-card")?.addEventListener("click", () => {
+    closeAllModals();
     state.viewMode = "my-wallet";
     trackEvent("view_change", { view: "my-wallet" });
     render();
   });
   document.getElementById("btn-view-wallet")?.addEventListener("click", () => {
+    closeAllModals();
     state.viewMode = "wallet";
     trackEvent("view_change", { view: "wallet" });
     render();
@@ -523,6 +561,29 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
   document.getElementById("compare-modal")?.addEventListener("click", (e) => {
     if (e.target === e.currentTarget) closeCompareModal();
   });
+
+  // Global Escape closes whichever modal is open. Previously only quiz/chat
+  // had keyboard handlers, so users hitting Esc on card/restaurant/compare
+  // had to hunt for the × button.
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    if (document.getElementById("card-detail-modal")?.style.display === "flex") closeCardDetail();
+    if (document.getElementById("restaurant-detail-modal")?.style.display === "flex") closeRestaurantDetail();
+    if (document.getElementById("compare-modal")?.style.display === "flex") closeCompareModal();
+  });
+}
+
+// Force every overlay-style modal closed. Defensive helper called when the
+// user navigates away (e.g. taps a view-toggle tab) — without it, a
+// programmatically-shown modal could remain mounted and intercept clicks
+// behind it on its way to z-index oblivion.
+function closeAllModals() {
+  ["card-detail-modal", "restaurant-detail-modal", "compare-modal", "quiz-modal"].forEach((id) => {
+    const el = document.getElementById(id);
+    if (el && el.style.display === "flex") el.style.display = "none";
+  });
+  state.detailCardKey = null;
+  state.detailRestaurantKey = null;
 }
 
 function setActiveTab(id) {
@@ -992,6 +1053,49 @@ function renderMetricLabel(label) {
   return `<span class="metric-label-text">${escapeHtml(label)}</span>`;
 }
 
+// Score → human tier. Mirrors scoreColor()'s thresholds so the badge and the
+// bar agree visually. ≥80 = excellent, 70–79 = strong, 50–69 = decent, <50 =
+// weak. We avoid "poor" / "bad" — Pakistani consumer tone is encouraging.
+function fitTier(score) {
+  const s = Number(score) || 0;
+  if (s >= 80) return "Excellent fit";
+  if (s >= 70) return "Strong fit";
+  if (s >= 50) return "Decent fit";
+  return "Weak fit";
+}
+
+// Multiplier from `/outing` (the algorithm's native unit) into the current
+// saving-window view. Used by the per-card hero saving so a user reading the
+// list can see the same number in /outing, /month, or /year terms.
+function savingWindowMultiplier() {
+  const win = state.savingWindow || "yr";
+  const op = state.outingsPerWeek || 1;
+  if (win === "month") return op * 52 / 12;
+  if (win === "yr") return op * 52;
+  return 1; // outing
+}
+
+function savingWindowSuffix() {
+  const win = state.savingWindow || "yr";
+  return win === "yr" ? "/year" : win === "month" ? "/month" : "/outing";
+}
+
+// Format the per-card saving in whatever window the user picked, with lakh
+// formatting kicking in automatically for amounts ≥ 1 lakh.
+function formatCardSaving(avgPerOuting) {
+  const v = Number(avgPerOuting) || 0;
+  return `${formatCurrencyShort(v * savingWindowMultiplier())} ${savingWindowSuffix()}`;
+}
+
+// Mark whichever persona chip matches the current bill (if any) so the active
+// state stays in sync if the user nudges the slider afterward.
+function syncPersonaActive() {
+  document.querySelectorAll(".persona-chip").forEach((c) => {
+    const bill = Number(c.dataset.bill);
+    c.classList.toggle("active", Number(state.orderValue) === bill);
+  });
+}
+
 // Render the "sweet spot" note: where this card's cap kicks in. Below the
 // saturation bill the user gets the headline %; above it the saving plateaus.
 // For cards with no cap in scope, surface "uncapped at any bill size".
@@ -1015,6 +1119,11 @@ function renderFeaturedCard(result, container) {
   const sc = scoreColor(scorePct);
   const showEligibility = isEligibilityContextActive();
   const eligStatus = result.requirementStatus;
+  // Score → integer + qualitative tier ("Excellent fit"). Previously every
+  // row read "86.2 / 100" which is precise but unhelpful to non-technical
+  // users — the tier is the load-bearing signal.
+  const scoreInt = Math.round(Number(result.score) || 0);
+  const tier = fitTier(result.score);
   container.innerHTML = `
     <article class="card-item card-item--featured${inCmp ? " in-compare" : ""}" id="feat-${escapeAttr(cardKey)}" data-key="${escapeAttr(cardKey)}" tabindex="0" role="button" aria-label="Open details for ${escapeAttr(result.card)} from ${escapeAttr(result.bank)}">
       <div class="card-row card-row--clickable">
@@ -1029,8 +1138,8 @@ function renderFeaturedCard(result, container) {
           <div class="card-bank">${escapeHtml(result.bank)}</div>
         </div>
         <div class="score-box">
-          <div class="score-num" style="color:${sc}">${score}</div>
-          <div class="score-label">Fit Score</div>
+          <div class="score-num" style="color:${sc}">${scoreInt}</div>
+          <div class="score-label">${escapeHtml(tier)}</div>
           <div class="score-bar">
             <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
           </div>
@@ -1044,20 +1153,20 @@ function renderFeaturedCard(result, container) {
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Estimated Saving")}</div>
-          <div class="cs-v green">${formatCurrency(result.avgExpectedSaving)} / outing</div>
+          <div class="cs-l">${renderMetricLabel("Saving")}</div>
+          <div class="cs-v green">${formatCardSaving(result.avgExpectedSaving)}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Restaurants Matched")}</div>
+          <div class="cs-l">${renderMetricLabel("Restaurants")}</div>
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Annual Fees")}</div>
-          <div class="cs-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrency(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrency(result.requirementStatus?.annualFeePkr)}</div>
+          <div class="cs-l">${renderMetricLabel("Annual fee")}</div>
+          <div class="cs-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrencyShort(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrencyShort(result.requirementStatus?.annualFeePkr)}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Typical Cap")}</div>
-          <div class="cs-v">${result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap"}</div>
+          <div class="cs-l">${renderMetricLabel("Typical cap")}</div>
+          <div class="cs-v">${result.medianCap !== null ? formatCurrencyShort(result.medianCap) : "No cap"}</div>
         </div>
       </div>
       ${renderSweetSpot(result)}
@@ -1083,7 +1192,8 @@ function renderResultCards(results, container) {
     const inCmp = state.compareList.includes(cardKey);
     const canCmp = state.compareList.length < 2 || inCmp;
     const isExpanded = state.expandedCard === cardKey;
-    const score = Number(result.score).toFixed(1);
+    const scoreInt = Math.round(Number(result.score) || 0);
+    const tier = fitTier(result.score);
     const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
     const sc = scoreColor(scorePct);
     const showEligibility = isEligibilityContextActive();
@@ -1106,8 +1216,8 @@ function renderResultCards(results, container) {
           <div class="card-bank">${escapeHtml(result.bank)}</div>
         </div>
         <div class="score-box">
-          <div class="score-num" style="color:${sc}">${score}</div>
-          <div class="score-label">Fit Score</div>
+          <div class="score-num" style="color:${sc}">${scoreInt}</div>
+          <div class="score-label">${escapeHtml(tier)}</div>
           <div class="score-bar">
             <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
           </div>
@@ -1121,20 +1231,20 @@ function renderResultCards(results, container) {
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Estimated Saving")}</div>
-          <div class="cs-v green">${formatCurrency(result.avgExpectedSaving)} / outing</div>
+          <div class="cs-l">${renderMetricLabel("Saving")}</div>
+          <div class="cs-v green">${formatCardSaving(result.avgExpectedSaving)}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Restaurants Matched")}</div>
+          <div class="cs-l">${renderMetricLabel("Restaurants")}</div>
           <div class="cs-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Annual Fees")}</div>
-          <div class="cs-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrency(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrency(result.requirementStatus?.annualFeePkr)}</div>
+          <div class="cs-l">${renderMetricLabel("Annual fee")}</div>
+          <div class="cs-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrencyShort(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrencyShort(result.requirementStatus?.annualFeePkr)}</div>
         </div>
         <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Typical Cap")}</div>
-          <div class="cs-v">${result.medianCap !== null ? formatCurrency(result.medianCap) : "No cap"}</div>
+          <div class="cs-l">${renderMetricLabel("Typical cap")}</div>
+          <div class="cs-v">${result.medianCap !== null ? formatCurrencyShort(result.medianCap) : "No cap"}</div>
         </div>
       </div>
       ${renderSweetSpot(result)}
@@ -1797,7 +1907,8 @@ function buildNextCardReason(result) {
 function renderNextCardFeatured(result, container) {
   if (!container) return;
   const cardKey = buildCardKey(result.bank, result.card);
-  const score = Number(result.score).toFixed(1);
+  const score = Math.round(Number(result.score) || 0);
+  const tier = fitTier(result.score);
   const scorePct = Math.max(0, Math.min(100, Number(result.score) || 0));
   const sc = scoreColor(scorePct);
   const showEligibility = isEligibilityContextActive();
@@ -1813,7 +1924,7 @@ function renderNextCardFeatured(result, container) {
         ${renderBankLogo(result.bank, "card-logo-box")}
         <div class="card-info">
           <div class="card-badges">
-            <span class="badge-top-pick">💎 BEST NEXT CARD</span>
+            <span class="badge-top-pick">BEST NEXT CARD</span>
             ${showEligibility ? renderEligibilityBadge(eligStatus) : ""}
           </div>
           <div class="card-name">${escapeHtml(result.card)}</div>
@@ -1822,7 +1933,7 @@ function renderNextCardFeatured(result, container) {
         </div>
         <div class="score-box">
           <div class="score-num" style="color:${sc}">${score}</div>
-          <div class="score-label">Fit Score</div>
+          <div class="score-label">${escapeHtml(tier)}</div>
           <div class="score-bar">
             <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
           </div>
@@ -2681,23 +2792,34 @@ function renderCardDetailModal(inner) {
 
   const annualSaving = result ? result.avgExpectedSaving * state.outingsPerWeek * 52 : 0;
   const fee          = result?.requirementStatus?.annualFeePkr ?? null;
-  const netAnnual    = fee !== null ? annualSaving - fee : null;
+  // Only show a separate "net" row if the fee is meaningful — otherwise it's
+  // identical to "Annual" and just makes the modal look more crowded.
+  const netAnnual    = fee !== null && fee > 0 ? annualSaving - fee : null;
   const applyUrl     = getBankApplyUrl(bank);
-  const score        = result ? Number(result.score).toFixed(1) : "—";
+  const scoreInt     = result ? Math.round(Number(result.score) || 0) : "—";
+  const tier         = result ? fitTier(result.score) : "";
+  // Pre-build a WhatsApp share URL with a tight one-liner so users can pass
+  // this card to a friend in a tap. wa.me works on web + mobile alike.
+  const waShareUrl = result
+    ? `https://wa.me/?text=${encodeURIComponent(
+        `I found a card that could save me ~${formatCurrencyShort(annualSaving)}/year on dining: ${result.bank} — ${result.card}. Check it on konsacard.pk`
+      )}`
+    : null;
   inner.innerHTML = `
     <div class="cd-wrap">
       <div class="cd-head">
           <div class="cd-head-left">
             ${renderBankLogo(bank, "cd-logo")}
             <div class="cd-head-info">
-              ${result ? `<div class="cd-score" style="color:${scoreColor(Number(result.score))}">Score ${score} / 100</div>` : ""}
+              ${result ? `<div class="cd-score" style="color:${scoreColor(Number(result.score))}">${scoreInt} / 100 · ${escapeHtml(tier)}</div>` : ""}
               <div class="cd-card-name">${escapeHtml(card)}</div>
               <div class="cd-bank-name">${escapeHtml(bank)}</div>
             </div>
         </div>
         <div class="cd-head-actions">
+          ${waShareUrl ? `<a class="btn-share-wa" href="${escapeAttr(waShareUrl)}" target="_blank" rel="noopener noreferrer" aria-label="Share via WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.2L2 22l4.9-1.6A11 11 0 1 0 20.5 3.5Zm-8.5 17a9 9 0 0 1-4.6-1.3l-.3-.2-3 1 1-2.9-.2-.3a9 9 0 1 1 7.1 3.7Zm5-6.7c-.3-.1-1.6-.8-1.9-.9-.3-.1-.4-.1-.6.1l-.8 1c-.2.2-.3.3-.6.1-.3-.2-1.2-.4-2.3-1.4-.9-.8-1.4-1.8-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.3.2-1 1-1 2.5s1 2.9 1.1 3.1c.2.3 2.1 3.3 5.2 4.6 2.6 1.1 3 1 3.5.9.6 0 1.7-.7 1.9-1.3.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg> Share</a>` : ""}
           ${applyUrl ? `<a class="btn-apply" href="${escapeAttr(applyUrl)}" target="_blank" rel="noopener noreferrer">Apply →</a>` : ""}
-          <button class="btn-modal-close" id="btn-cd-close" type="button">×</button>
+          <button class="btn-modal-close" id="btn-cd-close" type="button" aria-label="Close">×</button>
         </div>
       </div>
 
@@ -2709,21 +2831,17 @@ function renderCardDetailModal(inner) {
         </div>
         <div class="cd-stat cd-stat--annual">
           <div class="cd-stat-l">Annual (${state.outingsPerWeek === 4 ? "4×+" : state.outingsPerWeek + "×"}/wk)</div>
-          <div class="cd-stat-v green">${formatSavingsAmount(annualSaving, { per: "yr" })}</div>
+          <div class="cd-stat-v green">~${formatCurrencyShort(annualSaving)}</div>
         </div>
         ${netAnnual !== null ? `
         <div class="cd-stat cd-stat--net">
-          <div class="cd-stat-l">Net annual saving</div>
-          <div class="cd-stat-v" style="color:${netAnnual >= 0 ? "var(--green)" : "var(--red)"}">${formatSavingsAmount(netAnnual, { per: "yr", signed: true })}</div>
-          <div class="cd-stat-sub">After ${formatCurrency(fee)} fee</div>
+          <div class="cd-stat-l">Net annual</div>
+          <div class="cd-stat-v" style="color:${netAnnual >= 0 ? "var(--green)" : "var(--red)"}">${netAnnual >= 0 ? "~" : "-"}${formatCurrencyShort(Math.abs(netAnnual))}</div>
+          <div class="cd-stat-sub">After ${formatCurrencyShort(fee)} fee</div>
         </div>` : ""}
         <div class="cd-stat cd-stat--restaurants">
-          <div class="cd-stat-l">Restaurants Matched</div>
+          <div class="cd-stat-l">Restaurants matched</div>
           <div class="cd-stat-v">${result.coveredVenueCount} of ${result.totalVenueCount}</div>
-        </div>
-        <div class="cd-stat cd-stat--annual-fees">
-          <div class="cd-stat-l">Annual Fees</div>
-          <div class="cd-stat-v">${result.requirementStatus?.annualFeePkr === null ? "Not listed" : result.requirementStatus?.annualFeePkr === 0 ? "Free" : result.requirementStatus?.annualFeeWaiverRule ? `${formatCurrency(result.requirementStatus?.annualFeePkr)} (waivable)` : formatCurrency(result.requirementStatus?.annualFeePkr)}</div>
         </div>
       </div>` : ""}
 
@@ -3480,9 +3598,52 @@ function clearLocalState() {
   try { localStorage.removeItem(LS_KEY); } catch (_) {}
 }
 
+// Slugify the same way the SEO generator does so a `?restaurant=california-pizza`
+// link from /restaurants/california-pizza/ can resolve back to its canonical
+// "California Pizza" name in the offers dataset.
+function slugifyForLookup(name) {
+  return String(name || "")
+    .toLowerCase()
+    .replace(/&/g, " and ")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function resolveSlugToRestaurantName(slug) {
+  if (!slug || !state.data?.offers) return null;
+  const target = slugifyForLookup(slug);
+  for (const o of state.data.offers) {
+    if (slugifyForLookup(o.restaurant) === target) return o.restaurant;
+  }
+  return null;
+}
+
+function resolveSlugToBankName(slug) {
+  if (!slug || !state.data?.offers) return null;
+  const target = slugifyForLookup(slug);
+  for (const o of state.data.offers) {
+    if (slugifyForLookup(o.bank) === target) return o.bank;
+  }
+  return null;
+}
+
 function restoreStateFromUrl() {
   const params = new URLSearchParams(location.search);
   if (!params.toString()) return;
+  // Human-friendly slug pre-filters from the SEO landing pages. These map
+  // back to the canonical restaurant/bank name and slot into the existing
+  // multi-select filters so the homepage opens already filtered.
+  if (params.has("restaurant")) {
+    const name = resolveSlugToRestaurantName(params.get("restaurant"));
+    if (name) {
+      state.selectedRestaurants = new Set([name]);
+      state.selectedCity = "all";
+    }
+  }
+  if (params.has("bank")) {
+    const name = resolveSlugToBankName(params.get("bank"));
+    if (name) state.selectedBanks = new Set([name]);
+  }
   if (params.has("city")) state.selectedCity = normalizeCityValue(params.get("city"));
   if (params.has("bill")) state.orderValue = Number(params.get("bill")) || 10000;
   if (params.has("outings")) state.outingsPerWeek = Math.max(1, Math.min(4, Number(params.get("outings")) || 2));

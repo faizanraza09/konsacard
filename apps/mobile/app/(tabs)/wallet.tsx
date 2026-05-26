@@ -1,5 +1,6 @@
-import { FlashList } from "@shopify/flash-list";
-import { useMemo, useRef } from "react";
+import { FlashList, type FlashListRef } from "@shopify/flash-list";
+import { ChevronDown, ChevronUp } from "lucide-react-native";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
@@ -14,10 +15,24 @@ import { useAppStore } from "@/store";
 import { WalletObjective, WalletShape } from "@/types";
 import { colors, radii, shadow, spacing, typography } from "@/theme";
 
+const OBJECTIVE_LABEL: Record<WalletObjective, string> = {
+  savings: "max savings",
+  coverage: "max coverage",
+  roi: "best ROI",
+};
+
 export default function BuildWalletScreen() {
   const state = useAppStore();
   const sheet = useRef<FilterSheetHandle>(null);
+  const listRef = useRef<FlashListRef<WalletShape>>(null);
   const result = useMemo(() => computeWalletRecommendations(state), [state]);
+
+  const k = result.stats.K ?? state.walletSize;
+  const obj = (result.stats.objective ?? "savings") as WalletObjective;
+
+  useEffect(() => {
+    listRef.current?.scrollToOffset({ offset: 0, animated: false });
+  }, [state.selectedCity]);
 
   return (
     <SafeAreaView style={styles.flex} edges={["top"]}>
@@ -25,11 +40,12 @@ export default function BuildWalletScreen() {
       <CityTabs />
       <ResultsHeader
         count={result.ranked.length}
-        countLabel="wallet shapes"
-        subtitle={`${result.stats.K ?? state.walletSize} cards • objective: ${result.stats.objective ?? "savings"}`}
+        countLabel="wallet ideas"
+        subtitle={`Combinations of ${k} cards · ${OBJECTIVE_LABEL[obj]}`}
         onPressFilters={() => sheet.current?.open()}
       />
       <FlashList
+        ref={listRef}
         ListHeaderComponent={<WalletConfig />}
         data={result.ranked}
         keyExtractor={(w) => w.walletKey}
@@ -45,7 +61,7 @@ export default function BuildWalletScreen() {
           ) : null
         }
       />
-      <FilterSheet ref={sheet} />
+      <FilterSheet ref={sheet} matchCount={result.ranked.length} matchLabel="wallets" />
     </SafeAreaView>
   );
 }
@@ -62,6 +78,7 @@ function WalletConfig() {
   const onOwned = useAppStore((s) => s.walletBuildOnOwned);
   const setOnOwned = useAppStore((s) => s.setWalletBuildOnOwned);
   const ownedCount = useAppStore((s) => s.ownedCards.size);
+  const [advancedOpen, setAdvancedOpen] = useState(false);
 
   const objectives: { v: WalletObjective; label: string }[] = [
     { v: "savings", label: "Max savings" },
@@ -71,27 +88,53 @@ function WalletConfig() {
 
   return (
     <View style={styles.config}>
-      <Text style={styles.configTitle}>Build a wallet</Text>
+      <Text style={styles.configTitle}>Tune your wallet</Text>
+
       <Label>Wallet size</Label>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <View style={styles.pillRow}>
         {[2, 3, 4].map((n) => (
           <Pill key={n} label={`${n} cards`} active={k === n} onPress={() => setK(n)} />
         ))}
-      </ScrollView>
+      </View>
+
       <Label>Objective</Label>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+      <View style={styles.pillRow}>
         {objectives.map((o) => (
           <Pill key={o.v} label={o.label} active={obj === o.v} onPress={() => setObj(o.v)} />
         ))}
-      </ScrollView>
-      <SwitchRow label="Different banks only" value={noSameBank} onChange={setNoSameBank} />
-      <SwitchRow label="Need at least one debit + one credit" value={mixed} onChange={setMixed} />
-      {ownedCount > 0 ? (
-        <SwitchRow
-          label={`Build on top of my ${ownedCount} owned card${ownedCount === 1 ? "" : "s"}`}
-          value={onOwned}
-          onChange={setOnOwned}
-        />
+      </View>
+
+      <Pressable
+        style={styles.advancedToggle}
+        onPress={() => setAdvancedOpen((v) => !v)}
+        accessibilityRole="button"
+      >
+        <Text style={styles.advancedToggleText}>
+          {advancedOpen ? "Hide advanced" : "Advanced options"}
+        </Text>
+        {advancedOpen ? (
+          <ChevronUp size={14} color={colors.brand} strokeWidth={2.5} />
+        ) : (
+          <ChevronDown size={14} color={colors.brand} strokeWidth={2.5} />
+        )}
+      </Pressable>
+
+      {advancedOpen ? (
+        <>
+          <SwitchRow label="Different banks only" value={noSameBank} onChange={setNoSameBank} />
+          <SwitchRow
+            label="Must include both debit and credit"
+            value={mixed}
+            onChange={setMixed}
+          />
+          {ownedCount > 0 ? (
+            <SwitchRow
+              label={`Build on top of my ${ownedCount} owned card${ownedCount === 1 ? "" : "s"}`}
+              value={onOwned}
+              onChange={setOnOwned}
+            />
+          ) : null}
+        </>
       ) : null}
     </View>
   );
@@ -128,35 +171,36 @@ function WalletCard({ wallet, rank }: { wallet: WalletShape; rank: number }) {
     <View style={[styles.walletCard, isTopPick && styles.walletCardTop]}>
       {isTopPick ? (
         <View style={styles.topRibbon}>
-          <Text style={styles.topRibbonText}>OPTIMAL WALLET</Text>
+          <Text style={styles.topRibbonText}>BEST COMBO</Text>
         </View>
       ) : null}
       <View style={styles.walletHeader}>
-        <View>
+        <View style={{ flex: 1 }}>
           <Text style={styles.walletLabel}>WALLET #{rank}</Text>
-          <Text style={styles.heroValue}>{formatCurrency(wallet.perOutingTotal)}<Text style={styles.heroUnit}> /outing</Text></Text>
-        </View>
-        <View style={styles.scoreCol}>
-          <Text style={styles.walletScore}>{Math.round(wallet.score ?? 0)}</Text>
-          <Text style={styles.walletScoreLabel}>SCORE</Text>
+          <View style={styles.heroRow}>
+            <Text style={styles.heroValue}>{formatCurrency(wallet.perOutingTotal)}</Text>
+            <Text style={styles.heroUnit}> /outing</Text>
+          </View>
+          <Text style={styles.microStats}>
+            <Text style={styles.microBold}>
+              {wallet.coveredVenues} / {wallet.venueCount}
+            </Text>{" "}
+            {wallet.venueCount === 1 ? "restaurant" : "restaurants"} ·{" "}
+            {wallet.feeUnknown ? "fees unknown" : `${formatCurrency(wallet.totalAnnualFee)}/yr fees`}
+          </Text>
         </View>
       </View>
-
-      <Text style={styles.microStats}>
-        <Text style={styles.microBold}>{Math.round(wallet.coverage * 100)}%</Text> coverage ·{" "}
-        {wallet.feeUnknown ? "fees unknown" : `${formatCurrency(wallet.totalAnnualFee)}/yr fees`}
-      </Text>
 
       <View style={styles.divider} />
 
       {wallet.picks.map((p, i) => (
         <View key={p.cardKey} style={[styles.pickRow, i === 0 && { borderTopWidth: 0 }]}>
           <View style={styles.pickBadge}>
-            <Text style={styles.pickBadgeText}>{p.pinned ? "📌" : i + 1}</Text>
+            <Text style={styles.pickBadgeText}>{p.pinned ? "★" : i + 1}</Text>
           </View>
           <View style={{ flex: 1, minWidth: 0 }}>
+            <Text style={styles.pickCard} numberOfLines={1}>{p.card}</Text>
             <Text style={styles.pickBank} numberOfLines={1}>{p.bank}</Text>
-            <Text style={styles.pickCard} numberOfLines={2}>{p.card}</Text>
             <View style={styles.pickFooter}>
               <EligibilityBadge status={p.requirementStatus} />
               <Text style={styles.pickMeta}>
@@ -178,32 +222,46 @@ const styles = StyleSheet.create({
     marginHorizontal: spacing.lg,
     padding: spacing.md,
     borderRadius: radii.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
     marginBottom: spacing.md,
-    ...shadow.card,
   },
   configTitle: {
     color: colors.text,
-    fontSize: typography.size.lg,
+    fontSize: typography.size.md,
     fontWeight: typography.weight.bold,
     marginBottom: spacing.sm,
   },
   label: {
     color: colors.textMuted,
-    fontSize: typography.size.xs,
+    fontSize: 10,
     fontWeight: typography.weight.bold,
     textTransform: "uppercase",
     letterSpacing: 0.5,
-    marginTop: spacing.md,
+    marginTop: spacing.sm,
     marginBottom: spacing.xs,
+  },
+  pillRow: { flexDirection: "row", flexWrap: "wrap", gap: 0 },
+  advancedToggle: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: 4,
+    paddingVertical: spacing.sm,
+    marginTop: spacing.sm,
+  },
+  advancedToggleText: {
+    color: colors.brand,
+    fontSize: typography.size.xs,
+    fontWeight: typography.weight.semibold,
   },
   switchRow: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xs,
     borderTopWidth: StyleSheet.hairlineWidth,
     borderTopColor: colors.border,
-    marginTop: spacing.sm,
   },
   switchLabel: {
     color: colors.text,
@@ -211,20 +269,22 @@ const styles = StyleSheet.create({
     flex: 1,
     marginRight: spacing.sm,
   },
+
   walletCard: {
     backgroundColor: colors.bgElev,
     marginHorizontal: spacing.lg,
-    paddingHorizontal: spacing.lg,
+    paddingHorizontal: spacing.md,
     paddingTop: spacing.md,
     paddingBottom: spacing.md,
     borderRadius: radii.lg,
-    marginBottom: spacing.md,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
+    marginBottom: spacing.sm,
     ...shadow.card,
   },
   walletCardTop: {
     backgroundColor: colors.bgTint,
-    borderWidth: 1,
-    borderColor: colors.brandLight,
+    borderColor: colors.brandMid,
     paddingTop: spacing.sm,
   },
   topRibbon: {
@@ -233,7 +293,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.sm,
     paddingVertical: 3,
     borderRadius: radii.sm,
-    marginBottom: spacing.sm,
+    marginBottom: spacing.xs,
   },
   topRibbonText: {
     color: colors.textOnBrand,
@@ -241,50 +301,39 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     letterSpacing: 1,
   },
-  walletHeader: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    justifyContent: "space-between",
-  },
+  walletHeader: { flexDirection: "row", alignItems: "flex-start" },
   walletLabel: {
     color: colors.textDim,
     fontSize: 10,
     fontWeight: typography.weight.bold,
     textTransform: "uppercase",
-    letterSpacing: 0.8,
+    letterSpacing: 0.6,
     marginBottom: 2,
   },
+  heroRow: { flexDirection: "row", alignItems: "baseline" },
   heroValue: {
     color: colors.brand,
-    fontSize: typography.size.xxl,
+    fontSize: typography.size.xl,
     fontWeight: typography.weight.black,
+    fontVariant: ["tabular-nums"],
+    lineHeight: typography.size.xl + 2,
   },
   heroUnit: {
     color: colors.textMuted,
     fontSize: typography.size.sm,
     fontWeight: typography.weight.semibold,
   },
-  scoreCol: { alignItems: "flex-end" },
-  walletScore: {
-    color: colors.text,
-    fontSize: typography.size.xxl,
-    fontWeight: typography.weight.black,
-    lineHeight: typography.size.xxl + 2,
+  microStats: {
+    color: colors.textMuted,
+    fontSize: typography.size.xs,
+    marginTop: 4,
+    fontVariant: ["tabular-nums"],
   },
-  walletScoreLabel: {
-    color: colors.textDim,
-    fontSize: 9,
-    fontWeight: typography.weight.semibold,
-    textTransform: "uppercase",
-    letterSpacing: 0.6,
-    marginTop: 1,
-  },
-  microStats: { color: colors.textMuted, fontSize: typography.size.sm, marginTop: 4 },
   microBold: { color: colors.text, fontWeight: typography.weight.bold },
   divider: {
     height: StyleSheet.hairlineWidth,
     backgroundColor: colors.border,
-    marginVertical: spacing.md,
+    marginVertical: spacing.sm,
   },
   pickRow: {
     flexDirection: "row",
@@ -293,9 +342,9 @@ const styles = StyleSheet.create({
     borderTopColor: colors.border,
   },
   pickBadge: {
-    width: 28,
-    height: 28,
-    borderRadius: 14,
+    width: 24,
+    height: 24,
+    borderRadius: 12,
     backgroundColor: colors.bgSubtle,
     alignItems: "center",
     justifyContent: "center",
@@ -303,33 +352,31 @@ const styles = StyleSheet.create({
     marginTop: 2,
   },
   pickBadgeText: {
-    fontSize: typography.size.sm,
+    fontSize: typography.size.xs,
     fontWeight: typography.weight.bold,
     color: colors.textMuted,
-  },
-  pickBank: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: typography.weight.bold,
-    textTransform: "uppercase",
-    letterSpacing: 0.5,
   },
   pickCard: {
     color: colors.text,
-    fontSize: typography.size.md,
+    fontSize: typography.size.sm,
     fontWeight: typography.weight.bold,
-    marginTop: 2,
+  },
+  pickBank: {
+    color: colors.textDim,
+    fontSize: typography.size.xs,
+    marginTop: 1,
   },
   pickFooter: {
     flexDirection: "row",
     alignItems: "center",
     gap: spacing.xs,
-    marginTop: spacing.xs,
+    marginTop: 4,
     flexWrap: "wrap",
   },
   pickMeta: {
     color: colors.textMuted,
     fontSize: typography.size.xs,
+    fontVariant: ["tabular-nums"],
   },
   warnBox: {
     backgroundColor: colors.toneNeedsInputBg,

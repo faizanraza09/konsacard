@@ -1,6 +1,6 @@
 {
   "bank_slug": "easypaisa",
-  "bank_name": "easypaisa Bank Ltd. (Easypaisa Digital Bank)",
+  "bank_name": "Easypaisa",
   "retrieved_note": "Re-verified 2026-05-25 against the easypaisa Bank Ltd. Schedule of Bank Charges (Branchless Banking, Apr-Jun 2026 and Retail Banking, Jan-Jun 2026), the debit-cards landing page, and the Asaan Account and My Account pages on easypaisa.com.pk. All three cards (Visa, UnionPay, PayPak) are wallet-linked debit cards that inherit eligibility from the underlying easypaisa mobile / digital / Asaan account. Bank rebranded from Telenor Microfinance Bank to easypaisa Bank Ltd.",
   "cards": [
     {

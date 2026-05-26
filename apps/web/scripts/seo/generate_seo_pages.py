@@ -1127,11 +1127,12 @@ def render_restaurant_index(restaurant_summaries: list[dict], bank_count: int) -
     groups: list[str] = []
     for letter in sorted(by_letter):
         links = "".join(
-            f'<li><a href="/restaurants/{item["slug"]}/">{escape(item["name"])}</a> <span>· {item["bank_count"]} banks · {len(item["cities"])} cities</span></li>'
+            f'<li data-name="{escape(item["name"]).lower()}"><a href="/restaurants/{item["slug"]}/">{escape(item["name"])}</a> <span>· {item["bank_count"]} banks · {len(item["cities"])} cities</span></li>'
             for item in by_letter[letter]
         )
-        groups.append(f'<div class="directory-group"><h3>{escape(letter)}</h3><ul>{links}</ul></div>')
+        groups.append(f'<div class="directory-group" data-group="{escape(letter)}"><h3>{escape(letter)}</h3><ul>{links}</ul></div>')
 
+    total_restaurants = len(restaurant_summaries)
     body = f"""
       {nav_html('restaurants')}
 
@@ -1145,11 +1146,39 @@ def render_restaurant_index(restaurant_summaries: list[dict], bank_count: int) -
         <section class="section">
           <h2>Restaurant directory</h2>
           <p>This directory is grouped alphabetically. Every restaurant page links to the banks found in the dataset for that restaurant and back into the comparison tool with that venue preselected.</p>
-          <div class="directory">
+          <div class="rest-index-search-wrap" style="margin:14px 0 18px;">
+            <input type="search" class="rest-index-search" id="rest-index-search" placeholder="Search {total_restaurants} restaurants…" autocomplete="off" style="width:100%;max-width:480px;padding:12px 16px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink);" aria-label="Search restaurants" />
+            <div class="rest-index-empty" id="rest-index-empty" style="display:none;margin-top:12px;color:var(--muted);font-size:0.9rem;">No restaurants match that search.</div>
+          </div>
+          <div class="directory" id="rest-index-directory">
             {''.join(groups)}
           </div>
         </section>
       </div>
+      <script>
+      (function() {{
+        var input = document.getElementById('rest-index-search');
+        var empty = document.getElementById('rest-index-empty');
+        if (!input) return;
+        var groups = document.querySelectorAll('#rest-index-directory .directory-group');
+        var items = document.querySelectorAll('#rest-index-directory li[data-name]');
+        function apply() {{
+          var q = input.value.trim().toLowerCase();
+          var any = false;
+          items.forEach(function(li) {{
+            var match = !q || li.getAttribute('data-name').indexOf(q) !== -1;
+            li.style.display = match ? '' : 'none';
+            if (match) any = true;
+          }});
+          groups.forEach(function(g) {{
+            var visible = g.querySelectorAll('li[data-name]:not([style*="display: none"])').length;
+            g.style.display = visible ? '' : 'none';
+          }});
+          if (empty) empty.style.display = any ? 'none' : '';
+        }}
+        input.addEventListener('input', apply);
+      }})();
+      </script>
       <div class="page-footer">Independent restaurant discount coverage directory for Pakistan. Offers can change, so always confirm with the bank or restaurant before relying on any deal.</div>
       {ATTRIBUTION_FOOTER}
     """
@@ -1222,11 +1251,28 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str], *, last
           {f'<div class="content-hero-logo">{bank_logo_img(summary["name"], lazy=False)}</div>' if bank_logo_url(summary['name']) else ''}
           <p class="eyebrow">Bank Guide</p>
         </div>
-        <h1>{escape(summary['name'])} restaurant discounts</h1>
-        <p>{escape(summary['name'])} cardholders can save at <strong>{summary['restaurant_count']} restaurants</strong> across {', '.join(summary['cities'])}, with {summary['card_count']} different cards each carrying their own dining offers. {('The highest headline discount on a ' + escape(summary['name']) + ' card right now is ' + escape(best_pct_str) + '.') if best_pct_str else ''} Browse every active offer below, or open the comparison tool for a personalised ranking by city, bill size, and day of week.</p>
+        <h1>{escape(summary['name'])}</h1>
+        <p>Every dining offer across {escape(summary['name'])}'s {summary['card_count']} cards, in {', '.join(summary['cities'])}.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-label">Restaurants</span>
+            <span class="hero-stat-value">{summary['restaurant_count']}</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Cards</span>
+            <span class="hero-stat-value">{summary['card_count']}</span>
+          </div>
+          {f'<div class="hero-stat"><span class="hero-stat-label">Best discount</span><span class="hero-stat-value green">{escape(best_pct_str)}</span><span class="hero-stat-sub">headline %</span></div>' if best_pct_str else ''}
+          <div class="hero-stat">
+            <span class="hero-stat-label">Cities</span>
+            <span class="hero-stat-value">{len(summary['cities'])}</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="/?bank={summary['slug']}" style="background:var(--brand);color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;display:inline-flex;gap:8px;align-items:center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>Open the comparison tool →</a>
+          {freshness_chip}
+        </div>
       </header>
-
-      {freshness_chip}
 
       <div class="content">
         <section class="section">
@@ -1440,9 +1486,11 @@ def render_restaurant_enrichment_section(enrichment: dict | None, restaurant_nam
 
     intro_section = ""
     if desc_html or cuisines_html or socials_html:
+        # Drop the "About {restaurant_name}" H2 — the H1 above already prints
+        # the name. Repeating it here just bulks the page out.
         intro_section = f"""
         <section class="section">
-          <h2>About {escape(restaurant_name)}</h2>
+          <h2>About</h2>
           {desc_html}
           {cuisines_html}
           {socials_html}
@@ -1463,7 +1511,7 @@ def render_restaurant_enrichment_section(enrichment: dict | None, restaurant_nam
     if branch_blocks:
         branches_section = f"""
         <section class="section">
-          <h2>{escape(restaurant_name)} branches</h2>
+          <h2>Branches</h2>
           <p>Verified branch locations, addresses, and opening hours. Tap Directions to open in Google Maps.</p>
           {''.join(branch_blocks)}
         </section>
@@ -1550,11 +1598,28 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str], *, last
 
       <header class="content-hero">
         <p class="eyebrow">Restaurant Guide</p>
-        <h1>{escape(summary['name'])} bank discount coverage</h1>
-        <p>Diners at <strong>{escape(summary['name'])}</strong> can claim discounts with {summary['card_count']} different cards across {summary['bank_count']} banks in {', '.join(summary['cities'])}. {('The headline discount on the best card is currently ' + escape(best_offer_str) + '.') if best_offer_str else ''} Compare every offer below, including which days each card's discount is valid and what the per-transaction cap is, or open the comparison tool for a ranking on your typical bill size.</p>
+        <h1>{escape(summary['name'])}</h1>
+        <p>Every bank card with an active dining offer at {escape(summary['name'])} in {', '.join(summary['cities'])}.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-label">Cards</span>
+            <span class="hero-stat-value">{summary['card_count']}</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-label">Banks</span>
+            <span class="hero-stat-value">{summary['bank_count']}</span>
+          </div>
+          {f'<div class="hero-stat"><span class="hero-stat-label">Best discount</span><span class="hero-stat-value green">{escape(best_offer_str)}</span><span class="hero-stat-sub">headline %</span></div>' if best_offer_str else ''}
+          <div class="hero-stat">
+            <span class="hero-stat-label">Cities</span>
+            <span class="hero-stat-value">{len(summary['cities'])}</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="/?restaurant={summary['slug']}" style="background:var(--brand);color:#fff;padding:12px 22px;border-radius:12px;font-weight:700;display:inline-flex;gap:8px;align-items:center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>Open the comparison tool →</a>
+          {freshness_chip}
+        </div>
       </header>
-
-      {freshness_chip}
 
       <div class="content">
         {enrichment_section}

@@ -69,3 +69,43 @@ export function formatRequirementCriterion(
 }
 
 export const DAY_SHORT = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+// Mirrors web's formatRequirementFieldValue (apps/web/assets/state.js). Used by
+// the compare screen and the CardRow stats strip so both surfaces speak the
+// same language for annual fee / salary / balance values.
+export function formatRequirementFieldValue(
+  status: {
+    hasRequirementRecord?: boolean;
+    annualFeePkr?: number | null;
+    annualFeeWaiverRule?: string | null;
+    salaryReq?: number | null;
+    balanceReq?: number | null;
+    salaryIsEstimated?: boolean;
+    balanceIsEstimated?: boolean;
+  } | null | undefined,
+  field: "salaryReq" | "balanceReq" | "annualFeePkr"
+): string {
+  if (!status?.hasRequirementRecord) return "Unavailable";
+  const value = (status as Record<string, number | null | undefined>)[field];
+  if (field === "annualFeePkr" && value === null && status.annualFeeWaiverRule) return "Conditional";
+  if (value === null || value === undefined) return "Not listed";
+  const est =
+    (field === "salaryReq" && status.salaryIsEstimated) ||
+    (field === "balanceReq" && status.balanceIsEstimated);
+  if (value === 0) {
+    if (field === "salaryReq") return "No minimum salary";
+    if (field === "balanceReq") return "No minimum balance";
+    return "No annual fee";
+  }
+  return `${est ? "~" : ""}${formatCurrency(value)}`;
+}
+
+// Short variant for compact rows — drops the "PKR" prefix in favour of the
+// currency symbol, so "PKR 12,500" → "₨ 12.5k". Used in CardRow's stats strip.
+export function formatCurrencyShort(value: number): string {
+  const abs = Math.abs(value);
+  if (abs >= 1_000_000) return `PKR ${(value / 1_000_000).toFixed(1)}M`;
+  if (abs >= 10_000) return `PKR ${Math.round(value / 1_000)}k`;
+  if (abs >= 1_000) return `PKR ${(value / 1_000).toFixed(1)}k`;
+  return `PKR ${Math.round(value)}`;
+}

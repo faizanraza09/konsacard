@@ -32,6 +32,7 @@ interface PersistedShape {
   walletObjective: WalletObjective;
   walletMustInclude: string[];
   favoriteRestaurants: string[];
+  compareList: string[];
   viewMode: ViewMode;
 }
 
@@ -39,6 +40,13 @@ export interface AppState extends AlgorithmState {
   viewMode: ViewMode;
   bootstrapping: boolean;
   hydrated: boolean;
+  /** Card keys (in `${bank} || ${card}` shape) the user is staging for the
+   * compare modal. Capped at 2 by `toggleCompare`. UI state, not algorithm
+   * state — left out of AlgorithmState so it doesn't pollute the algorithm
+   * signature. */
+  compareList: string[];
+  toggleCompare: (cardKey: string) => void;
+  clearCompare: () => void;
   setData: (data: OffersBundle, requirements: RequirementsPack | null) => void;
   setBootstrapping: (v: boolean) => void;
   setViewMode: (v: ViewMode) => void;
@@ -105,6 +113,17 @@ export const useAppStore = create<AppState>()(
       ...defaults,
       bootstrapping: true,
       hydrated: false,
+      compareList: [],
+
+      toggleCompare: (cardKey) =>
+        set((s) => {
+          if (s.compareList.includes(cardKey)) {
+            return { compareList: s.compareList.filter((k) => k !== cardKey) };
+          }
+          if (s.compareList.length >= 2) return s; // cap at 2
+          return { compareList: [...s.compareList, cardKey] };
+        }),
+      clearCompare: () => set({ compareList: [] }),
 
       setData: (data, requirements) => set({ data, requirements, bootstrapping: false }),
       setBootstrapping: (v) => set({ bootstrapping: v }),

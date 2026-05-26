@@ -79,9 +79,11 @@ const styles = StyleSheet.create({
   row: {
     backgroundColor: colors.bgElev,
     borderRadius: radii.lg,
+    borderWidth: 1,
+    borderColor: colors.borderStrong,
     padding: spacing.md,
     marginHorizontal: spacing.lg,
-    marginBottom: spacing.md,
+    marginBottom: spacing.sm,
     ...shadow.card,
   },
   head: { flexDirection: "row", alignItems: "flex-start", gap: spacing.sm },
@@ -138,6 +140,7 @@ const styles = StyleSheet.create({
     color: colors.brand,
     fontSize: typography.size.lg,
     fontWeight: typography.weight.black,
+    fontVariant: ["tabular-nums"],
   },
   savingUnit: {
     color: colors.textDim,

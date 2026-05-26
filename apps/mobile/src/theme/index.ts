@@ -1,39 +1,45 @@
 // Brand tokens lifted from card-match-pk/assets/styles.css.
 // Keep names parallel so future shared design work is one mental model.
+//
+// Palette anchored to the web app's Tailwind slate scale + brand terracotta,
+// so the two surfaces feel like the same product. If you change a value here,
+// check apps/web/assets/styles.css :root first and stay in sync.
 
 export const colors = {
-  brand: "#BD5B3D",       // primary terracotta (matches web --brand)
-  brandDark: "#9F4A33",
-  brandLight: "#F4DDD2",  // very soft peach for the top-pick tinted row
+  brand: "#BD5B3D",       // primary terracotta — matches web --brand
+  brandDark: "#9E4530",   // matches web --brand-dark
+  brandLight: "#FDF3F0",  // matches web --brand-light
+  brandMid: "#F5C4B5",    // matches web --brand-mid (featured card borders)
 
-  bg: "#F8F7F4",          // page background (pale paper, near-white)
-  bgElev: "#FFFFFF",      // card surface
-  bgSubtle: "#EEECE5",    // neutral light (inputs, segmented bg, stat container)
-  bgTint: "#FBEEDF",      // top-pick subtle peach
+  bg: "#FFFFFF",          // page background — pure white, modern flat look
+  bgElev: "#FFFFFF",      // card surface (cards lean on borders + shadow, not fill, to separate from page)
+  bgSubtle: "#F1F5F9",    // slate-100, used inside cards (logo fallback, stat containers, segmented bg)
+  bgTint: "#FDF3F0",      // brand-light peach for top-pick rows
 
-  text: "#1A1916",
-  textMuted: "#56524C",   // less brown, more neutral gray
-  textDim: "#8A867E",
+  text: "#0F172A",        // slate-900, matches web --ink
+  textMuted: "#334155",   // slate-700, matches web --ink2
+  textDim: "#64748B",     // slate-500, matches web --muted
   textOnBrand: "#FFFFFF",
 
-  border: "#E6E3DA",
-  borderStrong: "#D2CDC0",
+  border: "#E2E8F0",      // slate-200, matches web --line
+  borderStrong: "#CBD5E1",// slate-300
 
-  green: "#2C7A4B",
-  amber: "#C68A1F",
-  red: "#B23A48",
+  green: "#059669",       // emerald-600, matches web --green
+  amber: "#D97706",       // amber-600, matches web --amber
+  red: "#DC2626",         // red-600, matches web --red
 
-  // Eligibility tone colors (mirror web .tone-eligible etc.)
-  toneEligible: "#2C7A4B",
-  toneEligibleBg: "#E5F1EA",
-  toneEstEligible: "#5A7F4F",
-  toneEstEligibleBg: "#ECF1E5",
-  toneIneligible: "#B23A48",
-  toneIneligibleBg: "#F8E3E5",
-  toneNeedsInput: "#8A6D2F",
-  toneNeedsInputBg: "#F5EBD6",
-  toneUnclear: "#605A53",
-  toneUnclearBg: "#EDE7DC",
+  // Eligibility tone colors — vivid text on a softly tinted cool background,
+  // mirroring the web .tone-* classes.
+  toneEligible: "#059669",
+  toneEligibleBg: "#ECFDF5",      // emerald-50
+  toneEstEligible: "#0E7C50",
+  toneEstEligibleBg: "#F0FDF4",   // green-50
+  toneIneligible: "#DC2626",
+  toneIneligibleBg: "#FEF2F2",    // red-50
+  toneNeedsInput: "#D97706",
+  toneNeedsInputBg: "#FFFBEB",    // amber-50
+  toneUnclear: "#64748B",
+  toneUnclearBg: "#F1F5F9",       // slate-100
 };
 
 export const radii = {
@@ -81,12 +87,14 @@ export const typography = {
 };
 
 export const shadow = {
+  // Cards float on a white page; the shadow + 1px slate-300 border together
+  // make each card visually self-contained without feeling boxed in.
   card: {
-    shadowColor: "#000",
-    shadowOpacity: 0.06,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 2,
+    shadowColor: "#0F172A",
+    shadowOpacity: 0.08,
+    shadowRadius: 14,
+    shadowOffset: { width: 0, height: 6 },
+    elevation: 3,
   },
 };
 
