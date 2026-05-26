@@ -595,12 +595,15 @@ function setActiveTab(id) {
 }
 
 // Sync the bottom-tab .active class to whatever the current state.viewMode
-// is. Called from render() so the highlight always reflects the live view.
+// is, and stamp the view onto <body> so view-specific CSS (e.g. the tight
+// card-row stats strip in the cards view, which would mangle the 4-stat
+// next-card grid in my-wallet) can target it.
 function syncMobileTabActive() {
   const view = state.viewMode || "cards";
   document.querySelectorAll(".mob-tab[data-view]").forEach((t) => {
     t.classList.toggle("active", t.dataset.view === view);
   });
+  document.body.setAttribute("data-view", view);
 }
 
 // Mobile filter bottom-sheet open/close. The sidebar element is repurposed

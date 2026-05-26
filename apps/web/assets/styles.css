@@ -2453,30 +2453,29 @@ html.content-page-root .content > * { min-width: 0; }
     text-align: center;
   }
 
-  /* Stats strip: single horizontal line with the most useful numbers.
-   * Mobile-app pattern: "X/Y rests · Fee Yk". Cap hidden because saving
-   * is the headline in the right-rail anyway. We add a small inner
-   * gutter so the leftmost value (PKR saving) doesn't sit flush against
-   * the card's peach band edge. */
-  .card-stats-row {
+  /* Stats strip on the CARDS view: single horizontal line with the most
+   * useful numbers ("PKR 1.73 lakh /year · X/Y rests · Fee Yk"). Labels
+   * are dropped because the values are self-explanatory in that layout.
+   * Scoped via body[data-view="cards"] so the My-Wallet (next-card)
+   * view keeps its 4-stat grid with labels — those values are deltas
+   * (+PKR 3,138) and bare counts (295, 41) that DO need labels. */
+  body[data-view="cards"] .card-stats-row {
     flex-wrap: nowrap;
     gap: 4px;
     padding: 10px 14px 8px;
     margin-top: 4px;
   }
-  .card-stats-row .card-stat {
+  body[data-view="cards"] .card-stats-row .card-stat {
     min-width: 0;
     padding: 0 4px;
     text-align: left;
   }
-  /* Saving column gets more space than the others — "PKR 1.73 lakh /year"
-   * is the longest string and was truncating with equal-flex columns. */
-  .card-stats-row .card-stat:nth-child(1) { flex: 1.5 1 0; padding-left: 0; }
-  .card-stats-row .card-stat:nth-child(2) { flex: 1 1 0; }
-  .card-stats-row .card-stat:nth-child(3) { flex: 1 1 0; padding-right: 0; }
-  .card-stats-row .card-stat:nth-child(4) { display: none; }   /* hide cap */
-  .card-stat .cs-l { display: none; }                           /* labels off */
-  .card-stat .cs-v {
+  body[data-view="cards"] .card-stats-row .card-stat:nth-child(1) { flex: 1.5 1 0; padding-left: 0; }
+  body[data-view="cards"] .card-stats-row .card-stat:nth-child(2) { flex: 1 1 0; }
+  body[data-view="cards"] .card-stats-row .card-stat:nth-child(3) { flex: 1 1 0; padding-right: 0; }
+  body[data-view="cards"] .card-stats-row .card-stat:nth-child(4) { display: none; }
+  body[data-view="cards"] .card-stat .cs-l { display: none; }
+  body[data-view="cards"] .card-stat .cs-v {
     font-size: 12.5px;
     font-weight: 600;
     color: var(--muted);
@@ -2484,7 +2483,38 @@ html.content-page-root .content > * { min-width: 0; }
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  .card-stat .cs-v.green { color: var(--green); font-weight: 700; }
+  body[data-view="cards"] .card-stat .cs-v.green { color: var(--green); font-weight: 700; }
+
+  /* My Wallet / Best-Next-Card view: 2x2 grid with labels preserved,
+   * because the values here are deltas + counts that need their label
+   * to make sense (e.g. "295" alone is meaningless). */
+  body[data-view="my-wallet"] .card-stats-row {
+    flex-wrap: wrap;
+    gap: 0;
+    padding: 8px 4px;
+  }
+  body[data-view="my-wallet"] .card-stat {
+    flex: 0 0 50%;
+    min-width: 0;
+    padding: 8px 12px;
+    box-sizing: border-box;
+  }
+  body[data-view="my-wallet"] .card-stat .cs-l {
+    display: block;
+    font-size: 9.5px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    margin-bottom: 2px;
+  }
+  body[data-view="my-wallet"] .card-stat .cs-v {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  body[data-view="my-wallet"] .card-stat .cs-v.green { color: var(--green); }
 
   /* Restaurant rows: bank logo + best-with stack + saving column, matching
    * the mobile app's RestaurantRow. */
