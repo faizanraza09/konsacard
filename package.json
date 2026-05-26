@@ -10,6 +10,7 @@
     "test:web": "cd apps/web && npm test",
     "test:mobile": "cd apps/mobile && npx jest",
     "build:web": "cd apps/web && npm run build",
+    "build:web:deploy": "cd apps/web && npm run build:deploy",
     "refresh:offers": "cd apps/web && npm run refresh:offers",
     "refresh:requirements": "cd apps/web && npm run refresh:requirements",
     "refresh:all": "cd apps/web && npm run refresh:all"
