@@ -2505,10 +2505,7 @@ html.content-page-root .content > * { min-width: 0; }
   .rest-deal-pct { font-size: 12px; }
   .rest-deal-saving { font-size: 16px; }
 
-  /* Build Wallet pick rows + controls: 1-col layout. The 768px block
-   * forces wo-controls to a 2-col grid, but at narrow phone widths each
-   * column doesn't have room for 3 pills (the third "4 cards" pill was
-   * truncating). Drop to a single column so each control breathes. */
+  /* Build Wallet pick rows + controls: 1-col layout. */
   .wo-pick-row { padding: 10px 12px; }
   .wo-pick-card { font-size: 13.5px; }
   .wo-pick-bank { font-size: 11px; }
@@ -2520,6 +2517,19 @@ html.content-page-root .content > * { min-width: 0; }
   .wo-combined-stat { padding: 10px 12px; }
   .wo-combined-stat-l { font-size: 9.5px; }
   .wo-combined-stat-v { font-size: 15px; }
+
+  /* Collapsible Build-Wallet config: closed by default on mobile, so
+   * the wallet list surfaces above the fold. Tap the summary row to
+   * reveal the full pill controls. The verbose intro paragraph is
+   * hidden — the summary chip below the title says everything. */
+  .wo-setup--collapsible > summary .wo-setup-sub { display: none; }
+  .wo-setup--collapsible > summary .wo-setup-summary { display: flex; }
+  .wo-setup--collapsible[open] > summary .wo-setup-summary { display: none; }
+  .wo-setup-chevron { display: inline-flex; }
+  .wo-setup--collapsible[open] > summary .wo-setup-title { margin-bottom: 6px; }
+
+  /* My Wallet summary card override moved to after the global
+   * .mw-summary-stats rule (cascade order). See bottom of the file. */
 
   /* Card detail header: action buttons wrap below the title block. */
   .cd-head { flex-wrap: wrap; align-items: flex-start; gap: 10px 12px; }
@@ -3271,6 +3281,18 @@ html.content-page-root .content > * { min-width: 0; }
 .mw-summary-v { font-size: 14px; font-weight: 800; color: var(--ink); letter-spacing: -.01em; }
 .mw-summary-v.green { color: var(--green); }
 
+/* Mobile: collapse the 4-stat grid on My Wallet. The summary title
+ * already shows "1 card · PKR X / outing"; the Coverage section directly
+ * below covers restaurants matched; fees show in the BEST NEXT CARD
+ * stats area. Saves ~200px of vertical space so the next-card list
+ * appears closer to the fold. Placed AFTER the global .mw-summary-stats
+ * rule so the cascade resolves correctly. */
+@media (max-width: 768px) {
+  .mw-summary-stats { display: none; }
+  .mw-summary { padding: 14px 16px; }
+  .mw-summary-sub { font-size: 12px; }
+}
+
 .mw-section-header {
   padding: 4px 20px 10px;
   display: flex;
@@ -3583,6 +3605,83 @@ html.content-page-root .content > * { min-width: 0; }
 .wo-setup-title { font-size: 18px; font-weight: 800; color: var(--ink); line-height: 1.15; margin-bottom: 4px; letter-spacing: -.01em; }
 .wo-setup-sub { font-size: 12.5px; color: var(--muted); line-height: 1.45; max-width: 620px; }
 .wo-setup-sub strong { color: var(--ink); font-weight: 700; }
+
+/* Collapsible Build-Wallet config (mobile-friendly). The whole controls
+ * block is wrapped in a <details>; on desktop we force it open and hide
+ * the chevron/summary, so the previous always-visible layout is
+ * preserved. On mobile it's collapsed by default and shows a
+ * single-line summary chip so the wallet list rises to the top.
+ */
+.wo-setup--collapsible { padding: 0; }
+.wo-setup--collapsible > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 20px 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.wo-setup--collapsible > summary::-webkit-details-marker { display: none; }
+.wo-setup--collapsible > summary .wo-setup-title-wrap { flex: 1; min-width: 0; }
+.wo-setup-chevron {
+  display: none;
+  align-self: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--brand-mid);
+  color: var(--brand);
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.wo-setup--collapsible[open] .wo-setup-chevron { transform: rotate(180deg); }
+.wo-setup-summary {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink2);
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.wo-setup-summary-edit {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--brand);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.wo-setup--collapsible > .wo-controls-grid,
+.wo-setup--collapsible > .wo-advanced,
+.wo-setup--collapsible > .wo-anchor-note,
+.wo-setup--collapsible > .wo-crosslink {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.wo-setup--collapsible > .wo-controls-grid { padding-top: 4px; }
+.wo-setup--collapsible > .wo-crosslink { padding-bottom: 18px; }
+
+/* Desktop: force the collapsible config OPEN and treat the <summary> as
+ * a static header (no chevron, no pointer). Restores the previous always-
+ * visible layout for users with screen real-estate. */
+@media (min-width: 769px) {
+  .wo-setup--collapsible { padding: 18px 20px 16px; }
+  .wo-setup--collapsible > summary { padding: 0; cursor: default; }
+  .wo-setup--collapsible > summary .wo-setup-summary { display: none; }
+  .wo-setup--collapsible > .wo-controls-grid,
+  .wo-setup--collapsible > .wo-advanced,
+  .wo-setup--collapsible > .wo-anchor-note,
+  .wo-setup--collapsible > .wo-crosslink { padding-left: 0; padding-right: 0; }
+}
 
 .wo-controls,
 .wo-controls-grid {

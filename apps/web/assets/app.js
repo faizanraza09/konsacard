@@ -2057,15 +2057,38 @@ function renderWalletSetupPanel(container) {
   const maxFeeRaw = state.walletMaxFee;
   const mustCount = state.walletMustInclude.size;
 
+  // Compact summary the user sees on mobile when the config is collapsed.
+  // Gives them a one-line read of the current build settings without
+  // forcing them to scroll past ~600px of pills + toggles to reach the
+  // actual wallet results.
+  const objLabel = (objectiveOptions.find((o) => o.v === obj) || { label: "Max savings" }).label;
+  const startLabel = buildOnOwned ? `On top of ${stats.anchorCount || ownedCount}` : "From scratch";
+  const feeLabel = maxFeeRaw !== null ? `Max fee ${formatCurrencyShort(maxFeeRaw)}/yr` : "No fee cap";
+  const summaryBits = `${K} cards · ${startLabel} · ${objLabel} · ${feeLabel}`;
+
+  // On phones the config is closed by default so the wallet list rises
+  // to the top; on desktop the always-visible layout is preserved. Once
+  // the user toggles, that choice sticks across re-renders via
+  // state.walletConfigOpen.
+  const isPhone = typeof window !== "undefined"
+    && window.matchMedia && window.matchMedia("(max-width: 768px)").matches;
+  const configOpen = state.walletConfigOpen === undefined
+    ? !isPhone
+    : state.walletConfigOpen;
+
   container.innerHTML = `
-    <div class="wo-setup">
-      <div class="wo-setup-head">
+    <details class="wo-setup wo-setup--collapsible"${configOpen ? " open" : ""}>
+      <summary class="wo-setup-head">
         <div class="wo-setup-title-wrap">
           <div class="wo-setup-kicker">Wallet Builder</div>
           <div class="wo-setup-title">Best ${K}-card wallet for you</div>
           <div class="wo-setup-sub">We pick a combination of cards that <strong>together</strong> covers the most restaurants and saves the most. Unlike Next Card, this designs your wallet from scratch.</div>
+          <div class="wo-setup-summary"><span>${escapeHtml(summaryBits)}</span><span class="wo-setup-summary-edit">Edit</span></div>
         </div>
-      </div>
+        <span class="wo-setup-chevron" aria-hidden="true">
+          <svg viewBox="0 0 12 12" width="12" height="12"><path d="M2 4.5 L6 8.5 L10 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </summary>
 
       <div class="wo-controls-grid">
         <div class="wo-control">
@@ -2162,8 +2185,13 @@ function renderWalletSetupPanel(container) {
           }
         </div>
       `}
-    </div>
+    </details>
   `;
+
+  // Persist the open/closed state so the user's choice survives re-renders.
+  container.querySelector(".wo-setup--collapsible")?.addEventListener("toggle", (e) => {
+    state.walletConfigOpen = e.target.open;
+  });
 
   // Event wiring
   container.querySelectorAll("#wo-k-pills .wo-pill").forEach((btn) => {
