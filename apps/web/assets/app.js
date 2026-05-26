@@ -1978,22 +1978,17 @@ function renderNextCardFeatured(result, container) {
           </div>
         </div>
       </div>
-      <div class="card-stats-row card-stats-row--clickable">
-        <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Extra Saving")}</div>
-          <div class="cs-v green">+${formatCurrency(result.avgDeltaPerOuting)} / outing</div>
-        </div>
-        <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Estimated Yearly")}</div>
-          <div class="cs-v green">~+${formatCurrency(yearly)}</div>
-        </div>
-        <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("New Restaurants")}</div>
-          <div class="cs-v">${result.newVenues}</div>
-        </div>
-        <div class="card-stat">
-          <div class="cs-l">${renderMetricLabel("Improves On")}</div>
-          <div class="cs-v">${result.boostedVenues}</div>
+      <!-- Clean meta block: hero saving + natural-language meta line, instead
+           of a 4-cell stat grid where the short counts (295, 41) crowded their
+           labels. Reads the same on mobile and desktop. -->
+      <div class="nc-meta nc-meta--featured">
+        <div class="nc-meta-hero">+${formatCurrency(result.avgDeltaPerOuting)}<span class="nc-meta-unit"> / outing</span></div>
+        <div class="nc-meta-line">
+          <span><strong>~+${formatCurrencyShort(yearly)}</strong> per year</span>
+          <span class="nc-meta-sep">·</span>
+          <span>Adds <strong>${result.newVenues}</strong> ${result.newVenues === 1 ? "restaurant" : "restaurants"}</span>
+          <span class="nc-meta-sep">·</span>
+          <span>Boosts <strong>${result.boostedVenues}</strong> existing</span>
         </div>
       </div>
       ${topVenues ? `<div class="nc-feat-topvenues"><span class="nc-feat-topvenues-l">Best wins:</span> ${topVenues}</div>` : ""}
@@ -2035,23 +2030,14 @@ function renderNextCardItem(result, container, rank) {
         </div>
       </div>
     </div>
-    <div class="card-stats-row card-stats-row--clickable">
-      <div class="card-stat">
-        <div class="cs-l">${renderMetricLabel("Extra Saving")}</div>
-        <div class="cs-v green">+${formatCurrency(result.avgDeltaPerOuting)} / outing</div>
-      </div>
-      <div class="card-stat">
-        <div class="cs-l">${renderMetricLabel("Yearly")}</div>
-        <div class="cs-v green">~+${formatCurrency(result.yearlyDelta)}</div>
-      </div>
-      <div class="card-stat">
-        <div class="cs-l">${renderMetricLabel("New")}</div>
-        <div class="cs-v">${result.newVenues}</div>
-      </div>
-      <div class="card-stat">
-        <div class="cs-l">${renderMetricLabel("Boosts")}</div>
-        <div class="cs-v">${result.boostedVenues}</div>
-      </div>
+    <div class="nc-meta">
+      <span class="nc-meta-pri">+${formatCurrency(result.avgDeltaPerOuting)}<span class="nc-meta-unit"> / outing</span></span>
+      <span class="nc-meta-sep">·</span>
+      <span><strong>~+${formatCurrencyShort(result.yearlyDelta)}</strong>/yr</span>
+      <span class="nc-meta-sep">·</span>
+      <span>Adds <strong>${result.newVenues}</strong></span>
+      <span class="nc-meta-sep">·</span>
+      <span>Boosts <strong>${result.boostedVenues}</strong></span>
     </div>
   `;
   container.appendChild(article);

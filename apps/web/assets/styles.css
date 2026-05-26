@@ -2484,37 +2484,8 @@ html.content-page-root .content > * { min-width: 0; }
     text-overflow: ellipsis;
   }
   body[data-view="cards"] .card-stat .cs-v.green { color: var(--green); font-weight: 700; }
-
-  /* My Wallet / Best-Next-Card view: 2x2 grid with labels preserved,
-   * because the values here are deltas + counts that need their label
-   * to make sense (e.g. "295" alone is meaningless). */
-  body[data-view="my-wallet"] .card-stats-row {
-    flex-wrap: wrap;
-    gap: 0;
-    padding: 8px 4px;
-  }
-  body[data-view="my-wallet"] .card-stat {
-    flex: 0 0 50%;
-    min-width: 0;
-    padding: 8px 12px;
-    box-sizing: border-box;
-  }
-  body[data-view="my-wallet"] .card-stat .cs-l {
-    display: block;
-    font-size: 9.5px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--muted2);
-    margin-bottom: 2px;
-  }
-  body[data-view="my-wallet"] .card-stat .cs-v {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--ink);
-    line-height: 1.25;
-  }
-  body[data-view="my-wallet"] .card-stat .cs-v.green { color: var(--green); }
+  /* My Wallet uses its own .nc-meta markup — see the section right after
+   * .nc-feat-topvenues — so no override is needed here. */
 
   /* Restaurant rows: bank logo + best-with stack + saving column, matching
    * the mobile app's RestaurantRow. */
@@ -3488,6 +3459,69 @@ html.content-page-root .content > * { min-width: 0; }
   color: var(--muted);
   line-height: 1.4;
   border-top: 1px dashed var(--brand-mid);
+}
+
+/* Best-Next-Card meta line. Replaces the old 4-cell stat grid that
+ * crowded labels with short values like "295" and "41". Natural-language
+ * phrasing reads cleanly inline and wraps gracefully on phones. */
+.nc-meta {
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+}
+.nc-meta strong { color: var(--ink); font-weight: 700; }
+.nc-meta-sep { color: var(--muted2); opacity: 0.5; }
+.nc-meta-pri {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--green);
+}
+.nc-meta-pri .nc-meta-unit {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+/* Featured rank-1 next-card variant: hero saving on its own row, then
+ * the meta line below. */
+.nc-meta--featured {
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 18px;
+  border-top-color: var(--brand-mid);
+}
+.nc-meta-hero {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--green);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+.nc-meta-hero .nc-meta-unit {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0;
+}
+.nc-meta--featured .nc-meta-line {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 8px;
+  font-size: 13px;
+}
+
+@media (max-width: 480px) {
+  .nc-meta { padding: 10px 14px; font-size: 12px; }
+  .nc-meta-pri { font-size: 15px; }
+  .nc-meta-hero { font-size: 22px; }
+  .nc-meta--featured { padding: 12px 16px; }
+  .nc-meta--featured .nc-meta-line { font-size: 12px; }
 }
 .nc-feat-topvenues-l {
   font-size: 9.5px;
