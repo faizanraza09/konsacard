@@ -3782,6 +3782,20 @@ function registerServiceWorker() {
       console.warn("[sw] registration failed", err);
     });
   });
+
+  // When a new SW activates and claims this client, the SW posts
+  // SW_ACTIVATED. Reload exactly once so the user instantly sees the new
+  // shell — without it, Cmd+R serves yesterday's bundle for one more
+  // reload because the SWR cache still has the old copy at takeover time.
+  // We guard with sessionStorage so a misbehaving SW can't refresh-loop.
+  let alreadyReloaded = false;
+  try { alreadyReloaded = sessionStorage.getItem("sw-reloaded-once") === "1"; } catch {}
+  navigator.serviceWorker.addEventListener("message", (event) => {
+    if (event.data?.type !== "SW_ACTIVATED") return;
+    if (alreadyReloaded) return;
+    try { sessionStorage.setItem("sw-reloaded-once", "1"); } catch {}
+    location.reload();
+  });
 }
 
 function renderCuisinePills() {

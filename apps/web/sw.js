@@ -54,13 +54,29 @@ self.addEventListener("install", (event) => {
 
 self.addEventListener("activate", (event) => {
   event.waitUntil(
-    caches.keys().then((keys) =>
-      Promise.all(
-        keys
-          .filter((k) => k !== SHELL_CACHE && k !== DATA_CACHE)
-          .map((k) => caches.delete(k))
+    caches.keys()
+      .then((keys) =>
+        Promise.all(
+          keys
+            .filter((k) => k !== SHELL_CACHE && k !== DATA_CACHE)
+            .map((k) => caches.delete(k))
+        )
       )
-    ).then(() => self.clients.claim())
+      .then(() => self.clients.claim())
+      .then(async () => {
+        // A genuinely new SW version just activated. Reload every controlled
+        // tab so the user instantly sees the new shell instead of having to
+        // hit Cmd+R themselves. Guarded by the registration's `installing`
+        // history — we only reload if there was a prior controller (i.e. an
+        // older SW handed control over to us), so first-time visitors don't
+        // see a surprise reload during their initial load.
+        const clientsList = await self.clients.matchAll({ type: "window" });
+        for (const client of clientsList) {
+          // `client.navigate(client.url)` is the right primitive but isn't
+          // supported in WebKit; postMessage lets the page decide.
+          client.postMessage({ type: "SW_ACTIVATED", version: SHELL_VERSION });
+        }
+      })
   );
 });
 

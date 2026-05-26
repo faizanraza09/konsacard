@@ -1,0 +1,25 @@
+# Cloudflare Pages reads this file and applies the headers to matching
+# paths at the edge. Syntax: a route on one line, then header lines
+# indented underneath. Empty line ends the block.
+
+# Service worker must never be HTTP-cached, otherwise a deploy can take
+# hours (or never) to reach users — the browser keeps serving the cached
+# sw.js, which keeps the OLD service worker registered, which keeps
+# returning the OLD app shell on Cmd+R. The SW itself caches the app
+# shell internally and uses stale-while-revalidate, so the cost of
+# re-fetching sw.js on every page load is ~1 KB.
+/sw.js
+  Cache-Control: public, max-age=0, must-revalidate
+
+# The same goes for the offers index — it's small (~25 KB) and is what
+# tells the rest of the app which city shards to fetch. If it's stale,
+# the user sees yesterday's "verified X days ago" chip and yesterday's
+# stats banner. Shards themselves can be cached normally; their content
+# is keyed by city + generatedAt and won't change without an index bump.
+/data/offers-index.json
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Manifest changes rarely but when it does (icon swap, theme color),
+# we want the new copy picked up promptly on next visit.
+/manifest.webmanifest
+  Cache-Control: public, max-age=300, must-revalidate
