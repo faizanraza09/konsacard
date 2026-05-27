@@ -1,0 +1,15 @@
+{
+  "description": "Strict-mode thresholds for the daily refresh cron. Tuned off the seed snapshot taken on 2026-05-27 with 28,554 offers across 3 sources and 3 cities.",
+  "max_total_offer_drop_pct": 15,
+  "max_restaurants_lost": 50,
+  "min_offers_per_source": {
+    "peekaboo": 5000,
+    "nbp": 2000,
+    "easypaisa": 50
+  },
+  "min_offers_per_city": {
+    "Karachi": 3000,
+    "Lahore": 3000,
+    "Islamabad": 2000
+  }
+}

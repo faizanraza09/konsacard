@@ -1,0 +1,116 @@
+name: Daily offers refresh
+
+# Runs the offers refresh pipeline, validates the result with strict regression
+# checks, and (only on success) commits the regenerated data + SEO pages back to
+# the default branch. Cloudflare Pages redeploys on that push.
+#
+# Required secrets:
+#   PEEKABOO_TOKEN  — auth token for the Peekaboo API scrape
+#
+# Required repo settings:
+#   Settings → Actions → General → Workflow permissions = Read and write
+#   (so the workflow's GITHUB_TOKEN can push commits and open issues)
+
+on:
+  schedule:
+    # 02:00 UTC daily = 07:00 PKT
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    name: Refresh + validate + commit
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Need git history so validate --strict and refresh_diff_report can
+          # compare to HEAD's offers.json. Depth 2 is enough.
+          fetch-depth: 2
+          # Use the default GITHUB_TOKEN so the eventual `git push` is authed.
+          persist-credentials: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install scraper dependencies
+        run: pip install --quiet requests
+
+      - name: Refresh offers (all sources)
+        env:
+          PEEKABOO_TOKEN: ${{ secrets.PEEKABOO_TOKEN }}
+        run: python scripts/offers/refresh_all_offers.py
+
+      - name: Strict validation
+        run: python scripts/offers/validate_offers_dataset.py --strict
+
+      - name: SEO determinism check
+        run: python scripts/seo/check_seo_determinism.py
+
+      - name: Generate diff report
+        if: always()
+        run: python scripts/offers/refresh_diff_report.py > refresh-report.md
+
+      - name: Upload diff report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: refresh-report
+          path: apps/web/refresh-report.md
+          retention-days: 30
+
+      - name: Commit + push
+        if: success()
+        run: |
+          git config user.name "konsacard-refresh-bot"
+          git config user.email "konsacard-refresh-bot@users.noreply.github.com"
+          git add data/ banks/ restaurants/ sitemap.xml sw.js 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "chore(data): daily refresh of offers + SEO pages"
+          git push
+
+      - name: Open issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let report = '_(diff report unavailable — refresh failed before it ran)_';
+            try {
+              report = fs.readFileSync('apps/web/refresh-report.md', 'utf8');
+            } catch (_) {}
+            const runUrl = `${context.serverUrl}/${context.repo.owner}/${context.repo.repo}/actions/runs/${context.runId}`;
+            const body = [
+              `The daily offers refresh failed.`,
+              ``,
+              `**Workflow run:** ${runUrl}`,
+              ``,
+              `---`,
+              ``,
+              report,
+            ].join('\n');
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Daily refresh failed — ${new Date().toISOString().slice(0, 10)}`,
+              body,
+              labels: ['daily-refresh', 'automation'],
+            });

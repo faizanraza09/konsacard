@@ -1,0 +1,23 @@
+{
+  "description": "Banks that must each have at least one offer in offers.json. Adding a new bank requires an explicit commit here so the daily-refresh cron cannot silently introduce or lose one.",
+  "banks": [
+    "Al Baraka Bank",
+    "Allied Bank",
+    "Askari Bank Limited",
+    "Bank AL Habib",
+    "Bank Alfalah",
+    "Bank of Punjab",
+    "BankIslami",
+    "Easypaisa",
+    "Faysal Bank Limited",
+    "HBL Islamic Bank Limited",
+    "Habib Bank Limited",
+    "Habib Metro Bank",
+    "JS Bank",
+    "MCB Bank Limited",
+    "MCB Islamic Bank Ltd",
+    "Meezan Bank",
+    "National Bank of Pakistan",
+    "United Bank Limited (UBL)"
+  ]
+}

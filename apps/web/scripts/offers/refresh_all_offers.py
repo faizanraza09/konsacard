@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 PEEKABOO_REFRESH = ROOT / "scripts" / "offers" / "refresh_peekaboo.py"
 EASYPAISA_REFRESH = ROOT / "scripts" / "offers" / "extract_easypaisa_discountworld.py"
 NBP_REFRESH = ROOT / "scripts" / "offers" / "extract_nbp_merchants.py"
+DEAL_MAP_BUILD = ROOT / "scripts" / "card_requirements" / "build_deal_requirement_card_map.py"
 OFFERS_VALIDATION = ROOT / "scripts" / "offers" / "validate_offers_dataset.py"
 OFFERS_SPLIT = ROOT / "scripts" / "offers" / "split_offers_by_city.py"
 SEO_PAGE_GENERATION = ROOT / "scripts" / "seo" / "generate_seo_pages.py"
@@ -37,6 +38,7 @@ def main() -> None:
     payload = merge_easypaisa_into_offers()
     print("[offers] Merging NBP into data/offers.json...")
     payload = merge_nbp_into_offers()
+    run_step("Rebuilding deal->requirement card map", [python, str(DEAL_MAP_BUILD)])
     run_step("Validating merged offers dataset", [python, str(OFFERS_VALIDATION)])
     run_step("Splitting offers.json by city for faster client loads", [python, str(OFFERS_SPLIT)])
     run_step("Generating bank, restaurant, and sitemap SEO pages", [python, str(SEO_PAGE_GENERATION)])

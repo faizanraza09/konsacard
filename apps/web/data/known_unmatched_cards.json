@@ -1,0 +1,9 @@
+{
+  "description": "(bank, card) pairs present in offers.json that have NO requirements record in data/card-requirements/normalized/deal_requirement_card_map.json (i.e. matched=false). These are the known orphans as of the cron-safety rollout. The validator fails if a *new* unmatched pair appears that is not in this list.",
+  "policy": "To allow a new pair, either (1) add the card to data/card-requirements/normalized/card_requirements.json so the matcher can pick it up, OR (2) add a MANUAL_ALIASES entry in scripts/card_requirements/build_deal_requirement_card_map.py, OR (3) if intentional, append the pair here with a note. Removing entries here is encouraged once the underlying card is bridged.",
+  "source_of_truth": "data/card-requirements/normalized/deal_requirement_card_map.json — entries where matched=false",
+  "pairs": [
+    { "bank": "Bank Alfalah", "card": "Bank Alfalah Mastercard Titanium Credit Card" },
+    { "bank": "BankIslami", "card": "Priority Mastercard Debit Card" }
+  ]
+}
