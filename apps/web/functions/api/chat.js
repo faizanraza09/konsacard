@@ -285,7 +285,7 @@ export async function onRequestPost(context) {
   });
 
   if (!upstream.ok) {
-    let errMsg = `DeepSeek error ${upstream.status}`;
+    let errMsg = `AI service error ${upstream.status}`;
     try {
       const errBody = await upstream.json();
       errMsg = errBody?.error?.message || errBody?.message || errMsg;
@@ -347,7 +347,6 @@ export async function onRequestPost(context) {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
         "X-Accel-Buffering": "no",
-        "X-Model": DEEPSEEK_MODEL,
         "X-Rate-Hourly-Remaining": String(rl?.remainingHourly ?? ""),
         "X-Rate-Daily-Remaining":  String(rl?.remainingDaily ?? ""),
       },
@@ -361,10 +360,7 @@ export async function onRequestPost(context) {
   console.log(`[CHAT] Done (non-stream) | tokens in/out: ${inputTokensEstimate}/${outputTokensEstimate} | ${Date.now() - startTime}ms`);
 
   // Pass through the OpenAI-shape response unchanged — frontend already
-  // reads choices[0].message.tool_calls / .content.
-  return Response.json({
-    ...responseData,
-    _model: DEEPSEEK_MODEL,
-    _tokenEstimate: { input: inputTokensEstimate, output: outputTokensEstimate, total: inputTokensEstimate + outputTokensEstimate },
-  });
+  // reads choices[0].message.tool_calls / .content. We intentionally omit
+  // any vendor/model identifier so the client never sees who's upstream.
+  return Response.json(responseData);
 }

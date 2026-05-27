@@ -41,7 +41,7 @@ interface DisplayMsg {
 interface ApiMsg {
   role: "user" | "assistant" | "tool" | "system";
   content?: string | null;
-  // OpenAI-shape tool history; the worker converts to Gemini parts.
+  // OpenAI-shape tool history; passed through the worker to the upstream LLM.
   tool_calls?: Array<{ id?: string; type: "function"; function: { name: string; arguments: string } }>;
   tool_call_id?: string;
   name?: string;
@@ -77,7 +77,7 @@ function trimApiMessages(messages: ApiMsg[], maxMessages = 16, maxChars = 14_000
   return firstUser > 0 ? normalized.slice(firstUser) : normalized;
 }
 
-// DeepSeek returns OpenAI-shape responses: choices[0].message.{content, tool_calls}.
+// Upstream LLM responds in OpenAI shape: choices[0].message.{content, tool_calls}.
 interface OpenAIChatResponse {
   choices?: Array<{
     message?: {
@@ -134,7 +134,9 @@ export default function ChatScreen() {
   const [api, setApi] = useState<ApiMsg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [err, setErr] = useState<string | null>(null);
+  // Error state used to surface raw upstream messages; removed to avoid
+  // leaking vendor names (e.g. "AI service error 502") into the UI. The
+  // in-bubble copy below is what the user sees.
   const [hydrated, setHydrated] = useState(false);
   const listRef = useRef<FlatList<DisplayMsg>>(null);
   const abortRef = useRef<AbortController | null>(null);
@@ -188,7 +190,6 @@ export default function ChatScreen() {
       const { signal } = abort;
 
       setInput("");
-      setErr(null);
       setLoading(true);
 
       const streamingIdx = display.length + 1;
@@ -274,7 +275,6 @@ export default function ChatScreen() {
         } else if (error.status === 400 || error.status === 403) {
           userMsg = "⚠️ Chat configuration error.";
         }
-        setErr(error.message || "");
         updateStreaming({ text: userMsg, streaming: false, retryText: t });
       } finally {
         clearTimeout(timeoutTimer);
@@ -321,7 +321,6 @@ export default function ChatScreen() {
           <Text style={styles.loadingText}>Thinking…</Text>
         </View>
       ) : null}
-      {err ? <Text style={styles.err}>{err}</Text> : null}
       <View style={styles.composer}>
         <TextInput
           style={styles.input}
