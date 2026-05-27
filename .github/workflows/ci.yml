@@ -50,6 +50,12 @@ jobs:
         run: npx tsc --noEmit -p jsconfig.json
         continue-on-error: true # @ts-check is informational at first; tighten later
 
+      - name: Python — merge pipeline regression tests
+        # Guards against the May 2026 cuisine-UI incident where merge_easypaisa
+        # + merge_nbp silently dropped the restaurants enrichment, breaking the
+        # cuisine filter for 6 days without anyone noticing.
+        run: python3 scripts/offers/test_merges_preserve_enrichment.py
+
       - name: Playwright tests
         run: npm test
         env:

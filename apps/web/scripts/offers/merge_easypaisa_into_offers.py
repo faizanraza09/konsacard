@@ -47,7 +47,7 @@ def build_payload(offers: list[dict], existing_payload: dict) -> dict:
     for offer in offers:
         restaurants_by_city.setdefault(offer["city"], set()).add(offer["restaurant"])
 
-    return {
+    payload = {
         "generatedAt": datetime.now().isoformat(timespec="seconds"),
         "dayNames": existing_payload["dayNames"],
         "cities": existing_payload["cities"],
@@ -62,6 +62,12 @@ def build_payload(offers: list[dict], existing_payload: dict) -> dict:
         },
         "offers": offers,
     }
+    # Preserve restaurant enrichment (cuisine tags, branches, social, photos).
+    # Without this carry-forward, the merge silently strips enrichment from
+    # offers.json, breaking the downstream cuisine filter in the UI.
+    if existing_payload.get("restaurants"):
+        payload["restaurants"] = existing_payload["restaurants"]
+    return payload
 
 
 def dedupe_offers(offers: list[dict]) -> list[dict]:

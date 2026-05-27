@@ -92,6 +92,16 @@ def main() -> None:
     index["cityFiles"] = city_files
     if restaurants_url:
         index["restaurantsFile"] = restaurants_url
+    elif (OUT_DIR / "offers-restaurants.json").exists():
+        # Defense in depth: the merge pipeline upstream may have stripped the
+        # `restaurants` key from offers.json (this was a real regression that
+        # broke the cuisine UI for 6 days in May 2026 — see the merge scripts'
+        # build_payload carry-forward). If an enrichment file exists on disk
+        # from a prior run, still reference it from the index so the UI
+        # degrades to "slightly stale enrichment" rather than "no cuisine
+        # filter at all".
+        index["restaurantsFile"] = "./data/offers-restaurants.json"
+        print("[split] WARNING: payload lacks 'restaurants' key — referencing stale offers-restaurants.json instead.")
     index["splitFormat"] = "v2"
     with (OUT_DIR / "offers-index.json").open("w", encoding="utf-8") as f:
         json.dump(index, f, ensure_ascii=False, separators=(",", ":"))

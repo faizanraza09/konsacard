@@ -259,6 +259,10 @@ def merge_nbp_into_offers(
         },
         "offers": merged_offers,
     }
+    # Preserve restaurant enrichment (cuisine tags, branches, social, photos).
+    # Same fix as merge_easypaisa_into_offers.build_payload.
+    if offers_payload.get("restaurants"):
+        payload["restaurants"] = offers_payload["restaurants"]
 
     offers_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
     return payload
