@@ -13,8 +13,8 @@ name: Daily offers refresh
 
 on:
   schedule:
-    # 02:00 UTC daily = 07:00 PKT
-    - cron: "0 2 * * *"
+    # 06:00 UTC daily = 11:00 PKT
+    - cron: "0 6 * * *"
   workflow_dispatch:
 
 permissions:
