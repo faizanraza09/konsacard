@@ -72,17 +72,46 @@ GENERIC_TOKENS = {
 }
 
 
+_WINDOWS_1252_MOJIBAKE = {
+    # When Windows-1252-encoded smart punctuation is decoded as UTF-8 by mistake,
+    # each char becomes a "â<X>" triplet. These are the common ones in our
+    # scraped data — none of them can be recovered by the latin1-decode trick
+    # below because € (U+20AC) and ™ (U+2122) aren't in latin1.
+    "â€™": "'",   # right single quotation mark (’)
+    "â€˜": "'",   # left single quotation mark (‘)
+    "â€œ": '"',   # left double quotation mark (“)
+    "â€": '"',  # right double quotation mark (”) — variant
+    "â€\x9d": '"',
+    "â€“": "-",   # en dash (–)
+    "â€”": "--",  # em dash (—)
+    "â€¦": "...", # ellipsis (…)
+}
+
+
 def fix_mojibake(text: str | None) -> str:
     """Heuristic for the latin1-decoded-as-utf8 mojibake we see in
-    scraped data (e.g. 'CafÃ©' instead of 'Café'). Idempotent on
-    already-clean strings."""
+    scraped data (e.g. 'CafÃ©' instead of 'Café', 'Bakerâ€™s' instead
+    of 'Baker's'). Idempotent on already-clean strings.
+
+    Handles two patterns:
+      1. Latin-1-decoded-as-UTF-8 (the 'CafÃ©' family) — recoverable via
+         text.encode('latin1').decode('utf-8').
+      2. Windows-1252-decoded-as-UTF-8 (the 'â€™' family) — NOT recoverable
+         that way because € and ™ aren't in latin1, so the encode raises
+         UnicodeError. Fall back to explicit triplet replacement.
+    """
     if not text:
         return ""
-    if any(ch in text for ch in ("Ã", "Â", "â", "Ð", "Ñ")):
+    # First try the latin1 round-trip — handles most accented characters.
+    if any(ch in text for ch in ("Ã", "Â", "Ð", "Ñ")):
         try:
-            return text.encode("latin1").decode("utf-8")
+            text = text.encode("latin1").decode("utf-8")
         except UnicodeError:
-            return text
+            pass  # fall through to triplet replacement below
+    # Then sweep any remaining Windows-1252 triplets.
+    if "â€" in text:
+        for bad, good in _WINDOWS_1252_MOJIBAKE.items():
+            text = text.replace(bad, good)
     return text
 
 

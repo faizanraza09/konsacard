@@ -86,6 +86,54 @@ test.describe('offers-restaurants.json shape (when present)', () => {
   });
 });
 
+test.describe('inferred_cuisines.json shape (when present)', () => {
+  const inferredPath = path.join(DATA_DIR, 'inferred_cuisines.json');
+
+  test('has restaurants map keyed by names that exist in offers.json', () => {
+    if (!fs.existsSync(inferredPath)) {
+      test.skip(true, 'inferred_cuisines.json not present');
+      return;
+    }
+    const doc = readJson('inferred_cuisines.json');
+    expect(doc).toHaveProperty('restaurants');
+    expect(doc).toHaveProperty('taxonomy');
+    expect(Array.isArray(doc.taxonomy)).toBe(true);
+    expect(doc.taxonomy.length).toBeGreaterThan(20);
+
+    // Each restaurant key in inferred should appear in the actual offers
+    // dataset (otherwise we wasted entries on stale names).
+    const offers = readJson('offers.json');
+    const liveNames = new Set(offers.offers.map((o) => o.restaurant));
+    const inferredKeys = Object.keys(doc.restaurants);
+    expect(inferredKeys.length, 'inferred file is empty').toBeGreaterThan(50);
+
+    const stale = inferredKeys.filter((k) => !liveNames.has(k));
+    // A small amount of staleness is OK (one daily refresh of churn) but
+    // a large gap means name canonicalization regressed.
+    expect(
+      stale.length / inferredKeys.length,
+      `${stale.length}/${inferredKeys.length} inferred entries are no longer in offers.json — name canonicalization may have regressed.`
+    ).toBeLessThan(0.10);
+  });
+
+  test('every cuisine tag is in the declared taxonomy', () => {
+    if (!fs.existsSync(inferredPath)) {
+      test.skip(true, 'inferred_cuisines.json not present');
+      return;
+    }
+    const doc = readJson('inferred_cuisines.json');
+    const taxonomy = new Set(doc.taxonomy);
+    const violations = [];
+    for (const [name, tags] of Object.entries(doc.restaurants)) {
+      if (!Array.isArray(tags)) violations.push({ name, reason: 'tags not array' });
+      for (const t of tags || []) {
+        if (!taxonomy.has(t)) violations.push({ name, reason: `unknown cuisine ${JSON.stringify(t)}` });
+      }
+    }
+    expect(violations.length, `${violations.length} taxonomy violations: ${JSON.stringify(violations.slice(0, 5))}`).toBe(0);
+  });
+});
+
 test.describe('offers.json shape (source of truth for the split pipeline)', () => {
   test('top-level has expected keys', () => {
     if (!fs.existsSync(path.join(DATA_DIR, 'offers.json'))) {

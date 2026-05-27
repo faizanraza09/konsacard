@@ -200,14 +200,34 @@ async function loadOffersPayload() {
           return null;
         })
       : Promise.resolve(null);
-    const [cityPayloads, restaurantsPayload] = await Promise.all([
+    // Inferred cuisines: LLM-tagged taxonomy for the ~40% of restaurants
+    // Peekaboo doesn't cover (NBP-only chains like KFC, Easypaisa merchants,
+    // independent local restaurants). Treated as best-effort — silently
+    // skipped if absent. Peekaboo enrichment always wins on conflicts since
+    // it's the authoritative source.
+    const inferredFetch = fetchJson("./data/inferred_cuisines.json").catch(() => null);
+    const [cityPayloads, restaurantsPayload, inferredPayload] = await Promise.all([
       Promise.all(cityFetches),
       restaurantsFetch,
+      inferredFetch,
     ]);
     const offers = cityPayloads.flatMap((p) => (Array.isArray(p?.offers) ? p.offers : []));
     payload = { ...index, offers };
     if (restaurantsPayload && restaurantsPayload.restaurants) {
       payload.restaurants = restaurantsPayload.restaurants;
+    }
+    // Merge inferred cuisine data: only fill gaps Peekaboo didn't cover, so
+    // a restaurant present in both keeps its full Peekaboo record (description,
+    // branches, photos, etc.) instead of being overwritten with a thin
+    // {servesCuisine} stub.
+    if (inferredPayload?.restaurants) {
+      payload.restaurants = payload.restaurants || {};
+      for (const [name, cuisines] of Object.entries(inferredPayload.restaurants)) {
+        if (!Array.isArray(cuisines) || cuisines.length === 0) continue;
+        if (!payload.restaurants[name]) {
+          payload.restaurants[name] = { servesCuisine: cuisines };
+        }
+      }
     }
   } catch (err) {
     console.warn("[offers] split payload unavailable, falling back to offers.json", err);

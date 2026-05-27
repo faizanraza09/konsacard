@@ -79,12 +79,28 @@ export async function loadOffers(): Promise<OffersBundle> {
       })
     : Promise.resolve({ restaurants: {} as Record<string, RestaurantEnrichment> });
 
-  const [cityResults, restaurantsResult] = await Promise.all([
+  // Inferred cuisines: LLM-tagged taxonomy for restaurants Peekaboo doesn't
+  // cover (NBP/Easypaisa long-tail). Best-effort: silently skipped if absent.
+  // Peekaboo wins on conflicts since it's the authoritative source.
+  const inferredFetch = fetchJson<{ restaurants: Record<string, string[]> }>(
+    `${dataOrigin()}/data/inferred_cuisines.json`
+  ).catch(() => ({ restaurants: {} as Record<string, string[]> }));
+
+  const [cityResults, restaurantsResult, inferredResult] = await Promise.all([
     Promise.all(cityFetches),
     restaurantsFetch,
+    inferredFetch,
   ]);
   const offers = cityResults.flatMap((r) => r.offers || []);
-  const restaurantsEnrichment = restaurantsResult.restaurants || {};
+  const restaurantsEnrichment: Record<string, RestaurantEnrichment> = {
+    ...(restaurantsResult.restaurants || {}),
+  };
+  for (const [name, cuisines] of Object.entries(inferredResult.restaurants || {})) {
+    if (!Array.isArray(cuisines) || cuisines.length === 0) continue;
+    if (!restaurantsEnrichment[name]) {
+      restaurantsEnrichment[name] = { servesCuisine: cuisines };
+    }
+  }
 
   const bundle: OffersBundle = {
     generatedAt: index.generatedAt,
