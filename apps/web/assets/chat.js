@@ -36,6 +36,44 @@ function resolveFuzzyList(queries, domainValues) {
   return out;
 }
 
+/* ── Cuisine resolution ──
+   The restaurant enrichment file maps name → { servesCuisine: ["Italian", "BBQ", …] }.
+   We surface this to the chatbot so users can ask "Italian deals", "BBQ places",
+   etc., without having to know specific restaurant names. */
+function getAllCuisines() {
+  const enrichment = state.data?.restaurants || {};
+  const all = new Set();
+  for (const enr of Object.values(enrichment)) {
+    (enr?.servesCuisine || []).forEach((c) => c && all.add(c));
+  }
+  return [...all];
+}
+
+function getRestaurantsByCuisine(cuisineValues) {
+  // cuisineValues: Set<string> of canonical cuisine names. Returns Set<restaurantName>.
+  const enrichment = state.data?.restaurants || {};
+  const restaurants = new Set();
+  for (const [name, enr] of Object.entries(enrichment)) {
+    const cs = enr?.servesCuisine || [];
+    for (const c of cs) {
+      if (cuisineValues.has(c)) { restaurants.add(name); break; }
+    }
+  }
+  return restaurants;
+}
+
+function applyCuisineFilter(offers, cuisines, accumulators) {
+  // Returns the filtered offers and pushes matched_as / unmatched into the
+  // shared accumulators so callers can surface them in their tool response.
+  if (!cuisines?.length) return offers;
+  const resolved = resolveFuzzyList(cuisines, getAllCuisines());
+  Object.assign(accumulators.matchedAs, resolved.matched_as);
+  accumulators.unmatched.push(...resolved.unmatched);
+  if (!resolved.values.size) return offers.filter(() => false); // requested cuisines exist nowhere
+  const allowed = getRestaurantsByCuisine(resolved.values);
+  return offers.filter((o) => allowed.has(o.restaurant));
+}
+
 /* ── TOOL DEFINITIONS (OpenAI format, mirrored in functions/api/chat.js) ── */
 const CHAT_TOOL_DEFINITIONS = [
   {
@@ -50,6 +88,7 @@ const CHAT_TOOL_DEFINITIONS = [
           banks:       { type: "array", items: { type: "string" } },
           cards:       { type: "array", items: { type: "string" } },
           card_types:  { type: "array", items: { type: "string" } },
+          cuisines:    { type: "array", items: { type: "string" } },
           city:        { type: "string" },
           days:        { type: "array", items: { type: "number" } },
           min_discount_pct: { type: "number" },
@@ -62,15 +101,15 @@ const CHAT_TOOL_DEFINITIONS = [
   },
   { type: "function", function: { name: "rank_cards", description: "Cards ranked by savings + coverage.", parameters: { type: "object", properties: {
     city: { type: "string" }, bill_size: { type: "number" }, card_types: { type: "array", items: { type: "string" } },
-    restaurants: { type: "array", items: { type: "string" } }, days: { type: "array", items: { type: "number" } },
-    limit: { type: "number" }, offset: { type: "number" },
+    restaurants: { type: "array", items: { type: "string" } }, cuisines: { type: "array", items: { type: "string" } },
+    days: { type: "array", items: { type: "number" } }, limit: { type: "number" }, offset: { type: "number" },
   } } } },
   { type: "function", function: { name: "get_bank_cards", description: "All cards + deal stats for one bank or all banks.", parameters: { type: "object", properties: {
     bank: { type: "string" }, city: { type: "string" }, limit: { type: "number" }, offset: { type: "number" },
   } } } },
   { type: "function", function: { name: "get_restaurant_rankings", description: "Restaurants ranked by max discount / deal count / bank coverage.", parameters: { type: "object", properties: {
-    city: { type: "string" }, card_types: { type: "array", items: { type: "string" } }, sort_by: { type: "string" },
-    limit: { type: "number" }, offset: { type: "number" },
+    city: { type: "string" }, card_types: { type: "array", items: { type: "string" } }, cuisines: { type: "array", items: { type: "string" } },
+    sort_by: { type: "string" }, limit: { type: "number" }, offset: { type: "number" },
   } } } },
   { type: "function", function: { name: "compare_cards", description: "Head-to-head comparison of 2–4 cards.", parameters: { type: "object", properties: {
     cards: { type: "array", items: { type: "object", properties: { bank: { type: "string" }, card: { type: "string" } } } },
@@ -82,6 +121,7 @@ const CHAT_TOOL_DEFINITIONS = [
   } } } },
   { type: "function", function: { name: "summarize_offers", description: "Aggregate roll-up (counts / top-N), not row-level data.", parameters: { type: "object", properties: {
     city: { type: "string" }, card_types: { type: "array", items: { type: "string" } }, banks: { type: "array", items: { type: "string" } },
+    cuisines: { type: "array", items: { type: "string" } },
     group_by: { type: "string" }, top_n: { type: "number" },
   } } } },
   { type: "function", function: { name: "get_user_context", description: "Read the user's app state — city, filters, owned cards, salary/balance.", parameters: { type: "object", properties: {} } } },
@@ -100,7 +140,7 @@ function paginate(rows, { limit, offset = 0, defaultLimit, maxLimit }) {
   return { slice, total, hasMore: off + cap < total, nextOffset: off + cap };
 }
 
-function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, days, min_discount_pct, sort_by = "discount", limit, offset } = {}) {
+function chatTool_searchOffers({ restaurants, banks, cards, card_types, cuisines, city, days, min_discount_pct, sort_by = "discount", limit, offset } = {}) {
   if (!state.data?.offers) return { error: "Offers data not loaded." };
   let results = state.data.offers;
   const matchedAs = {};
@@ -109,6 +149,9 @@ function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, da
   if (city && city !== "all") {
     const c = normalizeCityValue(city);
     results = results.filter((o) => normalizeCityValue(o.city) === c);
+  }
+  if (cuisines?.length) {
+    results = applyCuisineFilter(results, cuisines, { matchedAs, unmatched });
   }
   if (restaurants?.length) {
     const r = resolveFuzzyList(restaurants, [...new Set(results.map((o) => o.restaurant))]);
@@ -159,7 +202,7 @@ function chatTool_searchOffers({ restaurants, banks, cards, card_types, city, da
   };
 }
 
-function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, limit, offset } = {}) {
+function chatTool_rankCards({ city, bill_size, card_types, restaurants, cuisines, days, limit, offset } = {}) {
   if (!state.data?.offers) return { error: "Offers data not loaded." };
   const saved = {
     selectedCity: state.selectedCity, orderValue: state.orderValue,
@@ -175,11 +218,24 @@ function chatTool_rankCards({ city, bill_size, card_types, restaurants, days, li
   if (days?.length)       state.selectedDays = new Set(days);
 
   const matchedAs = {};
+  const unmatched = [];
+  let cuisineRestaurants = null;
+  if (cuisines?.length) {
+    const resolved = resolveFuzzyList(cuisines, getAllCuisines());
+    Object.assign(matchedAs, resolved.matched_as);
+    unmatched.push(...resolved.unmatched);
+    cuisineRestaurants = getRestaurantsByCuisine(resolved.values);
+  }
   if (restaurants?.length) {
     const allNames = [...new Set(state.data.offers.map((o) => o.restaurant))];
     const r = resolveFuzzyList(restaurants, allNames);
     Object.assign(matchedAs, r.matched_as);
-    state.selectedRestaurants = r.values;
+    // If both restaurants and cuisines are passed, intersect.
+    state.selectedRestaurants = cuisineRestaurants
+      ? new Set([...r.values].filter((n) => cuisineRestaurants.has(n)))
+      : r.values;
+  } else if (cuisineRestaurants) {
+    state.selectedRestaurants = cuisineRestaurants;
   }
 
   let results;
@@ -271,7 +327,7 @@ function chatTool_getBankCards({ bank, city, limit, offset } = {}) {
   };
 }
 
-function chatTool_getRestaurantRankings({ city, card_types, sort_by = "max_discount", limit, offset } = {}) {
+function chatTool_getRestaurantRankings({ city, card_types, cuisines, sort_by = "max_discount", limit, offset } = {}) {
   if (!state.data?.offers) return { error: "Offers data not loaded." };
   let offers = state.data.offers;
   if (city && city !== "all") {
@@ -279,6 +335,10 @@ function chatTool_getRestaurantRankings({ city, card_types, sort_by = "max_disco
     offers = offers.filter((o) => normalizeCityValue(o.city) === c);
   }
   if (card_types?.length) offers = offers.filter((o) => card_types.includes(o.cardCategory));
+  const cuisineMatchedAs = {};
+  if (cuisines?.length) {
+    offers = applyCuisineFilter(offers, cuisines, { matchedAs: cuisineMatchedAs, unmatched: [] });
+  }
   const byRest = new Map();
   offers.forEach((o) => {
     if (!byRest.has(o.restaurant)) byRest.set(o.restaurant, { restaurant: o.restaurant, city: o.city, max_discount_pct: 0, best_deal: null, best_bank: null, best_card: null, total_deals: 0, banks: new Set() });
@@ -379,7 +439,7 @@ function chatTool_getCardRequirements({ cards, limit = 5 } = {}) {
   };
 }
 
-function chatTool_summarizeOffers({ city, card_types, banks, group_by, top_n } = {}) {
+function chatTool_summarizeOffers({ city, card_types, banks, cuisines, group_by, top_n } = {}) {
   if (!state.data?.offers) return { error: "Offers data not loaded." };
   let offers = state.data.offers;
   if (city && city !== "all") {
@@ -390,6 +450,9 @@ function chatTool_summarizeOffers({ city, card_types, banks, group_by, top_n } =
   if (banks?.length) {
     const r = resolveFuzzyList(banks, [...new Set(offers.map((o) => o.bank))]);
     offers = offers.filter((o) => r.values.has(o.bank));
+  }
+  if (cuisines?.length) {
+    offers = applyCuisineFilter(offers, cuisines, { matchedAs: {}, unmatched: [] });
   }
   const totalDeals = offers.length;
   const uniqueRestaurants = new Set(offers.map((o) => o.restaurant)).size;
@@ -422,27 +485,39 @@ function chatTool_summarizeOffers({ city, card_types, banks, group_by, top_n } =
   if (group_by) {
     const n = Math.min(Math.max(1, Number(top_n) || 10), 25);
     const groups = new Map();
-    const keyFor = (o) => {
-      if (group_by === "restaurant") return o.restaurant;
-      if (group_by === "bank")       return o.bank;
-      if (group_by === "card")       return `${o.bank} — ${o.card}`;
-      if (group_by === "day")        return (o.daysLabel || "n/a");
-      if (group_by === "discount_bucket") {
-        const d = o.discountPct;
-        if (d == null) return "no %";
-        if (d < 10) return "0-9%"; if (d < 20) return "10-19%";
-        if (d < 30) return "20-29%"; if (d < 50) return "30-49%";
-        return "50%+";
-      }
-      return "other";
-    };
-    offers.forEach((o) => {
-      const k = keyFor(o);
-      if (!groups.has(k)) groups.set(k, { key: k, count: 0, max_discount_pct: 0 });
-      const g = groups.get(k);
+    const bump = (key, discountPct) => {
+      if (!groups.has(key)) groups.set(key, { key, count: 0, max_discount_pct: 0 });
+      const g = groups.get(key);
       g.count++;
-      if (o.discountPct != null && o.discountPct > g.max_discount_pct) g.max_discount_pct = o.discountPct;
-    });
+      if (discountPct != null && discountPct > g.max_discount_pct) g.max_discount_pct = discountPct;
+    };
+    if (group_by === "cuisine") {
+      // A restaurant can have multiple cuisines, so one offer fans out to
+      // multiple groups. Total counts won't sum to total_deals — that's
+      // expected for overlapping taxonomy.
+      const enrichment = state.data?.restaurants || {};
+      offers.forEach((o) => {
+        const cs = enrichment[o.restaurant]?.servesCuisine || [];
+        if (!cs.length) { bump("(no cuisine)", o.discountPct); return; }
+        for (const c of cs) bump(c, o.discountPct);
+      });
+    } else {
+      const keyFor = (o) => {
+        if (group_by === "restaurant") return o.restaurant;
+        if (group_by === "bank")       return o.bank;
+        if (group_by === "card")       return `${o.bank} — ${o.card}`;
+        if (group_by === "day")        return (o.daysLabel || "n/a");
+        if (group_by === "discount_bucket") {
+          const d = o.discountPct;
+          if (d == null) return "no %";
+          if (d < 10) return "0-9%"; if (d < 20) return "10-19%";
+          if (d < 30) return "20-29%"; if (d < 50) return "30-49%";
+          return "50%+";
+        }
+        return "other";
+      };
+      offers.forEach((o) => bump(keyFor(o), o.discountPct));
+    }
     result[`top_by_${group_by}`] = [...groups.values()].sort((a, b) => b.count - a.count).slice(0, n);
   }
 
@@ -628,6 +703,9 @@ ${top3text}
 7. **Trust fuzzy matching.** If a tool returns matched_as: { "OPTP": ["Oh My Grill"] }, confirm the match in your answer ("for Oh My Grill — that's what OPTP maps to"). Don't ask the user to re-spell.
 8. **Personalize savings only when bill size is known** ("at PKR 5,000 that's PKR 750 off"). Otherwise quote % + cap.
 9. Use **PKR**. Always name the specific card and bank. Pakistani phrasing OK (lakh, crore).
+
+# CUISINE QUERIES
+If the user mentions a cuisine ("Italian deals", "best card for BBQ", "Pizza places", "Chinese restaurants"), pass the cuisine via the cuisines param on search_offers / rank_cards / get_restaurant_rankings / summarize_offers. Don't try to match cuisine names against restaurant names — they're separate tags. Common cuisines in the dataset: BBQ, Pizza, Italian, Chinese, Pakistani, Mughlai, Continental, Fast Food, Cafe.
 
 # QUESTION TYPES (identify, then act)
 - **Lookup** — specific fact → search_offers, get_bank_cards, get_card_requirements.

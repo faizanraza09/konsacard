@@ -51,6 +51,44 @@ function resolveFuzzyList(queries: string[] | undefined, domainValues: string[])
   return out;
 }
 
+/* ── Cuisine resolution ──
+   Mirror of the web helpers. Restaurant enrichment lives on the mobile
+   bundle under `restaurantsEnrichment` (different field name than web's
+   `restaurants` — same shape). */
+function getAllCuisines(state: AlgorithmState): string[] {
+  // `restaurantsEnrichment` isn't on the bare OffersBundle type but the mobile
+  // bundle adds it via a separate fetch (see src/data/index.ts). Reach for it
+  // defensively.
+  const enrichment = (state.data as unknown as { restaurantsEnrichment?: Record<string, { servesCuisine?: string[] }> })?.restaurantsEnrichment || {};
+  const all = new Set<string>();
+  for (const enr of Object.values(enrichment)) {
+    (enr?.servesCuisine || []).forEach((c) => c && all.add(c));
+  }
+  return [...all];
+}
+
+function getRestaurantsByCuisine(state: AlgorithmState, cuisineValues: Set<string>): Set<string> {
+  const enrichment = (state.data as unknown as { restaurantsEnrichment?: Record<string, { servesCuisine?: string[] }> })?.restaurantsEnrichment || {};
+  const restaurants = new Set<string>();
+  for (const [name, enr] of Object.entries(enrichment)) {
+    const cs = enr?.servesCuisine || [];
+    for (const c of cs) {
+      if (cuisineValues.has(c)) { restaurants.add(name); break; }
+    }
+  }
+  return restaurants;
+}
+
+function applyCuisineFilter(state: AlgorithmState, offers: Offer[], cuisines: string[] | undefined, accumulators: { matchedAs: Record<string, string[]>; unmatched: string[] }): Offer[] {
+  if (!cuisines?.length) return offers;
+  const resolved = resolveFuzzyList(cuisines, getAllCuisines(state));
+  Object.assign(accumulators.matchedAs, resolved.matched_as);
+  accumulators.unmatched.push(...resolved.unmatched);
+  if (!resolved.values.size) return [];
+  const allowed = getRestaurantsByCuisine(state, resolved.values);
+  return offers.filter((o) => allowed.has(o.restaurant));
+}
+
 interface PageOpts {
   limit?: number;
   offset?: number;
@@ -131,6 +169,9 @@ export function chatTool_searchOffers(state: AlgorithmState, args: ToolArgs = {}
     results = results.filter((o) => r.values.has(o.card));
   }
   if (args.card_types?.length) results = results.filter((o) => args.card_types!.includes(o.cardCategory ?? "other"));
+  if (args.cuisines?.length) {
+    results = applyCuisineFilter(state, results, args.cuisines, { matchedAs, unmatched });
+  }
   if (args.days?.length)       results = results.filter((o) => args.days!.some((d) => o.days.includes(d)));
   if (args.min_discount_pct)   results = results.filter((o) => o.discountPct != null && o.discountPct >= args.min_discount_pct!);
 
@@ -176,11 +217,21 @@ export function chatTool_rankCards(state: AlgorithmState, args: ToolArgs = {}): 
 
   const matchedAs: Record<string, string[]> = {};
   let selectedRestaurants = state.selectedRestaurants;
+  let cuisineRestaurants: Set<string> | null = null;
+  if (args.cuisines?.length) {
+    const resolved = resolveFuzzyList(args.cuisines, getAllCuisines(state));
+    Object.assign(matchedAs, resolved.matched_as);
+    cuisineRestaurants = getRestaurantsByCuisine(state, resolved.values);
+  }
   if (args.restaurants?.length) {
     const allNames = [...new Set(state.data.offers.map((o) => o.restaurant))];
     const r = resolveFuzzyList(args.restaurants, allNames);
     Object.assign(matchedAs, r.matched_as);
-    selectedRestaurants = r.values;
+    selectedRestaurants = cuisineRestaurants
+      ? new Set([...r.values].filter((n) => cuisineRestaurants!.has(n)))
+      : r.values;
+  } else if (cuisineRestaurants) {
+    selectedRestaurants = cuisineRestaurants;
   }
 
   const ephemeral: AlgorithmState = {
@@ -295,6 +346,9 @@ export function chatTool_getRestaurantRankings(state: AlgorithmState, args: Tool
     offers = offers.filter((o) => normalizeCityValue(o.city) === c);
   }
   if (args.card_types?.length) offers = offers.filter((o) => args.card_types!.includes(o.cardCategory ?? "other"));
+  if (args.cuisines?.length) {
+    offers = applyCuisineFilter(state, offers, args.cuisines, { matchedAs: {}, unmatched: [] });
+  }
 
   interface R {
     restaurant: string;
@@ -436,6 +490,9 @@ export function chatTool_summarizeOffers(state: AlgorithmState, args: ToolArgs =
     const r = resolveFuzzyList(args.banks, [...new Set(offers.map((o) => o.bank))]);
     offers = offers.filter((o) => r.values.has(o.bank));
   }
+  if (args.cuisines?.length) {
+    offers = applyCuisineFilter(state, offers, args.cuisines, { matchedAs: {}, unmatched: [] });
+  }
   const totalDeals = offers.length;
   const uniqueRestaurants = new Set(offers.map((o) => o.restaurant)).size;
   const uniqueBanks = new Set(offers.map((o) => o.bank)).size;
@@ -467,29 +524,38 @@ export function chatTool_summarizeOffers(state: AlgorithmState, args: ToolArgs =
   if (args.group_by) {
     const n = Math.min(Math.max(1, Number(args.top_n) || 10), 25);
     const groups = new Map<string, { key: string; count: number; max_discount_pct: number }>();
-    const keyFor = (o: Offer): string => {
-      if (args.group_by === "restaurant") return o.restaurant;
-      if (args.group_by === "bank")       return o.bank;
-      if (args.group_by === "card")       return `${o.bank} — ${o.card}`;
-      if (args.group_by === "day")        return o.daysLabel || "n/a";
-      if (args.group_by === "discount_bucket") {
-        const d = o.discountPct;
-        if (d == null) return "no %";
-        if (d < 10) return "0-9%";
-        if (d < 20) return "10-19%";
-        if (d < 30) return "20-29%";
-        if (d < 50) return "30-49%";
-        return "50%+";
-      }
-      return "other";
-    };
-    offers.forEach((o) => {
-      const k = keyFor(o);
-      if (!groups.has(k)) groups.set(k, { key: k, count: 0, max_discount_pct: 0 });
-      const g = groups.get(k)!;
+    const bump = (key: string, discountPct: number | null | undefined) => {
+      if (!groups.has(key)) groups.set(key, { key, count: 0, max_discount_pct: 0 });
+      const g = groups.get(key)!;
       g.count++;
-      if (o.discountPct != null && o.discountPct > g.max_discount_pct) g.max_discount_pct = o.discountPct;
-    });
+      if (discountPct != null && discountPct > g.max_discount_pct) g.max_discount_pct = discountPct;
+    };
+    if (args.group_by === "cuisine") {
+      const enrichment = (state.data as unknown as { restaurantsEnrichment?: Record<string, { servesCuisine?: string[] }> })?.restaurantsEnrichment || {};
+      offers.forEach((o) => {
+        const cs = enrichment[o.restaurant]?.servesCuisine || [];
+        if (!cs.length) { bump("(no cuisine)", o.discountPct); return; }
+        for (const c of cs) bump(c, o.discountPct);
+      });
+    } else {
+      const keyFor = (o: Offer): string => {
+        if (args.group_by === "restaurant") return o.restaurant;
+        if (args.group_by === "bank")       return o.bank;
+        if (args.group_by === "card")       return `${o.bank} — ${o.card}`;
+        if (args.group_by === "day")        return o.daysLabel || "n/a";
+        if (args.group_by === "discount_bucket") {
+          const d = o.discountPct;
+          if (d == null) return "no %";
+          if (d < 10) return "0-9%";
+          if (d < 20) return "10-19%";
+          if (d < 30) return "20-29%";
+          if (d < 50) return "30-49%";
+          return "50%+";
+        }
+        return "other";
+      };
+      offers.forEach((o) => bump(keyFor(o), o.discountPct));
+    }
     result[`top_by_${args.group_by}`] = [...groups.values()].sort((a, b) => b.count - a.count).slice(0, n);
   }
 
@@ -660,6 +726,9 @@ ${top3text}
 7. **Trust fuzzy matching.** Confirm matches via matched_as instead of asking the user to re-spell.
 8. **Personalize savings only when bill size is known.** Otherwise quote % + cap.
 9. Use **PKR**. Always name the specific card and bank. Pakistani phrasing OK (lakh, crore).
+
+# CUISINE QUERIES
+If the user mentions a cuisine ("Italian deals", "best card for BBQ", "Pizza places", "Chinese restaurants"), pass the cuisine via the cuisines param on search_offers / rank_cards / get_restaurant_rankings / summarize_offers. Don't try to match cuisine names against restaurant names — they're separate tags. Common cuisines in the dataset: BBQ, Pizza, Italian, Chinese, Pakistani, Mughlai, Continental, Fast Food, Cafe.
 
 # QUESTION TYPES
 - Lookup → search_offers / get_bank_cards / get_card_requirements

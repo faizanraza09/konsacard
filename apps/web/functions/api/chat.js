@@ -67,7 +67,7 @@ const TOOLS = [
     type: "function",
     function: {
       name: "search_offers",
-      description: "Search and filter the full offers database. Use for: all deals at a restaurant, all offers from a bank, day-of-week deals, offers above a discount threshold, or any combination of filters. Supports pagination via offset.",
+      description: "Search and filter the full offers database. Use for: all deals at a restaurant, all offers from a bank, day-of-week deals, offers above a discount threshold, deals at a cuisine type, or any combination of filters. Supports pagination via offset.",
       parameters: {
         type: "object",
         properties: {
@@ -75,6 +75,7 @@ const TOOLS = [
           banks:            { type: "array",  items: { type: "string" }, description: "Bank name(s) — partial match ok." },
           cards:            { type: "array",  items: { type: "string" }, description: "Card name(s) — partial match ok." },
           card_types:       { type: "array",  items: { type: "string" }, description: "debit, credit, or other." },
+          cuisines:         { type: "array",  items: { type: "string" }, description: "Cuisine type(s) — fuzzy match against restaurant tags (e.g. 'Italian', 'BBQ', 'Pizza', 'Chinese', 'Mughlai', 'Pakistani'). Returns all offers at restaurants tagged with any matching cuisine." },
           city:             { type: "string", description: "karachi, lahore, islamabad, or all." },
           days:             { type: "array",  items: { type: "number" }, description: "0=Mon 1=Tue 2=Wed 3=Thu 4=Fri 5=Sat 6=Sun." },
           min_discount_pct: { type: "number", description: "Minimum discount %." },
@@ -89,7 +90,7 @@ const TOOLS = [
     type: "function",
     function: {
       name: "rank_cards",
-      description: "Get cards ranked by estimated savings and coverage. Use for: best card overall, best card for specific restaurants, best card for specific days.",
+      description: "Get cards ranked by estimated savings and coverage. Use for: best card overall, best card for specific restaurants, best card for a cuisine type, best card for specific days.",
       parameters: {
         type: "object",
         properties: {
@@ -97,6 +98,7 @@ const TOOLS = [
           bill_size:   { type: "number", description: "Typical bill in PKR." },
           card_types:  { type: "array",  items: { type: "string" }, description: "debit, credit, other." },
           restaurants: { type: "array",  items: { type: "string" }, description: "Only rank cards covering ALL of these (AND logic)." },
+          cuisines:    { type: "array",  items: { type: "string" }, description: "Cuisine type(s) — restrict the venue pool to restaurants tagged with these cuisines (e.g. 'Italian', 'BBQ'). Combines with restaurants via intersection." },
           days:        { type: "array",  items: { type: "number" }, description: "0=Mon...6=Sun." },
           limit:       { type: "number", description: "Max results (default 10, max 20)." },
           offset:      { type: "number", description: "Skip this many cards before returning." },
@@ -124,12 +126,13 @@ const TOOLS = [
     type: "function",
     function: {
       name: "get_restaurant_rankings",
-      description: "Get restaurants ranked by max discount, deal count, or bank coverage.",
+      description: "Get restaurants ranked by max discount, deal count, or bank coverage. Optionally restricted to a cuisine.",
       parameters: {
         type: "object",
         properties: {
           city:       { type: "string", description: "City filter (optional)." },
           card_types: { type: "array",  items: { type: "string" }, description: "Card type filter (optional)." },
+          cuisines:   { type: "array",  items: { type: "string" }, description: "Cuisine type(s) — restrict to restaurants tagged with these cuisines." },
           sort_by:    { type: "string", description: "max_discount (default), deal_count, bank_count." },
           limit:      { type: "number", description: "Max results (default 15, max 30)." },
           offset:     { type: "number", description: "Skip this many rows before returning." },
@@ -170,14 +173,15 @@ const TOOLS = [
     type: "function",
     function: {
       name: "summarize_offers",
-      description: "Aggregate roll-up of the offers database — counts and top distributions, not row-level data. Use for overview/landscape questions: 'how many deals in Karachi?', 'which restaurants have the most offers?', 'how is discount % distributed?'.",
+      description: "Aggregate roll-up of the offers database — counts and top distributions, not row-level data. Use for overview/landscape questions: 'how many deals in Karachi?', 'which restaurants have the most offers?', 'how is discount % distributed?', 'which cuisine has the most deals?'.",
       parameters: {
         type: "object",
         properties: {
           city:       { type: "string", description: "City filter (optional)." },
           card_types: { type: "array",  items: { type: "string" }, description: "debit, credit, other (optional)." },
           banks:      { type: "array",  items: { type: "string" }, description: "Filter to specific banks (optional)." },
-          group_by:   { type: "string", description: "Optional top-N grouping: restaurant, bank, card, day, discount_bucket." },
+          cuisines:   { type: "array",  items: { type: "string" }, description: "Filter to specific cuisines (optional, fuzzy)." },
+          group_by:   { type: "string", description: "Optional top-N grouping: restaurant, bank, card, day, discount_bucket, cuisine. Note: cuisine fans out (one offer can belong to multiple cuisines), so counts won't sum to total_deals." },
           top_n:      { type: "number", description: "When group_by is set, return top N groups (default 10, max 25)." },
         },
       },
