@@ -1,24 +1,56 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
   KeyboardAvoidingView,
   Platform,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
 import { colors, radii, spacing, typography } from "@/theme";
+import { useAppStore } from "@/store";
+import {
+  buildSystemPrompt,
+  compactToolResultForModel,
+  describeToolCall,
+  executeChatTool,
+  extractChips,
+  type ProfileSink,
+  type ToolArgs,
+} from "@/lib/chatTools";
 
-// Mobile chat surface that talks to the SAME /api/chat endpoint as the web app.
-// This keeps a single LLM backend for both clients.
 const CHAT_ENDPOINT = `${(process.env.EXPO_PUBLIC_DATA_ORIGIN || "https://konsacard.pk").replace(/\/$/, "")}/api/chat`;
+const HISTORY_KEY = "konsacard.chat.v1";
+const HISTORY_TTL_MS = 7 * 86_400_000;
 
-interface Msg {
-  role: "user" | "assistant" | "system";
-  content: string;
+type Role = "user" | "bot" | "system";
+
+interface DisplayMsg {
+  role: Role;
+  text: string;
+  chips?: string[];
+  streaming?: boolean;
+  retryText?: string;
+}
+
+interface ApiMsg {
+  role: "user" | "assistant" | "tool" | "system";
+  content?: string | null;
+  // OpenAI-shape tool history; the worker converts to Gemini parts.
+  tool_calls?: Array<{ id?: string; type: "function"; function: { name: string; arguments: string } }>;
+  tool_call_id?: string;
+  name?: string;
+}
+
+interface PersistedChat {
+  ts: number;
+  display: DisplayMsg[];
+  api: ApiMsg[];
 }
 
 const QUICK_QUESTIONS = [
@@ -28,80 +60,259 @@ const QUICK_QUESTIONS = [
   "Best low-fee options?",
 ];
 
+const MAX_TOOL_ROUNDS = 5;
+
+function trimApiMessages(messages: ApiMsg[], maxMessages = 16, maxChars = 14_000): ApiMsg[] {
+  const kept: ApiMsg[] = [];
+  let used = 0;
+  for (let i = messages.length - 1; i >= 0; i--) {
+    const row = messages[i];
+    const len = JSON.stringify(row).length;
+    if (kept.length && (kept.length >= maxMessages || used + len > maxChars)) break;
+    kept.push(row);
+    used += len;
+  }
+  const normalized = kept.reverse();
+  const firstUser = normalized.findIndex((m) => m.role === "user");
+  return firstUser > 0 ? normalized.slice(firstUser) : normalized;
+}
+
+// DeepSeek returns OpenAI-shape responses: choices[0].message.{content, tool_calls}.
+interface OpenAIChatResponse {
+  choices?: Array<{
+    message?: {
+      role?: string;
+      content?: string | null;
+      tool_calls?: Array<{ id?: string; type: "function"; function: { name: string; arguments: string } }>;
+    };
+  }>;
+  error?: string;
+  reason?: string;
+}
+
+async function callChat(messages: ApiMsg[], systemPrompt: string, phase: "tool" | "final", maxTokens = 1200, signal?: AbortSignal): Promise<OpenAIChatResponse> {
+  const res = await fetch(CHAT_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ messages, systemPrompt, stream: false, maxTokens, phase }),
+    signal,
+  });
+  if (!res.ok) {
+    let msg = `Chat error ${res.status}`;
+    let reason: string | undefined;
+    try {
+      const body = await res.json();
+      msg = body?.error || msg;
+      reason = body?.reason;
+    } catch {
+      /* ignore */
+    }
+    const err = new Error(msg) as Error & { status?: number; reason?: string };
+    err.status = res.status;
+    err.reason = reason;
+    throw err;
+  }
+  return (await res.json()) as OpenAIChatResponse;
+}
+
+function parseAssistantMessage(resp: OpenAIChatResponse): { content: string; toolCalls: Array<{ id?: string; type: "function"; function: { name: string; arguments: string } }> } {
+  const message = resp?.choices?.[0]?.message;
+  if (!message) return { content: "", toolCalls: [] };
+  return {
+    content: message.content || "",
+    toolCalls: message.tool_calls || [],
+  };
+}
+
 export default function ChatScreen() {
-  const [messages, setMessages] = useState<Msg[]>([
+  const [display, setDisplay] = useState<DisplayMsg[]>([
     {
-      role: "assistant",
-      content:
-        "Hi — ask me anything about cards, restaurants, or discounts. I look at the same offers and requirements as the rest of the app.",
+      role: "bot",
+      text: "Hi — ask me anything about cards, restaurants, or discounts. I look at the same offers and requirements as the rest of the app.",
     },
   ]);
+  const [api, setApi] = useState<ApiMsg[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState<string | null>(null);
-  const listRef = useRef<FlatList<Msg>>(null);
+  const [hydrated, setHydrated] = useState(false);
+  const listRef = useRef<FlatList<DisplayMsg>>(null);
+  const abortRef = useRef<AbortController | null>(null);
+
+  // Pull store + setters once. The store is reactive so this re-renders on changes.
+  const storeState = useAppStore();
+  const setMonthlySalary = useAppStore((s) => s.setMonthlySalary);
+  const setAccountBalance = useAppStore((s) => s.setAccountBalance);
+  const setOrderValue = useAppStore((s) => s.setOrderValue);
+  const setOutingsPerWeek = useAppStore((s) => s.setOutingsPerWeek);
+
+  const profileSink: ProfileSink = useMemo(
+    () => ({ setMonthlySalary, setAccountBalance, setOrderValue, setOutingsPerWeek }),
+    [setMonthlySalary, setAccountBalance, setOrderValue, setOutingsPerWeek]
+  );
+
+  // Hydrate persisted chat on mount.
+  useEffect(() => {
+    (async () => {
+      try {
+        const raw = await AsyncStorage.getItem(HISTORY_KEY);
+        if (raw) {
+          const parsed: PersistedChat = JSON.parse(raw);
+          if (parsed && parsed.ts && Date.now() - parsed.ts < HISTORY_TTL_MS && Array.isArray(parsed.display) && parsed.display.length) {
+            setDisplay(parsed.display);
+            setApi(Array.isArray(parsed.api) ? parsed.api : []);
+          }
+        }
+      } catch {
+        /* ignore corrupt history */
+      } finally {
+        setHydrated(true);
+      }
+    })();
+  }, []);
+
+  // Persist whenever messages change (post-hydration).
+  useEffect(() => {
+    if (!hydrated) return;
+    AsyncStorage.setItem(HISTORY_KEY, JSON.stringify({ ts: Date.now(), display, api } satisfies PersistedChat)).catch(() => {});
+  }, [display, api, hydrated]);
 
   const send = useCallback(
     async (text: string) => {
       const t = text.trim();
       if (!t || loading) return;
-      const next: Msg[] = [...messages, { role: "user", content: t }];
-      setMessages(next);
+
+      abortRef.current?.abort();
+      const abort = new AbortController();
+      abortRef.current = abort;
+      const { signal } = abort;
+
       setInput("");
-      setLoading(true);
       setErr(null);
-      try {
-        const res = await fetch(CHAT_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: next.map((m) => ({ role: m.role, content: m.content })),
-          }),
+      setLoading(true);
+
+      const streamingIdx = display.length + 1;
+      setDisplay((d) => [...d, { role: "user", text: t }, { role: "bot", text: "", streaming: true }]);
+
+      const updateStreaming = (patch: Partial<DisplayMsg>) =>
+        setDisplay((d) => {
+          const copy = [...d];
+          if (copy[streamingIdx]) copy[streamingIdx] = { ...copy[streamingIdx], ...patch };
+          return copy;
         });
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const txt = await res.text();
-        // Web /api/chat may stream or return JSON; we try JSON first, fall back to raw text.
-        let reply = "";
-        try {
-          const json = JSON.parse(txt);
-          reply = json.reply || json.content || json.message || txt;
-        } catch {
-          reply = txt;
+
+      const systemPrompt = buildSystemPrompt(storeState);
+      const timeoutTimer = setTimeout(() => abort.abort(), 60_000);
+
+      try {
+        let messages: ApiMsg[] = trimApiMessages([...api, { role: "user", content: t }]);
+        let toolsUsed = false;
+        let directText = "";
+
+        for (let round = 0; round < MAX_TOOL_ROUNDS; round++) {
+          const resp = await callChat(messages, systemPrompt, "tool", 1200, signal);
+          const { content, toolCalls } = parseAssistantMessage(resp);
+
+          if (!toolCalls.length) {
+            if (!toolsUsed) directText = content;
+            break;
+          }
+          toolsUsed = true;
+
+          const labels = toolCalls.map((tc) => {
+            let args: ToolArgs = {};
+            try { args = JSON.parse(tc.function.arguments || "{}"); } catch { /* ignore */ }
+            return describeToolCall(tc.function.name, args);
+          });
+          updateStreaming({ text: labels.join("\n") });
+
+          const toolResults: ApiMsg[] = toolCalls.map((tc) => {
+            let args: ToolArgs = {};
+            try { args = JSON.parse(tc.function.arguments || "{}"); } catch { /* ignore */ }
+            const result = executeChatTool(tc.function.name, args, { state: storeState, sink: profileSink });
+            const compact = compactToolResultForModel(tc.function.name, result);
+            return {
+              role: "tool",
+              tool_call_id: tc.id,
+              name: tc.function.name,
+              content: JSON.stringify(compact),
+            };
+          });
+
+          messages = trimApiMessages([
+            ...messages,
+            { role: "assistant", content: content || null, tool_calls: toolCalls },
+            ...toolResults,
+          ]);
         }
-        setMessages((m) => [...m, { role: "assistant", content: reply }]);
+
+        // Final answer — use the cheap streaming model. We don't actually stream
+        // SSE on RN (fetch doesn't expose ReadableStream consistently), so we
+        // request non-streaming and treat the whole response as the answer.
+        let finalRaw = "";
+        if (directText) {
+          finalRaw = directText;
+        } else {
+          const finalResp = await callChat(messages, systemPrompt, "final", 1600, signal);
+          finalRaw = parseAssistantMessage(finalResp).content || "…";
+        }
+
+        const { text: cleaned, chips } = extractChips(finalRaw);
+        updateStreaming({ text: cleaned, chips, streaming: false });
+        setApi(trimApiMessages([...messages, { role: "assistant", content: finalRaw }]));
       } catch (e) {
-        setErr(e instanceof Error ? e.message : String(e));
+        const error = e as Error & { status?: number; reason?: string; name?: string };
+        let userMsg = "⚠️ Connection error. Check your internet and try again.";
+        if (error.name === "AbortError") {
+          userMsg = "⚠️ Request timed out. Please try again.";
+        } else if (error.status === 429) {
+          userMsg = error.reason === "daily"
+            ? "I've answered a lot of questions today — try again tomorrow when the daily budget resets."
+            : "Hourly budget reached — try again in a bit.";
+        } else if (error.status && error.status >= 500) {
+          userMsg = "⚠️ Chat service is temporarily unavailable. Please try again shortly.";
+        } else if (error.status === 400 || error.status === 403) {
+          userMsg = "⚠️ Chat configuration error.";
+        }
+        setErr(error.message || "");
+        updateStreaming({ text: userMsg, streaming: false, retryText: t });
       } finally {
+        clearTimeout(timeoutTimer);
+        if (abortRef.current === abort) abortRef.current = null;
         setLoading(false);
         setTimeout(() => listRef.current?.scrollToEnd({ animated: true }), 80);
       }
     },
-    [messages, loading]
+    [display, api, loading, storeState, profileSink]
   );
 
   useEffect(() => {
     setTimeout(() => listRef.current?.scrollToEnd({ animated: true }), 100);
-  }, [messages.length]);
+  }, [display.length]);
+
+  const lastVisible = display[display.length - 1];
+  const chipsToShow = !loading && lastVisible?.role === "bot" && !lastVisible.streaming
+    ? (lastVisible.chips && lastVisible.chips.length ? lastVisible.chips : (display.length === 1 ? QUICK_QUESTIONS : []))
+    : [];
 
   return (
-    <KeyboardAvoidingView
-      style={styles.flex}
-      behavior={Platform.OS === "ios" ? "padding" : undefined}
-    >
+    <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === "ios" ? "padding" : undefined}>
       <FlatList
         ref={listRef}
-        data={messages}
+        data={display}
         keyExtractor={(_, i) => String(i)}
-        renderItem={({ item }) => <Bubble m={item} />}
+        renderItem={({ item }) => <Bubble m={item} onRetry={item.retryText ? () => send(item.retryText!) : undefined} />}
         contentContainerStyle={styles.list}
-        ListHeaderComponent={
-          <View style={styles.quickRow}>
-            {QUICK_QUESTIONS.map((q) => (
-              <Pressable key={q} style={styles.quick} onPress={() => send(q)}>
-                <Text style={styles.quickText}>{q}</Text>
-              </Pressable>
-            ))}
-          </View>
+        ListFooterComponent={
+          chipsToShow.length ? (
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.quickRow}>
+              {chipsToShow.map((q) => (
+                <Pressable key={q} style={styles.quick} onPress={() => send(q)}>
+                  <Text style={styles.quickText}>{q}</Text>
+                </Pressable>
+              ))}
+            </ScrollView>
+          ) : null
         }
       />
       {loading ? (
@@ -134,12 +345,17 @@ export default function ChatScreen() {
   );
 }
 
-function Bubble({ m }: { m: Msg }) {
+function Bubble({ m, onRetry }: { m: DisplayMsg; onRetry?: () => void }) {
   const mine = m.role === "user";
   return (
     <View style={[styles.bubbleWrap, mine ? styles.right : styles.left]}>
       <View style={[styles.bubble, mine ? styles.bubbleMine : styles.bubbleTheirs]}>
-        <Text style={[styles.bubbleText, mine ? styles.bubbleTextMine : null]}>{m.content}</Text>
+        <Text style={[styles.bubbleText, mine ? styles.bubbleTextMine : null]}>{m.text}</Text>
+        {onRetry ? (
+          <Pressable onPress={onRetry} style={styles.retryBtn}>
+            <Text style={styles.retryText}>Retry</Text>
+          </Pressable>
+        ) : null}
       </View>
     </View>
   );
@@ -150,8 +366,8 @@ const styles = StyleSheet.create({
   list: { padding: spacing.lg, paddingBottom: 80 },
   quickRow: {
     flexDirection: "row",
-    flexWrap: "wrap",
-    marginBottom: spacing.md,
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.md,
   },
   quick: {
     backgroundColor: colors.bgElev,
@@ -175,6 +391,15 @@ const styles = StyleSheet.create({
   loading: { flexDirection: "row", alignItems: "center", padding: spacing.sm },
   loadingText: { color: colors.textMuted, marginLeft: spacing.xs },
   err: { color: colors.red, padding: spacing.sm, fontSize: typography.size.sm },
+  retryBtn: {
+    marginTop: spacing.xs,
+    alignSelf: "flex-start",
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 4,
+    backgroundColor: colors.bgSubtle,
+    borderRadius: radii.pill,
+  },
+  retryText: { color: colors.text, fontSize: typography.size.sm, fontWeight: typography.weight.semibold },
   composer: {
     flexDirection: "row",
     padding: spacing.sm,
