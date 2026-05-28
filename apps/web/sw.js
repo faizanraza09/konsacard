@@ -21,7 +21,7 @@
 // with the build epoch (e.g. "1748293340"). If it stays literal "0260526T204215"
 // in local dev, that's fine — the SW still works, it just doesn't auto-invalidate
 // across local edits (you can unregister it from DevTools if needed).
-const SHELL_VERSION = "4d4b0caa0c9a";
+const SHELL_VERSION = "e1d2d52c045b";
 const SHELL_CACHE = `konsa-shell-${SHELL_VERSION}`;
 const DATA_CACHE  = `konsa-data-${SHELL_VERSION}`;
 
