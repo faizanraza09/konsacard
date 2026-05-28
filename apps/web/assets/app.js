@@ -772,8 +772,11 @@ function renderDayPills() {
       } else {
         state.selectedDays.add(index);
       }
-      renderDayPills();
-      renderRecommendations();
+      // Use full render() so encodeStateToUrl() runs and `?days=...` lands
+      // in the URL. Local renderDayPills + renderRecommendations alone
+      // updates the UI but leaves the URL stale (shared/refreshed links
+      // lose the day filter).
+      render();
     });
     container.appendChild(btn);
   });
@@ -795,8 +798,10 @@ function renderCardTypePills() {
       } else {
         state.selectedCardTypes.add(value);
       }
-      renderCardTypePills();
-      renderRecommendations();
+      // Same reasoning as the day-pill click above — use render() so
+      // `?types=...` makes it into the URL alongside the filter being
+      // visually applied.
+      render();
     });
     container.appendChild(btn);
   });
@@ -3589,6 +3594,11 @@ function encodeStateToUrl() {
       params.append("cards", card);
     }
   }
+  if (state.selectedCuisines.size > 0) {
+    for (const cuisine of state.selectedCuisines) {
+      params.append("cuisines", cuisine);
+    }
+  }
   if (state.useEligibility) params.set("elig", "1");
   if (state.monthlySalary !== null) params.set("salary", state.monthlySalary);
   if (state.accountBalance !== null) params.set("balance", state.accountBalance);
@@ -3765,6 +3775,9 @@ function restoreStateFromUrl() {
     } else {
       state.selectedCards = new Set(cards.filter(Boolean));
     }
+  }
+  if (params.has("cuisines")) {
+    state.selectedCuisines = new Set(params.getAll("cuisines").filter(Boolean));
   }
   if (params.get("elig") === "1") {
     state.useEligibility = true;
