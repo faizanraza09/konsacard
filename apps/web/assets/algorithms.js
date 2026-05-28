@@ -1,21 +1,28 @@
 // @ts-check
-/* ── BUILD WALLET RECOMMENDATIONS ──
-   Greedy K-card selection. Repeatedly pick the card that adds the most
-   marginal saving on top of what the current wallet already gives. This
-   solves the "best 2 / 3 / 4 cards together" problem that Next Card can't
-   answer (Next Card is one-step greedy from a fixed starting wallet).
+/* ── ALGORITHM MODULE ──
+   computeRecommendations (cards-view ranking) delegates to the shared
+   ranking-core that the SSR Pages Function also uses, then layers on the
+   browser-only post-processing (eligibility, fee penalty, qualification
+   delta) that needs state.requirements + state.useEligibility +
+   state.monthlySalary etc. That keeps SSR and browser using the SAME
+   per-offer math, the SAME aggregation, the SAME baseScore — guaranteeing
+   identical ranking for users who haven't entered eligibility input.
 
-   Greedy is near-optimal here because the objective (sum of per-(venue,day)
-   max saving over wallet cards) is monotone submodular. For extra polish
-   we also generate alternative wallets by branching from the 2nd / 3rd
-   best first picks.
+   computeWalletRecommendations / computeNextCardRecommendations stay
+   browser-local: they're more complex (greedy K-card selection, marginal
+   delta vs owned cards) and aren't shared with SSR.
 
-   This module is a pure-ish set of functions: it reads state and calls a
-   few helpers (cityMatches, getEffectiveSelectedDays, evaluateEligibility,
-   formatCurrency, getOfferSavingValue, buildCardKey) that live in app.js.
-   Loaded before app.js via <script defer> tags — function resolution
-   happens at call time, after both files have executed.
+   This file gets bundled by esbuild with --bundle (see package.json
+   "build:assets:bundle") so the ES module import below resolves into a
+   self-contained IIFE that classic scripts (app.js, chat.js, quiz.js)
+   can call by name. The bottom of the file explicitly re-exposes every
+   externally-used function on window for that reason.
 */
+import {
+  computeRanking as computeRankingCore,
+  getOfferSavingValue as coreGetOfferSavingValue,
+  getOfferDiscountPct as coreGetOfferDiscountPct,
+} from "../lib/ranking-core.mjs";
 
 // Precompute card -> venue -> day -> best saving for the current scope.
 // Used by both wallet greedy and downstream stats.
@@ -719,303 +726,70 @@ function computeWalletRestaurantCoverage() {
 function computeRecommendations() {
   if (!state.data) return [];
 
-  const allCityVenues = new Set();
-  state.data.offers.forEach((offer) => {
-    if (!cityMatches(offer.city)) return;
-    allCityVenues.add(`${offer.city} || ${offer.restaurant}`);
-  });
-  const totalVenueCount = allCityVenues.size;
-  if (!totalVenueCount) return [];
-
-  // Determine the baseline set of venues we are scoring against.
-  // If user selected restaurants, use those.
-  // Otherwise, use all restaurants in the current city.
-  // Crucially, we do NOT filter this by bank, otherwise filtering to a single
-  // bank makes that bank's coverage look like 100%.
-  const scoringVenues = new Map();
-  if (state.selectedRestaurants.size > 0) {
-    state.selectedRestaurants.forEach(name => {
-      const found = state.data.offers.find(o => o.restaurant === name && cityMatches(o.city));
-      if (found) scoringVenues.set(`${found.city} || ${name}`, { city: found.city, restaurant: name });
-    });
-  } else {
-    allCityVenues.forEach(key => {
-      const [city, restaurant] = key.split(" || ");
-      scoringVenues.set(key, { city, restaurant });
-    });
-  }
-
-  const scoringVenueCount = scoringVenues.size || 1; // Prevent div by zero
-
-  // Score against the use-case only. Narrowing filters like bank/card/type
-  // should not rebase fit scores.
-  const cuisineFilter = state.selectedCuisines;
-  const hasCuisineFilter = cuisineFilter && cuisineFilter.size > 0;
-  const scoringOffers = state.data.offers.filter((offer) => {
-    if (!cityMatches(offer.city)) return false;
-    if (state.selectedRestaurants.size > 0 && !state.selectedRestaurants.has(offer.restaurant)) return false;
-    if (hasCuisineFilter) {
-      const enr = (typeof getRestaurantEnrichment === "function") ? getRestaurantEnrichment(offer.restaurant) : null;
-      const cuisines = enr?.servesCuisine || [];
-      if (!cuisines.some((c) => cuisineFilter.has(c))) return false;
-    }
-    return true;
-  });
-
-  const selectedDays = getEffectiveSelectedDays();
-  const totalSelectedDays = selectedDays.size;
-  const cardMap = new Map();
-
-  scoringOffers.forEach((offer) => {
-    const offerSaving = getOfferSavingValue(offer, state.orderValue);
-    if (!Number.isFinite(offerSaving) || offerSaving <= 0) return;
-
-    const venueKey = `${offer.city} || ${offer.restaurant}`;
-    const cardKey = `${offer.bank} || ${offer.card}`;
-
-    if (!cardMap.has(cardKey)) {
-      cardMap.set(cardKey, { bank: offer.bank, card: offer.card, cardCategory: offer.cardCategory || null, venueDailyBest: new Map() });
-    }
-
-    const cardRecord = cardMap.get(cardKey);
-    if (!cardRecord.cardCategory && offer.cardCategory) cardRecord.cardCategory = offer.cardCategory;
-    if (!cardRecord.venueDailyBest.has(venueKey)) {
-      cardRecord.venueDailyBest.set(venueKey, new Map());
-    }
-
-    const dayMap = cardRecord.venueDailyBest.get(venueKey);
-    selectedDays.forEach((day) => {
-      if (!offer.days.includes(day)) return;
-      const current = dayMap.get(day);
-      const candidate = {
-        city: offer.city,
-        restaurant: offer.restaurant,
-        saving: offerSaving,
-        discountPct: getOfferDiscountPct(offer),
-        discountLabel: offer.discountLabel,
-        offerTitle: offer.offerTitle,
-        offerDescription: offer.offerDescription,
-        orderTypes: offer.orderTypes || [],
-        daysLabel: offer.daysLabel,
-        capPkr: offer.capPkr,
-        fixedDiscountPkr: offer.fixedDiscountPkr ?? null,
-      };
-      if (!current || candidate.saving > current.saving) {
-        dayMap.set(day, candidate);
-      }
-    });
-  });
-
-  const aggregates = Array.from(cardMap.values()).map((cardRecord) => {
-    const venueSummaries = Array.from(cardRecord.venueDailyBest.entries())
-      .map(([venueKey, dayMap]) => {
-        if (!dayMap.size) return null;
-        const bestByDay = Array.from(dayMap.entries()).sort((a, b) => a[0] - b[0]);
-        const totalExpectedSaving = bestByDay.reduce((sum, [, match]) => sum + match.saving, 0);
-        const coveredDayCount = bestByDay.length;
-        const expectedSaving = totalExpectedSaving / totalSelectedDays;
-        const dayFit = coveredDayCount / totalSelectedDays;
-        const strongestMatch = bestByDay.reduce((best, [, match]) =>
-          !best || match.saving > best.saving ? match : best, null);
-        const averageDiscount = average(
-          bestByDay.map(([, match]) => match.discountPct).filter((v) => Number.isFinite(v)),
-        );
-        const caps = bestByDay
-          .map(([, match]) => match.capPkr)
-          .filter((v) => Number.isFinite(v));
-
-        return {
-          venueKey,
-          city: strongestMatch.city,
-          restaurant: strongestMatch.restaurant,
-          rawSaving: strongestMatch.saving,
-          expectedSaving,
-          dayFit,
-          coveredDayCount,
-          discountPct: averageDiscount,
-          discountLabel: strongestMatch.discountLabel,
-          offerTitle: strongestMatch.offerTitle,
-          offerDescription: strongestMatch.offerDescription,
-          orderTypes: strongestMatch.orderTypes,
-          daysLabel: coveredDayCount === totalSelectedDays
-            ? "Matches all your chosen days"
-            : bestByDay.map(([day]) => DAY_SHORT[day]).join(", "),
-          capPkr: caps.length ? Math.max(...caps) : null,
-          fixedDiscountPkr: strongestMatch.fixedDiscountPkr,
-        };
-      })
-      .filter(Boolean);
-
-    const matches = venueSummaries;
-    const coveredVenueCount = matches.length;
-    const coverage = coveredVenueCount / scoringVenueCount;
-    const totalExpectedSaving = matches.reduce((sum, match) => sum + match.expectedSaving, 0);
-    const totalDayFit = matches.reduce((sum, match) => sum + match.dayFit, 0);
-    const avgExpectedSaving = coveredVenueCount > 0 ? totalExpectedSaving / coveredVenueCount : 0;
-
-    // Day fit should be relative to COVERED venues (Reliability)
-    // not scoringVenueCount (Broadness), otherwise the number is confusingly diluted.
-    const avgDayFit = coveredVenueCount > 0 ? totalDayFit / coveredVenueCount : 0;
-    const averageDiscount = average(
-      matches.map((match) => match.discountPct).filter((v) => Number.isFinite(v)),
-    );
-    const caps = matches
-      .map((match) => match.capPkr)
-      .filter((v) => Number.isFinite(v));
-    const medianCap = caps.length ? median(caps) : null;
-    // Saturation bill: the bill amount at which a card's cap kicks in. Below it
-    // the user gets the headline % on the full bill; above it the saving caps.
-    // Computed per match where both cap and % are finite, then medianed across
-    // the card's matches. Null means the card has no caps in scope → uncapped.
-    const saturations = matches
-      .map((m) => {
-        const cap = Number(m.capPkr);
-        const pct = Number(m.discountPct);
-        if (!Number.isFinite(cap) || !Number.isFinite(pct) || pct <= 0) return null;
-        return cap / (pct / 100);
-      })
-      .filter((v) => v !== null && Number.isFinite(v));
-    const saturationBill = saturations.length ? median(saturations) : null;
-    const topMatches = matches.sort((a, b) => b.expectedSaving - a.expectedSaving).slice(0, 3);
-
-    return {
-      bank: cardRecord.bank,
-      card: cardRecord.card,
-      // cardCategory must survive into the aggregate — the visibility filter
-      // below (`state.selectedCardTypes.has(item.cardCategory)`) treats a
-      // missing value as a non-match, which silently filters every card out
-      // when the user toggles Debit/Credit/Other. cardMap already stores it
-      // at line ~777; just pass it through.
-      cardCategory: cardRecord.cardCategory,
-      score: 0,
-      avgExpectedSaving,
-      coverage,
-      avgDayFit,
-      coveredVenueCount,
-      totalVenueCount: scoringVenues.size,
-      averageDiscount,
-      medianCap,
-      saturationBill,
-      topMatches,
-    };
-  });
-
-  aggregates.forEach((item) => {
-    item.requirementStatus = evaluateEligibility(item.bank, item.card);
+  // Delegate the pure data steps (per-offer saving math, per-card aggregation,
+  // blended E score, P95 normalization, narrowing filters) to the shared
+  // ranking-core that the SSR Pages Function also uses. The aggregates come
+  // back with .baseScore set; we layer browser-only post-processing on top
+  // (eligibility, fee penalty, qualification delta), then resort by the
+  // adjusted .score.
+  const { aggregates } = computeRankingCore({
+    offers: state.data.offers,
+    restaurantsEnrichment: state.data?.restaurants,
+    settings: {
+      city: state.selectedCity,
+      orderValue: state.orderValue,
+      selectedDays: state.selectedDays,
+      selectedRestaurants: state.selectedRestaurants,
+      selectedBanks: state.selectedBanks,
+      selectedCardTypes: state.selectedCardTypes,
+      selectedCards: state.selectedCards,
+      selectedCuisines: state.selectedCuisines,
+      daysShort: typeof DAY_SHORT !== "undefined" ? DAY_SHORT : undefined,
+    },
   });
 
   const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
-
-  // Step 1: compute blended savings-strength index E for each card
-  aggregates.forEach((item) => {
-    item.coverageAdjustedSaving = item.avgExpectedSaving * item.coverage;
-    item.E = item.avgExpectedSaving * (0.35 + 0.65 * Math.sqrt(item.coverage));
-  });
-
-  // Step 2: P95 of E (robust normalization — one outlier card won't compress all others)
-  const eSorted = aggregates.map((item) => item.E).sort((a, b) => a - b);
-  const p95E = eSorted.length > 0
-    ? eSorted[Math.max(0, Math.ceil(0.95 * eSorted.length) - 1)]
-    : 1;
-  const p95ESafe = Math.max(p95E, 1);
-
-  // Annual-fee penalty. Cards with a positive fee get a score deduction
-  // proportional to (effective fee / expected yearly gross value at this scope).
-  // Effective fee halves when the card has a documented waiver rule (we can't
-  // tell whether the user qualifies for the waiver, so we hedge). Cards with
-  // null annualFeePkr get no penalty — we treat absent data as unknown, not
-  // free. Bounded at -25 points so it never single-handedly buries a great
-  // card; combined with the qualification floor it remains a real signal.
   const outingsPerYear = (state.outingsPerWeek || 1) * 52;
-  aggregates.forEach((item) => {
-    const Ns = Math.min(1, item.E / p95ESafe);
-    // Calibration #6: drop avgDayFit from R. It's already inside
-    // expectedSaving via the /totalSelectedDays divisor, so weighting it
-    // here double-discounts cards with limited day windows. The freed 0.10
-    // weight folds into Ns (which already encodes coverage via √coverage
-    // inside E).
-    const R = 0.75 * Ns + 0.25 * item.coverage;
-    item.baseScore = 20 + 80 * R;
+
+  for (const item of aggregates) {
+    item.requirementStatus = evaluateEligibility(item.bank, item.card);
     item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
-    // Calibration #3: halve qualDelta to ±7.5. Was ±15 (range 30), which
-    // let "you can probably get this" beat "this saves you more" too easily
-    // — both salary-60k and salary-150k users landed on the same #1
-    // because the boost saturated for any eligible card.
-    item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
-      ? 15 * (item.qualificationConfidence - 0.5)
-      : 0;
+    // Calibration #3: halve qualDelta to ±7.5. Was ±15 (range 30), which let
+    // "you can probably get this" beat "this saves you more" too easily —
+    // both salary-60k and salary-150k users landed on the same #1 because the
+    // boost saturated for any eligible card.
+    item.qualificationDelta =
+      state.useEligibility && hasEligibilityInput
+        ? 15 * (item.qualificationConfidence - 0.5)
+        : 0;
     item.feePenalty = computeFeePenalty(item, outingsPerYear);
-    item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta - item.feePenalty));
-  });
+    item.score = Math.max(
+      0,
+      Math.min(100, item.baseScore + item.qualificationDelta - item.feePenalty),
+    );
+  }
 
-  let visible = aggregates.filter((item) => {
-    if (state.selectedBanks.size > 0 && !state.selectedBanks.has(item.bank)) return false;
-    if (state.selectedCardTypes.size > 0 && !state.selectedCardTypes.has(item.cardCategory)) return false;
-    if (state.selectedCards.size > 0 && !state.selectedCards.has(item.card)) return false;
-    return true;
-  });
-
+  let visible = aggregates;
   if (state.useEligibility && hasEligibilityInput) {
     visible = visible.filter((item) => item.requirementStatus.status !== "ineligible");
   }
 
   return visible.sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
-    if (b.coverageAdjustedSaving !== a.coverageAdjustedSaving) return b.coverageAdjustedSaving - a.coverageAdjustedSaving;
+    if (b.coverageAdjustedSaving !== a.coverageAdjustedSaving)
+      return b.coverageAdjustedSaving - a.coverageAdjustedSaving;
     return b.coverage - a.coverage;
   });
 }
 
-/* ── SAVING MATH ── */
-function getOfferSavingValue(offer, orderValue) {
-  const discountType = offer.discountType || "percentage";
-  const discountPct = getOfferDiscountPct(offer);
-  const fixedDiscountPkr = Number.isFinite(offer.fixedDiscountPkr) ? offer.fixedDiscountPkr : null;
-  const capPkr = Number.isFinite(offer.capPkr) ? offer.capPkr : null;
 
-  switch (discountType) {
-    case "fixed":
-      if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) {
-        return Math.min(fixedDiscountPkr, orderValue);
-      }
-      return null;
-
-    case "up_to":
-      if (Number.isFinite(discountPct) && discountPct > 0) {
-        var effectivePct = discountPct * 0.6;
-        var pctSaving = (orderValue * effectivePct) / 100;
-        return Math.min(pctSaving, capPkr || Number.POSITIVE_INFINITY);
-      }
-      return null;
-
-    case "bogo":
-      if (Number.isFinite(discountPct) && discountPct > 0) {
-        var bogoEffectivePct = discountPct * 0.3;
-        var bogoPctSaving = (orderValue * bogoEffectivePct) / 100;
-        return Math.min(bogoPctSaving, capPkr || Number.POSITIVE_INFINITY);
-      }
-      return null;
-
-    case "percentage":
-    default:
-      if (Number.isFinite(discountPct) && discountPct > 0) {
-        return Math.min(
-          (orderValue * discountPct) / 100,
-          fixedDiscountPkr || capPkr || Number.POSITIVE_INFINITY,
-        );
-      }
-      if (fixedDiscountPkr !== null && fixedDiscountPkr > 0) return Math.min(fixedDiscountPkr, orderValue);
-      return null;
-  }
-}
-
-function getOfferDiscountPct(offer) {
-  if (Number.isFinite(offer.discountPct)) return Number(offer.discountPct);
-  const text = `${offer.discountLabel || ""} ${offer.offerTitle || ""}`;
-  const matches = text.match(/(\d+(?:\.\d+)?)\s*%/g) || [];
-  if (!matches.length) return null;
-  return Math.max(...matches.map((m) => Number.parseFloat(m)));
-}
+/* ── SAVING MATH ──
+   getOfferSavingValue and getOfferDiscountPct live in the shared
+   ranking-core module so the SSR Pages Function and the browser compute
+   identical per-offer savings. We re-export them here so other browser
+   files (app.js, chat.js, etc.) can call them as before. */
+const getOfferSavingValue = coreGetOfferSavingValue;
+const getOfferDiscountPct = coreGetOfferDiscountPct;
 
 /* ── ELIGIBILITY ──
    Card tier inference + estimates by tier + per-card eligibility evaluation
@@ -1298,3 +1072,25 @@ function computeQualificationConfidence(status) {
   }
   return Math.max(0, Math.min(1, confidence));
 }
+
+/* ── GLOBAL EXPOSURE ──
+   esbuild bundles this file with --bundle (so the ranking-core import
+   resolves at build time) and wraps everything in an IIFE. That kills the
+   classic-script convention where top-level `function foo()` declarations
+   become window globals. Other browser scripts (app.js, chat.js, quiz.js,
+   content-pages.js) are NOT bundled — they expect to call these functions
+   by bare name. Re-expose explicitly. */
+const __glob = typeof window !== "undefined" ? window : globalThis;
+Object.assign(__glob, {
+  computeRecommendations,
+  computeWalletRecommendations,
+  computeNextCardRecommendations,
+  computeWalletRestaurantCoverage,
+  getOfferSavingValue,
+  getOfferDiscountPct,
+  evaluateEligibility,
+  inferCardTier,
+  buildEstimatesByTier,
+  computeFeePenalty,
+  computeQualificationConfidence,
+});
