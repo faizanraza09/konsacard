@@ -1,3 +1,62 @@
+# LLM and AI-assistant crawlers are explicitly welcome. Listing them by
+# name (instead of relying only on the User-agent: * block below) makes the
+# policy unambiguous to operators reviewing this file. Each block repeats
+# the same Disallow: /? rule as the wildcard so AI crawlers also skip the
+# query-string namespace on the home page — see the longer note further down
+# for why that matters. New AI crawlers can be added here as they appear.
+
+User-agent: GPTBot
+Allow: /
+Disallow: /?
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /?
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /?
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /?
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /?
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /?
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /?
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /?
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /?
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /?
+
+User-agent: CCBot
+Allow: /
+Disallow: /?
+
+User-agent: Bytespider
+Allow: /
+Disallow: /?
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /?
+
 User-agent: *
 Allow: /
 

@@ -7,8 +7,6 @@
     <meta name="description" content="Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan. Compare bank offers across Karachi, Lahore, and Islamabad." />
     <meta name="google-site-verification" content="eNKqxvrlF-ik5zCkIE_55cGNweU-OOvTFwHEXagalkk" />
     <link rel="canonical" href="https://konsacard.pk/" />
-    <link rel="alternate" hreflang="en-PK" href="https://konsacard.pk/" />
-    <link rel="alternate" hreflang="x-default" href="https://konsacard.pk/" />
     <link rel="icon" type="image/svg+xml" href="./assets/logo/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/logo/mark-32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="./assets/logo/mark-64.png" />
@@ -31,59 +29,23 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D8HRYPVY6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() { dataLayer.push(arguments); }
-      gtag("js", new Date());
-      gtag("config", "G-8D8HRYPVY6");
-    </script>
+    <script src="./assets/dist/ga-init.js?v=4d4b0caa0c9a"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552095742304526" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./assets/styles.css?v=f8b9df0fdc71" />
+    <link rel="stylesheet" href="./assets/dist/styles.css?v=4d4b0caa0c9a" />
 
-    <!-- Sentry error monitoring via the official Loader Script.
-         The hex string in the URL is the project's public key — safe to expose.
-         The loader is async; `window.sentryOnLoad` is the Sentry-recommended
-         pattern to configure init without racing the loader. Skipped on
-         localhost so dev errors don't pollute the dashboard. -->
-    <script>
-      (function () {
-        var host = location.hostname;
-        if (host === "localhost" || host === "127.0.0.1" || host === "0.0.0.0") return;
-        window.sentryOnLoad = function () {
-          Sentry.init({
-            environment: host === "konsacard.pk" ? "production" : "preview",
-            ignoreErrors: [
-              "ResizeObserver loop limit exceeded",
-              "Non-Error promise rejection captured",
-              /chrome-extension:/,
-              /^Script error\.?$/,
-            ],
-          });
-        };
-      })();
-    </script>
+    <!-- Sentry: external sentry-init.js sets window.sentryOnLoad synchronously
+         before the async Sentry CDN loader fires and invokes the callback. -->
+    <script src="./assets/dist/sentry-init.js?v=4d4b0caa0c9a"></script>
     <script
       async
       src="https://js.sentry-cdn.com/83b7ee8d2efa25d11bb8a6c5fef6da4c.min.js"
       crossorigin="anonymous"></script>
     <!-- Modules load in dependency order; classic scripts so they share global scope. -->
-    <script defer src="./assets/state.js?v=f8b9df0fdc71"></script>
-    <script defer src="./assets/algorithms.js?v=f8b9df0fdc71"></script>
-    <script defer src="./assets/chat.js?v=f8b9df0fdc71"></script>
-    <script defer src="./assets/quiz.js?v=f8b9df0fdc71"></script>
-    <script defer src="./assets/app.js?v=f8b9df0fdc71"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebApplication",
-        "name": "konsacard.pk",
-        "url": "https://konsacard.pk/",
-        "description": "Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan.",
-        "applicationCategory": "FinanceApplication",
-        "areaServed": ["Karachi", "Lahore", "Islamabad", "Pakistan"],
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PKR" }
-      }
-    </script>
+    <script defer src="./assets/dist/state.js?v=4d4b0caa0c9a"></script>
+    <script defer src="./assets/dist/algorithms.js?v=4d4b0caa0c9a"></script>
+    <script defer src="./assets/dist/chat.js?v=4d4b0caa0c9a"></script>
+    <script defer src="./assets/dist/quiz.js?v=4d4b0caa0c9a"></script>
+    <script defer src="./assets/dist/app.js?v=4d4b0caa0c9a"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -97,7 +59,13 @@
               "@type": "ImageObject",
               "url": "https://konsacard.pk/assets/logo/mark-64.png"
             },
-            "description": "Independent restaurant discount card comparison for 19 Pakistani banks. Not sponsored."
+            "description": "Independent restaurant discount card comparison for 19 Pakistani banks. Not sponsored.",
+            "areaServed": [
+              { "@type": "City", "name": "Karachi" },
+              { "@type": "City", "name": "Lahore" },
+              { "@type": "City", "name": "Islamabad" },
+              { "@type": "Country", "name": "Pakistan" }
+            ]
           },
           {
             "@type": "WebSite",
@@ -111,6 +79,65 @@
     </script>
   </head>
   <body>
+
+    <!-- Static fallback for crawlers/audit tools that don't execute JS.
+         Real users with JS enabled never render this — browsers strip
+         <noscript> contents when scripting is on. The interactive comparison
+         tool below replaces it. Kept in sync with the banks/cities the app
+         actually covers; if either list changes, update both places. -->
+    <noscript>
+      <h1>KonsaCard — Restaurant discount cards in Pakistan</h1>
+      <p>
+        KonsaCard is an independent comparison tool that ranks Pakistani credit cards,
+        debit cards, and digital wallets by the restaurant discounts they actually give
+        you. We score each card against your typical bill, the restaurants you eat at,
+        and the cards you already own — not by headline % alone, because monthly caps,
+        minimum-spend rules, and weekday/weekend restrictions can flip the rankings.
+        Coverage spans Karachi, Lahore, and Islamabad, with offers refreshed from
+        bank pages, the Peekaboo Guru feed, the Easypaisa DiscountWorld feed, and
+        the NBP merchant workbook. KonsaCard is not sponsored, has no affiliate links
+        to banks, and is free to use.
+      </p>
+      <h2>Banks covered (19)</h2>
+      <ul>
+        <li><a href="/banks/al-baraka-bank/">Al Baraka Bank</a></li>
+        <li><a href="/banks/allied-bank/">Allied Bank</a></li>
+        <li><a href="/banks/askari-bank-limited/">Askari Bank Limited</a></li>
+        <li><a href="/banks/bank-al-habib/">Bank AL Habib</a></li>
+        <li><a href="/banks/bank-alfalah/">Bank Alfalah</a></li>
+        <li><a href="/banks/bank-of-punjab/">Bank of Punjab</a></li>
+        <li><a href="/banks/bankislami/">BankIslami</a></li>
+        <li><a href="/banks/easypaisa/">Easypaisa</a></li>
+        <li><a href="/banks/faysal-bank-limited/">Faysal Bank Limited</a></li>
+        <li><a href="/banks/habib-bank-limited/">Habib Bank Limited (HBL)</a></li>
+        <li><a href="/banks/habib-metro-bank/">Habib Metro Bank</a></li>
+        <li><a href="/banks/hbl-islamic-bank-limited/">HBL Islamic Bank Limited</a></li>
+        <li><a href="/banks/js-bank/">JS Bank</a></li>
+        <li><a href="/banks/mcb-bank-limited/">MCB Bank Limited</a></li>
+        <li><a href="/banks/mcb-islamic-bank-ltd/">MCB Islamic Bank Ltd</a></li>
+        <li><a href="/banks/meezan-bank/">Meezan Bank</a></li>
+        <li><a href="/banks/national-bank-of-pakistan/">National Bank of Pakistan</a></li>
+        <li><a href="/banks/united-bank-limited-ubl/">United Bank Limited (UBL)</a></li>
+      </ul>
+      <h2>Cities served</h2>
+      <ul>
+        <li>Karachi</li>
+        <li>Lahore</li>
+        <li>Islamabad</li>
+      </ul>
+      <h2>Learn how the rankings work</h2>
+      <ul>
+        <li><a href="/methodology/">Methodology — how offers are sourced and scored</a></li>
+        <li><a href="/how-discount-caps-work/">How discount caps work</a></li>
+        <li><a href="/how-card-tiers-affect-discounts/">How card tiers affect discounts</a></li>
+        <li><a href="/about/">About KonsaCard</a></li>
+        <li><a href="/contact/">Contact / report a wrong offer</a></li>
+      </ul>
+      <p>
+        The interactive comparison tool requires JavaScript. If you'd like to use it,
+        please enable JavaScript and reload this page.
+      </p>
+    </noscript>
 
     <!-- ── SHELL ── -->
     <div class="shell">

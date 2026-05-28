@@ -140,219 +140,9 @@ STATIC_ROUTES = [
     ("/terms/", ROOT / "terms" / "index.html", "monthly", "0.4"),
 ]
 
-COMPONENT_CSS = """\
-      :root { --brand-deep: #9E4530; }
-      .content {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 22px;
-        width: 100%;
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 24px 20px 56px;
-      }
-      .content > * { min-width: 0; }
-      .section {
-        padding: 28px;
-        border-radius: 22px;
-        background: var(--surface);
-        border: 1px solid rgba(226,232,240,0.9);
-        box-shadow: var(--shadow);
-      }
-      .section h2 {
-        margin: 0 0 10px;
-        font-size: 1.45rem;
-        font-weight: 800;
-        letter-spacing: -0.03em;
-        color: var(--ink);
-      }
-      .section > p { color: var(--muted); line-height: 1.75; margin-bottom: 12px; }
-      .faq-item {
-        border-bottom: 1px solid rgba(226,232,240,0.9);
-        padding: 12px 0;
-      }
-      .faq-item:last-child { border-bottom: none; }
-      .faq-item summary {
-        cursor: pointer;
-        font-weight: 700;
-        color: var(--ink);
-        font-size: 0.97rem;
-        list-style: none;
-        position: relative;
-        padding-right: 24px;
-      }
-      .faq-item summary::-webkit-details-marker { display: none; }
-      .faq-item summary::after {
-        content: "+";
-        position: absolute;
-        right: 0;
-        top: 0;
-        font-size: 1.3rem;
-        line-height: 1;
-        color: var(--brand);
-        font-weight: 600;
-        transition: transform .15s;
-      }
-      .faq-item[open] summary::after { content: "−"; }
-      .faq-item summary:hover { color: var(--brand); }
-      .faq-answer {
-        margin-top: 10px;
-        color: var(--muted);
-        line-height: 1.7;
-        font-size: 0.93rem;
-      }
-      .breadcrumbs {
-        display: flex; flex-wrap: wrap; gap: 8px;
-        font-size: 0.88rem; color: var(--muted); margin-bottom: 14px; overflow-wrap: anywhere;
-      }
-      .breadcrumbs .sep { color: #c6b8ad; }
-      .card-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 16px; margin-top: 16px;
-      }
-      .entity-card {
-        border: 1px solid rgba(226,232,240,0.9);
-        border-radius: 20px; padding: 20px;
-        background: linear-gradient(180deg, #fff 0%, #fffaf6 100%);
-      }
-      .entity-card h3 {
-        margin: 0 0 8px; font-size: 1.05rem; font-weight: 700;
-        line-height: 1.35; overflow-wrap: anywhere;
-      }
-      .entity-card h3 a { color: var(--ink); }
-      .pill-row { display: flex; flex-wrap: wrap; gap: 7px; margin: 10px 0 14px; }
-      .pill {
-        display: inline-flex; align-items: center; padding: 4px 10px;
-        border-radius: 999px; background: var(--brand-light);
-        color: var(--brand-deep); font-size: 0.82rem; font-weight: 700;
-      }
-      .meta-list { display: grid; gap: 5px; font-size: 0.88rem; color: var(--muted); overflow-wrap: anywhere; }
-      .meta-list strong { color: var(--ink); }
-      .actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 14px; }
-      .btn {
-        display: inline-flex; align-items: center; justify-content: center;
-        padding: 8px 14px; border-radius: 9px; border: 1px solid var(--line);
-        background: #fff; font-weight: 700; font-size: 13px; color: var(--ink); white-space: nowrap;
-      }
-      .btn.primary { border-color: var(--brand); background: var(--brand); color: #fff; }
-      .table-tool-link { font-size: 12px; font-weight: 700; color: var(--brand); white-space: nowrap; }
-      .table-wrap {
-        overflow-x: auto; border: 1px solid rgba(226,232,240,0.9);
-        border-radius: 16px; margin-top: 14px;
-      }
-      table { width: 100%; border-collapse: collapse; min-width: 580px; }
-      th, td {
-        padding: 12px 14px; border-bottom: 1px solid rgba(226,232,240,0.9);
-        text-align: left; vertical-align: top; font-size: 0.9rem;
-      }
-      th {
-        background: var(--brand-light); color: var(--muted);
-        font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
-      }
-      tr:last-child td { border-bottom: 0; }
-      .directory { columns: 3 210px; gap: 22px; margin-top: 14px; }
-      .directory-group { break-inside: avoid; margin-bottom: 18px; }
-      .directory-group h3 {
-        margin: 0 0 7px; font-size: 0.8rem; color: var(--brand);
-        font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
-      }
-      .directory-group ul { list-style: none; padding: 0; margin: 0; }
-      .directory-group li { margin: 0 0 7px; overflow-wrap: anywhere; }
-      .directory-group li a { color: var(--ink); font-weight: 600; font-size: 0.88rem; }
-      .note {
-        margin-top: 14px; padding: 12px 16px; border-radius: 14px;
-        background: var(--brand-light); color: var(--brand-deep); font-size: 0.88rem; line-height: 1.65;
-      }
-      .page-footer {
-        max-width: 1180px; margin: 0 auto; padding: 6px 20px 48px;
-        color: var(--muted); font-size: 0.85rem; text-align: center;
-      }
-      @media (max-width: 760px) {
-        .content { padding: 16px 14px 40px; }
-        .section { padding: 18px; border-radius: 18px; }
-        .card-grid { grid-template-columns: 1fr; }
-        .directory { columns: 1; }
-        .table-wrap { overflow: visible; border: 0; border-radius: 0; }
-        table, thead, tbody, tr, th, td { display: block; width: 100%; min-width: 0; }
-        thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-        tbody { display: grid; gap: 10px; }
-        tr { border: 1px solid rgba(226,232,240,0.9); border-radius: 14px; background: #fffaf6; overflow: hidden; }
-        td { border-bottom: 1px solid rgba(226,232,240,0.7); padding: 9px 12px; font-size: 0.88rem; }
-        td:last-child { border-bottom: 0; }
-        td::before { content: attr(data-label); display: block; margin-bottom: 3px; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
-        .btn { width: 100%; }
-        .actions { flex-direction: column; }
-        .pagination { flex-wrap: wrap; gap: 4px; }
-        .pg-btn { min-width: 38px; height: 38px; }
-      }
-      .pagination {
-        display: flex; align-items: center; justify-content: center;
-        flex-wrap: wrap; gap: 6px; padding: 16px 0 6px;
-      }
-      .pg-btn {
-        min-width: 34px; height: 34px; padding: 0 10px;
-        border-radius: 9px; border: 1px solid var(--line);
-        background: #fff; font-size: 13px; font-weight: 600;
-        color: var(--ink); cursor: pointer; line-height: 1;
-        display: inline-flex; align-items: center; justify-content: center;
-        transition: background 0.12s, border-color 0.12s;
-      }
-      .pg-btn:hover:not(:disabled) { background: var(--brand-light); border-color: var(--brand); color: var(--brand-deep); }
-      .pg-btn.active { background: var(--brand); color: #fff; border-color: var(--brand); }
-      .pg-btn:disabled { opacity: 0.35; cursor: default; }
-      .pg-ellipsis { font-size: 13px; color: var(--muted); padding: 0 2px; line-height: 34px; }
-      .pg-info { font-size: 12px; color: var(--muted); padding: 0 6px; white-space: nowrap; }
-      .req-grid {
-        display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-        gap: 10px; margin-top: 14px;
-      }
-      .req-item {
-        padding: 12px 14px; border-radius: 12px;
-        background: var(--surface2); border: 1px solid var(--line2);
-      }
-      .req-label {
-        display: block; font-size: 10px; font-weight: 800; text-transform: uppercase;
-        letter-spacing: .07em; color: var(--muted); margin-bottom: 4px;
-      }
-      .req-value { display: block; font-size: 1rem; font-weight: 700; color: var(--ink); }
-      .req-waiver {
-        margin-top: 12px; padding: 10px 14px; border-radius: 10px;
-        background: var(--green-light); color: var(--green);
-        font-size: 0.875rem; line-height: 1.55;
-      }
-      .req-waiver strong { font-weight: 700; }
-      .req-confidence {
-        margin-top: 10px; font-size: 0.8rem; color: var(--muted);
-        display: flex; align-items: center; gap: 6px;
-      }
-      .conf-badge {
-        display: inline-block; padding: 2px 7px; border-radius: 4px;
-        font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em;
-      }
-      .conf-high { background: var(--green-light); color: var(--green); }
-      .conf-medium { background: var(--amber-light); color: var(--amber); }
-      .conf-low { background: #fce8e6; color: var(--red); }
-      .req-notes-details { margin-top: 14px; border-top: 1px solid var(--line2); padding-top: 10px; }
-      .req-notes-summary {
-        list-style: none; cursor: pointer; user-select: none; padding: 2px 0;
-        font-size: 12px; font-weight: 600; color: var(--brand);
-        text-decoration: underline; text-underline-offset: 2px;
-      }
-      .req-notes-summary::-webkit-details-marker { display: none; }
-      .req-notes-details:not([open]) .req-hide { display: none; }
-      .req-notes-details[open] .req-show { display: none; }
-      .req-notes-list {
-        list-style: none; padding: 10px 0 0; margin: 0; display: flex;
-        flex-direction: column; gap: 7px;
-      }
-      .req-note-item {
-        padding: 9px 12px; border-radius: 8px; font-size: 0.82rem;
-        line-height: 1.55; color: var(--ink2);
-        background: var(--surface2); border: 1px solid var(--line2);
-      }
-      .req-na { font-size: 0.875rem; color: var(--muted); font-style: italic; margin-top: 8px; }"""
-
+# Component CSS for generated pages lives in apps/web/assets/components.css
+# (formerly an inlined ~9.6 KB <style> block here). Moved out so the file is
+# cacheable and HTML text/markup ratio improves on every generated page.
 
 @dataclass
 class RelatedItem:
@@ -408,8 +198,6 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <title>{escaped_title}</title>
     <meta name="description" content="{escaped_description}" />
     <link rel="canonical" href="{canonical_url}" />
-    <link rel="alternate" hreflang="en-PK" href="{canonical_url}" />
-    <link rel="alternate" hreflang="x-default" href="{canonical_url}" />
     <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/logo/mark-32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/assets/logo/mark-64.png" />
@@ -433,10 +221,8 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
     <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
-    <link rel="stylesheet" href="/assets/styles.css?v=__BUILD_VERSION__" />
-    <style>
-{COMPONENT_CSS}
-    </style>
+    <link rel="stylesheet" href="/assets/dist/styles.css?v=__BUILD_VERSION__" />
+    <link rel="stylesheet" href="/assets/dist/components.css?v=__BUILD_VERSION__" />
     <script type="application/ld+json">
 {schema_json}
     </script>
@@ -445,7 +231,7 @@ def html_page(*, title: str, description: str, canonical_path: str, schema: list
     <div class="page-shell content-shell">
     {body}
     </div>
-    <script defer src="/assets/content-pages.js?v=__BUILD_VERSION__"></script>
+    <script defer src="/assets/dist/content-pages.js?v=__BUILD_VERSION__"></script>
   </body>
 </html>
 """
@@ -666,6 +452,29 @@ def build_bank_faqs(summary: dict, top_restaurants: list) -> list[tuple[str, str
         f"Are {name} discounts available for delivery and takeaway?",
         f"Offer types vary by deal. Some {name} cards cover dine-in only, others extend to takeaway or delivery. The 'Order' column on each card's individual page shows which order types qualify. "
         f"If you mostly order delivery, filter for delivery-eligible cards in the comparison tool."
+    ))
+    faqs.append((
+        f"What is the monthly cap on {name} dining discounts?",
+        f"Caps are set per card and per offer, not per bank. Most {name} dining offers cap savings at a fixed PKR amount per transaction, per month, or both. "
+        f"A high headline % paired with a low cap can be worse value than a moderate % with no cap. The 'Highest cap' column in the cards table above shows the best-case ceiling on each card; "
+        f"the comparison tool then estimates how much of that cap you'd actually use given your typical bill size."
+    ))
+    faqs.append((
+        f"Which {name} card is best for casual dining versus premium restaurants?",
+        f"It depends on average bill size. Lower-tier {name} cards (Classic, Silver, debit) typically work well at casual restaurants where the bill stays under common per-transaction caps. "
+        f"Premium {name} cards (Platinum, World, Signature) tend to carry both a higher headline % and a higher monthly ceiling, which pays off more at fine-dining bills. "
+        f"The comparison tool ranks by estimated rupee savings on your input bill, so the right answer falls out automatically once you set your typical spend."
+    ))
+    faqs.append((
+        f"How do I apply for a {name} card with restaurant discounts?",
+        f"KonsaCard does not process card applications — we only compare. Once you've found the {name} card you want, open its card page from the table above and follow the link to {name}'s official site. "
+        f"All restaurant discount cards on KonsaCard link to the issuing bank's own application page. For eligibility, income requirements, and joining fees, contact {name} directly."
+    ))
+    faqs.append((
+        f"How often is {name} offer data on KonsaCard updated?",
+        f"The full offers dataset is refreshed periodically from public bank and merchant feeds. Each card and restaurant page shows when its data was last verified. "
+        f"Banks change terms frequently and sometimes without notice, so we recommend confirming the current discount % and cap with {name} or the restaurant before relying on the figures shown here. "
+        f"If you spot a discrepancy, the contact page has a form for reporting corrections with a source link."
     ))
     return faqs
 
@@ -2241,12 +2050,15 @@ def regenerate_sitemap(payload: dict, bank_count: int, restaurant_count: int, ca
 # version, so users don't get a forced refresh for nothing.
 VERSIONED_ASSET_FILES = [
     "assets/styles.css",
+    "assets/components.css",
     "assets/state.js",
     "assets/algorithms.js",
     "assets/chat.js",
     "assets/quiz.js",
     "assets/app.js",
     "assets/content-pages.js",
+    "assets/sentry-init.js",
+    "assets/ga-init.js",
 ]
 
 

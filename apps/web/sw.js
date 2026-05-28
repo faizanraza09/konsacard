@@ -21,7 +21,7 @@
 // with the build epoch (e.g. "1748293340"). If it stays literal "0260526T204215"
 // in local dev, that's fine — the SW still works, it just doesn't auto-invalidate
 // across local edits (you can unregister it from DevTools if needed).
-const SHELL_VERSION = "f8b9df0fdc71";
+const SHELL_VERSION = "4d4b0caa0c9a";
 const SHELL_CACHE = `konsa-shell-${SHELL_VERSION}`;
 const DATA_CACHE  = `konsa-data-${SHELL_VERSION}`;
 
@@ -33,12 +33,12 @@ const DATA_CACHE  = `konsa-data-${SHELL_VERSION}`;
 // /assets/chat.js?v=abc, causing a duplicate network fetch every page load.
 const SHELL_URLS = [
   "/",
-  `/assets/styles.css?v=${SHELL_VERSION}`,
-  `/assets/state.js?v=${SHELL_VERSION}`,
-  `/assets/algorithms.js?v=${SHELL_VERSION}`,
-  `/assets/chat.js?v=${SHELL_VERSION}`,
-  `/assets/quiz.js?v=${SHELL_VERSION}`,
-  `/assets/app.js?v=${SHELL_VERSION}`,
+  `/assets/dist/styles.css?v=${SHELL_VERSION}`,
+  `/assets/dist/state.js?v=${SHELL_VERSION}`,
+  `/assets/dist/algorithms.js?v=${SHELL_VERSION}`,
+  `/assets/dist/chat.js?v=${SHELL_VERSION}`,
+  `/assets/dist/quiz.js?v=${SHELL_VERSION}`,
+  `/assets/dist/app.js?v=${SHELL_VERSION}`,
   "/assets/logo/favicon.svg",
   "/assets/logo/mark-32.png",
   "/assets/logo/mark-64.png",

@@ -21,9 +21,7 @@
 
         "uses-rel-preconnect":         "off",
         "unused-javascript":           "off",
-        "unminified-javascript":       "off",
         "unused-css-rules":            "off",
-        "uses-text-compression":       "off",
         "is-on-https":                 "off",
         "csp-xss":                     "off",
         "redirects-http":              "off"

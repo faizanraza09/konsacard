@@ -1,0 +1,51 @@
+# KonsaCard
+
+> Independent comparison tool that ranks Pakistani credit cards, debit cards, and wallets by the restaurant discounts they actually give you — based on the restaurants you eat at, the cities you live in, and the cards you already own. Not sponsored by any bank.
+
+KonsaCard (konsacard.pk) covers 19 Pakistani banks and 1,200+ restaurants across Karachi, Lahore, and Islamabad. Users pick their city, the restaurants they care about, and the cards they hold, and the site computes a "Fit Score" that combines each card's discount rate, monthly cap, minimum spend, weekday/weekend rules, and tier requirements. The dataset is refreshed from bank offer pages, the Peekaboo discount feed, the Easypaisa DiscountWorld feed, and the NBP merchant workbook; the methodology page documents the sources and the scoring formula.
+
+The product is free, ad-supported, and has no affiliate links to banks. Pricing, eligibility, and offer terms come from public sources; users are advised to confirm with the bank before applying.
+
+## How KonsaCard works
+
+- [Methodology](https://konsacard.pk/methodology/): How offer data is sourced, normalized, and scored, and how the Fit Score is computed from user inputs.
+- [How discount caps work](https://konsacard.pk/how-discount-caps-work/): Explainer on monthly/per-transaction caps and why a higher headline discount % can still pay out less.
+- [How card tiers affect discounts](https://konsacard.pk/how-card-tiers-affect-discounts/): Why the same bank's Platinum, Gold, and Classic cards can give very different discounts at the same restaurant.
+
+## Banks covered
+
+- [Al Baraka Bank](https://konsacard.pk/banks/al-baraka-bank/)
+- [Allied Bank](https://konsacard.pk/banks/allied-bank/)
+- [Askari Bank Limited](https://konsacard.pk/banks/askari-bank-limited/)
+- [Bank AL Habib](https://konsacard.pk/banks/bank-al-habib/)
+- [Bank Alfalah](https://konsacard.pk/banks/bank-alfalah/)
+- [Bank of Punjab](https://konsacard.pk/banks/bank-of-punjab/)
+- [BankIslami](https://konsacard.pk/banks/bankislami/)
+- [Easypaisa](https://konsacard.pk/banks/easypaisa/)
+- [Faysal Bank Limited](https://konsacard.pk/banks/faysal-bank-limited/)
+- [Habib Bank Limited (HBL)](https://konsacard.pk/banks/habib-bank-limited/)
+- [Habib Metro Bank](https://konsacard.pk/banks/habib-metro-bank/)
+- [HBL Islamic Bank Limited](https://konsacard.pk/banks/hbl-islamic-bank-limited/)
+- [JS Bank](https://konsacard.pk/banks/js-bank/)
+- [MCB Bank Limited](https://konsacard.pk/banks/mcb-bank-limited/)
+- [MCB Islamic Bank Ltd](https://konsacard.pk/banks/mcb-islamic-bank-ltd/)
+- [Meezan Bank](https://konsacard.pk/banks/meezan-bank/)
+- [National Bank of Pakistan](https://konsacard.pk/banks/national-bank-of-pakistan/)
+- [United Bank Limited (UBL)](https://konsacard.pk/banks/united-bank-limited-ubl/)
+
+## Cities served
+
+KonsaCard covers restaurant discounts in Karachi, Lahore, and Islamabad. City selection is a filter on the main comparison tool at [konsacard.pk](https://konsacard.pk/) rather than a separate URL.
+
+## Restaurants
+
+Individual restaurant pages live under `https://konsacard.pk/restaurants/<slug>/`. The full enumeration is in the sitemap rather than this file:
+
+- [Sitemap](https://konsacard.pk/sitemap.xml): All bank, restaurant, and content pages.
+
+## About
+
+- [About KonsaCard](https://konsacard.pk/about/): Who runs the site and why it exists.
+- [Contact](https://konsacard.pk/contact/): How to report a wrong offer or suggest a missing restaurant or card.
+- [Privacy Policy](https://konsacard.pk/privacy-policy/)
+- [Terms](https://konsacard.pk/terms/)
