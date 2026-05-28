@@ -568,9 +568,13 @@ def bank_page_schema(
 ) -> list[dict]:
     """Schema graph for bank pages.
 
-    The page is a CollectionPage whose `about` is a FinancialService entity
-    (the bank). FinancialService is a subtype of Organization and is the
-    right schema.org type for a bank/card issuer.
+    The page is a CollectionPage whose `about` is the bank entity. We use
+    Organization instead of the more specific FinancialService because the
+    latter inherits from LocalBusiness, which Google's structured-data
+    validator requires `address` on. We can't supply a meaningful single
+    address for a nationwide bank with many branches, and Organization is
+    accurate — we're describing the bank as an abstract issuer of cards, not
+    a particular branch.
     """
     item_list = [
         {
@@ -583,7 +587,7 @@ def bank_page_schema(
     ]
 
     bank_entity: dict = {
-        "@type": "FinancialService",
+        "@type": "Organization",
         "@id": f"{SITE_URL}{canonical_path}#bank",
         "name": bank_name,
         "url": f"{SITE_URL}{canonical_path}",
@@ -715,6 +719,50 @@ def restaurant_page_schema(
         for city, items in (enr["branchesByCity"] or {}).items():
             for b in items or []:
                 rich_branches.append({**b, "city": b.get("city") or city})
+
+    # Top-level address — required by Google's validator on Restaurant (a
+    # LocalBusiness subtype). A chain doesn't have a single canonical
+    # address, so we pick the best available representative: the first
+    # enriched branch with a real street address, falling back to the first
+    # legacy nearestBranch label, then to areaServed city, then to country
+    # alone. Per-branch addresses still appear in `location` below.
+    primary_address: dict | None = None
+    if rich_branches:
+        pick = next(
+            (b for b in rich_branches if b.get("address") and b.get("city")),
+            None,
+        )
+        if pick:
+            primary_address = {
+                "@type": "PostalAddress",
+                "streetAddress": pick["address"],
+                "addressLocality": pick["city"],
+                "addressCountry": pick.get("country") or "PK",
+            }
+    if primary_address is None and branches:
+        pick = next(
+            (b for b in branches if b.get("address") and b.get("city")),
+            None,
+        )
+        if pick:
+            primary_address = {
+                "@type": "PostalAddress",
+                "streetAddress": pick["address"],
+                "addressLocality": pick["city"],
+                "addressCountry": "PK",
+            }
+    if primary_address is None and cities:
+        primary_address = {
+            "@type": "PostalAddress",
+            "addressLocality": cities[0],
+            "addressCountry": "PK",
+        }
+    if primary_address is None:
+        primary_address = {
+            "@type": "PostalAddress",
+            "addressCountry": "PK",
+        }
+    restaurant_entity["address"] = primary_address
 
     location_entries: list[dict] = []
     if rich_branches:
@@ -1703,7 +1751,7 @@ def render_card_page(bank_summary: dict, card: dict, *, last_updated: str = "", 
         "url": f"{SITE_URL}{canonical_path}",
         "category": card.get("card_type"),
         "provider": {
-            "@type": "FinancialService",
+            "@type": "Organization",
             "name": bank_summary["name"],
             "url": f"{SITE_URL}/banks/{bank_summary['slug']}/",
             **({"logo": f"{SITE_URL}{issuer_logo}"} if issuer_logo else {}),
