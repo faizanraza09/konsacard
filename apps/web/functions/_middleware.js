@@ -30,7 +30,7 @@
 // keeps things fresh through daily-refresh commits (the URL doesn't change
 // but the underlying offers.json does after a deploy).
 
-import { computeRanking } from "./_lib/ranking.js";
+import { computeRanking } from "../lib/ranking-core.mjs";
 
 const SSR_MARKER = "<!-- SSR_RANKINGS_INJECT_HERE -->";
 const SCHEMA_MARKER = "<!-- SSR_SCHEMA_INJECT_HERE -->";
@@ -183,17 +183,34 @@ export async function onRequest(context) {
       fetchAsset(env, url, "/index.html"),
     ]);
 
-    const offersJson = /** @type {{offers: Array<Record<string, unknown>>}} */ (
+    const offersJson = /** @type {{offers: Array<Record<string, unknown>>, restaurants?: Object}} */ (
       await offersRes.json()
     );
     const baseHtml = await htmlRes.text();
 
-    const { ranked } = computeRanking({
+    // Shared ranking-core returns the full sorted aggregate list; the SSR
+    // only wants the top 10 with the fields its HTML/JSON-LD builders use.
+    // (The Worker can't apply eligibility/fee post-processing — no user
+    // input — so baseScore IS the final score for SSR purposes.)
+    const { aggregates } = computeRanking({
       offers: offersJson.offers || [],
-      city: cityKey,
-      orderValue,
-      limit: 10,
+      restaurantsEnrichment: offersJson.restaurants,
+      settings: { city: cityKey, orderValue },
     });
+    const ranked = aggregates.slice(0, 10).map((c) => ({
+      bank: c.bank,
+      card: c.card,
+      cardCategory: c.cardCategory,
+      score: c.baseScore,
+      avgExpectedSaving: c.avgExpectedSaving,
+      coverage: c.coverage,
+      coveredVenueCount: c.coveredVenueCount,
+      totalVenueCount: c.totalVenueCount,
+      averageDiscount: c.averageDiscount,
+      medianCap: c.medianCap,
+      bankSlug: c.bankSlug,
+      cardSlug: c.cardSlug,
+    }));
 
     const ssrHtml = buildRankingHtml({ ranked, cityKey, orderValue });
     const schemaHtml = buildItemListSchema({
