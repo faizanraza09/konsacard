@@ -1463,8 +1463,11 @@ function renderCompareTray() {
     const cardEl = document.createElement("div");
     cardEl.className = "cmp-tray-card";
     cardEl.innerHTML = `
-      <span class="cmp-tray-card-name">${escapeHtml(shortName)}</span>
-      <button class="cmp-tray-card-remove" type="button" data-key="${escapeAttr(key)}">×</button>
+      <div class="cmp-tray-card-text">
+        <span class="cmp-tray-card-name">${escapeHtml(shortName)}</span>
+        <span class="cmp-tray-card-bank">${escapeHtml(bank)}</span>
+      </div>
+      <button class="cmp-tray-card-remove" type="button" data-key="${escapeAttr(key)}" aria-label="Remove ${escapeAttr(card)} from compare">×</button>
     `;
     cardEl.querySelector(".cmp-tray-card-remove").addEventListener("click", (e) => {
       toggleCompare(e.currentTarget.dataset.key);

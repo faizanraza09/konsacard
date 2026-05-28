@@ -45,6 +45,7 @@ export default function CardsScreen() {
 
   const recs = useMemo(() => computeRecommendations(state), [state]);
   const topPick = recs[0] ?? null;
+  const compareCount = useAppStore((s) => s.compareList.length);
   const cityLabel =
     state.selectedCity === "all"
       ? "All cities"
@@ -122,7 +123,13 @@ export default function CardsScreen() {
           data={recs}
           renderItem={({ item, index }) => <CardRow item={item} rank={index + 1} />}
           keyExtractor={(item) => `${item.bank}||${item.card}`}
-          contentContainerStyle={styles.list}
+          contentContainerStyle={{
+            paddingTop: 4,
+            // Bump the bottom inset while the compare tray is floating so the
+            // last card can scroll fully into view above it. Tray height with
+            // two stacked chips is ~120, plus the 8px gap to the tab bar.
+            paddingBottom: compareCount > 0 ? 144 : 24,
+          }}
           onScroll={onScroll}
           scrollEventThrottle={16}
           refreshControl={
@@ -138,5 +145,4 @@ export default function CardsScreen() {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
-  list: { paddingBottom: 80, paddingTop: 4 },
 });
