@@ -177,10 +177,14 @@ export async function onRequest(context) {
     const cityKey = pickCityKey(url.searchParams.get("city"));
     const orderValue = parseBill(url.searchParams.get("bill"));
 
-    // Load offers + the static index.html in parallel.
-    const [offersRes, htmlRes] = await Promise.all([
+    // Load offers + requirements (for fee penalty) + the static index.html
+    // in parallel. Requirements is fetched best-effort — if it 404s for any
+    // reason we still rank, just without the fee penalty applied.
+    const [offersRes, htmlRes, reqRes, mapRes] = await Promise.all([
       fetchAsset(env, url, "/data/offers.json"),
       fetchAsset(env, url, "/index.html"),
+      fetchAsset(env, url, "/data/card-requirements/normalized/card_requirements.json").catch(() => null),
+      fetchAsset(env, url, "/data/card-requirements/normalized/deal_requirement_card_map.json").catch(() => null),
     ]);
 
     const offersJson = /** @type {{offers: Array<Record<string, unknown>>, restaurants?: Object}} */ (
@@ -188,20 +192,44 @@ export async function onRequest(context) {
     );
     const baseHtml = await htmlRes.text();
 
-    // Shared ranking-core returns the full sorted aggregate list; the SSR
-    // only wants the top 10 with the fields its HTML/JSON-LD builders use.
-    // (The Worker can't apply eligibility/fee post-processing — no user
-    // input — so baseScore IS the final score for SSR purposes.)
+    // Build the lookup Maps the core expects, if both requirement files
+    // loaded successfully. Mirrors loadRequirementsContext() in app.js.
+    let requirements = null;
+    if (reqRes && mapRes) {
+      try {
+        const requirementsPayload = await reqRes.json();
+        const mappingPayload = await mapRes.json();
+        requirements = {
+          byCardId: new Map(requirementsPayload.map((row) => [row.card_id, row])),
+          mappingByDealKey: new Map(
+            mappingPayload.map((row) => [
+              `${String(row.deal_bank_name || "").trim().replace(/\s+/g, " ").toLowerCase()} || ${String(row.deal_card_name || "").trim().replace(/\s+/g, " ").toLowerCase()}`,
+              row,
+            ]),
+          ),
+        };
+      } catch {
+        requirements = null;
+      }
+    }
+
+    // Shared ranking-core. With requirements passed in, item.feePenalty is
+    // set per card and item.score = baseScore - feePenalty. (The Worker
+    // still can't apply qualificationDelta — that needs user salary input.)
     const { aggregates } = computeRanking({
       offers: offersJson.offers || [],
       restaurantsEnrichment: offersJson.restaurants,
+      requirements,
       settings: { city: cityKey, orderValue },
     });
     const ranked = aggregates.slice(0, 10).map((c) => ({
       bank: c.bank,
       card: c.card,
       cardCategory: c.cardCategory,
-      score: c.baseScore,
+      score: c.score,
+      baseScore: c.baseScore,
+      feePenalty: c.feePenalty,
+      annualFeePkr: c.annualFeePkr,
       avgExpectedSaving: c.avgExpectedSaving,
       coverage: c.coverage,
       coveredVenueCount: c.coveredVenueCount,

@@ -732,12 +732,17 @@ function computeRecommendations() {
   // back with .baseScore set; we layer browser-only post-processing on top
   // (eligibility, fee penalty, qualification delta), then resort by the
   // adjusted .score.
+  // Core sets baseScore + feePenalty + score (= baseScore - feePenalty).
+  // Browser additionally overlays qualificationDelta on top — eligibility is
+  // user-input-driven so it can't live in the core.
   const { aggregates } = computeRankingCore({
     offers: state.data.offers,
     restaurantsEnrichment: state.data?.restaurants,
+    requirements: state.requirements,
     settings: {
       city: state.selectedCity,
       orderValue: state.orderValue,
+      outingsPerWeek: state.outingsPerWeek,
       selectedDays: state.selectedDays,
       selectedRestaurants: state.selectedRestaurants,
       selectedBanks: state.selectedBanks,
@@ -749,7 +754,6 @@ function computeRecommendations() {
   });
 
   const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
-  const outingsPerYear = (state.outingsPerWeek || 1) * 52;
 
   for (const item of aggregates) {
     item.requirementStatus = evaluateEligibility(item.bank, item.card);
@@ -762,7 +766,6 @@ function computeRecommendations() {
       state.useEligibility && hasEligibilityInput
         ? 15 * (item.qualificationConfidence - 0.5)
         : 0;
-    item.feePenalty = computeFeePenalty(item, outingsPerYear);
     item.score = Math.max(
       0,
       Math.min(100, item.baseScore + item.qualificationDelta - item.feePenalty),
@@ -959,54 +962,6 @@ function evaluateEligibility(bank, card) {
   return                   { ...base, status: "eligible",          label: "Likely eligible",            tone: "eligible",        sortRank: 3,   detail: "Entered salary and balance meet the public thresholds captured for this card." };
 }
 
-/**
- * Convert a card's annual fee into a score penalty, capped at 25 points. Inputs:
- *   - item.requirementStatus.annualFeePkr   (number | null)
- *   - item.requirementStatus.annualFeeWaiverRule (string | null)
- *   - item.avgExpectedSaving                (PKR per outing in current scope)
- *   - item.coverage                         (0..1)
- *   - outingsPerYear                        (user-set, default 52)
- *
- * Logic:
- *   yearlyValue  = avgExpectedSaving * outingsPerYear * coverage     (in PKR)
- *   waiverFactor = 0.5 when waiver rule exists, 1.0 otherwise
- *   effectiveFee = (annualFeePkr || 0) * waiverFactor
- *   ratio        = effectiveFee / max(yearlyValue, 1)
- *   penalty      = min(25, 25 * ratio)
- *
- * Null fee → 0 penalty (we hedge in favour of visibility when data is missing).
- * Zero fee → 0 penalty.
- */
-function computeFeePenalty(item, outingsPerYear) {
-  const status = item.requirementStatus;
-  const fee = status?.annualFeePkr;
-
-  // Calibration #2: missing fee data → small soft penalty instead of free
-  // pass. Cards without a verified requirements record were being silently
-  // ranked alongside actually-free cards, advantaging them over disclosed
-  // peers. 3 points is small enough not to dominate, big enough to level
-  // the field with cards that publish their fee.
-  if (fee === null || fee === undefined) {
-    if (!status?.hasRequirementRecord) return 3;
-    if (status?.annualFeeWaiverRule) return 0;  // documented "Conditional"
-    return 3;                                    // null fee, no waiver context
-  }
-  if (fee <= 0) return 0;
-
-  const waiver = !!status?.annualFeeWaiverRule;
-  const effective = fee * (waiver ? 0.5 : 1.0);
-
-  // Calibration #1: drop the × coverage multiplier from the denominator.
-  // Previously the formula compared the fee against a coverage-discounted
-  // "expected yearly value", which double-counted coverage (already in E +
-  // R) and inverted the impact for high-coverage cards. The denominator
-  // here now matches the "Annual saving" the card detail modal shows the
-  // user — same number for explainability.
-  const yearlyValue = (item.avgExpectedSaving || 0) * outingsPerYear;
-  const ratio = effective / Math.max(yearlyValue, 1);
-  return Math.min(25, 25 * Math.min(1, ratio));
-}
-
 function computeQualificationConfidence(status) {
   const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
   if (!hasEligibilityInput || !status?.hasRequirementRecord) return 0.5;
@@ -1091,6 +1046,5 @@ Object.assign(__glob, {
   evaluateEligibility,
   inferCardTier,
   buildEstimatesByTier,
-  computeFeePenalty,
   computeQualificationConfidence,
 });

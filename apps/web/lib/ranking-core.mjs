@@ -132,13 +132,85 @@ function median(values) {
   return sorted.length % 2 === 0 ? (sorted[mid - 1] + sorted[mid]) / 2 : sorted[mid];
 }
 
+// ── Fee penalty (data-driven, not user-input) ──
+// Annual fee comes from the requirements dataset (which both browser and
+// Worker can load). outingsPerWeek is the only user input — defaults to 1.
+// Eligibility/qualification is a SEPARATE concern (needs salary input) and
+// stays in the browser wrapper; the fee penalty is independent and runs in
+// both places.
+
+function normalizeDealCardFragment(value) {
+  return String(value || "").trim().replace(/\s+/g, " ").toLowerCase();
+}
+
+function buildDealCardKey(bank, card) {
+  return `${normalizeDealCardFragment(bank)} || ${normalizeDealCardFragment(card)}`;
+}
+
+function normalizeRequirementNumber(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
+/**
+ * Look up the annual fee and waiver rule for a (bank, card) in the
+ * requirements dataset. Returns null fee if no requirement record exists.
+ * @param {string} bank
+ * @param {string} card
+ * @param {{ byCardId?: Map<string, any>, mappingByDealKey?: Map<string, any> } | null | undefined} requirements
+ */
+function lookupAnnualFee(bank, card, requirements) {
+  const empty = { annualFeePkr: null, annualFeeWaiverRule: null, hasRequirementRecord: false };
+  if (!requirements?.mappingByDealKey || !requirements?.byCardId) return empty;
+  const mapping = requirements.mappingByDealKey.get(buildDealCardKey(bank, card));
+  if (!mapping?.matched || !mapping.requirement_card_id) return empty;
+  const record = requirements.byCardId.get(mapping.requirement_card_id);
+  if (!record) return empty;
+  const reqs = record.requirements || {};
+  return {
+    annualFeePkr: normalizeRequirementNumber(reqs.annual_fee_pkr),
+    annualFeeWaiverRule: reqs.annual_fee_waiver_rule || null,
+    hasRequirementRecord: true,
+  };
+}
+
+/**
+ * Penalty in points (0..25) deducted from baseScore. Mirrors the legacy
+ * computeFeePenalty in app.js — same calibration constants so SSR and
+ * browser produce identical penalties.
+ */
+function computeFeePenaltyForCard({ avgExpectedSaving, feeData, outingsPerYear }) {
+  const fee = feeData.annualFeePkr;
+  // Missing fee data → small soft penalty (3 pts) so cards without a
+  // verified requirement record don't get a free pass over disclosed peers.
+  // Exception: documented waiver rule means we partially trust the missing
+  // value as "Conditional" and skip the penalty.
+  if (fee === null || fee === undefined) {
+    if (!feeData.hasRequirementRecord) return 3;
+    if (feeData.annualFeeWaiverRule) return 0;
+    return 3;
+  }
+  if (fee <= 0) return 0;
+  const waiver = !!feeData.annualFeeWaiverRule;
+  const effective = fee * (waiver ? 0.5 : 1.0);
+  // Yearly value matches the "Annual saving" the card detail modal shows
+  // (avgExpectedSaving × outingsPerYear). Ratio = fee / yearly value;
+  // capped at 25 points so it never single-handedly buries a great card.
+  const yearlyValue = (avgExpectedSaving || 0) * outingsPerYear;
+  const ratio = effective / Math.max(yearlyValue, 1);
+  return Math.min(25, 25 * Math.min(1, ratio));
+}
+
 /**
  * @param {Object} args
  * @param {Array<Object>} args.offers - state.data.offers
  * @param {Object} [args.restaurantsEnrichment] - state.data.restaurants (name -> {servesCuisine: [...]})
+ * @param {{byCardId: Map, mappingByDealKey: Map} | null} [args.requirements] - requirements dataset for fee penalty lookup. If absent, feePenalty defaults to 0.
  * @param {Object} args.settings - {
  *     city: string ("all" | "karachi" | "lahore" | "islamabad" | …),
  *     orderValue: number,
+ *     outingsPerWeek?: number (defaults to 1),
  *     selectedDays: Set<number> | number[]  (empty = all 7 days),
  *     selectedRestaurants: Set<string> | string[],
  *     selectedBanks: Set<string> | string[],
@@ -150,7 +222,8 @@ function median(values) {
  * @returns {{
  *   aggregates: Array<{
  *     bank: string, card: string, cardCategory: string|null,
- *     baseScore: number, avgExpectedSaving: number, coverage: number,
+ *     baseScore: number, feePenalty: number, score: number,
+ *     avgExpectedSaving: number, coverage: number,
  *     avgDayFit: number, coveredVenueCount: number, totalVenueCount: number,
  *     averageDiscount: number|null, medianCap: number|null,
  *     saturationBill: number|null, topMatches: Array, coverageAdjustedSaving: number,
@@ -160,7 +233,7 @@ function median(values) {
  *   scoringVenueCount: number,
  * }}
  */
-export function computeRanking({ offers, restaurantsEnrichment, settings }) {
+export function computeRanking({ offers, restaurantsEnrichment, requirements, settings }) {
   const cityKey = normalizeCityKey(settings?.city);
   const orderValue = Number.isFinite(settings?.orderValue) ? settings.orderValue : 10000;
   const selectedRestaurants = asSet(settings?.selectedRestaurants);
@@ -384,6 +457,29 @@ export function computeRanking({ offers, restaurantsEnrichment, settings }) {
     delete item._E;
   }
 
+  // Fee penalty (data-driven). Looks up annualFeePkr from the requirements
+  // dataset if provided. Yearly value uses outingsPerWeek with default 1
+  // (matches the app's default for a user who hasn't touched the slider).
+  // If no requirements data is passed, feePenalty is 0 for every card.
+  const outingsPerWeek = Number.isFinite(settings?.outingsPerWeek)
+    ? settings.outingsPerWeek
+    : 1;
+  const outingsPerYear = Math.max(1, outingsPerWeek) * 52;
+  for (const item of aggregates) {
+    const feeData = lookupAnnualFee(item.bank, item.card, requirements);
+    item.feePenalty = requirements
+      ? computeFeePenaltyForCard({
+          avgExpectedSaving: item.avgExpectedSaving,
+          feeData,
+          outingsPerYear,
+        })
+      : 0;
+    item.annualFeePkr = feeData.annualFeePkr;
+    // SSR-friendly final score: baseScore - feePenalty. The browser wrapper
+    // overrides item.score after adding qualificationDelta on top.
+    item.score = Math.max(0, Math.min(100, item.baseScore - item.feePenalty));
+  }
+
   // Pure-data narrowing filters (applied AFTER scoring so the score reflects
   // the city-wide picture, not just the filter slice).
   let visible = aggregates;
@@ -396,8 +492,10 @@ export function computeRanking({ offers, restaurantsEnrichment, settings }) {
     });
   }
 
+  // Sort by the fee-adjusted score (item.score). Browser callers will
+  // re-sort after applying qualificationDelta; SSR uses this order directly.
   visible.sort((a, b) => {
-    if (b.baseScore !== a.baseScore) return b.baseScore - a.baseScore;
+    if (b.score !== a.score) return b.score - a.score;
     if (b.coverageAdjustedSaving !== a.coverageAdjustedSaving)
       return b.coverageAdjustedSaving - a.coverageAdjustedSaving;
     return b.coverage - a.coverage;
