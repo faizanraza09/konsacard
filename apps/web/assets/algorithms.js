@@ -881,6 +881,12 @@ function computeRecommendations() {
     return {
       bank: cardRecord.bank,
       card: cardRecord.card,
+      // cardCategory must survive into the aggregate — the visibility filter
+      // below (`state.selectedCardTypes.has(item.cardCategory)`) treats a
+      // missing value as a non-match, which silently filters every card out
+      // when the user toggles Debit/Credit/Other. cardMap already stores it
+      // at line ~777; just pass it through.
+      cardCategory: cardRecord.cardCategory,
       score: 0,
       avgExpectedSaving,
       coverage,
