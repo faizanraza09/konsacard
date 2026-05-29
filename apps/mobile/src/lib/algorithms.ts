@@ -333,7 +333,7 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
       const averageDiscount = average(
         entries.map(([, m]) => m.discountPct as number).filter((v) => Number.isFinite(v))
       );
-      const caps = entries.map(([, m]) => m.capPkr as number).filter((v) => Number.isFinite(v));
+      const caps = entries.map(([, m]) => m.capPkr as number).filter((v) => Number.isFinite(v) && v > 0);
       venueSummaries.push({
         venueKey,
         city: strongestMatch.city,
@@ -365,15 +365,17 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
     const averageDiscount = average(
       venueSummaries.map((m) => m.discountPct as number).filter((v) => Number.isFinite(v))
     );
-    const caps = venueSummaries.map((m) => m.capPkr as number).filter((v) => Number.isFinite(v));
+    const caps = venueSummaries.map((m) => m.capPkr as number).filter((v) => Number.isFinite(v) && v > 0);
     const medianCap = caps.length ? median(caps) : null;
     // Saturation bill: where the cap kicks in (cap / (pct/100)). Below this bill
     // size the user gets the headline %; above it the saving plateaus at cap.
+    // A cap of 0 (or non-finite) means "no real cap" in the data, not a PKR 0
+    // saturation point — skip it so we never render "bills ≤ PKR 0".
     const saturations = venueSummaries
       .map((m) => {
         const cap = m.capPkr as number;
         const pct = m.discountPct as number;
-        if (!Number.isFinite(cap) || !Number.isFinite(pct) || pct <= 0) return null;
+        if (!Number.isFinite(cap) || cap <= 0 || !Number.isFinite(pct) || pct <= 0) return null;
         return cap / (pct / 100);
       })
       .filter((v): v is number => v !== null && Number.isFinite(v));
@@ -402,13 +404,20 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
 
   aggregates.forEach((item) => {
     item.coverageAdjustedSaving = item.avgExpectedSaving * item.coverage;
-    item.E = item.avgExpectedSaving * (0.35 + 0.65 * Math.sqrt(item.coverage));
+    // Coverage folded into the saving signal (realistic "random restaurant"
+    // lean) so a card usable at only a few venues doesn't read as a high
+    // per-outing saving. Mirrors apps/web/lib/ranking-core.mjs — keep in sync.
+    item.E = item.avgExpectedSaving * (0.3 + 0.7 * item.coverage);
   });
 
   const eSorted = aggregates.map((i) => i.E as number).sort((a, b) => a - b);
   const p95E =
     eSorted.length > 0 ? eSorted[Math.max(0, Math.ceil(0.95 * eSorted.length) - 1)] : 1;
   const p95ESafe = Math.max(p95E, 1);
+  const covSorted = aggregates.map((i) => i.coverage).sort((a, b) => a - b);
+  const p95Cov =
+    covSorted.length > 0 ? covSorted[Math.max(0, Math.ceil(0.95 * covSorted.length) - 1)] : 1e-6;
+  const p95CovSafe = Math.max(p95Cov, 1e-6);
 
   // Annual-fee penalty. Effective fee = annualFeePkr × (0.5 if waiver rule
   // present, else 1.0). Cards with null annualFeePkr get no penalty (we treat
@@ -416,8 +425,10 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
   const outingsPerYear = (state.outingsPerWeek || 1) * 52;
   aggregates.forEach((item) => {
     const Ns = Math.min(1, (item.E as number) / p95ESafe);
-    // Calibration #6: drop avgDayFit from R — already inside expectedSaving.
-    const R = 0.75 * Ns + 0.25 * item.coverage;
+    const Ncov = Math.min(1, item.coverage / p95CovSafe);
+    // Blend normalized savings strength and normalized breadth 50/50 so
+    // covering many restaurants weighs as heavily as saving a lot at a few.
+    const R = 0.5 * Ns + 0.5 * Ncov;
     item.baseScore = 20 + 80 * R;
     item.qualificationConfidence = computeQualificationConfidence(state, item.requirementStatus);
     // Calibration #3: halve qualDelta from ±15 to ±7.5 so eligibility
