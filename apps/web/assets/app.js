@@ -1369,6 +1369,12 @@ function renderPagedResultCards(results, container) {
     state.pagination.results = 1;
     renderRows();
   });
+  attachSearchTracking(searchInput, "cards_list", () => {
+    const term = searchInput?.value.trim().toLowerCase() || "";
+    return allResults.filter(
+      (r) => !term || r.card.toLowerCase().includes(term) || r.bank.toLowerCase().includes(term)
+    ).length;
+  });
 
   renderRows();
 }
@@ -1432,11 +1438,18 @@ function buildCardKey(bank, card) {
 }
 
 function toggleCompare(cardKey) {
-  if (state.compareList.includes(cardKey)) {
+  const [bank, card] = cardKey.split(" || ");
+  const wasIn = state.compareList.includes(cardKey);
+  if (wasIn) {
     state.compareList = state.compareList.filter((k) => k !== cardKey);
   } else if (state.compareList.length < 2) {
     state.compareList.push(cardKey);
   }
+  trackEvent(wasIn ? "compare_remove" : "compare_add", {
+    bank,
+    card,
+    compare_size_after: state.compareList.length,
+  });
   renderCompareTray();
   renderRecommendations();
 }
@@ -2803,6 +2816,8 @@ function openCardDetail(cardKey) {
   const modal = document.getElementById("card-detail-modal");
   const inner = document.getElementById("card-detail-inner");
   if (!modal || !inner) return;
+  const [bank, card] = String(cardKey).split(" || ");
+  trackEvent("card_open", { bank, card });
   renderCardDetailModal(inner);
   modal.style.display = "flex";
 }
@@ -2971,6 +2986,15 @@ function renderCardDetailModal(inner) {
     state.pagination.cardDetailRestaurants = 1;
     renderRows();
   });
+  attachSearchTracking(
+    searchInput,
+    "card_detail",
+    () => {
+      const term = searchInput?.value.trim().toLowerCase() || "";
+      return restaurants.filter((e) => !term || e.restaurant.toLowerCase().includes(term)).length;
+    },
+    { bank, card },
+  );
   renderRows();
 }
 
@@ -3062,6 +3086,10 @@ function renderRestaurantView(resultsGrid) {
     state.pagination.restaurantView = 1;
     renderRows();
   });
+  attachSearchTracking(searchInput, "restaurants_list", () => {
+    const term = searchInput?.value.trim().toLowerCase() || "";
+    return deals.filter((d) => !term || d.restaurant.toLowerCase().includes(term)).length;
+  });
   const locateBtn = resultsGrid.querySelector("#btn-locate-restaurants");
   locateBtn?.addEventListener("click", async () => {
     if (getUserLocation()) {
@@ -3085,12 +3113,18 @@ function renderRestaurantView(resultsGrid) {
   renderRows();
 }
 
-function openRestaurantDetail(restaurantKey) {
+function openRestaurantDetail(restaurantKey, source) {
   state.detailRestaurantKey = restaurantKey;
   state.pagination.restaurantDetailCards = 1;
   const modal = document.getElementById("restaurant-detail-modal");
   const inner = document.getElementById("restaurant-detail-inner");
   if (!modal || !inner) return;
+  const [city, restaurant] = String(restaurantKey).split("|||");
+  trackEvent("restaurant_open", {
+    restaurant,
+    city,
+    source: source || "unknown",
+  });
   renderRestaurantDetailModal(inner);
   modal.style.display = "flex";
 }
@@ -3214,6 +3248,15 @@ function renderRestaurantDetailModal(inner) {
     state.pagination.restaurantDetailCards = 1;
     renderRows();
   });
+  attachSearchTracking(
+    searchInput,
+    "restaurant_detail",
+    () => {
+      const term = searchInput?.value.trim().toLowerCase() || "";
+      return cards.filter((e) => !term || `${e.card} ${e.bank}`.toLowerCase().includes(term)).length;
+    },
+    { restaurant, city },
+  );
   renderRows();
 }
 
@@ -3349,7 +3392,7 @@ function renderRestaurantDealRows(container, deals) {
 
   bindPaginationControls(container, "restaurantView", () => renderRestaurantDealRows(container, deals));
   container.querySelectorAll(".rest-deal-row").forEach((row) => {
-    row.addEventListener("click", () => openRestaurantDetail(row.dataset.restaurantKey));
+    row.addEventListener("click", () => openRestaurantDetail(row.dataset.restaurantKey, "restaurants_list"));
   });
 }
 
@@ -3467,7 +3510,7 @@ function renderCompareRestaurantRows(container, cards, rows) {
 
   bindPaginationControls(container, "compareRestaurants", () => renderCompareRestaurantRows(container, cards, rows));
   container.querySelectorAll(".cmp-rest-row").forEach((row) => {
-    row.addEventListener("click", () => openRestaurantDetail(row.dataset.restaurantKey));
+    row.addEventListener("click", () => openRestaurantDetail(row.dataset.restaurantKey, "compare"));
   });
 }
 
@@ -3854,6 +3897,29 @@ if (typeof window !== "undefined") {
    is silently skipped. GA gets the "konsa_" prefix it already expects;
    PostHog gets the bare name (cleaner in their UI). Pass small JSON-safe
    values only. */
+
+// Fires a `search_submit` event 600ms after the user stops typing, so a
+// query of "hbl plat" produces one event, not eight. getResults is a
+// callback so we capture the live filtered result count at fire-time.
+function attachSearchTracking(input, surface, getResults, extra) {
+  if (!input) return;
+  let timer = null;
+  input.addEventListener("input", () => {
+    if (timer) clearTimeout(timer);
+    const value = input.value.trim();
+    if (!value) return;
+    timer = setTimeout(() => {
+      const count = typeof getResults === "function" ? getResults() : null;
+      trackEvent("search_submit", {
+        surface,
+        query: value.toLowerCase(),
+        result_count: count,
+        ...(extra || {}),
+      });
+    }, 600);
+  });
+}
+
 function trackEvent(name, params) {
   const p = params || {};
   try {

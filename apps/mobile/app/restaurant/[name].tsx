@@ -1,9 +1,10 @@
 import { Link, Stack, useLocalSearchParams } from "expo-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { getOfferDiscountPct, getOfferSavingValue } from "@/lib/savings";
 import { formatCurrency } from "@/lib/format";
 import { getBankLogoUrl } from "@/lib/bankLogo";
+import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, shadow, spacing, typography } from "@/theme";
 
@@ -61,6 +62,22 @@ export default function RestaurantDetail() {
       ? Object.values(enrichment.branchesByCity).flat()
       : []);
 
+  // Debounced search analytics inside the restaurant detail modal.
+  useEffect(() => {
+    const q = offerSearch.trim();
+    if (!q) return;
+    const t = setTimeout(() => {
+      track("search_submit", {
+        surface: "restaurant_detail",
+        restaurant: restaurantName,
+        city: params.city || null,
+        query: q.toLowerCase(),
+        result_count: filteredOffers.length,
+      });
+    }, 600);
+    return () => clearTimeout(t);
+  }, [offerSearch, filteredOffers.length, restaurantName, params.city]);
+
   return (
     <ScrollView style={styles.flex} contentContainerStyle={{ paddingBottom: 64 }}>
       <Stack.Screen
@@ -69,7 +86,19 @@ export default function RestaurantDetail() {
           headerBackTitle: " ",
           headerBackButtonDisplayMode: "minimal",
           headerRight: () => (
-            <Pressable onPress={() => toggleFav(restaurantName)} hitSlop={10}>
+            <Pressable
+              onPress={() => {
+                const wasFav = fav;
+                toggleFav(restaurantName);
+                track("restaurant_favorite_toggle", {
+                  restaurant: restaurantName,
+                  city: params.city || null,
+                  on: !wasFav,
+                  source: "restaurant_detail",
+                });
+              }}
+              hitSlop={10}
+            >
               <Text style={{ fontSize: 22, color: fav ? colors.brand : colors.textDim, marginRight: spacing.md }}>
                 {fav ? "★" : "☆"}
               </Text>
@@ -115,6 +144,18 @@ export default function RestaurantDetail() {
                 params: { id: `${row.offer.bank}||${row.offer.card}` },
               }}
               asChild
+              onPress={() =>
+                track("offer_click", {
+                  restaurant: restaurantName,
+                  city: params.city || null,
+                  bank: row.offer.bank,
+                  card: row.offer.card,
+                  saving_pkr: row.saving,
+                  pct: row.pct,
+                  rank: i + 1,
+                  owned: row.owned,
+                })
+              }
             >
               <Pressable style={styles.offerRow}>
                 <OfferLogo bank={row.offer.bank} />
@@ -174,7 +215,15 @@ export default function RestaurantDetail() {
                 {b.telephone ? (
                   <Pressable
                     style={styles.miniBtn}
-                    onPress={() => Linking.openURL(`tel:${b.telephone}`)}
+                    onPress={() => {
+                      track("branch_action", {
+                        restaurant: restaurantName,
+                        city: params.city || null,
+                        branch: b.name || null,
+                        action: "call",
+                      });
+                      Linking.openURL(`tel:${b.telephone}`);
+                    }}
                   >
                     <Text style={styles.miniBtnText}>Call</Text>
                   </Pressable>
@@ -182,7 +231,15 @@ export default function RestaurantDetail() {
                 {b.lat && b.lng ? (
                   <Pressable
                     style={styles.miniBtn}
-                    onPress={() => Linking.openURL(`https://www.google.com/maps?q=${b.lat},${b.lng}`)}
+                    onPress={() => {
+                      track("branch_action", {
+                        restaurant: restaurantName,
+                        city: params.city || null,
+                        branch: b.name || null,
+                        action: "map",
+                      });
+                      Linking.openURL(`https://www.google.com/maps?q=${b.lat},${b.lng}`);
+                    }}
                   >
                     <Text style={styles.miniBtnText}>Map</Text>
                   </Pressable>

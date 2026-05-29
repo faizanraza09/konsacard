@@ -2,6 +2,7 @@ import { Link } from "expo-router";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import { formatCurrency } from "@/lib/format";
 import { getBankLogoUrl } from "@/lib/bankLogo";
+import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, shadow, spacing, typography } from "@/theme";
 
@@ -25,6 +26,15 @@ export function RestaurantRow({ item }: { item: RestaurantDeal }) {
     <Link
       href={{ pathname: "/restaurant/[name]", params: { name: item.restaurant, city: item.city } }}
       asChild
+      onPress={() =>
+        track("restaurant_open", {
+          restaurant: item.restaurant,
+          city: item.city,
+          offer_count: item.offerCount,
+          best_saving_pkr: item.bestSaving,
+          source: "restaurants_list",
+        })
+      }
     >
       <Pressable style={styles.row}>
         <View style={styles.head}>
@@ -36,7 +46,14 @@ export function RestaurantRow({ item }: { item: RestaurantDeal }) {
             hitSlop={12}
             onPress={(e) => {
               e.stopPropagation?.();
+              const wasFav = fav;
               toggleFavorite(item.restaurant);
+              track("restaurant_favorite_toggle", {
+                restaurant: item.restaurant,
+                city: item.city,
+                on: !wasFav,
+                source: "restaurants_list",
+              });
             }}
             style={styles.starBtn}
           >

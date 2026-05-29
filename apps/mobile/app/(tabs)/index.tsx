@@ -22,6 +22,7 @@ import { TopBar } from "@/components/TopBar";
 import { WelcomeStrip } from "@/components/WelcomeStrip";
 import { computeRecommendations } from "@/lib/algorithms";
 import { loadOffers, loadRequirements } from "@/data";
+import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, spacing, typography } from "@/theme";
 
@@ -64,6 +65,21 @@ export default function CardsScreen() {
   useEffect(() => {
     listRef.current?.scrollToOffset({ offset: 0, animated: false });
   }, [state.selectedCity, search]);
+
+  // Debounced search analytics — fire once the user settles on a query for
+  // ~600ms, not once per keystroke. Empty queries don't fire.
+  useEffect(() => {
+    const q = search.trim();
+    if (!q) return;
+    const t = setTimeout(() => {
+      track("search_submit", {
+        surface: "cards_list",
+        query: q.toLowerCase(),
+        result_count: recs.length,
+      });
+    }, 600);
+    return () => clearTimeout(t);
+  }, [search, recs.length]);
 
   const activeFilters =
     state.selectedDays.size +

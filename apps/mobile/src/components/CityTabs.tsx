@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, shadow, spacing, typography } from "@/theme";
 
@@ -25,7 +26,11 @@ export function CityTabs() {
             return (
               <Pressable
                 key={c}
-                onPress={() => setSelectedCity(c)}
+                onPress={() => {
+                  if (selectedCity === c) return;
+                  track("city_change", { from: selectedCity, to: c });
+                  setSelectedCity(c);
+                }}
                 style={[styles.tab, active && styles.tabActive]}
               >
                 <Text style={[styles.tabText, active && styles.tabTextActive]}>
