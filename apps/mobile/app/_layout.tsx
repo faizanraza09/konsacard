@@ -6,22 +6,42 @@ import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PostHogProvider } from "posthog-react-native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { loadOffers, loadRequirements } from "@/data";
+import { loadOffers, loadRequirements, loadSummary } from "@/data";
 import { posthog } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, spacing, typography } from "@/theme";
 
 export default function RootLayout() {
   const setData = useAppStore((s) => s.setData);
+  const setSummary = useAppStore((s) => s.setSummary);
+  const summary = useAppStore((s) => s.summary);
   const data = useAppStore((s) => s.data);
   const [err, setErr] = useState<string | null>(null);
 
+  // Cold-start fast path: load the small precomputed summary + requirements
+  // (both small) and clear the boot spinner as soon as the summary is ready.
+  // Raw offers (~21 MB parsed) are NOT loaded here — screens that need them
+  // call `ensureRawOffers()` lazily. If the summary is unavailable (no
+  // summaryFile, or fetch fails with no cache) we fall back to loading raw.
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        const [bundle, reqs] = await Promise.all([loadOffers(), loadRequirements()]);
-        if (!cancelled) setData(bundle, reqs);
+        const [summaryResult, reqs] = await Promise.all([
+          loadSummary().catch(() => null),
+          loadRequirements(),
+        ]);
+        if (cancelled) return;
+        if (summaryResult) {
+          setSummary(summaryResult);
+          // Stash requirements without touching raw `data`. setData clears
+          // bootstrapping and is the gate the boot UI watches via `summary`.
+          useAppStore.setState({ requirements: reqs, bootstrapping: false });
+        } else {
+          // Fallback: no summary available — load raw offers like before.
+          const bundle = await loadOffers();
+          if (!cancelled) setData(bundle, reqs);
+        }
       } catch (e: unknown) {
         if (!cancelled) setErr(e instanceof Error ? e.message : String(e));
       }
@@ -29,7 +49,9 @@ export default function RootLayout() {
     return () => {
       cancelled = true;
     };
-  }, [setData]);
+  }, [setData, setSummary]);
+
+  const ready = !!summary || !!data;
 
   return (
     <GestureHandlerRootView style={{ flex: 1, backgroundColor: colors.bg }}>
@@ -37,7 +59,7 @@ export default function RootLayout() {
       <SafeAreaProvider>
         <BottomSheetModalProvider>
           <StatusBar style="dark" />
-          {!data && !err ? (
+          {!ready && !err ? (
             <Boot />
           ) : err ? (
             <BootError msg={err} onRetry={() => setErr(null)} />

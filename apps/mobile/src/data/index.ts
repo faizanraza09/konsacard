@@ -6,6 +6,7 @@ import {
   RequirementRecord,
   RequirementsPack,
   RestaurantEnrichment,
+  SummaryBundle,
 } from "@/types";
 import { buildDealCardKey } from "@/lib/format";
 import { buildEstimatesByTier } from "@/lib/eligibility";
@@ -18,10 +19,8 @@ function dataOrigin(): string {
   return env || DEFAULT_ORIGIN;
 }
 
-const CACHE_KEY_OFFERS = "konsacard-cache-offers-v1";
 const CACHE_KEY_REQS = "konsacard-cache-reqs-v1";
-
-type CachedOffers = { generatedAt: string; bundle: OffersBundle };
+const CACHE_KEY_SUMMARY = "konsacard-cache-summary-v1";
 
 async function fetchJson<T>(url: string): Promise<T> {
   const res = await fetch(url);
@@ -36,31 +35,21 @@ function resolveUrl(rel: string): string {
 }
 
 /**
- * Fetches the offers index, then in parallel the city files + restaurants
- * enrichment, and merges into a single bundle. Falls back to a cached copy if
- * the network call fails. Refreshes the cache when the index's generatedAt is
- * newer than the cached one.
+ * LAZY raw-offers path. Fetches the offers index, then in parallel the city
+ * files + restaurants enrichment, and merges into a single bundle.
+ *
+ * This bundle is ~21 MB parsed and is NOT written to AsyncStorage (the old
+ * `CACHE_KEY_OFFERS` write is gone — see #5). It is held in memory for the
+ * session only and re-fetched on next launch (raw is ~640 KB brotli, cheap).
+ * The cold-start path uses `loadSummary()` instead; this only runs when a
+ * screen actually needs per-offer data (filters, detail, wallet, swipe, chat).
  */
 export async function loadOffers(): Promise<OffersBundle> {
   const indexUrl = `${dataOrigin()}/data/offers-index.json`;
-  let index: OffersIndex | null = null;
-
-  try {
-    index = await fetchJson<OffersIndex>(indexUrl);
-  } catch (err) {
-    // Network failure: try cache. If no cache either, rethrow.
-    const cached = await readCache<CachedOffers>(CACHE_KEY_OFFERS);
-    if (cached) return cached.bundle;
-    throw err;
-  }
-
-  const cached = await readCache<CachedOffers>(CACHE_KEY_OFFERS);
-  if (cached && cached.generatedAt === index.generatedAt) {
-    return cached.bundle;
-  }
+  const index = await fetchJson<OffersIndex>(indexUrl);
 
   const cityFetches = index.cities.map(async (city) => {
-    const rel = index!.cityFiles[city];
+    const rel = index.cityFiles[city];
     if (!rel) return { offers: [] as OffersBundle["offers"] };
     try {
       return await fetchJson<{ offers: OffersBundle["offers"] }>(resolveUrl(rel));
@@ -74,7 +63,7 @@ export async function loadOffers(): Promise<OffersBundle> {
     ? fetchJson<{ restaurants: Record<string, RestaurantEnrichment> }>(
         resolveUrl(index.restaurantsFile)
       ).catch((err) => {
-        console.warn(`[offers] failed to load ${index!.restaurantsFile}:`, err);
+        console.warn(`[offers] failed to load ${index.restaurantsFile}:`, err);
         return { restaurants: {} };
       })
     : Promise.resolve({ restaurants: {} as Record<string, RestaurantEnrichment> });
@@ -110,11 +99,71 @@ export async function loadOffers(): Promise<OffersBundle> {
     stats: index.stats,
   };
 
-  await writeCache<CachedOffers>(CACHE_KEY_OFFERS, {
-    generatedAt: index.generatedAt,
-    bundle,
-  });
+  // NOTE: intentionally NOT cached to AsyncStorage — the parsed bundle is
+  // ~21 MB and the brotli download is cheap. See #5.
   return bundle;
+}
+
+/**
+ * Cold-start data path. Fetches `offers-index.json`; if it advertises a
+ * `summaryFile` + `summaryVersion`, fetches the small precomputed summary and
+ * merges in the index meta needed to render the Cards tab + city tabs. The
+ * summary is cached in AsyncStorage (small) and used as a fallback on network
+ * failure.
+ *
+ * Returns null when the index has no summary (caller should fall back to
+ * `loadOffers`). Throws only when the index can't be fetched AND there is no
+ * cached summary to fall back to.
+ */
+export async function loadSummary(): Promise<SummaryBundle | null> {
+  const indexUrl = `${dataOrigin()}/data/offers-index.json`;
+  let index: OffersIndex;
+  try {
+    index = await fetchJson<OffersIndex>(indexUrl);
+  } catch (err) {
+    const cached = await readCache<SummaryBundle>(CACHE_KEY_SUMMARY);
+    if (cached) return cached;
+    throw err;
+  }
+
+  if (!index.summaryFile || !index.summaryVersion) {
+    // No summary advertised — caller falls back to raw offers.
+    return null;
+  }
+
+  const summaryPath = index.summaryFile.replace(/^\./, "");
+  const summaryUrl = `${dataOrigin()}${summaryPath}?v=${index.summaryVersion}`;
+
+  let raw: {
+    splitFormat: string;
+    orderValue: number;
+    scopes: SummaryBundle["scopes"];
+    restaurantDeals: SummaryBundle["restaurantDeals"];
+    facets: SummaryBundle["facets"];
+  };
+  try {
+    raw = await fetchJson<typeof raw>(summaryUrl);
+  } catch (err) {
+    const cached = await readCache<SummaryBundle>(CACHE_KEY_SUMMARY);
+    if (cached) return cached;
+    throw err;
+  }
+
+  const summary: SummaryBundle = {
+    splitFormat: raw.splitFormat,
+    orderValue: raw.orderValue,
+    scopes: raw.scopes,
+    restaurantDeals: raw.restaurantDeals,
+    facets: raw.facets,
+    generatedAt: index.generatedAt,
+    dayNames: index.dayNames,
+    cities: index.cities,
+    restaurantsByCity: index.restaurantsByCity,
+    stats: index.stats,
+  };
+
+  await writeCache<SummaryBundle>(CACHE_KEY_SUMMARY, summary);
+  return summary;
 }
 
 /**

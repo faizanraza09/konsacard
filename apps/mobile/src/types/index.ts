@@ -68,6 +68,10 @@ export interface OffersIndex {
   cityFiles: Record<string, string>;
   restaurantsFile?: string;
   splitFormat?: string;
+  /** Relative path to the precomputed summary, e.g. "./data/summary.json". */
+  summaryFile?: string;
+  /** Content hash of the summary, used as a cache-busting query param. */
+  summaryVersion?: string;
 }
 
 export interface OffersBundle {
@@ -75,6 +79,42 @@ export interface OffersBundle {
   dayNames: string[];
   offers: Offer[];
   restaurantsEnrichment: Record<string, RestaurantEnrichment>;
+  stats: { offers: number; cards: number; banks: number; restaurants: number };
+}
+
+/**
+ * A single precomputed card entry inside `summary.scopes[scope]`. These are
+ * byte-identical to mobile's `computeRecommendations` output at the DEFAULT
+ * scope (selectedCity=scope, orderValue=10000, outingsPerWeek=1, no filters,
+ * eligibility off) EXCEPT they lack `requirementStatus` (added at render time
+ * by `evaluateEligibility`) and `qualificationDelta` (0 at default). They carry
+ * a few extra precompute-only fields (bankSlug/cardSlug) which the UI ignores.
+ *
+ * Shape is a structural subset of CardRecommendation minus requirementStatus,
+ * so once we attach requirementStatus the result satisfies CardRecommendation.
+ */
+export type SummaryCard = Omit<CardRecommendation, "requirementStatus"> & {
+  bankSlug?: string;
+  cardSlug?: string;
+};
+
+/**
+ * Parsed `summary.json` plus the index meta we need to render the Cards tab and
+ * city tabs at cold start without loading the ~21 MB raw offers.
+ */
+export interface SummaryBundle {
+  splitFormat: string;
+  /** Bill amount the summary was precomputed at (10000). */
+  orderValue: number;
+  /** Cards per scope: "all" | "karachi" | "lahore" | "islamabad". */
+  scopes: Record<string, SummaryCard[]>;
+  restaurantDeals: Record<string, unknown[]>;
+  facets: { banks: unknown; cardTypes: unknown; cards: unknown };
+  // Index meta (carried so the UI can render freshness + city tabs cold).
+  generatedAt: string;
+  dayNames: string[];
+  cities: string[];
+  restaurantsByCity: Record<string, string[]>;
   stats: { offers: number; cards: number; banks: number; restaurants: number };
 }
 

@@ -145,6 +145,7 @@ export default function ChatScreen() {
 
   // Pull store + setters once. The store is reactive so this re-renders on changes.
   const storeState = useAppStore();
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const setMonthlySalary = useAppStore((s) => s.setMonthlySalary);
   const setAccountBalance = useAppStore((s) => s.setAccountBalance);
   const setOrderValue = useAppStore((s) => s.setOrderValue);
@@ -154,6 +155,12 @@ export default function ChatScreen() {
     () => ({ setMonthlySalary, setAccountBalance, setOrderValue, setOutingsPerWeek }),
     [setMonthlySalary, setAccountBalance, setOrderValue, setOutingsPerWeek]
   );
+
+  // Chat tools query the raw offers list; make sure it's loaded. Reached via
+  // navigation, so the cold-start path may not have loaded it yet.
+  useEffect(() => {
+    if (!storeState.data) ensureRawOffers();
+  }, [storeState.data, ensureRawOffers]);
 
   // Hydrate persisted chat on mount.
   useEffect(() => {

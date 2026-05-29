@@ -1,6 +1,6 @@
 import { FlashList } from "@shopify/flash-list";
 import { Link } from "expo-router";
-import { useDeferredValue, useMemo, useRef } from "react";
+import { useDeferredValue, useEffect, useMemo, useRef } from "react";
 import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import type { StyleProp, ViewStyle } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -27,9 +27,16 @@ import {
 export default function MyWalletScreen() {
   const state = useAppStore();
   const deferredState = useDeferredValue(state);
-  const recomputing = state !== deferredState;
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const sheet = useRef<FilterSheetHandle>(null);
+
+  // Next-card recommendations run over raw offers; load them lazily on mount.
+  useEffect(() => {
+    if (!state.data) ensureRawOffers();
+  }, [state.data, ensureRawOffers]);
+
   const result = useMemo(() => computeNextCardRecommendations(deferredState), [deferredState]);
+  const recomputing = state !== deferredState || (!state.data && state.rawLoading);
 
   return (
     <SafeAreaView style={styles.flex} edges={["top"]}>

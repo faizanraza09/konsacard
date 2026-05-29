@@ -16,12 +16,20 @@ import { colors, radii, spacing, typography } from "@/theme";
 export default function RestaurantsScreen() {
   const state = useAppStore();
   const deferredState = useDeferredValue(state);
-  const recomputing = state !== deferredState;
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<RestaurantDeal>>(null);
   const [search, setSearch] = useState("");
 
+  // This tab always needs raw offers (per-offer restaurant aggregation, no
+  // precompute). Load them lazily on mount if the cold-start summary path
+  // hasn't already triggered it.
+  useEffect(() => {
+    if (!state.data) ensureRawOffers();
+  }, [state.data, ensureRawOffers]);
+
   const allDeals = useMemo(() => computeRestaurantDeals(deferredState), [deferredState]);
+  const recomputing = state !== deferredState || (!state.data && state.rawLoading);
   const deals = useMemo(() => {
     const q = search.trim().toLowerCase();
     if (!q) return allDeals;

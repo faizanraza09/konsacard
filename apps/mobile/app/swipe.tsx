@@ -1,7 +1,8 @@
 import * as Haptics from "expo-haptics";
 import { useRouter } from "expo-router";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
+  ActivityIndicator,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -34,9 +35,15 @@ interface Candidate {
 export default function Swipe() {
   const router = useRouter();
   const data = useAppStore((s) => s.data);
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const orderValue = useAppStore((s) => s.orderValue);
   const setOrderValue = useAppStore((s) => s.setOrderValue);
   const owned = useAppStore((s) => s.ownedCards);
+
+  // Swipe searches the full restaurant + offer list; load raw lazily on mount.
+  useEffect(() => {
+    if (!data) ensureRawOffers();
+  }, [data, ensureRawOffers]);
 
   const [q, setQ] = useState("");
   const [picked, setPicked] = useState<string | null>(null);
@@ -95,6 +102,11 @@ export default function Swipe() {
   return (
     <ScrollView style={styles.flex} contentContainerStyle={styles.body}>
       <Text style={styles.title}>Where are you?</Text>
+      {!data ? (
+        <View style={{ paddingVertical: spacing.lg, alignItems: "center" }}>
+          <ActivityIndicator color={colors.brand} />
+        </View>
+      ) : null}
       <TextInput
         style={styles.search}
         value={q}

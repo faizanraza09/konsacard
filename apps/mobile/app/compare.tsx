@@ -1,6 +1,6 @@
 import { Stack, router } from "expo-router";
-import { useMemo } from "react";
-import { Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useEffect, useMemo } from "react";
+import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { computeRecommendations } from "@/lib/algorithms";
 import {
   compareRowWinner,
@@ -31,6 +31,13 @@ export default function CompareScreen() {
   const compareList = useAppStore((s) => s.compareList);
   const toggleCompare = useAppStore((s) => s.toggleCompare);
   const clearCompare = useAppStore((s) => s.clearCompare);
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
+
+  // Compare runs computeRecommendations + per-offer restaurant breakdowns over
+  // raw offers. Reached via navigation, so load lazily here.
+  useEffect(() => {
+    if (!state.data) ensureRawOffers();
+  }, [state.data, ensureRawOffers]);
 
   const recs = useMemo(() => computeRecommendations(state), [state]);
   const cards = useMemo(() => {
@@ -46,10 +53,16 @@ export default function CompareScreen() {
     return (
       <View style={[styles.flex, styles.center]}>
         <Stack.Screen options={{ title: "Compare" }} />
-        <Text style={styles.empty}>Pick two cards to compare.</Text>
-        <Pressable onPress={() => router.back()} style={styles.backBtn}>
-          <Text style={styles.backBtnText}>Go back</Text>
-        </Pressable>
+        {!state.data ? (
+          <ActivityIndicator color={colors.brand} />
+        ) : (
+          <>
+            <Text style={styles.empty}>Pick two cards to compare.</Text>
+            <Pressable onPress={() => router.back()} style={styles.backBtn}>
+              <Text style={styles.backBtnText}>Go back</Text>
+            </Pressable>
+          </>
+        )}
       </View>
     );
   }

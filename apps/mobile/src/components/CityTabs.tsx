@@ -11,12 +11,18 @@ export function CityTabs() {
   const selectedCity = useAppStore((s) => s.selectedCity);
   const setSelectedCity = useAppStore((s) => s.setSelectedCity);
   const offers = useAppStore((s) => s.data?.offers);
+  // Fall back to the summary's city list at cold start (before raw offers load).
+  const summaryCities = useAppStore((s) => s.summary?.cities);
 
   const cityList = useMemo(() => {
     const set = new Set<string>();
-    (offers || []).forEach((o) => set.add(o.city));
+    if (offers && offers.length) {
+      offers.forEach((o) => set.add(o.city));
+    } else if (summaryCities) {
+      summaryCities.forEach((c) => set.add(c));
+    }
     return ["all", ...Array.from(set).sort()];
-  }, [offers]);
+  }, [offers, summaryCities]);
 
   return (
     <View style={styles.wrap}>

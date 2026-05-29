@@ -1,6 +1,6 @@
 import { Link, Stack, useLocalSearchParams } from "expo-router";
 import { useEffect, useMemo, useState } from "react";
-import { Image, Linking, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { ActivityIndicator, Image, Linking, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { getOfferDiscountPct, getOfferSavingValue } from "@/lib/savings";
 import { formatCurrency } from "@/lib/format";
 import { getBankLogoUrl } from "@/lib/bankLogo";
@@ -19,12 +19,19 @@ export default function RestaurantDetail() {
   const params = useLocalSearchParams<{ name: string; city?: string }>();
   const restaurantName = params.name;
   const data = useAppStore((s) => s.data);
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const orderValue = useAppStore((s) => s.orderValue);
   const ownedCards = useAppStore((s) => s.ownedCards);
   const fav = useAppStore((s) => s.favoriteRestaurants.has(restaurantName));
   const toggleFav = useAppStore((s) => s.toggleFavorite);
   const [offerSearch, setOfferSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(OFFER_PAGE_SIZE);
+
+  // Per-offer data for this restaurant lives only in raw offers. Reached via
+  // navigation, so load lazily here.
+  useEffect(() => {
+    if (!data) ensureRawOffers();
+  }, [data, ensureRawOffers]);
 
   const enrichment = data?.restaurantsEnrichment[restaurantName];
   const offers = useMemo(() => {
@@ -77,6 +84,15 @@ export default function RestaurantDetail() {
     }, 600);
     return () => clearTimeout(t);
   }, [offerSearch, filteredOffers.length, restaurantName, params.city]);
+
+  if (!data) {
+    return (
+      <View style={[styles.flex, { alignItems: "center", justifyContent: "center" }]}>
+        <Stack.Screen options={{ title: restaurantName }} />
+        <ActivityIndicator color={colors.brand} />
+      </View>
+    );
+  }
 
   return (
     <ScrollView style={styles.flex} contentContainerStyle={{ paddingBottom: 64 }}>

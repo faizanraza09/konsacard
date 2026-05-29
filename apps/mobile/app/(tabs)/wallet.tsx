@@ -24,10 +24,17 @@ const OBJECTIVE_LABEL: Record<WalletObjective, string> = {
 export default function BuildWalletScreen() {
   const state = useAppStore();
   const deferredState = useDeferredValue(state);
-  const recomputing = state !== deferredState;
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<WalletShape>>(null);
+
+  // Wallet optimization runs over raw offers; load them lazily on mount.
+  useEffect(() => {
+    if (!state.data) ensureRawOffers();
+  }, [state.data, ensureRawOffers]);
+
   const result = useMemo(() => computeWalletRecommendations(deferredState), [deferredState]);
+  const recomputing = state !== deferredState || (!state.data && state.rawLoading);
 
   const k = result.stats.K ?? state.walletSize;
   const obj = (result.stats.objective ?? "savings") as WalletObjective;
