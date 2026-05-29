@@ -15,7 +15,9 @@ function formatDaysAgo(days: number): string {
 }
 
 export function FreshnessChip() {
-  const generatedAt = useAppStore((s) => s.data?.generatedAt);
+  // Prefer raw data's timestamp; fall back to the summary at cold start (same
+  // generatedAt — both come from the offers index).
+  const generatedAt = useAppStore((s) => s.data?.generatedAt ?? s.summary?.generatedAt);
   if (!generatedAt) return null;
   const days = Math.max(0, Math.floor((Date.now() - new Date(generatedAt).getTime()) / 86_400_000));
   if (days > 60) return null;

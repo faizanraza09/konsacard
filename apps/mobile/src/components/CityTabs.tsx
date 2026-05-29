@@ -1,3 +1,4 @@
+import * as Haptics from "expo-haptics";
 import { useMemo } from "react";
 import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { track } from "@/lib/analytics";
@@ -10,12 +11,18 @@ export function CityTabs() {
   const selectedCity = useAppStore((s) => s.selectedCity);
   const setSelectedCity = useAppStore((s) => s.setSelectedCity);
   const offers = useAppStore((s) => s.data?.offers);
+  // Fall back to the summary's city list at cold start (before raw offers load).
+  const summaryCities = useAppStore((s) => s.summary?.cities);
 
   const cityList = useMemo(() => {
     const set = new Set<string>();
-    (offers || []).forEach((o) => set.add(o.city));
+    if (offers && offers.length) {
+      offers.forEach((o) => set.add(o.city));
+    } else if (summaryCities) {
+      summaryCities.forEach((c) => set.add(c));
+    }
     return ["all", ...Array.from(set).sort()];
-  }, [offers]);
+  }, [offers, summaryCities]);
 
   return (
     <View style={styles.wrap}>
@@ -28,6 +35,7 @@ export function CityTabs() {
                 key={c}
                 onPress={() => {
                   if (selectedCity === c) return;
+                  Haptics.selectionAsync().catch(() => undefined);
                   track("city_change", { from: selectedCity, to: c });
                   setSelectedCity(c);
                 }}

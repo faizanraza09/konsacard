@@ -24,13 +24,69 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Best Card for Restaurant Discounts in Pakistan | KonsaCard" />
     <meta name="twitter:description" content="Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8D8HRYPVY6"></script>
+    <!-- Self-hosted Outfit (variable, latin), preloaded so it's ready at first
+         paint — no font-swap reflow (CLS) and no Google Fonts third-party round
+         trip. @font-face lives in styles.css. -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/outfit-latin.woff2" crossorigin />
+    <!-- gtag dataLayer stub loads synchronously so gtag() calls queue from
+         first parse. The heavy gtag.js loader (and AdSense + PostHog) are
+         deferred to first interaction / idle by the loader below to cut
+         main-thread JS bootup, without dropping any queued events. -->
     <script src="./assets/dist/ga-init.js?v=4557a71c2589"></script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552095742304526" crossorigin="anonymous"></script>
+
+    <!-- Deferred third-party loader. Injects the heavy, non-critical vendor
+         scripts (gtag.js, AdSense, PostHog) on the first user interaction OR
+         when the browser is idle after load — whichever comes first — instead
+         of during initial parse. Stubs (ga-init / posthog queue) already make
+         every gtag()/posthog.*() call safe before the SDKs land, so nothing is
+         lost. Sentry is intentionally NOT deferred (loaded below, as-is) so it
+         can still catch early errors. -->
+    <script>
+      (function () {
+        var loaded = false;
+        function inject(src, attrs) {
+          var s = document.createElement("script");
+          s.src = src;
+          s.async = true;
+          if (attrs) for (var k in attrs) s.setAttribute(k, attrs[k]);
+          document.head.appendChild(s);
+        }
+        function loadThirdParty() {
+          if (loaded) return;
+          loaded = true;
+          // Google Analytics gtag.js — replays the dataLayer queued by ga-init.
+          inject("https://www.googletagmanager.com/gtag/js?id=G-8D8HRYPVY6");
+          // Google AdSense.
+          inject(
+            "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2552095742304526",
+            { crossorigin: "anonymous" }
+          );
+          // PostHog: the init snippet/stub + SDK loader.
+          inject("./assets/dist/posthog-init.js?v=4557a71c2589");
+        }
+        var EVENTS = ["pointerdown", "keydown", "scroll", "touchstart"];
+        function onFirstInteraction() {
+          EVENTS.forEach(function (e) {
+            window.removeEventListener(e, onFirstInteraction, true);
+          });
+          loadThirdParty();
+        }
+        EVENTS.forEach(function (e) {
+          window.addEventListener(e, onFirstInteraction, { capture: true, passive: true, once: true });
+        });
+        // Idle fallback so analytics/ads still fire for users who never
+        // interact (e.g. read-only sessions, bounce measurement).
+        function idleLoad() {
+          if ("requestIdleCallback" in window) {
+            requestIdleCallback(loadThirdParty, { timeout: 4000 });
+          } else {
+            setTimeout(loadThirdParty, 3000);
+          }
+        }
+        if (document.readyState === "complete") idleLoad();
+        else window.addEventListener("load", idleLoad, { once: true });
+      })();
+    </script>
     <link rel="stylesheet" href="./assets/dist/styles.css?v=4557a71c2589" />
 
     <!-- Sentry: external sentry-init.js sets window.sentryOnLoad synchronously
@@ -40,10 +96,9 @@
       async
       src="https://js.sentry-cdn.com/83b7ee8d2efa25d11bb8a6c5fef6da4c.min.js"
       crossorigin="anonymous"></script>
-    <!-- PostHog: stub queue (posthog-init.js) loaded synchronously so calls
-         to window.posthog from app.js etc. queue cleanly, then the SDK
-         loads async via the snippet itself. -->
-    <script src="./assets/dist/posthog-init.js?v=4557a71c2589"></script>
+    <!-- PostHog is deferred: the stub queue + SDK (posthog-init.js) are
+         injected by the deferred third-party loader above on first
+         interaction / idle, not during initial parse. -->
     <!-- Modules load in dependency order; classic scripts so they share global scope. -->
     <script defer src="./assets/dist/state.js?v=4557a71c2589"></script>
     <script defer src="./assets/dist/algorithms.js?v=4557a71c2589"></script>

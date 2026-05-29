@@ -11,7 +11,7 @@
  * fee budget returns wallets whose total fee is within budget".
  */
 const { test, expect } = require('@playwright/test');
-const { gotoApp } = require('./helpers');
+const { gotoApp, ensureRawOffers } = require('./helpers');
 
 test.describe('Algorithm — invariants on compute* functions', () => {
   test('computeRecommendations: returns sorted cards with valid scores', async ({ page }) => {
@@ -43,6 +43,8 @@ test.describe('Algorithm — invariants on compute* functions', () => {
 
   test('computeNextCardRecommendations: owned cards excluded; deltas non-negative', async ({ page }) => {
     await gotoApp(page);
+    // Next-card recs run over raw offers (not precomputed in the summary).
+    await ensureRawOffers(page);
     const result = await page.evaluate(() => {
       const a = /** @type {any} */ (window).__app;
       // Pick the top card from the regular recs as the user's "owned card"
@@ -74,6 +76,8 @@ test.describe('Algorithm — invariants on compute* functions', () => {
 
   test('computeWalletRecommendations: K=3 returns exactly 3 picks; sub-monotone savings vs K=2', async ({ page }) => {
     await gotoApp(page);
+    // Wallet optimization runs over raw offers (not precomputed in the summary).
+    await ensureRawOffers(page);
     const result = await page.evaluate(() => {
       const a = /** @type {any} */ (window).__app;
       a.state.walletMustInclude = new Set();
@@ -101,6 +105,7 @@ test.describe('Algorithm — invariants on compute* functions', () => {
 
   test('computeWalletRecommendations: no-same-bank → all banks unique', async ({ page }) => {
     await gotoApp(page);
+    await ensureRawOffers(page);
     const banks = await page.evaluate(() => {
       const a = /** @type {any} */ (window).__app;
       a.state.walletSize = 4;
@@ -120,6 +125,7 @@ test.describe('Algorithm — invariants on compute* functions', () => {
 
   test('computeWalletRecommendations: mixed-types → both debit & credit present', async ({ page }) => {
     await gotoApp(page);
+    await ensureRawOffers(page);
     const cats = await page.evaluate(() => {
       const a = /** @type {any} */ (window).__app;
       a.state.walletSize = 2;
@@ -139,6 +145,7 @@ test.describe('Algorithm — invariants on compute* functions', () => {
 
   test('computeWalletRecommendations: max-fee budget respected (non-pinned greedy picks)', async ({ page }) => {
     await gotoApp(page);
+    await ensureRawOffers(page);
     const result = await page.evaluate(() => {
       const a = /** @type {any} */ (window).__app;
       a.state.walletSize = 3;
@@ -159,6 +166,8 @@ test.describe('Algorithm — invariants on compute* functions', () => {
 
   test('computeWalletRecommendations: must-include pin is in every wallet shape', async ({ page }) => {
     await gotoApp(page);
+    // Reads state.data.offers[0] to pick a pin → needs raw offers loaded.
+    await ensureRawOffers(page);
     const result = await page.evaluate(() => {
       const a = /** @type {any} */ (window).__app;
       // Pick a card from the catalog to pin

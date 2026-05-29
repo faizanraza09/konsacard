@@ -18,7 +18,8 @@ export const colors = {
 
   text: "#0F172A",        // slate-900, matches web --ink
   textMuted: "#334155",   // slate-700, matches web --ink2
-  textDim: "#64748B",     // slate-500, matches web --muted
+  textMid: "#475569",     // slate-600, matches web --muted (used for inactive tab labels)
+  textDim: "#64748B",     // slate-500, matches web --muted2
   textOnBrand: "#FFFFFF",
 
   border: "#E2E8F0",      // slate-200, matches web --line

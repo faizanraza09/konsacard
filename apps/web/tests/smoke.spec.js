@@ -6,9 +6,22 @@ test.describe('Smoke — app boots and core interactions work', () => {
   test('home loads, no console errors, data hydrated', async ({ page }) => {
     const getErrors = collectConsoleErrors(page);
     await gotoApp(page);
-    const stats = await page.evaluate(() => /** @type {any} */ (window).__app.state.data.stats);
-    expect(stats.offers).toBeGreaterThan(1000);
-    expect(stats.cards).toBeGreaterThan(50);
+    // "Hydrated" now means the summary-first boot completed: state.summary is
+    // present and the default ranked cards rendered from it — raw offers stay
+    // lazy. The offer/card counts come from the index meta (loaded at boot
+    // alongside the summary), same numbers the old state.data.stats carried.
+    const hydrated = await page.evaluate(() => {
+      const s = /** @type {any} */ (window).__app.state;
+      return {
+        hasSummary: !!s.summary,
+        stats: s.index?.stats || s.data?.stats || null,
+      };
+    });
+    expect(hydrated.hasSummary).toBe(true);
+    expect(hydrated.stats.offers).toBeGreaterThan(1000);
+    expect(hydrated.stats.cards).toBeGreaterThan(50);
+    // Cards rendered into the DOM straight from the summary.
+    expect(await page.locator('article.card-item').count()).toBeGreaterThan(5);
     expect(getErrors(), `unexpected console errors: ${getErrors().join('\n')}`).toEqual([]);
   });
 

@@ -3,23 +3,26 @@ import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 import type { StyleProp, ViewStyle } from "react-native";
 import { CardRecommendation } from "@/types";
 import { buildCardKey, formatCurrency, formatCurrencyShort } from "@/lib/format";
+import { fitTier, savingWindowMultiplier, savingWindowSuffix } from "@/lib/algorithms";
 import { getBankLogoUrl } from "@/lib/bankLogo";
 import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, scoreColor, shadow, spacing, typography } from "@/theme";
 
-// Compact mobile card row — height target ~110px (a touch taller than v1 so
-// the stats strip fits without truncation).
+// Mobile card row, mirroring the web "card-item": a header row (logo, name,
+// stacked score) then a banded stats strip then a sweet-spot footer.
 //
-//   [logo]  Card name                       PKR 3,357
-//           BANK · Debit                       /outing
-//           12/45 rests · Fee PKR 5k          86.2  #3
-//                                            [+ Compare]
+//   [logo]  Card name                      83  STRONG FIT  ▰▰▰▱
+//           BANK · Debit
+//   ───────────────────────────────────────────────────────────
+//   PKR 1.7 lakh /year · 272 of 1398 · Free
+//   ╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌╌
+//   Sweet spot: bills ≤ PKR 12,500                [+ Compare]
 //
-// Hero is the PKR saving (brand color, tabular). Score is supporting metric.
-// The stats strip mirrors the web "card-stats-row" surface (Restaurants
-// Matched + Annual Fees), per user feedback that the eligibility chip was
-// less useful than seeing fee/coverage at a glance.
+// Score is the stacked unit on the right (integer + tier label + thin bar),
+// matching web's .score-box. The hero saving moved into the stats strip and is
+// green so terracotta stays a brand-only accent. The saving reframes by the
+// store's savingWindow (/outing | /month | /year).
 //
 // Compare toggle lives at the bottom-right so two-finger compare flow is
 // reachable from the list without opening the detail. Cap is 2 (managed by
@@ -34,7 +37,20 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
   const inCompare = useAppStore((s) => s.compareList.includes(cardKey));
   const compareCount = useAppStore((s) => s.compareList.length);
   const toggleCompare = useAppStore((s) => s.toggleCompare);
+  const savingWindow = useAppStore((s) => s.savingWindow);
+  const outingsPerWeek = useAppStore((s) => s.outingsPerWeek);
   const disabled = compareCount >= 2 && !inCompare;
+
+  const scoreInt = Math.round(item.score || 0);
+  const scorePct = Math.max(0, Math.min(100, item.score || 0));
+  const sc = scoreColor(item.score);
+  const tier = fitTier(item.score);
+
+  const windowedSaving =
+    item.avgExpectedSaving * savingWindowMultiplier(savingWindow, outingsPerWeek);
+  const savingSuffix = savingWindowSuffix(savingWindow);
+  const feeText = formatFeeStat(item);
+  const sweetSpot = formatSweetSpot(item);
 
   // expo-router's <Link asChild> only accepts a single style prop on its
   // child, so we pre-flatten variant styles into one object instead of
@@ -44,8 +60,6 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
     isTopPick ? styles.rowTop : null,
     inCompare ? styles.rowInCompare : null,
   ] as StyleProp<ViewStyle>);
-
-  const feeLabel = formatFeeLabel(item);
 
   return (
     <Link
@@ -80,43 +94,41 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
               <Text style={styles.bankBold}>{item.bank}</Text>
               {categoryLabel ? ` · ${categoryLabel}` : ""}
             </Text>
-            <View style={styles.metaRow}>
-              <Text style={styles.metaText} numberOfLines={1}>
-                <Text style={styles.metaBold}>
-                  {item.coveredVenueCount}/{item.totalVenueCount}
-                </Text>{" "}
-                rests
-              </Text>
-              <Text style={styles.metaSep}>·</Text>
-              <Text style={styles.metaText} numberOfLines={1}>
-                Fee <Text style={styles.metaBold}>{feeLabel}</Text>
-              </Text>
-            </View>
           </View>
-          <View style={styles.statCol}>
-            <Text style={styles.savingValue} numberOfLines={1}>
-              {formatCurrency(item.avgExpectedSaving)}
+          <View style={styles.scoreBox}>
+            <Text style={[styles.scoreNum, { color: sc }]}>{scoreInt}</Text>
+            <Text style={styles.scoreLabel} numberOfLines={1}>
+              {tier}
             </Text>
-            <Text style={styles.savingUnit}>/outing</Text>
-            <View style={styles.scoreRow}>
-              <Text style={[styles.scoreNum, { color: scoreColor(item.score) }]}>
-                {item.score.toFixed(1)}
-              </Text>
-              {!isTopPick && rank ? (
-                <Text style={styles.rankTag}>#{rank}</Text>
-              ) : null}
+            <View style={styles.scoreBar}>
+              <View
+                style={[styles.scoreBarFill, { width: `${scorePct}%`, backgroundColor: sc }]}
+              />
             </View>
           </View>
         </View>
 
-        {isTopPick && item.topMatches[0] ? (
-          <Text style={styles.topMatch} numberOfLines={1}>
-            <Text style={styles.topMatchPrefix}>Best at </Text>
-            <Text style={styles.topMatchName}>{item.topMatches[0].restaurant}</Text>
-            {" · "}
-            {formatCurrency(item.topMatches[0].expectedSaving)}/visit
+        <View style={styles.statsStrip}>
+          <Text style={[styles.statVal, styles.statValGreen]} numberOfLines={1}>
+            {formatCurrencyShort(windowedSaving)} {savingSuffix}
           </Text>
-        ) : null}
+          <Text style={styles.statSep}>·</Text>
+          <Text style={styles.statVal} numberOfLines={1}>
+            {item.coveredVenueCount} of {item.totalVenueCount}
+          </Text>
+          <Text style={styles.statSep}>·</Text>
+          <Text style={styles.statVal} numberOfLines={1}>
+            {feeText}
+          </Text>
+        </View>
+
+        <View style={styles.sweetSpot}>
+          <Text style={styles.sweetSpotText} numberOfLines={1}>
+            {sweetSpot.prefix}
+            <Text style={styles.sweetSpotStrong}>{sweetSpot.strong}</Text>
+            {sweetSpot.suffix}
+          </Text>
+        </View>
 
         <View style={styles.footer}>
           <Pressable
@@ -156,14 +168,31 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
   );
 }
 
-function formatFeeLabel(item: CardRecommendation): string {
+// Annual-fee stat for the strip. Mirrors web's "Annual fee" card-stat cell:
+// null → "Not listed", 0 → "Free", waivable → "PKR Xk (waivable)", else short.
+function formatFeeStat(item: CardRecommendation): string {
   const status = item.requirementStatus;
-  if (!status?.hasRequirementRecord) return "—";
-  const fee = status.annualFeePkr;
-  if (fee === null && status.annualFeeWaiverRule) return "waivable";
-  if (fee === null) return "n/a";
-  if (fee === 0) return "free";
+  const fee = status?.annualFeePkr;
+  if (fee === null || fee === undefined) return "Not listed";
+  if (fee === 0) return "Free";
+  if (status?.annualFeeWaiverRule) return `${formatCurrencyShort(fee)} (waivable)`;
   return formatCurrencyShort(fee);
+}
+
+// Sweet-spot footer copy. Mirrors web's renderSweetSpot(): below the saturation
+// bill the user gets the headline %; above it the saving plateaus at the cap.
+// No cap in scope → "Uncapped saving at any bill size".
+function formatSweetSpot(
+  item: CardRecommendation
+): { prefix: string; strong: string; suffix: string } {
+  if (item.saturationBill === null || item.saturationBill === undefined) {
+    return { prefix: "", strong: "Uncapped saving", suffix: " at any bill size" };
+  }
+  return {
+    prefix: "Sweet spot: ",
+    strong: `bills ≤ ${formatCurrency(item.saturationBill)}`,
+    suffix: "",
+  };
 }
 
 function BankLogo({ bank }: { bank: string }) {
@@ -219,7 +248,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.weight.bold,
     letterSpacing: 1,
   },
-  body: { flexDirection: "row", alignItems: "flex-start", gap: spacing.sm },
+  body: { flexDirection: "row", alignItems: "center", gap: spacing.sm },
   logoWrap: {
     backgroundColor: colors.bgElev,
     borderWidth: 1,
@@ -260,68 +289,87 @@ const styles = StyleSheet.create({
     textTransform: "uppercase",
     letterSpacing: 0.4,
   },
-  metaRow: {
+  // Stacked score unit on the right of the header — mirrors web's .score-box:
+  // integer score (20px, weight 800, color by score) + uppercase tier label +
+  // a thin progress bar (track = border, fill width=score% colored by score).
+  scoreBox: {
+    alignItems: "flex-end",
+    width: 78,
+    gap: 2,
+  },
+  scoreNum: {
+    fontSize: typography.size.xl,
+    fontWeight: typography.weight.black,
+    fontVariant: ["tabular-nums"],
+    lineHeight: typography.size.xl + 2,
+  },
+  scoreLabel: {
+    color: colors.textDim,
+    fontSize: 9.5,
+    fontWeight: typography.weight.semibold,
+    letterSpacing: 0.55,
+    textTransform: "uppercase",
+  },
+  scoreBar: {
+    width: 40,
+    height: 3,
+    borderRadius: radii.pill,
+    backgroundColor: colors.border,
+    overflow: "hidden",
+    marginTop: 1,
+  },
+  scoreBarFill: {
+    height: "100%",
+    borderRadius: radii.pill,
+  },
+
+  // Banded stats strip below the header — mirrors web's .card-stats-row. A
+  // single divider-separated row: <saving> <suffix> · <covered> of <total> ·
+  // <fee>. Saving is green so terracotta stays a brand-only accent.
+  statsStrip: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 5,
-    marginTop: 5,
     flexWrap: "wrap",
+    gap: 5,
+    marginTop: spacing.sm,
+    paddingTop: spacing.sm,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
   },
-  metaText: {
-    color: colors.textDim,
+  statVal: {
+    color: colors.text,
     fontSize: typography.size.xs,
-    fontWeight: typography.weight.medium,
+    fontWeight: typography.weight.semibold,
     fontVariant: ["tabular-nums"],
   },
-  metaBold: {
-    color: colors.text,
+  statValGreen: {
+    color: colors.green,
     fontWeight: typography.weight.bold,
   },
-  metaSep: {
+  statSep: {
     color: colors.borderStrong,
     fontSize: typography.size.xs,
   },
-  statCol: {
-    alignItems: "flex-end",
-    minWidth: 90,
-    gap: 1,
+
+  // Sweet-spot footer — mirrors web's .card-sweet-spot: muted text with a
+  // dashed top border and the threshold bold.
+  sweetSpot: {
+    marginTop: spacing.sm,
+    paddingTop: spacing.sm,
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    borderStyle: "dashed",
   },
-  savingValue: {
-    color: colors.brand,
-    fontSize: typography.size.lg,
-    fontWeight: typography.weight.black,
-    lineHeight: typography.size.lg + 2,
-    fontVariant: ["tabular-nums"],
-  },
-  savingUnit: {
+  sweetSpotText: {
     color: colors.textDim,
     fontSize: typography.size.xs,
     fontWeight: typography.weight.medium,
-  },
-  scoreRow: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 6,
-    marginTop: 6,
-  },
-  scoreNum: {
-    fontSize: typography.size.sm,
-    fontWeight: typography.weight.bold,
     fontVariant: ["tabular-nums"],
-    opacity: 0.85,
   },
-  rankTag: {
-    color: colors.textDim,
-    fontSize: typography.size.xs,
-    fontWeight: typography.weight.semibold,
-  },
-  topMatch: {
+  sweetSpotStrong: {
     color: colors.textMuted,
-    fontSize: typography.size.xs,
-    marginTop: spacing.sm,
+    fontWeight: typography.weight.bold,
   },
-  topMatchPrefix: { fontWeight: typography.weight.semibold, color: colors.textDim },
-  topMatchName: { color: colors.text, fontWeight: typography.weight.semibold },
 
   footer: {
     flexDirection: "row",

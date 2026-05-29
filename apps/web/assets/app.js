@@ -5,23 +5,62 @@
 
 /* ── INIT ── */
 async function init() {
-  // The offers payload is now split per city (data/offers-<city>.json) with a
-  // lightweight index (data/offers-index.json) that holds metadata + the
-  // restaurantsByCity map. Loading three smaller files in parallel beats one
-  // ~25MB JSON over the wire (especially on mobile 4G). If the split files
-  // aren't available (older builds, dev that hasn't run the split script),
-  // we fall back to the original monolithic offers.json.
-  const [payload, requirements] = await Promise.all([
-    loadOffersPayload(),
-    loadRequirementsContext(),
-  ]);
-  state.data = payload;
-  state.requirements = requirements;
+  // First paint is served from a small precomputed summary (data/summary.json)
+  // plus the lightweight index (data/offers-index.json). This avoids
+  // downloading + parsing the ~21MB of raw per-city offers and aggregating
+  // ~28k records on the main thread just to render the default view.
+  //
+  // The raw offers (loadOffersPayload) are loaded LAZILY via ensureRawOffers()
+  // — only when the user does something the summary can't answer (filters,
+  // bill changes, wallet/compare views, detail drill-ins). At default scope
+  // the summary is byte-identical to computeRecommendations()/
+  // computeRestaurantDeals(), so the swap to the compute path after the first
+  // lazy load is seamless and never changes ranking output.
+  let summaryLoaded = false;
+  try {
+    const loaded = await loadSummary();
+    if (loaded && loaded.summary && loaded.index) {
+      state.index = loaded.index;
+      state.summary = loaded.summary;
+      summaryLoaded = true;
+    }
+  } catch (err) {
+    console.warn("[summary] unavailable, falling back to raw offers", err);
+  }
+
+  // Requirements context is small and needed by the compute/eligibility paths.
+  // Load it alongside whichever data path we take.
+  const requirementsPromise = loadRequirementsContext();
+
+  if (!summaryLoaded) {
+    // Fallback: no usable summary → behave exactly like before (load raw
+    // offers up front, then render).
+    await ensureRawOffers();
+  }
+
+  state.requirements = await requirementsPromise;
+
+  // Slug pre-filters (?restaurant=, ?bank=) resolve their canonical names
+  // against state.data.offers inside restoreStateFromUrl(). If such params are
+  // present we must have raw offers loaded BEFORE restore, or the slug lookup
+  // silently no-ops and the deep link loses its filter.
+  if (summaryLoaded && !state.data && hasPendingSlugParams()) {
+    await ensureRawOffers();
+  }
 
   // Order matters: defaults (from state.js) → localStorage → URL.
   // URL takes the last word so shared links keep working.
   restoreStateFromLocal();
   restoreStateFromUrl();
+
+  // Any non-default state restored from localStorage/URL (filters, bill,
+  // eligibility, wallet/compare view) can't be served from the summary —
+  // pull raw offers in before the first render so nothing renders against
+  // null data.
+  if (summaryLoaded && !state.data && !isDefaultScope()) {
+    await ensureRawOffers();
+  }
+
   bindEvents();
   syncDomToState();
   renderDataFreshness();
@@ -29,13 +68,32 @@ async function init() {
   render();
 }
 
+// Deep-link slug params that resolve against per-offer data (and so require
+// raw offers loaded before restoreStateFromUrl runs).
+function hasPendingSlugParams() {
+  try {
+    const params = new URLSearchParams(location.search);
+    return params.has("restaurant") || params.has("bank");
+  } catch (_) {
+    return false;
+  }
+}
+
 /* ── DATA FRESHNESS ──
    The offers payload carries a single dataset-level generatedAt timestamp
    (no per-offer timestamps in the schema today). We surface this in two
    places: a calm "verified Xd ago" line in the footer, and a stale-data
    banner at the top if the data is more than 60 days old. */
+// Metadata source for the app shell/sidebar. Prefers the full raw payload
+// once it's loaded, otherwise the lightweight index loaded at first paint.
+// Both expose the same meta fields (cities, dayNames, stats, generatedAt,
+// restaurantsByCity).
+function getMeta() {
+  return state.data || state.index || null;
+}
+
 function getDataFreshnessDaysAgo() {
-  const ts = state.data?.generatedAt;
+  const ts = getMeta()?.generatedAt;
   if (!ts) return null;
   const then = new Date(ts);
   if (Number.isNaN(then.getTime())) return null;
@@ -110,6 +168,16 @@ function detectNewOffersForFavorites() {
 }
 
 function renderFavoritesAlert() {
+  if (state.favoriteRestaurants.size === 0) return;
+  // The new-offer diff is computed against per-offer data (state.data.offers).
+  // If raw offers aren't loaded yet, lazy-load them in the background and run
+  // the check once they arrive — never block first paint for this. Crucially,
+  // we must NOT run buildFavoritesSnapshot against null data: it would seed an
+  // empty snapshot and wipe the user's stored baseline.
+  if (!state.data) {
+    ensureRawOffers().then(() => renderFavoritesAlert()).catch(() => {});
+    return;
+  }
   // Only check after first visit (avoid alerting a brand-new user about
   // every offer on their first favorite). buildFavoritesSnapshot itself
   // doesn't gate this — we check whether stored has any keys.
@@ -237,6 +305,119 @@ async function loadOffersPayload() {
   return payload;
 }
 
+/* ── SPLIT LOADING: SUMMARY + LAZY RAW OFFERS ──
+   loadSummary() fetches only the index meta + the small precomputed summary.
+   It NEVER fetches the per-city raw offer files. That happens lazily via
+   ensureRawOffers() the first time the app needs per-offer data or a
+   non-default computation. */
+
+// Fetch the offers index and, if it advertises a summary, the summary file.
+// Returns { index, summary } on success, or null if no usable summary exists
+// (caller falls back to loading raw offers up front).
+async function loadSummary() {
+  const index = await fetchJson("./data/offers-index.json");
+  if (!index || !index.summaryFile || !index.summaryVersion) {
+    return null; // older build with no summary → caller falls back
+  }
+  const sep = index.summaryFile.includes("?") ? "&" : "?";
+  const summary = await fetchJson(`${index.summaryFile}${sep}v=${encodeURIComponent(index.summaryVersion)}`);
+  if (!summary || summary.splitFormat !== "summary-v1" || !summary.scopes || !summary.restaurantDeals || !summary.facets) {
+    return null; // malformed summary → fall back to raw offers
+  }
+  return { index, summary };
+}
+
+// Memoized lazy loader for the raw per-city offers. The first call runs
+// loadOffersPayload() (the original heavy path), stashes the result on
+// state.data, and resolves. Every subsequent call resolves immediately to the
+// same promise. After the first resolution state.data is set, so isDefaultScope()
+// returns false and all render paths use the normal compute functions.
+let _rawOffersPromise = null;
+function ensureRawOffers() {
+  if (_rawOffersPromise) return _rawOffersPromise;
+  _rawOffersPromise = (async () => {
+    showRawLoadingIndicator(true);
+    try {
+      const payload = await loadOffersPayload();
+      state.data = payload;
+      return payload;
+    } finally {
+      showRawLoadingIndicator(false);
+    }
+  })();
+  return _rawOffersPromise;
+}
+
+// Run `fn` once raw offers are guaranteed loaded. If they're already loaded it
+// runs synchronously. Otherwise it awaits ensureRawOffers() and then runs.
+// Used at every lazy-load trigger point so the first non-default action pulls
+// in raw offers before re-rendering.
+function withRawOffers(fn) {
+  if (state.data) { fn(); return; }
+  ensureRawOffers().then(fn).catch((err) => {
+    console.error("[offers] lazy load failed", err);
+    // Best-effort: still try to render so the UI isn't frozen.
+    try { fn(); } catch (_) {}
+  });
+}
+
+// Render after a view switch. If the (post-switch) view can be served from the
+// summary, render immediately. Otherwise lazy-load raw offers first. Wallet /
+// my-wallet / compare always fall through to the raw path because
+// isDefaultScope() is false for them.
+function renderForView() {
+  if (isDefaultScope()) { render(); return; }
+  withRawOffers(render);
+}
+
+// Subtle, best-effort loading affordance while raw offers stream in on the
+// first non-default action. Reuses the result header's body[data-loading]
+// hook if present; otherwise it's a no-op (never throws, never blocks).
+function showRawLoadingIndicator(on) {
+  try {
+    if (on) document.body.setAttribute("data-raw-loading", "1");
+    else document.body.removeAttribute("data-raw-loading");
+  } catch (_) { /* no DOM — ignore */ }
+}
+
+// The default scope is anything the precomputed summary can answer verbatim.
+// True ONLY when raw offers are NOT yet loaded AND the current view is the
+// plain ranked cards/restaurants list at the default bill with no filters and
+// eligibility off. Once any of these is false we must fall through to the
+// compute path (which requires raw offers).
+function isDefaultScope() {
+  if (state.data) return false;           // raw loaded → always use compute path
+  if (!state.summary) return false;       // no summary → can't serve from it
+  // View must be a precomputed list (wallet / my-wallet / compare need raw).
+  if (state.viewMode !== "cards" && state.viewMode !== "restaurants") return false;
+  // City must be one of the precomputed scopes.
+  const cityKey = getSummaryCityKey();
+  if (!cityKey || !state.summary.scopes[cityKey]) return false;
+  // Default bill only.
+  if (Number(state.orderValue) !== Number(state.summary.orderValue ?? 10000)) return false;
+  // No active filters of any kind.
+  if (state.selectedDays.size > 0) return false;
+  if (state.selectedRestaurants.size > 0) return false;
+  if (state.selectedBanks.size > 0) return false;
+  if (state.selectedCardTypes.size > 0) return false;
+  if (state.selectedCards.size > 0) return false;
+  if (state.selectedCuisines.size > 0) return false;
+  // Eligibility off.
+  if (state.useEligibility) return false;
+  if (state.monthlySalary !== null) return false;
+  if (state.accountBalance !== null) return false;
+  return true;
+}
+
+// Map state.selectedCity → the summary scope key. The summary scopes are
+// keyed "all","karachi","lahore","islamabad" (lowercase); state.selectedCity
+// is already lowercase per state.js / normalizeCityValue. Returns null for any
+// city not present as a precomputed scope (caller falls through to compute).
+function getSummaryCityKey() {
+  const key = normalizeCityValue(state.selectedCity);
+  return state.summary && state.summary.scopes[key] ? key : null;
+}
+
 /**
  * Lightweight runtime schema check on the offers payload. We don't pull in
  * Zod or Ajv — instead we assert the shape the rest of the app assumes,
@@ -319,8 +500,9 @@ function bindCityChip() {
   chip.addEventListener("click", () => {
     let picker = document.getElementById("city-chip-picker");
     if (picker) { picker.remove(); return; }
-    if (!state.data) return;
-    const cities = ["all", ...state.data.cities.map((c) => normalizeCityValue(c)).filter(Boolean)];
+    const meta = getMeta();
+    if (!meta) return;
+    const cities = ["all", ...meta.cities.map((c) => normalizeCityValue(c)).filter(Boolean)];
     picker = document.createElement("div");
     picker.id = "city-chip-picker";
     picker.className = "city-chip-picker";
@@ -360,6 +542,10 @@ function bindEvents() {
     orderSlider.addEventListener("input", (e) => {
       state.orderValue = Number(e.target.value);
       syncPersonaActive();
+      // Bill ≠ default is a non-default computation → needs raw offers. Render
+      // synchronously so the bill label and URL (?bill=) update immediately;
+      // renderRecommendations() self-defers the results re-render until raw
+      // offers land (its own !state.data && !isDefaultScope() backstop).
       render();
     });
   }
@@ -377,7 +563,9 @@ function bindEvents() {
       if (slider) slider.value = String(bill);
       syncPersonaActive();
       trackEvent("persona_chip", { label: btn.dataset.label, bill, outings });
-      render();
+      // Persona presets change the bill (and usually push it off the default)
+      // → needs raw offers for the recompute.
+      withRawOffers(render);
     });
   });
 
@@ -436,6 +624,8 @@ function bindEvents() {
     monthlySalary.addEventListener("input", (e) => {
       state.monthlySalary = parseOptionalNumber(e.target.value);
       syncEligibilityState();
+      // Render synchronously so eligibility UI + URL update immediately; the
+      // list re-render self-defers until raw offers load.
       render();
     });
   }
@@ -443,6 +633,8 @@ function bindEvents() {
     accountBalance.addEventListener("input", (e) => {
       state.accountBalance = parseOptionalNumber(e.target.value);
       syncEligibilityState();
+      // Render synchronously so eligibility UI + URL update immediately; the
+      // list re-render self-defers until raw offers load.
       render();
     });
   }
@@ -462,11 +654,12 @@ function bindEvents() {
   const resetBtn = document.getElementById("reset-filters");
   if (resetBtn) resetBtn.addEventListener("click", resetFilters);
 
-  // Quiz
+  // Quiz. quiz.js renders against state.data (dayNames + per-offer matching),
+  // so ensure raw offers are loaded before opening it.
   const openQuizBtn = document.getElementById("btn-open-quiz");
   if (openQuizBtn) openQuizBtn.addEventListener("click", () => {
     trackEvent("quiz_open");
-    openQuiz();
+    withRawOffers(openQuiz);
   });
 
   // Find My Card FAB (mobile)
@@ -481,8 +674,10 @@ function bindEvents() {
   const cmpOpen = document.getElementById("btn-compare-open");
   if (cmpOpen) cmpOpen.addEventListener("click", () => openCompareModal());
 
-  // Chat
-  document.getElementById("chat-fab")?.addEventListener("click", openChat);
+  // Chat. The chat tools query state.data.offers, so warm raw offers when the
+  // panel opens (chat.js tools already guard with a graceful "not loaded"
+  // message, but pre-loading means the assistant works on first message).
+  document.getElementById("chat-fab")?.addEventListener("click", () => withRawOffers(openChat));
   document.getElementById("chat-close")?.addEventListener("click", closeChat);
   document.getElementById("chat-clear-btn")?.addEventListener("click", clearChat);
 document.getElementById("chat-send")?.addEventListener("click", () => {
@@ -515,14 +710,16 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
       closeMobileSheet();
       state.viewMode = view;
       trackEvent("view_change", { view, source: "mob-tab" });
-      render();
+      // wallet / my-wallet always need raw offers; cards/restaurants only if
+      // the current scope isn't summary-servable. renderForView() decides.
+      renderForView();
     });
   });
 
   // Mobile chat icon — replaces the FAB on phone widths.
   document.getElementById("mob-icon-chat")?.addEventListener("click", () => {
     closeMobileSheet();
-    openChat();
+    withRawOffers(openChat);
   });
   // Filters live in the result header now (closer to the user's eye-line
   // than a small icon in the top nav). Tap → bottom sheet opens.
@@ -538,7 +735,9 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
     } else {
       state.selectedDays = new Set([todayIdx]);
     }
-    render();
+    // Day filter → needs raw offers (clearing it back to none is summary-OK
+    // once raw is loaded; withRawOffers handles both cases safely).
+    withRawOffers(render);
   });
 
   // View toggle. We close any still-mounted modal before switching views,
@@ -548,25 +747,25 @@ document.getElementById("chat-send")?.addEventListener("click", () => {
     closeAllModals();
     state.viewMode = "cards";
     trackEvent("view_change", { view: "cards" });
-    render();
+    renderForView();
   });
   document.getElementById("btn-view-restaurants")?.addEventListener("click", () => {
     closeAllModals();
     state.viewMode = "restaurants";
     trackEvent("view_change", { view: "restaurants" });
-    render();
+    renderForView();
   });
   document.getElementById("btn-view-next-card")?.addEventListener("click", () => {
     closeAllModals();
     state.viewMode = "my-wallet";
     trackEvent("view_change", { view: "my-wallet" });
-    render();
+    renderForView();
   });
   document.getElementById("btn-view-wallet")?.addEventListener("click", () => {
     closeAllModals();
     state.viewMode = "wallet";
     trackEvent("view_change", { view: "wallet" });
-    render();
+    renderForView();
   });
 
   // Card detail modal
@@ -727,8 +926,9 @@ function renderOrderValueLabel() {
 
 /* ── NAV CITY TABS ── */
 function renderNavCityTabs() {
-  if (!state.data) return;
-  const cities = ["all", ...state.data.cities.map((city) => normalizeCityValue(city)).filter(Boolean)];
+  const meta = getMeta();
+  if (!meta) return;
+  const cities = ["all", ...meta.cities.map((city) => normalizeCityValue(city)).filter(Boolean)];
 
   const buildTabs = (container, btnClass) => {
     if (!container) return;
@@ -741,6 +941,10 @@ function renderNavCityTabs() {
       btn.addEventListener("click", () => {
         state.selectedCity = city;
         render();
+        // Reset to the top so the new city's list reads from the header / top
+        // pick, not from wherever the previous city was scrolled to. Mirrors
+        // the mobile app, which scrolls its list to offset 0 on city change.
+        window.scrollTo({ top: 0, behavior: "auto" });
       });
       container.appendChild(btn);
     });
@@ -756,11 +960,12 @@ function updateCityChip() {
 
 /* ── DAY PILLS ── */
 function renderDayPills() {
-  if (!state.data) return;
+  const meta = getMeta();
+  if (!meta) return;
   const container = document.getElementById("day-pills");
   if (!container) return;
   container.innerHTML = "";
-  state.data.dayNames.forEach((dayName, index) => {
+  meta.dayNames.forEach((dayName, index) => {
     const btn = document.createElement("button");
     btn.className = `s-pill${state.selectedDays.has(index) ? " active" : ""}`;
     btn.textContent = DAY_SHORT[index];
@@ -772,10 +977,11 @@ function renderDayPills() {
       } else {
         state.selectedDays.add(index);
       }
-      // Use full render() so encodeStateToUrl() runs and `?days=...` lands
-      // in the URL. Local renderDayPills + renderRecommendations alone
-      // updates the UI but leaves the URL stale (shared/refreshed links
-      // lose the day filter).
+      // Day is a real filter the summary can't answer. Render synchronously so
+      // encodeStateToUrl() runs immediately and `?days=...` lands in the URL
+      // (plus the pill lights up) without waiting on the raw-offers fetch;
+      // renderRecommendations() self-defers the list re-render until raw
+      // offers arrive.
       render();
     });
     container.appendChild(btn);
@@ -798,9 +1004,10 @@ function renderCardTypePills() {
       } else {
         state.selectedCardTypes.add(value);
       }
-      // Same reasoning as the day-pill click above — use render() so
-      // `?types=...` makes it into the URL alongside the filter being
-      // visually applied.
+      // Card-type filter → needs raw offers. Same reasoning as the day-pill
+      // click above — render synchronously so `?types=...` makes it into the
+      // URL and the pill lights up immediately; the list re-render self-defers
+      // until raw offers load.
       render();
     });
     container.appendChild(btn);
@@ -809,7 +1016,12 @@ function renderCardTypePills() {
 
 /* ── BANK SEARCH ── */
 function getAvailableBanks() {
-  if (!state.data) return [];
+  // Raw not loaded yet → serve the bank list from the precomputed facets so
+  // the sidebar populates on first paint without the heavy offers array.
+  if (!state.data) {
+    const banks = state.summary?.facets?.banks;
+    return Array.isArray(banks) ? [...banks].sort((a, b) => a.localeCompare(b)) : [];
+  }
   const bankCounts = new Map();
   state.data.offers.forEach((offer) => {
     if (!cityMatches(offer.city)) return;
@@ -844,6 +1056,8 @@ function renderBankSearch() {
       state.bankSearchTerm = "";
       const bankSearch = document.getElementById("bank-search");
       if (bankSearch) bankSearch.value = "";
+      // Render synchronously so the chip + `?banks=` URL param land immediately;
+      // the filtered list re-render self-defers until raw offers load.
       render();
     });
     container.appendChild(item);
@@ -871,7 +1085,19 @@ function renderSelectedBanks() {
 
 /* ── CARD SEARCH ── */
 function getAvailableCards() {
-  if (!state.data) return [];
+  // Raw not loaded yet → derive the card-name list from the precomputed
+  // "Bank || Card" facets. (Bank/restaurant filters can't be active without
+  // raw offers having been loaded, so no further filtering is needed here.)
+  if (!state.data) {
+    const facetCards = state.summary?.facets?.cards;
+    if (!Array.isArray(facetCards)) return [];
+    const cardSet = new Set();
+    facetCards.forEach((entry) => {
+      const card = String(entry).split(" || ")[1];
+      if (card) cardSet.add(card);
+    });
+    return Array.from(cardSet).sort((a, b) => a.localeCompare(b));
+  }
   const cardSet = new Set();
   state.data.offers.forEach((offer) => {
     if (!cityMatches(offer.city)) return;
@@ -911,6 +1137,8 @@ function renderCardSearch() {
       state.cardSearchTerm = "";
       const cardSearch = document.getElementById("card-search");
       if (cardSearch) cardSearch.value = "";
+      // Render synchronously so the chip + `?cards=` URL param land immediately;
+      // the filtered list re-render self-defers until raw offers load.
       render();
     });
     container.appendChild(item);
@@ -946,7 +1174,20 @@ function renderSelectedCards() {
 
 /* ── RESTAURANT SEARCH ── */
 function getAvailableRestaurants() {
-  if (!state.data) return [];
+  // Raw not loaded yet → serve restaurant names from the index's
+  // restaurantsByCity map, honoring the selected city. (No bank/cardType
+  // filter can be active at this point — those load raw offers.)
+  if (!state.data) {
+    const byCity = state.index?.restaurantsByCity;
+    if (!byCity) return [];
+    const names = new Set();
+    const sel = normalizeCityValue(state.selectedCity);
+    for (const [cityName, list] of Object.entries(byCity)) {
+      if (sel !== "all" && normalizeCityValue(cityName) !== sel) continue;
+      (Array.isArray(list) ? list : []).forEach((n) => names.add(n));
+    }
+    return Array.from(names).sort((a, b) => a.localeCompare(b));
+  }
   const names = new Set();
   state.data.offers.forEach((offer) => {
     if (!cityMatches(offer.city)) return;
@@ -985,6 +1226,8 @@ function renderRestaurantSearch() {
       state.restSearchTerm = "";
       const restSearch = document.getElementById("restaurant-search");
       if (restSearch) restSearch.value = "";
+      // Render synchronously so the chip + `?rests=` URL param land immediately;
+      // the filtered list re-render self-defers until raw offers load.
       render();
     });
     container.appendChild(item);
@@ -1020,7 +1263,27 @@ function renderSelectedRestaurants() {
 
 /* ── RECOMMENDATIONS ── */
 function renderRecommendations() {
-  const results = computeRecommendations();
+  // Defensive backstop: if any code path mutated state into a non-default
+  // scope (or a wallet/compare view) but left raw offers unloaded — e.g. the
+  // onboarding flow in quiz.js calls renderRecommendations() directly after
+  // setting a custom bill/card-type — lazy-load raw offers and re-render once
+  // they arrive. Without this the compute functions (which guard on
+  // !state.data) would quietly return empty results. At true default scope
+  // this is a no-op and we render straight from the summary.
+  if (!state.data && !isDefaultScope()) {
+    withRawOffers(renderRecommendations);
+    return;
+  }
+
+  // Source the ranked cards list: at default scope (raw offers not loaded yet)
+  // the precomputed summary is byte-identical to computeRecommendations() and
+  // lets us skip the heavy aggregation entirely. Once raw offers are loaded
+  // (isDefaultScope() false) we use the normal compute path. Wallet/my-wallet
+  // return early below before this value is read.
+  const cityKey = getSummaryCityKey();
+  const results = (isDefaultScope() && state.summary && cityKey)
+    ? state.summary.scopes[cityKey]
+    : computeRecommendations();
   const countEl   = document.getElementById("result-count");
   const rhSub     = document.getElementById("rh-sub");
   const emptyState = document.getElementById("empty-state");
@@ -1042,7 +1305,7 @@ function renderRecommendations() {
     return;
   }
   if (state.viewMode === "restaurants") {
-    const deals = computeRestaurantDeals();
+    const deals = getRestaurantDealsForRender();
     if (countEl) countEl.textContent = String(deals.length);
     if (countLabel) countLabel.textContent = "restaurants matched";
     if (rhSub) rhSub.textContent = `Restaurants with active deals · at ${formatCurrency(state.orderValue)} bill`;
@@ -1105,7 +1368,7 @@ function renderBankLogo(bank, className) {
   const initials = getBankLogoInitials(bank);
   return `
     <div class="${escapeAttr(className)}">
-      ${src ? `<img class="bank-logo-image" src="${escapeAttr(src)}" alt="${escapeAttr(bank)} logo" loading="lazy" onerror="this.style.display='none'" />` : ""}
+      ${src ? `<img class="bank-logo-image" src="${escapeAttr(src)}" alt="${escapeAttr(bank)} logo" width="42" height="42" loading="lazy" decoding="async" onerror="this.style.display='none'" />` : ""}
       ${src ? "" : `<span class="bank-logo-fallback">${escapeHtml(initials)}</span>`}
     </div>
   `;
@@ -1208,12 +1471,10 @@ function renderFeaturedCard(result, container) {
             <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
           </div>
         </div>
-        <div class="card-btns">
-          <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
-            ${!canCmp ? "disabled" : ""}>
-            ${inCmp ? "✓ Comparing" : "+ Compare"}
-          </button>
-        </div>
+        <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
+          ${!canCmp ? "disabled" : ""}>
+          ${inCmp ? "✓ Comparing" : "+ Compare"}
+        </button>
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
@@ -1286,12 +1547,10 @@ function renderResultCards(results, container) {
             <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
           </div>
         </div>
-        <div class="card-btns">
-          <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
-            ${!canCmp ? "disabled" : ""}>
-            ${inCmp ? "✓ Comparing" : "+ Compare"}
-          </button>
-        </div>
+        <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
+          ${!canCmp ? "disabled" : ""}>
+          ${inCmp ? "✓ Comparing" : "+ Compare"}
+        </button>
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
@@ -1502,6 +1761,13 @@ function renderCompareTray() {
 
 function openCompareModal() {
   if (state.compareList.length !== 2) return;
+  // The head-to-head modal recomputes via computeRecommendations() and reads
+  // per-offer data (getCompareRestaurantRows / getExclusiveRestaurantCounts)
+  // → ensure raw offers are loaded first.
+  if (!state.data) {
+    withRawOffers(openCompareModal);
+    return;
+  }
   state.pagination.compareRestaurants = 1;
   const results = computeRecommendations();
   const cards = state.compareList.map((key) => {
@@ -2800,6 +3066,7 @@ function getBankApplyUrl(bank) {
 /* ── DEAL DENSITY ── */
 function getDealDensityByDay(bank, card) {
   const dayRests = Array.from({ length: 7 }, () => new Set());
+  if (!state.data?.offers) return dayRests.map(() => 0);
   state.data.offers.forEach((offer) => {
     if (offer.bank !== bank || offer.card !== card) return;
     if (!cityMatches(offer.city)) return;
@@ -2811,6 +3078,12 @@ function getDealDensityByDay(bank, card) {
 
 /* ── CARD DETAIL MODAL ── */
 function openCardDetail(cardKey) {
+  // Card detail reads per-offer data (state.data.offers) → ensure raw offers
+  // are loaded before rendering the modal body.
+  if (!state.data) {
+    withRawOffers(() => openCardDetail(cardKey));
+    return;
+  }
   state.detailCardKey = cardKey;
   state.pagination.cardDetailRestaurants = 1;
   const modal = document.getElementById("card-detail-modal");
@@ -3000,6 +3273,42 @@ function renderCardDetailModal(inner) {
 
 /* ── RESTAURANT VIEW ── */
 function computeRestaurantDeals() {
+  // FIRST-PAINT FAST PATH: at the default scope serve the precomputed
+  // per-restaurant best-deal list straight from the summary. Same shared
+  // saving math (getOfferSavingValue) produced these in precompute, so the
+  // list is byte-identical to what the loop below would emit once raw offers
+  // load. The summary rows carry exactly the fields renderRestaurantDealRows
+  // reads (restaurant, city, saving, discountLabel, daysLabel, bestCard,
+  // bestBank). Open-status / distance affordances come from
+  // state.data.restaurants enrichment, which simply no-ops (renders without
+  // the pill) until raw offers stream in — graceful, no crash.
+  if (!state.data && isDefaultScope()) {
+    const cityKey = getSummaryCityKey();
+    const summaryDeals = cityKey ? state.summary?.restaurantDeals?.[cityKey] : null;
+    if (Array.isArray(summaryDeals)) {
+      const userLoc = getUserLocation();
+      // Precompute already saving-sorted; only re-sort when the user has
+      // granted location (distance sort needs branch coords we don't have at
+      // default scope, so this falls back to saving order anyway).
+      if (!userLoc) return summaryDeals;
+      return [...summaryDeals]
+        .map((d) => ({ d, km: getNearestBranchDistanceKm(d.restaurant, d.city, userLoc) }))
+        .sort((a, b) => {
+          if (a.km === null && b.km === null) return b.d.saving - a.d.saving;
+          if (a.km === null) return 1;
+          if (b.km === null) return -1;
+          return a.km - b.km;
+        })
+        .map(({ d }) => d);
+    }
+  }
+
+  // Defensive: every consumer either hits the summary fast path above or has
+  // already loaded raw offers via a lazy-load trigger. Guard anyway so a stray
+  // call with raw not loaded degrades to empty rather than throwing on null
+  // (mirrors the compute functions in algorithms.js).
+  if (!state.data?.offers) return [];
+
   const validKeys = new Set(computeRecommendations().map((r) => `${r.bank} || ${r.card}`));
   const effectiveDays = getEffectiveSelectedDays();
   const best = new Map();
@@ -3054,9 +3363,23 @@ function computeRestaurantDeals() {
   return deals.sort((a, b) => b.saving - a.saving);
 }
 
+// Source the restaurant deals list for the restaurants view. At default scope
+// (raw not loaded) the precomputed summary.restaurantDeals matches
+// computeRestaurantDeals()'s output shape exactly. Otherwise compute normally.
+// Note: distance-sorting in computeRestaurantDeals only kicks in when the user
+// has granted geolocation — which is itself a raw-loading trigger path — so the
+// summary list is always the saving-sorted default.
+function getRestaurantDealsForRender() {
+  const cityKey = getSummaryCityKey();
+  if (isDefaultScope() && state.summary && cityKey) {
+    return state.summary.restaurantDeals[cityKey];
+  }
+  return computeRestaurantDeals();
+}
+
 function renderRestaurantView(resultsGrid) {
   if (!resultsGrid) return;
-  const deals = computeRestaurantDeals();
+  const deals = getRestaurantDealsForRender();
 
   if (deals.length === 0) {
     resultsGrid.innerHTML = "";
@@ -3096,7 +3419,9 @@ function renderRestaurantView(resultsGrid) {
       // Already located — clicking again clears the location preference.
       state.userLocation = null;
       try { localStorage.removeItem(USER_LOCATION_KEY); } catch {}
-      render();
+      // Distance-sorting runs through computeRestaurantDeals() + branch
+      // enrichment, so ensure raw offers are loaded before re-rendering.
+      withRawOffers(render);
       return;
     }
     locateBtn.disabled = true;
@@ -3108,12 +3433,18 @@ function renderRestaurantView(resultsGrid) {
       setTimeout(() => { locateBtn.textContent = locateLabel; }, 2500);
       return;
     }
-    render();
+    withRawOffers(render);
   });
   renderRows();
 }
 
 function openRestaurantDetail(restaurantKey, source) {
+  // Restaurant detail reads per-offer data (state.data.offers) → ensure raw
+  // offers are loaded before rendering the modal body.
+  if (!state.data) {
+    withRawOffers(() => openRestaurantDetail(restaurantKey, source));
+    return;
+  }
   state.detailRestaurantKey = restaurantKey;
   state.pagination.restaurantDetailCards = 1;
   const modal = document.getElementById("restaurant-detail-modal");
@@ -3262,6 +3593,9 @@ function renderRestaurantDetailModal(inner) {
 
 /* ── EXCLUSIVE RESTAURANTS FOR COMPARE ── */
 function getExclusiveRestaurantCounts(key1, key2) {
+  // Reached only via openCompareModal (which lazy-loads raw offers first), but
+  // guard defensively so a stray call can't throw on null state.data.
+  if (!state.data?.offers) return [0, 0];
   const [b1, c1] = key1.split(" || ");
   const [b2, c2] = key2.split(" || ");
   const get = (bank, card) => new Set(
@@ -3887,6 +4221,11 @@ if (typeof window !== "undefined") {
     computeNextCardRecommendations,
     computeWalletRecommendations,
     getOfferSavingValue,
+    // Test affordance: wallet / next-card / per-offer computations are not
+    // precomputed in the summary and require the lazily-loaded raw offers.
+    // Exposing the memoized loader lets the e2e suite force a raw-offers load
+    // (it's otherwise only triggered by real UI interactions).
+    ensureRawOffers,
   };
 }
 
@@ -4025,6 +4364,8 @@ function renderCuisinePills() {
         if (!name) return;
         if (state.selectedCuisines.has(name)) state.selectedCuisines.delete(name);
         else state.selectedCuisines.add(name);
+        // Render synchronously so the chip + `?cuisines=` URL param land
+        // immediately; the list re-render self-defers until raw offers load.
         render();
       });
     });

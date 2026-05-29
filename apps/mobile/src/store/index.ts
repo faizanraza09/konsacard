@@ -1,13 +1,16 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { create } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
+import { loadOffers, loadRequirements } from "@/data";
 import type {
   AlgorithmState,
   OffersBundle,
   RequirementsPack,
+  SummaryBundle,
   ViewMode,
   WalletObjective,
 } from "@/types";
+import type { SavingWindow } from "@/lib/algorithms";
 
 // Persistable subset of state. We store Sets as arrays in JSON and rehydrate.
 interface PersistedShape {
@@ -34,20 +37,35 @@ interface PersistedShape {
   favoriteRestaurants: string[];
   compareList: string[];
   viewMode: ViewMode;
+  savingWindow: SavingWindow;
 }
 
 export interface AppState extends AlgorithmState {
   viewMode: ViewMode;
   bootstrapping: boolean;
   hydrated: boolean;
+  /** Precomputed cold-start summary (small). Used to render the Cards tab at
+   * the default scope without loading the ~21 MB raw offers. */
+  summary: SummaryBundle | null;
+  /** True while raw offers are being lazily fetched on demand. */
+  rawLoading: boolean;
   /** Card keys (in `${bank} || ${card}` shape) the user is staging for the
    * compare modal. Capped at 2 by `toggleCompare`. UI state, not algorithm
    * state — left out of AlgorithmState so it doesn't pollute the algorithm
    * signature. */
   compareList: string[];
+  /** Saving-window view for the per-card hero saving: /outing | /month | /year.
+   * UI-only (display reframing of the same per-outing number) — deliberately
+   * kept out of AlgorithmState so it doesn't bust the recommendation cache. */
+  savingWindow: SavingWindow;
+  setSavingWindow: (w: SavingWindow) => void;
   toggleCompare: (cardKey: string) => void;
   clearCompare: () => void;
   setData: (data: OffersBundle, requirements: RequirementsPack | null) => void;
+  setSummary: (summary: SummaryBundle) => void;
+  /** Idempotent lazy loader: if raw `data` isn't loaded yet, fetch it once and
+   * call `setData`. Concurrent callers share a single in-flight promise. */
+  ensureRawOffers: () => Promise<void>;
   setBootstrapping: (v: boolean) => void;
   setViewMode: (v: ViewMode) => void;
   setSelectedCity: (city: string) => void;
@@ -107,14 +125,23 @@ const defaults: AlgorithmState & { viewMode: ViewMode } = {
   viewMode: "cards",
 };
 
+// Module-level memo of the in-flight raw-offers load so concurrent
+// `ensureRawOffers()` callers (multiple screens mounting at once) share one
+// fetch instead of each kicking off their own ~21 MB download.
+let rawOffersInFlight: Promise<void> | null = null;
+
 export const useAppStore = create<AppState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       ...defaults,
       bootstrapping: true,
       hydrated: false,
+      summary: null,
+      rawLoading: false,
       compareList: [],
+      savingWindow: "yr",
 
+      setSavingWindow: (savingWindow) => set({ savingWindow }),
       toggleCompare: (cardKey) =>
         set((s) => {
           if (s.compareList.includes(cardKey)) {
@@ -125,7 +152,36 @@ export const useAppStore = create<AppState>()(
         }),
       clearCompare: () => set({ compareList: [] }),
 
-      setData: (data, requirements) => set({ data, requirements, bootstrapping: false }),
+      setData: (data, requirements) =>
+        set((s) => ({
+          data,
+          // Preserve already-loaded requirements when a lazy raw-load passes
+          // null (boot loaded them separately).
+          requirements: requirements ?? s.requirements,
+          bootstrapping: false,
+        })),
+      setSummary: (summary) => set({ summary }),
+      ensureRawOffers: () => {
+        if (get().data) return Promise.resolve();
+        if (rawOffersInFlight) return rawOffersInFlight;
+        set({ rawLoading: true });
+        rawOffersInFlight = (async () => {
+          try {
+            // Requirements are normally loaded at boot; load them here too in
+            // case boot took the summary path and they aren't present yet.
+            const needReqs = !get().requirements;
+            const [bundle, reqs] = await Promise.all([
+              loadOffers(),
+              needReqs ? loadRequirements() : Promise.resolve(null),
+            ]);
+            get().setData(bundle, reqs);
+          } finally {
+            set({ rawLoading: false });
+            rawOffersInFlight = null;
+          }
+        })();
+        return rawOffersInFlight;
+      },
       setBootstrapping: (v) => set({ bootstrapping: v }),
       setViewMode: (viewMode) => set({ viewMode }),
       setSelectedCity: (selectedCity) => set({ selectedCity }),
@@ -281,6 +337,7 @@ export const useAppStore = create<AppState>()(
           walletMustInclude: state.walletMustInclude,
           favoriteRestaurants: state.favoriteRestaurants,
           viewMode: state.viewMode,
+          savingWindow: state.savingWindow,
         }) as unknown as AppState,
       onRehydrateStorage: () => (state) => {
         if (!state) return;

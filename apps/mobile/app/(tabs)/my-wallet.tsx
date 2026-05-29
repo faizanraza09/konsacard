@@ -1,7 +1,7 @@
-import { FlashList } from "@shopify/flash-list";
+import { FlashList, type FlashListRef } from "@shopify/flash-list";
 import { Link } from "expo-router";
-import { useMemo, useRef } from "react";
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
+import { useDeferredValue, useEffect, useMemo, useRef } from "react";
+import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from "react-native";
 import type { StyleProp, ViewStyle } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
@@ -9,11 +9,12 @@ import { FilterSheet, FilterSheetHandle } from "@/components/FilterSheet";
 import { OwnedCardPicker } from "@/components/OwnedCardPicker";
 import { ResultsHeader } from "@/components/ResultsHeader";
 import { TopBar } from "@/components/TopBar";
-import { computeNextCardRecommendations } from "@/lib/algorithms";
+import { cachedNextCardRecommendations } from "@/lib/computeCache";
+import { useInteractionReady } from "@/lib/useInteractionReady";
 import { formatCurrency } from "@/lib/format";
 import { getBankLogoUrl } from "@/lib/bankLogo";
 import { useAppStore } from "@/store";
-import { NextCardRecommendation } from "@/types";
+import { NextCardRecommendation, NextCardResult } from "@/types";
 import {
   colors,
   eligibilityTone,
@@ -24,10 +25,50 @@ import {
   typography,
 } from "@/theme";
 
+// Stable empty result for the deferred/loading window (keeps refs steady).
+const EMPTY_NEXT: NextCardResult = {
+  ranked: [],
+  stats: { ownedCount: 0, venuesInScope: 0, totalCandidates: 0 },
+};
+
 export default function MyWalletScreen() {
   const state = useAppStore();
+  const deferredState = useDeferredValue(state);
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const sheet = useRef<FilterSheetHandle>(null);
-  const result = useMemo(() => computeNextCardRecommendations(state), [state]);
+  const listRef = useRef<FlashListRef<NextCardRecommendation>>(null);
+
+  // Next-card recommendations run over raw offers; load them lazily on mount.
+  useEffect(() => {
+    if (!state.data) ensureRawOffers();
+  }, [state.data, ensureRawOffers]);
+
+  // Cached next-card recommendations (see computeCache). Keyed on the cache
+  // signature so unrelated state churn doesn't recompute, and revisiting a
+  // scope/owned-set is instant. Defer the first uncached run past the screen
+  // transition so navigation stays smooth.
+  const ready = useInteractionReady();
+  const nextKey = cachedNextCardRecommendations.key(deferredState);
+  const { result, pending: nextPending } = useMemo(() => {
+    if (!deferredState.data) return { result: EMPTY_NEXT, pending: false };
+    const hit = cachedNextCardRecommendations.peek(deferredState);
+    if (hit) return { result: hit, pending: false };
+    if (!ready) return { result: EMPTY_NEXT, pending: true };
+    return { result: cachedNextCardRecommendations(deferredState), pending: false };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [nextKey, ready]);
+  const recomputing =
+    state !== deferredState || (!state.data && state.rawLoading) || nextPending;
+
+  // Reset scroll to the top when the city changes, keyed off deferredState (the
+  // value the list renders) and deferred a frame. See index.tsx for the full
+  // rationale on the timing + maintainVisibleContentPosition interaction.
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      listRef.current?.scrollToOffset({ offset: 0, animated: false });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [deferredState.selectedCity]);
 
   return (
     <SafeAreaView style={styles.flex} edges={["top"]}>
@@ -43,24 +84,36 @@ export default function MyWalletScreen() {
         }
         onPressFilters={() => sheet.current?.open()}
       />
-      <FlashList
-        data={result.ranked}
-        ListHeaderComponent={
-          <View style={styles.setup}>
-            <OwnedCardPicker />
-            {state.ownedCards.size > 0 && result.stats.wallet ? (
-              <View style={styles.walletStats}>
-                <WalletStat label="Per outing" value={formatCurrency(result.stats.wallet.perOuting)} />
-                <WalletStat label="Coverage" value={`${Math.round(result.stats.wallet.coverage * 100)}%`} />
-                <WalletStat label="Est. yearly" value={formatCurrency(result.stats.wallet.yearly)} />
-              </View>
-            ) : null}
+      <View style={styles.flex}>
+        <FlashList
+          ref={listRef}
+          data={result.ranked}
+          // Re-sorted ranking list: disable FlashList v2's default
+          // maintainVisibleContentPosition so a city switch doesn't anchor to a
+          // key-stable row mid-list. We reset to the top explicitly. (index.tsx)
+          maintainVisibleContentPosition={{ disabled: true }}
+          ListHeaderComponent={
+            <View style={styles.setup}>
+              <OwnedCardPicker />
+              {state.ownedCards.size > 0 && result.stats.wallet ? (
+                <View style={styles.walletStats}>
+                  <WalletStat label="Per outing" value={formatCurrency(result.stats.wallet.perOuting)} />
+                  <WalletStat label="Coverage" value={`${Math.round(result.stats.wallet.coverage * 100)}%`} />
+                  <WalletStat label="Est. yearly" value={formatCurrency(result.stats.wallet.yearly)} />
+                </View>
+              ) : null}
+            </View>
+          }
+          keyExtractor={(item) => `${item.bank}||${item.card}`}
+          renderItem={({ item, index }) => <NextCardRow item={item} rank={index + 1} />}
+          contentContainerStyle={styles.list}
+        />
+        {recomputing ? (
+          <View style={styles.recomputing} pointerEvents="none">
+            <ActivityIndicator color={colors.brand} />
           </View>
-        }
-        keyExtractor={(item) => `${item.bank}||${item.card}`}
-        renderItem={({ item, index }) => <NextCardRow item={item} rank={index + 1} />}
-        contentContainerStyle={styles.list}
-      />
+        ) : null}
+      </View>
       <FilterSheet ref={sheet} matchCount={result.ranked.length} matchLabel="picks" />
     </SafeAreaView>
   );
@@ -172,6 +225,13 @@ function WalletStat({ label, value }: { label: string; value: string }) {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
+  recomputing: {
+    position: "absolute",
+    top: spacing.md,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
   list: { paddingBottom: 80, paddingTop: 4 },
 
   setup: {

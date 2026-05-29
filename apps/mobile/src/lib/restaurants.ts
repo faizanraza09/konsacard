@@ -1,4 +1,4 @@
-import { AlgorithmState, Offer, RestaurantEnrichment } from "@/types";
+import { AlgorithmState, CardRecommendation, Offer, RestaurantEnrichment } from "@/types";
 import { computeRecommendations } from "./algorithms";
 import { normalizeCityValue } from "./format";
 import { getOfferDiscountPct, getOfferSavingValue } from "./savings";
@@ -28,10 +28,16 @@ function getEffectiveSelectedDays(state: AlgorithmState): Set<number> {
   return all;
 }
 
-export function computeRestaurantDeals(state: AlgorithmState): RestaurantDeal[] {
+export function computeRestaurantDeals(
+  state: AlgorithmState,
+  // The set of "valid" cards is just the recommendations for the same scope.
+  // Callers inject the cached recommender (see computeCache) so this nested
+  // pass reuses the Cards-tab result instead of recomputing from scratch.
+  recommend: (s: AlgorithmState) => CardRecommendation[] = computeRecommendations
+): RestaurantDeal[] {
   if (!state.data) return [];
   const validKeys = new Set(
-    computeRecommendations(state).map((r) => `${r.bank} || ${r.card}`)
+    recommend(state).map((r) => `${r.bank} || ${r.card}`)
   );
   const effectiveDays = getEffectiveSelectedDays(state);
   const cuisineFilter = state.selectedCuisines;

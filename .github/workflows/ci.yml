@@ -62,6 +62,20 @@ jobs:
         # to create duplicate restaurants and silently drop cuisine coverage.
         run: python3 scripts/offers/test_restaurant_match.py
 
+      - name: Ranking parity gate (web summary === browser render)
+        # GOLDEN GATE — must block the build. Rebuilds the browser bundle,
+        # regenerates data/summary.json from the precompute script, then asserts
+        # the precomputed summary is byte-for-byte identical to the browser's
+        # default render for every scope. Any divergence (algorithm drift,
+        # stale summary, shard changes) exits non-zero and fails CI. No
+        # continue-on-error: this is the contract the whole precompute/summary
+        # architecture rests on. build:assets is idempotent (npm test runs it
+        # too), so running it here is safe.
+        run: |
+          npm run build:assets
+          node scripts/precompute_rankings.mjs
+          node scripts/verify_ranking_parity.mjs
+
       - name: Playwright tests
         run: npm test
         env:
@@ -80,7 +94,9 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     needs: test
-    continue-on-error: true # Quality checks are advisory until thresholds are tuned
+    # The Lighthouse step now enforces a summary-first byte-weight ceiling and a
+    # perf floor on "/" (see apps/web/lighthouserc.json), so it must be able to
+    # fail the job. Pa11y remains advisory at the step level below.
 
     steps:
       - uses: actions/checkout@v4
@@ -104,8 +120,10 @@ jobs:
         run: npm run build
 
       - name: Lighthouse CI
+        # ENFORCING: lighthouserc.json asserts total-byte-weight (summary-first
+        # guardrail) and a perf floor on "/" at ERROR level. No continue-on-error
+        # so a homepage byte-weight/perf regression blocks the build.
         run: npx --yes @lhci/cli@0.13 autorun --config=lighthouserc.json
-        continue-on-error: true
 
       - name: Start static server for Pa11y
         run: python3 scripts/dev/local_dev_server.py --host 127.0.0.1 --port 8003 &
@@ -144,5 +162,10 @@ jobs:
       - name: TypeScript check
         run: npx tsc --noEmit
 
-      - name: Jest unit tests
+      - name: Jest (incl. ranking parity)
+        # GOLDEN GATE — must block the build. Runs the full jest suite, which
+        # includes __tests__/ranking-parity.test.ts. That test reads the
+        # committed apps/web/data/summary.json (the source of truth — the whole
+        # repo is checked out, no extra build needed) and asserts the mobile
+        # ranking port matches it for every scope. No continue-on-error.
         run: npx jest --ci

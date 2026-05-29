@@ -1,3 +1,17 @@
+/* Self-hosted Outfit (variable, latin). Self-hosting + preloading the woff2
+   (see index.html) makes the font available at first paint, so swapping it in
+   no longer reflows the page — this is what killed the CLS that the async
+   Google Fonts <link> (display=swap, loaded via the media=print trick) caused.
+   It also drops the googleapis/gstatic third-party round trips. */
+@font-face {
+  font-family: 'Outfit';
+  font-style: normal;
+  font-weight: 300 800;
+  font-display: swap;
+  src: url('/assets/fonts/outfit-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* ── DESIGN TOKENS ── */
 :root {
   --bg: #F1F5F9;
@@ -344,13 +358,33 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
   gap: 12px;
   flex-wrap: wrap;
 }
-.rh-count-row { display: flex; align-items: baseline; gap: 8px; }
-.rh-count { font-size: 28px; font-weight: 800; color: var(--ink); line-height: 1; }
+.rh-count-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  /* Reserve a fixed line so swapping the count (0 → 3 digits) or the label
+     never reflows the header row. */
+  min-height: 28px;
+}
+.rh-count {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1;
+  /* Tabular figures keep "0" and "320" the same width per digit, and the
+     min-width reserves room for ~3 digits so the label beside it doesn't
+     slide as the count populates. */
+  font-variant-numeric: tabular-nums;
+  min-width: 1.4ch;
+}
 .rh-count-label { font-size: 15px; font-weight: 500; color: var(--muted); }
 .rh-sub {
   font-size: 12.5px;
   color: var(--muted);
   margin-top: 2px;
+  /* Reserve the subtitle's line height so it never collapses to 0 before
+     the text is set, then jumps when it populates. */
+  min-height: 16px;
   /* Single line so the count block stays one row tall — prevents the flex
      row from wrapping and pushing the view-toggle to a new line when the
      subtitle is long (e.g. on the empty My Wallet view). */
@@ -419,6 +453,11 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
   padding: 3px;
   gap: 2px;
   flex-shrink: 0;
+  /* Reserve the populated height so JS filling the tabs (empty → ~42px) doesn't
+     grow #result-header and shove the page down — that reflow was the dominant
+     CLS source. Matches a rendered .rh-city-tab row. */
+  min-height: 42px;
+  box-sizing: border-box;
 }
 .rh-city-tab {
   padding: 5px 11px;
@@ -461,7 +500,25 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .empty-msg { font-size: 14px; color: var(--muted); }
 
 /* ── FEATURED CARD (top pick) ── */
-.top-pick-wrap { padding: 0 20px 10px; }
+.top-pick-wrap {
+  padding: 0 20px 10px;
+  /* Reserve roughly the rendered height of a featured top-pick card
+     (logo row + stats row + sweet-spot note + the 10px bottom padding) so
+     the results list below doesn't get shoved down when the pick populates
+     after data loads. min-height (not fixed) lets it grow gracefully and the
+     box already collapses to its padding before content arrives, so an empty
+     state reserves space rather than snapping from 0. */
+  min-height: 210px;
+  box-sizing: border-box;
+}
+/* In the Cards view the top pick is rendered inline as the first list row, so
+   #top-pick stays empty — collapse it instead of leaving a 210px gap. It's only
+   populated (and the reservation only matters) in the My Wallet / Build Wallet
+   views. Empty at paint and staying empty in Cards view keeps CLS stable. */
+.top-pick-wrap:empty {
+  min-height: 0;
+  padding: 0;
+}
 .card-item--featured {
   background: linear-gradient(135deg, #FDF3F0 0%, #FAE8E2 100%);
   border: 1.5px solid var(--brand-mid);
@@ -587,7 +644,39 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .card-featured-elig { padding: 6px 22px 12px; }
 
 /* ── CARD ITEM ── */
-.results-list { padding: 0 20px; display: flex; flex-direction: column; gap: 10px; padding-bottom: 10px; }
+.results-list {
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-bottom: 10px;
+  /* Reserve the results area on first paint so the guide cards / footer below
+     start BELOW the fold — then the list filling in (it renders async after the
+     summary fetch, growing from empty to the full ~200-row height) pushes only
+     off-screen content, which doesn't count as a layout shift. 75vh keeps the
+     reserved area roughly viewport-tall regardless of device; min-height so it
+     still grows naturally once the rows render. */
+  min-height: 75vh;
+  box-sizing: border-box;
+}
+
+/* ── AD SLOTS (AdSense / Auto Ads) ──────────────────────────────────────
+   AdSense injects <ins class="adsbygoogle"> elements (Auto Ads and any
+   future explicit slots) with no intrinsic size, so the iframe popping in
+   shoves content down — a large CLS source. Reserve a box for every
+   adsbygoogle slot so the injected ad fills space we already accounted for
+   rather than pushing layout. The collapse rule keeps unfilled slots from
+   leaving a permanent empty band once Google reports "no ad". */
+ins.adsbygoogle {
+  display: block;
+  min-height: 90px;
+  margin: 12px auto;
+  text-align: center;
+  overflow: hidden;
+}
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
 
 /* ── CARD VIEW SEARCH ── */
 .cards-view-search-wrap { margin-bottom: 0; }
@@ -753,8 +842,8 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
 .card-item { transition: border-color .15s, box-shadow .15s, transform .1s; }
 .card-item:hover { border-color: rgba(189,91,61,0.4); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
 
-.card-btns { display: flex; gap: 6px; flex-shrink: 0; }
 .btn-compare {
+  flex-shrink: 0;
   padding: 6px 12px;
   border-radius: 7px;
   border: 1.5px solid var(--line);
@@ -1014,7 +1103,12 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
   border-color: #fde68a;
   color: #92400e;
 }
-.freshness-chip.hidden { display: none; }
+/* The freshness chip is always shown once data loads, but starts `hidden`
+   (no box) and JS reveals it after the fetch — which pushed the result header
+   and the whole page down (~40px), the remaining CLS source. Reserve its slot
+   (height + the 14px top margin from the base rule) and just toggle visibility,
+   so revealing it doesn't move anything. */
+.freshness-chip.hidden { visibility: hidden; height: 26px; }
 .freshness-chip-dot {
   width: 6px;
   height: 6px;
@@ -2478,9 +2572,15 @@ html.content-page-root .content > * { min-width: 0; }
   }
   .score-bar { width: 40px; height: 3px; }
 
-  .card-btns { display: none; }   /* Compare moves into the footer row */
+  /* Compare is a direct child of .card-row; let the row wrap so the button
+   * drops to its own full-width line below the body, matching the mobile app
+   * row. (Previously it lived in a .card-btns wrapper that was display:none,
+   * which hid the button entirely.) */
+  .card-row { flex-wrap: wrap; }
   /* Compact compare toggle below the body, matching the mobile app row. */
   .card-item .btn-compare {
+    order: 99;
+    flex-basis: 100%;
     width: 100%;
     margin-top: 8px;
     padding: 7px 12px;
@@ -4292,6 +4392,13 @@ html.content-page-root .content > * { min-width: 0; }
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
     mask-image: linear-gradient(to right, #000 0, #000 calc(100% - 24px), transparent 100%);
+    /* Always claim a full-width row in the wrapping .rh header. Empty (pre-JS)
+       the tabs are thin and would sit inline; once JS fills them they're wide
+       and wrap to their own row, growing the header and shoving the page down
+       (the dominant CLS). Forcing a full-width row keeps the header height
+       constant whether the tabs are empty or populated. */
+    flex: 0 0 100%;
+    width: 100%;
   }
   .rh-city-tabs::-webkit-scrollbar { display: none; }
   .rh-city-tab { flex-shrink: 0; }

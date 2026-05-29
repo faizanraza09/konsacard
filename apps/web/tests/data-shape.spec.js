@@ -39,7 +39,8 @@ test.describe('offers-index.json shape', () => {
 
   test('cityFiles points at files that actually exist on disk', () => {
     for (const [city, urlPath] of Object.entries(index.cityFiles)) {
-      const rel = String(urlPath).replace(/^\.\/data\//, '');
+      // Strip the ?v=<hash> cache-bust suffix before resolving to a local path.
+      const rel = String(urlPath).split('?')[0].replace(/^\.\/data\//, '');
       const full = path.join(DATA_DIR, rel);
       expect(fs.existsSync(full), `cityFiles["${city}"] points at "${urlPath}" but ${full} does not exist on disk`).toBe(true);
     }
@@ -63,7 +64,8 @@ test.describe('offers-index.json shape', () => {
       index.restaurantsFile,
       'offers-restaurants.json exists on disk but offers-index.json has no restaurantsFile — the cuisine section in the UI will silently stay hidden because the loader has no path to fetch enrichment from.'
     ).toBeTruthy();
-    expect(index.restaurantsFile).toMatch(/offers-restaurants\.json$/);
+    // Allow the ?v=<hash> cache-bust suffix the precompute stamps on.
+    expect(index.restaurantsFile).toMatch(/offers-restaurants\.json(\?v=[a-f0-9]+)?$/);
   });
 });
 

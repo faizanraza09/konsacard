@@ -30,11 +30,10 @@
 // keeps things fresh through daily-refresh commits (the URL doesn't change
 // but the underlying offers.json does after a deploy).
 
-import { computeRanking } from "../lib/ranking-core.mjs";
-
 const SSR_MARKER = "<!-- SSR_RANKINGS_INJECT_HERE -->";
 const SCHEMA_MARKER = "<!-- SSR_SCHEMA_INJECT_HERE -->";
 const SITE_URL = "https://konsacard.pk";
+const DEFAULT_BILL = 10000;
 
 const ALLOWED_CITY_KEYS = new Set(["all", "karachi", "lahore", "islamabad"]);
 
@@ -45,7 +44,7 @@ function pickCityKey(raw) {
 
 function parseBill(raw) {
   const n = Number.parseInt(String(raw || ""), 10);
-  if (!Number.isFinite(n) || n <= 0) return 10000;
+  if (!Number.isFinite(n) || n <= 0) return DEFAULT_BILL;
   return Math.min(50000, Math.max(1000, n));
 }
 
@@ -175,70 +174,29 @@ export async function onRequest(context) {
 
   try {
     const cityKey = pickCityKey(url.searchParams.get("city"));
-    const orderValue = parseBill(url.searchParams.get("bill"));
 
-    // Load offers + requirements (for fee penalty) + the static index.html
-    // in parallel. Requirements is fetched best-effort — if it 404s for any
-    // reason we still rank, just without the fee penalty applied.
-    const [offersRes, htmlRes, reqRes, mapRes] = await Promise.all([
-      fetchAsset(env, url, "/data/offers.json"),
-      fetchAsset(env, url, "/index.html"),
-      fetchAsset(env, url, "/data/card-requirements/normalized/card_requirements.json").catch(() => null),
-      fetchAsset(env, url, "/data/card-requirements/normalized/deal_requirement_card_map.json").catch(() => null),
-    ]);
-
-    const offersJson = /** @type {{offers: Array<Record<string, unknown>>, restaurants?: Object}} */ (
-      await offersRes.json()
-    );
-    const baseHtml = await htmlRes.text();
-
-    // Build the lookup Maps the core expects, if both requirement files
-    // loaded successfully. Mirrors loadRequirementsContext() in app.js.
-    let requirements = null;
-    if (reqRes && mapRes) {
-      try {
-        const requirementsPayload = await reqRes.json();
-        const mappingPayload = await mapRes.json();
-        requirements = {
-          byCardId: new Map(requirementsPayload.map((row) => [row.card_id, row])),
-          mappingByDealKey: new Map(
-            mappingPayload.map((row) => [
-              `${String(row.deal_bank_name || "").trim().replace(/\s+/g, " ").toLowerCase()} || ${String(row.deal_card_name || "").trim().replace(/\s+/g, " ").toLowerCase()}`,
-              row,
-            ]),
-          ),
-        };
-      } catch {
-        requirements = null;
-      }
+    // The precomputed summary holds rankings at the DEFAULT bill only. For a
+    // custom ?bill= we can't render a correct ranking, so fall back to the
+    // static page (crawlers hit the bare "/" with no bill).
+    const requestedBill = url.searchParams.get("bill");
+    if (requestedBill && parseBill(requestedBill) !== DEFAULT_BILL) {
+      return next();
     }
 
-    // Shared ranking-core. With requirements passed in, item.feePenalty is
-    // set per card and item.score = baseScore - feePenalty. (The Worker
-    // still can't apply qualificationDelta — that needs user salary input.)
-    const { aggregates } = computeRanking({
-      offers: offersJson.offers || [],
-      restaurantsEnrichment: offersJson.restaurants,
-      requirements,
-      settings: { city: cityKey, orderValue },
-    });
-    const ranked = aggregates.slice(0, 10).map((c) => ({
-      bank: c.bank,
-      card: c.card,
-      cardCategory: c.cardCategory,
-      score: c.score,
-      baseScore: c.baseScore,
-      feePenalty: c.feePenalty,
-      annualFeePkr: c.annualFeePkr,
-      avgExpectedSaving: c.avgExpectedSaving,
-      coverage: c.coverage,
-      coveredVenueCount: c.coveredVenueCount,
-      totalVenueCount: c.totalVenueCount,
-      averageDiscount: c.averageDiscount,
-      medianCap: c.medianCap,
-      bankSlug: c.bankSlug,
-      cardSlug: c.cardSlug,
-    }));
+    // Load the precomputed ranking summary + the static index.html in parallel.
+    // summary.scopes[city] is the same per-scope ranking the browser renders
+    // (both built from the shared ranking-core), so SSR matches the live page —
+    // and it's tiny, unlike the multi-MB offers.json the old path fetched (which
+    // the production deploy strips anyway, leaving SSR broken).
+    const [summaryRes, htmlRes] = await Promise.all([
+      fetchAsset(env, url, "/data/summary.json"),
+      fetchAsset(env, url, "/index.html"),
+    ]);
+
+    const summary = await summaryRes.json();
+    const baseHtml = await htmlRes.text();
+    const orderValue = Number.isFinite(summary.orderValue) ? summary.orderValue : DEFAULT_BILL;
+    const ranked = (summary.scopes?.[cityKey] || []).slice(0, 10);
 
     const ssrHtml = buildRankingHtml({ ranked, cityKey, orderValue });
     const schemaHtml = buildItemListSchema({

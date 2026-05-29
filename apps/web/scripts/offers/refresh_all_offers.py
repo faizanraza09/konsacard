@@ -16,6 +16,7 @@ DEAL_MAP_BUILD = ROOT / "scripts" / "card_requirements" / "build_deal_requiremen
 OFFERS_VALIDATION = ROOT / "scripts" / "offers" / "validate_offers_dataset.py"
 OFFERS_SPLIT = ROOT / "scripts" / "offers" / "split_offers_by_city.py"
 CUISINE_INFER = ROOT / "scripts" / "offers" / "infer_cuisines_from_names.py"
+PRECOMPUTE_RANKINGS = ROOT / "scripts" / "precompute_rankings.mjs"
 SEO_PAGE_GENERATION = ROOT / "scripts" / "seo" / "generate_seo_pages.py"
 
 
@@ -59,6 +60,12 @@ def main() -> None:
     run_step("Validating merged offers dataset", [python, str(OFFERS_VALIDATION)])
     run_step("Splitting offers.json by city for faster client loads", [python, str(OFFERS_SPLIT)])
     run_step("Inferring cuisine tags for new non-Peekaboo restaurants", [python, str(CUISINE_INFER)])
+    # Precompute the per-scope ranking summary AFTER the shards + enrichment are
+    # final. This regenerates data/summary.json and re-publishes summaryFile +
+    # summaryVersion into offers-index.json, so the default first-paint ranking
+    # stays in lockstep with the refreshed offers (a stale summary would show
+    # yesterday's rankings on the default view).
+    run_step("Precomputing per-scope ranking summary", ["node", str(PRECOMPUTE_RANKINGS)])
     run_step("Generating bank, restaurant, and sitemap SEO pages", [python, str(SEO_PAGE_GENERATION)])
     print("[offers] Done.")
     print(f"[offers] Offers: {payload['stats']['offers']}")

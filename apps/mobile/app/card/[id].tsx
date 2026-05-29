@@ -1,6 +1,6 @@
 import { Link, Stack, useLocalSearchParams } from "expo-router";
-import { useMemo, useState } from "react";
-import { Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
+import { useEffect, useMemo, useState } from "react";
+import { ActivityIndicator, Image, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 import { ChevronDown, ChevronUp } from "lucide-react-native";
 import { evaluateEligibility } from "@/lib/eligibility";
 import { computeRecommendations } from "@/lib/algorithms";
@@ -33,10 +33,17 @@ import {
 export default function CardDetail() {
   const params = useLocalSearchParams<{ id: string }>();
   const state = useAppStore();
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const [bank, card] = (params.id || "").split("||");
   const [notesOpen, setNotesOpen] = useState(false);
   const [restSearch, setRestSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(RESTAURANT_PAGE_SIZE);
+
+  // Detail reads the full offers list (all restaurants for this card), so it
+  // always needs raw offers. Reached only via navigation, never cold start.
+  useEffect(() => {
+    if (!state.data) ensureRawOffers();
+  }, [state.data, ensureRawOffers]);
 
   const recs = useMemo(() => computeRecommendations(state), [state]);
   const rec = recs.find((r) => r.bank === bank && r.card === card);
@@ -103,6 +110,17 @@ export default function CardDetail() {
 
   const shownRestaurants = filteredRestaurants.slice(0, visibleCount);
   const hasMoreRestaurants = filteredRestaurants.length > shownRestaurants.length;
+
+  // Raw offers still loading: show a spinner rather than a misleading
+  // "not found" (the rec can't exist until offers are in memory).
+  if (!state.data) {
+    return (
+      <View style={[styles.flex, styles.center]}>
+        <Stack.Screen options={{ title: card || "Card" }} />
+        <ActivityIndicator color={colors.brand} />
+      </View>
+    );
+  }
 
   if (!rec) {
     return (

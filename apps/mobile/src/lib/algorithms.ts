@@ -20,6 +20,44 @@ import {
 } from "./format";
 import { getOfferDiscountPct, getOfferSavingValue } from "./savings";
 
+/** Saving-window view: the algorithm's native unit is per-outing; the UI lets
+ * the user reframe the hero saving as /outing | /month | /year. Mirrors web's
+ * `state.savingWindow` ("outing" | "month" | "yr"). */
+export type SavingWindow = "outing" | "month" | "yr";
+
+/**
+ * Score → human tier. The score floor is 20 (baseScore = 20 + 80·R), so the
+ * effective range is 20–100. Thresholds mirror apps/web/assets/app.js `fitTier`
+ * (calibration #7: 84/72/56). We avoid "poor"/"bad" — the consumer tone is
+ * encouraging.
+ */
+export function fitTier(score: number): string {
+  const s = Number(score) || 0;
+  if (s >= 84) return "Excellent fit";
+  if (s >= 72) return "Strong fit";
+  if (s >= 56) return "Decent fit";
+  return "Weak fit";
+}
+
+/**
+ * Multiplier from `/outing` (the algorithm's native unit) into the chosen
+ * saving-window view. Mirrors web's `savingWindowMultiplier()`:
+ *   month → outingsPerWeek × 52 / 12
+ *   year  → outingsPerWeek × 52
+ *   outing → 1
+ */
+export function savingWindowMultiplier(window: SavingWindow, outingsPerWeek: number): number {
+  const op = outingsPerWeek || 1;
+  if (window === "month") return (op * 52) / 12;
+  if (window === "yr") return op * 52;
+  return 1;
+}
+
+/** Suffix for the saving-window view. Mirrors web's `savingWindowSuffix()`. */
+export function savingWindowSuffix(window: SavingWindow): string {
+  return window === "yr" ? "/year" : window === "month" ? "/month" : "/outing";
+}
+
 /**
  * Convert a card's annual fee into a score penalty, capped at 25 points.
  *

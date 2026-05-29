@@ -1,7 +1,7 @@
 import { FlashList, type FlashListRef } from "@shopify/flash-list";
 import { ChevronDown, ChevronUp } from "lucide-react-native";
-import { useEffect, useMemo, useRef, useState } from "react";
-import { Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
+import { useDeferredValue, useEffect, useMemo, useRef, useState } from "react";
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
 import { EligibilityBadge } from "@/components/EligibilityBadge";
@@ -9,10 +9,11 @@ import { FilterSheet, FilterSheetHandle } from "@/components/FilterSheet";
 import { Pill } from "@/components/Pill";
 import { ResultsHeader } from "@/components/ResultsHeader";
 import { TopBar } from "@/components/TopBar";
-import { computeWalletRecommendations } from "@/lib/algorithms";
+import { cachedWalletRecommendations } from "@/lib/computeCache";
+import { useInteractionReady } from "@/lib/useInteractionReady";
 import { formatCurrency } from "@/lib/format";
 import { useAppStore } from "@/store";
-import { WalletObjective, WalletShape } from "@/types";
+import { WalletObjective, WalletResult, WalletShape } from "@/types";
 import { colors, radii, shadow, spacing, typography } from "@/theme";
 
 const OBJECTIVE_LABEL: Record<WalletObjective, string> = {
@@ -21,18 +22,54 @@ const OBJECTIVE_LABEL: Record<WalletObjective, string> = {
   roi: "best ROI",
 };
 
+// Stable empty result for the deferred/loading window (keeps refs steady).
+const EMPTY_WALLET: WalletResult = {
+  ranked: [],
+  stats: { venueCount: 0, candidateCount: 0, warnings: [] },
+};
+
 export default function BuildWalletScreen() {
   const state = useAppStore();
+  const deferredState = useDeferredValue(state);
+  const ensureRawOffers = useAppStore((s) => s.ensureRawOffers);
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<WalletShape>>(null);
-  const result = useMemo(() => computeWalletRecommendations(state), [state]);
+
+  // Wallet optimization runs over raw offers; load them lazily on mount.
+  useEffect(() => {
+    if (!state.data) ensureRawOffers();
+  }, [state.data, ensureRawOffers]);
+
+  // Cached wallet optimisation (see computeCache). Keyed on the cache signature
+  // so unrelated state churn doesn't re-run this heaviest compute, and
+  // revisiting a config is instant. Defer the first uncached run past the
+  // screen transition so navigation stays smooth.
+  const ready = useInteractionReady();
+  const walletKey = cachedWalletRecommendations.key(deferredState);
+  const { result, pending: walletPending } = useMemo(() => {
+    if (!deferredState.data) return { result: EMPTY_WALLET, pending: false };
+    const hit = cachedWalletRecommendations.peek(deferredState);
+    if (hit) return { result: hit, pending: false };
+    if (!ready) return { result: EMPTY_WALLET, pending: true };
+    return { result: cachedWalletRecommendations(deferredState), pending: false };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [walletKey, ready]);
+  const recomputing =
+    state !== deferredState || (!state.data && state.rawLoading) || walletPending;
 
   const k = result.stats.K ?? state.walletSize;
   const obj = (result.stats.objective ?? "savings") as WalletObjective;
 
+  // Reset scroll to the top when the city changes. Key off deferredState (what
+  // the list renders) and defer a frame, otherwise the reset fires before the
+  // deferred data swaps in and FlashList's maintainVisibleContentPosition
+  // re-anchors the new list mid-scroll. See index.tsx for the full rationale.
   useEffect(() => {
-    listRef.current?.scrollToOffset({ offset: 0, animated: false });
-  }, [state.selectedCity]);
+    const id = requestAnimationFrame(() => {
+      listRef.current?.scrollToOffset({ offset: 0, animated: false });
+    });
+    return () => cancelAnimationFrame(id);
+  }, [deferredState.selectedCity]);
 
   return (
     <SafeAreaView style={styles.flex} edges={["top"]}>
@@ -44,23 +81,34 @@ export default function BuildWalletScreen() {
         subtitle={`Combinations of ${k} cards · ${OBJECTIVE_LABEL[obj]}`}
         onPressFilters={() => sheet.current?.open()}
       />
-      <FlashList
-        ref={listRef}
-        ListHeaderComponent={<WalletConfig />}
-        data={result.ranked}
-        keyExtractor={(w) => w.walletKey}
-        renderItem={({ item, index }) => <WalletCard wallet={item} rank={index + 1} />}
-        contentContainerStyle={styles.list}
-        ListFooterComponent={
-          result.stats.warnings.length ? (
-            <View style={styles.warnBox}>
-              {result.stats.warnings.map((w, i) => (
-                <Text key={i} style={styles.warnText}>• {w}</Text>
-              ))}
-            </View>
-          ) : null
-        }
-      />
+      <View style={styles.flex}>
+        <FlashList
+          ref={listRef}
+          ListHeaderComponent={<WalletConfig />}
+          data={result.ranked}
+          keyExtractor={(w) => w.walletKey}
+          renderItem={({ item, index }) => <WalletCard wallet={item} rank={index + 1} />}
+          contentContainerStyle={styles.list}
+          // Re-sorted ranking list: disable FlashList v2's default
+          // maintainVisibleContentPosition so a city switch doesn't anchor to a
+          // key-stable row mid-list. We reset to the top explicitly. (index.tsx)
+          maintainVisibleContentPosition={{ disabled: true }}
+          ListFooterComponent={
+            result.stats.warnings.length ? (
+              <View style={styles.warnBox}>
+                {result.stats.warnings.map((w, i) => (
+                  <Text key={i} style={styles.warnText}>• {w}</Text>
+                ))}
+              </View>
+            ) : null
+          }
+        />
+        {recomputing ? (
+          <View style={styles.recomputing} pointerEvents="none">
+            <ActivityIndicator color={colors.brand} />
+          </View>
+        ) : null}
+      </View>
       <FilterSheet ref={sheet} matchCount={result.ranked.length} matchLabel="wallets" />
     </SafeAreaView>
   );
@@ -216,6 +264,13 @@ function WalletCard({ wallet, rank }: { wallet: WalletShape; rank: number }) {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
+  recomputing: {
+    position: "absolute",
+    top: spacing.md,
+    left: 0,
+    right: 0,
+    alignItems: "center",
+  },
   list: { paddingBottom: 80, paddingTop: 4 },
   config: {
     backgroundColor: colors.bgElev,

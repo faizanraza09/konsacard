@@ -7,6 +7,14 @@
 /* ── STATE ── */
 const state = {
   data: null,
+  // Lightweight precomputed summary + index meta loaded on first paint so the
+  // default view renders instantly without downloading/parsing the ~21MB raw
+  // offers. `data` stays null until raw offers are lazily loaded (see
+  // ensureRawOffers in app.js). `index` holds the shell/sidebar metadata
+  // (cities, dayNames, stats, restaurantsByCity) so the chrome can render
+  // before raw offers arrive.
+  summary: null,
+  index: null,
   requirements: null,
   selectedCity: "all",           // nav city tab
   selectedDays: new Set(),

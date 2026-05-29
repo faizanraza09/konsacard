@@ -17,9 +17,25 @@ async function gotoWithUrl(page, urlPath) {
     try { localStorage.setItem("konsacard_visited_v2", "true"); } catch {}
   });
   await page.goto(urlPath);
+  // App is interactive once it has renderable data. Under the summary-first
+  // architecture a default scope (e.g. ?city=karachi) is served from
+  // state.summary with raw offers still lazy; non-default params (?bill,
+  // ?types, ?banks…) trigger ensureRawOffers() and populate state.data.
+  // Accept either, matching helpers.js gotoApp.
   await page.waitForFunction(
-    () => /** @type {any} */ (window).__app?.state?.data?.offers?.length > 0,
-    { timeout: 10_000 },
+    () => {
+      const s = /** @type {any} */ (window).__app?.state;
+      return !!(s && (s.summary || (s.data?.offers?.length > 0)));
+    },
+    { timeout: 15_000 },
+  );
+  // `summary` can appear BEFORE restoreStateFromUrl + the first render finish,
+  // so also wait until result cards are on the page — that signals the full
+  // boot → URL-restore → render cycle (and any lazy raw-offer load it triggered)
+  // has completed, before the test reads state.
+  await page.waitForFunction(
+    () => (document.querySelector("#results-grid")?.childElementCount || 0) > 0,
+    { timeout: 15_000 },
   );
 }
 

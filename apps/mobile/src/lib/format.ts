@@ -100,12 +100,21 @@ export function formatRequirementFieldValue(
   return `${est ? "~" : ""}${formatCurrency(value)}`;
 }
 
-// Short variant for compact rows — drops the "PKR" prefix in favour of the
-// currency symbol, so "PKR 12,500" → "₨ 12.5k". Used in CardRow's stats strip.
+// Pakistani consumers think in lakh/crore for large rupee amounts. For values
+// ≥ 1 lakh (100,000) we render the lakh form ("PKR 1.73 lakh"); ≥ 1 crore the
+// crore form. Below 1 lakh we fall back to the precise format, which is the
+// right grain for per-outing / per-month savings. Mirrors web
+// formatCurrencyShort (apps/web/assets/state.js) — keep the two in sync.
 export function formatCurrencyShort(value: number): string {
-  const abs = Math.abs(value);
-  if (abs >= 1_000_000) return `PKR ${(value / 1_000_000).toFixed(1)}M`;
-  if (abs >= 10_000) return `PKR ${Math.round(value / 1_000)}k`;
-  if (abs >= 1_000) return `PKR ${(value / 1_000).toFixed(1)}k`;
-  return `PKR ${Math.round(value)}`;
+  const v = Math.round(Number(value) || 0);
+  const abs = Math.abs(v);
+  if (abs >= 10_000_000) {
+    const crore = v / 10_000_000;
+    return `PKR ${crore.toFixed(crore >= 10 ? 1 : 2)} crore`;
+  }
+  if (abs >= 100_000) {
+    const lakh = v / 100_000;
+    return `PKR ${lakh.toFixed(lakh >= 10 ? 1 : 2)} lakh`;
+  }
+  return formatCurrency(v);
 }

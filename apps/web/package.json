@@ -11,7 +11,7 @@
     "build:assets:rest": "esbuild assets/app.js assets/chat.js assets/content-pages.js assets/ga-init.js assets/posthog-init.js assets/quiz.js assets/sentry-init.js assets/state.js assets/components.css assets/styles.css --minify --sourcemap --outdir=assets/dist --log-level=warning",
     "build:assets": "npm run build:assets:bundle && npm run build:assets:rest",
     "watch:assets": "esbuild assets/app.js assets/chat.js assets/content-pages.js assets/ga-init.js assets/posthog-init.js assets/quiz.js assets/sentry-init.js assets/state.js assets/components.css assets/styles.css --minify --sourcemap --outdir=assets/dist --watch --log-level=info",
-    "build": "npm run build:assets && python3 scripts/seo/generate_seo_pages.py",
+    "build": "npm run build:assets && node scripts/precompute_rankings.mjs && python3 scripts/seo/generate_seo_pages.py",
     "build:deploy": "npm run build && rm -f data/offers.json",
     "refresh:offers": "python3 scripts/offers/refresh_all_offers.py",
     "refresh:requirements": "python3 scripts/card_requirements/build_card_requirements_normalized.py && python3 scripts/card_requirements/build_deal_requirement_card_map.py",
