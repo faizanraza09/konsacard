@@ -842,8 +842,8 @@ ins.adsbygoogle[data-ad-status="unfilled"] {
 .card-item { transition: border-color .15s, box-shadow .15s, transform .1s; }
 .card-item:hover { border-color: rgba(189,91,61,0.4); box-shadow: var(--shadow-sm); transform: translateY(-1px); }
 
-.card-btns { display: flex; gap: 6px; flex-shrink: 0; }
 .btn-compare {
+  flex-shrink: 0;
   padding: 6px 12px;
   border-radius: 7px;
   border: 1.5px solid var(--line);
@@ -2572,9 +2572,15 @@ html.content-page-root .content > * { min-width: 0; }
   }
   .score-bar { width: 40px; height: 3px; }
 
-  .card-btns { display: none; }   /* Compare moves into the footer row */
+  /* Compare is a direct child of .card-row; let the row wrap so the button
+   * drops to its own full-width line below the body, matching the mobile app
+   * row. (Previously it lived in a .card-btns wrapper that was display:none,
+   * which hid the button entirely.) */
+  .card-row { flex-wrap: wrap; }
   /* Compact compare toggle below the body, matching the mobile app row. */
   .card-item .btn-compare {
+    order: 99;
+    flex-basis: 100%;
     width: 100%;
     margin-top: 8px;
     padding: 7px 12px;

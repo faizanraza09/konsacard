@@ -23,6 +23,12 @@ import {
   getOfferSavingValue as coreGetOfferSavingValue,
   getOfferDiscountPct as coreGetOfferDiscountPct,
 } from "../lib/ranking-core.mjs";
+import {
+  evaluateEligibility as coreEvaluateEligibility,
+  computeQualificationConfidence as coreComputeQualificationConfidence,
+  inferCardTier as coreInferCardTier,
+  buildEstimatesByTier as coreBuildEstimatesByTier,
+} from "../lib/eligibility-core.mjs";
 
 // Precompute card -> venue -> day -> best saving for the current scope.
 // Used by both wallet greedy and downstream stats.
@@ -827,236 +833,30 @@ const getOfferDiscountPct = coreGetOfferDiscountPct;
 
 /* ── ELIGIBILITY ──
    Card tier inference + estimates by tier + per-card eligibility evaluation
-   against the user-entered salary / balance. Returns a status object that
-   the UI uses to render badges, scores, and "needs input" hints. */
-function inferCardTier(cardName) {
-  const n = (cardName || "").toLowerCase();
-  if (n.includes("world") || n.includes("infinite") || n.includes("signature") || n.includes("privilege")) return "world";
-  if (n.includes("platinum")) return "platinum";
-  if (n.includes("titanium")) return "titanium";
-  if (n.includes("gold")) return "gold";
-  if (n.includes("silver")) return "silver";
-  if (n.includes("classic") || n.includes("standard") || n.includes("basic")) return "classic";
-  return "other";
-}
-
-function buildEstimatesByTier(requirementsPayload) {
-  const groups = {};
-  requirementsPayload.forEach((row) => {
-    const salary  = normalizeRequirementNumber(row.requirements?.minimum_monthly_salary_pkr);
-    const balance = normalizeRequirementNumber(row.requirements?.minimum_account_balance_pkr);
-    if (salary === null && balance === null) return;
-    const tier = inferCardTier(row.card_name);
-    if (!groups[tier]) groups[tier] = { salaries: [], balances: [], count: 0 };
-    if (salary  !== null && salary  > 0) groups[tier].salaries.push(salary);
-    if (balance !== null && balance > 0) groups[tier].balances.push(balance);
-    groups[tier].count++;
-  });
-
-  function median(arr) {
-    if (!arr.length) return null;
-    const s = [...arr].sort((a, b) => a - b);
-    const m = Math.floor(s.length / 2);
-    return s.length % 2 ? s[m] : Math.round((s[m - 1] + s[m]) / 2);
-  }
-
-  const map = new Map();
-  Object.entries(groups).forEach(([tier, g]) => {
-    map.set(tier, { tier, medianSalary: median(g.salaries), medianBalance: median(g.balances), peerCount: g.count });
-  });
-  return map;
-}
+   against the user-entered salary / balance. The math now lives in the shared
+   eligibility-core module (imported above) so the SSR /api/rank Pages Function
+   and the mobile offline fallback compute IDENTICAL eligibility/qualification
+   results. The functions below are thin wrappers that bind state.* (the
+   browser's user input) to the core's explicit-input signatures, preserving
+   the legacy call sites: evaluateEligibility(bank, card) and
+   computeQualificationConfidence(status). */
+const inferCardTier = coreInferCardTier;
+const buildEstimatesByTier = coreBuildEstimatesByTier;
 
 function evaluateEligibility(bank, card) {
-  const _emptyNotes = { cardNotes: [], bankGaps: [] };
-  if (!state.requirements?.available) {
-    return { status: "unavailable", label: "Requirements unavailable", tone: "unclear", sortRank: 1, detail: "Requirements data could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
-  }
-
-  const mapping = state.requirements.mappingByDealKey.get(buildDealCardKey(bank, card));
-  if (!mapping?.matched || !mapping.requirement_card_id) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "This deal-side card is not yet mapped to a verified requirements record.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
-  }
-
-  const record = state.requirements.byCardId.get(mapping.requirement_card_id);
-  if (!record) {
-    return { status: "unclear", label: "Requirements unclear", tone: "unclear", sortRank: 1, detail: "A mapped requirements record could not be loaded.", criteria: [], annualFeePkr: null, annualFeeWaiverRule: null, salaryReq: null, balanceReq: null, hasRequirementRecord: false, sourceIds: [], ..._emptyNotes };
-  }
-
-  const requirements = record.requirements || {};
-  let salaryReq  = normalizeRequirementNumber(requirements.minimum_monthly_salary_pkr);
-
-  // Consolidate various balance-like fields into a single effective balance requirement
-  let balanceReq = normalizeRequirementNumber(requirements.minimum_account_balance_pkr);
-  if (balanceReq === null) {
-    const alts = [
-      requirements.minimum_average_balance_pkr,
-      requirements.minimum_relationship_balance_pkr,
-      requirements.minimum_deposit_pkr
-    ].map(normalizeRequirementNumber).filter(v => v !== null);
-    if (alts.length > 0) balanceReq = Math.max(...alts);
-  }
-
-  const annualFeePkr       = normalizeRequirementNumber(requirements.annual_fee_pkr);
-  const annualFeeWaiverRule = requirements.annual_fee_waiver_rule || null;
-  const benefitSummary      = record.benefits || requirements.benefits || null;
-  const sourceIds  = record.source_ids || [];
-  const cardNotes  = (record.notes || []).filter((n) => n && typeof n === "string");
-  const bankGaps   = (record.bank_gaps || []).filter((n) => n && typeof n === "string");
-
-  // Fill missing salary/balance from tier-peer medians
-  let salaryIsEstimated  = false;
-  let balanceIsEstimated = false;
-  let estimationNote     = null;
-  if (salaryReq === null || balanceReq === null) {
-    const tier    = inferCardTier(record.card_name);
-    const tierEst = state.requirements.estimatesByTier?.get(tier);
-    if (tierEst) {
-      if (salaryReq  === null && tierEst.medianSalary  !== null) { salaryReq  = tierEst.medianSalary;  salaryIsEstimated  = true; }
-      if (balanceReq === null && tierEst.medianBalance !== null) { balanceReq = tierEst.medianBalance; balanceIsEstimated = true; }
-      if (salaryIsEstimated || balanceIsEstimated) {
-        const tierLabel = tier === "other" ? "similar" : tier.charAt(0).toUpperCase() + tier.slice(1);
-        estimationNote  = `Estimated from ${tierEst.peerCount} similar ${tierLabel} cards`;
-      }
-    }
-  }
-  const isEstimated = salaryIsEstimated || balanceIsEstimated;
-
-  const criteria = [];
-  const blockers = [];
-  let salaryPassed  = true;
-  let balancePassed = true;
-  let missingInput  = false;
-
-  if (salaryReq !== null) {
-    criteria.push(formatRequirementCriterion(salaryReq, "salary"));
-    if (salaryReq > 0) {
-      if (state.monthlySalary === null) {
-        missingInput = true;
-      } else if (state.monthlySalary < salaryReq) {
-        salaryPassed = false;
-        const qualifier = salaryIsEstimated ? "estimated " : "listed ";
-        blockers.push(`Below the ${qualifier}salary threshold of ${formatCurrency(salaryReq)} / month`);
-      }
-    }
-  }
-
-  if (balanceReq !== null) {
-    criteria.push(formatRequirementCriterion(balanceReq, "balance"));
-    if (balanceReq > 0) {
-      if (state.accountBalance === null) {
-        missingInput = true;
-      } else if (state.accountBalance < balanceReq) {
-        balancePassed = false;
-        const qualifier = balanceIsEstimated ? "estimated " : "listed ";
-        blockers.push(`Below the ${qualifier}account balance threshold of ${formatCurrency(balanceReq)}`);
-      }
-    }
-  }
-
-  if (annualFeePkr !== null) criteria.push(formatRequirementCriterion(annualFeePkr, "fee"));
-
-  const base = { criteria, annualFeePkr, annualFeeWaiverRule, benefitSummary, salaryReq, balanceReq, isEstimated, salaryIsEstimated, balanceIsEstimated, estimationNote, hasRequirementRecord: true, sourceIds, cardNotes, bankGaps };
-
-  // Salary and Balance are treated as ALTERNATIVE paths (OR) when a card lists
-  // both, since many Pakistani cards accept either. But a "passed path" only
-  // counts when the path actually exists — otherwise a card with only one real
-  // requirement gets a free pass on the absent one and slips through as eligible.
-  const hasSalaryReq  = salaryReq !== null && salaryReq > 0;
-  const hasBalanceReq = balanceReq !== null && balanceReq > 0;
-  const salaryHardPass  = hasSalaryReq  && state.monthlySalary  !== null && state.monthlySalary  >= salaryReq;
-  const balanceHardPass = hasBalanceReq && state.accountBalance !== null && state.accountBalance >= balanceReq;
-  const salaryHardFail  = hasSalaryReq  && !salaryPassed;
-  const balanceHardFail = hasBalanceReq && !balancePassed;
-  const salaryInputMissing  = hasSalaryReq  && state.monthlySalary  === null;
-  const balanceInputMissing = hasBalanceReq && state.accountBalance === null;
-  // Block when user has affirmatively failed at least one defined path AND has
-  // no other defined path that either passes or is still undecided (missing input).
-  const isBlocked = (salaryHardFail || balanceHardFail)
-                 && !(salaryHardPass || balanceHardPass)
-                 && !salaryInputMissing
-                 && !balanceInputMissing;
-
-  if (isBlocked) {
-    const detail = blockers.length > 1 ? `${blockers[0]} (and balance)` : blockers[0];
-    if (isEstimated) return { ...base, status: "est_ineligible",  label: "May not qualify (est.)",    tone: "est-ineligible",  sortRank: 0.5, detail };
-    return               { ...base, status: "ineligible",         label: "Likely ineligible",          tone: "ineligible",      sortRank: 0,   detail };
-  }
-  if (salaryReq === null && balanceReq === null) {
-    return               { ...base, status: "unclear",            label: "Requirements unclear",       tone: "unclear",         sortRank: 1,   detail: "No public salary or balance threshold was captured for this card." };
-  }
-  if (missingInput) {
-    if (isEstimated) return { ...base, status: "est_needs_input", label: "Est. requirements exist",   tone: "est-needs-input", sortRank: 1.5, detail: estimationNote || "Estimated thresholds exist but salary or balance details have not been entered." };
-    return               { ...base, status: "needs_input",        label: "Salary/balance not entered", tone: "needs-input",     sortRank: 2,   detail: "Public thresholds exist, but salary or balance details have not been entered." };
-  }
-  if (isEstimated) return  { ...base, status: "est_eligible",     label: "Possibly eligible (est.)",  tone: "est-eligible",    sortRank: 2.5, detail: estimationNote || "Entered salary and balance meet the estimated thresholds for this card." };
-  return                   { ...base, status: "eligible",          label: "Likely eligible",            tone: "eligible",        sortRank: 3,   detail: "Entered salary and balance meet the public thresholds captured for this card." };
+  return coreEvaluateEligibility(
+    { monthlySalary: state.monthlySalary, accountBalance: state.accountBalance },
+    bank,
+    card,
+    state.requirements,
+  );
 }
 
 function computeQualificationConfidence(status) {
-  const hasEligibilityInput = state.monthlySalary !== null || state.accountBalance !== null;
-  if (!hasEligibilityInput || !status?.hasRequirementRecord) return 0.5;
-
-  // Hard penalty for known ineligibility (unifies filter and score)
-  if (status.status === "ineligible" || status.status === "est_ineligible") return 0.0;
-
-  // Track each dimension's score AND whether the user actually entered an input
-  // for that dimension. The distinction matters for the OR-rescue blend below.
-  const scores = [];
-  const scoreDimension = (inputValue, requirementValue, isEstimated = false) => {
-    const input = normalizeRequirementNumber(inputValue);
-    const req = normalizeRequirementNumber(requirementValue);
-    // Skip dimensions that aren't real requirements. A req of 0 or null is the
-    // absence of a threshold, not a satisfied one — counting it as q=1.0 would
-    // mask failures on the other dimension when blended below.
-    if (req === null || req <= 0) return;
-
-    let q = 0.5;
-    let entered = true;
-    if (input === null) {
-      q = 0.5;
-      entered = false;
-    } else {
-      const ratio = input / req;
-      // Smooth piecewise linear curve
-      if (ratio >= 1.3) {
-        q = 1.0;
-      } else if (ratio >= 1.0) {
-        q = 0.8 + (ratio - 1.0) * (0.2 / 0.3);
-      } else if (ratio >= 0.7) {
-        q = 0.0 + (ratio - 0.7) * (0.8 / 0.3);
-      } else {
-        q = 0.0;
-      }
-    }
-
-    if (isEstimated) {
-      q = 0.5 + (q - 0.5) * 0.7;
-    }
-
-    scores.push({ q, entered });
-  };
-
-  scoreDimension(state.monthlySalary, status.salaryReq, status.salaryIsEstimated);
-  scoreDimension(state.accountBalance, status.balanceReq, status.balanceIsEstimated);
-
-  if (!scores.length) return 0.5;
-
-  // OR-blend semantics, but with an "explicit-failure floor":
-  //   - If the user has entered every defined dimension, Math.max is fine — the
-  //     card uses OR semantics so passing one path is enough.
-  //   - If only some dimensions are entered AND any entered dimension explicitly
-  //     fails (q < 0.5), don't let the unentered "unknown=0.5" rescue the score.
-  //     Cap confidence at 0.25, which translates to a ~7.5pt score penalty.
-  //     The card stays visible (it's still needs_input), but ranks much lower.
-  const enteredFailures = scores.filter((s) => s.entered && s.q < 0.5);
-  const allEntered = scores.every((s) => s.entered);
-  const maxScore = Math.max(...scores.map((s) => s.q));
-  let confidence = maxScore;
-  if (!allEntered && enteredFailures.length > 0) {
-    confidence = Math.min(0.25, maxScore);
-  }
-  return Math.max(0, Math.min(1, confidence));
+  return coreComputeQualificationConfidence(
+    { monthlySalary: state.monthlySalary, accountBalance: state.accountBalance },
+    status,
+  );
 }
 
 /* ── GLOBAL EXPOSURE ──

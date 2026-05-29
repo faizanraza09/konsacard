@@ -1471,12 +1471,10 @@ function renderFeaturedCard(result, container) {
             <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
           </div>
         </div>
-        <div class="card-btns">
-          <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
-            ${!canCmp ? "disabled" : ""}>
-            ${inCmp ? "✓ Comparing" : "+ Compare"}
-          </button>
-        </div>
+        <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
+          ${!canCmp ? "disabled" : ""}>
+          ${inCmp ? "✓ Comparing" : "+ Compare"}
+        </button>
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
@@ -1549,12 +1547,10 @@ function renderResultCards(results, container) {
             <div class="score-bar-fill" style="width:${scorePct}%;background:${sc}"></div>
           </div>
         </div>
-        <div class="card-btns">
-          <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
-            ${!canCmp ? "disabled" : ""}>
-            ${inCmp ? "✓ Comparing" : "+ Compare"}
-          </button>
-        </div>
+        <button class="btn-compare${inCmp ? " active" : ""}" data-key="${escapeAttr(cardKey)}" type="button"
+          ${!canCmp ? "disabled" : ""}>
+          ${inCmp ? "✓ Comparing" : "+ Compare"}
+        </button>
       </div>
       <div class="card-stats-row card-stats-row--clickable">
         <div class="card-stat">
