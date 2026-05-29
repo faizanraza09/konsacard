@@ -3178,14 +3178,6 @@ function renderRestaurantDetailModal(inner) {
         ${socialsHtml}
       </div>` : ""}
 
-      ${branches.length ? `
-      <div class="cd-section">
-        <div class="cd-section-title">Branches in ${escapeHtml(city)} <span class="cd-section-sub">${branches.length}</span></div>
-        <div class="rd-branches">
-          ${branches.map((b) => renderBranchCard(b)).join("")}
-        </div>
-      </div>` : ""}
-
       <div class="cd-section">
         <div class="cd-section-title">
           Available card discounts
@@ -3194,6 +3186,14 @@ function renderRestaurantDetailModal(inner) {
         <input type="search" class="s-search rd-card-search" placeholder="Search cards or banks…" autocomplete="off" />
         <div class="cd-rest-list rd-card-list"></div>
       </div>
+
+      ${branches.length ? `
+      <div class="cd-section">
+        <div class="cd-section-title">Branches in ${escapeHtml(city)} <span class="cd-section-sub">${branches.length}</span></div>
+        <div class="rd-branches">
+          ${branches.map((b) => renderBranchCard(b)).join("")}
+        </div>
+      </div>` : ""}
     </div>
   `;
 
