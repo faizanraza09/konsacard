@@ -51,6 +51,12 @@ function readJson<T>(relOrAbs: string): T {
   return JSON.parse(fs.readFileSync(full, "utf8")) as T;
 }
 
+// cityFiles/restaurantsFile carry a ?v=<hash> cache-bust suffix — strip it to
+// resolve the local filename.
+function baseName(rel: string): string {
+  return path.basename(rel.split("?")[0]);
+}
+
 /**
  * Loads the offers bundle the same way mobile's runtime `loadOffers` does:
  * read the index, concat each city file's `.offers`, and attach the
@@ -65,14 +71,14 @@ function loadOffersBundle(): OffersBundle {
   for (const city of index.cities) {
     const rel = index.cityFiles[city];
     if (!rel) continue;
-    const cityFile = readJson<{ offers: Offer[] }>(path.basename(rel));
+    const cityFile = readJson<{ offers: Offer[] }>(baseName(rel));
     offers.push(...(cityFile.offers || []));
   }
 
   const restaurantsEnrichment: Record<string, RestaurantEnrichment> = {};
   if (index.restaurantsFile) {
     const r = readJson<{ restaurants: Record<string, RestaurantEnrichment> }>(
-      path.basename(index.restaurantsFile)
+      baseName(index.restaurantsFile)
     );
     Object.assign(restaurantsEnrichment, r.restaurants || {});
   }

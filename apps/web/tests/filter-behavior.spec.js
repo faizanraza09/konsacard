@@ -54,9 +54,11 @@ test.describe("Filter behavior — list actually narrows", () => {
   test("Selecting both Credit + Debit shows both categories", async ({ page }) => {
     await gotoApp(page);
     await page.locator('#card-type-pills .s-pill', { hasText: /^Credit$/ }).click();
-    await page.waitForTimeout(150);
     await page.locator('#card-type-pills .s-pill', { hasText: /^Debit$/ }).click();
-    await page.waitForTimeout(300);
+    // Selecting a card-type filter is a non-default scope, which lazily pulls in
+    // the raw offer shards. Wait for them rather than a fixed timeout, else
+    // computeRecommendations() returns [] before the shards land (flaky).
+    await page.waitForFunction(() => /** @type {any} */ (window).__app?.state?.data?.offers?.length > 0, { timeout: 15_000 });
 
     // page.evaluate serializes return values across the browser bridge, so
     // Set instances don't survive — convert to plain Array in the browser

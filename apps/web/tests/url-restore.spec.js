@@ -27,7 +27,15 @@ async function gotoWithUrl(page, urlPath) {
       const s = /** @type {any} */ (window).__app?.state;
       return !!(s && (s.summary || (s.data?.offers?.length > 0)));
     },
-    { timeout: 10_000 },
+    { timeout: 15_000 },
+  );
+  // `summary` can appear BEFORE restoreStateFromUrl + the first render finish,
+  // so also wait until result cards are on the page — that signals the full
+  // boot → URL-restore → render cycle (and any lazy raw-offer load it triggered)
+  // has completed, before the test reads state.
+  await page.waitForFunction(
+    () => (document.querySelector("#results-grid")?.childElementCount || 0) > 0,
+    { timeout: 15_000 },
   );
 }
 

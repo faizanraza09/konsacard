@@ -24,17 +24,19 @@ const SCOPES = ["all", "karachi", "lahore", "islamabad"];
 const ORDER_VALUE = 10000;
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, "utf8")); }
+// cityFiles/restaurantsFile carry a ?v=<hash> cache-bust suffix — strip it.
+function localFile(rel) { return path.join(DATA_DIR, path.basename(String(rel).split("?")[0])); }
 
 function loadOffers() {
   const index = readJson(path.join(DATA_DIR, "offers-index.json"));
   let offers = [];
   for (const city of index.cities) {
     const rel = index.cityFiles?.[city];
-    if (rel) offers = offers.concat(readJson(path.join(DATA_DIR, path.basename(rel))).offers || []);
+    if (rel) offers = offers.concat(readJson(localFile(rel)).offers || []);
   }
   let restaurants = {};
   if (index.restaurantsFile) {
-    try { restaurants = readJson(path.join(DATA_DIR, path.basename(index.restaurantsFile))).restaurants || {}; } catch {}
+    try { restaurants = readJson(localFile(index.restaurantsFile)).restaurants || {}; } catch {}
   }
   return { offers, restaurants };
 }

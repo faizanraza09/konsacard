@@ -20,6 +20,12 @@ async function gotoApp(page) {
     const s = /** @type {any} */ (window).__app?.state;
     return !!(s && (s.summary || (s.data?.offers?.length > 0)));
   }, { timeout: 15_000 });
+  // `summary` can appear before the first render completes; wait for result
+  // cards so the app is actually interactive before the test proceeds.
+  await page.waitForFunction(
+    () => (document.querySelector("#results-grid")?.childElementCount || 0) > 0,
+    { timeout: 15_000 },
+  );
 }
 
 /**

@@ -35,23 +35,39 @@ function readJson(p) {
   return JSON.parse(fs.readFileSync(p, "utf8"));
 }
 
+// cityFiles/restaurantsFile values may carry a ?v=<hash> cache-bust suffix that
+// this script itself stamps in (see main). Strip it to resolve a local path.
+function localFile(rel) {
+  return path.join(DATA_DIR, path.basename(String(rel).split("?")[0]));
+}
+function cleanRel(rel) {
+  return String(rel).split("?")[0];
+}
+function hashFile(p) {
+  return crypto.createHash("sha256").update(fs.readFileSync(p)).digest("hex").slice(0, 12);
+}
+
 function loadOffers() {
   const index = readJson(path.join(DATA_DIR, "offers-index.json"));
   let offers = [];
+  const cityFileVersions = {};
   for (const city of index.cities) {
     const rel = index.cityFiles?.[city];
     if (!rel) continue;
-    const file = path.join(DATA_DIR, path.basename(rel));
-    const payload = readJson(file);
-    offers = offers.concat(payload.offers || []);
+    const file = localFile(rel);
+    cityFileVersions[city] = hashFile(file);
+    offers = offers.concat(readJson(file).offers || []);
   }
   let restaurants = {};
+  let restaurantsVersion = null;
   if (index.restaurantsFile) {
     try {
-      restaurants = readJson(path.join(DATA_DIR, path.basename(index.restaurantsFile))).restaurants || {};
+      const file = localFile(index.restaurantsFile);
+      restaurantsVersion = hashFile(file);
+      restaurants = readJson(file).restaurants || {};
     } catch { /* best-effort enrichment */ }
   }
-  return { index, offers, restaurants };
+  return { index, offers, restaurants, cityFileVersions, restaurantsVersion };
 }
 
 // Build the requirements lookup Maps exactly as functions/_middleware.js and
@@ -141,7 +157,7 @@ function buildFacets(offers) {
 
 function main() {
   const t0 = Date.now();
-  const { index, offers, restaurants } = loadOffers();
+  const { index, offers, restaurants, cityFileVersions, restaurantsVersion } = loadOffers();
   const requirements = loadRequirements();
 
   const scopes = {};
@@ -180,6 +196,19 @@ function main() {
   const idx = readJson(indexPath);
   idx.summaryFile = "./data/summary.json";
   idx.summaryVersion = version;
+  // Stamp a content-hash ?v= onto each shard URL the loaders fetch. The shards
+  // are otherwise long-cached immutably (see _headers); the hash changes when a
+  // shard's content changes, busting the cache. offers-index.json itself is
+  // served max-age=0, so it always hands out the current URLs.
+  if (idx.cityFiles) {
+    for (const city of Object.keys(idx.cityFiles)) {
+      const v = cityFileVersions[city];
+      if (v) idx.cityFiles[city] = `${cleanRel(idx.cityFiles[city])}?v=${v}`;
+    }
+  }
+  if (idx.restaurantsFile && restaurantsVersion) {
+    idx.restaurantsFile = `${cleanRel(idx.restaurantsFile)}?v=${restaurantsVersion}`;
+  }
   fs.writeFileSync(indexPath, JSON.stringify(idx)); // compact, matches split_offers_by_city.py
 
   const cardCounts = SCOPES.map((s) => `${s}:${scopes[s].length}`).join(" ");
