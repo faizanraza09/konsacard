@@ -24,10 +24,10 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Best Card for Restaurant Discounts in Pakistan | KonsaCard" />
     <meta name="twitter:description" content="Find the best credit card, debit card, or wallet for restaurant discounts and food deals in Pakistan." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
+    <!-- Self-hosted Outfit (variable, latin), preloaded so it's ready at first
+         paint — no font-swap reflow (CLS) and no Google Fonts third-party round
+         trip. @font-face lives in styles.css. -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/outfit-latin.woff2" crossorigin />
     <!-- gtag dataLayer stub loads synchronously so gtag() calls queue from
          first parse. The heavy gtag.js loader (and AdSense + PostHog) are
          deferred to first interaction / idle by the loader below to cut

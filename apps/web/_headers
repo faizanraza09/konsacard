@@ -42,6 +42,11 @@
 /data/summary.json
   Cache-Control: public, max-age=31536000, immutable
 
+# Self-hosted fonts — stable filenames, effectively never change (rename the
+# file if the typeface is ever updated). Cache immutably.
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
 # Manifest changes rarely but when it does (icon swap, theme color),
 # we want the new copy picked up promptly on next visit.
 /manifest.webmanifest
