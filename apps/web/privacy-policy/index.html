@@ -158,6 +158,16 @@
                     <td>Required to generate AI responses. See the AI chat section below.</td>
                   </tr>
                   <tr>
+                    <td>Product analytics events (page views, clicks, debounced searches, filter changes, compare actions)</td>
+                    <td>PostHog</td>
+                    <td>To understand which features get used and where users get stuck, so we can prioritise improvements.</td>
+                  </tr>
+                  <tr>
+                    <td>Session replays (a video-style reconstruction of clicks, taps and scrolling, with every input value masked)</td>
+                    <td>PostHog Session Replay</td>
+                    <td>To diagnose layout and UX bugs that are hard to reproduce from event data alone.</td>
+                  </tr>
+                  <tr>
                     <td>JavaScript errors (no personal data)</td>
                     <td>Sentry error monitoring</td>
                     <td>So we can detect and fix bugs that affect real users.</td>
@@ -197,6 +207,44 @@
               If you want to opt out of Google Analytics tracking, the
               <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>
               is the standard mechanism.
+            </p>
+          </article>
+
+          <article class="content-card">
+            <h2>PostHog product analytics and session replay</h2>
+            <p>
+              PostHog is loaded on every page view and records anonymous interaction
+              data: pages and screens you visit, clicks and taps, searches (after you
+              stop typing — we record the final query, not every keystroke), filter
+              and city changes, compare actions, and similar UI events. It also
+              records session replays, which are video-style reconstructions of how
+              you moved through the page.
+            </p>
+            <p>
+              PostHog assigns each device an anonymous random ID stored in your
+              browser. No name, email, salary, balance, card number, or other
+              personal information is sent. We have not enabled user identification,
+              so PostHog cannot link your activity to a real-world identity.
+            </p>
+            <p>
+              <strong>Inputs are masked in session replays.</strong> Anything you
+              type into a search box, the salary / balance fields, or any other
+              <code>&lt;input&gt;</code> appears as a blurred-out placeholder in the
+              replay video, so the values are not visible to us through replay.
+              (The structured analytics events do record the final search query, for
+              example, so we can answer "what are people searching for?" — but they
+              do not record salary or balance values.)
+            </p>
+            <p>
+              Data is processed by PostHog's US infrastructure
+              (<code>us.i.posthog.com</code>) under
+              <a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog's privacy policy</a>.
+              To opt out, you can clear site data for konsacard.pk in your browser,
+              or block third-party scripts.
+            </p>
+            <p>
+              On mobile, the KonsaCard app uses the PostHog mobile SDK with the same
+              event vocabulary, but session replay is not enabled there.
             </p>
           </article>
 
@@ -261,7 +309,11 @@
               </div>
               <div class="meta-item">
                 <strong>Analytics</strong>
-                <span>Google Analytics (page views, general usage).</span>
+                <span>Google Analytics + PostHog (page views, clicks, debounced searches, anonymous device-level ID).</span>
+              </div>
+              <div class="meta-item">
+                <strong>Session replays</strong>
+                <span>PostHog, with all input values masked.</span>
               </div>
               <div class="meta-item">
                 <strong>Advertising</strong>

@@ -16,4 +16,11 @@ posthog.init("phc_u3389FSqcbWC3XMP3iLbXQXGpGKANkG3ekbTVFwTbQ7M", {
   capture_pageview: true,
   capture_pageleave: true,
   autocapture: true,
+  // Mask every <input> / <textarea> value in session replay so things like
+  // the salary / balance / search fields aren't visible in recordings. We
+  // still record the query value via explicit search_submit events for
+  // analytics — replay is only the visual layer.
+  session_recording: {
+    maskAllInputs: true,
+  },
 });
