@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import { Pressable, StyleSheet, Text, TextInput, View } from "react-native";
 import { buildCardKey } from "@/lib/format";
+import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, spacing, typography } from "@/theme";
 
@@ -29,7 +30,14 @@ export function OwnedCardPicker() {
         {ownedArr.map((ck) => {
           const [bank, card] = ck.split(" || ");
           return (
-            <Pressable key={ck} style={styles.chip} onPress={() => toggle(ck)}>
+            <Pressable
+              key={ck}
+              style={styles.chip}
+              onPress={() => {
+                toggle(ck);
+                track("owned_card_remove", { bank, card, total: owned.size - 1 });
+              }}
+            >
               <Text style={styles.chipText} numberOfLines={1}>
                 {bank} • {card}
               </Text>
@@ -57,6 +65,7 @@ export function OwnedCardPicker() {
             onPress={() => {
               toggle(ck);
               setQ("");
+              track("owned_card_add", { bank, card, total: owned.size + 1 });
             }}
             style={styles.suggestion}
           >

@@ -9,6 +9,7 @@ import { ResultsHeader } from "@/components/ResultsHeader";
 import { RestaurantRow } from "@/components/RestaurantRow";
 import { TopBar } from "@/components/TopBar";
 import { computeRestaurantDeals } from "@/lib/restaurants";
+import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, spacing, typography } from "@/theme";
 
@@ -28,6 +29,21 @@ export default function RestaurantsScreen() {
   useEffect(() => {
     listRef.current?.scrollToOffset({ offset: 0, animated: false });
   }, [state.selectedCity, search]);
+
+  // Debounced search analytics — fire once after the user settles on a query
+  // for ~600ms instead of per-keystroke. Empty queries don't fire.
+  useEffect(() => {
+    const q = search.trim();
+    if (!q) return;
+    const t = setTimeout(() => {
+      track("search_submit", {
+        surface: "restaurants_list",
+        query: q.toLowerCase(),
+        result_count: deals.length,
+      });
+    }, 600);
+    return () => clearTimeout(t);
+  }, [search, deals.length]);
 
   const activeFilters =
     state.selectedDays.size +

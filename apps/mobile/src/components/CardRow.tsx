@@ -4,6 +4,7 @@ import type { StyleProp, ViewStyle } from "react-native";
 import { CardRecommendation } from "@/types";
 import { buildCardKey, formatCurrency, formatCurrencyShort } from "@/lib/format";
 import { getBankLogoUrl } from "@/lib/bankLogo";
+import { track } from "@/lib/analytics";
 import { useAppStore } from "@/store";
 import { colors, radii, scoreColor, shadow, spacing, typography } from "@/theme";
 
@@ -50,6 +51,14 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
     <Link
       href={{ pathname: "/card/[id]", params: { id: `${item.bank}||${item.card}` } }}
       asChild
+      onPress={() =>
+        track("card_open", {
+          bank: item.bank,
+          card: item.card,
+          rank,
+          source: "cards_list",
+        })
+      }
     >
       <Pressable style={rowStyle}>
         {isTopPick ? (
@@ -115,7 +124,13 @@ export function CardRow({ item, rank }: { item: CardRecommendation; rank: number
             disabled={disabled}
             onPress={(e) => {
               e.stopPropagation?.();
+              const wasIn = inCompare;
               toggleCompare(cardKey);
+              track(wasIn ? "compare_remove" : "compare_add", {
+                bank: item.bank,
+                card: item.card,
+                source: "cards_list",
+              });
             }}
             style={[
               styles.cmpBtn,
