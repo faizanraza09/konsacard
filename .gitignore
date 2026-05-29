@@ -9,6 +9,7 @@ node_modules/
 
 # service account keys (anywhere in the tree)
 konsacard-4e4f810a64e3.json
+apps/mobile/play-service-account.json
 
 # ── apps/web ──────────────────────────────────────────────────────────────
 apps/web/assets/config.js
