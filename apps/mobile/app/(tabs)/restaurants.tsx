@@ -1,7 +1,7 @@
 import { FlashList, type FlashListRef } from "@shopify/flash-list";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { RestaurantDeal } from "@/components/RestaurantRow";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { CityTabs } from "@/components/CityTabs";
 import { FilterSheet, FilterSheetHandle } from "@/components/FilterSheet";
@@ -10,18 +10,24 @@ import { RestaurantRow } from "@/components/RestaurantRow";
 import { TopBar } from "@/components/TopBar";
 import { computeRestaurantDeals } from "@/lib/restaurants";
 import { useAppStore } from "@/store";
-import { colors } from "@/theme";
+import { colors, radii, spacing, typography } from "@/theme";
 
 export default function RestaurantsScreen() {
   const state = useAppStore();
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<RestaurantDeal>>(null);
+  const [search, setSearch] = useState("");
 
-  const deals = useMemo(() => computeRestaurantDeals(state), [state]);
+  const allDeals = useMemo(() => computeRestaurantDeals(state), [state]);
+  const deals = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return allDeals;
+    return allDeals.filter((d) => d.restaurant.toLowerCase().includes(q));
+  }, [allDeals, search]);
 
   useEffect(() => {
     listRef.current?.scrollToOffset({ offset: 0, animated: false });
-  }, [state.selectedCity]);
+  }, [state.selectedCity, search]);
 
   const activeFilters =
     state.selectedDays.size +
@@ -43,6 +49,19 @@ export default function RestaurantsScreen() {
         filterOpenCount={activeFilters}
         onPressFilters={() => sheet.current?.open()}
       />
+      <View style={styles.searchWrap}>
+        <TextInput
+          value={search}
+          onChangeText={setSearch}
+          placeholder={`Search ${allDeals.length} restaurants…`}
+          placeholderTextColor={colors.textDim}
+          style={styles.searchInput}
+          autoCorrect={false}
+          autoCapitalize="none"
+          clearButtonMode="while-editing"
+          returnKeyType="search"
+        />
+      </View>
       <View style={styles.flex}>
         <FlashList
           ref={listRef}
@@ -60,4 +79,15 @@ export default function RestaurantsScreen() {
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
   list: { paddingBottom: 80, paddingTop: 4 },
+  searchWrap: { paddingHorizontal: spacing.lg, paddingBottom: spacing.sm },
+  searchInput: {
+    backgroundColor: colors.bgElev,
+    borderColor: colors.border,
+    borderWidth: 1,
+    borderRadius: radii.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    fontSize: typography.size.sm,
+    color: colors.text,
+  },
 });

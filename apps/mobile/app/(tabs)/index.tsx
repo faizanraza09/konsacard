@@ -2,7 +2,7 @@ import { FlashList, type FlashListRef } from "@shopify/flash-list";
 import type { CardRecommendation } from "@/types";
 import * as Haptics from "expo-haptics";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { RefreshControl, StyleSheet, View } from "react-native";
+import { RefreshControl, StyleSheet, TextInput, View } from "react-native";
 import Animated, {
   Extrapolation,
   interpolate,
@@ -23,7 +23,7 @@ import { WelcomeStrip } from "@/components/WelcomeStrip";
 import { computeRecommendations } from "@/lib/algorithms";
 import { loadOffers, loadRequirements } from "@/data";
 import { useAppStore } from "@/store";
-import { colors } from "@/theme";
+import { colors, radii, spacing, typography } from "@/theme";
 
 // createAnimatedComponent strips the FlashList generic; cast back so renderItem
 // and keyExtractor pick up the CardRecommendation type the data is.
@@ -42,8 +42,16 @@ export default function CardsScreen() {
   const sheet = useRef<FilterSheetHandle>(null);
   const listRef = useRef<FlashListRef<CardRecommendation>>(null);
   const [refreshing, setRefreshing] = useState(false);
+  const [search, setSearch] = useState("");
 
-  const recs = useMemo(() => computeRecommendations(state), [state]);
+  const allRecs = useMemo(() => computeRecommendations(state), [state]);
+  const recs = useMemo(() => {
+    const q = search.trim().toLowerCase();
+    if (!q) return allRecs;
+    return allRecs.filter(
+      (r) => r.card.toLowerCase().includes(q) || r.bank.toLowerCase().includes(q)
+    );
+  }, [allRecs, search]);
   const topPick = recs[0] ?? null;
   const compareCount = useAppStore((s) => s.compareList.length);
   const cityLabel =
@@ -55,7 +63,7 @@ export default function CardsScreen() {
   // top, not from wherever the previous city left off.
   useEffect(() => {
     listRef.current?.scrollToOffset({ offset: 0, animated: false });
-  }, [state.selectedCity]);
+  }, [state.selectedCity, search]);
 
   const activeFilters =
     state.selectedDays.size +
@@ -117,6 +125,19 @@ export default function CardsScreen() {
           sheet.current?.open();
         }}
       />
+      <View style={styles.searchWrap}>
+        <TextInput
+          value={search}
+          onChangeText={setSearch}
+          placeholder={`Search ${allRecs.length} cards or banks…`}
+          placeholderTextColor={colors.textDim}
+          style={styles.searchInput}
+          autoCorrect={false}
+          autoCapitalize="none"
+          clearButtonMode="while-editing"
+          returnKeyType="search"
+        />
+      </View>
       <View style={styles.flex}>
         <AnimatedFlashList
           ref={listRef as unknown as React.Ref<FlashListRef<CardRecommendation>>}
@@ -145,4 +166,15 @@ export default function CardsScreen() {
 
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: colors.bg },
+  searchWrap: { paddingHorizontal: spacing.lg, paddingBottom: spacing.sm },
+  searchInput: {
+    backgroundColor: colors.bgElev,
+    borderColor: colors.border,
+    borderWidth: 1,
+    borderRadius: radii.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    fontSize: typography.size.sm,
+    color: colors.text,
+  },
 });
