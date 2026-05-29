@@ -368,7 +368,7 @@ export function computeRanking({ offers, restaurantsEnrichment, requirements, se
       );
       const caps = bestByDay
         .map(([, m]) => m.capPkr)
-        .filter((v) => Number.isFinite(v));
+        .filter((v) => Number.isFinite(v) && v > 0);
 
       venueSummaries.push({
         venueKey,
@@ -404,13 +404,15 @@ export function computeRanking({ offers, restaurantsEnrichment, requirements, se
     const averageDiscount = mean(
       matches.map((m) => m.discountPct).filter((v) => Number.isFinite(v)),
     );
-    const caps = matches.map((m) => m.capPkr).filter((v) => Number.isFinite(v));
+    const caps = matches.map((m) => m.capPkr).filter((v) => Number.isFinite(v) && v > 0);
     const medianCap = caps.length ? median(caps) : null;
     const saturations = matches
       .map((m) => {
         const cap = Number(m.capPkr);
         const pct = Number(m.discountPct);
-        if (!Number.isFinite(cap) || !Number.isFinite(pct) || pct <= 0) return null;
+        // A cap of 0 (or non-finite) means "no real cap" in the data, not a
+        // PKR 0 saturation point — skip it so we never render "bills ≤ PKR 0".
+        if (!Number.isFinite(cap) || cap <= 0 || !Number.isFinite(pct) || pct <= 0) return null;
         return cap / (pct / 100);
       })
       .filter((v) => v !== null && Number.isFinite(v));
@@ -437,22 +439,35 @@ export function computeRanking({ offers, restaurantsEnrichment, requirements, se
     });
   }
 
-  // Blended savings-strength index, then P95-normalized base score.
+  // Savings-strength index with coverage folded into the saving signal
+  // (leaning toward the realistic "random restaurant" model: a card you can
+  // only use at a handful of venues shouldn't read as a high per-outing
+  // saving). The base score then blends normalized savings strength and
+  // normalized breadth 50/50, so covering many restaurants is weighed as
+  // heavily as saving a lot at the few you cover.
   const eValues = [];
+  const covValues = [];
   for (const item of aggregates) {
-    const E = item.avgExpectedSaving * (0.35 + 0.65 * Math.sqrt(item.coverage));
+    const E = item.avgExpectedSaving * (0.3 + 0.7 * item.coverage);
     item._E = E;
     eValues.push(E);
+    covValues.push(item.coverage);
   }
   eValues.sort((a, b) => a - b);
+  covValues.sort((a, b) => a - b);
   const p95 = eValues.length
     ? eValues[Math.max(0, Math.ceil(0.95 * eValues.length) - 1)]
     : 1;
   const p95Safe = Math.max(p95, 1);
+  const p95Cov = covValues.length
+    ? covValues[Math.max(0, Math.ceil(0.95 * covValues.length) - 1)]
+    : 1e-6;
+  const p95CovSafe = Math.max(p95Cov, 1e-6);
 
   for (const item of aggregates) {
     const Ns = Math.min(1, item._E / p95Safe);
-    const R = 0.75 * Ns + 0.25 * item.coverage;
+    const Ncov = Math.min(1, item.coverage / p95CovSafe);
+    const R = 0.5 * Ns + 0.5 * Ncov;
     item.baseScore = Math.max(0, Math.min(100, 20 + 80 * R));
     delete item._E;
   }
