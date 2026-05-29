@@ -511,6 +511,14 @@ input[type=range] { width: 100%; accent-color: var(--brand); cursor: pointer; }
   min-height: 210px;
   box-sizing: border-box;
 }
+/* In the Cards view the top pick is rendered inline as the first list row, so
+   #top-pick stays empty — collapse it instead of leaving a 210px gap. It's only
+   populated (and the reservation only matters) in the My Wallet / Build Wallet
+   views. Empty at paint and staying empty in Cards view keeps CLS stable. */
+.top-pick-wrap:empty {
+  min-height: 0;
+  padding: 0;
+}
 .card-item--featured {
   background: linear-gradient(135deg, #FDF3F0 0%, #FAE8E2 100%);
   border: 1.5px solid var(--brand-mid);
