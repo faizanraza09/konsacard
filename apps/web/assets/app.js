@@ -941,6 +941,10 @@ function renderNavCityTabs() {
       btn.addEventListener("click", () => {
         state.selectedCity = city;
         render();
+        // Reset to the top so the new city's list reads from the header / top
+        // pick, not from wherever the previous city was scrolled to. Mirrors
+        // the mobile app, which scrolls its list to offset 0 on city change.
+        window.scrollTo({ top: 0, behavior: "auto" });
       });
       container.appendChild(btn);
     });
