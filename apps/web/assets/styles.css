@@ -4313,7 +4313,6 @@ html.content-page-root .content > * { min-width: 0; }
   /* Persona-preset chips wrap to two rows comfortably on narrow phones. */
   .persona-presets { flex-wrap: wrap; gap: 6px; }
   .persona-chip { font-size: 11.5px; padding: 6px 10px; }
-}
 
   /* Match the results-list 20px horizontal padding so the WALLET BUILDER
    * card sits at the same width as the wallet result cards below it
