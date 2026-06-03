@@ -13,7 +13,9 @@
 import fs from "fs";
 import { execFileSync } from "child_process";
 
-const BIN = `${process.env.HOME}/go/bin/google-maps-scraper`;
+// gosom binary: $GOSOM_BIN if set, else the default go-install location (cross-platform).
+const GOBIN = process.env.HOME || process.env.USERPROFILE || ".";
+const BIN = process.env.GOSOM_BIN || `${GOBIN}/go/bin/google-maps-scraper${process.platform === "win32" ? ".exe" : ""}`;
 
 const raw = process.argv.slice(2);
 const args = {}; const flags = new Set();
