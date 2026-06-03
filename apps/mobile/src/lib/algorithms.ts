@@ -10,7 +10,7 @@ import {
   WalletResult,
   WalletShape,
 } from "@/types";
-import { computeQualificationConfidence, evaluateEligibility } from "./eligibility";
+import { computeQualificationConfidence, eligibilityScoreDelta, evaluateEligibility } from "./eligibility";
 import {
   average,
   buildCardKey,
@@ -431,11 +431,12 @@ export function computeRecommendations(state: AlgorithmState): CardRecommendatio
     const R = 0.5 * Ns + 0.5 * Ncov;
     item.baseScore = 20 + 80 * R;
     item.qualificationConfidence = computeQualificationConfidence(state, item.requirementStatus);
-    // Calibration #3: halve qualDelta from ±15 to ±7.5 so eligibility
-    // nudges the ranking instead of dominating it.
+    // Asymmetric eligibility delta (shared with web): a small boost when
+    // eligible (kept small per the Calibration #3 lesson) and a strong penalty
+    // when clearly ineligible, so unaffordable cards sink below attainable ones.
     item.qualificationDelta =
       state.useEligibility && hasEligibilityInput
-        ? 15 * (item.qualificationConfidence - 0.5)
+        ? eligibilityScoreDelta(item.qualificationConfidence)
         : 0;
     const feePenalty = computeFeePenalty(item, outingsPerYear);
     (item as CardRecommendation & { feePenalty: number }).feePenalty = feePenalty;
@@ -660,8 +661,10 @@ export function computeNextCardRecommendations(state: AlgorithmState): NextCardR
       0.1 * Math.min(1, item.newVenues / Math.max(1, venueCount * 0.1));
     item.baseScore = 20 + 80 * R;
     item.qualificationConfidence = computeQualificationConfidence(state, item.requirementStatus);
+    // Shared asymmetric delta (same curve as the Cards view) so Next-Card
+    // suggestions also bury cards the user clearly can't qualify for.
     item.qualificationDelta =
-      state.useEligibility && hasEligibilityInput ? 30 * (item.qualificationConfidence - 0.5) : 0;
+      state.useEligibility && hasEligibilityInput ? eligibilityScoreDelta(item.qualificationConfidence) : 0;
     item.score = Math.max(0, Math.min(100, (item.baseScore as number) + item.qualificationDelta));
   });
 

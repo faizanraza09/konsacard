@@ -271,10 +271,29 @@ export function evaluateEligibility(settings, bank, card, requirements) {
   const balanceHardFail = hasBalanceReq && !balancePassed;
   const salaryInputMissing = hasSalaryReq && monthlySalary === null;
   const balanceInputMissing = hasBalanceReq && accountBalance === null;
-  const isBlocked = (salaryHardFail || balanceHardFail)
-    && !(salaryHardPass || balanceHardPass)
-    && !salaryInputMissing
-    && !balanceInputMissing;
+  const anyHardPass = salaryHardPass || balanceHardPass;
+
+  // A SEVERE miss on a dimension the user actually ENTERED — they hold less
+  // than SEVERE_MISS_RATIO of what the card requires — is decisive on its own.
+  // Previously a card that ALSO listed a second threshold escaped blocking
+  // whenever the user hadn't filled that second field, so entering a 100k
+  // balance still left every "needs 5M balance / 500k salary" premium card near
+  // the top. We now treat a severe miss as disqualifying UNLESS the user clears
+  // some other listed path; a mild near-miss still defers to an unentered path
+  // (status stays needs_input and only takes a soft score penalty).
+  const SEVERE_MISS_RATIO = 0.5;
+  const salarySevereFail =
+    hasSalaryReq && monthlySalary !== null && monthlySalary < salaryReq * SEVERE_MISS_RATIO;
+  const balanceSevereFail =
+    hasBalanceReq && accountBalance !== null && accountBalance < balanceReq * SEVERE_MISS_RATIO;
+
+  const blockedAllEntered =
+    (salaryHardFail || balanceHardFail) &&
+    !anyHardPass &&
+    !salaryInputMissing &&
+    !balanceInputMissing;
+  const blockedBySevere = (salarySevereFail || balanceSevereFail) && !anyHardPass;
+  const isBlocked = blockedAllEntered || blockedBySevere;
 
   if (isBlocked) {
     const detail = blockers.length > 1 ? `${blockers[0]} (and balance)` : blockers[0];
@@ -339,6 +358,24 @@ export function computeQualificationConfidence(settings, status) {
   return Math.max(0, Math.min(1, confidence));
 }
 
+// Asymmetric mapping from qualification confidence (0..1, 0.5 = neutral, no
+// signal) to a score delta in points. Rewarding eligibility is deliberately
+// SMALL so it nudges without letting "you can probably get this" crown a
+// low-saving card (the Calibration #3 lesson — a symmetric ±15 made salary-60k
+// and salary-150k users land on the same #1). Penalizing clear ineligibility is
+// LARGE so cards the user almost certainly can't get sink below the ones they
+// can. Decoupling the two sides is the whole point: it lets the penalty be
+// strong without the boost having to match it. Used by the core applyEligibility
+// AND the browser's computeRecommendations / next-card pass, and mirrored in
+// apps/mobile/src/lib/algorithms.ts, so every surface re-ranks identically.
+export const ELIGIBILITY_BOOST_MAX = 6;
+export const ELIGIBILITY_PENALTY_MAX = 45;
+export function eligibilityScoreDelta(confidence) {
+  const c = Math.max(0, Math.min(1, Number(confidence)));
+  if (c >= 0.5) return ELIGIBILITY_BOOST_MAX * ((c - 0.5) / 0.5);
+  return -ELIGIBILITY_PENALTY_MAX * ((0.5 - c) / 0.5);
+}
+
 /**
  * Layer the per-user eligibility overlay on top of computeRanking's aggregates
  * and return the final, re-sorted list. Mirrors the tail of
@@ -365,9 +402,9 @@ export function applyEligibility(aggregates, settings, requirements) {
   for (const item of aggregates) {
     item.requirementStatus = evaluateEligibility(evalSettings, item.bank, item.card, requirements);
     item.qualificationConfidence = computeQualificationConfidence(evalSettings, item.requirementStatus);
-    // Calibration #3: ±7.5 (15·(conf−0.5)) so eligibility nudges, not dominates.
+    // Asymmetric: small boost when eligible, strong penalty when clearly not.
     item.qualificationDelta = useEligibility && hasEligibilityInput
-      ? 15 * (item.qualificationConfidence - 0.5)
+      ? eligibilityScoreDelta(item.qualificationConfidence)
       : 0;
     item.score = Math.max(
       0,
