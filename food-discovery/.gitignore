@@ -2,3 +2,11 @@
 # review text. We commit DERIVED artifacts (labels/aggregates), not raw corpora.
 data/raw/
 data/work/scrape*.log
+
+# Transient run artifacts (regenerable) — logs, sweep checkpoint, scratch, audit/worklist outputs
+data/work/*.log
+data/work/.gmaps_batch_*
+data/work/gmaps_sweep_state.json
+data/work/gazetteer_unknowns.json
+data/work/menu_candidates.json
+data/work/deep_targets.txt

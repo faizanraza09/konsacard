@@ -142,6 +142,20 @@ Store raw source records immutably before transforming.
   `nehari→nihari`, `briyani→biryani`, `seekh kebab→seekh kabab`). This layer is essential
   for Pakistani food and feeds the ontology (§11).
 
+  **Implemented (spike):** `data/gazetteer.json` (canonical dish/cuisine vocabulary + aliases,
+  English + Roman Urdu) + `scripts/lib/gazetteer.mjs` (longest-phrase word-boundary matcher with
+  protein-modifier capture, multi-dish splitting, and sentence/noise rejection). Wired into
+  `04_aggregate` (dishes keyed on canonical id; per-branch cuisine rollup derived) and
+  `05_rank_demo` (`canonicalizeQuery` → dish vs cuisine intent, exact lookup). On the 240-review
+  set this collapsed **191 raw dish strings → 52 canonical dishes** and pooled fragmented evidence
+  (e.g. `nehari/nihari/beef nihari` → one `nihari` score).
+
+  **Completeness is a loop, not a list** — a hand-authored gazetteer is always sample-fit against a
+  real corpus's long tail. Two feeders grow it: `08_harvest_menus` mines alias candidates from the
+  scraped Foodpanda/GMaps menu vocabulary (the ground-truth dish universe), and `07_gazetteer_audit`
+  reports coverage % and a frequency-ranked worklist of every unmapped string the teacher emits per
+  batch. This realizes the "normalization 2k→10k aliases (grows continuously)" line in §10.
+
 ---
 
 ## 7. Entity model: brand ↔ branch, resolution, offer join

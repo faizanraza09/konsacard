@@ -23,12 +23,18 @@ data/work/entities_offers.json
   ▼
 data/work/labels.jsonl       {relevant, dishes[], aspects[], tags[], hygiene_concern, overall}
   │
-  │ 04_aggregate.mjs          → per-branch dish/aspect scores w/ brand-prior shrinkage
-  ▼
+  │ 04_aggregate.mjs          → canonicalize dishes (gazetteer) → per-branch dish/cuisine/aspect
+  ▼                             scores w/ brand-prior shrinkage
 data/work/scores.json        (the served index)
   │
   ├─ 05_rank_demo.mjs         → rank + LLM synthesis for example queries  → out/demo.md
   └─ 06_train_student.mjs     → distillation proof: train NB on labels    → out/student_metrics.json
+
+gazetteer (dish/cuisine normalization — grows continuously, never "done"):
+  data/gazetteer.json          canonical dish/cuisine vocabulary + aliases (English + Roman Urdu)
+  scripts/lib/gazetteer.mjs    matcher: canonicalizeDish() / canonicalizeQuery()
+  ├─ 07_gazetteer_audit.mjs   → coverage % + freq-ranked UNKNOWNS from reviews  (the audit loop)
+  └─ 08_harvest_menus.mjs     → alias candidates mined from real Foodpanda/GMaps menus (seed loop)
 ```
 
 ## Run
@@ -42,7 +48,17 @@ node scripts/03_extract.mjs          # ~1.3s/review on M5
 node scripts/04_aggregate.mjs
 node scripts/05_rank_demo.mjs
 node scripts/06_train_student.mjs
+
+# gazetteer maintenance (no LLM needed — pure normalization)
+node scripts/07_gazetteer_audit.mjs   # what % of dish mentions map; worklist of unknowns to add
+node scripts/08_harvest_menus.mjs     # alias candidates mined from scraped menus
 ```
+
+> **On gazetteer completeness:** the dish list is a *seed*, not a finished set — no
+> hand-typed list survives the long tail of a real corpus. Coverage grows two ways:
+> `08_harvest_menus` proposes aliases from real menu vocabulary, and `07_gazetteer_audit`
+> surfaces every unmapped string the teacher emits per corpus batch. Add the real dishes
+> from those worklists to `data/gazetteer.json`; the rest is noise the matcher correctly drops.
 
 ## The extraction contract (what the LLM/ML produces per review)
 

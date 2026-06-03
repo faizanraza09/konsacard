@@ -3,7 +3,12 @@
 //
 // In:  data/work/labels.jsonl, data/work/entities_offers.json
 // Out: data/work/scores.json   (the served index, per branch)
+//
+// Dish strings are canonicalized via the gazetteer before keying, so transliteration
+// and modifier variants ("nehari"/"nihari"/"beef nihari") collapse to one dish id with
+// pooled evidence, and a per-branch cuisine rollup is derived for cuisine queries.
 import fs from "fs";
+import { canonicalizeDish } from "./lib/gazetteer.mjs";
 
 const LABELS = "food-discovery/data/work/labels.jsonl";
 const ENT = "food-discovery/data/work/entities_offers.json";
@@ -28,12 +33,19 @@ function makeAcc(){ return { sum:0, n:0, pos:0, neg:0, neu:0 }; }
 function add(acc, sent){ acc.sum += SENT_VAL[sent]??0.5; acc.n++; acc[sent==="positive"?"pos":sent==="negative"?"neg":"neu"]++; }
 
 const branchDish={}, brandDish={}, branchAsp={}, brandAsp={};
+const branchCuis={}, brandCuis={};            // per-branch / per-brand cuisine rollups
+const variants={};                            // canonical dish -> {raw surface form: count}  (evidence/audit)
 for(const l of labels){
   const bId=l.branch_id, bk=l.brand_key;
   for(const d of (l.dishes||[])){
-    const key=d.dish;
-    ((branchDish[bId] ||= {})[key] ||= makeAcc()); add(branchDish[bId][key], d.sentiment);
-    ((brandDish[bk] ||= {})[key] ||= makeAcc()); add(brandDish[bk][key], d.sentiment);
+    for(const hit of canonicalizeDish(d.dish)){   // 1 raw string -> 0..n canonical dishes
+      const key=hit.canonical;
+      ((branchDish[bId] ||= {})[key] ||= makeAcc()); add(branchDish[bId][key], d.sentiment);
+      ((brandDish[bk] ||= {})[key] ||= makeAcc()); add(brandDish[bk][key], d.sentiment);
+      ((branchCuis[bId] ||= {})[hit.cuisine] ||= makeAcc()); add(branchCuis[bId][hit.cuisine], d.sentiment);
+      ((brandCuis[bk] ||= {})[hit.cuisine] ||= makeAcc()); add(brandCuis[bk][hit.cuisine], d.sentiment);
+      ((variants[key] ||= {})[d.dish.toLowerCase().trim()] = (variants[key]?.[d.dish.toLowerCase().trim()]||0)+1);
+    }
   }
   for(const a of (l.aspects||[])){
     ((branchAsp[bId] ||= {})[a.aspect] ||= makeAcc()); add(branchAsp[bId][a.aspect], a.sentiment);
@@ -63,6 +75,10 @@ for(const e of Object.values(entities)){
     const aspKeys = new Set([...Object.keys(branchAsp[bId]||{}), ...Object.keys(brandAsp[bk]||{})]);
     const aspects={};
     for(const ak of aspKeys) aspects[ak] = shrink((branchAsp[bId]||{})[ak], (brandAsp[bk]||{})[ak], K_ASP);
+    // cuisine rollup (for "best <cuisine>" queries)
+    const cuisKeys = new Set([...Object.keys(branchCuis[bId]||{}), ...Object.keys(brandCuis[bk]||{})]);
+    const cuisines={};
+    for(const ck of cuisKeys) cuisines[ck] = shrink((branchCuis[bId]||{})[ck], (brandCuis[bk]||{})[ck], K_DISH);
     // Bayesian star quality
     const R=b.google_rating??GLOBAL_MEAN_STARS, v=b.google_review_count??0;
     const starQuality = ((v*R + M_STAR*GLOBAL_MEAN_STARS)/(v+M_STAR))/5;
@@ -70,7 +86,7 @@ for(const e of Object.values(entities)){
       branch_id:bId, brand:b.brand, brand_key:bk, title:b.title, city:b.city,
       lat:b.lat, lng:b.lng, price_range:b.price_range,
       google_rating:b.google_rating, google_review_count:b.google_review_count,
-      star_quality:+starQuality.toFixed(3), dishes, aspects,
+      star_quality:+starQuality.toFixed(3), dishes, aspects, cuisines,
       best_offer:b.best_offer||null, offer_count:(b.applicable_offers||[]).length,
     };
   }

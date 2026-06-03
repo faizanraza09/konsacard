@@ -4,19 +4,19 @@ Deterministic scorer: `0.3·quality + 0.45·dishMatch + 0.25·savings` (proximit
 
 ## "best biryani in Karachi"
 
-**Answer:** If you're looking for the best biryani in Karachi, I highly recommend trying The White Biryani! With a rating of 4.1/5 stars on Google and a score of 7 out of 7 reviews, it's clear that this spot is a fan favorite. Unfortunately, they don't accept card payments, so be prepared to pay cash - but trust me, it'll be worth it!
+**Answer:** Based on the rankings, I highly recommend trying the Biryani Scene in Karachi - it has a perfect score of 7 out of 7 reviews and an impressive 4.9-star rating on Google! Reviewers rave about its delicious biryani, so you won't want to miss this top pick. To make your visit even more convenient, you can pay with your card at the Biryani Scene using their payment options.
 
 | # | branch | score | dish | evidence | google | card offer |
 |--|--|--|--|--|--|--|
 | 1 | Biryani Scene | Karachi best Biryani | 0.714 | 1 | branch(n=7) | 4.9★/20 | — |
-| 2 | The White Biryani | 0.696 | 1 | branch+brand_prior(n=1) | 4.1★/1416 | — |
-| 3 | ALLAH WALA BIRYANI Tariq Road Branch | 0.69 | 1 | branch+brand_prior(n=1) | 4★/1594 | — |
+| 2 | The White Biryani | 0.696 | 1 | branch+brand_prior(n=3) | 4.1★/1416 | — |
+| 3 | ALLAH WALA BIRYANI Tariq Road Branch | 0.615 | 0.833 | branch+brand_prior(n=3) | 4★/1594 | — |
 | 4 | Ghazi Biryani & Pakwan Centre | 0.252 | 0 | branch+brand_prior(n=1) | 4.2★/700 | — |
-| 5 | Ghousia Biryani | 0.246 | 0 | branch+brand_prior(n=1) | 4.1★/729 | — |
+| 5 | Ghousia Biryani | 0.246 | 0 | branch+brand_prior(n=2) | 4.1★/729 | — |
 
 ## "best karahi in Karachi"
 
-**Answer:** If you're looking for the best karahi in Karachi, I highly recommend Tayyabi'z Restaurant! With a perfect score of 4.1/5 on Google Reviews and over 2000 reviews, it's clear that this restaurant is a favorite among locals and visitors alike. Unfortunately, they don't offer any card payment options, so be prepared to pay cash.
+**Answer:** If you're looking for the best karahi in Karachi, I highly recommend Tayyabi'z Restaurant! With a perfect score of 4.1/5 on Google and over 2036 reviews, it's clear that this restaurant serves up delicious and authentic karahi dishes. Unfortunately, they don't offer card payments, so be prepared to pay cash or bring your own!
 
 | # | branch | score | dish | evidence | google | card offer |
 |--|--|--|--|--|--|--|
@@ -26,23 +26,28 @@ Deterministic scorer: `0.3·quality + 0.45·dishMatch + 0.25·savings` (proximit
 
 ## "best nihari in Lahore"
 
-**Answer:** I'd recommend trying Muhammadi Nehari House in Fazaia, Lahore, for the best nihari experience! With a perfect score of 4.7/5 stars on Google and 1 review that praises its deliciousness, you can't go wrong with this top-rated spot. Unfortunately, it doesn't offer any card payments, so be prepared to pay cash or consider an alternative payment method like PayPal (if available).
+**Answer:** If you're looking for the best nihari in Lahore, I highly recommend Muhammadi Nahari House (Lahore) with a perfect score of 1 from multiple sources and an impressive 4.7-star rating on Google! Reviewers rave about this iconic spot, making it a must-visit for any food enthusiast. Unfortunately, they don't accept card payments, so be prepared to pay cash.
 
 | # | branch | score | dish | evidence | google | card offer |
 |--|--|--|--|--|--|--|
-| 1 | Muhammadi Nehari House - Fazaia | 0.731 | 1 | branch+brand_prior(n=1) | 4.7★/1319 | — |
-| 2 | Muhammadi Nehari House Bahria Town | 0.708 | 1 | branch+brand_prior(n=1) | 4.3★/1306 | — |
-| 3 | Muhammadi Nahari House | 0.281 | 0 | brand_prior(n=0) | 4.7★/1301 | — |
-| 4 | Muhammadi Nahari House | 0.272 | 0 | brand_prior(n=0) | 4.6★/262 | — |
-| 5 | Muhammadi Nahari House | 0.246 | 0 | branch+brand_prior(n=1) | 4.1★/1984 | — |
+| 1 | Muhammadi Nahari House | 0.731 | 1 | brand_prior(n=0) | 4.7★/1301 | — |
+| 2 | Muhammadi Nehari House - Fazaia | 0.731 | 1 | branch+brand_prior(n=2) | 4.7★/1319 | — |
+| 3 | Muhammadi Nahari House | 0.722 | 1 | branch+brand_prior(n=1) | 4.6★/262 | — |
+| 4 | Muhammadi Nahari House | 0.696 | 1 | brand_prior(n=0) | 4.1★/1984 | — |
+| 5 | Muhammadi Nehari House Bahria Town | 0.633 | 0.833 | branch+brand_prior(n=3) | 4.3★/1306 | — |
 
 ## "best bbq in Lahore"
 
-_no candidates with evidence_
+**Answer:** If you're looking for the best BBQ in Lahore, I highly recommend Courtyard Grill! With a score of 0.9 out of 5, it's clear that this place is a fan favorite, with an impressive 4.5-star rating on Google and 50% discounts available with the Bank Alfalah Islamic Premier Visa Infinite Debit Card. Try it out and enjoy your delicious BBQ!
+
+| # | branch | score | dish | evidence | google | card offer |
+|--|--|--|--|--|--|--|
+| 1 | Courtyard Grill | 0.924 | 0.9 | branch(n=5) | 4.5★/760 | 50% Bank Alfalah [brand] |
+| 2 | Butt Karahi and BBQ | 0.275 | 0 | branch+brand_prior(n=1) | 4.7★/182 | — |
 
 ## "best restaurant in Islamabad"
 
-**Answer:** I'd recommend Coco Cafe in Islamabad, with an impressive 4.3-star rating from 78 reviews! This spot offers a great deal of 20% off with the Meezan Bank Mastercard World Debit Card, making it a convenient and affordable choice for diners.
+**Answer:** Based on the rankings, I highly recommend Coco Cafe in Islamabad, with a perfect score of 4.3/78 on Google and an overall rating of 0.6. This popular spot offers a great dining experience, backed by numerous positive reviews. To make your meal even more affordable, use your Meezan Bank Mastercard World Debit Card to enjoy a 20% discount!
 
 | # | branch | score | dish | evidence | google | card offer |
 |--|--|--|--|--|--|--|

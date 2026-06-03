@@ -21,19 +21,10 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "bbq platter": {
+   "bbq-platter": {
     "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "bbq": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
+    "n": 2,
+    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
@@ -48,7 +39,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "fried rice": {
+   "fried-rice": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -57,7 +48,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "zinger rolls": {
+   "zinger": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -66,16 +57,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "excellent": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "beef boti": {
+   "boti": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -150,6 +132,44 @@
     "brand_rate": 0.5
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 1,
+    "n": 3,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "bbq": {
+    "score": 0.667,
+    "n": 3,
+    "pos": 2,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.667,
+    "brand_rate": 0.667
+   },
+   "chinese": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "fastfood": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -166,16 +186,7 @@
   "google_review_count": 3039,
   "star_quality": 0.86,
   "dishes": {
-   "tasteless karahi": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "half done meat": {
+   "karahi": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -205,6 +216,17 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -221,7 +243,7 @@
   "google_review_count": 169,
   "star_quality": 0.825,
   "dishes": {
-   "beef karahi": {
+   "karahi": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -242,6 +264,17 @@
     "brand_rate": 0.25
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -258,7 +291,7 @@
   "google_review_count": 896,
   "star_quality": 0.84,
   "dishes": {
-   "no test": {
+   "tikka": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -267,25 +300,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "price are little bit higher": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "chicken tikka": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "puri paratha": {
+   "puri": {
     "score": 0.5,
     "n": 1,
     "pos": 0,
@@ -294,7 +309,7 @@
     "branch_rate": 0.5,
     "brand_rate": 0.5
    },
-   "nan": {
+   "naan": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -333,6 +348,26 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "bbq": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 0.25,
+    "n": 2,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.25,
+    "brand_rate": 0.25
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -348,35 +383,7 @@
   "google_rating": 4.3,
   "google_review_count": 2402,
   "star_quality": 0.86,
-  "dishes": {
-   "nali": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "m bread": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "great taste": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   }
-  },
+  "dishes": {},
   "aspects": {
    "food": {
     "score": 1,
@@ -388,6 +395,7 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {},
   "best_offer": {
    "bank": "National Bank of Pakistan",
    "card": "PayPak Classic",
@@ -428,69 +436,19 @@
   "google_review_count": 1301,
   "star_quality": 0.936,
   "dishes": {
-   "good": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "breakfast": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "excellent food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "food quality": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "beef nihari, chicken nihari, chana, sheermal": {
+   "chana": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "naan chana and halwa puri": {
+   "halwa-puri": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
-   },
-   "taste is exelnt": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "overall excellent": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
    },
    "nashta": {
     "score": 1,
@@ -499,21 +457,7 @@
     "branch_rate": null,
     "brand_rate": 1
    },
-   "taste": {
-    "score": 0.5,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0.5
-   },
-   "best taste in town": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "nehari": {
+   "nihari": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -521,13 +465,6 @@
     "brand_rate": 1
    },
    "lassi": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "good food": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -569,6 +506,22 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "cafe": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -585,7 +538,7 @@
   "google_review_count": 262,
   "star_quality": 0.907,
   "dishes": {
-   "naan chana and halwa puri": {
+   "chana": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -594,32 +547,14 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "taste is exelnt": {
-    "score": 1,
+   "halwa-puri": {
+    "score": 0,
     "n": 1,
-    "pos": 1,
-    "neg": 0,
+    "pos": 0,
+    "neg": 1,
     "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "overall excellent": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "good": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
+    "branch_rate": 0,
+    "brand_rate": 0
    },
    "nashta": {
     "score": 1,
@@ -630,25 +565,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "taste": {
-    "score": 0.5,
-    "n": 1,
-    "pos": 0,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 0.5,
-    "brand_rate": 0.5
-   },
-   "best taste in town": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "nehari": {
+   "nihari": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -665,43 +582,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 1,
     "brand_rate": 1
-   },
-   "good food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "beef nihari, chicken nihari, chana, sheermal": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "breakfast": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "excellent food": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "food quality": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
    }
   },
   "aspects": {
@@ -738,6 +618,26 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.5,
+    "n": 4,
+    "pos": 2,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "cafe": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -754,42 +654,19 @@
   "google_review_count": 1984,
   "star_quality": 0.82,
   "dishes": {
-   "beef nihari, chicken nihari, chana, sheermal": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "naan chana and halwa puri": {
+   "chana": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "good": {
-    "score": 1,
+   "halwa-puri": {
+    "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 1
-   },
-   "taste is exelnt": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "overall excellent": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
+    "brand_rate": 0
    },
    "nashta": {
     "score": 1,
@@ -798,21 +675,7 @@
     "branch_rate": null,
     "brand_rate": 1
    },
-   "taste": {
-    "score": 0.5,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0.5
-   },
-   "best taste in town": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "nehari": {
+   "nihari": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -820,34 +683,6 @@
     "brand_rate": 1
    },
    "lassi": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "breakfast": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "excellent food": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "food quality": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "good food": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -891,6 +726,22 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "cafe": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -909,14 +760,14 @@
   "dishes": {
    "nihari": {
     "score": 1,
-    "n": 1,
-    "pos": 1,
+    "n": 2,
+    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "gulab jamun": {
+   "gulab-jamun": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -943,7 +794,7 @@
     "branch_rate": 0.5,
     "brand_rate": 0.5
    },
-   "halwa puri": {
+   "halwa-puri": {
     "score": 0.5,
     "n": 1,
     "pos": 0,
@@ -951,33 +802,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 0.5,
     "brand_rate": 0.5
-   },
-   "alu bhujya": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "beef nehari": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "taste and service": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -1018,6 +842,35 @@
     "brand_rate": 0.5
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.833,
+    "n": 3,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.833,
+    "brand_rate": 0.833
+   },
+   "dessert": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "cafe": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -1034,7 +887,7 @@
   "google_review_count": 1306,
   "star_quality": 0.859,
   "dishes": {
-   "roti naan": {
+   "naan": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -1043,23 +896,14 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "nehari": {
-    "score": 0.75,
-    "n": 2,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 0.75,
-    "brand_rate": 0.75
-   },
    "nihari": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
+    "score": 0.833,
+    "n": 3,
+    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
+    "branch_rate": 0.833,
+    "brand_rate": 0.833
    }
   },
   "aspects": {
@@ -1082,6 +926,17 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.625,
+    "n": 4,
+    "pos": 2,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.625,
+    "brand_rate": 0.625
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -1098,7 +953,7 @@
   "google_review_count": 353,
   "star_quality": 0.7,
   "dishes": {
-   "food": {
+   "noodles": {
     "score": 0.4,
     "n": 1,
     "pos": 0,
@@ -1107,7 +962,7 @@
     "branch_rate": 0,
     "brand_rate": 0.5
    },
-   "pink ramen noodles": {
+   "fish-fry": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -1116,43 +971,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "black dekr chle gaye": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "coleslaw": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "other dishes": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "pc fish and fries": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "midnight deal": {
+   "fries": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -1162,13 +981,13 @@
     "brand_rate": 0
    },
    "chicken": {
-    "score": 0.4,
+    "score": 0.267,
     "n": 1,
     "pos": 0,
     "neg": 1,
     "source": "branch+brand_prior",
     "branch_rate": 0,
-    "brand_rate": 0.5
+    "brand_rate": 0.333
    },
    "pizza": {
     "score": 0,
@@ -1179,168 +998,56 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "sauce": {
+   "chili-chicken": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "korean range": {
-    "score": 0,
+   "burger": {
+    "score": 0.429,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 0
+    "brand_rate": 0.429
    },
-   "trio deal burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "kabab jee": {
+   "kabab": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
    },
-   "hot burgers": {
+   "softdrink": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "cold drinks": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "noodles": {
+   "fried-chicken": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
    },
-   "premium water": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "chicken is not properly cooked and there is a hair on my food": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "burgers": {
+   "zinger": {
     "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0.5
    },
-   "8 crispy burgers": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "fried chicken bucket with slaw": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "zingeratha": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "order": {
+   "pasta": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "zenga burger": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "majesty burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "alfredo pasta": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "stale bun and cold chicken": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "wraps": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "thanda food tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zinger burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "loaded fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "the food was hot and delicious.": {
+   "roll": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -1398,6 +1105,67 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "chinese": {
+    "score": 0.267,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.333
+   },
+   "seafood": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "fastfood": {
+    "score": 0.369,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.462
+   },
+   "desi": {
+    "score": 0.267,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.333
+   },
+   "italian": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "bbq": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "cafe": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
   "best_offer": {
    "bank": "Habib Metro Bank",
    "card": "Visa Platinum Debit Card",
@@ -1438,167 +1206,67 @@
   "google_review_count": 485,
   "star_quality": 0.749,
   "dishes": {
-   "sauce": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
    "noodles": {
-    "score": 1,
+    "score": 0.6,
     "n": 1,
     "pos": 1,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
-    "brand_rate": 1
+    "brand_rate": 0.5
    },
-   "zenga burger": {
-    "score": 1,
+   "burger": {
+    "score": 0.543,
     "n": 1,
     "pos": 1,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
-    "brand_rate": 1
+    "brand_rate": 0.429
    },
-   "korean range": {
+   "chili-chicken": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "trio deal burgers": {
+   "kabab": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "softdrink": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "food": {
+   "fried-chicken": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zinger": {
     "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0.5
    },
-   "kabab jee": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "hot burgers": {
+   "fish-fry": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "cold drinks": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "pink ramen noodles": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "black dekr chle gaye": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "premium water": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "chicken is not properly cooked and there is a hair on my food": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "coleslaw": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "other dishes": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "burgers": {
-    "score": 0.5,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0.5
-   },
-   "8 crispy burgers": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "fried chicken bucket with slaw": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "zingeratha": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "order": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "pc fish and fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "midnight deal": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "majesty burger": {
+   "fries": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -1606,27 +1274,20 @@
     "brand_rate": 0
    },
    "chicken": {
-    "score": 0.5,
+    "score": 0.333,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 0.5
+    "brand_rate": 0.333
    },
-   "alfredo pasta": {
+   "pasta": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "stale bun and cold chicken": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "wraps": {
+   "roll": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -1639,41 +1300,6 @@
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
-   },
-   "thanda food tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zinger burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "loaded fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "the food was hot and delicious.": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -1724,6 +1350,61 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "chinese": {
+    "score": 0.467,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.333
+   },
+   "fastfood": {
+    "score": 0.569,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.462
+   },
+   "bbq": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "cafe": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "seafood": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   },
+   "italian": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
   "best_offer": {
    "bank": "Habib Metro Bank",
    "card": "Visa Platinum Debit Card",
@@ -1764,7 +1445,16 @@
   "google_review_count": 229,
   "star_quality": 0.692,
   "dishes": {
-   "hot burgers": {
+   "burger": {
+    "score": 0.286,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.429
+   },
+   "softdrink": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -1773,62 +1463,14 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "cold drinks": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "chicken is not properly cooked and there is a hair on my food": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "majesty burger": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "sauce": {
+   "chili-chicken": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "korean range": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "trio deal burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "food": {
-    "score": 0.5,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0.5
-   },
-   "kabab jee": {
+   "kabab": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -1836,125 +1478,55 @@
     "brand_rate": 1
    },
    "noodles": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "pink ramen noodles": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "black dekr chle gaye": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "premium water": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "coleslaw": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "other dishes": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "burgers": {
     "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0.5
    },
-   "8 crispy burgers": {
+   "fried-chicken": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
    },
-   "fried chicken bucket with slaw": {
-    "score": 1,
+   "zinger": {
+    "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 1
+    "brand_rate": 0.5
    },
-   "zingeratha": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "order": {
+   "fish-fry": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "pc fish and fries": {
+   "fries": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
-   },
-   "midnight deal": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zenga burger": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
    },
    "chicken": {
-    "score": 0.5,
+    "score": 0.333,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 0.5
+    "brand_rate": 0.333
    },
-   "alfredo pasta": {
+   "pasta": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "stale bun and cold chicken": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "wraps": {
+   "roll": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -1967,41 +1539,6 @@
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
-   },
-   "thanda food tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zinger burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "loaded fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "the food was hot and delicious.": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -2054,6 +1591,61 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "fastfood": {
+    "score": 0.308,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.462
+   },
+   "cafe": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chinese": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   },
+   "bbq": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "seafood": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   },
+   "italian": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
   "best_offer": {
    "bank": "Habib Metro Bank",
    "card": "Visa Platinum Debit Card",
@@ -2094,7 +1686,7 @@
   "google_review_count": 715,
   "star_quality": 0.784,
   "dishes": {
-   "kabab jee": {
+   "kabab": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -2103,53 +1695,21 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "food": {
-    "score": 0.6,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 0.5
-   },
-   "the food was hot and delicious.": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "sauce": {
+   "chili-chicken": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "korean range": {
-    "score": 0,
+   "burger": {
+    "score": 0.429,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 0
+    "brand_rate": 0.429
    },
-   "trio deal burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "hot burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "cold drinks": {
+   "softdrink": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -2157,111 +1717,34 @@
     "brand_rate": 0
    },
    "noodles": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "pink ramen noodles": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "black dekr chle gaye": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "premium water": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "chicken is not properly cooked and there is a hair on my food": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "coleslaw": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "other dishes": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "burgers": {
     "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0.5
    },
-   "8 crispy burgers": {
+   "fried-chicken": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
    },
-   "fried chicken bucket with slaw": {
-    "score": 1,
+   "zinger": {
+    "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 1
+    "brand_rate": 0.5
    },
-   "zingeratha": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "order": {
+   "fish-fry": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "pc fish and fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "midnight deal": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zenga burger": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "majesty burger": {
+   "fries": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -2269,27 +1752,20 @@
     "brand_rate": 0
    },
    "chicken": {
-    "score": 0.5,
+    "score": 0.333,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 0.5
+    "brand_rate": 0.333
    },
-   "alfredo pasta": {
+   "pasta": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "stale bun and cold chicken": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "wraps": {
+   "roll": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -2297,34 +1773,6 @@
     "brand_rate": 1
    },
    "pizza": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "thanda food tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zinger burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "loaded fries": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -2382,6 +1830,59 @@
     "brand_rate": 0.5
    }
   },
+  "cuisines": {
+   "bbq": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "chinese": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   },
+   "fastfood": {
+    "score": 0.462,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.462
+   },
+   "cafe": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "seafood": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   },
+   "italian": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
   "best_offer": {
    "bank": "Habib Metro Bank",
    "card": "Visa Platinum Debit Card",
@@ -2422,16 +1923,16 @@
   "google_review_count": 596,
   "star_quality": 0.766,
   "dishes": {
-   "premium water": {
-    "score": 0,
+   "burger": {
+    "score": 0.543,
     "n": 1,
-    "pos": 0,
-    "neg": 1,
+    "pos": 1,
+    "neg": 0,
     "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
+    "branch_rate": 1,
+    "brand_rate": 0.429
    },
-   "8 crispy burgers": {
+   "fried-chicken": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -2440,121 +1941,48 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "fried chicken bucket with slaw": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "zingeratha": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "order": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "alfredo pasta": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "thanda food tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "zinger burger": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "loaded fries": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "sauce": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "korean range": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "trio deal burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "food": {
+   "zinger": {
     "score": 0.5,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
     "brand_rate": 0.5
    },
-   "kabab jee": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
+   "pasta": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
    },
-   "hot burgers": {
+   "fries": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chili-chicken": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "cold drinks": {
+   "kabab": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "softdrink": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -2562,76 +1990,13 @@
     "brand_rate": 0
    },
    "noodles": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "pink ramen noodles": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "black dekr chle gaye": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "chicken is not properly cooked and there is a hair on my food": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "coleslaw": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "other dishes": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "burgers": {
     "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0.5
    },
-   "pc fish and fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "midnight deal": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zenga burger": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "majesty burger": {
+   "fish-fry": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -2639,20 +2004,13 @@
     "brand_rate": 0
    },
    "chicken": {
-    "score": 0.5,
+    "score": 0.333,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
-    "brand_rate": 0.5
+    "brand_rate": 0.333
    },
-   "stale bun and cold chicken": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "wraps": {
+   "roll": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -2665,13 +2023,6 @@
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
-   },
-   "the food was hot and delicious.": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -2726,6 +2077,61 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "fastfood": {
+    "score": 0.538,
+    "n": 5,
+    "pos": 3,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.6,
+    "brand_rate": 0.462
+   },
+   "italian": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "chinese": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   },
+   "bbq": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "cafe": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "seafood": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   }
+  },
   "best_offer": {
    "bank": "Habib Metro Bank",
    "card": "Visa Platinum Debit Card",
@@ -2766,67 +2172,39 @@
   "google_review_count": 1310,
   "star_quality": 0.84,
   "dishes": {
-   "burgers": {
-    "score": 0.4,
+   "burger": {
+    "score": 0.343,
     "n": 1,
     "pos": 0,
     "neg": 1,
     "source": "branch+brand_prior",
     "branch_rate": 0,
-    "brand_rate": 0.5
+    "brand_rate": 0.429
    },
-   "stale bun and cold chicken": {
-    "score": 0,
+   "chicken": {
+    "score": 0.267,
     "n": 1,
     "pos": 0,
     "neg": 1,
     "source": "branch+brand_prior",
     "branch_rate": 0,
-    "brand_rate": 0
+    "brand_rate": 0.333
    },
-   "sauce": {
+   "chili-chicken": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "korean range": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "trio deal burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "food": {
-    "score": 0.5,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0.5
-   },
-   "kabab jee": {
+   "kabab": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
    },
-   "hot burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "cold drinks": {
+   "softdrink": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -2834,125 +2212,48 @@
     "brand_rate": 0
    },
    "noodles": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "pink ramen noodles": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "black dekr chle gaye": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "premium water": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "chicken is not properly cooked and there is a hair on my food": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "coleslaw": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "other dishes": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "8 crispy burgers": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "fried chicken bucket with slaw": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "zingeratha": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "order": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "pc fish and fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "midnight deal": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zenga burger": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "majesty burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "chicken": {
     "score": 0.5,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0.5
    },
-   "alfredo pasta": {
+   "fried-chicken": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "zinger": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "fish-fry": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "wraps": {
+   "fries": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "pasta": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "roll": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
@@ -2965,41 +2266,6 @@
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
-   },
-   "thanda food tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zinger burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "loaded fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "the food was hot and delicious.": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -3052,6 +2318,61 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "fastfood": {
+    "score": 0.369,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.462
+   },
+   "desi": {
+    "score": 0.267,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.333
+   },
+   "chinese": {
+    "score": 0.333,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.333
+   },
+   "bbq": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "cafe": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "seafood": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "italian": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
   "best_offer": {
    "bank": "Habib Metro Bank",
    "card": "Visa Platinum Debit Card",
@@ -3092,7 +2413,7 @@
   "google_review_count": 30,
   "star_quality": 0.765,
   "dishes": {
-   "korean range": {
+   "chili-chicken": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3101,34 +2422,25 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "trio deal burgers": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
+   "burger": {
+    "score": 0.452,
+    "n": 2,
+    "pos": 1,
     "neg": 1,
     "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
+    "branch_rate": 0.5,
+    "brand_rate": 0.429
    },
    "chicken": {
-    "score": 0.6,
+    "score": 0.467,
     "n": 1,
     "pos": 1,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
-    "brand_rate": 0.5
+    "brand_rate": 0.333
    },
-   "burgers": {
-    "score": 0.6,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 0.5
-   },
-   "wraps": {
+   "roll": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -3137,35 +2449,14 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "sauce": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "food": {
-    "score": 0.5,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0.5
-   },
-   "kabab jee": {
+   "kabab": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
    },
-   "hot burgers": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "cold drinks": {
+   "softdrink": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -3173,118 +2464,41 @@
     "brand_rate": 0
    },
    "noodles": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "fried-chicken": {
     "score": 1,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
    },
-   "pink ramen noodles": {
+   "zinger": {
+    "score": 0.5,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0.5
+   },
+   "fish-fry": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "black dekr chle gaye": {
+   "fries": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
    },
-   "premium water": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "chicken is not properly cooked and there is a hair on my food": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "coleslaw": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "other dishes": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "8 crispy burgers": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "fried chicken bucket with slaw": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "zingeratha": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "order": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "pc fish and fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "midnight deal": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zenga burger": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
-   },
-   "majesty burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "alfredo pasta": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "stale bun and cold chicken": {
+   "pasta": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -3297,41 +2511,6 @@
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 0
-   },
-   "thanda food tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "ek bar garam mrwaya tha ohr b thnda tha or smell aa rhi thi": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "zinger burger": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "loaded fries": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "the food was hot and delicious.": {
-    "score": 1,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -3380,6 +2559,63 @@
     "source": "brand_prior",
     "branch_rate": null,
     "brand_rate": 1
+   }
+  },
+  "cuisines": {
+   "chinese": {
+    "score": 0.267,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0.333
+   },
+   "fastfood": {
+    "score": 0.549,
+    "n": 3,
+    "pos": 2,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.667,
+    "brand_rate": 0.462
+   },
+   "desi": {
+    "score": 0.467,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 0.333
+   },
+   "bbq": {
+    "score": 1,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 1
+   },
+   "cafe": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "seafood": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "italian": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
    }
   },
   "best_offer": {
@@ -3443,6 +2679,17 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
   "best_offer": {
    "bank": "Bank of Punjab",
    "card": "Mastercard World Credit Card",
@@ -3486,16 +2733,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "puri paratha": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "shitty food": {
+   "puri": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3534,6 +2772,26 @@
     "brand_rate": 0
    },
    "ambiance": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "fastfood": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "desi": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3590,14 +2848,7 @@
     "branch_rate": null,
     "brand_rate": 0
    },
-   "puri paratha": {
-    "score": 0,
-    "n": 0,
-    "source": "brand_prior",
-    "branch_rate": null,
-    "brand_rate": 0
-   },
-   "shitty food": {
+   "puri": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -3628,6 +2879,22 @@
     "brand_rate": 0
    },
    "ambiance": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "fastfood": {
+    "score": 0,
+    "n": 0,
+    "source": "brand_prior",
+    "branch_rate": null,
+    "brand_rate": 0
+   },
+   "desi": {
     "score": 0,
     "n": 0,
     "source": "brand_prior",
@@ -3675,42 +2942,6 @@
   "google_review_count": 571,
   "star_quality": 0.822,
   "dishes": {
-   "quality of food compromise . not exact time to deliver order": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "food": {
-    "score": 0,
-    "n": 2,
-    "pos": 0,
-    "neg": 2,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "good food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "hot and fresh food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
    "wings": {
     "score": 0,
     "n": 1,
@@ -3720,7 +2951,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "kababjees": {
+   "kabab": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3750,6 +2981,26 @@
     "brand_rate": 0.4
    },
    "delivery": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "fastfood": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "bbq": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3793,7 +3044,7 @@
   "google_review_count": 789,
   "star_quality": 0.84,
   "dishes": {
-   "3milk cake": {
+   "cake": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3814,6 +3065,17 @@
     "brand_rate": 0
    },
    "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "dessert": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3864,6 +3126,7 @@
   "star_quality": 0.763,
   "dishes": {},
   "aspects": {},
+  "cuisines": {},
   "best_offer": {
    "bank": "Askari Bank Limited",
    "card": "Askari Visa Signature Debit Card",
@@ -3904,25 +3167,7 @@
   "google_review_count": 2231,
   "star_quality": 0.84,
   "dishes": {
-   "amazing": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "taste good": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "spanish latte": {
+   "latte": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -3930,33 +3175,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
-   },
-   "the food was really good": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "so was the service": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "taste": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -3977,6 +3195,17 @@
     "source": "branch+brand_prior",
     "branch_rate": 0.5,
     "brand_rate": 0.5
+   }
+  },
+  "cuisines": {
+   "cafe": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
    }
   },
   "best_offer": {
@@ -4018,35 +3247,7 @@
   "google_rating": 4.3,
   "google_review_count": 1168,
   "star_quality": 0.859,
-  "dishes": {
-   "food": {
-    "score": 1,
-    "n": 2,
-    "pos": 2,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "service": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "food was delicious": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   }
-  },
+  "dishes": {},
   "aspects": {
    "food": {
     "score": 1,
@@ -4085,6 +3286,7 @@
     "brand_rate": 0.5
    }
   },
+  "cuisines": {},
   "best_offer": null,
   "offer_count": 0
  },
@@ -4110,7 +3312,16 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "tiramisu latte": {
+   "latte": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "cake": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4119,7 +3330,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "banana bread": {
+   "kunafa": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4128,16 +3339,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "kunafa tart": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "matcha & spanish milk": {
+   "matcha": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -4146,7 +3348,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "double shot": {
+   "coffee": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -4163,15 +3365,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 1,
     "brand_rate": 1
-   },
-   "spanish latte": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
    }
   },
   "aspects": {
@@ -4210,6 +3403,35 @@
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "cafe": {
+    "score": 0.4,
+    "n": 5,
+    "pos": 2,
+    "neg": 3,
+    "source": "branch",
+    "branch_rate": 0.4,
+    "brand_rate": 0.4
+   },
+   "dessert": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "italian": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
    }
   },
   "best_offer": {
@@ -4249,7 +3471,7 @@
   "google_review_count": 1200,
   "star_quality": 0.859,
   "dishes": {
-   "shakes and coffees": {
+   "shake": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4258,7 +3480,16 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "nocciolatte freddo": {
+   "coffee": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "latte": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -4267,7 +3498,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "the contra special frappe": {
+   "frappe": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -4275,33 +3506,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
-   },
-   "breakfast": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "signature drinks": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "fresh pastries": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -4331,6 +3535,17 @@
     "source": "branch+brand_prior",
     "branch_rate": 1,
     "brand_rate": 1
+   }
+  },
+  "cuisines": {
+   "cafe": {
+    "score": 0.5,
+    "n": 4,
+    "pos": 2,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
    }
   },
   "best_offer": {
@@ -4382,7 +3597,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "lisbon chocolate cake": {
+   "cake": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4412,6 +3627,26 @@
     "brand_rate": 0.5
    },
    "ambiance": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "cuisines": {
+   "cafe": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "dessert": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4460,17 +3695,7 @@
   "google_rating": 4.8,
   "google_review_count": 647,
   "star_quality": 0.951,
-  "dishes": {
-   "must have food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   }
-  },
+  "dishes": {},
   "aspects": {
    "food": {
     "score": 1,
@@ -4491,6 +3716,7 @@
     "brand_rate": 0.5
    }
   },
+  "cuisines": {},
   "best_offer": {
    "bank": "Al Baraka Bank",
    "card": "Mastercard Gold Debit Card",
@@ -4531,7 +3757,7 @@
   "google_review_count": 249,
   "star_quality": 0.89,
   "dishes": {
-   "blueberry lemonade": {
+   "lemonade": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4540,14 +3766,14 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "hazelnut latte coffee": {
-    "score": 0.5,
-    "n": 1,
-    "pos": 0,
+   "latte": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
     "neg": 0,
     "source": "branch+brand_prior",
-    "branch_rate": 0.5,
-    "brand_rate": 0.5
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
    },
    "coffee": {
     "score": 1,
@@ -4558,16 +3784,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "caramel latte": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "brownie dessert": {
+   "brownie": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4597,6 +3814,26 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "cafe": {
+    "score": 0.875,
+    "n": 4,
+    "pos": 3,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 0.875,
+    "brand_rate": 0.875
+   },
+   "dessert": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -4613,25 +3850,7 @@
   "google_review_count": 135,
   "star_quality": 0.884,
   "dishes": {
-   "yummy desserts": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
    "coffee": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "مزیدار ڈیسرٹس": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4643,6 +3862,17 @@
   },
   "aspects": {
    "ambiance": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "cuisines": {
+   "cafe": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4701,7 +3931,7 @@
     "branch_rate": 0.5,
     "brand_rate": 0.5
    },
-   "french fries": {
+   "fries": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4740,6 +3970,26 @@
     "brand_rate": 1
    },
    "value": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
+  "cuisines": {
+   "cafe": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "fastfood": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -4828,6 +4078,17 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 1,
+    "n": 7,
+    "pos": 7,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -4846,9 +4107,9 @@
   "dishes": {
    "biryani": {
     "score": 0,
-    "n": 1,
+    "n": 2,
     "pos": 0,
-    "neg": 1,
+    "neg": 2,
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
@@ -4862,29 +4123,11 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "beef polao": {
+   "pulao": {
     "score": 0,
-    "n": 1,
+    "n": 2,
     "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "beef pulao": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "chicken biryani": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
+    "neg": 2,
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
@@ -4897,6 +4140,17 @@
     "pos": 0,
     "neg": 2,
     "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "desi": {
+    "score": 0,
+    "n": 5,
+    "pos": 0,
+    "neg": 5,
+    "source": "branch",
     "branch_rate": 0,
     "brand_rate": 0
    }
@@ -4917,7 +4171,7 @@
   "google_review_count": 700,
   "star_quality": 0.84,
   "dishes": {
-   "baasi thandi biryani": {
+   "biryani": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -4929,6 +4183,17 @@
   },
   "aspects": {
    "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "desi": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -4954,38 +4219,11 @@
   "google_review_count": 729,
   "star_quality": 0.821,
   "dishes": {
-   "beef biryani": {
+   "biryani": {
     "score": 0,
-    "n": 1,
+    "n": 2,
     "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "chicken double biryani": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "good": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "bit pricey": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
+    "neg": 2,
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
@@ -5020,6 +4258,17 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0,
+    "n": 2,
+    "pos": 0,
+    "neg": 2,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5036,61 +4285,16 @@
   "google_review_count": 1594,
   "star_quality": 0.801,
   "dishes": {
-   "juicy biryani": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
+   "biryani": {
+    "score": 0.833,
+    "n": 3,
+    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
+    "branch_rate": 0.833,
+    "brand_rate": 0.833
    },
-   "great": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "price and taste wise": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "beef biryani": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "chicken biryani": {
-    "score": 0.5,
-    "n": 1,
-    "pos": 0,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 0.5,
-    "brand_rate": 0.5
-   },
-   "plain white rice served instead of biryani": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "chicken was very less": {
+   "chicken": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -5111,6 +4315,17 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.625,
+    "n": 4,
+    "pos": 2,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.625,
+    "brand_rate": 0.625
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5126,26 +4341,7 @@
   "google_rating": 4.6,
   "google_review_count": 1504,
   "star_quality": 0.917,
-  "dishes": {
-   "good": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "tasty": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   }
-  },
+  "dishes": {},
   "aspects": {
    "food": {
     "score": 0.667,
@@ -5184,6 +4380,7 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {},
   "best_offer": {
    "bank": "Faysal Bank Limited",
    "card": "Faysal Islami Priority World Debit Card",
@@ -5224,7 +4421,7 @@
   "google_review_count": 1416,
   "star_quality": 0.821,
   "dishes": {
-   "shami kababs": {
+   "shami-kabab": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -5235,41 +4432,14 @@
    },
    "biryani": {
     "score": 1,
-    "n": 1,
-    "pos": 1,
+    "n": 3,
+    "pos": 3,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "salt and spice level": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "qorma": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "white biryani": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "chicken biryani": {
+   "korma": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -5296,7 +4466,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "ghulab jamun": {
+   "gulab-jamun": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -5335,6 +4505,35 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.833,
+    "n": 6,
+    "pos": 5,
+    "neg": 1,
+    "source": "branch",
+    "branch_rate": 0.833,
+    "brand_rate": 0.833
+   },
+   "bbq": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "dessert": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5351,16 +4550,16 @@
   "google_review_count": 760,
   "star_quality": 0.896,
   "dishes": {
-   "beef behari": {
-    "score": 0.5,
-    "n": 1,
-    "pos": 0,
+   "beef": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
     "neg": 0,
     "source": "branch+brand_prior",
-    "branch_rate": 0.5,
-    "brand_rate": 0.5
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
    },
-   "beef undercut boti": {
+   "boti": {
     "score": 0.5,
     "n": 1,
     "pos": 0,
@@ -5387,7 +4586,7 @@
     "branch_rate": 0.5,
     "brand_rate": 0.5
    },
-   "beef kabab and tikka": {
+   "kabab": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -5396,25 +4595,16 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "juicy kababs, undercut tikka": {
+   "tikka": {
     "score": 1,
-    "n": 1,
-    "pos": 1,
+    "n": 2,
+    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "beef seekh kebab and beef under cut": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "kebabs": {
+   "seekh-kabab": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -5462,6 +4652,26 @@
     "brand_rate": 0.5
    }
   },
+  "cuisines": {
+   "desi": {
+    "score": 0.625,
+    "n": 4,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 0.625,
+    "brand_rate": 0.625
+   },
+   "bbq": {
+    "score": 0.9,
+    "n": 5,
+    "pos": 4,
+    "neg": 0,
+    "source": "branch",
+    "branch_rate": 0.9,
+    "brand_rate": 0.9
+   }
+  },
   "best_offer": {
    "bank": "Bank Alfalah",
    "card": "Bank Alfalah Islamic Premier Visa Infinite Debit Card",
@@ -5502,43 +4712,7 @@
   "google_review_count": 182,
   "star_quality": 0.918,
   "dishes": {
-   "delicious food and service": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "yummy": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "food was excellent": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "services was amazing": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "chicken tawa piece": {
+   "tikka": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -5547,7 +4721,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "chicken masala": {
+   "chicken": {
     "score": 0.5,
     "n": 1,
     "pos": 0,
@@ -5555,33 +4729,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 0.5,
     "brand_rate": 0.5
-   },
-   "food quality": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "shahbaz": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -5604,6 +4751,26 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "bbq": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5620,7 +4787,7 @@
   "google_review_count": 159,
   "star_quality": 0.855,
   "dishes": {
-   "pastas and soup": {
+   "soup": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -5629,7 +4796,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "drinks": {
+   "naan": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -5638,43 +4805,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "food": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "mediocre": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "thin crust pizza ki jga": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "nan": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "mint margarita": {
+   "lemonade": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -5731,6 +4862,35 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "chinese": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "cafe": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5747,16 +4907,7 @@
   "google_review_count": 637,
   "star_quality": 0.933,
   "dishes": {
-   "food": {
-    "score": 1,
-    "n": 2,
-    "pos": 2,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "sheesha": {
+   "shisha": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -5764,15 +4915,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
-   },
-   "excellent": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -5804,6 +4946,17 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "shisha": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5820,37 +4973,10 @@
   "google_review_count": 246,
   "star_quality": 0.84,
   "dishes": {
-   "sheesha": {
+   "shisha": {
     "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "yum food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "food": {
-    "score": 1,
-    "n": 3,
-    "pos": 3,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "sheesha qas": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
+    "n": 2,
+    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
@@ -5877,6 +5003,17 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "shisha": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5893,16 +5030,7 @@
   "google_review_count": 143,
   "star_quality": 0.87,
   "dishes": {
-   "sheesha": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "اچھا کھانا": {
+   "shisha": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -5932,6 +5060,17 @@
     "brand_rate": 0.75
    }
   },
+  "cuisines": {
+   "shisha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -5948,19 +5087,10 @@
   "google_review_count": 78,
   "star_quality": 0.913,
   "dishes": {
-   "sheesha": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
    "shisha": {
     "score": 1,
-    "n": 1,
-    "pos": 1,
+    "n": 2,
+    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
@@ -6005,6 +5135,17 @@
     "brand_rate": 0.5
    }
   },
+  "cuisines": {
+   "shisha": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -6021,7 +5162,16 @@
   "google_review_count": 2716,
   "star_quality": 0.86,
   "dishes": {
-   "ice cream": {
+   "ice-cream": {
+    "score": 0.667,
+    "n": 3,
+    "pos": 2,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.667,
+    "brand_rate": 0.667
+   },
+   "cake": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6030,34 +5180,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "icecreams": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "milkshakes": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "molten lava cake": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "chicken pot pie": {
+   "chicken": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6084,34 +5207,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "wrap": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "apple crumble": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "chocolate sundae": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "waffle with ice cream": {
+   "roll": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -6150,6 +5246,44 @@
     "brand_rate": 1
    },
    "food": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "dessert": {
+    "score": 0.5,
+    "n": 4,
+    "pos": 2,
+    "neg": 2,
+    "source": "branch",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "desi": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "fastfood": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "italian": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6199,16 +5333,7 @@
   "google_review_count": 78,
   "star_quality": 0.852,
   "dishes": {
-   "food": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "sheesha": {
+   "shisha": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -6217,52 +5342,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "cold and tasteless": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "tasteless": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "iftar buffet": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "taste": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "view": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "lamb kabab": {
+   "kabab": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6319,6 +5399,26 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "shisha": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "bbq": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
   "best_offer": {
    "bank": "Meezan Bank",
    "card": "Mastercard World Debit Card",
@@ -6359,7 +5459,7 @@
   "google_review_count": 1843,
   "star_quality": 0.859,
   "dishes": {
-   "fresh food": {
+   "pasta": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -6368,25 +5468,16 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "taste": {
-    "score": 1,
-    "n": 1,
+   "chicken": {
+    "score": 0.75,
+    "n": 2,
     "pos": 1,
     "neg": 0,
     "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
    },
-   "chicken parmesan pasta": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "parmesan chicken": {
+   "burger": {
     "score": 0.5,
     "n": 1,
     "pos": 0,
@@ -6394,33 +5485,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 0.5,
     "brand_rate": 0.5
-   },
-   "beef burger": {
-    "score": 0.5,
-    "n": 1,
-    "pos": 0,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 0.5,
-    "brand_rate": 0.5
-   },
-   "chicken kiev": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "food": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -6461,6 +5525,35 @@
     "brand_rate": 1
    }
   },
+  "cuisines": {
+   "italian": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "desi": {
+    "score": 0.75,
+    "n": 2,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.75,
+    "brand_rate": 0.75
+   },
+   "fastfood": {
+    "score": 0.5,
+    "n": 1,
+    "pos": 0,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -6477,7 +5570,7 @@
   "google_review_count": 1030,
   "star_quality": 0.783,
   "dishes": {
-   "mexican fries": {
+   "fries": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6486,7 +5579,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "burgers": {
+   "burger": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6495,19 +5588,10 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "butter stuffed chicken": {
+   "chicken": {
     "score": 1,
     "n": 1,
     "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "food": {
-    "score": 1,
-    "n": 2,
-    "pos": 2,
     "neg": 0,
     "source": "branch+brand_prior",
     "branch_rate": 1,
@@ -6522,7 +5606,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "baked pasta": {
+   "pasta": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6531,7 +5615,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "panini sandwich": {
+   "sandwich": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6588,6 +5672,44 @@
     "brand_rate": 0
    }
   },
+  "cuisines": {
+   "fastfood": {
+    "score": 0,
+    "n": 3,
+    "pos": 0,
+    "neg": 3,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "desi": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "mexican": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   },
+   "italian": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
   "best_offer": null,
   "offer_count": 0
  },
@@ -6612,33 +5734,6 @@
     "source": "branch+brand_prior",
     "branch_rate": 0,
     "brand_rate": 0
-   },
-   "mojit drinks": {
-    "score": 0,
-    "n": 1,
-    "pos": 0,
-    "neg": 1,
-    "source": "branch+brand_prior",
-    "branch_rate": 0,
-    "brand_rate": 0
-   },
-   "many things to eat": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "nice place": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
    }
   },
   "aspects": {
@@ -6652,6 +5747,17 @@
     "brand_rate": 0
    },
    "service": {
+    "score": 0,
+    "n": 1,
+    "pos": 0,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0,
+    "brand_rate": 0
+   }
+  },
+  "cuisines": {
+   "shisha": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6677,7 +5783,7 @@
   "google_review_count": 1889,
   "star_quality": 0.801,
   "dishes": {
-   "fresh, delicious, and beautifully presented.": {
+   "sandwich": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -6686,25 +5792,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "excellent service.": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "club sandwich": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "zinger burger": {
+   "zinger": {
     "score": 0,
     "n": 1,
     "pos": 0,
@@ -6713,7 +5801,7 @@
     "branch_rate": 0,
     "brand_rate": 0
    },
-   "nutella paratha": {
+   "paratha": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -6722,7 +5810,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "chocolate shake": {
+   "shake": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -6731,16 +5819,7 @@
     "branch_rate": 1,
     "brand_rate": 1
    },
-   "food in itself was delicious": {
-    "score": 1,
-    "n": 1,
-    "pos": 1,
-    "neg": 0,
-    "source": "branch+brand_prior",
-    "branch_rate": 1,
-    "brand_rate": 1
-   },
-   "tea": {
+   "chai": {
     "score": 1,
     "n": 1,
     "pos": 1,
@@ -6786,6 +5865,35 @@
     "source": "branch+brand_prior",
     "branch_rate": 0.75,
     "brand_rate": 0.75
+   }
+  },
+  "cuisines": {
+   "fastfood": {
+    "score": 0.5,
+    "n": 2,
+    "pos": 1,
+    "neg": 1,
+    "source": "branch+brand_prior",
+    "branch_rate": 0.5,
+    "brand_rate": 0.5
+   },
+   "desi": {
+    "score": 1,
+    "n": 1,
+    "pos": 1,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
+   },
+   "cafe": {
+    "score": 1,
+    "n": 2,
+    "pos": 2,
+    "neg": 0,
+    "source": "branch+brand_prior",
+    "branch_rate": 1,
+    "brand_rate": 1
    }
   },
   "best_offer": null,
