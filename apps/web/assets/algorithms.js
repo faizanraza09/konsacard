@@ -26,6 +26,7 @@ import {
 import {
   evaluateEligibility as coreEvaluateEligibility,
   computeQualificationConfidence as coreComputeQualificationConfidence,
+  eligibilityScoreDelta,
   inferCardTier as coreInferCardTier,
   buildEstimatesByTier as coreBuildEstimatesByTier,
 } from "../lib/eligibility-core.mjs";
@@ -618,8 +619,10 @@ function computeNextCardRecommendations() {
     const R = 0.65 * Ns + 0.25 * item.coverageDelta + 0.10 * Math.min(1, item.newVenues / Math.max(1, venueCount * 0.1));
     item.baseScore = 20 + 80 * R;
     item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
+    // Shared asymmetric eligibility delta (same curve as the Cards view) so the
+    // Next-Card suggestions also bury cards the user clearly can't qualify for.
     item.qualificationDelta = (state.useEligibility && hasEligibilityInput)
-      ? 30 * (item.qualificationConfidence - 0.5)
+      ? eligibilityScoreDelta(item.qualificationConfidence)
       : 0;
     item.score = Math.max(0, Math.min(100, item.baseScore + item.qualificationDelta));
   });
@@ -795,13 +798,13 @@ function computeRecommendations() {
   for (const item of aggregates) {
     item.requirementStatus = evaluateEligibility(item.bank, item.card);
     item.qualificationConfidence = computeQualificationConfidence(item.requirementStatus);
-    // Calibration #3: halve qualDelta to ±7.5. Was ±15 (range 30), which let
-    // "you can probably get this" beat "this saves you more" too easily —
-    // both salary-60k and salary-150k users landed on the same #1 because the
-    // boost saturated for any eligible card.
+    // Asymmetric eligibility delta (shared core): a small boost when eligible
+    // (kept small per the Calibration #3 lesson so "you can probably get this"
+    // can't beat "this saves you more"), and a strong penalty when the user
+    // clearly can't qualify so unaffordable cards sink below attainable ones.
     item.qualificationDelta =
       state.useEligibility && hasEligibilityInput
-        ? 15 * (item.qualificationConfidence - 0.5)
+        ? eligibilityScoreDelta(item.qualificationConfidence)
         : 0;
     item.score = Math.max(
       0,
