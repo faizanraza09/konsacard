@@ -8,7 +8,13 @@
 //   single point:  node fp_scrape.mjs --lat 24.8138 --lng 67.0300 --limit 10
 //   whole city:    node fp_scrape.mjs --grid --bbox 24.75,66.95,25.10,67.25 --step 4
 //   discover only: add --list-only   (find unique vendors, skip menu fetches)
+//   menus only:    node fp_scrape.mjs --codes-from data/raw/foodpanda_vendors.jsonl  (skip discovery)
+//   gentle resume: add --delay-ms 3000   (the menu endpoint is PerimeterX-protected;
+//                  sustained fast pulls trip a 403 CAPTCHA. go slow + resumable.)
 //   search filter: add --q biryani
+//
+// Menu fetching is RESUMABLE: output is opened append-mode and vendors already in
+// the output file are skipped, so a crashed run just continues where it left off.
 import fs from "fs";
 
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
@@ -18,12 +24,13 @@ for (let i=0;i<raw.length;i++){ if(raw[i].startsWith("--")){ const k=raw[i].slic
 
 const GRID = flags.has("grid");
 const LIST_ONLY = flags.has("list-only");
+const CODES_FROM = args["codes-from"] || null;
 const Q = args.q || null;
 const LIMIT = args.limit ? +args.limit : Infinity;        // cap on MENU fetches
 const PER_POINT = args["per-point"] ? +args["per-point"] : 250;  // cap vendors pulled per grid point
 const STEP = +(args.step ?? 4);                            // km between grid points
 const OUT = args.out || "food-discovery/data/raw/foodpanda.jsonl";
-const DELAY = 350, PAGE = 48;
+const DELAY = args["delay-ms"] ? +args["delay-ms"] : 350, PAGE = 48;
 
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
 const perseus = () => `${Date.now()}.${Math.floor(Math.random()*1e18)}.${Math.random().toString(36).slice(2,12)}`;
@@ -91,7 +98,10 @@ async function getMenu(code){
 
 // --- discover unique vendors ---
 const unique = new Map(); // code -> listing item
-if(GRID){
+if(CODES_FROM){
+  for(const l of fs.readFileSync(CODES_FROM,"utf8").trim().split("\n").filter(Boolean)){ try{const v=JSON.parse(l); if(v.code) unique.set(v.code, v);}catch{} }
+  console.log(`=== foodpanda CODES-FROM === ${unique.size} vendors loaded from ${CODES_FROM} (skipping discovery)`);
+} else if(GRID){
   const [minLat,minLng,maxLat,maxLng] = (args.bbox || "24.75,66.95,25.10,67.25").split(",").map(Number);
   const pts = gridPoints(minLat,minLng,maxLat,maxLng,STEP);
   console.log(`=== foodpanda GRID === bbox=[${minLat},${minLng},${maxLat},${maxLng}] step=${STEP}km points=${pts.length}${Q?` q="${Q}"`:""}`);
@@ -115,16 +125,19 @@ if(LIST_ONLY){
   process.exit(0);
 }
 
-// --- fetch menus ---
-const codes=[...unique.keys()].slice(0, isFinite(LIMIT)?LIMIT:undefined);
-console.log(`fetching menus for ${codes.length} vendors...`);
-const fd=fs.openSync(OUT,"w");
-let ok=0,err=0,items=0;
+// --- fetch menus (resumable: skip vendors already in OUT, append) ---
+const allCodes=[...unique.keys()].slice(0, isFinite(LIMIT)?LIMIT:undefined);
+const done=new Set();
+if(fs.existsSync(OUT)) for(const l of fs.readFileSync(OUT,"utf8").trim().split("\n").filter(Boolean)){ try{done.add(JSON.parse(l).code);}catch{} }
+const codes=allCodes.filter(c=>!done.has(c));
+console.log(`fetching menus for ${codes.length} vendors (${done.size} already done → skipped)...`);
+const fd=fs.openSync(OUT,"a");
+let ok=0,err=0,items=0,t0=Date.now();
 for(let i=0;i<codes.length;i++){
   const m=await getMenu(codes[i]);
   if(m.__err){ err++; } else { ok++; items+=m.menu.length; fs.writeSync(fd, JSON.stringify(m)+"\n"); }
-  if((i+1)%25===0||i===codes.length-1) console.log(`  ${i+1}/${codes.length}  ok=${ok} err=${err} items=${items}`);
-  await sleep(DELAY);
+  if((i+1)%25===0||i===codes.length-1){ const rate=(i+1)/((Date.now()-t0)/1000); console.log(`  ${i+1}/${codes.length}  ok=${ok} err=${err} items=${items}  ${rate.toFixed(1)}/s`); }
+  await sleep(DELAY + Math.random()*DELAY);   // jitter to look less mechanical
 }
 fs.closeSync(fd);
-console.log(`\ndone: ${ok} vendors with menus, ${err} errors, ${items} menu items → ${OUT}`);
+console.log(`\ndone: ${ok} vendors with menus this run, ${err} errors, ${items} menu items, ${done.size+ok} total → ${OUT}`);
