@@ -1,4 +1,8 @@
-import { evaluateEligibility, computeQualificationConfidence } from "@/lib/eligibility";
+import {
+  evaluateEligibility,
+  computeQualificationConfidence,
+  eligibilityScoreDelta,
+} from "@/lib/eligibility";
 import type { AlgorithmState, RequirementsPack } from "@/types";
 
 function makeState(over: Partial<AlgorithmState> = {}): AlgorithmState {
@@ -131,22 +135,35 @@ describe("computeQualificationConfidence — req=0 no longer dominates Math.max"
   });
 });
 
-describe("computeQualificationConfidence — explicit-failure floor for needs_input cards", () => {
-  // The case behind the floor: card has BOTH salary and balance reqs. User
-  // entered balance and failed it; salary missing. Without a floor the score is
-  // Math.max(0.5_unknown_salary, 0_balance_fail) = 0.5, which gives the card a
-  // 0 score-delta and lets it sit at the top of the list despite hard failure.
-  // With the floor, confidence caps at 0.25 → -7.5pt qualification delta.
-  test("balance entered + fails, salary missing → confidence capped at 0.25", () => {
+describe("severe miss on an entered dimension is decisive (+ floor for mild misses)", () => {
+  // The bug the product owner hit: enter a ~100k balance and every premium
+  // "needs 2M balance / 400k salary" card still floods the top. The OLD code
+  // only floored confidence to 0.25 (a ~-7.5pt nudge) because the unentered
+  // salary field was treated as a rescue path. Now a SEVERE miss (<50% of the
+  // requirement) on a dimension the user ACTUALLY entered is disqualifying
+  // unless they clear some other listed path.
+  test("balance entered at 25% of req, salary missing → ineligible (was needs_input)", () => {
     const state = makeState({ monthlySalary: null, accountBalance: 500_000 });
     seed(state.requirements!, "Allied Bank", "Visa Premium Debit", {
       minimum_monthly_salary_pkr: 416_667,
       minimum_account_balance_pkr: 2_000_000,
     });
     const status = evaluateEligibility(state, "allied bank", "visa premium debit");
+    expect(status.status).toBe("ineligible");
+    expect(computeQualificationConfidence(state, status)).toBe(0);
+  });
+
+  test("balance entered at a MILD miss (≥50% of req), salary missing → needs_input, capped at 0.25", () => {
+    // 1.2M of a 2M requirement = ratio 0.6 (mild) → still deferred to the
+    // unentered salary path, but confidence is floored so it ranks below sure things.
+    const state = makeState({ monthlySalary: null, accountBalance: 1_200_000 });
+    seed(state.requirements!, "Allied Bank", "Visa Premium Debit", {
+      minimum_monthly_salary_pkr: 416_667,
+      minimum_account_balance_pkr: 2_000_000,
+    });
+    const status = evaluateEligibility(state, "allied bank", "visa premium debit");
     expect(status.status).toBe("needs_input");
-    const confidence = computeQualificationConfidence(state, status);
-    expect(confidence).toBeLessThanOrEqual(0.25);
+    expect(computeQualificationConfidence(state, status)).toBeLessThanOrEqual(0.25);
   });
 
   test("balance entered + passes, salary missing → confidence ≥ 0.8 (no floor applies)", () => {
@@ -184,5 +201,20 @@ describe("computeQualificationConfidence — explicit-failure floor for needs_in
     });
     const status = evaluateEligibility(state, "bank a", "premium card");
     expect(computeQualificationConfidence(state, status)).toBe(0.5);
+  });
+});
+
+describe("eligibilityScoreDelta — asymmetric boost vs penalty", () => {
+  test("neutral confidence (0.5) → no delta", () => {
+    expect(eligibilityScoreDelta(0.5)).toBe(0);
+  });
+  test("full confidence → small positive boost (≤6)", () => {
+    expect(eligibilityScoreDelta(1)).toBeCloseTo(6);
+  });
+  test("zero confidence → large negative penalty (≈ -45)", () => {
+    expect(eligibilityScoreDelta(0)).toBeCloseTo(-45);
+  });
+  test("penalty magnitude dwarfs the boost (the whole point of decoupling)", () => {
+    expect(Math.abs(eligibilityScoreDelta(0))).toBeGreaterThan(Math.abs(eligibilityScoreDelta(1)) * 3);
   });
 });

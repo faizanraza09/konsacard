@@ -226,11 +226,26 @@ export function evaluateEligibility(
   const balanceHardFail = hasBalanceReq && !balancePassed;
   const salaryInputMissing = hasSalaryReq && state.monthlySalary === null;
   const balanceInputMissing = hasBalanceReq && state.accountBalance === null;
-  const isBlocked =
+  const anyHardPass = salaryHardPass || balanceHardPass;
+
+  // A SEVERE miss on a dimension the user actually ENTERED — they hold less
+  // than SEVERE_MISS_RATIO of what the card requires — is decisive on its own,
+  // even if a second (unentered) threshold theoretically exists. Without this a
+  // 100k balance still left every "needs 5M balance / 500k salary" premium card
+  // near the top. A mild near-miss still defers to the unentered path.
+  const SEVERE_MISS_RATIO = 0.5;
+  const salarySevereFail =
+    hasSalaryReq && state.monthlySalary !== null && state.monthlySalary < salaryReq! * SEVERE_MISS_RATIO;
+  const balanceSevereFail =
+    hasBalanceReq && state.accountBalance !== null && state.accountBalance < balanceReq! * SEVERE_MISS_RATIO;
+
+  const blockedAllEntered =
     (salaryHardFail || balanceHardFail) &&
-    !(salaryHardPass || balanceHardPass) &&
+    !anyHardPass &&
     !salaryInputMissing &&
     !balanceInputMissing;
+  const blockedBySevere = (salarySevereFail || balanceSevereFail) && !anyHardPass;
+  const isBlocked = blockedAllEntered || blockedBySevere;
 
   if (isBlocked) {
     const detail = blockers.length > 1 ? `${blockers[0]} (and balance)` : blockers[0];
@@ -360,4 +375,17 @@ export function computeQualificationConfidence(
     confidence = Math.min(0.25, maxScore);
   }
   return Math.max(0, Math.min(1, confidence));
+}
+
+// Asymmetric mapping from qualification confidence (0..1, 0.5 = neutral) to a
+// score delta in points. Mirrors apps/web/lib/eligibility-core.mjs exactly:
+// a SMALL boost when eligible (so it nudges without crowning a low-saving card,
+// the Calibration #3 lesson) and a LARGE penalty when clearly ineligible (so
+// cards the user almost certainly can't get sink below attainable ones).
+export const ELIGIBILITY_BOOST_MAX = 6;
+export const ELIGIBILITY_PENALTY_MAX = 45;
+export function eligibilityScoreDelta(confidence: number): number {
+  const c = Math.max(0, Math.min(1, Number(confidence)));
+  if (c >= 0.5) return ELIGIBILITY_BOOST_MAX * ((c - 0.5) / 0.5);
+  return -ELIGIBILITY_PENALTY_MAX * ((0.5 - c) / 0.5);
 }
