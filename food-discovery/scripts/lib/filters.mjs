@@ -10,7 +10,7 @@
 //   - drop reviews older than REVIEW_MAX_AGE_YEARS
 
 export const FILTERS = {
-  minReviewCount: 100,        // place must have at least this many Google reviews
+  minReviewCount: 50,         // place must have at least this many Google reviews
   maxReviewsPerPlace: 500,    // keep only the N most-recent reviews per place
   reviewMaxAgeYears: 2,       // drop reviews older than this
 };
