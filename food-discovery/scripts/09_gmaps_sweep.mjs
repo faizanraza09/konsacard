@@ -11,7 +11,7 @@
 //
 // Out: data/raw/karachi_gmaps.jsonl (one place/line, deduped) + data/work/gmaps_sweep_state.json
 import fs from "fs";
-import { execFileSync } from "child_process";
+import { spawn } from "child_process";
 
 // gosom binary: $GOSOM_BIN if set, else the default go-install location (cross-platform).
 const GOBIN = process.env.HOME || process.env.USERPROFILE || ".";
@@ -106,18 +106,47 @@ const fd = fs.openSync(CORPUS, "a");
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 let batchesRun = 0, addedTotal = 0;
 
+// Run gosom with a watchdog. gosom writes results to TMP_OUT incrementally (verified),
+// so once it logs "scrapemate exited" the batch's data is already on disk — but on some
+// machines the process then HANGS in Chromium teardown. So: kill the whole process group
+// as soon as work is done (exit message) or after `idleMs` of no output, with a hard cap.
+// This avoids the blind multi-minute wait that previously lost a batch on teardown hang.
+function runGosom(gosomArgs, { idleMs, hardMs }) {
+  return new Promise((resolve) => {
+    let child;
+    try { child = spawn(BIN, gosomArgs, { stdio: ["ignore", "pipe", "pipe"], detached: true }); }
+    catch (e) { return resolve(`spawn-failed:${e.message}`); }
+    let finished = false, idle, hard;
+    const killTree = () => { try { process.kill(-child.pid, "SIGKILL"); } catch { try { child.kill("SIGKILL"); } catch {} } };
+    const finish = (reason) => {
+      if (finished) return; finished = true;
+      clearTimeout(idle); clearTimeout(hard);
+      killTree();
+      resolve(reason);
+    };
+    const bumpIdle = () => { clearTimeout(idle); idle = setTimeout(() => finish("idle"), idleMs); };
+    const onData = (buf) => {
+      if (buf.toString().includes("scrapemate exited")) { setTimeout(() => finish("done"), 1500); return; }  // grace for final flush
+      bumpIdle();
+    };
+    child.stdout.on("data", onData);
+    child.stderr.on("data", onData);
+    child.on("exit", () => finish("process-exit"));
+    child.on("error", (e) => finish(`error:${e.message}`));
+    hard = setTimeout(() => finish("hard-timeout"), hardMs);
+    bumpIdle();
+  });
+}
+
 for (let i = 0; i < pending.length && batchesRun < MAX_BATCHES; i += BATCH) {
   const batch = pending.slice(i, i + BATCH);
   fs.writeFileSync(TMP_IN, batch.join("\n") + "\n");
   fs.rmSync(TMP_OUT, { force: true });
-  const gosomArgs = ["-input", TMP_IN, "-results", TMP_OUT, "-json", "-c", String(C), "-depth", String(DEPTH), "-lang", "en", "-exit-on-inactivity", "3m"];
+  const gosomArgs = ["-input", TMP_IN, "-results", TMP_OUT, "-json", "-c", String(C), "-depth", String(DEPTH), "-lang", "en", "-exit-on-inactivity", "90s"];
   if (EXTRA) gosomArgs.push("-extra-reviews");
   console.log(`\n[batch ${batchesRun + 1}] ${batch.length} queries: ${batch[0]} ...`);
-  try {
-    execFileSync(BIN, gosomArgs, { stdio: ["ignore", "ignore", "inherit"], timeout: (EXTRA ? 60 : 15) * 60 * 1000 });
-  } catch (e) {
-    console.log(`  gosom exited non-zero (${e.code || e.signal || e.message}) — keeping any partial output`);
-  }
+  const reason = await runGosom(gosomArgs, { idleMs: EXTRA ? 120000 : 60000, hardMs: (EXTRA ? 60 : 15) * 60000 });
+  if (reason !== "done" && reason !== "process-exit") console.log(`  gosom stopped (${reason}) — merging whatever was written`);
   // merge dedup
   let added = 0;
   if (fs.existsSync(TMP_OUT)) for (const l of fs.readFileSync(TMP_OUT, "utf8").trim().split("\n").filter(Boolean)) {
