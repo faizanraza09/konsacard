@@ -8610,6 +8610,108 @@
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Re-verified on 2026-05-25 against the live HBL pages and the Jan-Jun 2026 SOBC + HBL Premium addendum. Normalize before shipping to UI."
   },
   {
+    "card_id": "hbl--hbl-unionpay-classic-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL UnionPay Classic DebitCard",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2700,
+      "supplementary_annual_fee_pkr": 550,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "hbl-src-4b4c415851",
+        "hbl-src-7d351b4ff9"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "hbl-src-4b4c415851",
+        "hbl-src-7d351b4ff9"
+      ],
+      "pakistani_cnic_required": [
+        "hbl-src-4b4c415851",
+        "hbl-src-7d351b4ff9"
+      ],
+      "existing_account_required": [
+        "hbl-src-4b4c415851",
+        "hbl-src-7d351b4ff9"
+      ]
+    },
+    "source_ids": [
+      "hbl-src-4b4c415851",
+      "hbl-src-7d351b4ff9"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "UnionPay (classic-chip) variant of the HBL debit card; surfaced in the Peekaboo feed in June 2026.",
+      "SOBC Jan-Jun 2026 Part M (HBL Debit Card, page 21) bills debit cards by chip type: UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850.",
+      "No salary or minimum-balance threshold is published for the debit-card tier; both left null per methodology (null != 0).",
+      "Issued against an existing HBL account; inherits the linked account's eligibility."
+    ],
+    "bank_gaps": [
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds (age inherited from credit-card overview where applicable; debit pages omit it entirely).",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced \u2014 fees inherit chosen Mastercard Standard / Gold variant.",
+      "Dedicated Titanium and Nisa debit-card product pages returned HTTP 404 on 2026-05-25; relying on overview, lounge-access, account, and SOBC sources.",
+      "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved."
+    ],
+    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Re-verified on 2026-05-25 against the live HBL pages and the Jan-Jun 2026 SOBC + HBL Premium addendum. Normalize before shipping to UI."
+  },
+  {
+    "card_id": "hbl--hbl-unionpay-gold-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL UnionPay Gold DebitCard",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 3500,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "hbl-src-4b4c415851",
+        "hbl-src-7d351b4ff9"
+      ],
+      "pakistani_cnic_required": [
+        "hbl-src-4b4c415851",
+        "hbl-src-7d351b4ff9"
+      ],
+      "existing_account_required": [
+        "hbl-src-4b4c415851",
+        "hbl-src-7d351b4ff9"
+      ]
+    },
+    "source_ids": [
+      "hbl-src-4b4c415851",
+      "hbl-src-7d351b4ff9"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "UnionPay Gold-chip variant of the HBL debit card; surfaced in the Peekaboo feed in June 2026.",
+      "SOBC Jan-Jun 2026 Part M (HBL Debit Card, page 21): UnionPay Chip Gold primary annual fee Rs. 3,500, supplementary N/A, replacement Rs. 1,000.",
+      "No salary or minimum-balance threshold is published for the debit-card tier; both left null per methodology (null != 0).",
+      "Issued against an existing HBL account; inherits the linked account's eligibility."
+    ],
+    "bank_gaps": [
+      "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds (age inherited from credit-card overview where applicable; debit pages omit it entirely).",
+      "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced \u2014 fees inherit chosen Mastercard Standard / Gold variant.",
+      "Dedicated Titanium and Nisa debit-card product pages returned HTTP 404 on 2026-05-25; relying on overview, lounge-access, account, and SOBC sources.",
+      "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved."
+    ],
+    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Re-verified on 2026-05-25 against the live HBL pages and the Jan-Jun 2026 SOBC + HBL Premium addendum. Normalize before shipping to UI."
+  },
+  {
     "card_id": "hbl--hbl-world-business-debitcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -9133,6 +9235,106 @@
     "notes": [
       "Co-badge Islamic debit card combining UnionPay International (UPI) global acceptance with the domestic PayPak scheme (HBL UnionPay PayPak Co-Badge Debit Card launch).",
       "ISOBC Jan-Jun 2026 (HBL Islamic Debit Card section) bills by chip type: UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850. The co-badge card carries the UnionPay (classic) chip, so it is billed at the UnionPay Chip rate; PayPak Chip alone is Rs. 2,000.",
+      "HBL Islamic does not publish a salary or minimum-balance threshold for consumer Islamic debit cards; both left null per methodology (null != 0).",
+      "Issued against an existing HBL Islamic account; inherits the linked account's eligibility."
+    ],
+    "bank_gaps": [
+      "HBL Islamic does not publish salary or minimum-balance thresholds for any consumer Islamic debit card on either the card product pages or the ISOBC \u2014 these are issued against an existing Islamic account and the linked Islamic Current/PLS Saving accounts themselves carry no minimum balance, so the card-level field is intentionally null (per methodology: null != 0).",
+      "No public HBL Islamic Titanium debit-card product page exists on hbl.com; only the ISOBC fee row references this tier.",
+      "No public HBL Islamic consumer credit-card catalogue was found in this verification pass."
+    ],
+    "retrieved_note": "Verified 2026-05-25 against HBL Islamic public product pages and the Jan-Jun 2026 Islamic Schedule of Bank Charges (ISOBC). HBL Islamic does not publish a salary or minimum balance threshold for consumer Islamic debit cards \u2014 cards are issued to existing Islamic account holders and inherit any account eligibility from the linked Islamic account. The linked Islamic Current and PLS Saving accounts themselves carry no minimum balance, so the card-level balance field is intentionally null (not zero) for consumer tiers."
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-unionpay-classic-debitcard",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic UnionPay Classic DebitCard",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2700,
+      "supplementary_annual_fee_pkr": 550,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "hbl-islamic-src-54becadfef",
+        "hbl-islamic-src-b85e543077"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "hbl-islamic-src-54becadfef",
+        "hbl-islamic-src-b85e543077"
+      ],
+      "pakistani_cnic_required": [
+        "hbl-islamic-src-54becadfef",
+        "hbl-islamic-src-b85e543077"
+      ],
+      "existing_account_required": [
+        "hbl-islamic-src-54becadfef",
+        "hbl-islamic-src-b85e543077"
+      ]
+    },
+    "source_ids": [
+      "hbl-islamic-src-54becadfef",
+      "hbl-islamic-src-b85e543077"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "UnionPay (classic-chip) variant of the HBL Islamic debit card; surfaced in the Peekaboo feed in June 2026.",
+      "ISOBC Jan-Jun 2026 (HBL Islamic Debit Card section) bills debit cards by chip type: UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850.",
+      "HBL Islamic does not publish a salary or minimum-balance threshold for consumer Islamic debit cards; both left null per methodology (null != 0).",
+      "Issued against an existing HBL Islamic account; inherits the linked account's eligibility."
+    ],
+    "bank_gaps": [
+      "HBL Islamic does not publish salary or minimum-balance thresholds for any consumer Islamic debit card on either the card product pages or the ISOBC \u2014 these are issued against an existing Islamic account and the linked Islamic Current/PLS Saving accounts themselves carry no minimum balance, so the card-level field is intentionally null (per methodology: null != 0).",
+      "No public HBL Islamic Titanium debit-card product page exists on hbl.com; only the ISOBC fee row references this tier.",
+      "No public HBL Islamic consumer credit-card catalogue was found in this verification pass."
+    ],
+    "retrieved_note": "Verified 2026-05-25 against HBL Islamic public product pages and the Jan-Jun 2026 Islamic Schedule of Bank Charges (ISOBC). HBL Islamic does not publish a salary or minimum balance threshold for consumer Islamic debit cards \u2014 cards are issued to existing Islamic account holders and inherit any account eligibility from the linked Islamic account. The linked Islamic Current and PLS Saving accounts themselves carry no minimum balance, so the card-level balance field is intentionally null (not zero) for consumer tiers."
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-unionpay-gold-debitcard",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic UnionPay Gold DebitCard",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 3500,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "hbl-islamic-src-54becadfef",
+        "hbl-islamic-src-b85e543077"
+      ],
+      "pakistani_cnic_required": [
+        "hbl-islamic-src-54becadfef",
+        "hbl-islamic-src-b85e543077"
+      ],
+      "existing_account_required": [
+        "hbl-islamic-src-54becadfef",
+        "hbl-islamic-src-b85e543077"
+      ]
+    },
+    "source_ids": [
+      "hbl-islamic-src-54becadfef",
+      "hbl-islamic-src-b85e543077"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "UnionPay Gold-chip variant of the HBL Islamic debit card; surfaced in the Peekaboo feed in June 2026.",
+      "ISOBC Jan-Jun 2026 (HBL Islamic Debit Card section): UnionPay Chip Gold primary annual fee Rs. 3,500, supplementary N/A, replacement Rs. 1,000.",
       "HBL Islamic does not publish a salary or minimum-balance threshold for consumer Islamic debit cards; both left null per methodology (null != 0).",
       "Issued against an existing HBL Islamic account; inherits the linked account's eligibility."
     ],
