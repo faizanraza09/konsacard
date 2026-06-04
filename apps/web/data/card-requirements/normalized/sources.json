@@ -1565,6 +1565,8 @@
       "hbl--hbl-platinum-creditcard",
       "hbl--hbl-prestige-world-elite-debitcard",
       "hbl--hbl-titanium-debitcard",
+      "hbl--hbl-unionpay-classic-debitcard",
+      "hbl--hbl-unionpay-gold-debitcard",
       "hbl--hbl-upi-paypak-co-badge-debitcard",
       "hbl--hbl-world-business-debitcard",
       "hbl--hbl-world-debitcard"
@@ -1648,7 +1650,9 @@
     "source_type": "html",
     "used_by_card_ids": [
       "hbl--hbl-classic-debitcard",
-      "hbl--hbl-nisa-debitcard"
+      "hbl--hbl-nisa-debitcard",
+      "hbl--hbl-unionpay-classic-debitcard",
+      "hbl--hbl-unionpay-gold-debitcard"
     ]
   },
   {
@@ -1733,6 +1737,8 @@
       "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
       "hbl-islamic--hbl-islamic-paypak-debit-card",
       "hbl-islamic--hbl-islamic-titanium-debitcard",
+      "hbl-islamic--hbl-islamic-unionpay-classic-debitcard",
+      "hbl-islamic--hbl-islamic-unionpay-gold-debitcard",
       "hbl-islamic--hbl-islamic-upi-paypak-co-badge-debitcard",
       "hbl-islamic--hbl-islamic-world-debit-card",
       "hbl-islamic--hbl-world-islamic-business-debitcard"
@@ -1748,6 +1754,8 @@
       "hbl-islamic--hbl-islamic-mastercard-gold-debit-card",
       "hbl-islamic--hbl-islamic-mastercard-standard-debit-card",
       "hbl-islamic--hbl-islamic-paypak-debit-card",
+      "hbl-islamic--hbl-islamic-unionpay-classic-debitcard",
+      "hbl-islamic--hbl-islamic-unionpay-gold-debitcard",
       "hbl-islamic--hbl-islamic-upi-paypak-co-badge-debitcard",
       "hbl-islamic--hbl-islamic-world-debit-card"
     ]

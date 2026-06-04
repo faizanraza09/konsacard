@@ -1232,6 +1232,28 @@
     "pilot_position": 7
   },
   {
+    "card_id": "hbl--hbl-unionpay-classic-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL UnionPay Classic DebitCard",
+    "card_slug": "hbl-unionpay-classic-debitcard",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "medium",
+    "pilot_position": 15
+  },
+  {
+    "card_id": "hbl--hbl-unionpay-gold-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL UnionPay Gold DebitCard",
+    "card_slug": "hbl-unionpay-gold-debitcard",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "medium",
+    "pilot_position": 16
+  },
+  {
     "card_id": "hbl--hbl-world-business-debitcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -1329,6 +1351,28 @@
     "tier": "paypak",
     "confidence": "medium",
     "pilot_position": 2
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-unionpay-classic-debitcard",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic UnionPay Classic DebitCard",
+    "card_slug": "hbl-islamic-unionpay-classic-debitcard",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "medium",
+    "pilot_position": 10
+  },
+  {
+    "card_id": "hbl-islamic--hbl-islamic-unionpay-gold-debitcard",
+    "bank_slug": "hbl-islamic",
+    "bank_name": "HBL Islamic Bank Limited",
+    "card_name": "HBL Islamic UnionPay Gold DebitCard",
+    "card_slug": "hbl-islamic-unionpay-gold-debitcard",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "medium",
+    "pilot_position": 11
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-world-debit-card",
