@@ -1064,6 +1064,24 @@
   {
     "deal_bank_name": "HBL Islamic Bank Limited",
     "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic UnionPay Classic DebitCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-unionpay-classic-debitcard",
+    "requirement_card_name": "HBL Islamic UnionPay Classic DebitCard"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic UnionPay Gold DebitCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-unionpay-gold-debitcard",
+    "requirement_card_name": "HBL Islamic UnionPay Gold DebitCard"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
     "deal_card_name": "HBL Islamic World Business DebitCard",
     "matched": true,
     "match_method": "manual_alias",
@@ -1177,6 +1195,24 @@
     "match_method": "canonical_exact",
     "requirement_card_id": "hbl--hbl-upi-paypak-co-badge-debitcard",
     "requirement_card_name": "HBL UPI & PayPak Co-Badge DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL UnionPay Classic DebitCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-unionpay-classic-debitcard",
+    "requirement_card_name": "HBL UnionPay Classic DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL UnionPay Gold DebitCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-unionpay-gold-debitcard",
+    "requirement_card_name": "HBL UnionPay Gold DebitCard"
   },
   {
     "deal_bank_name": "Habib Bank Limited",

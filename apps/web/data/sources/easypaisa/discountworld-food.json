@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-31T15:58:21",
+  "generatedAt": "2026-06-04T18:42:42",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -482,26 +482,68 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Second Cup",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 10,
+      "summary": "From a humble beginn...",
+      "phone": "0300 0732287",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
-      "outlets": [],
-      "official_locations": [
-        "F-6 & Park View"
+      "outlets": [
+        {
+          "outlet_name": "Second Cup - F6",
+          "address": "1. Second Cup, Plot No. 6, Super Market, Block B, Agha Khan Rd, F-6 Markaz F 6 Markaz Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - Park View City",
+          "address": "Second Cup Building, Near Gate 2, Park View City, Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - DHA Phase 3",
+          "address": "Second Cup Caf\u00e9 Bistro, St 10, Sector Z DHA Phase 3, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Gulberg III",
+          "address": "Second Cup, Block B 2 Gulberg III, Kasuri Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Zahoor Elahi Road",
+          "address": "Euro Pump Branch, Zahoor Elahi Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Johar Town",
+          "address": "Second Cup Johar Town R1 branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Eden Canal Villas",
+          "address": "Eden Canal Villas Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Mall One",
+          "address": "6. Mall One, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Packages Mall",
+          "address": "Packages Mall Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Jillani Park",
+          "address": "Race Course/ Jillani Park Branch, Lahore"
+        }
       ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "F-6 & Park View"
       ]
     },
     {
@@ -591,6 +633,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=3",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=3"
       ]
     },
     {
@@ -1057,26 +1213,68 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Second Cup",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 10,
+      "summary": "From a humble beginn...",
+      "phone": "0300 0732287",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
-      "outlets": [],
-      "official_locations": [
-        "F-6 & Park View"
+      "outlets": [
+        {
+          "outlet_name": "Second Cup - F6",
+          "address": "1. Second Cup, Plot No. 6, Super Market, Block B, Agha Khan Rd, F-6 Markaz F 6 Markaz Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - Park View City",
+          "address": "Second Cup Building, Near Gate 2, Park View City, Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - DHA Phase 3",
+          "address": "Second Cup Caf\u00e9 Bistro, St 10, Sector Z DHA Phase 3, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Gulberg III",
+          "address": "Second Cup, Block B 2 Gulberg III, Kasuri Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Zahoor Elahi Road",
+          "address": "Euro Pump Branch, Zahoor Elahi Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Johar Town",
+          "address": "Second Cup Johar Town R1 branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Eden Canal Villas",
+          "address": "Eden Canal Villas Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Mall One",
+          "address": "6. Mall One, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Packages Mall",
+          "address": "Packages Mall Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Jillani Park",
+          "address": "Race Course/ Jillani Park Branch, Lahore"
+        }
       ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "F-6 & Park View"
       ]
     },
     {
@@ -1166,6 +1364,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=3",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=3"
       ]
     },
     {
@@ -1632,26 +1944,68 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Second Cup",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 10,
+      "summary": "From a humble beginn...",
+      "phone": "0300 0732287",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
-      "outlets": [],
-      "official_locations": [
-        "F-6 & Park View"
+      "outlets": [
+        {
+          "outlet_name": "Second Cup - F6",
+          "address": "1. Second Cup, Plot No. 6, Super Market, Block B, Agha Khan Rd, F-6 Markaz F 6 Markaz Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - Park View City",
+          "address": "Second Cup Building, Near Gate 2, Park View City, Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - DHA Phase 3",
+          "address": "Second Cup Caf\u00e9 Bistro, St 10, Sector Z DHA Phase 3, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Gulberg III",
+          "address": "Second Cup, Block B 2 Gulberg III, Kasuri Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Zahoor Elahi Road",
+          "address": "Euro Pump Branch, Zahoor Elahi Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Johar Town",
+          "address": "Second Cup Johar Town R1 branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Eden Canal Villas",
+          "address": "Eden Canal Villas Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Mall One",
+          "address": "6. Mall One, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Packages Mall",
+          "address": "Packages Mall Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Jillani Park",
+          "address": "Race Course/ Jillani Park Branch, Lahore"
+        }
       ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "F-6 & Park View"
       ]
     },
     {
@@ -1741,6 +2095,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=3",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=3"
       ]
     },
     {
@@ -2133,26 +2601,27 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Cinnabon",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "The world\u2019s most fam...",
+      "phone": "42 111 176 557",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "Dolmen Mall & Ph 6"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Dolmen Mall & Ph 6"
       ]
     },
     {
@@ -2274,6 +2743,61 @@
       "city": "Karachi",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Drip Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31537?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Brew Good, Feel Good...",
+      "phone": "0343 8802005",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Drip Coffee Bar - Phase 8",
+          "address": "Plot 62C, Zulfiqar &amp; Al Murtaza Commercial, Street 4, A, D.H.A. Phase 8 Karachi."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31537?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Drop Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31664?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Speciality coffee on...",
+      "phone": "(021) 37120763",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31664?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "DropCoffee",
       "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
       "headline_discount_pct": 30,
@@ -2334,29 +2858,30 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Esquires Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "For coffee and every...",
+      "phone": "0343 3263333",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1"
+      ],
       "official_locations": [
         "Zamzama DHA Ph 5",
         "Dolmen Mall Clifton",
         "Square One Mall, Gulshan",
         "Shahrah e Faisal & Kh-e-Bahria"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -2423,27 +2948,28 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Glaze",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "The perfect mix of f...",
+      "phone": "0339 4277901",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1"
+      ],
       "official_locations": [
         "KDA Scheme 1",
         "Bahadurabad"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -2482,26 +3008,27 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "GreenO",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "GreenO Juice Bars&#039; m...",
+      "phone": "(021) 111 473 366",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "All branches"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "All branches"
       ]
     },
     {
@@ -2592,6 +3119,31 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30653?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Krema",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31662?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Artisan-roasted coff...",
+      "phone": "0305 3086196",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31662?type=card&cityId=1"
       ]
     },
     {
@@ -3597,26 +4149,27 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Third Culture Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Once a royal secret...",
+      "phone": "(021) 37122187",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "Block 4 Clifton"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Block 4 Clifton"
       ]
     },
     {
@@ -3645,6 +4198,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=1"
       ]
     },
     {
@@ -4127,26 +4794,27 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Cinnabon",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "The world\u2019s most fam...",
+      "phone": "42 111 176 557",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "Dolmen Mall & Ph 6"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Dolmen Mall & Ph 6"
       ]
     },
     {
@@ -4268,6 +4936,61 @@
       "city": "Karachi",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Drip Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31537?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Brew Good, Feel Good...",
+      "phone": "0343 8802005",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Drip Coffee Bar - Phase 8",
+          "address": "Plot 62C, Zulfiqar &amp; Al Murtaza Commercial, Street 4, A, D.H.A. Phase 8 Karachi."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31537?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Drop Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31664?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Speciality coffee on...",
+      "phone": "(021) 37120763",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31664?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "DropCoffee",
       "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
       "headline_discount_pct": 30,
@@ -4328,29 +5051,30 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Esquires Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "For coffee and every...",
+      "phone": "0343 3263333",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1"
+      ],
       "official_locations": [
         "Zamzama DHA Ph 5",
         "Dolmen Mall Clifton",
         "Square One Mall, Gulshan",
         "Shahrah e Faisal & Kh-e-Bahria"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -4417,27 +5141,28 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Glaze",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "The perfect mix of f...",
+      "phone": "0339 4277901",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1"
+      ],
       "official_locations": [
         "KDA Scheme 1",
         "Bahadurabad"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -4476,26 +5201,27 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "GreenO",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "GreenO Juice Bars&#039; m...",
+      "phone": "(021) 111 473 366",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "All branches"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "All branches"
       ]
     },
     {
@@ -4586,6 +5312,31 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30653?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Krema",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31662?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Artisan-roasted coff...",
+      "phone": "0305 3086196",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31662?type=card&cityId=1"
       ]
     },
     {
@@ -5591,26 +6342,27 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Third Culture Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Once a royal secret...",
+      "phone": "(021) 37122187",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "Block 4 Clifton"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Block 4 Clifton"
       ]
     },
     {
@@ -5639,6 +6391,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=1"
       ]
     },
     {
@@ -6121,26 +6987,27 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Cinnabon",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "The world\u2019s most fam...",
+      "phone": "42 111 176 557",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "Dolmen Mall & Ph 6"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Dolmen Mall & Ph 6"
       ]
     },
     {
@@ -6262,6 +7129,61 @@
       "city": "Karachi",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Drip Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31537?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Brew Good, Feel Good...",
+      "phone": "0343 8802005",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Drip Coffee Bar - Phase 8",
+          "address": "Plot 62C, Zulfiqar &amp; Al Murtaza Commercial, Street 4, A, D.H.A. Phase 8 Karachi."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31537?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Drop Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31664?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Speciality coffee on...",
+      "phone": "(021) 37120763",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31664?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "DropCoffee",
       "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
       "headline_discount_pct": 30,
@@ -6322,29 +7244,30 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Esquires Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "For coffee and every...",
+      "phone": "0343 3263333",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1"
+      ],
       "official_locations": [
         "Zamzama DHA Ph 5",
         "Dolmen Mall Clifton",
         "Square One Mall, Gulshan",
         "Shahrah e Faisal & Kh-e-Bahria"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -6411,27 +7334,28 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Glaze",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "The perfect mix of f...",
+      "phone": "0339 4277901",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1"
+      ],
       "official_locations": [
         "KDA Scheme 1",
         "Bahadurabad"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -6470,26 +7394,27 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "GreenO",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "GreenO Juice Bars&#039; m...",
+      "phone": "(021) 111 473 366",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "All branches"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "All branches"
       ]
     },
     {
@@ -6580,6 +7505,31 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30653?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Krema",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31662?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Artisan-roasted coff...",
+      "phone": "0305 3086196",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31662?type=card&cityId=1"
       ]
     },
     {
@@ -7585,26 +8535,27 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Third Culture Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Once a royal secret...",
+      "phone": "(021) 37122187",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "Block 4 Clifton"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Block 4 Clifton"
       ]
     },
     {
@@ -7633,6 +8584,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=1",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=1"
       ]
     },
     {
@@ -7816,26 +8881,27 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Blank Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Modern Coffee.",
+      "phone": "042 00000000",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "DHA Phase 6"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA Phase 6"
       ]
     },
     {
@@ -8737,26 +9803,68 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Second Cup",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 10,
+      "summary": "From a humble beginn...",
+      "phone": "0300 0732287",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
-      "outlets": [],
-      "official_locations": [
-        "DHA, Gulberg, Johar Town"
+      "outlets": [
+        {
+          "outlet_name": "Second Cup - F6",
+          "address": "1. Second Cup, Plot No. 6, Super Market, Block B, Agha Khan Rd, F-6 Markaz F 6 Markaz Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - Park View City",
+          "address": "Second Cup Building, Near Gate 2, Park View City, Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - DHA Phase 3",
+          "address": "Second Cup Caf\u00e9 Bistro, St 10, Sector Z DHA Phase 3, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Gulberg III",
+          "address": "Second Cup, Block B 2 Gulberg III, Kasuri Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Zahoor Elahi Road",
+          "address": "Euro Pump Branch, Zahoor Elahi Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Johar Town",
+          "address": "Second Cup Johar Town R1 branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Eden Canal Villas",
+          "address": "Eden Canal Villas Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Mall One",
+          "address": "6. Mall One, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Packages Mall",
+          "address": "Packages Mall Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Jillani Park",
+          "address": "Race Course/ Jillani Park Branch, Lahore"
+        }
       ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA, Gulberg, Johar Town"
       ]
     },
     {
@@ -8815,6 +9923,31 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Solo&#039;s Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31663?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Your neighbourhood c...",
+      "phone": "0311 4498857",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31663?type=card&cityId=2"
       ]
     },
     {
@@ -8882,6 +10015,31 @@
       "city": "Lahore",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "The Point",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31665?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Your friendly neighb...",
+      "phone": "0327 4777957",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31665?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "The Spot (Parklane Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30624?type=card&cityId=2",
       "headline_discount_pct": 40,
@@ -8913,20 +10071,25 @@
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Third Culture Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Once a royal secret...",
+      "phone": "(021) 37122187",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2"
+      ],
       "official_locations": [
         "Model Town, Block A",
         "Johar town, Block K",
@@ -8934,10 +10097,6 @@
         "PAF Cinema, Cantt",
         "279 Y-Block, DHA Phase 3",
         "Dolmen Mall"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -8971,6 +10130,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=2"
       ]
     },
     {
@@ -9094,26 +10367,27 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Blank Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Modern Coffee.",
+      "phone": "042 00000000",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "DHA Phase 6"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA Phase 6"
       ]
     },
     {
@@ -10015,26 +11289,68 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Second Cup",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 10,
+      "summary": "From a humble beginn...",
+      "phone": "0300 0732287",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
-      "outlets": [],
-      "official_locations": [
-        "DHA, Gulberg, Johar Town"
+      "outlets": [
+        {
+          "outlet_name": "Second Cup - F6",
+          "address": "1. Second Cup, Plot No. 6, Super Market, Block B, Agha Khan Rd, F-6 Markaz F 6 Markaz Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - Park View City",
+          "address": "Second Cup Building, Near Gate 2, Park View City, Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - DHA Phase 3",
+          "address": "Second Cup Caf\u00e9 Bistro, St 10, Sector Z DHA Phase 3, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Gulberg III",
+          "address": "Second Cup, Block B 2 Gulberg III, Kasuri Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Zahoor Elahi Road",
+          "address": "Euro Pump Branch, Zahoor Elahi Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Johar Town",
+          "address": "Second Cup Johar Town R1 branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Eden Canal Villas",
+          "address": "Eden Canal Villas Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Mall One",
+          "address": "6. Mall One, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Packages Mall",
+          "address": "Packages Mall Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Jillani Park",
+          "address": "Race Course/ Jillani Park Branch, Lahore"
+        }
       ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA, Gulberg, Johar Town"
       ]
     },
     {
@@ -10093,6 +11409,31 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Solo&#039;s Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31663?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Your neighbourhood c...",
+      "phone": "0311 4498857",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31663?type=card&cityId=2"
       ]
     },
     {
@@ -10160,6 +11501,31 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "The Point",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31665?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Your friendly neighb...",
+      "phone": "0327 4777957",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31665?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "The Spot (Parklane Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30624?type=card&cityId=2",
       "headline_discount_pct": 40,
@@ -10191,20 +11557,25 @@
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Third Culture Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Once a royal secret...",
+      "phone": "(021) 37122187",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2"
+      ],
       "official_locations": [
         "Model Town, Block A",
         "Johar town, Block K",
@@ -10212,10 +11583,6 @@
         "PAF Cinema, Cantt",
         "279 Y-Block, DHA Phase 3",
         "Dolmen Mall"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -10249,6 +11616,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=2"
       ]
     },
     {
@@ -10372,26 +11853,27 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Blank Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Modern Coffee.",
+      "phone": "042 00000000",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
-      "official_locations": [
-        "DHA Phase 6"
-      ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA Phase 6"
       ]
     },
     {
@@ -11264,26 +12746,68 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Second Cup",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 10,
+      "summary": "From a humble beginn...",
+      "phone": "0300 0732287",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
-      "outlets": [],
-      "official_locations": [
-        "DHA, Gulberg, Johar Town"
+      "outlets": [
+        {
+          "outlet_name": "Second Cup - F6",
+          "address": "1. Second Cup, Plot No. 6, Super Market, Block B, Agha Khan Rd, F-6 Markaz F 6 Markaz Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - Park View City",
+          "address": "Second Cup Building, Near Gate 2, Park View City, Islamabad"
+        },
+        {
+          "outlet_name": "Second Cup - DHA Phase 3",
+          "address": "Second Cup Caf\u00e9 Bistro, St 10, Sector Z DHA Phase 3, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Gulberg III",
+          "address": "Second Cup, Block B 2 Gulberg III, Kasuri Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Zahoor Elahi Road",
+          "address": "Euro Pump Branch, Zahoor Elahi Road, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Johar Town",
+          "address": "Second Cup Johar Town R1 branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Eden Canal Villas",
+          "address": "Eden Canal Villas Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Mall One",
+          "address": "6. Mall One, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Packages Mall",
+          "address": "Packages Mall Branch, Lahore"
+        },
+        {
+          "outlet_name": "Second Cup - Jillani Park",
+          "address": "Race Course/ Jillani Park Branch, Lahore"
+        }
       ],
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA, Gulberg, Johar Town"
       ]
     },
     {
@@ -11342,6 +12866,31 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Solo&#039;s Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31663?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Your neighbourhood c...",
+      "phone": "0311 4498857",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31663?type=card&cityId=2"
       ]
     },
     {
@@ -11409,6 +12958,31 @@
       "city": "Lahore",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "The Point",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31665?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Your friendly neighb...",
+      "phone": "0327 4777957",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31665?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "The Spot (Parklane Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30624?type=card&cityId=2",
       "headline_discount_pct": 40,
@@ -11440,20 +13014,25 @@
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Third Culture Coffee",
-      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
       "cap_pkr": 1000,
-      "card_deals_count": null,
-      "branches_in_city": null,
-      "summary": null,
-      "phone": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Once a royal secret...",
+      "phone": "(021) 37122187",
       "cards_listed_on_detail": [
         "Easy Paisa DebitCard",
         "Easy Paisa Union Pay Debit Card",
         "Easy Paisa Pay Pak Debit Card"
       ],
       "outlets": [],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
+        "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2"
+      ],
       "official_locations": [
         "Model Town, Block A",
         "Johar town, Block K",
@@ -11461,10 +13040,6 @@
         "PAF Cinema, Cantt",
         "279 Y-Block, DHA Phase 3",
         "Dolmen Mall"
-      ],
-      "terms": "Cap: Rs. 1,000",
-      "source_urls": [
-        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -11498,6 +13073,120 @@
       "terms": "Cap: Rs. 1,000",
       "source_urls": [
         "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Tim Hortons",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=2",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Tim Hortons Pakistan...",
+      "phone": "021 111 363 636",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 6",
+          "address": "145-MB Main Boulevard commercial lane, Phase 6 DHA"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg",
+          "address": "94-D Main Blvd Gulberg, near Liberty Chowk, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "tim hortons - Gulberg III",
+          "address": "3 Mian Mehmood Ali Kasoori Rd, Block A3, Gulberg III, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Johar Town",
+          "address": "Plot 82, Block J1 Block J 1 Phase 2 Johar Town"
+        },
+        {
+          "outlet_name": "Tim Hortons - Lake City",
+          "address": "Abdul Qadeer Khan Rd, Block M 3 A Lake City, Lahore"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Lahore",
+          "address": "Sector C, Main Boulevard, Bahria Town, Lahore."
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 8",
+          "address": "Khayaban-e-Faisal, DHA Karachi Phase VIII Zone B Zone B Phase 8 Defence Housing Authority, Karachi."
+        },
+        {
+          "outlet_name": "Tim Hortons - F-9",
+          "address": "Randhawa Tower, Jinnah Avenue, F-9, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - DHA Phase 2",
+          "address": "Central Park, Sector E, DHA Phase II, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - I-8",
+          "address": "Mir Chakar Khan Road, Markaz, I-8, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Giga Mall",
+          "address": "Ground Floor, Giga Mall, Main GT Road, DHA 2, Islamabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Saddar",
+          "address": "Victoria Square, Mall Rd, Saddar,"
+        },
+        {
+          "outlet_name": "Tim Hortons - Bahria Town Phase 7",
+          "address": "Amigos Square, Sector F near Clock Tower, Bahria Town Phase 7, Rawalpindi"
+        },
+        {
+          "outlet_name": "Tim Hortons - Peshawar",
+          "address": "Cravings Food Park Road, Shami Road, opposite Garrison Park, Peshawar Cantt."
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot",
+          "address": "Al Mumtaz road, Sialkot Cantonment, Sialkot, 51010, Pakistan"
+        },
+        {
+          "outlet_name": "Tim Hortons - Mall of Gujranwala",
+          "address": "Mall of Gujranwala, Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Rahwali",
+          "address": "Near Prisma Mall opposite DC colony Gate, Rahwali Cantt. Gujranwala"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sialkot Cantt",
+          "address": "Second Cup, Rachna Polo Ground Branch, Sialkot Cantt"
+        },
+        {
+          "outlet_name": "Tim Hortons - Sadar Bazar Cantt",
+          "address": "Aziz Bhati Shaheed Road, Sadar Bazar Saddar Cantt Sialkot Cantonment, Sialkot"
+        },
+        {
+          "outlet_name": "Tim Hortons - Daska Sialkot Road",
+          "address": "Second Cup, Daska-Sialkot Road Branch, Daska"
+        },
+        {
+          "outlet_name": "Tim Hortons - Canal Road",
+          "address": "Second Cup Building, Green Village, Canal Road, Faisalabad"
+        },
+        {
+          "outlet_name": "Tim Hortons - Jinnah Park",
+          "address": "Jinnah Park Branch, Rawalpindi"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31607?type=card&cityId=2"
       ]
     },
     {
