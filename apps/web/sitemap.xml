@@ -835,6 +835,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://konsacard.pk/banks/habib-bank-limited/hbl-unionpay-classic-debitcard/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://konsacard.pk/banks/habib-bank-limited/hbl-unionpay-gold-debitcard/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://konsacard.pk/banks/habib-bank-limited/hbl-upi-paypak-co-badge-debitcard/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -926,6 +938,18 @@
   </url>
   <url>
     <loc>https://konsacard.pk/banks/hbl-islamic-bank-limited/hbl-islamic-titanium-debitcard/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://konsacard.pk/banks/hbl-islamic-bank-limited/hbl-islamic-unionpay-classic-debitcard/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://konsacard.pk/banks/hbl-islamic-bank-limited/hbl-islamic-unionpay-gold-debitcard/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -3619,6 +3643,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://konsacard.pk/restaurants/drop-coffee/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://konsacard.pk/restaurants/dropcoffee/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -5072,6 +5102,12 @@
   </url>
   <url>
     <loc>https://konsacard.pk/restaurants/kravers/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://konsacard.pk/restaurants/krema/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -7321,6 +7357,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://konsacard.pk/restaurants/solo-s-coffee/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://konsacard.pk/restaurants/sonora/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -8132,6 +8174,12 @@
   </url>
   <url>
     <loc>https://konsacard.pk/restaurants/the-poet-boutique-restaurant/</loc>
+    <lastmod>2026-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://konsacard.pk/restaurants/the-point/</loc>
     <lastmod>2026-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

@@ -78,16 +78,16 @@
   {
     "deal_bank_name": "HBL Islamic Bank Limited",
     "requirement_bank_name": "HBL Islamic Bank Limited",
-    "matched_cards": 8,
-    "total_deal_cards": 8,
+    "matched_cards": 10,
+    "total_deal_cards": 10,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
-    "matched_cards": 14,
-    "total_deal_cards": 14,
+    "matched_cards": 16,
+    "total_deal_cards": 16,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
