@@ -1007,9 +1007,9 @@ def render_restaurant_index(restaurant_summaries: list[dict], bank_count: int) -
         <section class="section">
           <h2>Restaurant directory</h2>
           <p>This directory is grouped alphabetically. Every restaurant page links to the banks found in the dataset for that restaurant and back into the comparison tool with that venue preselected.</p>
-          <div class="rest-index-search-wrap" style="margin:14px 0 18px;">
-            <input type="search" class="rest-index-search" id="rest-index-search" placeholder="Search {total_restaurants} restaurants…" autocomplete="off" style="width:100%;max-width:480px;padding:12px 16px;border:1.5px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink);" aria-label="Search restaurants" />
-            <div class="rest-index-empty" id="rest-index-empty" style="display:none;margin-top:12px;color:var(--muted);font-size:0.9rem;">No restaurants match that search.</div>
+          <div class="rest-index-search-wrap">
+            <input type="search" class="rest-index-search" id="rest-index-search" placeholder="Search {total_restaurants} restaurants…" autocomplete="off" aria-label="Search restaurants" />
+            <div class="rest-index-empty" id="rest-index-empty" hidden>No restaurants match that search.</div>
           </div>
           <div class="directory" id="rest-index-directory">
             {''.join(groups)}
@@ -1035,7 +1035,7 @@ def render_restaurant_index(restaurant_summaries: list[dict], bank_count: int) -
             var visible = g.querySelectorAll('li[data-name]:not([style*="display: none"])').length;
             g.style.display = visible ? '' : 'none';
           }});
-          if (empty) empty.style.display = any ? 'none' : '';
+          if (empty) empty.hidden = any;
         }}
         input.addEventListener('input', apply);
       }})();
@@ -1064,12 +1064,12 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str], *, last
     table_rows = "".join(
         f"""
         <tr>
-          <td data-label="Card"><a href="/banks/{summary['slug']}/{card['slug']}/" style="color:var(--ink);font-weight:600">{escape(card['name'])}</a></td>
-          <td data-label="Type">{escape(card['card_type'])}</td>
-          <td data-label="Restaurants">{card['restaurant_count']}</td>
-          <td data-label="Best discount">{escape(format_pct(card['max_discount_pct']))}</td>
-          <td data-label="Highest cap">{escape(format_pkr(card['max_cap_pkr']))}</td>
-          <td data-label="Action"><a href="{escape(build_tool_url(bank=summary['name']))}" class="table-tool-link">Compare →</a></td>
+          <td data-label="Card" class="oc-card"><a href="/banks/{summary['slug']}/{card['slug']}/" class="oc-card-link">{escape(card['name'])}</a></td>
+          <td data-label="Type" class="oc-type">{escape(card['card_type'])}</td>
+          <td data-label="Restaurants" class="oc-rests">{card['restaurant_count']}</td>
+          <td data-label="Best discount" class="oc-discount">{escape(format_pct(card['max_discount_pct']))}</td>
+          <td data-label="Highest cap" class="oc-cap">{escape(format_pkr(card['max_cap_pkr']))}</td>
+          <td data-label="Action" class="oc-action"><a href="{escape(build_tool_url(bank=summary['name']))}" class="table-tool-link">Compare →</a></td>
         </tr>
         """
         for card in summary["cards"]
@@ -1097,9 +1097,10 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str], *, last
         for item in top_restaurants[:8]
     )
     
-    # Internal linking: Show all cards
+    # Internal linking: Show all cards. Rendered as a clean two-column link
+    # list (.link-list) rather than a raw bulleted <ul> with inline styles.
     all_cards_list = "".join(
-        f'<li><a href="/banks/{summary["slug"]}/{card["slug"]}/">{escape(card["name"])}</a> ({card["card_type"]}), {card["restaurant_count"]} restaurants, up to {format_pct(card["max_discount_pct"])} off</li>'
+        f'<li><a href="/banks/{summary["slug"]}/{card["slug"]}/">{escape(card["name"])}</a><span class="link-list-meta">{escape(card["card_type"])} · {card["restaurant_count"]} restaurants · up to {format_pct(card["max_discount_pct"])} off</span></li>'
         for card in summary["cards"]
     )
     
@@ -1140,7 +1141,7 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str], *, last
           <h2>Cards listed for {escape(summary['name'])}</h2>
           <p>Each card below shows how many restaurants it covers and its headline discount. Headline % alone isn't the full picture, because caps and restaurant overlap matter just as much. That is why the comparison tool ranks by estimated savings on your typical bill rather than raw discount %. Click Compare to pre-select this bank.</p>
           <div class="table-wrap">
-            <table>
+            <table class="offer-table offer-table--bank">
               <thead>
                 <tr>
                   <th>Card</th>
@@ -1160,16 +1161,16 @@ def render_bank_page(summary: dict, restaurant_slug_map: dict[str, str], *, last
 
         <section class="section">
           <h2>Top restaurants for {escape(summary['name'])}</h2>
-          <p>The best card deal from {escape(summary['name'])} at each restaurant. Use Compare to open the tool with that specific bank and restaurant pre-selected.</p>
+          <p>{('The top ' + str(min(8, summary['restaurant_count'])) + ' of ' + str(summary['restaurant_count']) + ' restaurants') if summary['restaurant_count'] > 8 else 'The restaurants'} where {escape(summary['name'])} has the most cards, showing its best deal at each. Use Compare to open the tool with that bank and restaurant pre-selected{', or <a href="' + escape(build_tool_url(bank=summary['name'])) + '">browse all in the tool</a>' if summary['restaurant_count'] > 8 else ''}.</p>
           <div class="card-grid">
             {restaurant_cards}
           </div>
         </section>
         
         <section class="section">
-          <h2>All {escape(summary['name'])} cards</h2>
+          <h2>All {summary['card_count']} {escape(summary['name'])} cards</h2>
           <p>Complete list of {escape(summary['name'])} cards available on KonsaCard:</p>
-          <ul style="list-style: disc; margin-left: 20px; color: var(--ink); line-height: 1.8; columns: 2; gap: 40px;">
+          <ul class="link-list link-list--cols">
             {all_cards_list}
           </ul>
         </section>
@@ -1407,46 +1408,49 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str], *, last
     card_rows = "".join(
         f"""
         <tr>
-          <td data-label="Bank"><a href="/banks/{bank_slug_map.get(offer['bank'], '#')}/">{escape(offer['bank'])}</a></td>
-          <td data-label="Card"><a href="/banks/{offer['bank_slug']}/{offer['card_slug']}/" style="color:var(--ink);font-weight:600">{escape(offer['card'])}</a></td>
-          <td data-label="Type">{escape(offer['card_type'])}</td>
-          <td data-label="Offer Details">{render_offer_details_cell(offer.get('offer_title') or offer.get('discount_label') or '', offer.get('offer_description'))}</td>
-          <td data-label="Discount">{escape(offer['discount_label'] or format_pct(offer['max_discount_pct']))}</td>
-          <td data-label="Cap">{escape(format_pkr(offer['max_cap_pkr']))}</td>
-          <td data-label="Days">{escape(offer['days_label'] or 'All Days')}</td>
-          <td data-label="Order">{render_order_type_badges(offer['order_types'])}</td>
-          <td data-label="Action"><a href="{escape(build_tool_url(bank=offer['bank'], restaurant=summary['name']))}" class="table-tool-link">Compare →</a></td>
+          <td data-label="Bank" class="oc-bank"><a href="/banks/{bank_slug_map.get(offer['bank'], '#')}/">{escape(offer['bank'])}</a></td>
+          <td data-label="Card" class="oc-card"><a href="/banks/{offer['bank_slug']}/{offer['card_slug']}/" class="oc-card-link">{escape(offer['card'])}</a></td>
+          <td data-label="Type" class="oc-type">{escape(offer['card_type'])}</td>
+          <td data-label="Offer Details" class="oc-offer">{render_offer_details_cell(offer.get('offer_title') or offer.get('discount_label') or '', offer.get('offer_description'))}</td>
+          <td data-label="Discount" class="oc-discount">{escape(offer['discount_label'] or format_pct(offer['max_discount_pct']))}</td>
+          <td data-label="Cap" class="oc-cap">{escape(format_pkr(offer['max_cap_pkr']))}</td>
+          <td data-label="Days" class="oc-days">{escape(offer['days_label'] or 'All Days')}</td>
+          <td data-label="Order" class="oc-order">{render_order_type_badges(offer['order_types'])}</td>
+          <td data-label="Action" class="oc-action"><a href="{escape(build_tool_url(bank=offer['bank'], restaurant=summary['name']))}" class="table-tool-link">Compare →</a></td>
         </tr>
         """
         for offer in summary["card_offers"]
     )
+    # Show EVERY bank that has a card here (not a top-8 slice). A restaurant is
+    # covered by at most ~12 banks, so the full set fits the responsive grid
+    # without a "show more" affordance — and there's no separate plain list to
+    # miss. `summary["banks"]` is the complete set; sort it by coverage
+    # (cards desc) so the strongest banks lead, matching the old top-8 order.
+    all_banks_sorted = sorted(
+        summary["banks"],
+        key=lambda b: (-(b["card_count"] or 0), -((b["max_discount_pct"]) or 0), b["name"].casefold()),
+    )
     bank_cards = "".join(
         f"""
         <article class="entity-card">
-          <h3><a href="/banks/{bank_slug_map[item.name]}/">{escape(item.name)}</a></h3>
+          <h3><a href="/banks/{bank_slug_map.get(bank["name"], "#")}/">{escape(bank["name"])}</a></h3>
           <div class="pill-row">
-            <span class="pill">{item.cards} cards</span>
-            <span class="pill">Best {format_pct(item.max_discount_pct)}</span>
+            <span class="pill">{bank["card_count"]} cards</span>
+            <span class="pill">Best {format_pct(bank["max_discount_pct"])}</span>
           </div>
           <div class="meta-list">
-            <div><strong>Cities:</strong> {escape(", ".join(item.cities))}</div>
-            <div><strong>Highest cap:</strong> {escape(format_pkr(item.max_cap_pkr))}</div>
+            <div><strong>Cities:</strong> {escape(", ".join(bank["cities"]))}</div>
+            <div><strong>Highest cap:</strong> {escape(format_pkr(bank["max_cap_pkr"]))}</div>
           </div>
           <div class="actions">
-            <a class="btn primary" href="/banks/{bank_slug_map[item.name]}/">View bank page</a>
-            <a class="btn" href="{escape(build_tool_url(bank=item.name, restaurant=summary['name']))}">Compare in tool</a>
+            <a class="btn primary" href="/banks/{bank_slug_map.get(bank["name"], "#")}/">View bank page</a>
+            <a class="btn" href="{escape(build_tool_url(bank=bank["name"], restaurant=summary['name']))}">Compare in tool</a>
           </div>
         </article>
         """
-        for item in summary["top_banks"][:8]
+        for bank in all_banks_sorted
     )
-    
-    # Internal linking: Show all banks with offers
-    all_banks_list = "".join(
-        f'<li><a href="/banks/{bank_slug_map.get(bank["name"], "#")}/">{escape(bank["name"])}</a>: {bank["card_count"]} cards, up to {format_pct(bank["max_discount_pct"])} off</li>'
-        for bank in summary["banks"]
-    )
-    
+
     rest_faqs = build_restaurant_faqs(summary)
     enrichment = summary.get("enrichment") or {}
     enrichment_section = render_restaurant_enrichment_section(
@@ -1488,7 +1492,7 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str], *, last
           <h2>Cards available at {escape(summary['name'])}</h2>
           <p>Every deal that shows a discount at {escape(summary['name'])}, sorted by headline discount. Headline % isn't always the best signal, because many offers cap savings per transaction, so what looks like a big discount may save less than a smaller % with no cap. Open the tool with Compare to rank by estimated actual savings on your bill.</p>
           <div class="table-wrap">
-            <table>
+            <table class="offer-table offer-table--rest">
               <thead>
                 <tr>
                   <th>Bank</th>
@@ -1510,19 +1514,11 @@ def render_restaurant_page(summary: dict, bank_slug_map: dict[str, str], *, last
         </section>
 
         <section class="section">
-          <h2>Banks that cover {escape(summary['name'])}</h2>
-          <p>Jump to a bank page to see all restaurants and cards for that bank, or use Compare to open the tool with this restaurant pre-selected.</p>
+          <h2>All {summary['bank_count']} banks that cover {escape(summary['name'])}</h2>
+          <p>Every bank with a card that works at {escape(summary['name'])} is listed below. Jump to a bank page to see all its restaurants and cards, or use Compare to open the tool with this restaurant pre-selected.</p>
           <div class="card-grid">
             {bank_cards}
           </div>
-        </section>
-        
-        <section class="section">
-          <h2>All banks with {escape(summary['name'])} offers</h2>
-          <p>Complete list of banks offering discounts at {escape(summary['name'])}:</p>
-          <ul style="list-style: disc; margin-left: 20px; color: var(--ink); line-height: 1.8;">
-            {all_banks_list}
-          </ul>
         </section>
 
         {render_faq_section(f"Frequently asked about {summary['name']} discounts", rest_faqs)}
@@ -1647,14 +1643,14 @@ def render_card_page(bank_summary: dict, card: dict, *, last_updated: str = "", 
     restaurant_rows = "".join(
         f"""
         <tr>
-          <td data-label="Restaurant"><a href="/restaurants/{r['slug']}/" style="color:var(--ink);font-weight:600">{escape(r['name'])}</a></td>
-          <td data-label="Offer Details">{render_offer_details_cell(r.get('offer_title') or r.get('discount_label') or '', r.get('offer_description'))}</td>
-          <td data-label="Discount">{escape(format_pct(r['max_discount_pct']))}</td>
-          <td data-label="Cap">{escape(format_pkr(r['max_cap_pkr']))}</td>
-          <td data-label="Days">{escape(r['days_label'] or 'All Days')}</td>
-          <td data-label="Order">{render_order_type_badges(r['order_types'])}</td>
-          <td data-label="Cities">{escape(', '.join(r['cities']))}</td>
-          <td data-label="Action"><a href="{escape(build_tool_url(bank=bank_summary['name'], restaurant=r['name']))}" class="table-tool-link">Compare →</a></td>
+          <td data-label="Restaurant" class="oc-card"><a href="/restaurants/{r['slug']}/" class="oc-card-link">{escape(r['name'])}</a></td>
+          <td data-label="Offer Details" class="oc-offer">{render_offer_details_cell(r.get('offer_title') or r.get('discount_label') or '', r.get('offer_description'))}</td>
+          <td data-label="Discount" class="oc-discount">{escape(format_pct(r['max_discount_pct']))}</td>
+          <td data-label="Cap" class="oc-cap">{escape(format_pkr(r['max_cap_pkr']))}</td>
+          <td data-label="Days" class="oc-days">{escape(r['days_label'] or 'All Days')}</td>
+          <td data-label="Order" class="oc-order">{render_order_type_badges(r['order_types'])}</td>
+          <td data-label="Cities" class="oc-cities">{escape(', '.join(r['cities']))}</td>
+          <td data-label="Action" class="oc-action"><a href="{escape(build_tool_url(bank=bank_summary['name'], restaurant=r['name']))}" class="table-tool-link">Compare →</a></td>
         </tr>
         """
         for r in card["restaurants"]
@@ -1665,14 +1661,14 @@ def render_card_page(bank_summary: dict, card: dict, *, last_updated: str = "", 
     related_cards_html = ""
     if other_cards:
         card_links = "".join(
-            f'<li><a href="/banks/{bank_summary["slug"]}/{c["slug"]}/">{escape(c["name"])} ({c["card_type"]})</a>: {c["restaurant_count"]} restaurants</li>'
+            f'<li><a href="/banks/{bank_summary["slug"]}/{c["slug"]}/">{escape(c["name"])}</a><span class="link-list-meta">{escape(c["card_type"])} · {c["restaurant_count"]} restaurants</span></li>'
             for c in other_cards
         )
         related_cards_html = f"""
         <section class="section">
           <h2>Other {escape(bank_summary['name'])} cards</h2>
           <p>Compare this card with other offerings from {escape(bank_summary['name'])}:</p>
-          <ul style="list-style: disc; margin-left: 20px; color: var(--ink); line-height: 1.7;">
+          <ul class="link-list">
             {card_links}
           </ul>
         </section>"""
@@ -1687,9 +1683,10 @@ def render_card_page(bank_summary: dict, card: dict, *, last_updated: str = "", 
         </div>
         <h1>{escape(card['name'])}</h1>
         <p>{escape(bank_summary['name'])} &middot; {escape(card['card_type'])} &middot; {card['restaurant_count']} restaurants &middot; up to {escape(format_pct(card['max_discount_pct']))} off</p>
+        <div class="hero-actions">
+          {freshness_chip}
+        </div>
       </header>
-
-      {freshness_chip}
 
       <div class="content">
         {breadcrumbs_html([("Home", "/"), ("Banks", "/banks/"), (bank_summary["name"], f"/banks/{bank_summary['slug']}/"), (card["name"], None)])}
@@ -1698,7 +1695,7 @@ def render_card_page(bank_summary: dict, card: dict, *, last_updated: str = "", 
           <h2>Restaurants covered by {escape(card['name'])}</h2>
           <p>Every restaurant in our dataset where {escape(bank_summary['name'])} lists a discount for this card, sorted by headline discount. Click Compare to open the tool with this bank and restaurant pre-selected.</p>
           <div class="table-wrap">
-            <table>
+            <table class="offer-table offer-table--card">
               <thead>
                 <tr>
                   <th>Restaurant</th>
