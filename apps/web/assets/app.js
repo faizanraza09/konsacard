@@ -1279,15 +1279,10 @@ function renderRecommendations() {
     return;
   }
 
-  // Source the ranked cards list: at default scope (raw offers not loaded yet)
-  // the precomputed summary is byte-identical to computeRecommendations() and
-  // lets us skip the heavy aggregation entirely. Once raw offers are loaded
-  // (isDefaultScope() false) we use the normal compute path. Wallet/my-wallet
-  // return early below before this value is read.
-  const cityKey = getSummaryCityKey();
-  const results = (isDefaultScope() && state.summary && cityKey)
-    ? state.summary.scopes[cityKey]
-    : computeRecommendations();
+  // Always source cards through computeRecommendations(). Its default-scope
+  // fast path reuses the precomputed summary while still layering on the
+  // browser-only requirementStatus overlay used by the annual-fee UI.
+  const results = computeRecommendations();
   const countEl   = document.getElementById("result-count");
   const rhSub     = document.getElementById("rh-sub");
   const emptyState = document.getElementById("empty-state");
