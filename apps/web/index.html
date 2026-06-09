@@ -32,7 +32,7 @@
          first parse. The heavy gtag.js loader (and AdSense + PostHog) are
          deferred to first interaction / idle by the loader below to cut
          main-thread JS bootup, without dropping any queued events. -->
-    <script src="./assets/dist/ga-init.js?v=2a64fcf82c8b"></script>
+    <script src="./assets/dist/ga-init.js?v=5f8efbe96138"></script>
 
     <!-- Deferred third-party loader. Injects the heavy, non-critical vendor
          scripts (gtag.js, AdSense, PostHog) on the first user interaction OR
@@ -62,7 +62,7 @@
             { crossorigin: "anonymous" }
           );
           // PostHog: the init snippet/stub + SDK loader.
-          inject("./assets/dist/posthog-init.js?v=2a64fcf82c8b");
+          inject("./assets/dist/posthog-init.js?v=5f8efbe96138");
         }
         var EVENTS = ["pointerdown", "keydown", "scroll", "touchstart"];
         function onFirstInteraction() {
@@ -87,11 +87,11 @@
         else window.addEventListener("load", idleLoad, { once: true });
       })();
     </script>
-    <link rel="stylesheet" href="./assets/dist/styles.css?v=2a64fcf82c8b" />
+    <link rel="stylesheet" href="./assets/dist/styles.css?v=5f8efbe96138" />
 
     <!-- Sentry: external sentry-init.js sets window.sentryOnLoad synchronously
          before the async Sentry CDN loader fires and invokes the callback. -->
-    <script src="./assets/dist/sentry-init.js?v=2a64fcf82c8b"></script>
+    <script src="./assets/dist/sentry-init.js?v=5f8efbe96138"></script>
     <script
       async
       src="https://js.sentry-cdn.com/83b7ee8d2efa25d11bb8a6c5fef6da4c.min.js"
@@ -100,11 +100,11 @@
          injected by the deferred third-party loader above on first
          interaction / idle, not during initial parse. -->
     <!-- Modules load in dependency order; classic scripts so they share global scope. -->
-    <script defer src="./assets/dist/state.js?v=2a64fcf82c8b"></script>
-    <script defer src="./assets/dist/algorithms.js?v=2a64fcf82c8b"></script>
-    <script defer src="./assets/dist/chat.js?v=2a64fcf82c8b"></script>
-    <script defer src="./assets/dist/quiz.js?v=2a64fcf82c8b"></script>
-    <script defer src="./assets/dist/app.js?v=2a64fcf82c8b"></script>
+    <script defer src="./assets/dist/state.js?v=5f8efbe96138"></script>
+    <script defer src="./assets/dist/algorithms.js?v=5f8efbe96138"></script>
+    <script defer src="./assets/dist/chat.js?v=5f8efbe96138"></script>
+    <script defer src="./assets/dist/quiz.js?v=5f8efbe96138"></script>
+    <script defer src="./assets/dist/app.js?v=5f8efbe96138"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
