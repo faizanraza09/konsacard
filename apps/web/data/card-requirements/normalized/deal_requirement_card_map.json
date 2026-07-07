@@ -434,6 +434,15 @@
   {
     "deal_bank_name": "Bank AL Habib",
     "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "Mastercard Platinum Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-platinum-credit-card",
+    "requirement_card_name": "AL Habib Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
     "deal_card_name": "PayPak Debit Card",
     "matched": true,
     "match_method": "manual_alias",
@@ -929,6 +938,15 @@
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Co-Badged Mastercard Paypak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-classic-debit-card",
+    "requirement_card_name": "Faysal Islami Mastercard Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Mastercard Classic Debit Card",
     "matched": true,
     "match_method": "canonical_exact",
@@ -997,6 +1015,15 @@
     "match_method": "manual_alias",
     "requirement_card_id": "faysal-bank--faysal-islami-noor-world-card",
     "requirement_card_name": "Faysal Islami Noor World Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Paypak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-classic-debit-card",
+    "requirement_card_name": "Faysal Islami Mastercard Classic Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
