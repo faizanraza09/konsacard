@@ -77,6 +77,7 @@ MANUAL_ALIASES = {
         "BAHL UnionPay Debit Card": "BAHL UnionPay Debit Card",
         "Mastercard Gold Credit Card": "AL Habib Gold Credit Card",
         "Mastercard Green Credit Card": "AL Habib Green Credit Card",
+        "Mastercard Platinum Credit Card": "AL Habib Platinum Credit Card",
         "PayPak Debit Card": "PayPak Debit Card",
         "Visa Gold Debit Card": "Visa Gold Debit Card",
         "Visa Signature Debit Card": "Signature Debit Card",
@@ -132,6 +133,8 @@ MANUAL_ALIASES = {
     "Faysal Bank Limited": {
         "Amal Mastercard Gold Debit Card": "Faysal Islami Mastercard Amal Gold Debit Card",
         "Amal Mastercard Platinum Debit Card": "Faysal Islami Mastercard Amal Platinum Debit Card",
+        "Faysal Islami Co-Badged Mastercard Paypak Debit Card": "Faysal Islami Mastercard Classic Debit Card",
+        "Faysal Islami Paypak Debit Card": "Faysal Islami Mastercard Classic Debit Card",
         "Faysal Islami Noor Gold  Card": "Faysal Islami Noor Gold Card",
         "Faysal Islami Noor Titanium  Card": "Faysal Islami Noor Titanium Card",
         "Faysal Islami Noor World  Card": "Faysal Islami Noor World Card",

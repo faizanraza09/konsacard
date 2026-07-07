@@ -3492,6 +3492,74 @@
     "retrieved_note": "Verified 2026-05-25 against bankalhabib.com product pages, SOC Jan-Jun 2026 (Inst Cir.# 180 dated 2025-11-27), SOC Jul-Dec 2026 (Inst Cir.# 093 dated 2026-05-21), the 2025 Credit Card Summary Box, and underlying account KFS PDFs (Apna/Asaan/Digital/Woman)."
   },
   {
+    "card_id": "bank-al-habib--al-habib-platinum-credit-card",
+    "bank_slug": "bank-al-habib",
+    "bank_name": "Bank AL Habib",
+    "card_name": "AL Habib Platinum Credit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": 500000,
+      "minimum_relationship_balance_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 20000,
+      "supplementary_annual_fee_pkr": 8000,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 21,
+      "maximum_age_years": 60,
+      "income_document_required": true,
+      "salary_transfer_required": false,
+      "pakistani_cnic_required": true,
+      "existing_account_required": false
+    },
+    "requirement_sources": {
+      "minimum_monthly_salary_pkr": [
+        "bank-al-habib-src-6d2c89f504",
+        "bank-al-habib-src-ce598f1b6a"
+      ],
+      "annual_fee_pkr": [
+        "bank-al-habib-src-6d2c89f504"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "bank-al-habib-src-6d2c89f504"
+      ],
+      "minimum_age_years": [
+        "bank-al-habib-src-6d2c89f504",
+        "bank-al-habib-src-ce598f1b6a"
+      ],
+      "maximum_age_years": [
+        "bank-al-habib-src-6d2c89f504",
+        "bank-al-habib-src-ce598f1b6a"
+      ],
+      "income_document_required": [
+        "bank-al-habib-src-ce598f1b6a"
+      ],
+      "salary_transfer_required": [
+        "bank-al-habib-src-ce598f1b6a"
+      ],
+      "pakistani_cnic_required": [
+        "bank-al-habib-src-ce598f1b6a"
+      ],
+      "existing_account_required": [
+        "bank-al-habib-src-ce598f1b6a"
+      ]
+    },
+    "source_ids": [
+      "bank-al-habib-src-6d2c89f504",
+      "bank-al-habib-src-ce598f1b6a"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Bank AL Habib Mastercard Platinum Credit Card. Primary annual fee PKR 20,000; supplementary PKR 8,000 per the official product page (English and Urdu versions agree).",
+      "Minimum income for salaried applicants is PKR 500,000/month gross; self-employed professionals/businessmen qualify on an average balance of PKR 1,000,000 over the last 6 months / annual turnover per the product page.",
+      "Age range 21-60 (salaried), 21-65 (self-employed), supplementary 18-70. APR 25% p.a.; late payment Rs. 2,300; cash advance fee Rs. 1,200; up to 51 interest-free days.",
+      "SOC Jan-Jun 2026 Section IX. CREDIT CARD only tabulates Green (Rs. 4,500) and Gold (Rs. 6,500) primary annual fees; the Platinum tier's fee is published on the dedicated product page rather than in that SOC section."
+    ],
+    "bank_gaps": [
+      "Platinum credit card primary annual fee (PKR 20,000) is taken from the product page; it is not listed in the Section IX. CREDIT CARD fee table of the SOC Jan-Jun 2026, which only covers Green and Gold.",
+      "Self-employed qualification is stated as an average-balance / turnover requirement (PKR 1,000,000) rather than a monthly income figure; captured in notes, not as a structured minimum_monthly_salary."
+    ],
+    "retrieved_note": "Verified 2026-07-07 against bankalhabib.com/platinum-creditcard (and the /ur/ Urdu mirror), corroborated by the /credit-cards eligibility section (age and income bands) and the SOC Jan-Jun 2026 for the Green/Gold context. Added to bridge the 'Mastercard Platinum Credit Card' pair newly appearing in the offers feed."
+  },
+  {
     "card_id": "bank-alfalah--bank-alfalah-american-express-gold-credit-card",
     "bank_slug": "bank-alfalah",
     "bank_name": "Bank Alfalah",
