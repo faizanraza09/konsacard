@@ -1383,7 +1383,9 @@
       "faysal-bank--faysal-islami-noor-velocity-card",
       "faysal-bank--faysal-islami-noor-world-card",
       "faysal-bank--faysal-islami-priority-platinum-debit-card",
-      "faysal-bank--faysal-islami-priority-world-debit-card"
+      "faysal-bank--faysal-islami-priority-world-debit-card",
+      "faysal-bank--faysal-islami-paypak-debit-card",
+      "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card"
     ]
   },
   {
@@ -1474,7 +1476,9 @@
     "source_type": "html",
     "used_by_card_ids": [
       "faysal-bank--faysal-islami-mastercard-classic-debit-card",
-      "faysal-bank--faysal-islami-mastercard-gold-debit-card"
+      "faysal-bank--faysal-islami-mastercard-gold-debit-card",
+      "faysal-bank--faysal-islami-paypak-debit-card",
+      "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card"
     ]
   },
   {

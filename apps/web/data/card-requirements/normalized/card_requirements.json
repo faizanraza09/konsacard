@@ -7825,6 +7825,124 @@
     "retrieved_note": "Verified 2026-05-25 against Faysal Bank Schedule of Charges (Jan-Jun 2026) and Faysal Islami Priority Banking section of the same SOC, with corroborating Noor Card KFS references. Faysal is now a fully Islamic bank (Faysal Islami); product names use the Islamic nomenclature. Faysal product pages are bot-blocked, so card-specific salary tiers were taken from the published KFS distillations (TechJuice, ProPakistani, IWESS) only after confirming the underlying KFS PDF link on faysalbank.com \u2014 fee figures themselves are SOC-verified."
   },
   {
+    "card_id": "faysal-bank--faysal-islami-paypak-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami PayPak Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2300,
+      "supplementary_annual_fee_pkr": 1700,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 18,
+      "maximum_age_years": null,
+      "income_document_required": false,
+      "salary_transfer_required": false,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "faysal-bank-src-3f53631ce8"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "faysal-bank-src-3f53631ce8"
+      ],
+      "minimum_age_years": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "income_document_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "salary_transfer_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "pakistani_cnic_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "existing_account_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ]
+    },
+    "source_ids": [
+      "faysal-bank-src-3f53631ce8",
+      "faysal-bank-src-7d7ff37303"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Faysal Islami PayPak Debit Card (domestic PayPak scheme). Primary membership fee PKR 2,300; supplementary PKR 1,700; card replacement PKR 1,500 per the Faysal Islami Banking Schedule of Charges Jan-Jun 2026, section '1. Debit Cards: Membership fee in advance' (i) PayPak.",
+      "Available to Faysal Bank account holders; no minimum balance or salary published for the base debit card. CNIC required; age 18+."
+    ],
+    "bank_gaps": [
+      "Faysal product pages (faysalbank.com/debit-cards/...) return HTTP 403 to programmatic fetchers; fees taken directly from the SOC PDF, which is fetchable with a browser user agent."
+    ],
+    "retrieved_note": "Verified 2026-07-07 against the Faysal Islami Banking Schedule of Charges (Jan-Jun 2026) debit-card membership fee table. Added to bridge the 'Faysal Islami Paypak Debit Card' pair appearing in the offers feed (previously aliased to the Classic Debit record; now given its own SOC-sourced record)."
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Co-Badged Mastercard PayPak Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2300,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": 18,
+      "maximum_age_years": null,
+      "income_document_required": false,
+      "salary_transfer_required": false,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "faysal-bank-src-3f53631ce8"
+      ],
+      "minimum_age_years": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "income_document_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "salary_transfer_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "pakistani_cnic_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ],
+      "existing_account_required": [
+        "faysal-bank-src-3f53631ce8",
+        "faysal-bank-src-7d7ff37303"
+      ]
+    },
+    "source_ids": [
+      "faysal-bank-src-3f53631ce8",
+      "faysal-bank-src-7d7ff37303"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Faysal Islami Co-Badged Mastercard PayPak Debit Card (PayPak domestic + Mastercard international co-badge). Primary membership fee PKR 2,300; card replacement PKR 1,500 per the Faysal Islami Banking Schedule of Charges Jan-Jun 2026, section '1. Debit Cards: Membership fee in advance' (xv) Mastercard PayPak CoBadge.",
+      "Available to Faysal Bank account holders; no minimum balance or salary published for the base debit card. CNIC required; age 18+."
+    ],
+    "bank_gaps": [
+      "The SOC supplementary-card fee table (section b) does not list 'Mastercard PayPak CoBadge' separately, so supplementary_annual_fee_pkr is left null rather than inferred.",
+      "Faysal product pages return HTTP 403 to programmatic fetchers; fees taken directly from the SOC PDF (fetchable with a browser user agent)."
+    ],
+    "retrieved_note": "Verified 2026-07-07 against the Faysal Islami Banking Schedule of Charges (Jan-Jun 2026) debit-card membership fee table. Added to bridge the 'Faysal Islami Co-Badged Mastercard Paypak Debit Card' pair appearing in the offers feed (previously aliased to the Classic Debit record; now given its own SOC-sourced record)."
+  },
+  {
     "card_id": "hbl--hbl-fuelsaver-gold-creditcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
