@@ -451,6 +451,17 @@
     "pilot_position": 6
   },
   {
+    "card_id": "bank-al-habib--al-habib-platinum-credit-card",
+    "bank_slug": "bank-al-habib",
+    "bank_name": "Bank AL Habib",
+    "card_name": "AL Habib Platinum Credit Card",
+    "card_slug": "al-habib-platinum-credit-card",
+    "card_type": "credit",
+    "tier": "platinum",
+    "confidence": "high",
+    "pilot_position": 14
+  },
+  {
     "card_id": "bank-alfalah--bank-alfalah-american-express-gold-credit-card",
     "bank_slug": "bank-alfalah",
     "bank_name": "Bank Alfalah",
