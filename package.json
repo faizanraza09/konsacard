@@ -14,5 +14,9 @@
     "refresh:offers": "cd apps/web && npm run refresh:offers",
     "refresh:requirements": "cd apps/web && npm run refresh:requirements",
     "refresh:all": "cd apps/web && npm run refresh:all"
+  },
+  "dependencies": {
+    "playwright": "^1.60.0",
+    "undici": "^8.3.0"
   }
 }

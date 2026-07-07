@@ -3,6 +3,10 @@
 [cmd]: https://commandcode.ai/
 
 
+# workflow
+- Be proactive and self-sufficient: find, test, and implement solutions (like proxies, APIs, tools) directly rather than asking the user to search for or set them up manually. Confidence: 0.85
+- When suggesting solutions, tools, or services, prioritize free and open-source options over paid services. Only recommend paid options if free alternatives are genuinely unavailable or insufficient. Confidence: 0.75
+
 # data-processing
 - Do not infer card eligibility from unlabeled tier/classification columns in bank workbooks. When column meaning is undocumented, assign all bank cards to all offers equally (default assumption: every card gets every discount). Confidence: 0.70
 

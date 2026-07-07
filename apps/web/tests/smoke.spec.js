@@ -32,6 +32,18 @@ test.describe('Smoke — app boots and core interactions work', () => {
     expect(cardCount).toBeGreaterThan(5);
   });
 
+  test('Cards view: summary-first annual fees are hydrated, not rendered as PKR 0', async ({ page }) => {
+    await gotoApp(page);
+    const annualFee = page
+      .locator('.card-item--featured .card-stat')
+      .filter({ has: page.locator('.cs-l', { hasText: 'Annual fee' }) })
+      .locator('.cs-v')
+      .first();
+
+    await expect(annualFee).not.toHaveText('PKR 0');
+    await expect(annualFee).not.toHaveText('');
+  });
+
   test('Restaurants view: switch + data renders', async ({ page }) => {
     await gotoApp(page);
     await page.locator('#btn-view-restaurants').click();

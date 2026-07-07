@@ -16,6 +16,13 @@
 // Menu fetching is RESUMABLE: output is opened append-mode and vendors already in
 // the output file are skipped, so a crashed run just continues where it left off.
 import fs from "fs";
+import { ProxyAgent, setGlobalDispatcher } from "undici";
+
+const proxyUrl = process.env.HTTPS_PROXY || process.env.HTTP_PROXY;
+if (proxyUrl) {
+  setGlobalDispatcher(new ProxyAgent(proxyUrl));
+  console.log(`[PROXY] Routing requests through: ${proxyUrl}`);
+}
 
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36";
 const raw = process.argv.slice(2);
@@ -33,14 +40,64 @@ const OUT = args.out || "food-discovery/data/raw/foodpanda.jsonl";
 const DELAY = args["delay-ms"] ? +args["delay-ms"] : 350, PAGE = 48;
 
 const sleep = ms => new Promise(r=>setTimeout(r,ms));
-const perseus = () => `${Date.now()}.${Math.floor(Math.random()*1e18)}.${Math.random().toString(36).slice(2,12)}`;
-const baseHeaders = () => ({ "User-Agent":UA, "Accept":"application/json", "x-fp-api-key":"volo",
-  "x-disco-client-id":"web", "Perseus-Client-Id":perseus(), "Perseus-Session-Id":perseus(), "dps-session-id":perseus() });
 
-async function getJSON(url, tries=3){
+let browser;
+let page;
+
+async function initBrowser() {
+  if (!browser) {
+    browser = await chromium.launch({ headless: true });
+    const context = await browser.newContext({
+      userAgent: UA,
+      viewport: { width: 1280, height: 800 },
+      extraHTTPHeaders: {
+        "Accept": "application/json",
+        "sec-ch-ua": '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
+        "sec-ch-ua-mobile": "?0",
+        "sec-ch-ua-platform": '"macOS"',
+      }
+    });
+    page = await context.newPage();
+    await page.addInitScript(() => {
+      Object.defineProperty(navigator, 'webdriver', { get: () => false });
+      Object.defineProperty(navigator, 'plugins', { get: () => [1, 2, 3, 4, 5] });
+      Object.defineProperty(navigator, 'languages', { get: () => ['en-US', 'en'] });
+    });
+  }
+  return page;
+}
+
+const perseus = () => `${Date.now()}.${Math.floor(Math.random()*1e18)}.${Math.random().toString(36).slice(2,12)}`;
+const baseHeaders = (referer = "https://www.foodpanda.pk/") => ({ 
+  "User-Agent": UA, 
+  "Accept": "application/json", 
+  "x-fp-api-key": "volo",
+  "x-disco-client-id": "web", 
+  "Perseus-Client-Id": perseus(), 
+  "Perseus-Session-Id": perseus(), 
+  "dps-session-id": perseus(),
+  // Advanced browser headers to bypass basic bot detection
+  "sec-ch-ua": '"Not/A)Brand";v="8", "Chromium";v="126", "Google Chrome";v="126"',
+  "sec-ch-ua-mobile": "?0",
+  "sec-ch-ua-platform": '"macOS"',
+  "sec-fetch-dest": "empty",
+  "sec-fetch-mode": "cors",
+  "sec-fetch-site": "same-origin",
+  "referer": referer
+});
+
+async function getJSON(url, tries=3, referer="https://www.foodpanda.pk/"){
   for(let t=0;t<tries;t++){
-    try{ const r=await fetch(url,{headers:baseHeaders()}); if(r.status===200) return await r.json();
-      if(r.status===429||r.status>=500){ await sleep(1000*(t+1)); continue; } return {__err:r.status}; }
+    try{ 
+      const r=await fetch(url,{headers:baseHeaders(referer)}); 
+      if(r.status===200) return await r.json();
+      if(r.status===403) {
+        console.error(`[403 Forbidden] ${url} - IP may be blocked. Try a different proxy or increase --delay-ms.`);
+        return {__err: "403_forbidden"};
+      }
+      if(r.status===429||r.status>=500){ await sleep(1000*(t+1)); continue; } 
+      return {__err:r.status}; 
+    }
     catch(e){ if(t===tries-1) return {__err:e.message}; await sleep(800*(t+1)); }
   }
   return {__err:"retries_exhausted"};
@@ -86,14 +143,48 @@ function parseMenu(v){
   return out;
 }
 async function getMenu(code){
-  const u=`https://pk.fd-api.com/api/v5/vendors/${code}?include=menus&language_id=1&opening_type=delivery&basket_currency=PKR`;
-  const j=await getJSON(u);
-  if(j.__err) return {__err:j.__err};
-  const v=j.data;
-  return { foodpanda_id:v.id, code:v.code, name:v.name, chain:v.chain?.name||null, address:v.address||null,
-    area:v.address_line2||null, city:v.city?.name||null, lat:v.latitude??null, lng:v.longitude??null,
-    cuisines:(v.cuisines||[]).map(c=>c.name), rating:v.rating??null, review_number:v.review_number??null,
-    min_order:v.minimum_order_amount??null, menu:parseMenu(v) };
+  const u = `https://pk.fd-api.com/api/v5/vendors/${code}?include=menus&language_id=1&opening_type=delivery&basket_currency=PKR`;
+  const referer = `https://www.foodpanda.pk/restaurant/${code}`;
+  
+  try {
+    const p = await initBrowser();
+    await p.goto(referer, { waitUntil: 'domcontentloaded', timeout: 15000 });
+    await sleep(800); // Let PX scripts establish session
+
+    const result = await p.evaluate(async (apiUrl) => {
+      const res = await fetch(apiUrl, {
+        headers: {
+          'Accept': 'application/json',
+          'x-fp-api-key': 'volo',
+          'x-disco-client-id': 'web'
+        }
+      });
+      if (res.status === 200) return await res.json();
+      return { __err: res.status };
+    }, u);
+
+    if (result.__err) return { __err: result.__err };
+    
+    const v = result.data;
+    return { 
+      foodpanda_id: v.id, 
+      code: v.code, 
+      name: v.name, 
+      chain: v.chain?.name || null, 
+      address: v.address || null,
+      area: v.address_line2 || null, 
+      city: v.city?.name || null, 
+      lat: v.latitude ?? null, 
+      lng: v.longitude ?? null,
+      cuisines: (v.cuisines || []).map(c => c.name), 
+      rating: v.rating ?? null, 
+      review_number: v.review_number ?? null,
+      min_order: v.minimum_order_amount ?? null, 
+      menu: parseMenu(v) 
+    };
+  } catch (e) {
+    return { __err: e.message };
+  }
 }
 
 // --- discover unique vendors ---
@@ -135,9 +226,21 @@ const fd=fs.openSync(OUT,"a");
 let ok=0,err=0,items=0,t0=Date.now();
 for(let i=0;i<codes.length;i++){
   const m=await getMenu(codes[i]);
-  if(m.__err){ err++; } else { ok++; items+=m.menu.length; fs.writeSync(fd, JSON.stringify(m)+"\n"); }
+  if(m.__err){ 
+    err++; 
+    if (err <= 5) console.error(`[ERROR] ${codes[i]}:`, m.__err);
+  } else { 
+    ok++; 
+    items+=m.menu.length; 
+    fs.writeSync(fd, JSON.stringify(m)+"\n"); 
+  }
   if((i+1)%25===0||i===codes.length-1){ const rate=(i+1)/((Date.now()-t0)/1000); console.log(`  ${i+1}/${codes.length}  ok=${ok} err=${err} items=${items}  ${rate.toFixed(1)}/s`); }
   await sleep(DELAY + Math.random()*DELAY);   // jitter to look less mechanical
 }
 fs.closeSync(fd);
 console.log(`\ndone: ${ok} vendors with menus this run, ${err} errors, ${items} menu items, ${done.size+ok} total → ${OUT}`);
+
+if (browser) {
+  await browser.close();
+  console.log("Browser closed.");
+}
