@@ -133,8 +133,8 @@ MANUAL_ALIASES = {
     "Faysal Bank Limited": {
         "Amal Mastercard Gold Debit Card": "Faysal Islami Mastercard Amal Gold Debit Card",
         "Amal Mastercard Platinum Debit Card": "Faysal Islami Mastercard Amal Platinum Debit Card",
-        "Faysal Islami Co-Badged Mastercard Paypak Debit Card": "Faysal Islami Mastercard Classic Debit Card",
-        "Faysal Islami Paypak Debit Card": "Faysal Islami Mastercard Classic Debit Card",
+        "Faysal Islami Co-Badged Mastercard Paypak Debit Card": "Faysal Islami Co-Badged Mastercard PayPak Debit Card",
+        "Faysal Islami Paypak Debit Card": "Faysal Islami PayPak Debit Card",
         "Faysal Islami Noor Gold  Card": "Faysal Islami Noor Gold Card",
         "Faysal Islami Noor Titanium  Card": "Faysal Islami Noor Titanium Card",
         "Faysal Islami Noor World  Card": "Faysal Islami Noor World Card",

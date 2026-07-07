@@ -1111,6 +1111,28 @@
     "pilot_position": 7
   },
   {
+    "card_id": "faysal-bank--faysal-islami-paypak-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami PayPak Debit Card",
+    "card_slug": "faysal-islami-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 13
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Co-Badged Mastercard PayPak Debit Card",
+    "card_slug": "faysal-islami-co-badged-mastercard-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 14
+  },
+  {
     "card_id": "hbl--hbl-fuelsaver-gold-creditcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
