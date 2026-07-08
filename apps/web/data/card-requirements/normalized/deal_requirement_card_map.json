@@ -941,8 +941,8 @@
     "deal_card_name": "Faysal Islami Co-Badged Mastercard Paypak Debit Card",
     "matched": true,
     "match_method": "manual_alias",
-    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-classic-debit-card",
-    "requirement_card_name": "Faysal Islami Mastercard Classic Debit Card"
+    "requirement_card_id": "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card",
+    "requirement_card_name": "Faysal Islami Co-Badged Mastercard PayPak Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -1022,8 +1022,8 @@
     "deal_card_name": "Faysal Islami Paypak Debit Card",
     "matched": true,
     "match_method": "manual_alias",
-    "requirement_card_id": "faysal-bank--faysal-islami-mastercard-classic-debit-card",
-    "requirement_card_name": "Faysal Islami Mastercard Classic Debit Card"
+    "requirement_card_id": "faysal-bank--faysal-islami-paypak-debit-card",
+    "requirement_card_name": "Faysal Islami PayPak Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
