@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-10T10:05:31",
+  "generatedAt": "2026-07-11T08:26:12",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -108,6 +108,34 @@
       "city": "Islamabad",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Cinnabon",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Centaurus & Giga Mall"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Club Kitchen",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30584?type=card&cityId=3",
       "headline_discount_pct": 20,
@@ -166,7 +194,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31612?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "Coffeemistry",
@@ -182,9 +210,14 @@
           "address": "Caltex, F-7 Markaz F 7 Markaz F-7, Islamabad."
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31612?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "Allahwali Market, F-8/1",
+        "Caltex, F-7 Markaz"
       ]
     },
     {
@@ -252,6 +285,34 @@
       "city": "Islamabad",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "GreenO",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "All branches"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "High-End Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30714?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -279,9 +340,9 @@
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "KIAS Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31643?type=card&cityId=3",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 2,
       "summary": "KIAS Specialty Coffe...",
@@ -301,9 +362,42 @@
           "address": "DHA Phase 2 : Sector E, DHA Phase 2 Islamabad"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31643?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "DHA Phase 2"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Loafology",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1500,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Blue Area & F-11",
+        "Diplomatic Enclave"
+      ],
+      "terms": "Cap: Rs. 1,500",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -405,7 +499,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "From a humble beginn...",
@@ -457,9 +551,13 @@
           "address": "Race Course/ Jillani Park Branch, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "F-6 & Park View"
       ]
     },
     {
@@ -490,6 +588,65 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30649?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Sesame & Soy",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Blue Area"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Randhawa Tower, Jinnah Ave, F-9",
+        "Central Park, Sector E, DHA Ph II",
+        "Mir Chakar Khan Road, Markaz, I-8",
+        "Giga Mall, DHA 2"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -696,6 +853,34 @@
       "city": "Islamabad",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Cinnabon",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Centaurus & Giga Mall"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Club Kitchen",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30584?type=card&cityId=3",
       "headline_discount_pct": 20,
@@ -754,7 +939,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31612?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "Coffeemistry",
@@ -770,9 +955,14 @@
           "address": "Caltex, F-7 Markaz F 7 Markaz F-7, Islamabad."
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31612?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "Allahwali Market, F-8/1",
+        "Caltex, F-7 Markaz"
       ]
     },
     {
@@ -840,6 +1030,34 @@
       "city": "Islamabad",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "GreenO",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "All branches"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "High-End Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30714?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -867,9 +1085,9 @@
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "KIAS Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31643?type=card&cityId=3",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 2,
       "summary": "KIAS Specialty Coffe...",
@@ -889,9 +1107,42 @@
           "address": "DHA Phase 2 : Sector E, DHA Phase 2 Islamabad"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31643?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "DHA Phase 2"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Loafology",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1500,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Blue Area & F-11",
+        "Diplomatic Enclave"
+      ],
+      "terms": "Cap: Rs. 1,500",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -993,7 +1244,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "From a humble beginn...",
@@ -1045,9 +1296,13 @@
           "address": "Race Course/ Jillani Park Branch, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "F-6 & Park View"
       ]
     },
     {
@@ -1078,6 +1333,65 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30649?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Sesame & Soy",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Blue Area"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Randhawa Tower, Jinnah Ave, F-9",
+        "Central Park, Sector E, DHA Ph II",
+        "Mir Chakar Khan Road, Markaz, I-8",
+        "Giga Mall, DHA 2"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -1284,6 +1598,34 @@
       "city": "Islamabad",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Cinnabon",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Centaurus & Giga Mall"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Club Kitchen",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30584?type=card&cityId=3",
       "headline_discount_pct": 20,
@@ -1342,7 +1684,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31612?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "Coffeemistry",
@@ -1358,9 +1700,14 @@
           "address": "Caltex, F-7 Markaz F 7 Markaz F-7, Islamabad."
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31612?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "Allahwali Market, F-8/1",
+        "Caltex, F-7 Markaz"
       ]
     },
     {
@@ -1428,6 +1775,34 @@
       "city": "Islamabad",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "GreenO",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "All branches"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "High-End Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30714?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -1455,9 +1830,9 @@
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "KIAS Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31643?type=card&cityId=3",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 2,
       "summary": "KIAS Specialty Coffe...",
@@ -1477,9 +1852,42 @@
           "address": "DHA Phase 2 : Sector E, DHA Phase 2 Islamabad"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31643?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "DHA Phase 2"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Loafology",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1500,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Blue Area & F-11",
+        "Diplomatic Enclave"
+      ],
+      "terms": "Cap: Rs. 1,500",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -1581,7 +1989,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "From a humble beginn...",
@@ -1633,9 +2041,13 @@
           "address": "Race Course/ Jillani Park Branch, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=3"
+      ],
+      "official_locations": [
+        "F-6 & Park View"
       ]
     },
     {
@@ -1666,6 +2078,65 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30649?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Sesame & Soy",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Blue Area"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Randhawa Tower, Jinnah Ave, F-9",
+        "Central Park, Sector E, DHA Ph II",
+        "Mir Chakar Khan Road, Markaz, I-8",
+        "Giga Mall, DHA 2"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -2175,7 +2646,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "The world\u2019s most fam...",
@@ -2227,9 +2698,13 @@
           "address": "Dolmen Mall Clifton, Karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Dolmen Mall & Ph 6"
       ]
     },
     {
@@ -2423,6 +2898,35 @@
       "city": "Karachi",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "DropCoffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Ph 8 & Tipu Sultan",
+        "North Nazimabad & Gulshan"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Eat Max",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30679?type=card&cityId=1",
       "headline_discount_pct": 10,
@@ -2457,7 +2961,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 6,
       "summary": "For coffee and every...",
@@ -2493,9 +2997,44 @@
           "address": "Plot No. 39B Shell Petrol Pump (Khayaban e Bahria) DHA Phase 5, Karachi, Pakistan."
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Zamzama DHA Ph 5",
+        "Dolmen Mall Clifton",
+        "Square One Mall, Gulshan",
+        "Shahrah e Faisal & Kh-e-Bahria"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Faba Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Phase 8 DHA"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -2537,7 +3076,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 2,
       "summary": "The perfect mix of f...",
@@ -2557,9 +3096,14 @@
           "address": "Shop #1, Siraj ud-Daulah Rd, near Al khidmat Pharmacy, Bahadurabad Bahadur Yar Jang CHS, Karachi&quot;"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "KDA Scheme 1",
+        "Bahadurabad"
       ]
     },
     {
@@ -2601,7 +3145,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 37,
       "summary": "GreenO Juice Bars&#039; m...",
@@ -2761,9 +3305,13 @@
           "address": "16th St, Creek Vistas Apartments Zone B Phase 8 DHA, Karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "All branches"
       ]
     },
     {
@@ -3450,11 +3998,39 @@
       "city": "Karachi",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Senzo London",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Bukhari Commercial, DHA 6"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Shot Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31600?type=card&cityId=1",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "BREW | SHOT | RUSH...",
@@ -3470,9 +4046,13 @@
           "address": "Plot 4, habitt city, main Tipu Sultan Rd, Karachi Memon Co-operative Housing Society Karachi Memon Society Karachi,"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31600?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Coming Soon"
       ]
     },
     {
@@ -3638,7 +4218,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31563?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 4,
       "summary": "Sugar&#039;s secret brew...",
@@ -3666,9 +4246,15 @@
           "address": "North Nazimabad, karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31563?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "DHA Phase 8",
+        "Gulshan-e-Iqbal",
+        "North Nazimabad"
       ]
     },
     {
@@ -3859,7 +4445,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 7,
       "summary": "Once a royal secret...",
@@ -3899,9 +4485,41 @@
           "address": "Dolmen Mall, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Block 4 Clifton"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Khayaban-e-Faisal, DHA Phase VIII Zone B"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -4501,7 +5119,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "The world\u2019s most fam...",
@@ -4553,9 +5171,13 @@
           "address": "Dolmen Mall Clifton, Karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Dolmen Mall & Ph 6"
       ]
     },
     {
@@ -4749,6 +5371,35 @@
       "city": "Karachi",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "DropCoffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Ph 8 & Tipu Sultan",
+        "North Nazimabad & Gulshan"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Eat Max",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30679?type=card&cityId=1",
       "headline_discount_pct": 10,
@@ -4783,7 +5434,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 6,
       "summary": "For coffee and every...",
@@ -4819,9 +5470,44 @@
           "address": "Plot No. 39B Shell Petrol Pump (Khayaban e Bahria) DHA Phase 5, Karachi, Pakistan."
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Zamzama DHA Ph 5",
+        "Dolmen Mall Clifton",
+        "Square One Mall, Gulshan",
+        "Shahrah e Faisal & Kh-e-Bahria"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Faba Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Phase 8 DHA"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -4863,7 +5549,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 2,
       "summary": "The perfect mix of f...",
@@ -4883,9 +5569,14 @@
           "address": "Shop #1, Siraj ud-Daulah Rd, near Al khidmat Pharmacy, Bahadurabad Bahadur Yar Jang CHS, Karachi&quot;"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "KDA Scheme 1",
+        "Bahadurabad"
       ]
     },
     {
@@ -4927,7 +5618,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 37,
       "summary": "GreenO Juice Bars&#039; m...",
@@ -5087,9 +5778,13 @@
           "address": "16th St, Creek Vistas Apartments Zone B Phase 8 DHA, Karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "All branches"
       ]
     },
     {
@@ -5776,11 +6471,39 @@
       "city": "Karachi",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Senzo London",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Bukhari Commercial, DHA 6"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Shot Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31600?type=card&cityId=1",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "BREW | SHOT | RUSH...",
@@ -5796,9 +6519,13 @@
           "address": "Plot 4, habitt city, main Tipu Sultan Rd, Karachi Memon Co-operative Housing Society Karachi Memon Society Karachi,"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31600?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Coming Soon"
       ]
     },
     {
@@ -5964,7 +6691,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31563?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 4,
       "summary": "Sugar&#039;s secret brew...",
@@ -5992,9 +6719,15 @@
           "address": "North Nazimabad, karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31563?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "DHA Phase 8",
+        "Gulshan-e-Iqbal",
+        "North Nazimabad"
       ]
     },
     {
@@ -6185,7 +6918,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 7,
       "summary": "Once a royal secret...",
@@ -6225,9 +6958,41 @@
           "address": "Dolmen Mall, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Block 4 Clifton"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Khayaban-e-Faisal, DHA Phase VIII Zone B"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -6827,7 +7592,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "The world\u2019s most fam...",
@@ -6879,9 +7644,13 @@
           "address": "Dolmen Mall Clifton, Karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31666?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Dolmen Mall & Ph 6"
       ]
     },
     {
@@ -7075,6 +7844,35 @@
       "city": "Karachi",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "DropCoffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Ph 8 & Tipu Sultan",
+        "North Nazimabad & Gulshan"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Eat Max",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30679?type=card&cityId=1",
       "headline_discount_pct": 10,
@@ -7109,7 +7907,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 6,
       "summary": "For coffee and every...",
@@ -7145,9 +7943,44 @@
           "address": "Plot No. 39B Shell Petrol Pump (Khayaban e Bahria) DHA Phase 5, Karachi, Pakistan."
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31611?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Zamzama DHA Ph 5",
+        "Dolmen Mall Clifton",
+        "Square One Mall, Gulshan",
+        "Shahrah e Faisal & Kh-e-Bahria"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Faba Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Phase 8 DHA"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -7189,7 +8022,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
       "headline_discount_pct": 50,
       "headline_discount_label": "50%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 2,
       "summary": "The perfect mix of f...",
@@ -7209,9 +8042,14 @@
           "address": "Shop #1, Siraj ud-Daulah Rd, near Al khidmat Pharmacy, Bahadurabad Bahadur Yar Jang CHS, Karachi&quot;"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "KDA Scheme 1",
+        "Bahadurabad"
       ]
     },
     {
@@ -7253,7 +8091,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 37,
       "summary": "GreenO Juice Bars&#039; m...",
@@ -7413,9 +8251,13 @@
           "address": "16th St, Creek Vistas Apartments Zone B Phase 8 DHA, Karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31560?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "All branches"
       ]
     },
     {
@@ -8102,11 +8944,39 @@
       "city": "Karachi",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Senzo London",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Bukhari Commercial, DHA 6"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Shot Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31600?type=card&cityId=1",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "BREW | SHOT | RUSH...",
@@ -8122,9 +8992,13 @@
           "address": "Plot 4, habitt city, main Tipu Sultan Rd, Karachi Memon Co-operative Housing Society Karachi Memon Society Karachi,"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31600?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Coming Soon"
       ]
     },
     {
@@ -8290,7 +9164,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31563?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 4,
       "summary": "Sugar&#039;s secret brew...",
@@ -8318,9 +9192,15 @@
           "address": "North Nazimabad, karachi"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31563?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "DHA Phase 8",
+        "Gulshan-e-Iqbal",
+        "North Nazimabad"
       ]
     },
     {
@@ -8511,7 +9391,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 7,
       "summary": "Once a royal secret...",
@@ -8551,9 +9431,41 @@
           "address": "Dolmen Mall, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=1"
+      ],
+      "official_locations": [
+        "Block 4 Clifton"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Khayaban-e-Faisal, DHA Phase VIII Zone B"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -8852,9 +9764,9 @@
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Blank Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "Modern Coffee.",
@@ -8870,9 +9782,13 @@
           "address": "H, 84 MB, Sector H DHA Phase 6, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA Phase 6"
       ]
     },
     {
@@ -8905,6 +9821,34 @@
       "city": "Lahore",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Chapter One",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Sector A, Phase 5 DHA"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "ChapterOne coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31656?type=card&cityId=2",
       "headline_discount_pct": 30,
@@ -8928,6 +9872,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31656?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Cinnabon",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Packages & Emporium"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -9049,6 +10021,64 @@
       "city": "Lahore",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Drip Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Block H Gulberg",
+        "DHA, Phase IV",
+        "DHA Phase 7"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Eggspectation",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 2000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Coming Soon"
+      ],
+      "terms": "Cap: Rs. 2,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Food Parliament",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30821?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -9127,6 +10157,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30784?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "GreenO",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "All branches"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -9246,6 +10304,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30751?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Loafology",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1500,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Phase 4 & 5"
+      ],
+      "terms": "Cap: Rs. 1,500",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -9612,7 +10698,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "From a humble beginn...",
@@ -9664,9 +10750,13 @@
           "address": "Race Course/ Jillani Park Branch, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA, Gulberg, Johar Town"
       ]
     },
     {
@@ -9697,6 +10787,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30776?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Solo Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Phase 3"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -9858,7 +10976,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 7,
       "summary": "Once a royal secret...",
@@ -9898,9 +11016,51 @@
           "address": "Dolmen Mall, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "Model Town, Block A",
+        "Johar town, Block K",
+        "9A Main Boulevard Gulberg",
+        "PAF Cinema, Cantt",
+        "279 Y-Block, DHA Phase 3",
+        "Dolmen Mall"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "145-MB Main Blvd, Phase 6 DHA",
+        "94-D Main Blvd Gulberg",
+        "3 Mian Mehmood Ali Kasoori Rd",
+        "Plot 82, Block J1 Johar Town",
+        "Abdul Qadeer Khan Rd, Lake City",
+        "Sector C, Main Boulevard, Bahria Town"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -10139,9 +11299,9 @@
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Blank Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "Modern Coffee.",
@@ -10157,9 +11317,13 @@
           "address": "H, 84 MB, Sector H DHA Phase 6, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA Phase 6"
       ]
     },
     {
@@ -10192,6 +11356,34 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Chapter One",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Sector A, Phase 5 DHA"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "ChapterOne coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31656?type=card&cityId=2",
       "headline_discount_pct": 30,
@@ -10215,6 +11407,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31656?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Cinnabon",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Packages & Emporium"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -10336,6 +11556,64 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Drip Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Block H Gulberg",
+        "DHA, Phase IV",
+        "DHA Phase 7"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Eggspectation",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 2000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Coming Soon"
+      ],
+      "terms": "Cap: Rs. 2,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Food Parliament",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30821?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -10414,6 +11692,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30784?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "GreenO",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "All branches"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -10533,6 +11839,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30751?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Loafology",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1500,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Phase 4 & 5"
+      ],
+      "terms": "Cap: Rs. 1,500",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -10899,7 +12233,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "From a humble beginn...",
@@ -10951,9 +12285,13 @@
           "address": "Race Course/ Jillani Park Branch, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA, Gulberg, Johar Town"
       ]
     },
     {
@@ -10984,6 +12322,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30776?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Solo Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Phase 3"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -11145,7 +12511,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 7,
       "summary": "Once a royal secret...",
@@ -11185,9 +12551,51 @@
           "address": "Dolmen Mall, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "Model Town, Block A",
+        "Johar town, Block K",
+        "9A Main Boulevard Gulberg",
+        "PAF Cinema, Cantt",
+        "279 Y-Block, DHA Phase 3",
+        "Dolmen Mall"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "145-MB Main Blvd, Phase 6 DHA",
+        "94-D Main Blvd Gulberg",
+        "3 Mian Mehmood Ali Kasoori Rd",
+        "Plot 82, Block J1 Johar Town",
+        "Abdul Qadeer Khan Rd, Lake City",
+        "Sector C, Main Boulevard, Bahria Town"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -11426,9 +12834,9 @@
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Blank Coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2",
-      "headline_discount_pct": 30,
-      "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 1,
       "summary": "Modern Coffee.",
@@ -11444,9 +12852,13 @@
           "address": "H, 84 MB, Sector H DHA Phase 6, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA Phase 6"
       ]
     },
     {
@@ -11479,6 +12891,34 @@
       "city": "Lahore",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Chapter One",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Sector A, Phase 5 DHA"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "ChapterOne coffee",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31656?type=card&cityId=2",
       "headline_discount_pct": 30,
@@ -11502,6 +12942,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31656?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Cinnabon",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Packages & Emporium"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -11623,6 +13091,64 @@
       "city": "Lahore",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Drip Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Block H Gulberg",
+        "DHA, Phase IV",
+        "DHA Phase 7"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Eggspectation",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 2000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "Coming Soon"
+      ],
+      "terms": "Cap: Rs. 2,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Food Parliament",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30821?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -11701,6 +13227,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30784?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "GreenO",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "All branches"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -11791,6 +13345,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30751?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Loafology",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1500,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Phase 4 & 5"
+      ],
+      "terms": "Cap: Rs. 1,500",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -12157,7 +13739,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 10,
       "summary": "From a humble beginn...",
@@ -12209,9 +13791,13 @@
           "address": "Race Course/ Jillani Park Branch, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31610?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "DHA, Gulberg, Johar Town"
       ]
     },
     {
@@ -12242,6 +13828,34 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30776?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Solo Coffee",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "DHA Phase 3"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
@@ -12403,7 +14017,7 @@
       "detail_url": "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2",
       "headline_discount_pct": 30,
       "headline_discount_label": "30%",
-      "cap_pkr": null,
+      "cap_pkr": 1000,
       "card_deals_count": 3,
       "branches_in_city": 7,
       "summary": "Once a royal secret...",
@@ -12443,9 +14057,51 @@
           "address": "Dolmen Mall, Lahore"
         }
       ],
-      "terms": null,
+      "terms": "Cap: Rs. 1,000",
       "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/",
         "https://discovery.discountworld.net/brand-detail/31579?type=card&cityId=2"
+      ],
+      "official_locations": [
+        "Model Town, Block A",
+        "Johar town, Block K",
+        "9A Main Boulevard Gulberg",
+        "PAF Cinema, Cantt",
+        "279 Y-Block, DHA Phase 3",
+        "Dolmen Mall"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Tim Horton",
+      "detail_url": "https://easypaisa.com.pk/coffee-house-partners/",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
+      "cap_pkr": 1000,
+      "card_deals_count": null,
+      "branches_in_city": null,
+      "summary": null,
+      "phone": null,
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "official_locations": [
+        "145-MB Main Blvd, Phase 6 DHA",
+        "94-D Main Blvd Gulberg",
+        "3 Mian Mehmood Ali Kasoori Rd",
+        "Plot 82, Block J1 Johar Town",
+        "Abdul Qadeer Khan Rd, Lake City",
+        "Sector C, Main Boulevard, Bahria Town"
+      ],
+      "terms": "Cap: Rs. 1,000",
+      "source_urls": [
+        "https://easypaisa.com.pk/coffee-house-partners/"
       ]
     },
     {
