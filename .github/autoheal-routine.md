@@ -1,9 +1,9 @@
-# Daily-refresh auto-heal routine — setup
+# Daily-refresh auto-heal — setup
 
-The **playbook** (`.github/autoheal-playbook.md`) is committed, rewritten against the
-2026-08-19 → 2026-09-08 outage, and the **browser problem is solved** (see below).
-What is still missing is the scheduled cloud agent that runs it, and it is blocked on one
-account-level action.
+The **playbook** (`.github/autoheal-playbook.md`) is committed and rewritten against the
+2026-08-19 → 2026-09-08 outage, and the **browser problem is solved**. What remains is
+arming the agent that runs it. There are two routes; **route A needs no admin and is the
+recommended one.**
 
 ## Status (2026-09-08)
 
@@ -11,71 +11,102 @@ account-level action.
 |---|---|
 | Playbook, gate-by-gate repair procedure | ✅ committed |
 | Browser access to bot-walled bank sites | ✅ `fetch-walled-sources.yml`, proven on a runner (run 34240320095) |
-| Offline rehearsal harness for every strict gate | ✅ in playbook section 6 |
-| Cloud routine `daily-refresh-autoheal` | ❌ blocked: HTTP 401, GitHub account not connected |
-| GitHub webhook trigger (fire on failure) | ❌ blocked by the same thing |
+| Offline rehearsal harness for every strict gate | ✅ playbook section 6 |
+| **Route A** — GitHub Actions (`autoheal.yml`) | ⚠️ committed, waiting on one repo secret |
+| **Route B** — cloud routine + webhook | ❌ blocked: needs a Whiteshield org Owner (see below) |
 
-## The one blocker
+---
 
-Creating the routine returns:
+## Route A — GitHub Actions (recommended)
+
+`.github/workflows/autoheal.yml` runs Claude Code headless. It fires on
+`workflow_run` the moment a **Daily offers refresh** run concludes as `failure`, plus a
+07:15 UTC scheduled check (which also catches the refresh cron not firing at all — the
+failure mode a webhook is blind to), plus manual dispatch.
+
+**Two commands to arm it:**
+
+```bash
+claude setup-token                     # prints a long-lived subscription token
+gh secret set CLAUDE_CODE_OAUTH_TOKEN  # paste it at the prompt (keeps it out of shell history)
+```
+
+Until that secret exists the job exits cleanly with a notice, so an unarmed auto-heal never
+turns into a wall of failed runs.
+
+Notes:
+- The token is tied to whoever runs `claude setup-token` — currently a **Whiteshield Team**
+  subscription being used on a personal repo. Decide whether that is acceptable; the
+  alternative is `ANTHROPIC_API_KEY` from https://platform.claude.com, which bills API
+  credits and is not tied to one person.
+- Model is pinned to `claude-opus-5` in `claude_args`. The judgement calls are the value:
+  reading a scanned schedule from a page render, noticing a replacement fee sitting in a
+  supplementary field, catching a card tier the feed invented.
+- **A push made with `GITHUB_TOKEN` does not trigger other workflows**, so CI (including
+  the mobile ranking-parity job) will not vet the agent's commit. The prompt tells it to
+  verify parity itself; that is why regenerating `data/summary.json` in the same commit is
+  mandatory rather than merely advisable.
+- Permissions are scoped to what the playbook needs: `contents: write` (push), `issues:
+  write` (comment/close), `actions: write` (re-run the refresh, dispatch the fetch helper).
+
+---
+
+## Route B — scheduled cloud routine
+
+A cloud routine (`/schedule`) needs the claude.ai account linked to GitHub. Creating one
+currently fails:
 
 ```
 HTTP 401  Connect your GitHub account before saving a routine that uses a GitHub repository.
 ```
 
-The cloud agent needs write access to this repo (push to main and dev, dispatch workflows,
-comment on issues). Connect it once, either way:
+On this account that link requires **org action**, because the Claude account is a
+**Team** plan (`Whiteshield`), not a personal one:
 
-- in Claude Code, run **`/web-setup`**, or
-- install the **Claude GitHub App**: https://claude.ai/code/onboarding?magic=github-app-setup
+1. An Owner enables the GitHub connector at https://claude.ai/admin-settings/connectors —
+   required for the browser authorization flow.
+2. Then either authorize GitHub at https://claude.ai/code, or run **`/web-setup`** inside
+   the `claude` CLI. Note `/web-setup` is **hidden on Team/Enterprise** until an Owner also
+   enables "Quick web setup" at https://claude.ai/admin-settings/claude-code — which is why
+   the command appears not to exist.
+3. Verify at https://github.com/settings/applications → Claude → Configure (check this repo
+   is in scope), and https://claude.ai/code/routines.
 
-This was also the blocker in July 2026; nothing else about the setup is outstanding.
+Also note: a Zero Data Retention policy blocks cloud sessions entirely, routines included.
 
-## Create it (after connecting GitHub)
+(The old `https://claude.ai/code/onboarding?magic=github-app-setup` link in these notes was
+outdated — there is no magic-link flow; use https://claude.ai/code.)
 
-Ask Claude Code: **"create the daily-refresh-autoheal routine from .github/autoheal-routine.md"**.
-The call is ready to fire as-is:
+Once linked, ask Claude Code to **"create the daily-refresh-autoheal routine from
+.github/autoheal-routine.md"**. Config, ready to fire:
 
 - **Name:** `daily-refresh-autoheal`
-- **Schedule:** `cron_expression: "15 7 * * *"` (07:15 UTC daily = 12:15 PKT), a safety net
-  ~1h after the 06:17 UTC refresh cron. The primary trigger is the webhook below.
-- **Model:** `claude-opus-5`. The judgement calls are the whole value: reading a scanned
-  schedule from a page render, noticing a replacement fee sitting in a supplementary
-  field, catching a card tier the feed invented.
+- **Schedule:** `cron_expression: "15 7 * * *"` (07:15 UTC = 12:15 PKT) as the safety net
+- **Model:** `claude-opus-5`
 - **Environment:** `env_01QafgNWkQVEMVj1ALEXUCko` (`Default`, anthropic_cloud)
 - **Repo source:** `https://github.com/faizanraza09/konsacard`
 - **Allowed tools:** `Bash, Read, Write, Edit, Glob, Grep, WebSearch, WebFetch`
-- **Autonomy:** full — pushes verified fixes to `main` + `dev` and re-runs the pipeline. No
-  PR step. The hard rule is unchanged: any figure it cannot source from an official
-  document stays `null` with a `bank_gaps` note.
-- **Prompt:** the entry point that routes into the playbook — triage the latest
-  `daily-refresh.yml` run; no run in ~26h means the cron itself stopped, so comment and
-  stop; heal gates 2A/2B/2F, comment-and-stop on 2C/2D/2E; never invent a figure; dispatch
-  `fetch-walled-sources.yml` for walled banks and read the renders; rehearse offline;
-  regenerate `summary.json` in the same commit as any requirements change; push both
-  branches without racing the refresh workflow; re-run to green; comment, close, and say
-  what was left for a human.
+- **Autonomy:** full — pushes to `main` + `dev` and re-runs the pipeline, no PR step
+- **Prompt:** the same entry point as the `prompt:` block in
+  `.github/workflows/autoheal.yml` — keep the two in step if you edit one
+- **Then:** `RemoteTrigger` → `create_webhook_trigger`, GitHub source scoped to this repo,
+  event `workflow_run` filtered to `daily-refresh.yml` concluding `failure`, firing that
+  routine, so it reacts on failure instead of waiting for 07:15.
 
-Then attach the event source so it fires on failure rather than waiting for 07:15:
+Routes A and B do the same work; running both would just duplicate effort. Pick one.
 
-- `RemoteTrigger` → `create_webhook_trigger`, source GitHub, scope this repository,
-  event `workflow_run` filtered to `daily-refresh.yml` concluding `failure`, firing
-  `routine_trigger_id` = the routine created above.
+---
 
 ## What it will do
 
 - Refresh green → no-op.
-- **New bank in the feed** → verify it is real, add to `optional_banks`, wire up logo +
-  apply URL + counts, bridge its cards, push, re-run to green. (This is the gate that
-  caused the 21-day outage and that the old playbook refused to touch.)
+- **New bank in the feed** → verify it is real, add to `optional_banks`, wire up logo,
+  apply URL and the hardcoded counts, bridge its cards, push, re-run to green. This is the
+  gate that caused the 21-day outage and that the old playbook refused to touch.
 - **New unmatched card** → alias, or a sourced record, or known-unmatched if genuinely
   unsourceable; push, re-run to green.
 - **Stale ranking summary** → regenerate and push.
-- **Feed volume / floor / restaurant-loss / SEO determinism failures** → comment the
-  evidence and stop. These are feed or code faults and must not be papered over.
-
-## Fallback if the GitHub connection is not wanted
-
-An event-driven GitHub Action running Claude Code headless (`workflow_run` on
-`daily-refresh.yml` failure) would need an `ANTHROPIC_API_KEY` repo secret instead of the
-GitHub connection, and bills to API credits rather than the subscription. Not set up.
+- **Feed volume / floor / restaurant-loss / SEO determinism failure** → comment the
+  evidence and stop. Those are feed or code faults and must not be papered over.
+- Never invents a financial figure. Unsourceable ⇒ `null` + `bank_gaps` + flagged to a
+  human.
