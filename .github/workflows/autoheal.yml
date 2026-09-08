@@ -82,6 +82,7 @@ jobs:
           git config user.email "konsacard-autoheal-bot@users.noreply.github.com"
 
       - name: Run the auto-heal agent
+        id: agent
         if: steps.cred.outputs.ready == 'true'
         uses: anthropics/claude-code-action@v1
         env:
@@ -165,3 +166,40 @@ jobs:
                exact documents and clauses behind them, close it once the re-run is green,
                close stale duplicate failure issues with a one-line pointer to the write-up,
                and state plainly anything you left for a human.
+
+      # The action reports "is_error:true" without the underlying message, which is
+      # useless for diagnosis. Claude's own execution log carries the reason, so surface
+      # just the error text (never the whole log, which quotes repo and issue content).
+      - name: Surface the agent's error detail
+        if: always() && steps.cred.outputs.ready == 'true' && steps.agent.outcome == 'failure'
+        run: |
+          log="${RUNNER_TEMP}/claude-execution-output.json"
+          if [ ! -f "$log" ]; then echo "no execution log at $log"; exit 0; fi
+          python3 - "$log" <<'PY'
+          import json, sys
+          try:
+              data = json.load(open(sys.argv[1]))
+          except Exception as exc:
+              print(f"could not parse execution log: {exc}")
+              raise SystemExit(0)
+          entries = data if isinstance(data, list) else [data]
+          for entry in entries:
+              if not isinstance(entry, dict):
+                  continue
+              # result envelopes and any message carrying an error string
+              for key in ("error", "error_message", "result", "subtype", "message"):
+                  value = entry.get(key)
+                  if isinstance(value, str) and value.strip():
+                      print(f"{entry.get('type', '?')}.{key}: {value[:600]}")
+                  elif isinstance(value, dict):
+                      content = value.get("content")
+                      if isinstance(content, str) and "error" in content.lower():
+                          print(f"{entry.get('type', '?')}.{key}.content: {content[:600]}")
+                      elif isinstance(content, list):
+                          for block in content:
+                              text = block.get("text") if isinstance(block, dict) else None
+                              if isinstance(text, str) and "error" in text.lower():
+                                  print(f"{entry.get('type', '?')}.{key}.text: {text[:600]}")
+              if entry.get("is_error"):
+                  print("is_error entry keys: " + ", ".join(sorted(entry)))
+          PY
