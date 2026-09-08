@@ -141,11 +141,11 @@ export default function Onboarding() {
           </Text>
 
           <View style={styles.stats}>
-            <Stat value="18" label="banks" />
+            <Stat value="21" label="banks" />
             <View style={styles.statDivider} />
             <Stat value="200+" label="cards" />
             <View style={styles.statDivider} />
-            <Stat value="1,300+" label="restaurants" />
+            <Stat value="1,250+" label="restaurants" />
           </View>
         </View>
 
