@@ -1,0 +1,85 @@
+name: Fetch walled bank sources
+
+# Retrieves publicly published bank documents (Schedules of Charges, Key Fact Statements)
+# from sites that block plain HTTP clients, using a real Chromium profile on the runner,
+# and publishes them as an artifact.
+#
+# Why this exists: the daily-refresh auto-heal agent needs these documents to verify card
+# fees, but bop.com.pk (Imperva/Incapsula) and faysalbank.com HTML (Cloudflare) serve a JS
+# challenge to curl/WebFetch, and the agent's own sandbox cannot be relied on to have a
+# browser or the egress to solve one. A GitHub runner always can. The agent dispatches this
+# workflow, then downloads the artifact and reads the PDFs and page renders.
+#
+# Read-only by design: no repo write permission, no secrets, and it only visits the URLs it
+# is given.
+
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'Page or .pdf URLs, comma separated. A page is opened and its PDF links harvested.'
+        required: true
+        type: string
+      link_filter:
+        description: 'Regex a harvested PDF link must match (e.g. 01-07-2026|English)'
+        required: false
+        default: '.*'
+        type: string
+      render_pages:
+        description: '1-indexed PDF pages to render to PNG (e.g. 14,15) - needed for scanned or column-split tables'
+        required: false
+        default: ''
+        type: string
+      max_per_url:
+        description: 'Max PDFs to download per page URL'
+        required: false
+        default: '8'
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: fetch-walled-sources
+  cancel-in-progress: false
+
+jobs:
+  fetch:
+    name: Fetch via real browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Playwright + PDF tooling
+        run: |
+          pip install --quiet playwright pypdf
+          python -m playwright install --with-deps chromium
+          sudo apt-get install -y -qq poppler-utils   # pdftoppm, for page renders
+
+      - name: Fetch documents
+        run: |
+          python3 scripts/research/fetch_walled_sources.py \
+            --out "$RUNNER_TEMP/sources" \
+            --urls "${{ inputs.urls }}" \
+            --link-filter "${{ inputs.link_filter }}" \
+            --render-pages "${{ inputs.render_pages }}" \
+            --max "${{ inputs.max_per_url }}"
+
+      - name: Upload sources
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bank-sources
+          path: ${{ runner.temp }}/sources
+          retention-days: 7
+          if-no-files-found: warn
