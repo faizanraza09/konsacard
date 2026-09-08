@@ -100,12 +100,22 @@ jobs:
             authority for everything below; this prompt is only the entry point, and the
             section numbers refer to it.
 
-            1. Triage: `gh run list --workflow=daily-refresh.yml --limit 5`.
-               - Latest run concluded `success` -> stop, nothing to do. Say so in one line.
+            1. Triage: `gh run list --workflow=daily-refresh.yml --limit 5 --json
+               conclusion,createdAt,event,databaseId`. Branch on the latest run's
+               conclusion, and do not act on any other case:
+               - `failure` -> continue to step 2. This is the only repair case.
+               - `success` -> stop, nothing to do. Say so in one line.
+               - `cancelled` or `skipped` -> stop. Somebody or something interrupted that
+                 run deliberately; the next scheduled refresh will retry. Say which it was
+                 in one line and do not repair anything.
+               - `timed_out` or `startup_failure` -> no data problem to repair: re-run once
+                 with `gh workflow run daily-refresh.yml --ref main`, watch it, and then
+                 triage the result from this step again. Do not re-run more than once in a
+                 single invocation.
                - No run at all in the last ~26 hours -> the 06:17 UTC refresh cron may have
-                 stopped firing. Comment that on the newest open `daily-refresh` issue (open
-                 one if there is none) and stop.
-               - Latest run concluded `failure` -> continue.
+                 stopped firing, which looks identical to nothing being wrong. Comment that
+                 on the newest open `daily-refresh` issue (open one if there is none) and
+                 stop.
             2. Identify the failing gate from `gh run view <id> --log-failed` and the diff
                report (`gh run download <id> -n refresh-report`). Gates fail one at a time,
                so clearing one can reveal another.
