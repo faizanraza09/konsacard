@@ -63,7 +63,12 @@ def load_previous_offers() -> list[dict] | None:
 
 def run_strict_checks(offers: list[dict]) -> None:
     expected_banks_doc = json.loads(EXPECTED_BANKS_PATH.read_text(encoding="utf-8"))
-    expected_banks = set(expected_banks_doc["banks"])
+    # "banks" are required (losing one fails); "optional_banks" are reviewed and
+    # allowed but not required — newcomers with a small offer count that could
+    # legitimately drop out of the feed again without it being a regression.
+    required_banks = set(expected_banks_doc["banks"])
+    optional_banks = set(expected_banks_doc.get("optional_banks", []))
+    allowed_banks = required_banks | optional_banks
     known_unmatched_doc = json.loads(KNOWN_UNMATCHED_PATH.read_text(encoding="utf-8"))
     known_unmatched = {(p["bank"], p["card"]) for p in known_unmatched_doc["pairs"]}
     thresholds = json.loads(THRESHOLDS_PATH.read_text(encoding="utf-8"))
@@ -72,7 +77,7 @@ def run_strict_checks(offers: list[dict]) -> None:
     city_counter: Counter = Counter(o["city"] for o in offers)
     source_counter: Counter = Counter(source_of_bank(o["bank"]) for o in offers)
 
-    missing_banks = expected_banks - set(bank_counter.keys())
+    missing_banks = required_banks - set(bank_counter.keys())
     if missing_banks:
         fail(
             "expected banks have zero offers: "
@@ -80,7 +85,15 @@ def run_strict_checks(offers: list[dict]) -> None:
             + " (update data/expected_banks.json if this removal is intentional)"
         )
 
-    unexpected_banks = set(bank_counter.keys()) - expected_banks
+    missing_optional = optional_banks - set(bank_counter.keys())
+    if missing_optional:
+        warn(
+            "optional banks have zero offers this run: "
+            + ", ".join(sorted(missing_optional))
+            + " (allowed — drop them from data/expected_banks.json if they are gone for good)"
+        )
+
+    unexpected_banks = set(bank_counter.keys()) - allowed_banks
     if unexpected_banks:
         fail(
             "unexpected new bank(s) in offers: "

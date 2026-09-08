@@ -6226,6 +6226,48 @@
     "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
   },
   {
+    "card_id": "bank-of-punjab--bop-paypak-debit-card",
+    "bank_slug": "bank-of-punjab",
+    "bank_name": "Bank of Punjab",
+    "card_name": "BOP PayPak Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 1850,
+      "annual_fee_pkr_note": "The Combined KFS prices PayPak at PKR 1,850 per annum on a single issuance / renewal / replacement basis, with supplementary shown as 'NA'.",
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "bank-of-punjab-src-549be3d6fe"
+      ],
+      "existing_account_required": [
+        "bank-of-punjab-src-3f4475c476",
+        "bank-of-punjab-src-549be3d6fe"
+      ]
+    },
+    "source_ids": [
+      "bank-of-punjab-src-549be3d6fe",
+      "bank-of-punjab-src-3f4475c476"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "BOP PayPak Debit Card. The Combined KFS (conventional) prices PayPak at PKR 1,850 for issuance/renewal/replacement with supplementary 'NA' - the same KFS line that supplies the Classic (2,800), Gold (3,600), Platinum (6,000) and World (18,000) figures used by the other BOP records in this dataset, so this card is on the same verified vintage as its siblings.",
+      "PayPak is a distinct product at BOP, not a Mastercard variant: the Debit Card Application Form (Conventional) offers 'Domestic Payment Scheme (PayPak)' and 'International Payment Scheme (MasterCard)' as mutually exclusive selections, and states that the PayPak card is a domestic scheme card usable only in Pakistan.",
+      "Account-linked product; no standalone salary or balance threshold is published, consistent with every other BOP record."
+    ],
+    "bank_gaps": [
+      "The half-year SOBC effective 01-07-2026 could not be retrieved for this update: bop.com.pk serves an Imperva/Incapsula JS challenge to programmatic fetchers, so neither the PDF bytes nor a verifiable table read could be obtained. Secondary research indicated the H2-2026 SOBC may raise PayPak issuance/annual/replacement to PKR 2,000 (Section M-1 row 2, GL 102060724), but that could not be confirmed against the document, so the KFS figure of 1,850 is retained. A human should confirm the current SOBC figure and, if it has moved, refresh this record together with the other 14 BOP records, which are all on the same pre-H2-2026 vintage.",
+      "BOP does not publish a minimum monthly salary, minimum balance, or minimum/maximum age for its debit cards on any public page, the FAQs, or the SOBC.",
+      "No PayPak-specific supplementary card fee is published; the KFS shows 'NA' for this card."
+    ],
+    "retrieved_note": "Added 2026-09-08 to bridge the 'Bank of Punjab || PayPak Debit Card' pair newly appearing in the offers feed. The fee is taken from the Combined KFS (conventional) PayPak line (PKR 1,850 per annum, supplementary NA) as recorded in this repository's 2026-05-25 BOP verification notes, which is the same document and vintage behind the existing BOP records; card distinctness and the domestic-only scheme restriction come from the BOP Debit Card Application Form (Conventional). bop.com.pk now blocks programmatic retrieval (Imperva/Incapsula challenge), so the H2-2026 SOBC could not be opened and no figure from it has been published here - see bank_gaps."
+  },
+  {
     "card_id": "bankislami--classic-debit-mastercard",
     "bank_slug": "bankislami",
     "bank_name": "BankIslami",
@@ -7943,6 +7985,103 @@
     "retrieved_note": "Verified 2026-07-07 against the Faysal Islami Banking Schedule of Charges (Jan-Jun 2026) debit-card membership fee table. Added to bridge the 'Faysal Islami Co-Badged Mastercard Paypak Debit Card' pair appearing in the offers feed (previously aliased to the Classic Debit record; now given its own SOC-sourced record)."
   },
   {
+    "card_id": "faysal-bank--faysal-bank-business-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Bank Business Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2300,
+      "joining_fee_pkr": 2100,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "faysal-bank-src-bd73458706"
+      ],
+      "joining_fee_pkr": [
+        "faysal-bank-src-bd73458706"
+      ],
+      "existing_account_required": [
+        "faysal-bank-src-bd73458706",
+        "faysal-bank-src-1c11836070"
+      ]
+    },
+    "source_ids": [
+      "faysal-bank-src-bd73458706",
+      "faysal-bank-src-1c11836070"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Faysal Bank business debit card, mapped to the 'Mastercard Business Standard' line of the Schedule of Charges effective 1 Jul 2026 - 31 Dec 2026: primary issuance Rs. 2,100 (Debit Cards 1.a(ix)), primary annual Rs. 2,300 (1.c(ix)), replacement Rs. 1,500 (1.e(ix)).",
+      "The SOC publishes exactly two business debit lines - Mastercard Business Standard (2,100 / 2,300 / 1,500) and Mastercard Business World (16,800 / 17,000 / 4,000) - and Faysal's catalogue lists exactly two matching products, 'Business Debit Card' and 'World Business Debit Card'. The feed's card name carries no 'World', so it maps to the Business Standard line.",
+      "The annual fee is charged on activated cards only, after completion of one year from card issuance (SOC section 1.c footer)."
+    ],
+    "bank_gaps": [
+      "The SOC names scheme/tier ('Mastercard Business Standard') while the website names the product ('Business Debit Card'); no official document states the equivalence in words. The fee attribution therefore rests on the two-for-two correspondence and the World / non-World split, and should be confirmed by a human reviewer.",
+      "No supplementary card fee is published for Business Standard - it is absent from both the supplementary issuance (1.b) and supplementary annual (1.d) tables.",
+      "faysalbank.com HTML pages return HTTP 403 to programmatic fetchers, so no card-level CNIC or eligibility statement could be verified this round; pakistani_cnic_required is left unset rather than inherited. The SOC PDF under /assets/documents/ remains directly fetchable.",
+      "No minimum balance, minimum salary, age, income-document or salary-transfer requirement is published for this card."
+    ],
+    "retrieved_note": "Verified 2026-09-08 directly against the Faysal Bank Schedule of Charges PDF at faysalbank.com/assets/documents/FBL-English-SOC.pdf (effective 1 Jul 2026 - 31 Dec 2026), 'Consumer Financing Products' section 1 Debit Cards, where Mastercard Business Standard is priced at Rs. 2,100 primary issuance (1.a(ix)), Rs. 2,300 primary annual (1.c(ix)) and Rs. 1,500 replacement (1.e(ix)), against Mastercard Business World at Rs. 16,800 / 17,000 / 4,000. Added to bridge the 'Faysal Bank Limited || Faysal Bank Business Debit Card' pair newly appearing in the offers feed; the product-name-to-SOC-line mapping is documented in bank_gaps as an inference."
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-paypak-unionpay-co-badged-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami PayPak UnionPay Co-Badged Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2300,
+      "joining_fee_pkr": 2100,
+      "supplementary_annual_fee_pkr": 1700,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "faysal-bank-src-bd73458706"
+      ],
+      "joining_fee_pkr": [
+        "faysal-bank-src-bd73458706"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "faysal-bank-src-bd73458706"
+      ],
+      "existing_account_required": [
+        "faysal-bank-src-bd73458706"
+      ]
+    },
+    "source_ids": [
+      "faysal-bank-src-bd73458706"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Faysal Islami UnionPay + PayPak co-badged debit card. Schedule of Charges effective 1 Jul 2026 - 31 Dec 2026, Debit Cards: 'UnionPay PayPak Cobadge' primary issuance Rs. 2,100 (1.a(iv)), supplementary issuance Rs. 1,500 (1.b(iii)), primary annual Rs. 2,300 (1.c(iv)), supplementary annual Rs. 1,700 (1.d(iii)), replacement Rs. 1,500 (1.e(iv)).",
+      "Recorded separately from the existing Faysal Islami Co-Badged Mastercard PayPak Debit Card rather than aliased to it: the SOC lists 'Mastercard PayPak CoBadge' as its own item with a different supplementary annual fee (Rs. 1,600 vs Rs. 1,700), and the acceptance networks differ (UnionPay international vs PayPak domestic). The SOC also prices a separate 'UnionPay PayPak Cobadge Amal' women's variant at the same figures.",
+      "Its five fee lines happen to equal the plain Faysal Islami PayPak Debit Card exactly, but it is a distinct SOC item on a different network, so it gets its own record.",
+      "The annual fee is charged on activated cards only, after completion of one year from card issuance (SOC section 1.c footer)."
+    ],
+    "bank_gaps": [
+      "The card's official product page now returns HTTP 404 and Faysal's current debit-card catalogue does not list a PayPak-UnionPay co-badge card, while the live SOC still prices it - the product appears retired from marketing though existing cards are presumably still serviced. A human should confirm whether it remains open to new issuance; if the dataset is meant to carry only currently-marketed cards, this record (and the feed pair behind it) should be revisited.",
+      "faysalbank.com HTML pages return HTTP 403 to programmatic fetchers, so no card-level CNIC or eligibility statement could be verified; pakistani_cnic_required is left unset.",
+      "No minimum balance, minimum salary, age, income-document or salary-transfer requirement is published for this card."
+    ],
+    "retrieved_note": "Verified 2026-09-08 directly against the Faysal Bank Schedule of Charges PDF at faysalbank.com/assets/documents/FBL-English-SOC.pdf (effective 1 Jul 2026 - 31 Dec 2026), where 'UnionPay PayPak Cobadge' appears as its own item in all five debit-card fee tables (issuance 2,100; supplementary issuance 1,500; annual 2,300; supplementary annual 1,700; replacement 1,500) and 'Mastercard PayPak CoBadge' carries a different supplementary annual fee of Rs. 1,600, which is why the two are kept as separate records. Added to bridge the 'Faysal Bank Limited || Faysal Islami Paypak Unionpay Co-Badged Debit Card' pair newly appearing in the offers feed; the card's apparent retirement from Faysal's marketed catalogue is recorded in bank_gaps."
+  },
+  {
     "card_id": "hbl--hbl-fuelsaver-gold-creditcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -9035,6 +9174,54 @@
       "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved."
     ],
     "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Re-verified on 2026-05-25 against the live HBL pages and the Jan-Jun 2026 SOBC + HBL Premium addendum. Normalize before shipping to UI."
+  },
+  {
+    "card_id": "hbl--hbl-paypak-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL PayPak DebitCard",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 2000,
+      "supplementary_annual_fee_pkr": 0,
+      "annual_fee_waiver_rule": "First-year free issuance of the PayPak Debit Card for HBL Mahana Amdan, HBL Haryali, all Asaan variants and the Freelancer Digital Account; from the second year onwards the annual fee applies (SOBC Jul-Dec 2026, Part M note (iii)).",
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "hbl-src-cbf913a651"
+      ],
+      "supplementary_annual_fee_pkr": [
+        "hbl-src-cbf913a651"
+      ],
+      "annual_fee_waiver_rule": [
+        "hbl-src-cbf913a651"
+      ],
+      "existing_account_required": [
+        "hbl-src-8fc91121ea"
+      ]
+    },
+    "source_ids": [
+      "hbl-src-cbf913a651",
+      "hbl-src-8fc91121ea"
+    ],
+    "confidence": "high",
+    "notes": [
+      "HBL PayPak DebitCard (standalone domestic PayPak card). Schedule of Bank Charges effective 1 Jul 2026 - 31 Dec 2026, Part M 'HBL DEBIT CARD (ATM CARD)': annual fee (primary) 'PayPak Chip - Rs. 2,000/-', annual fee (supplementary) 'PayPak Chip - Nil', card replacement 'PayPak Chip - Rs. 600/-', POS transaction fee NIL.",
+      "This is NOT the co-badge card: the same Part M table prices 'UnionPay & PayPak Co-Badge' separately at Rs. 2,700 primary annual and Rs. 850 replacement, and HBL's site lists the two as distinct products.",
+      "Domestic-only proposition per the product page ('24/7 access to your bank account within Pakistan', positioned as a basic card at a lower annual fee). Published daily limits: PKR 50,000 cash withdrawal, PKR 100,000 POS/e-commerce, PKR 150,000 funds transfer.",
+      "Requested against an HBL account - new customers select the card on the Account Opening Form, existing customers file an Additional Request Form."
+    ],
+    "bank_gaps": [
+      "The Jul-Dec 2026 SOBC publishes no separate debit-card issuance fee row (item 1a reads only 'Same charges applicable on Supplementary Cards except where mentioned'), so joining_fee_pkr is left unset rather than assumed equal to the annual fee.",
+      "No minimum salary, minimum balance, minimum/maximum age, income-document or salary-transfer requirement is published for HBL's debit card tier."
+    ],
+    "retrieved_note": "Verified 2026-09-08 directly against HBL's Schedule of Bank Charges for July to December 2026 (hbl.com/assets/documents), Part M 'HBL DEBIT CARD (ATM CARD)', where 'PayPak Chip - Rs. 2,000/-' and 'UnionPay & PayPak Co-Badge - Rs. 2,700/-' appear as separate primary annual-fee lines, supplementary is 'PayPak Chip - Nil', and replacement is Rs. 600 (vs Rs. 850 for the co-badge); the first-year waiver list comes from Part M note (iii) of the same document. Card positioning, daily limits and the how-to-apply route come from the official product page at hbl.com/personal/cards/debit-cards/hbl-paypak-debit-card. Added to bridge the 'Habib Bank Limited || HBL Paypak DebitCard' pair newly appearing in the offers feed."
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-business-debitcard",
@@ -13104,6 +13291,295 @@
     "retrieved_note": "Verification pass 2026-05-25 against official Meezan SOC (Jan-Jun 2026 PDF) and product / Premium Banking / Plus Account pages. Premium-page vs SOC contradictions are preserved in notes[]."
   },
   {
+    "card_id": "mobilink-bank--paypak-classic-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "PayPak Classic Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 1300,
+      "annual_fee_pkr_note": "The SOC prices this card as a single line, 'PAY PAK Classic- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,300/- Plus FED/ST', and publishes no separate annual fee; the renewal interval is not stated, so this is the per-issuance/renewal card fee rather than a bank-stated annual charge. Exclusive of FED/ST.",
+      "joining_fee_pkr": 1300,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true,
+      "minimum_average_balance_pkr": 0
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "mobilink-bank-src-be5ce2b032"
+      ],
+      "joining_fee_pkr": [
+        "mobilink-bank-src-be5ce2b032"
+      ],
+      "pakistani_cnic_required": [
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "existing_account_required": [
+        "mobilink-bank-src-c1952252f8",
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "minimum_account_balance_pkr": [
+        "mobilink-bank-src-0e53267b6c"
+      ],
+      "minimum_average_balance_pkr": [
+        "mobilink-bank-src-0e53267b6c"
+      ]
+    },
+    "source_ids": [
+      "mobilink-bank-src-c1952252f8",
+      "mobilink-bank-src-be5ce2b032",
+      "mobilink-bank-src-ed97d9f8f1",
+      "mobilink-bank-src-0e53267b6c"
+    ],
+    "confidence": "high",
+    "notes": [
+      "PayPak Classic Debit Card (branch-banking PayPak card). SOC row: 'PAY PAK Classic- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,300/- Plus FED/ST'.",
+      "Published transaction limits: cash withdrawal PKR 50,000/day, POS purchase PKR 100,000/day, in-bank transfer PKR 1,000,000/day, IBFT PKR 250,000/day.",
+      "Supersedes the Jan-Jun 2026 branch SOBC, which priced this card at PKR 900."
+    ],
+    "bank_gaps": [
+      "No minimum or maximum age, minimum salary, income-document or salary-transfer requirement is published for this card on any Mobilink Bank or JazzCash source; those fields are left unset rather than estimated.",
+      "The branch-banking SOC is a scanned PDF with no extractable text layer; the card-fee rows were read from a page render of p.4."
+    ],
+    "retrieved_note": "Verified 2026-09-08 against Mobilink Microfinance Bank's own sources: the ATM/Debit Card product page (mobilinkbank.com/atm-debit-card/atm-debit-cards), which lists exactly five debit cards (Classic, Gold, Bint-e-Hawwa, JazzCash Mastercard, JazzCash PayPak), and the REVISED Schedule of Bank Charges (Instruction Circular Inst./37/2026 dated 7 August 2026, effective 7 Aug 2026 to 31 Dec 2026), p.4 section 'ATM, VISA, SMS & E-Statement'. Minimum-balance treatment comes from the linked Sahulat Current Account page ('No minimum or average monthly balance requirements'; opening deposit Rs.100). CNIC/BVS and account prerequisites come from the bank's Terms and Conditions PDF. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+  },
+  {
+    "card_id": "mobilink-bank--paypak-gold-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "PayPak Gold Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 1700,
+      "annual_fee_pkr_note": "The SOC prices this card as a single line, 'PAY PAK Gold- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,700/- Plus FED/ST', and publishes no separate annual fee; the renewal interval is not stated, so this is the per-issuance/renewal card fee rather than a bank-stated annual charge. Exclusive of FED/ST.",
+      "joining_fee_pkr": 1700,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true,
+      "minimum_average_balance_pkr": 0
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "mobilink-bank-src-be5ce2b032"
+      ],
+      "joining_fee_pkr": [
+        "mobilink-bank-src-be5ce2b032"
+      ],
+      "pakistani_cnic_required": [
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "existing_account_required": [
+        "mobilink-bank-src-c1952252f8",
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "minimum_account_balance_pkr": [
+        "mobilink-bank-src-0e53267b6c"
+      ],
+      "minimum_average_balance_pkr": [
+        "mobilink-bank-src-0e53267b6c"
+      ]
+    },
+    "source_ids": [
+      "mobilink-bank-src-c1952252f8",
+      "mobilink-bank-src-be5ce2b032",
+      "mobilink-bank-src-ed97d9f8f1",
+      "mobilink-bank-src-0e53267b6c"
+    ],
+    "confidence": "high",
+    "notes": [
+      "PayPak Gold Debit Card (branch-banking PayPak card). SOC row: 'PAY PAK Gold- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,700/- Plus FED/ST'.",
+      "Published transaction limits: cash withdrawal PKR 200,000/day, POS purchase, in-bank transfer and IBFT PKR 1,500,000/day each.",
+      "Supersedes the Jan-Jun 2026 branch SOBC, which priced this card at PKR 1,150."
+    ],
+    "bank_gaps": [
+      "No minimum or maximum age, minimum salary, income-document or salary-transfer requirement is published for this card on any Mobilink Bank or JazzCash source; those fields are left unset rather than estimated.",
+      "The branch-banking SOC is a scanned PDF with no extractable text layer; the card-fee rows were read from a page render of p.4."
+    ],
+    "retrieved_note": "Verified 2026-09-08 against Mobilink Microfinance Bank's own sources: the ATM/Debit Card product page (mobilinkbank.com/atm-debit-card/atm-debit-cards), which lists exactly five debit cards (Classic, Gold, Bint-e-Hawwa, JazzCash Mastercard, JazzCash PayPak), and the REVISED Schedule of Bank Charges (Instruction Circular Inst./37/2026 dated 7 August 2026, effective 7 Aug 2026 to 31 Dec 2026), p.4 section 'ATM, VISA, SMS & E-Statement'. Minimum-balance treatment comes from the linked Sahulat Current Account page ('No minimum or average monthly balance requirements'; opening deposit Rs.100). CNIC/BVS and account prerequisites come from the bank's Terms and Conditions PDF. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+  },
+  {
+    "card_id": "mobilink-bank--paypak-bint-e-hawwa-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "PayPak Bint-e-Hawwa Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 0,
+      "annual_fee_pkr_note": "The SOC prices this card as a single line, 'PAY PAK BINT-E- HAWA ATM Card Issuance - 1st ATM Card Free / PAY PAK BINT-E- HAWA ATM Card Renewal - Nil', and publishes no separate annual fee; the renewal interval is not stated, so this is the per-issuance/renewal card fee rather than a bank-stated annual charge. Exclusive of FED/ST.",
+      "joining_fee_pkr": 0,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": "First card issuance is free and renewal is Nil per the SOC \u2014 no fee to waive.",
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true,
+      "minimum_deposit_pkr": 100
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "mobilink-bank-src-be5ce2b032"
+      ],
+      "joining_fee_pkr": [
+        "mobilink-bank-src-be5ce2b032"
+      ],
+      "pakistani_cnic_required": [
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "existing_account_required": [
+        "mobilink-bank-src-c1952252f8",
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "minimum_deposit_pkr": [
+        "mobilink-bank-src-44e0117e2c"
+      ],
+      "annual_fee_waiver_rule": [
+        "mobilink-bank-src-be5ce2b032",
+        "mobilink-bank-src-44e0117e2c"
+      ]
+    },
+    "source_ids": [
+      "mobilink-bank-src-c1952252f8",
+      "mobilink-bank-src-be5ce2b032",
+      "mobilink-bank-src-ed97d9f8f1",
+      "mobilink-bank-src-44e0117e2c"
+    ],
+    "confidence": "high",
+    "notes": [
+      "PayPak Bint-e-Hawwa Debit Card (branch-banking PayPak card). SOC row: 'PAY PAK BINT-E- HAWA ATM Card Issuance - 1st ATM Card Free / PAY PAK BINT-E- HAWA ATM Card Renewal - Nil'.",
+      "Published transaction limits: cash withdrawal PKR 100,000/day, POS purchase PKR 100,000/day, in-bank transfer PKR 1,000,000/day, IBFT PKR 500,000/day.",
+      "Supersedes the Jan-Jun 2026 branch SOBC, which charged PKR 1,150 for re-issuance/renewal of this card.",
+      "Eligibility is restricted: 'Binte Hawwa account can be opened by Pakistani Female Residents only' (mobilinkbank.com/deposits/bint-e-hawwa), which also advertises a 'Free Customized ATM Card' and a PKR 100 initial deposit."
+    ],
+    "bank_gaps": [
+      "No minimum or maximum age, minimum salary, income-document or salary-transfer requirement is published for this card on any Mobilink Bank or JazzCash source; those fields are left unset rather than estimated.",
+      "The branch-banking SOC is a scanned PDF with no extractable text layer; the card-fee rows were read from a page render of p.4."
+    ],
+    "retrieved_note": "Verified 2026-09-08 against Mobilink Microfinance Bank's own sources: the ATM/Debit Card product page (mobilinkbank.com/atm-debit-card/atm-debit-cards), which lists exactly five debit cards (Classic, Gold, Bint-e-Hawwa, JazzCash Mastercard, JazzCash PayPak), and the REVISED Schedule of Bank Charges (Instruction Circular Inst./37/2026 dated 7 August 2026, effective 7 Aug 2026 to 31 Dec 2026), p.4 section 'ATM, VISA, SMS & E-Statement'. Minimum-balance treatment comes from the linked Sahulat Current Account page ('No minimum or average monthly balance requirements'; opening deposit Rs.100). CNIC/BVS and account prerequisites come from the bank's Terms and Conditions PDF. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+  },
+  {
+    "card_id": "mobilink-bank--jazzcash-paypak-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "JazzCash PayPak Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 299,
+      "joining_fee_pkr": 999,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "mobilink-bank-src-0e24e698df"
+      ],
+      "joining_fee_pkr": [
+        "mobilink-bank-src-0e24e698df"
+      ],
+      "pakistani_cnic_required": [
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "existing_account_required": [
+        "mobilink-bank-src-c1952252f8",
+        "mobilink-bank-src-e91a231108",
+        "mobilink-bank-src-ed97d9f8f1"
+      ]
+    },
+    "source_ids": [
+      "mobilink-bank-src-c1952252f8",
+      "mobilink-bank-src-0e24e698df",
+      "mobilink-bank-src-ed97d9f8f1",
+      "mobilink-bank-src-e91a231108"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "JazzCash (branchless banking) PayPak debit card. Branchless SOC rows: 'PayPak Debit Card Issuance - 999' and 'PayPak Debit Card Annual Fee - 299'; physical card replacement 999. All figures exclude tax per the table header.",
+      "Priced separately from the branch-banking PAY PAK Classic card (PKR 1,300 issuance/renewal) \u2014 they are different products on different rails, not the same card.",
+      "SOC footnote: 'Only permanent block cards are exempted from annual Cards fee'. The merchant table on p.6 carries the same 999/999/299 figures."
+    ],
+    "bank_gaps": [
+      "No minimum or maximum age, minimum salary, income-document or salary-transfer requirement is published for this card on any Mobilink Bank or JazzCash source; those fields are left unset rather than estimated.",
+      "No minimum balance is published for the JazzCash wallet cards. The wallet's published L0/L1/L2 figures (PKR 200,000 / 1,200,000 / 1,500,000) are MAXIMUM balance caps per wallet level and must not be read as minimum requirements."
+    ],
+    "retrieved_note": "Verified 2026-09-08 against Mobilink Microfinance Bank's own sources. Card existence and wallet limits from the ATM/Debit Card product page and the JazzCash cards page (jazzcash.com.pk/move-money/cards); fees from the Branchless Banking Schedule of Charges (Inst Circular/30/2026 dated 30 June 2026, effective 1 Jul 2026 to 30 Sep 2026), p.2 consumer M-Wallet table, fees excluding tax. Ordered by existing JazzCash wallet holders through the JazzCash app/website; the bank's Terms and Conditions require the wallet's mobile number to be registered on the holder's CNIC and state that 'Only BVS verified customers will be able to perform card transactions'. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+  },
+  {
+    "card_id": "mobilink-bank--jazzcash-mastercard-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "JazzCash Mastercard Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 99,
+      "joining_fee_pkr": 999,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "mobilink-bank-src-0e24e698df"
+      ],
+      "joining_fee_pkr": [
+        "mobilink-bank-src-0e24e698df"
+      ],
+      "pakistani_cnic_required": [
+        "mobilink-bank-src-ed97d9f8f1"
+      ],
+      "existing_account_required": [
+        "mobilink-bank-src-c1952252f8",
+        "mobilink-bank-src-e91a231108",
+        "mobilink-bank-src-ed97d9f8f1"
+      ]
+    },
+    "source_ids": [
+      "mobilink-bank-src-c1952252f8",
+      "mobilink-bank-src-0e24e698df",
+      "mobilink-bank-src-ed97d9f8f1",
+      "mobilink-bank-src-e91a231108"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "JazzCash (branchless banking) Mastercard debit card. Branchless SOC rows: 'Master Card Physical Card Issuance - 999', 'Master Card Physical Card Annual Fee - 99', replacement 799. All figures exclude tax per the table header.",
+      "The SOC also lists 'Master Card Supplementary Card - 999' with no basis stated (issuance vs annual is not specified), so supplementary_annual_fee_pkr is left unset rather than assumed.",
+      "Context from the same SOC: the virtual variant is 300 issuance / 0 annual, and the annual fee is 'Free' for Merchants, Freelancers, Employees and Corporate Customers (p.6)."
+    ],
+    "bank_gaps": [
+      "No minimum or maximum age, minimum salary, income-document or salary-transfer requirement is published for this card on any Mobilink Bank or JazzCash source; those fields are left unset rather than estimated.",
+      "No minimum balance is published for the JazzCash wallet cards. The wallet's published L0/L1/L2 figures (PKR 200,000 / 1,200,000 / 1,500,000) are MAXIMUM balance caps per wallet level and must not be read as minimum requirements.",
+      "The 'Master Card Supplementary Card - 999' line does not state whether it is an issuance or an annual charge, so it is recorded in notes only."
+    ],
+    "retrieved_note": "Verified 2026-09-08 against Mobilink Microfinance Bank's own sources. Card existence and wallet limits from the ATM/Debit Card product page and the JazzCash cards page (jazzcash.com.pk/move-money/cards); fees from the Branchless Banking Schedule of Charges (Inst Circular/30/2026 dated 30 June 2026, effective 1 Jul 2026 to 30 Sep 2026), p.2 consumer M-Wallet table, fees excluding tax. Ordered by existing JazzCash wallet holders through the JazzCash app/website; the bank's Terms and Conditions require the wallet's mobile number to be registered on the holder's CNIC and state that 'Only BVS verified customers will be able to perform card transactions'. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+  },
+  {
     "card_id": "nbp--paypak-classic",
     "bank_slug": "nbp",
     "bank_name": "National Bank of Pakistan",
@@ -13282,6 +13758,66 @@
     "bank_gaps": [],
     "retrieved_note": null,
     "benefits": "Golootlo discounts direct on card"
+  },
+  {
+    "card_id": "soneri-bank--soneri-paypak-debit-card",
+    "bank_slug": "soneri-bank",
+    "bank_name": "Soneri Bank Limited",
+    "card_name": "Soneri PayPak Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": null,
+      "annual_fee_pkr": 3000,
+      "annual_fee_pkr_note": "The KFS labels this row 'Issuance and/or Annual Fee' (Primary PKR 3,000), so there is no separate issuance fee. The SOC figure is exclusive of FED and sales tax.",
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": "Waived where the customer's account balance is PKR 25,000 or above at the time of PayPak card issuance; for renewals/subsequent years, waived where the annual average account balance is PKR 25,000 or above (KFS Deposit Products - Current, effective 01 Jul 2026).",
+      "minimum_age_years": 18,
+      "maximum_age_years": null,
+      "income_document_required": false,
+      "salary_transfer_required": null,
+      "pakistani_cnic_required": true,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "soneri-bank-src-fd0862a1fd",
+        "soneri-bank-src-0f208ea6d3"
+      ],
+      "annual_fee_waiver_rule": [
+        "soneri-bank-src-0f208ea6d3"
+      ],
+      "minimum_age_years": [
+        "soneri-bank-src-8b4c4dc661"
+      ],
+      "income_document_required": [
+        "soneri-bank-src-155ea91af2"
+      ],
+      "pakistani_cnic_required": [
+        "soneri-bank-src-155ea91af2"
+      ],
+      "existing_account_required": [
+        "soneri-bank-src-155ea91af2"
+      ]
+    },
+    "source_ids": [
+      "soneri-bank-src-155ea91af2",
+      "soneri-bank-src-fd0862a1fd",
+      "soneri-bank-src-0f208ea6d3",
+      "soneri-bank-src-8b4c4dc661"
+    ],
+    "confidence": "high",
+    "notes": [
+      "Soneri PayPak Debit Card. SOC Jul-Dec 2026 p.16, table 'i. Soneri Debit Card (Mastercard/PayPak)', Paypak column: annual fee - primary PKR 3,000, supplementary '-' (not offered), card replacement PKR 3,000 primary tier / PKR 2,550 Paypak. Columns run Standard (4,000) / Gold (5,000) / Plat (10,000) / Paypak (3,000).",
+      "The PKR 25,000 figure is a fee-waiver threshold only, NOT a minimum balance requirement to hold the card. Account-level minimums per the KFS are PKR 100 to open a current account and PKR 0 to maintain it.",
+      "Eligibility per the product-page FAQ: individuals maintaining a deposit account with the bank (PLS Savings, Soneri Savings, Basic Banking, Current, Ikhtiar Current, Soneri Sahara, Asaan), resident in Pakistan. Excluded: non-personal accounts (except sole proprietorship), joint-operation, dormant/blocked, partnership, NIL-balance and thumb-impression accounts. Mandatory application fields include CNIC/NICOP/POC (passport only for resident foreign nationals) and date of birth; no income document is listed.",
+      "The product page's own FAQ fee table still shows the older PKR 2,700 issuance/annual and PKR 2,250 replacement figures; both 2026 SOCs and the 01-Jul-2026 KFS say 3,000 / 2,550 and supersede it."
+    ],
+    "bank_gaps": [
+      "The minimum age of 18 comes from the debit card Terms and Conditions PDF linked from the PayPak product page, whose own definitions refer to 'the Soneri Visa Debit Card' rather than naming the PayPak card; treated as bank-wide debit card eligibility.",
+      "No minimum salary, maximum age, or salary-transfer requirement is published for this card.",
+      "The bank's www host blocks programmatic fetchers (HTTP 403 via Cloudflare); the apex host soneribank.com serves the same pages and the SOC/KFS PDFs are on the bank's CDN."
+    ],
+    "retrieved_note": "Verified 2026-09-08 against Soneri Bank's own sources. Product existence from soneribank.com/personal/soneri-cards/paypak; fees read directly from the Schedule of Bank Charges effective 1 Jul 2026 - 31 Dec 2026 (p.16 debit card table, Paypak column: annual fee primary 3,000, supplementary '-', replacement 2,550), corroborated by the Key Fact Statement for Current deposit products effective 01 Jul 2026, which labels the charge 'Issuance and/or Annual Fee' with supplementary 'N/A' and states the PKR 25,000 average-balance waiver. Eligibility, CNIC and qualifying/excluded account categories from the product-page FAQ; minimum age 18 from the linked debit card Terms and Conditions. No minimum salary, maximum age or salary-transfer requirement is published, so those fields are left unset. Added to bridge the 'Soneri Bank Limited || PayPak Debit Card' pair appearing in the offers feed on 2026-09-08."
   },
   {
     "card_id": "standard-chartered--easy-credit",
@@ -13802,6 +14338,58 @@
       "No public debit-card fee/eligibility pages were surfaced in this pass; the bank's current Schedule of Charges PDF available via search engines (pk-completep-schedule-of-charges-eng.pdf) is from 2017 and does not reflect 2024-2026 card fees."
     ],
     "retrieved_note": "Re-verified 2026-05-25 against current sc.com/pk product pages, CC_Summary_Box.pdf (SCBCPRMIDV123012024), CCPL_MID.pdf (SCBCPRMIDV008012026), Saadiq Credit Card MID (SCBPLSAADIQMID-CC&PF-08052026), and pk-annual-fee-reversal-criteria.pdf (effective 1 Jan 2026)."
+  },
+  {
+    "card_id": "standard-chartered--paypak-debit-card",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "card_name": "PayPak Debit Card",
+    "requirements": {
+      "minimum_monthly_salary_pkr": null,
+      "minimum_account_balance_pkr": 0,
+      "annual_fee_pkr": 2800,
+      "annual_fee_pkr_note": "The SOC line is a single combined 'Annual/Issuance Fee - Rs 2,800', so there is no separate joining fee; replacement is Rs 1,800.",
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
+      "minimum_age_years": null,
+      "maximum_age_years": null,
+      "income_document_required": null,
+      "salary_transfer_required": null,
+      "pakistani_cnic_required": null,
+      "existing_account_required": true
+    },
+    "requirement_sources": {
+      "annual_fee_pkr": [
+        "standard-chartered-src-7acdfb06b4",
+        "standard-chartered-src-16424d78a9"
+      ],
+      "minimum_account_balance_pkr": [
+        "standard-chartered-src-7acdfb06b4"
+      ],
+      "existing_account_required": [
+        "standard-chartered-src-4927f9df3d",
+        "standard-chartered-src-16424d78a9"
+      ]
+    },
+    "source_ids": [
+      "standard-chartered-src-15df14086a",
+      "standard-chartered-src-7acdfb06b4",
+      "standard-chartered-src-16424d78a9",
+      "standard-chartered-src-4927f9df3d"
+    ],
+    "confidence": "medium",
+    "notes": [
+      "Standard Chartered Bank (Pakistan) PayPak Debit Card, marketed as the 'Pay PAK Debit Card'. Conventional SOC H2 2026 (pp.12-13): 'PayPak Debit Card - Annual/Issuance Fee Rs 2,800 / Replacement Fee Rs 1,800'; the Premium Banking section (p.22) repeats the same pair.",
+      "The offers feed's card name 'Paypak Standard Debit Card' is not a real SCB product name \u2014 SCB Pakistan has no 'Standard' debit tier. Its published debit lineup is PayPak (2,800), Classic (3,500), Platinum/Titanium (4,500), Priority Platinum (9,000), Mastercard World (18,500) and FCY (USD 50). The feed name is aliased to this record in build_deal_requirement_card_map.py.",
+      "PayPak at SCB is domestic-only: the debit card Terms and Conditions state the Saadiq PayPak Debit Card 'does not allow international and internet transactions' and is 'limited for cash withdrawals and POS transactions within Pakistan only'.",
+      "Per-product context from the Key Fact Statement for Deposit Accounts: the SC Sahar Women's Saving Account gets free issuance with a Rs 2,800 annual fee, and on business/Tijarat current accounts the PayPak card is marked 'Rs 2,800 (Sole Prop only)'.",
+      "The minimum balance of 0 is account-level, not card-level: SOC note (h) states that regular current and saving accounts are free of charge, opened with a minimum Rs 100 initial deposit, and 'Have no condition of maintaining a minimum balance.'"
+    ],
+    "bank_gaps": [
+      "SCB publishes no card-level minimum or maximum age, minimum salary, CNIC, income-document or salary-transfer requirement for this card; the debit card Terms and Conditions and Product Guide contain no age or CNIC clause, so those fields are left unset. Confidence is therefore medium overall despite the fees being directly sourced.",
+      "The feed supplies a card name ('Paypak Standard Debit Card') that does not exist in SCB's lineup; if the feed later emits a genuine new SCB debit tier it will need its own record rather than this alias."
+    ],
+    "retrieved_note": "Verified 2026-09-08. Standard Chartered Bank (Pakistan) Limited does issue a PayPak debit card (sc.com/pk/debit-cards/pay-pak-debit-card/), named 'PayPak Debit Card' in its Schedule of Charges. Fees read directly from the Conventional Schedule of Charges effective 1 Jul 2026 - 31 Dec 2026, debit card pages 12-13 ('Annual/Issuance Fee Rs 2,800', 'Replacement Fee Rs 1,800'), repeated in the Premium Banking section and in the Key Fact Statement for Deposit Accounts; the same page confirms the lineup contains no 'Standard' debit tier, so the feed's name is treated as an alias. The linked-account requirement comes from the Debit Card Product Guide and the KFS, and the no-minimum-balance position from SOC note (h). No age, CNIC, salary or income-document requirement is published for this card, so those fields are left unset rather than estimated. Added to bridge the 'Standard Chartered Bank || Paypak Standard Debit Card' pair appearing in the offers feed on 2026-09-08."
   },
   {
     "card_id": "ubl--ubl-ameen-premium-debit-mastercard",

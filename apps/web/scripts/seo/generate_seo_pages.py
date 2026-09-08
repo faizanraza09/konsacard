@@ -45,7 +45,9 @@ BANK_LOGO_FILES = {
     "mcbbanklimited": "mcb-bank.png",
     "mcbislamicbankltd": "mcb-islamic.png",
     "meezanbank": "meezan-bank.png",
+    "mobilinkmicrofinancebanklimited": "mobilink-microfinance-bank.png",
     "nationalbankofpakistan": "national-bank-of-pakistan.png",
+    "soneribanklimited": "soneri-bank.png",
     "standardcharteredbank": "standard-chartered.png",
     "unitedbanklimitedubl": "ubl.png",
 }

@@ -27,8 +27,10 @@ BANK_NAME_MAP = {
     "MCB Bank Limited": "MCB Bank Limited",
     "MCB Islamic Bank Ltd": "MCB Islamic Bank Ltd",
     "Meezan Bank": "Meezan Bank",
+    "Mobilink Microfinance Bank Limited": "Mobilink Microfinance Bank Limited",
     "National Bank of Pakistan": "National Bank of Pakistan",
     "NBP": "National Bank of Pakistan",
+    "Soneri Bank Limited": "Soneri Bank Limited",
     "Standard Chartered Bank": "Standard Chartered Bank Pakistan",
     "United Bank Limited (UBL)": "United Bank Limited (UBL)",
 }
@@ -201,6 +203,15 @@ MANUAL_ALIASES = {
         "Visa Women First Debit Card": "Meezan Women First Debit Card",
         "Mastercard World Debit Card": "Meezan World Debit Card",
         "Visa Charge Card": "Meezan Visa Gold Debit Card",
+    },
+    "Soneri Bank Limited": {
+        "PayPak Debit Card": "Soneri PayPak Debit Card",
+    },
+    "Standard Chartered Bank": {
+        # The feed emits a "Standard" tier that does not exist in SCB's debit lineup
+        # (PayPak, Classic, Platinum/Titanium, Priority Platinum, Mastercard World, FCY);
+        # its real entry-level card is the PayPak Debit Card, per the H2 2026 SOC.
+        "Paypak Standard Debit Card": "PayPak Debit Card",
     },
     "United Bank Limited (UBL)": {
         "UBL Mastercard Signature Debit Card": "UBL Mastercard Signature Debit Card",

@@ -1,5 +1,5 @@
 {
-  "description": "Banks that must each have at least one offer in offers.json. Adding a new bank requires an explicit commit here so the daily-refresh cron cannot silently introduce or lose one.",
+  "description": "Banks the daily-refresh cron expects in offers.json. 'banks' must each have at least one offer (a bank dropping out fails validation). 'optional_banks' are reviewed-and-allowed banks whose presence is not required — used for banks that entered the feed with a small offer count and could legitimately disappear again. A bank in neither list fails validation, so the cron cannot silently introduce one.",
   "banks": [
     "Al Baraka Bank",
     "Allied Bank",
@@ -19,5 +19,10 @@
     "Meezan Bank",
     "National Bank of Pakistan",
     "United Bank Limited (UBL)"
+  ],
+  "optional_banks": [
+    "Mobilink Microfinance Bank Limited",
+    "Soneri Bank Limited",
+    "Standard Chartered Bank"
   ]
 }
