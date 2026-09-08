@@ -2,7 +2,7 @@
 
 > Independent comparison tool that ranks Pakistani credit cards, debit cards, and wallets by the restaurant discounts they actually give you — based on the restaurants you eat at, the cities you live in, and the cards you already own. Not sponsored by any bank.
 
-KonsaCard (konsacard.pk) covers 19 Pakistani banks and 1,200+ restaurants across Karachi, Lahore, and Islamabad. Users pick their city, the restaurants they care about, and the cards they hold, and the site computes a "Fit Score" that combines each card's discount rate, monthly cap, minimum spend, weekday/weekend rules, and tier requirements. The dataset is refreshed from bank offer pages, the Peekaboo discount feed, the Easypaisa DiscountWorld feed, and the NBP merchant workbook; the methodology page documents the sources and the scoring formula.
+KonsaCard (konsacard.pk) covers 21 Pakistani banks and 1,250+ restaurants across Karachi, Lahore, and Islamabad. Users pick their city, the restaurants they care about, and the cards they hold, and the site computes a "Fit Score" that combines each card's discount rate, monthly cap, minimum spend, weekday/weekend rules, and tier requirements. The dataset is refreshed from bank offer pages, the Peekaboo discount feed, the Easypaisa DiscountWorld feed, and the NBP merchant workbook; the methodology page documents the sources and the scoring formula.
 
 The product is free, ad-supported, and has no affiliate links to banks. Pricing, eligibility, and offer terms come from public sources; users are advised to confirm with the bank before applying.
 
@@ -30,7 +30,10 @@ The product is free, ad-supported, and has no affiliate links to banks. Pricing,
 - [MCB Bank Limited](https://konsacard.pk/banks/mcb-bank-limited/)
 - [MCB Islamic Bank Ltd](https://konsacard.pk/banks/mcb-islamic-bank-ltd/)
 - [Meezan Bank](https://konsacard.pk/banks/meezan-bank/)
+- [Mobilink Microfinance Bank Limited](https://konsacard.pk/banks/mobilink-microfinance-bank-limited/)
 - [National Bank of Pakistan](https://konsacard.pk/banks/national-bank-of-pakistan/)
+- [Soneri Bank Limited](https://konsacard.pk/banks/soneri-bank-limited/)
+- [Standard Chartered Bank](https://konsacard.pk/banks/standard-chartered-bank/)
 - [United Bank Limited (UBL)](https://konsacard.pk/banks/united-bank-limited-ubl/)
 
 ## Cities served

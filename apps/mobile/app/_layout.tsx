@@ -200,7 +200,7 @@ function Boot() {
           konsa<Text style={{ color: colors.brand }}>card</Text>
         </Text>
         <Text style={styles.bootTitle}>Finding your best cards…</Text>
-        <Text style={styles.bootSub}>Ranking restaurant deals across 18 banks in your city</Text>
+        <Text style={styles.bootSub}>Ranking restaurant deals across 21 banks in your city</Text>
       </View>
     </View>
   );
