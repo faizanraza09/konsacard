@@ -44,8 +44,8 @@
   {
     "deal_bank_name": "Bank of Punjab",
     "requirement_bank_name": "Bank of Punjab",
-    "matched_cards": 14,
-    "total_deal_cards": 14,
+    "matched_cards": 15,
+    "total_deal_cards": 15,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
@@ -70,24 +70,24 @@
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
-    "matched_cards": 14,
-    "total_deal_cards": 14,
+    "matched_cards": 16,
+    "total_deal_cards": 16,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "HBL Islamic Bank Limited",
     "requirement_bank_name": "HBL Islamic Bank Limited",
-    "matched_cards": 10,
-    "total_deal_cards": 10,
+    "matched_cards": 11,
+    "total_deal_cards": 11,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
   {
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
-    "matched_cards": 16,
-    "total_deal_cards": 16,
+    "matched_cards": 17,
+    "total_deal_cards": 17,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
@@ -132,10 +132,34 @@
     "unmatched_deal_cards": []
   },
   {
+    "deal_bank_name": "Mobilink Microfinance Bank Limited",
+    "requirement_bank_name": "Mobilink Microfinance Bank Limited",
+    "matched_cards": 5,
+    "total_deal_cards": 5,
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
+  },
+  {
     "deal_bank_name": "National Bank of Pakistan",
     "requirement_bank_name": "National Bank of Pakistan",
     "matched_cards": 5,
     "total_deal_cards": 5,
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
+  },
+  {
+    "deal_bank_name": "Soneri Bank Limited",
+    "requirement_bank_name": "Soneri Bank Limited",
+    "matched_cards": 1,
+    "total_deal_cards": 1,
+    "coverage_pct": 100.0,
+    "unmatched_deal_cards": []
+  },
+  {
+    "deal_bank_name": "Standard Chartered Bank",
+    "requirement_bank_name": "Standard Chartered Bank Pakistan",
+    "matched_cards": 1,
+    "total_deal_cards": 1,
     "coverage_pct": 100.0,
     "unmatched_deal_cards": []
   },
