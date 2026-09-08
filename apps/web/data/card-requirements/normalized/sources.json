@@ -1146,6 +1146,39 @@
     ]
   },
   {
+    "source_id": "bank-of-punjab-src-4b1d3c4b25",
+    "bank_slug": "bank-of-punjab",
+    "bank_name": "Bank of Punjab",
+    "url": "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20(Latest%20%E2%80%93%20w.e.f%2001-07-2026).pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "bank-of-punjab--bop-khaas-platinum-debit-card",
+      "bank-of-punjab--bop-lahore-qalandars-debit-card",
+      "bank-of-punjab--bop-mastercard-classic-debit-card",
+      "bank-of-punjab--bop-mastercard-gold-credit-card",
+      "bank-of-punjab--bop-mastercard-gold-debit-card",
+      "bank-of-punjab--bop-mastercard-lahore-qalandar-business-credit-card",
+      "bank-of-punjab--bop-mastercard-platinum-credit-card",
+      "bank-of-punjab--bop-mastercard-platinum-debit-card",
+      "bank-of-punjab--bop-mastercard-world-credit-card",
+      "bank-of-punjab--bop-naaz-debit-card",
+      "bank-of-punjab--bop-paypak-debit-card",
+      "bank-of-punjab--bop-world-debit-card"
+    ]
+  },
+  {
+    "source_id": "bank-of-punjab-src-f529064114",
+    "bank_slug": "bank-of-punjab",
+    "bank_name": "Bank of Punjab",
+    "url": "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Islamic%20Schedule%20of%20Bank%20Charges%20English%20Version%20(Latest%20%E2%80%93%20w.e....pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "bank-of-punjab--bop-taqwa-khaas-platinum-islamic-debit-card",
+      "bank-of-punjab--bop-taqwa-platinum-islamic-debit-card",
+      "bank-of-punjab--bop-taqwa-world-islamic-debit-card"
+    ]
+  },
+  {
     "source_id": "bankislami-src-ec6e00397c",
     "bank_slug": "bankislami",
     "bank_name": "BankIslami",
@@ -1727,9 +1760,7 @@
     "bank_name": "HBL",
     "url": "https://www.hbl.com/personal/cards/debit-cards/hbl-paypak-debit-card",
     "source_type": "html",
-    "used_by_card_ids": [
-      "hbl--hbl-upi-paypak-co-badge-debitcard"
-    ]
+    "used_by_card_ids": []
   },
   {
     "source_id": "hbl-src-61fcb687a1",
@@ -1768,7 +1799,20 @@
     "url": "https://www.hbl.com/assets/documents/Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf",
     "source_type": "pdf",
     "used_by_card_ids": [
-      "hbl--hbl-paypak-debitcard"
+      "hbl--hbl-paypak-debitcard",
+      "hbl--hbl-upi-paypak-co-badge-debitcard",
+      "hbl--hbl-world-business-debitcard",
+      "hbl--hbl-world-debitcard"
+    ]
+  },
+  {
+    "source_id": "hbl-src-3bd2bc733a",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "url": "https://www.hbl.com/personal/cards/debit-cards/hbl-unionpay-paypak-co-badge-debitcard",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "hbl--hbl-upi-paypak-co-badge-debitcard"
     ]
   },
   {

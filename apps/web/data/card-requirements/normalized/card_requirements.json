@@ -5419,7 +5419,7 @@
       "minimum_relationship_balance_pkr": 3000000,
       "annual_fee_pkr": 0,
       "supplementary_annual_fee_pkr": 0,
-      "annual_fee_waiver_rule": "Free issuance, renewal, and supplementary cards for BOP KHAAS customers marked as Priority; PKR 6,000 / PKR 3,000 supplementary for Non-Priority customers per current SOBC.",
+      "annual_fee_waiver_rule": "Free issuance and renewal for BOP KHAAS customers marked as Priority. The SOBC effective 01.07.2026 to 31.12.2026 prices the KHAAS Platinum Debit Master Card '(for Non-Priority customers only)' at PKR 7,000 issuance / annual / replacement with supplementary at PKR 3,500 per annum, and notes that charges apply if the customer is marked as Ex-priority.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
@@ -5444,22 +5444,13 @@
         "bank-of-punjab-src-5a7accb767"
       ],
       "annual_fee_pkr": [
-        "bank-of-punjab-src-a29d0fbf30",
-        "bank-of-punjab-src-93dbf84c3d",
-        "bank-of-punjab-src-48ae338913",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-a29d0fbf30",
-        "bank-of-punjab-src-93dbf84c3d",
-        "bank-of-punjab-src-48ae338913",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-a29d0fbf30",
-        "bank-of-punjab-src-93dbf84c3d",
-        "bank-of-punjab-src-48ae338913",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-a29d0fbf30",
@@ -5469,6 +5460,7 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-a29d0fbf30",
       "bank-of-punjab-src-93dbf84c3d",
       "bank-of-punjab-src-48ae338913",
@@ -5476,6 +5468,7 @@
     ],
     "confidence": "medium",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, KHAAS Platinum Debit Master Card (GL 102060726): PKR 7,000 issuance/annual/replacement and PKR 3,500 supplementary for Non-Priority customers, free for Priority customers. Supersedes the Jan-Jun 2026 non-priority figures of PKR 6,000 / 3,000.",
       "AUDIT-FLAG VERIFIED: PKR 500,000 monthly salary and PKR 2,000,000 balance are both valid alternative entry routes per BOP KHAAS proposition pages. The KHAAS Monthly Saving Account page states eligibility as 'Client with a monthly salary of PKR 500k or more' OR 'PKR 3 million relationship balance in all Saving accounts'; the KHAAS Current Account page sets the entry floor at PKR 2 million for individuals/sole proprietors. Lowest balance floor is therefore PKR 2M (current-account route); savings-route threshold is PKR 3M.",
       "Card itself is free for Priority-marked KHAAS customers per Jan-Jun 2026 SOBC Section M-1 ('Issuance & renewal is free for priority customers').",
       "Confidence medium because salary / balance values are inherited from the KHAAS account proposition rather than published directly on the card page.",
@@ -5486,9 +5479,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-taqwa-khaas-platinum-islamic-debit-card",
@@ -5501,7 +5494,7 @@
       "minimum_relationship_balance_pkr": 3000000,
       "annual_fee_pkr": 0,
       "supplementary_annual_fee_pkr": 0,
-      "annual_fee_waiver_rule": "Free issuance, renewal, and supplementary cards for Taqwa KHAAS customers marked as Priority; PKR 6,000 / PKR 3,000 supplementary for Non-Priority Islamic KHAAS customers per Taqwa Current Account KFS.",
+      "annual_fee_waiver_rule": "Free for Taqwa KHAAS customers marked as Priority - the Taqwa schedule states that 'In case of priority marked customer, Khaas Platinum card will be free of charge' and lists a free KHAAS Platinum Debit Card (including a free supplementary) under the Taqwa Khaas Current & Saving Account. For Non-Priority customers the card is priced at PKR 7,000 issuance / annual / replacement with supplementary at PKR 3,500 per annum.",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
@@ -5523,19 +5516,13 @@
         "bank-of-punjab-src-a29d0fbf30"
       ],
       "annual_fee_pkr": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-c7c00e1b9e",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-f529064114"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-c7c00e1b9e",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-f529064114"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-c7c00e1b9e",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-f529064114"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-7ff8978072",
@@ -5544,12 +5531,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-f529064114",
       "bank-of-punjab-src-7ff8978072",
       "bank-of-punjab-src-c7c00e1b9e",
       "bank-of-punjab-src-a29d0fbf30"
     ],
     "confidence": "medium",
     "notes": [
+      "TAQWA Islamic Banking Schedule of Bank Charges for July 01, 2026 to December 31, 2026, Section B-7.1 (BOP Debit Master Card and PayPak Debit Card), KHAAS Platinum Debit Master Card '(for Non-Priority customers only)': PKR 7,000 issuance/annual/replacement, supplementary PKR 3,500 per annum. Supersedes the PKR 6,000 / 3,000 non-priority figures previously taken from the Taqwa Current Account KFS.",
       "Taqwa KHAAS eligibility published on the Islamic Products page: 'Relationship balance of PKR 3 million in all accounts' OR 'Monthly income of PKR 500,000 or above'; Minimum Initial Deposit PKR 500,000. KHAAS Current Account route entry floor is PKR 2,000,000 per the conventional KHAAS page (which the Taqwa KHAAS proposition mirrors).",
       "Card free for Priority Islamic KHAAS customers per the Taqwa Current Account KFS row 'Platinum Khaas ATM Platinum Card: Issuance & Renewal/Replacement Zero (for priority marked customers); PKR 6,000 + PKR 3,000 supplementary for Non-Priority customers'.",
       "Confidence medium because values are inherited from the linked Islamic KHAAS account."
@@ -5559,9 +5548,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-lahore-qalandars-debit-card",
@@ -5571,8 +5560,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 3000,
-      "supplementary_annual_fee_pkr": 1400,
+      "annual_fee_pkr": 3500,
+      "supplementary_annual_fee_pkr": 1750,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5580,14 +5569,10 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-31e1cf5de6",
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-31e1cf5de6",
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-31e1cf5de6",
@@ -5596,12 +5581,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-31e1cf5de6",
       "bank-of-punjab-src-5a7accb767",
       "bank-of-punjab-src-549be3d6fe"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, Lahore Qalandars Debit Card (GL 102060744): Issuance/Annual/Replacement PKR 3,500 each, Supplementary PKR 1,750 per annum. Supersedes the Jan-Jun 2026 figures of PKR 3,000 / 1,400.",
       "Annual fee PKR 3,000 / supplementary PKR 1,400 verified in current SOBC Jan-Jun 2026 Section M-1 and in the Combined Conventional KFS.",
       "Card page states 'Mastercard Gold Debit Card limits will apply' and that new customers 'can open an account in the nearest BOP branch and apply for LQDC' \u2014 account-linked, no published salary or balance threshold.",
       "Salary/balance kept null (page is silent; treating silence as 'not published' per methodology)."
@@ -5611,9 +5598,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-mastercard-classic-debit-card",
@@ -5623,8 +5610,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 2800,
-      "supplementary_annual_fee_pkr": 1300,
+      "annual_fee_pkr": 3000,
+      "supplementary_annual_fee_pkr": 1500,
       "annual_fee_waiver_rule": "On BOP@Work payroll accounts, free issuance for salaries between PKR 40,000 and PKR 100,000 per SOBC Section R-9; free on Salary Plus and BOP Life Current accounts.",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5632,19 +5619,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-5a7accb767",
@@ -5653,12 +5634,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-5a7accb767",
       "bank-of-punjab-src-549be3d6fe",
       "bank-of-punjab-src-3f4475c476"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, Classic Debit Master Card (GL 102060713): Issuance PKR 3,000, Annual PKR 3,000 per annum, Replacement PKR 3,000, Supplementary PKR 1,500 per annum. Supersedes the Jan-Jun 2026 figures of PKR 2,800 / 1,300.",
       "Annual fee PKR 2,800 / supplementary PKR 1,300 verified against current SOBC Jan-Jun 2026 Section M-1. Supplementary fee was previously missing in the pilot record and has been added.",
       "Account-linked product; no standalone salary or balance threshold published. Pilot value of 0 for salary/balance corrected to null per methodology.",
       "Current BOP forms use 'Classic' where older legacy forms used 'Silver'; this is the best current alias for legacy Mastercard Silver."
@@ -5668,9 +5651,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-mastercard-gold-credit-card",
@@ -5689,19 +5672,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "pakistani_cnic_required": [
         "bank-of-punjab-src-8397cf3238",
@@ -5710,12 +5687,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-8397cf3238",
       "bank-of-punjab-src-1e09d9958d",
       "bank-of-punjab-src-5a7accb767"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section O BOP MASTER CREDIT CARD (GL 102060746): Annual Fee (Basic) Mastercard Gold Rs. 6,250; Annual Fee (Supplementary) Rs. 3,125. Unchanged from the Jan-Jun 2026 SOBC.",
       "Annual fee PKR 6,250 / supplementary PKR 3,125 verified against current SOBC Jan-Jun 2026 (Section O, Annual Fee Basic/Supplementary).",
       "Spend-based fee reversal verbatim from bop.com.pk/view.aspx?id=3373.",
       "BOP does not publish a public salary or age threshold for this card; eligibility states credit limit is assigned 'based on factors such as income, net worth, and creditworthiness'."
@@ -5725,9 +5704,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-mastercard-gold-debit-card",
@@ -5737,8 +5716,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 3600,
-      "supplementary_annual_fee_pkr": 1500,
+      "annual_fee_pkr": 4000,
+      "supplementary_annual_fee_pkr": 2000,
       "annual_fee_waiver_rule": "On BOP@Work payroll accounts, free issuance for salaries between PKR 100,000 and PKR 300,000 per SOBC Section R-9.",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5746,19 +5725,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-5a7accb767",
@@ -5767,12 +5740,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-5a7accb767",
       "bank-of-punjab-src-549be3d6fe",
       "bank-of-punjab-src-3f4475c476"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, Gold Debit Master Card (GL 102060714): Issuance/Annual/Replacement PKR 4,000 each, Supplementary PKR 2,000 per annum. Supersedes the Jan-Jun 2026 figures of PKR 3,600 / 1,500.",
       "Annual fee PKR 3,600 / supplementary PKR 1,500 verified against current SOBC Jan-Jun 2026 Section M-1.",
       "Generic account-linked tier \u2014 no standalone salary or balance threshold is published on a card-specific page. The BOP@Work payroll grid (SOBC Section R-9) issues this card free for salaries PKR 100,000\u2013PKR 300,000 but that is a payroll waiver, not a general card-level eligibility floor.",
       "Pilot value of 0 for salary/balance corrected to null per methodology (silence is not a 0 threshold)."
@@ -5782,9 +5757,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-mastercard-lahore-qalandar-business-credit-card",
@@ -5794,8 +5769,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 5000,
-      "supplementary_annual_fee_pkr": 2500,
+      "annual_fee_pkr": 6250,
+      "supplementary_annual_fee_pkr": 3125,
       "annual_fee_waiver_rule": "Spend PKR 70,000 within 60 days of issuance to reverse the annual fee (via helpline).",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5803,19 +5778,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "pakistani_cnic_required": [
         "bank-of-punjab-src-1e09d9958d",
@@ -5824,12 +5793,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-1e09d9958d",
       "bank-of-punjab-src-8397cf3238",
       "bank-of-punjab-src-5a7accb767"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section O BOP MASTER CREDIT CARD (GL 102060746): Annual Fee (Basic) Lahore Qalandar Business Credit Card Rs. 6,250; Annual Fee (Supplementary) Rs. 3,125. The previously recorded PKR 5,000 / 2,500 corresponds to the separate plain 'Mastercard Business Credit Card' line, not the Lahore Qalandar Business card.",
       "Renamed from 'Lahore Qalandars Gold Credit Card' to 'BOP Mastercard Lahore Qalandar Business Credit Card' to match the canonical name on bop.com.pk/view.aspx?id=3373. There is no 'Lahore Qalandar Gold' credit card variant in the current BOP catalogue.",
       "Annual fee PKR 5,000 / supplementary PKR 2,500 verified in current SOBC Jan-Jun 2026 Section O.",
       "Co-branded card; spend-based fee reversal verbatim from view.aspx?id=3373."
@@ -5839,9 +5810,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-mastercard-platinum-credit-card",
@@ -5851,8 +5822,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 12500,
-      "supplementary_annual_fee_pkr": 6250,
+      "annual_fee_pkr": 15625,
+      "supplementary_annual_fee_pkr": 7812,
       "annual_fee_waiver_rule": "Spend PKR 100,000 within 60 days of issuance to reverse the annual fee (via helpline).",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5860,19 +5831,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "pakistani_cnic_required": [
         "bank-of-punjab-src-8397cf3238",
@@ -5881,12 +5846,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-8397cf3238",
       "bank-of-punjab-src-1e09d9958d",
       "bank-of-punjab-src-5a7accb767"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section O BOP MASTER CREDIT CARD (GL 102060746): Annual Fee (Basic) Mastercard Platinum Rs. 15,625; Annual Fee (Supplementary) Rs. 7,812. Supersedes the Jan-Jun 2026 figures of PKR 12,500 / 6,250.",
       "Annual fee PKR 12,500 / supplementary PKR 6,250 verified in current SOBC Jan-Jun 2026 Section O.",
       "Spend-based fee reversal verbatim from bop.com.pk/view.aspx?id=3373."
     ],
@@ -5895,9 +5862,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-mastercard-platinum-debit-card",
@@ -5908,7 +5875,7 @@
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 6000,
-      "supplementary_annual_fee_pkr": 2500,
+      "supplementary_annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": "On BOP@Work payroll accounts, free issuance for salaries above PKR 300,000 per SOBC Section R-9.",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -5916,19 +5883,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-549be3d6fe",
-        "bank-of-punjab-src-3f4475c476"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-5a7accb767",
@@ -5937,12 +5898,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-5a7accb767",
       "bank-of-punjab-src-549be3d6fe",
       "bank-of-punjab-src-3f4475c476"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, Platinum Debit Master Card (GL 102060715): Issuance/Annual/Replacement PKR 6,000 each, Supplementary PKR 3,000 per annum. Annual fee unchanged from Jan-Jun 2026; supplementary raised from PKR 2,500.",
       "Annual fee PKR 6,000 / supplementary PKR 2,500 verified against current SOBC Jan-Jun 2026 Section M-1.",
       "Account-linked product; no standalone salary or balance threshold published on a card-specific page. Pilot value of 0 for salary/balance corrected to null per methodology."
     ],
@@ -5951,9 +5914,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-mastercard-world-credit-card",
@@ -5972,19 +5935,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-8397cf3238",
-        "bank-of-punjab-src-1e09d9958d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "pakistani_cnic_required": [
         "bank-of-punjab-src-8397cf3238",
@@ -5993,12 +5950,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-8397cf3238",
       "bank-of-punjab-src-1e09d9958d",
       "bank-of-punjab-src-5a7accb767"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section O BOP MASTER CREDIT CARD (GL 102060746): Annual Fee (Basic) Mastercard World Rs. 25,000; Annual Fee (Supplementary) Rs. 12,500. Unchanged from the Jan-Jun 2026 SOBC. The same section prices a Mastercard World Elite Credit Card at Rs. 50,000, which is not in this dataset.",
       "Renamed from 'BOP World Credit Card' to canonical 'BOP Mastercard World Credit Card' to match bop.com.pk/view.aspx?id=3373.",
       "Annual fee PKR 25,000 / supplementary PKR 12,500 verified in current SOBC Jan-Jun 2026; an H2-2025 SOBC briefly carried PKR 22,500/11,500, which was reverted in the Jan-Jun 2026 SOBC.",
       "Spend-based 12-month fee reversal verbatim from view.aspx?id=3373."
@@ -6008,9 +5967,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-naaz-debit-card",
@@ -6020,8 +5979,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 2400,
-      "supplementary_annual_fee_pkr": 1100,
+      "annual_fee_pkr": 2700,
+      "supplementary_annual_fee_pkr": 1350,
       "annual_fee_waiver_rule": "Issuance free with BOP Naaz Current Account; renewal/replacement PKR 2,400 per annum, supplementary PKR 1,100 per Naaz KFS.",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -6029,19 +5988,13 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-3126ca2db5",
-        "bank-of-punjab-src-5d84200b9d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-3126ca2db5",
-        "bank-of-punjab-src-5d84200b9d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-3126ca2db5",
-        "bank-of-punjab-src-5d84200b9d",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-3126ca2db5",
@@ -6050,12 +6003,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-3126ca2db5",
       "bank-of-punjab-src-5d84200b9d",
       "bank-of-punjab-src-5a7accb767"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, BOP Naaz Debit Card (GL 102060750): Issuance/Annual/Replacement PKR 2,700 each, Supplementary PKR 1,350 per annum. Supersedes the Jan-Jun 2026 figures of PKR 2,400 / 1,100.",
       "Naaz Current Account KFS shows 'NAAZ Card Issuance: Free; Renewal / Replacement Charges: PKR 2,400 P.A, Supplementary: 1,100', confirmed in current SOBC Jan-Jun 2026 Section M-1.",
       "Women-account-linked product; the previously cited 'PKR 1,000' figure (from Taqwa Naaz Saving) was a saving-account opening figure, not a Naaz Debit Card eligibility threshold \u2014 removed from balance field.",
       "Removed Taqwa Naaz Saving KFS from sources because that PDF speaks to the Islamic Naaz saving account, not the conventional Naaz debit card. Naaz Saving Account KFS retained only via BOPNaaz proposition page coverage."
@@ -6065,9 +6020,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-taqwa-platinum-islamic-debit-card",
@@ -6078,7 +6033,7 @@
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 6000,
-      "supplementary_annual_fee_pkr": 2500,
+      "supplementary_annual_fee_pkr": 3000,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -6086,12 +6041,10 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-f529064114"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-5a7accb767"
+        "bank-of-punjab-src-f529064114"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-7ff8978072",
@@ -6099,11 +6052,13 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-f529064114",
       "bank-of-punjab-src-7ff8978072",
       "bank-of-punjab-src-5a7accb767"
     ],
     "confidence": "high",
     "notes": [
+      "TAQWA Islamic Banking Schedule of Bank Charges for July 01, 2026 to December 31, 2026, Section B-7.1 (BOP Debit Master Card and PayPak Debit Card), Platinum: Issuance PKR 6,000, Annual PKR 6,000 per annum, Supplementary Card PKR 3,000 per annum. Annual fee unchanged; supplementary raised from the PKR 2,500 previously recorded off the Taqwa KFS.",
       "Annual fee PKR 6,000 / supplementary PKR 2,500 confirmed against the Taqwa Islamic Current Account KFS (Jan-Jun 2026) 'Platinum' row.",
       "Account-linked Islamic Platinum tier; no standalone salary or balance threshold published. Pilot value of 0 for salary/balance corrected to null per methodology.",
       "Removed previously cited Taqwa BOP@Work and Taqwa Rahat Corporate KFS URLs from sources because BOP@Work does not publish a salary threshold on the public KFS and Rahat Corporate is corporate-only (not retail evidence)."
@@ -6113,9 +6068,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-taqwa-world-islamic-debit-card",
@@ -6125,25 +6080,22 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 18000,
-      "supplementary_annual_fee_pkr": 9000,
-      "annual_fee_waiver_rule": "Subsidized pricing for Priority-marked Islamic KHAAS Current Account customers at PKR 7,500 per annum; standard pricing PKR 18,000 for Non-Priority customers per Taqwa Current Account KFS.",
+      "annual_fee_pkr": 20000,
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": "Subsidized pricing for priority-marked customers at PKR 9,000 per annum on a Priority Current or Saving Account; PKR 20,000 per annum for all other customers (TAQWA Islamic SOBC July 01, 2026 to December 31, 2026, Section B-7.1, World Debit Master Card).",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-f529064114"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-f529064114"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-7ff8978072",
-        "bank-of-punjab-src-a29d0fbf30"
+        "bank-of-punjab-src-f529064114"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-7ff8978072",
@@ -6151,11 +6103,13 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-f529064114",
       "bank-of-punjab-src-7ff8978072",
       "bank-of-punjab-src-a29d0fbf30"
     ],
     "confidence": "high",
     "notes": [
+      "TAQWA Islamic Banking Schedule of Bank Charges for July 01, 2026 to December 31, 2026, Section B-7.1 (BOP Debit Master Card and PayPak Debit Card), World Debit Master Card: issuance, annual/renewal/replacement PKR 9,000 per annum for a Priority Current/Saving Account and PKR 20,000 per annum for all other customers. Supersedes the PKR 18,000 / 7,500 figures previously taken from the Taqwa Current Account KFS.",
       "Taqwa Current Account KFS (Jan-Jun 2026): 'World Debit Master Card: PKR 7,500 per annum (For Priority marked Accounts); PKR 18,000 per Annum (For Non-Priority Accounts)'.",
       "Removed Taqwa Rahat Corporate Saving Account KFS from sources (corporate-only, not retail-card evidence).",
       "Account-linked Islamic World tier; no standalone salary or balance threshold. Pilot value of 0 for salary/balance corrected to null."
@@ -6165,9 +6119,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-world-debit-card",
@@ -6177,28 +6131,22 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 18000,
-      "supplementary_annual_fee_pkr": 9000,
-      "annual_fee_waiver_rule": "Subsidized pricing for Priority-marked KHAAS customers: PKR 7,500 annual / PKR 3,300 supplementary on KHAAS Current Account, PKR 11,000 / PKR 5,000 on KHAAS Saving Account; standard pricing PKR 18,000 / PKR 9,000 for all other customers.",
+      "annual_fee_pkr": 20000,
+      "supplementary_annual_fee_pkr": 10000,
+      "annual_fee_waiver_rule": "Subsidized pricing where the customer profile is marked as priority: PKR 9,000 per annum on a KHAAS / Priority Current Account and PKR 12,000 per annum on a KHAAS / Priority Saving Account, with supplementary at PKR 4,500 and PKR 6,000 respectively; standard pricing of PKR 20,000 / PKR 10,000 supplementary applies to all other customers (SOBC effective 01.07.2026 to 31.12.2026, Section M-1, GL 102060776).",
       "minimum_age_years": null,
       "maximum_age_years": null,
       "existing_account_required": true
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-a29d0fbf30",
-        "bank-of-punjab-src-d2be5cba0f"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "supplementary_annual_fee_pkr": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-a29d0fbf30",
-        "bank-of-punjab-src-d2be5cba0f"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "annual_fee_waiver_rule": [
-        "bank-of-punjab-src-5a7accb767",
-        "bank-of-punjab-src-a29d0fbf30",
-        "bank-of-punjab-src-d2be5cba0f"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-5a7accb767",
@@ -6207,12 +6155,14 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-5a7accb767",
       "bank-of-punjab-src-a29d0fbf30",
       "bank-of-punjab-src-d2be5cba0f"
     ],
     "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, World Debit Master Card (GL 102060776): issuance, annual and replacement are PKR 9,000 (KHAAS/Priority Current), PKR 12,000 (KHAAS/Priority Saving) and PKR 20,000 (all other customers); supplementary PKR 4,500 / 6,000 / 10,000 on the same tiers. Supersedes the Jan-Jun 2026 figures of PKR 18,000 / 9,000 standard and PKR 7,500 / 11,000 priority.",
       "Current SOBC (Jan-Jun 2026, Section M-1, World Debit Master Card) defines three pricing tiers explicitly: KHAAS Current PKR 7,500, KHAAS Saving PKR 11,000, all other customers PKR 18,000.",
       "Account-linked product; the customer must hold an underlying BOP current/saving account per the BOP Debit Card Application Form."
     ],
@@ -6221,9 +6171,9 @@
       "BOP does not publish minimum or maximum age criteria on consumer card pages, the FAQs, or the SOBC.",
       "Salary-transfer and income-document requirements are not surfaced on public BOP card pages; only the BOP Debit Card Application Form is published.",
       "BOP@Work payroll account (SOBC Section R-9) is the only public BOP document that lists explicit salary tiers \u2014 these are payroll-bundle waivers, not card-level eligibility floors, and so are recorded under annual_fee_waiver_rule rather than minimum_monthly_salary_pkr.",
-      "An H2-2025 SOBC (01-07-2025) temporarily carried slightly reduced debit and credit card pricing (Classic PKR 2,600, Gold PKR 3,300, Platinum PKR 5,500, World CC PKR 22,500, Gold CC PKR 5,000); these were reverted in the current Jan-Jun 2026 SOBC and the Jan-Jun 2026 figures are the verified canonical values."
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Re-verified 2026-05-25 against current SOBC (Jan-Jun 2026, conventional), KFS PDFs (current and Taqwa Islamic Jan-Jun 2026), Credit Card SOC pages, and KHAAS / Naaz / Taqwa product pages. Salary and balance kept null where not published on bop.com.pk. Annual-fee figures pulled from the current SOBC, with KFS used as a secondary check."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bank-of-punjab--bop-paypak-debit-card",
@@ -6233,8 +6183,8 @@
     "requirements": {
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
-      "annual_fee_pkr": 1850,
-      "annual_fee_pkr_note": "The Combined KFS prices PayPak at PKR 1,850 per annum on a single issuance / renewal / replacement basis, with supplementary shown as 'NA'.",
+      "annual_fee_pkr": 2000,
+      "annual_fee_pkr_note": "The SOBC prices this card flat: Issuance PKR 2,000, Annual PKR 2,000 per annum (applicable after the 1st year of card issuance and on activated cards only), Replacement PKR 2,000. No supplementary card fee is published for the PayPak row.",
       "supplementary_annual_fee_pkr": null,
       "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
@@ -6243,7 +6193,7 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "bank-of-punjab-src-549be3d6fe"
+        "bank-of-punjab-src-4b1d3c4b25"
       ],
       "existing_account_required": [
         "bank-of-punjab-src-3f4475c476",
@@ -6251,21 +6201,24 @@
       ]
     },
     "source_ids": [
+      "bank-of-punjab-src-4b1d3c4b25",
       "bank-of-punjab-src-549be3d6fe",
       "bank-of-punjab-src-3f4475c476"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
+      "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, row 2 PayPak Debit Card (GL 102060724): Issuance PKR 2,000, Annual PKR 2,000 per annum, Replacement PKR 2,000. The row carries no supplementary line, unlike every Mastercard row, so no supplementary fee is published for this card. Supersedes the PKR 1,850 figure carried by the Combined KFS.",
       "BOP PayPak Debit Card. The Combined KFS (conventional) prices PayPak at PKR 1,850 for issuance/renewal/replacement with supplementary 'NA' - the same KFS line that supplies the Classic (2,800), Gold (3,600), Platinum (6,000) and World (18,000) figures used by the other BOP records in this dataset, so this card is on the same verified vintage as its siblings.",
       "PayPak is a distinct product at BOP, not a Mastercard variant: the Debit Card Application Form (Conventional) offers 'Domestic Payment Scheme (PayPak)' and 'International Payment Scheme (MasterCard)' as mutually exclusive selections, and states that the PayPak card is a domestic scheme card usable only in Pakistan.",
       "Account-linked product; no standalone salary or balance threshold is published, consistent with every other BOP record."
     ],
     "bank_gaps": [
-      "The half-year SOBC effective 01-07-2026 could not be retrieved for this update: bop.com.pk serves an Imperva/Incapsula JS challenge to programmatic fetchers, so neither the PDF bytes nor a verifiable table read could be obtained. Secondary research indicated the H2-2026 SOBC may raise PayPak issuance/annual/replacement to PKR 2,000 (Section M-1 row 2, GL 102060724), but that could not be confirmed against the document, so the KFS figure of 1,850 is retained. A human should confirm the current SOBC figure and, if it has moved, refresh this record together with the other 14 BOP records, which are all on the same pre-H2-2026 vintage.",
       "BOP does not publish a minimum monthly salary, minimum balance, or minimum/maximum age for its debit cards on any public page, the FAQs, or the SOBC.",
-      "No PayPak-specific supplementary card fee is published; the KFS shows 'NA' for this card."
+      "No PayPak-specific supplementary card fee is published; the KFS shows 'NA' for this card.",
+      "No supplementary card fee is published for the PayPak row of Section M-1, unlike every Mastercard row; supplementary_annual_fee_pkr is therefore left unset rather than inferred.",
+      "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text."
     ],
-    "retrieved_note": "Added 2026-09-08 to bridge the 'Bank of Punjab || PayPak Debit Card' pair newly appearing in the offers feed. The fee is taken from the Combined KFS (conventional) PayPak line (PKR 1,850 per annum, supplementary NA) as recorded in this repository's 2026-05-25 BOP verification notes, which is the same document and vintage behind the existing BOP records; card distinctness and the domestic-only scheme restriction come from the BOP Debit Card Application Form (Conventional). bop.com.pk now blocks programmatic retrieval (Imperva/Incapsula challenge), so the H2-2026 SOBC could not be opened and no figure from it has been published here - see bank_gaps."
+    "retrieved_note": "Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
   },
   {
     "card_id": "bankislami--classic-debit-mastercard",
@@ -8022,10 +7975,11 @@
     "notes": [
       "Faysal Bank business debit card, mapped to the 'Mastercard Business Standard' line of the Schedule of Charges effective 1 Jul 2026 - 31 Dec 2026: primary issuance Rs. 2,100 (Debit Cards 1.a(ix)), primary annual Rs. 2,300 (1.c(ix)), replacement Rs. 1,500 (1.e(ix)).",
       "The SOC publishes exactly two business debit lines - Mastercard Business Standard (2,100 / 2,300 / 1,500) and Mastercard Business World (16,800 / 17,000 / 4,000) - and Faysal's catalogue lists exactly two matching products, 'Business Debit Card' and 'World Business Debit Card'. The feed's card name carries no 'World', so it maps to the Business Standard line.",
+      "Corroborated 2026-09-08 by loading the live Faysal Islami debit-card catalogue in a real browser: it lists exactly two business products, 'Business Debit Card' and 'World Business Debit Card', matching the SOC's two business lines one-for-one.",
       "The annual fee is charged on activated cards only, after completion of one year from card issuance (SOC section 1.c footer)."
     ],
     "bank_gaps": [
-      "The SOC names scheme/tier ('Mastercard Business Standard') while the website names the product ('Business Debit Card'); no official document states the equivalence in words. The fee attribution therefore rests on the two-for-two correspondence and the World / non-World split, and should be confirmed by a human reviewer.",
+      "The SOC names scheme/tier ('Mastercard Business Standard') while the website names the product ('Business Debit Card'); no official document states the equivalence in words. The mapping rests on the SOC's two business lines matching the catalogue's two business products one-for-one, with the World / non-World split fixing which is which (verified against the live catalogue on 2026-09-08), but it remains an inference rather than a published statement.",
       "No supplementary card fee is published for Business Standard - it is absent from both the supplementary issuance (1.b) and supplementary annual (1.d) tables.",
       "faysalbank.com HTML pages return HTTP 403 to programmatic fetchers, so no card-level CNIC or eligibility statement could be verified this round; pakistani_cnic_required is left unset rather than inherited. The SOC PDF under /assets/documents/ remains directly fetchable.",
       "No minimum balance, minimum salary, age, income-document or salary-transfer requirement is published for this card."
@@ -8075,7 +8029,7 @@
       "The annual fee is charged on activated cards only, after completion of one year from card issuance (SOC section 1.c footer)."
     ],
     "bank_gaps": [
-      "The card's official product page now returns HTTP 404 and Faysal's current debit-card catalogue does not list a PayPak-UnionPay co-badge card, while the live SOC still prices it - the product appears retired from marketing though existing cards are presumably still serviced. A human should confirm whether it remains open to new issuance; if the dataset is meant to carry only currently-marketed cards, this record (and the feed pair behind it) should be revisited.",
+      "Confirmed 2026-09-08 through a real browser session (faysalbank.com blocks plain HTTP clients): the card's product page redirects to faysalbank.com/404, and the live Faysal Islami debit-card catalogue lists sixteen entries with no UnionPay + PayPak co-badge card - its only co-badge product is the 'Faysal Islami Debit Card Co-Badged PayPak & Mastercard'. The card is nonetheless still priced as its own line in the live Jul-Dec 2026 SOC, so it appears retired from marketing while existing cards are serviced. A human should confirm whether it remains open to new issuance; if the dataset is meant to carry only currently-marketed cards, this record and the feed pair behind it should be revisited.",
       "faysalbank.com HTML pages return HTTP 403 to programmatic fetchers, so no card-level CNIC or eligibility statement could be verified; pakistani_cnic_required is left unset.",
       "No minimum balance, minimum salary, age, income-document or salary-transfer requirement is published for this card."
     ],
@@ -8880,8 +8834,8 @@
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 2700,
-      "supplementary_annual_fee_pkr": 550,
-      "annual_fee_waiver_rule": "First-year free issuance of the PayPak debit card for HBL Rutba, HBL Mahana Amdan, HBL Haryali, HBL iD, all Asaan variants, and Freelancer Digital Account; second year onwards annual fees apply (SOBC Jan-Jun 2026 Part M, note iii).",
+      "supplementary_annual_fee_pkr": null,
+      "annual_fee_waiver_rule": null,
       "minimum_age_years": null,
       "maximum_age_years": null,
       "pakistani_cnic_required": true,
@@ -8889,40 +8843,34 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
-        "hbl-src-c685c065d9",
-        "hbl-src-8fc91121ea",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-cbf913a651",
+        "hbl-src-3bd2bc733a"
       ],
       "supplementary_annual_fee_pkr": [
-        "hbl-src-c685c065d9",
-        "hbl-src-8fc91121ea",
-        "hbl-src-7d351b4ff9"
-      ],
-      "annual_fee_waiver_rule": [
-        "hbl-src-c685c065d9",
-        "hbl-src-8fc91121ea",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-cbf913a651"
       ],
       "pakistani_cnic_required": [
+        "hbl-src-3bd2bc733a",
         "hbl-src-c685c065d9",
-        "hbl-src-8fc91121ea",
         "hbl-src-7d351b4ff9"
       ],
       "existing_account_required": [
+        "hbl-src-3bd2bc733a",
         "hbl-src-c685c065d9",
-        "hbl-src-8fc91121ea",
         "hbl-src-7d351b4ff9"
       ]
     },
     "source_ids": [
+      "hbl-src-cbf913a651",
+      "hbl-src-3bd2bc733a",
       "hbl-src-c685c065d9",
-      "hbl-src-8fc91121ea",
       "hbl-src-7d351b4ff9"
     ],
-    "confidence": "medium",
+    "confidence": "high",
     "notes": [
-      "Co-badge debit card combining UnionPay International (UPI) global acceptance with the domestic PayPak scheme (HBL UnionPay PayPak Co-Badge Debit Card launch).",
-      "SOBC Jan-Jun 2026 Part M (HBL Debit Card, page 22) bills by chip type: UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850. The co-badge card carries the UnionPay (classic) chip, so it is billed at the UnionPay Chip rate; PayPak Chip alone is Rs. 2,000.",
+      "HBL Schedule of Bank Charges effective July 01, 2026 to December 31, 2026, Part M 'HBL DEBIT CARD (ATM CARD)' prices this card explicitly: item 1b Annual fee (Primary) 'UnionPay & PayPak Co-Badge - Rs. 2,700/-' and item 1d Card Replacement fee 'UnionPay & PayPak Co-Badge - Rs. 850/-'. The fee no longer rests on the earlier inference that the co-badge is billed at the UnionPay Chip rate, though the two happen to match at Rs. 2,700.",
+      "No supplementary annual fee is published for this card: item 1c Annual fee (Supplementary) lists only PayPak Chip (Nil), Visa Chip (550), MasterCard Standard (550), MasterCard Gold (N/A), UnionPay Chip (550), Visa Chip USD (N/A), MasterCard Titanium (900) and MasterCard World (N/A). The Rs. 550 previously recorded here is the UnionPay Chip / Visa Chip / MasterCard Standard figure, not this card's.",
+      "Co-badge debit card combining UnionPay International global acceptance with the domestic PayPak scheme.",
       "No salary or minimum-balance threshold is published for the debit-card tier; both left null per methodology (null != 0).",
       "Issued against an existing HBL account; inherits the linked account's eligibility."
     ],
@@ -8930,9 +8878,11 @@
       "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds (age inherited from credit-card overview where applicable; debit pages omit it entirely).",
       "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced \u2014 fees inherit chosen Mastercard Standard / Gold variant.",
       "Dedicated Titanium and Nisa debit-card product pages returned HTTP 404 on 2026-05-25; relying on overview, lounge-access, account, and SOBC sources.",
-      "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved."
+      "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved.",
+      "Part M item 1a states 'Same charges applicable on Supplementary Cards except where mentioned', which could be read as applying the Rs. 2,700 primary fee to a supplementary co-badge card, but the card is not named in the 1c supplementary table at all. supplementary_annual_fee_pkr is left unset rather than resolved by inference.",
+      "The SOC's first-year waivers do not cover this card: note (iii) grants first-year free issuance of the PayPak Debit Card (HBL Mahana Amdan, HBL Haryali, all Asaan variants, Freelancer Digital Account) and note (iv) covers the Classic variant for HBL iD and HBL Rutba. The waiver rule previously recorded here attributed note (iii) to the co-badge card and added HBL Rutba / HBL iD, so it has been removed."
     ],
-    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Re-verified on 2026-05-25 against the live HBL pages and the Jan-Jun 2026 SOBC + HBL Premium addendum. Normalize before shipping to UI."
+    "retrieved_note": "Re-verified 2026-09-08 directly against HBL Schedule of Bank Charges effective July 01, 2026 to December 31, 2026, Part M 'HBL DEBIT CARD (ATM CARD)', read from a page render of the fee tables (items 1b Annual fee (Primary), 1c Annual fee (Supplementary) and 1d Card Replacement fee) so that each card's row is paired with the right charge."
   },
   {
     "card_id": "hbl--hbl-unionpay-classic-debitcard",
@@ -9045,7 +8995,7 @@
       "minimum_monthly_salary_pkr": null,
       "minimum_account_balance_pkr": null,
       "annual_fee_pkr": 22000,
-      "supplementary_annual_fee_pkr": 2500,
+      "supplementary_annual_fee_pkr": null,
       "annual_fee_waiver_rule": "Mastercard Business World: issuance 100% waived; annual fee charged at 50% (SOBC Jan-Jun 2026 Part M, line 1552). Product page confirms first-year complimentary, PKR 22,000 from year 2 onward.",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -9054,12 +9004,12 @@
     },
     "requirement_sources": {
       "annual_fee_pkr": [
+        "hbl-src-cbf913a651",
         "hbl-src-61fcb687a1",
         "hbl-src-7d351b4ff9"
       ],
       "supplementary_annual_fee_pkr": [
-        "hbl-src-61fcb687a1",
-        "hbl-src-7d351b4ff9"
+        "hbl-src-cbf913a651"
       ],
       "annual_fee_waiver_rule": [
         "hbl-src-61fcb687a1",
@@ -9075,11 +9025,14 @@
       ]
     },
     "source_ids": [
+      "hbl-src-cbf913a651",
       "hbl-src-61fcb687a1",
       "hbl-src-7d351b4ff9"
     ],
     "confidence": "high",
     "notes": [
+      "HBL Schedule of Bank Charges effective July 01, 2026 to December 31, 2026, Part M 'HBL DEBIT CARD (ATM CARD)': item 1b Annual fee (Primary) 'MasterCard Business World - Rs. 22,000/-' and item 1d Card Replacement fee 'MasterCard Business World - Rs. 2,500/-'.",
+      "No supplementary annual fee is published for this card (absent from the 1c supplementary table). The PKR 2,500 previously recorded as supplementary_annual_fee_pkr is in fact this card's replacement fee from item 1d, so the field has been cleared and the replacement fee recorded in these notes instead.",
       "Re-verified 2026-05-25: Product page now publicly states 'First year free; annual fee of PKR 22,000 from year 2'. Eligibility restricted to non-individual business customers (Proprietorships CD and Single Member Companies CI) holding PKR business accounts.",
       "SOBC Jan-Jun 2026 Part M Mastercard Business World primary annual fee Rs. 22,000 (line 1469), supplementary Rs. 2,500 (line 1488).",
       "Personal accounts not eligible per the product page."
@@ -9090,7 +9043,7 @@
       "Dedicated Titanium and Nisa debit-card product pages returned HTTP 404 on 2026-05-25; relying on overview, lounge-access, account, and SOBC sources.",
       "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved."
     ],
-    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Re-verified on 2026-05-25 against the live HBL pages and the Jan-Jun 2026 SOBC + HBL Premium addendum. Normalize before shipping to UI."
+    "retrieved_note": "Re-verified 2026-09-08 directly against HBL Schedule of Bank Charges effective July 01, 2026 to December 31, 2026, Part M 'HBL DEBIT CARD (ATM CARD)', read from a page render of the fee tables (items 1b Annual fee (Primary), 1c Annual fee (Supplementary) and 1d Card Replacement fee) so that each card's row is paired with the right charge."
   },
   {
     "card_id": "hbl--hbl-world-debitcard",
@@ -9102,7 +9055,7 @@
       "minimum_account_balance_pkr": 2000000,
       "minimum_relationship_balance_pkr": 2000000,
       "annual_fee_pkr": 20000,
-      "supplementary_annual_fee_pkr": 2000,
+      "supplementary_annual_fee_pkr": null,
       "annual_fee_waiver_rule": "For qualified HBL Premium customers (PKR 2,000,000+ quarterly average current-account balance), the Jan-Jun 2026 Premium addendum waives issuance and annual fee 100% in year 1 and gives 50% annual-fee waiver from year 2 onward for Master World Debit Card.",
       "minimum_age_years": null,
       "maximum_age_years": null,
@@ -9123,16 +9076,14 @@
         "hbl-src-f261253c77"
       ],
       "annual_fee_pkr": [
+        "hbl-src-cbf913a651",
         "hbl-src-2bbe997a3c",
         "hbl-src-3ac3649d76",
         "hbl-src-7d351b4ff9",
         "hbl-src-f261253c77"
       ],
       "supplementary_annual_fee_pkr": [
-        "hbl-src-2bbe997a3c",
-        "hbl-src-3ac3649d76",
-        "hbl-src-7d351b4ff9",
-        "hbl-src-f261253c77"
+        "hbl-src-cbf913a651"
       ],
       "annual_fee_waiver_rule": [
         "hbl-src-2bbe997a3c",
@@ -9154,6 +9105,7 @@
       ]
     },
     "source_ids": [
+      "hbl-src-cbf913a651",
       "hbl-src-2bbe997a3c",
       "hbl-src-3ac3649d76",
       "hbl-src-7d351b4ff9",
@@ -9161,6 +9113,8 @@
     ],
     "confidence": "medium",
     "notes": [
+      "HBL Schedule of Bank Charges effective July 01, 2026 to December 31, 2026, Part M 'HBL DEBIT CARD (ATM CARD)': item 1b Annual fee (Primary) 'MasterCard World - Rs. 20,000/-' and item 1d Card Replacement fee 'MasterCard World - Rs. 2,000/-'.",
+      "No supplementary annual fee is published for this card (N/A in the 1c supplementary table). The PKR 2,000 previously recorded as supplementary_annual_fee_pkr is in fact this card's replacement fee from item 1d, so the field has been cleared and the replacement fee recorded in these notes instead.",
       "Re-verified 2026-05-25: SOBC Jan-Jun 2026 Part M Mastercard World primary annual fee Rs. 20,000 (line 1468), supplementary Rs. 2,000 (line 1487).",
       "Premium addendum (Jan-Jun 2026) confirms 100% waiver on issuance and annual fee for Master World Debit Card in year 1, 50% from year 2 (this supersedes the SOBC's 50% line).",
       "Relationship balance PKR 2,000,000 corresponds to HBL Premium tier (SOBC Part U) which gives the World card.",
@@ -9173,7 +9127,7 @@
       "Dedicated Titanium and Nisa debit-card product pages returned HTTP 404 on 2026-05-25; relying on overview, lounge-access, account, and SOBC sources.",
       "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved."
     ],
-    "retrieved_note": "Pilot agent extraction from official public pages and the Jan-Jun 2026 HBL Schedule of Bank Charges. Re-verified on 2026-05-25 against the live HBL pages and the Jan-Jun 2026 SOBC + HBL Premium addendum. Normalize before shipping to UI."
+    "retrieved_note": "Re-verified 2026-09-08 directly against HBL Schedule of Bank Charges effective July 01, 2026 to December 31, 2026, Part M 'HBL DEBIT CARD (ATM CARD)', read from a page render of the fee tables (items 1b Annual fee (Primary), 1c Annual fee (Supplementary) and 1d Card Replacement fee) so that each card's row is paired with the right charge."
   },
   {
     "card_id": "hbl--hbl-paypak-debitcard",
