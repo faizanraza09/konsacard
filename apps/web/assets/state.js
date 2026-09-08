@@ -121,7 +121,9 @@ const BANK_LOGO_FILES = {
   mcbbanklimited: "mcb-bank.png",
   mcbislamicbankltd: "mcb-islamic.png",
   meezanbank: "meezan-bank.png",
+  mobilinkmicrofinancebanklimited: "mobilink-microfinance-bank.png",
   nationalbankofpakistan: "national-bank-of-pakistan.png",
+  soneribanklimited: "soneri-bank.png",
   standardcharteredbank: "standard-chartered.png",
   unitedbanklimitedubl: "ubl.png",
 };
@@ -143,7 +145,9 @@ const BANK_APPLY_URLS = {
   mcbbanklimited:        "https://www.mcb.com.pk/personal/cards/",
   mcbislamicbankltd:     "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/",
   meezanbank:            "https://www.meezanbank.com/",
+  mobilinkmicrofinancebanklimited: "https://mobilinkbank.com/atm-debit-card",
   nationalbankofpakistan: "https://www.nbp.com.pk/",
+  soneribanklimited:     "https://soneribank.com/cards",
   standardcharteredbank: "https://www.sc.com/pk/credit-cards/",
   unitedbanklimitedubl:  "https://www.ubl.com.pk/consumer-banking/cards/",
 };

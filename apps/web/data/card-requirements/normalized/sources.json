@@ -1543,6 +1543,27 @@
     ]
   },
   {
+    "source_id": "faysal-bank-src-bd73458706",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "url": "https://www.faysalbank.com/assets/documents/FBL-English-SOC.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "faysal-bank--faysal-bank-business-debit-card",
+      "faysal-bank--faysal-islami-paypak-unionpay-co-badged-debit-card"
+    ]
+  },
+  {
+    "source_id": "faysal-bank-src-1c11836070",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "url": "https://www.faysalbank.com/business-debit-cards/business-debit-card",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "faysal-bank--faysal-bank-business-debit-card"
+    ]
+  },
+  {
     "source_id": "hbl-src-f261253c77",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -1738,6 +1759,16 @@
     "source_type": "html",
     "used_by_card_ids": [
       "hbl--hbl-prestige-world-elite-debitcard"
+    ]
+  },
+  {
+    "source_id": "hbl-src-cbf913a651",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "url": "https://www.hbl.com/assets/documents/Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "hbl--hbl-paypak-debitcard"
     ]
   },
   {
@@ -2419,6 +2450,89 @@
     ]
   },
   {
+    "source_id": "mobilink-bank-src-c1952252f8",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "url": "https://mobilinkbank.com/atm-debit-card/atm-debit-cards",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "mobilink-bank--paypak-classic-debit-card",
+      "mobilink-bank--paypak-gold-debit-card",
+      "mobilink-bank--paypak-bint-e-hawwa-debit-card",
+      "mobilink-bank--jazzcash-paypak-debit-card",
+      "mobilink-bank--jazzcash-mastercard-debit-card"
+    ]
+  },
+  {
+    "source_id": "mobilink-bank-src-be5ce2b032",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "url": "https://mobilinkbank.com/assets/documents/SOC_2nd_Half_2026.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "mobilink-bank--paypak-classic-debit-card",
+      "mobilink-bank--paypak-gold-debit-card",
+      "mobilink-bank--paypak-bint-e-hawwa-debit-card"
+    ]
+  },
+  {
+    "source_id": "mobilink-bank-src-0e24e698df",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "url": "https://mobilinkbank.com/assets/documents/SOC_Q3_2026_-_Final.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "mobilink-bank--jazzcash-paypak-debit-card",
+      "mobilink-bank--jazzcash-mastercard-debit-card"
+    ]
+  },
+  {
+    "source_id": "mobilink-bank-src-0e53267b6c",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "url": "https://mobilinkbank.com/deposits/sahulat-current-account",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "mobilink-bank--paypak-classic-debit-card",
+      "mobilink-bank--paypak-gold-debit-card"
+    ]
+  },
+  {
+    "source_id": "mobilink-bank-src-44e0117e2c",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "url": "https://mobilinkbank.com/deposits/bint-e-hawwa",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "mobilink-bank--paypak-bint-e-hawwa-debit-card"
+    ]
+  },
+  {
+    "source_id": "mobilink-bank-src-ed97d9f8f1",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "url": "https://mobilinkbank.com/terms-and-conditions",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "mobilink-bank--paypak-classic-debit-card",
+      "mobilink-bank--paypak-gold-debit-card",
+      "mobilink-bank--paypak-bint-e-hawwa-debit-card",
+      "mobilink-bank--jazzcash-paypak-debit-card",
+      "mobilink-bank--jazzcash-mastercard-debit-card"
+    ]
+  },
+  {
+    "source_id": "mobilink-bank-src-e91a231108",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "url": "https://www.jazzcash.com.pk/move-money/cards",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "mobilink-bank--jazzcash-paypak-debit-card",
+      "mobilink-bank--jazzcash-mastercard-debit-card"
+    ]
+  },
+  {
     "source_id": "nbp-src-1ece37862d",
     "bank_slug": "nbp",
     "bank_name": "National Bank of Pakistan",
@@ -2430,6 +2544,46 @@
       "nbp--paypak-pink",
       "nbp--upi-classic",
       "nbp--upi-gold"
+    ]
+  },
+  {
+    "source_id": "soneri-bank-src-155ea91af2",
+    "bank_slug": "soneri-bank",
+    "bank_name": "Soneri Bank Limited",
+    "url": "https://soneribank.com/personal/soneri-cards/paypak",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "soneri-bank--soneri-paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "soneri-bank-src-fd0862a1fd",
+    "bank_slug": "soneri-bank",
+    "bank_name": "Soneri Bank Limited",
+    "url": "https://soneri-bank.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2026/05/29135907/SBL-Conventional-SOC-July-to-Dec-2026-Final.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "soneri-bank--soneri-paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "soneri-bank-src-0f208ea6d3",
+    "bank_slug": "soneri-bank",
+    "bank_name": "Soneri Bank Limited",
+    "url": "https://soneri-bank.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2026/07/01094524/3-Page-Deposit-Products-Current-effective-01-July-2026-English.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "soneri-bank--soneri-paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "soneri-bank-src-8b4c4dc661",
+    "bank_slug": "soneri-bank",
+    "bank_name": "Soneri Bank Limited",
+    "url": "https://soneri-bank.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2026/07/07065444/Visa-Debit-Card-TCs.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "soneri-bank--soneri-paypak-debit-card"
     ]
   },
   {
@@ -2570,6 +2724,46 @@
     "source_type": "html",
     "used_by_card_ids": [
       "standard-chartered--mastercard-world-credit-card"
+    ]
+  },
+  {
+    "source_id": "standard-chartered-src-15df14086a",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "url": "https://www.sc.com/pk/debit-cards/pay-pak-debit-card/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "standard-chartered--paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "standard-chartered-src-7acdfb06b4",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "url": "https://av.sc.com/pk/content/docs/pk-conventional-schedule-of-charges-english-h2-2026.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "standard-chartered--paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "standard-chartered-src-16424d78a9",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "url": "https://av.sc.com/pk/content/docs/pk-key-fact-statement-deposit-account.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "standard-chartered--paypak-debit-card"
+    ]
+  },
+  {
+    "source_id": "standard-chartered-src-4927f9df3d",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "url": "https://av.sc.com/pk/content/docs/pk-debit-card-leaflet.pdf",
+    "source_type": "pdf",
+    "used_by_card_ids": [
+      "standard-chartered--paypak-debit-card"
     ]
   },
   {

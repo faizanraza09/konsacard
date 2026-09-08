@@ -913,6 +913,17 @@
     "pilot_position": 3
   },
   {
+    "card_id": "bank-of-punjab--bop-paypak-debit-card",
+    "bank_slug": "bank-of-punjab",
+    "bank_name": "Bank of Punjab",
+    "card_name": "BOP PayPak Debit Card",
+    "card_slug": "bop-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "medium",
+    "pilot_position": 15
+  },
+  {
     "card_id": "bankislami--classic-debit-mastercard",
     "bank_slug": "bankislami",
     "bank_name": "BankIslami",
@@ -1133,6 +1144,28 @@
     "pilot_position": 14
   },
   {
+    "card_id": "faysal-bank--faysal-bank-business-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Bank Business Debit Card",
+    "card_slug": "faysal-bank-business-debit-card",
+    "card_type": "debit",
+    "tier": "business",
+    "confidence": "medium",
+    "pilot_position": 15
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-paypak-unionpay-co-badged-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami PayPak UnionPay Co-Badged Debit Card",
+    "card_slug": "faysal-islami-paypak-unionpay-co-badged-debit-card",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "medium",
+    "pilot_position": 16
+  },
+  {
     "card_id": "hbl--hbl-fuelsaver-gold-creditcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -1307,6 +1340,17 @@
     "tier": "world",
     "confidence": "medium",
     "pilot_position": 11
+  },
+  {
+    "card_id": "hbl--hbl-paypak-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL PayPak DebitCard",
+    "card_slug": "hbl-paypak-debitcard",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "high",
+    "pilot_position": 17
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-business-debitcard",
@@ -1947,6 +1991,61 @@
     "pilot_position": 4
   },
   {
+    "card_id": "mobilink-bank--jazzcash-mastercard-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "JazzCash Mastercard Debit Card",
+    "card_slug": "jazzcash-mastercard-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 4
+  },
+  {
+    "card_id": "mobilink-bank--jazzcash-paypak-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "JazzCash PayPak Debit Card",
+    "card_slug": "jazzcash-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "medium",
+    "pilot_position": 5
+  },
+  {
+    "card_id": "mobilink-bank--paypak-bint-e-hawwa-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "PayPak Bint-e-Hawwa Debit Card",
+    "card_slug": "paypak-bint-e-hawwa-debit-card",
+    "card_type": "debit",
+    "tier": "other",
+    "confidence": "high",
+    "pilot_position": 3
+  },
+  {
+    "card_id": "mobilink-bank--paypak-classic-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "PayPak Classic Debit Card",
+    "card_slug": "paypak-classic-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 1
+  },
+  {
+    "card_id": "mobilink-bank--paypak-gold-debit-card",
+    "bank_slug": "mobilink-bank",
+    "bank_name": "Mobilink Microfinance Bank Limited",
+    "card_name": "PayPak Gold Debit Card",
+    "card_slug": "paypak-gold-debit-card",
+    "card_type": "debit",
+    "tier": "gold",
+    "confidence": "high",
+    "pilot_position": 2
+  },
+  {
     "card_id": "nbp--paypak-classic",
     "bank_slug": "nbp",
     "bank_name": "National Bank of Pakistan",
@@ -2007,6 +2106,17 @@
     "benefits": "Golootlo discounts direct on card"
   },
   {
+    "card_id": "soneri-bank--soneri-paypak-debit-card",
+    "bank_slug": "soneri-bank",
+    "bank_name": "Soneri Bank Limited",
+    "card_name": "Soneri PayPak Debit Card",
+    "card_slug": "soneri-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "high",
+    "pilot_position": 1
+  },
+  {
     "card_id": "standard-chartered--easy-credit",
     "bank_slug": "standard-chartered",
     "bank_name": "Standard Chartered Bank Pakistan",
@@ -2060,6 +2170,17 @@
     "tier": "platinum",
     "confidence": "high",
     "pilot_position": 5
+  },
+  {
+    "card_id": "standard-chartered--paypak-debit-card",
+    "bank_slug": "standard-chartered",
+    "bank_name": "Standard Chartered Bank Pakistan",
+    "card_name": "PayPak Debit Card",
+    "card_slug": "paypak-debit-card",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "medium",
+    "pilot_position": 6
   },
   {
     "card_id": "ubl--ubl-credit-card-classic",
