@@ -1,0 +1,152 @@
+name: Daily-refresh auto-heal
+
+# Repairs a failed "Daily offers refresh" run by running Claude Code headless, following
+# .github/autoheal-playbook.md.
+#
+# Why this lives in Actions rather than as a scheduled cloud routine: a cloud routine needs
+# the claude.ai account linked to GitHub, which on a Team/Enterprise plan requires an org
+# Owner to enable the GitHub connector. This route needs only a repo secret, and it is
+# event-driven by construction — it fires the moment a refresh run concludes as failure.
+#
+# Setup (see .github/autoheal-routine.md):
+#   claude setup-token                                  # prints a subscription token
+#   gh secret set CLAUDE_CODE_OAUTH_TOKEN               # paste it at the prompt
+# Until that secret exists the job exits cleanly with a notice, so it never spams failures.
+
+on:
+  workflow_run:
+    workflows: ["Daily offers refresh"]
+    types: [completed]
+  schedule:
+    # 07:15 UTC safety net, ~1h after the 06:17 UTC refresh cron. Catches the case the
+    # webhook cannot see: the refresh cron not firing at all, which looks identical to
+    # "nothing wrong" and is how the Aug-Sep 2026 outage ran for 21 days.
+    - cron: "15 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write # push the fix to main and dev
+  issues: write # comment on and close the failure issue
+  actions: write # re-run daily-refresh.yml, dispatch fetch-walled-sources.yml
+
+concurrency:
+  group: daily-refresh-autoheal
+  cancel-in-progress: false
+
+jobs:
+  heal:
+    name: Triage and repair
+    # On a workflow_run event, only act when the refresh actually failed. Scheduled and
+    # manual invocations always run and triage for themselves (including "no run at all").
+    if: >-
+      github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Check for the Claude credential
+        id: cred
+        env:
+          TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "${TOKEN}" ]; then
+            echo "::notice title=Auto-heal not armed::CLAUDE_CODE_OAUTH_TOKEN is not set. Run 'claude setup-token' then 'gh secret set CLAUDE_CODE_OAUTH_TOKEN'. See .github/autoheal-routine.md"
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: actions/checkout@v4
+        if: steps.cred.outputs.ready == 'true'
+        with:
+          # full history so the fix can be cherry-picked from main onto dev
+          fetch-depth: 0
+
+      - name: Set up Python
+        if: steps.cred.outputs.ready == 'true'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install tooling the playbook uses
+        if: steps.cred.outputs.ready == 'true'
+        run: |
+          pip install --quiet requests pypdf
+          sudo apt-get install -y -qq poppler-utils   # pdftoppm, to read fee tables as renders
+
+      - name: Configure git identity
+        if: steps.cred.outputs.ready == 'true'
+        run: |
+          git config user.name "konsacard-autoheal-bot"
+          git config user.email "konsacard-autoheal-bot@users.noreply.github.com"
+
+      - name: Run the auto-heal agent
+        if: steps.cred.outputs.ready == 'true'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          claude_args: >-
+            --model claude-opus-5
+            --max-turns 120
+            --allowedTools "Bash,Read,Write,Edit,Glob,Grep,WebSearch,WebFetch"
+          prompt: |
+            You are the auto-heal agent for this repository. When the "Daily offers refresh"
+            workflow fails, you repair it, get it green, and leave an audit trail.
+
+            Read `.github/autoheal-playbook.md` FIRST and follow it exactly. It is the
+            authority for everything below; this prompt is only the entry point, and the
+            section numbers refer to it.
+
+            1. Triage: `gh run list --workflow=daily-refresh.yml --limit 5`.
+               - Latest run concluded `success` -> stop, nothing to do. Say so in one line.
+               - No run at all in the last ~26 hours -> the 06:17 UTC refresh cron may have
+                 stopped firing. Comment that on the newest open `daily-refresh` issue (open
+                 one if there is none) and stop.
+               - Latest run concluded `failure` -> continue.
+            2. Identify the failing gate from `gh run view <id> --log-failed` and the diff
+               report (`gh run download <id> -n refresh-report`). Gates fail one at a time,
+               so clearing one can reveal another.
+            3. HEAL these gates: unexpected-new-bank (2A), new-unmatched-card (2B), stale
+               ranking summary (2F). Do NOT heal these: expected-bank-has-zero-offers (2C),
+               total-offer-drop / per-source / per-city floors / restaurants-lost (2D), SEO
+               determinism (2E) - those are feed or code faults, so comment the evidence on
+               the failure issue and stop. Never loosen a threshold in
+               `apps/web/data/refresh_thresholds.json` to make a gate pass.
+            4. NEVER invent a fee, minimum salary or eligibility figure - that data is the
+               product. Anything you cannot source from an official bank document (Schedule
+               of Charges, Key Fact Statement, official product page) stays null with a
+               `bank_gaps` note saying why. Blogs, aggregators and search snippets are never
+               data. Cross-check the bank's real lineup before writing a record: the offers
+               feed does invent card names.
+            5. Some bank sites block plain HTTP clients (bop.com.pk behind Imperva,
+               faysalbank.com HTML behind Cloudflare). Do not fight that here - dispatch the
+               helper workflow and read its artifact:
+                 gh workflow run fetch-walled-sources.yml -f urls="<index page or pdf url>"
+                   -f link_filter="<regex>" -f render_pages="14,15"
+                 gh run download <id> -n bank-sources -D /tmp/sources
+               Read the rendered PNGs for any fee table: some schedules are scanned, and
+               BOP's text layer emits the card-name column separately from the charges
+               column, which silently pairs cards with the wrong fees.
+            6. Rehearse every strict gate offline before pushing (section 6). If you change
+               anything under `apps/web/data/card-requirements/normalized/`, regenerate the
+               ranking summary in the SAME commit (`cd apps/web && node
+               scripts/precompute_rankings.mjs`, then stage `data/summary.json` and
+               `data/offers-index.json`). Note that a push made with GITHUB_TOKEN does not
+               trigger CI, so the mobile ranking-parity job will not vet your commit - you
+               must verify parity yourself before pushing.
+            7. You have full authority to push - do not open a PR. Commit on `main`,
+               cherry-pick to `dev`, push both, and confirm `git diff --stat origin/main
+               origin/dev` is empty (section 7). Before pushing, check for an in-flight
+               daily-refresh run and cancel or wait for it: that workflow ends with
+               `git push origin HEAD:main` and your push would make it fail. Commit messages
+               are plain prose - no emojis, no Claude trailers or footers.
+            8. Re-run the refresh: `gh workflow run daily-refresh.yml --ref main`, then watch
+               it to green (15-25 minutes; the scrape alone is ~15). If it fails again,
+               re-triage from step 2.
+            9. Report: comment the root cause on the failure issue with the figures and the
+               exact documents and clauses behind them, close it once the re-run is green,
+               close stale duplicate failure issues with a one-line pointer to the write-up,
+               and state plainly anything you left for a human.
