@@ -88,6 +88,11 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # Without this the action tries to mint its own GitHub App token via OIDC and
+          # fails with "Could not fetch an OIDC token" - that path needs the Claude GitHub
+          # App installed on the repo, which is the very thing this route avoids. The
+          # job's GITHUB_TOKEN already carries the contents/issues/actions scopes above.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           claude_args: >-
             --model claude-opus-5
             --max-turns 120
