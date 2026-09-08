@@ -855,6 +855,15 @@
     "requirement_card_name": "BOP World Debit Card"
   },
   {
+    "deal_bank_name": "Bank of Punjab",
+    "requirement_bank_name": "Bank of Punjab",
+    "deal_card_name": "PayPak Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-of-punjab--bop-paypak-debit-card",
+    "requirement_card_name": "BOP PayPak Debit Card"
+  },
+  {
     "deal_bank_name": "BankIslami",
     "requirement_bank_name": "BankIslami",
     "deal_card_name": "Mastercard Classic Debit Card",
@@ -934,6 +943,15 @@
     "match_method": "manual_alias",
     "requirement_card_id": "faysal-bank--faysal-islami-mastercard-amal-platinum-debit-card",
     "requirement_card_name": "Faysal Islami Mastercard Amal Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Bank Business Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-bank-business-debit-card",
+    "requirement_card_name": "Faysal Bank Business Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -1028,6 +1046,15 @@
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
+    "deal_card_name": "Faysal Islami Paypak Unionpay Co-Badged Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-paypak-unionpay-co-badged-debit-card",
+    "requirement_card_name": "Faysal Islami PayPak UnionPay Co-Badged Debit Card"
+  },
+  {
+    "deal_bank_name": "Faysal Bank Limited",
+    "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Priority Platinum Debit Card",
     "matched": true,
     "match_method": "canonical_exact",
@@ -1069,6 +1096,15 @@
     "match_method": "manual_alias",
     "requirement_card_id": "hbl-islamic--hbl-islamic-mastercard-gold-debit-card",
     "requirement_card_name": "HBL Islamic Mastercard Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "HBL Islamic Bank Limited",
+    "requirement_bank_name": "HBL Islamic Bank Limited",
+    "deal_card_name": "HBL Islamic Paypak DebitCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl-islamic--hbl-islamic-paypak-debit-card",
+    "requirement_card_name": "HBL Islamic PayPak Debit Card"
   },
   {
     "deal_bank_name": "HBL Islamic Bank Limited",
@@ -1195,6 +1231,15 @@
     "match_method": "canonical_exact",
     "requirement_card_id": "hbl--hbl-nisa-debitcard",
     "requirement_card_name": "HBL Nisa DebitCard"
+  },
+  {
+    "deal_bank_name": "Habib Bank Limited",
+    "requirement_bank_name": "HBL",
+    "deal_card_name": "HBL Paypak DebitCard",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-paypak-debitcard",
+    "requirement_card_name": "HBL PayPak DebitCard"
   },
   {
     "deal_bank_name": "Habib Bank Limited",
@@ -1728,6 +1773,51 @@
     "requirement_card_name": "Meezan Women First Debit Card"
   },
   {
+    "deal_bank_name": "Mobilink Microfinance Bank Limited",
+    "requirement_bank_name": "Mobilink Microfinance Bank Limited",
+    "deal_card_name": "JazzCash Mastercard Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--jazzcash-mastercard-debit-card",
+    "requirement_card_name": "JazzCash Mastercard Debit Card"
+  },
+  {
+    "deal_bank_name": "Mobilink Microfinance Bank Limited",
+    "requirement_bank_name": "Mobilink Microfinance Bank Limited",
+    "deal_card_name": "JazzCash PayPak Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--jazzcash-paypak-debit-card",
+    "requirement_card_name": "JazzCash PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "Mobilink Microfinance Bank Limited",
+    "requirement_bank_name": "Mobilink Microfinance Bank Limited",
+    "deal_card_name": "Paypak Bint-e-Hawwa Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--paypak-bint-e-hawwa-debit-card",
+    "requirement_card_name": "PayPak Bint-e-Hawwa Debit Card"
+  },
+  {
+    "deal_bank_name": "Mobilink Microfinance Bank Limited",
+    "requirement_bank_name": "Mobilink Microfinance Bank Limited",
+    "deal_card_name": "Paypak Classic Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--paypak-classic-debit-card",
+    "requirement_card_name": "PayPak Classic Debit Card"
+  },
+  {
+    "deal_bank_name": "Mobilink Microfinance Bank Limited",
+    "requirement_bank_name": "Mobilink Microfinance Bank Limited",
+    "deal_card_name": "Paypak Gold Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--paypak-gold-debit-card",
+    "requirement_card_name": "PayPak Gold Debit Card"
+  },
+  {
     "deal_bank_name": "National Bank of Pakistan",
     "requirement_bank_name": "National Bank of Pakistan",
     "deal_card_name": "PayPak Classic",
@@ -1771,6 +1861,24 @@
     "match_method": "canonical_exact",
     "requirement_card_id": "nbp--upi-gold",
     "requirement_card_name": "UPI Gold"
+  },
+  {
+    "deal_bank_name": "Soneri Bank Limited",
+    "requirement_bank_name": "Soneri Bank Limited",
+    "deal_card_name": "PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "soneri-bank--soneri-paypak-debit-card",
+    "requirement_card_name": "Soneri PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "Standard Chartered Bank",
+    "requirement_bank_name": "Standard Chartered Bank Pakistan",
+    "deal_card_name": "Paypak Standard Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "standard-chartered--paypak-debit-card",
+    "requirement_card_name": "PayPak Debit Card"
   },
   {
     "deal_bank_name": "United Bank Limited (UBL)",

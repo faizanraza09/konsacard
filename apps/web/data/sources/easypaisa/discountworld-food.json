@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-29T09:19:12",
+  "generatedAt": "2026-09-08T12:29:41",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -192,6 +192,88 @@
       "city": "Islamabad",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Daily Deli Co.",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "he Best Beef Burgers...",
+      "phone": "(042) 111 132 459",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Daily Deli Co. - Cantt",
+          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - DHA Phase 4",
+          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
+          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lake City",
+          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Model Town",
+          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
+          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
+          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - BHERA",
+          "address": "FV3P+FC7 Thatti Walana, Bhera."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Dolman mall",
+          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
+          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Iqbal Town",
+          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Gulberg",
+          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Emporium Mall",
+          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - I8 Markaz",
+          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Dera Pashtun Restaurant",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30603?type=card&cityId=3",
       "headline_discount_pct": 10,
@@ -780,6 +862,88 @@
       "city": "Islamabad",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Daily Deli Co.",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "he Best Beef Burgers...",
+      "phone": "(042) 111 132 459",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Daily Deli Co. - Cantt",
+          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - DHA Phase 4",
+          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
+          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lake City",
+          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Model Town",
+          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
+          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
+          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - BHERA",
+          "address": "FV3P+FC7 Thatti Walana, Bhera."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Dolman mall",
+          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
+          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Iqbal Town",
+          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Gulberg",
+          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Emporium Mall",
+          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - I8 Markaz",
+          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Dera Pashtun Restaurant",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30603?type=card&cityId=3",
       "headline_discount_pct": 10,
@@ -1368,6 +1532,88 @@
       "city": "Islamabad",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Daily Deli Co.",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "he Best Beef Burgers...",
+      "phone": "(042) 111 132 459",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Daily Deli Co. - Cantt",
+          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - DHA Phase 4",
+          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
+          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lake City",
+          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Model Town",
+          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
+          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
+          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - BHERA",
+          "address": "FV3P+FC7 Thatti Walana, Bhera."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Dolman mall",
+          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
+          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Iqbal Town",
+          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Gulberg",
+          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Emporium Mall",
+          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - I8 Markaz",
+          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Dera Pashtun Restaurant",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30603?type=card&cityId=3",
       "headline_discount_pct": 10,
@@ -1847,6 +2093,36 @@
       "city": "Karachi",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Aangan Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31680?type=card&cityId=1",
+      "headline_discount_pct": 25,
+      "headline_discount_label": "25%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Aangan is a heritage...",
+      "phone": "0306 1248628",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Aangan Pakistan - DHA Phase 6",
+          "address": "Ground 02, Plot No. 10-C, Shahbaz Commercial Lane-4, Phase VI, DHA, Saddar Town, Karachi, 75500, Pakistan, Karachi, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31680?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Angus Steak House",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30793?type=card&cityId=1",
       "headline_discount_pct": 10,
@@ -2164,6 +2440,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30647?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Cha Tha Dhaba",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31676?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Karachi\u2019s next rooft...",
+      "phone": "0334 4283283",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Cha Tha Dhaba - Gulshan e Iqbal",
+          "address": "No. 24, Roof Top, FL-3/1 Block No. 4, KDA Scheme Block 4 Gulshan-e-Iqbal, Karachi, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31676?type=card&cityId=1"
       ]
     },
     {
@@ -2535,8 +2841,8 @@
       "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Glaze",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
       "cap_pkr": null,
       "card_deals_count": 3,
       "branches_in_city": 2,
@@ -2921,36 +3227,6 @@
       "city": "Karachi",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
-      "merchant_name": "MC Chilli",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/30665?type=card&cityId=1",
-      "headline_discount_pct": 15,
-      "headline_discount_label": "15%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 1,
-      "summary": "Mc Chilli in known f...",
-      "phone": "0333 3258111",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Shop No. S-07, Al Aahad pride , Block-14, Gulistan-e-Jauhar,, Karachi, Pakistan",
-          "address": "Karachi Outlet"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/30665?type=card&cityId=1"
-      ]
-    },
-    {
-      "city_id": 1,
-      "city": "Karachi",
-      "card_id": 1,
-      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Manhattan Express",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30782?type=card&cityId=1",
       "headline_discount_pct": 20,
@@ -3089,6 +3365,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30596?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Nawab&#039;s Dynasty Restaurant",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31672?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Nawab&#039;s Dynasty Rest...",
+      "phone": "0300 2733343",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Nawab&#039;s Dynasty Restaurant - DHA Phase 5",
+          "address": "Plot-1C, lane- 1, Zamzama Commercial Area Defence V DHA, Karachi, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31672?type=card&cityId=1"
       ]
     },
     {
@@ -3729,6 +4035,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30696?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "The Greenhouse Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31678?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "The new ritual: good...",
+      "phone": "0311 1666844",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "The Greenhouse Coffee - Gulshan-e-Iqbal",
+          "address": "FL-8A/8B, FL 7, Block 7 Gulshan-e-Iqbal, Karachi, 75300, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31678?type=card&cityId=1"
       ]
     },
     {
@@ -4173,6 +4509,36 @@
       "city": "Karachi",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Aangan Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31680?type=card&cityId=1",
+      "headline_discount_pct": 25,
+      "headline_discount_label": "25%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Aangan is a heritage...",
+      "phone": "0306 1248628",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Aangan Pakistan - DHA Phase 6",
+          "address": "Ground 02, Plot No. 10-C, Shahbaz Commercial Lane-4, Phase VI, DHA, Saddar Town, Karachi, 75500, Pakistan, Karachi, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31680?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Angus Steak House",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30793?type=card&cityId=1",
       "headline_discount_pct": 10,
@@ -4490,6 +4856,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30647?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Cha Tha Dhaba",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31676?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Karachi\u2019s next rooft...",
+      "phone": "0334 4283283",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Cha Tha Dhaba - Gulshan e Iqbal",
+          "address": "No. 24, Roof Top, FL-3/1 Block No. 4, KDA Scheme Block 4 Gulshan-e-Iqbal, Karachi, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31676?type=card&cityId=1"
       ]
     },
     {
@@ -4861,8 +5257,8 @@
       "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Glaze",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
       "cap_pkr": null,
       "card_deals_count": 3,
       "branches_in_city": 2,
@@ -5247,36 +5643,6 @@
       "city": "Karachi",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
-      "merchant_name": "MC Chilli",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/30665?type=card&cityId=1",
-      "headline_discount_pct": 15,
-      "headline_discount_label": "15%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 1,
-      "summary": "Mc Chilli in known f...",
-      "phone": "0333 3258111",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Shop No. S-07, Al Aahad pride , Block-14, Gulistan-e-Jauhar,, Karachi, Pakistan",
-          "address": "Karachi Outlet"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/30665?type=card&cityId=1"
-      ]
-    },
-    {
-      "city_id": 1,
-      "city": "Karachi",
-      "card_id": 2,
-      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Manhattan Express",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30782?type=card&cityId=1",
       "headline_discount_pct": 20,
@@ -5415,6 +5781,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30596?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Nawab&#039;s Dynasty Restaurant",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31672?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Nawab&#039;s Dynasty Rest...",
+      "phone": "0300 2733343",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Nawab&#039;s Dynasty Restaurant - DHA Phase 5",
+          "address": "Plot-1C, lane- 1, Zamzama Commercial Area Defence V DHA, Karachi, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31672?type=card&cityId=1"
       ]
     },
     {
@@ -6055,6 +6451,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30696?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "The Greenhouse Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31678?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "The new ritual: good...",
+      "phone": "0311 1666844",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "The Greenhouse Coffee - Gulshan-e-Iqbal",
+          "address": "FL-8A/8B, FL 7, Block 7 Gulshan-e-Iqbal, Karachi, 75300, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31678?type=card&cityId=1"
       ]
     },
     {
@@ -6499,6 +6925,36 @@
       "city": "Karachi",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Aangan Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31680?type=card&cityId=1",
+      "headline_discount_pct": 25,
+      "headline_discount_label": "25%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Aangan is a heritage...",
+      "phone": "0306 1248628",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Aangan Pakistan - DHA Phase 6",
+          "address": "Ground 02, Plot No. 10-C, Shahbaz Commercial Lane-4, Phase VI, DHA, Saddar Town, Karachi, 75500, Pakistan, Karachi, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31680?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Angus Steak House",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30793?type=card&cityId=1",
       "headline_discount_pct": 10,
@@ -6816,6 +7272,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30647?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Cha Tha Dhaba",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31676?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Karachi\u2019s next rooft...",
+      "phone": "0334 4283283",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Cha Tha Dhaba - Gulshan e Iqbal",
+          "address": "No. 24, Roof Top, FL-3/1 Block No. 4, KDA Scheme Block 4 Gulshan-e-Iqbal, Karachi, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31676?type=card&cityId=1"
       ]
     },
     {
@@ -7187,8 +7673,8 @@
       "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Glaze",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31661?type=card&cityId=1",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
+      "headline_discount_pct": 30,
+      "headline_discount_label": "30%",
       "cap_pkr": null,
       "card_deals_count": 3,
       "branches_in_city": 2,
@@ -7573,36 +8059,6 @@
       "city": "Karachi",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
-      "merchant_name": "MC Chilli",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/30665?type=card&cityId=1",
-      "headline_discount_pct": 15,
-      "headline_discount_label": "15%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 1,
-      "summary": "Mc Chilli in known f...",
-      "phone": "0333 3258111",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Shop No. S-07, Al Aahad pride , Block-14, Gulistan-e-Jauhar,, Karachi, Pakistan",
-          "address": "Karachi Outlet"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/30665?type=card&cityId=1"
-      ]
-    },
-    {
-      "city_id": 1,
-      "city": "Karachi",
-      "card_id": 3,
-      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Manhattan Express",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30782?type=card&cityId=1",
       "headline_discount_pct": 20,
@@ -7741,6 +8197,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30596?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Nawab&#039;s Dynasty Restaurant",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31672?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Nawab&#039;s Dynasty Rest...",
+      "phone": "0300 2733343",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Nawab&#039;s Dynasty Restaurant - DHA Phase 5",
+          "address": "Plot-1C, lane- 1, Zamzama Commercial Area Defence V DHA, Karachi, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31672?type=card&cityId=1"
       ]
     },
     {
@@ -8381,6 +8867,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30696?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "The Greenhouse Coffee",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31678?type=card&cityId=1",
+      "headline_discount_pct": 20,
+      "headline_discount_label": "20%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "The new ritual: good...",
+      "phone": "0311 1666844",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "The Greenhouse Coffee - Gulshan-e-Iqbal",
+          "address": "FL-8A/8B, FL 7, Block 7 Gulshan-e-Iqbal, Karachi, 75300, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31678?type=card&cityId=1"
       ]
     },
     {
@@ -9012,6 +9528,88 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30574?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Daily Deli Co.",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "he Best Beef Burgers...",
+      "phone": "(042) 111 132 459",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Daily Deli Co. - Cantt",
+          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - DHA Phase 4",
+          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
+          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lake City",
+          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Model Town",
+          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
+          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
+          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - BHERA",
+          "address": "FV3P+FC7 Thatti Walana, Bhera."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Dolman mall",
+          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
+          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Iqbal Town",
+          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Gulberg",
+          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Emporium Mall",
+          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - I8 Markaz",
+          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2"
       ]
     },
     {
@@ -10306,6 +10904,88 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Daily Deli Co.",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "he Best Beef Burgers...",
+      "phone": "(042) 111 132 459",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Daily Deli Co. - Cantt",
+          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - DHA Phase 4",
+          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
+          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lake City",
+          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Model Town",
+          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
+          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
+          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - BHERA",
+          "address": "FV3P+FC7 Thatti Walana, Bhera."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Dolman mall",
+          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
+          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Iqbal Town",
+          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Gulberg",
+          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Emporium Mall",
+          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - I8 Markaz",
+          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Dil Ara",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30688?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -11586,6 +12266,88 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30574?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Daily Deli Co.",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "he Best Beef Burgers...",
+      "phone": "(042) 111 132 459",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Daily Deli Co. - Cantt",
+          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - DHA Phase 4",
+          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
+          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lake City",
+          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Model Town",
+          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
+          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
+          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - BHERA",
+          "address": "FV3P+FC7 Thatti Walana, Bhera."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Dolman mall",
+          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
+          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Iqbal Town",
+          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Gulberg",
+          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
+        },
+        {
+          "outlet_name": "Daily Deli Co. - Emporium Mall",
+          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
+        },
+        {
+          "outlet_name": "Daily Deli Co. - I8 Markaz",
+          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2"
       ]
     },
     {
