@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T11:40:50",
+  "generatedAt": "2026-09-10T11:38:37",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -192,88 +192,6 @@
       "city": "Islamabad",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
-      "merchant_name": "Daily Deli Co.",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 14,
-      "summary": "he Best Beef Burgers...",
-      "phone": "(042) 111 132 459",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Daily Deli Co. - Cantt",
-          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - DHA Phase 4",
-          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
-          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lake City",
-          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Model Town",
-          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
-          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
-          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - BHERA",
-          "address": "FV3P+FC7 Thatti Walana, Bhera."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Dolman mall",
-          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
-          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Iqbal Town",
-          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Gulberg",
-          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Emporium Mall",
-          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - I8 Markaz",
-          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3"
-      ]
-    },
-    {
-      "city_id": 3,
-      "city": "Islamabad",
-      "card_id": 1,
-      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Dera Pashtun Restaurant",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30603?type=card&cityId=3",
       "headline_discount_pct": 10,
@@ -862,88 +780,6 @@
       "city": "Islamabad",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
-      "merchant_name": "Daily Deli Co.",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 14,
-      "summary": "he Best Beef Burgers...",
-      "phone": "(042) 111 132 459",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Daily Deli Co. - Cantt",
-          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - DHA Phase 4",
-          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
-          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lake City",
-          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Model Town",
-          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
-          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
-          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - BHERA",
-          "address": "FV3P+FC7 Thatti Walana, Bhera."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Dolman mall",
-          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
-          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Iqbal Town",
-          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Gulberg",
-          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Emporium Mall",
-          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - I8 Markaz",
-          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3"
-      ]
-    },
-    {
-      "city_id": 3,
-      "city": "Islamabad",
-      "card_id": 2,
-      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Dera Pashtun Restaurant",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30603?type=card&cityId=3",
       "headline_discount_pct": 10,
@@ -1525,88 +1361,6 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31612?type=card&cityId=3"
-      ]
-    },
-    {
-      "city_id": 3,
-      "city": "Islamabad",
-      "card_id": 3,
-      "card_name": "Easy Paisa Pay Pak Debit Card",
-      "merchant_name": "Daily Deli Co.",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 14,
-      "summary": "he Best Beef Burgers...",
-      "phone": "(042) 111 132 459",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Daily Deli Co. - Cantt",
-          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - DHA Phase 4",
-          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
-          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lake City",
-          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Model Town",
-          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
-          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
-          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - BHERA",
-          "address": "FV3P+FC7 Thatti Walana, Bhera."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Dolman mall",
-          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
-          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Iqbal Town",
-          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Gulberg",
-          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Emporium Mall",
-          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - I8 Markaz",
-          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=3"
       ]
     },
     {
@@ -9535,88 +9289,6 @@
       "city": "Lahore",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
-      "merchant_name": "Daily Deli Co.",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 14,
-      "summary": "he Best Beef Burgers...",
-      "phone": "(042) 111 132 459",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Daily Deli Co. - Cantt",
-          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - DHA Phase 4",
-          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
-          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lake City",
-          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Model Town",
-          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
-          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
-          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - BHERA",
-          "address": "FV3P+FC7 Thatti Walana, Bhera."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Dolman mall",
-          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
-          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Iqbal Town",
-          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Gulberg",
-          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Emporium Mall",
-          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - I8 Markaz",
-          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2"
-      ]
-    },
-    {
-      "city_id": 2,
-      "city": "Lahore",
-      "card_id": 1,
-      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Dil Ara",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30688?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -10169,6 +9841,80 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30616?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "SMASH",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 12,
+      "summary": "Enjoy a juicy burger...",
+      "phone": "0310 8887080",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Smash Burger - Gujranwala",
+          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Smash Burger - Askari 11",
+          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
+        },
+        {
+          "outlet_name": "Smash Burger - Bahria Town",
+          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 2",
+          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 6",
+          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Falcon Complex",
+          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Gulberg III",
+          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Johar Town",
+          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
+        },
+        {
+          "outlet_name": "Smash Burger - Model Town",
+          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Pine Avenue",
+          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
       ]
     },
     {
@@ -10904,88 +10650,6 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
-      "merchant_name": "Daily Deli Co.",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 14,
-      "summary": "he Best Beef Burgers...",
-      "phone": "(042) 111 132 459",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Daily Deli Co. - Cantt",
-          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - DHA Phase 4",
-          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
-          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lake City",
-          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Model Town",
-          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
-          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
-          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - BHERA",
-          "address": "FV3P+FC7 Thatti Walana, Bhera."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Dolman mall",
-          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
-          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Iqbal Town",
-          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Gulberg",
-          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Emporium Mall",
-          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - I8 Markaz",
-          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2"
-      ]
-    },
-    {
-      "city_id": 2,
-      "city": "Lahore",
-      "card_id": 2,
-      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Dil Ara",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30688?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -11538,6 +11202,80 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30616?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "SMASH",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 12,
+      "summary": "Enjoy a juicy burger...",
+      "phone": "0310 8887080",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Smash Burger - Gujranwala",
+          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Smash Burger - Askari 11",
+          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
+        },
+        {
+          "outlet_name": "Smash Burger - Bahria Town",
+          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 2",
+          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 6",
+          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Falcon Complex",
+          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Gulberg III",
+          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Johar Town",
+          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
+        },
+        {
+          "outlet_name": "Smash Burger - Model Town",
+          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Pine Avenue",
+          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
       ]
     },
     {
@@ -12273,88 +12011,6 @@
       "city": "Lahore",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
-      "merchant_name": "Daily Deli Co.",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 14,
-      "summary": "he Best Beef Burgers...",
-      "phone": "(042) 111 132 459",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Daily Deli Co. - Cantt",
-          "address": "Shop#3, 34 Sarwar Rd, Cantonment Board Staff Colony, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - DHA Phase 4",
-          "address": "Plot C, 226, Sector FF Dha Phase 4, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Johar Town Mian Plaza",
-          "address": "Khayaban-e-Firdousi, Civic Centre Block D 2 Phase 1 Johar Town, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lake City",
-          "address": "Lake City Mall, Roundabout, Block M 1 Lake City, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Model Town",
-          "address": "A Block Shop, 25 Model Town Circular Road, Model Town, Lahore, 54000, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Islamabad Bahria Town",
-          "address": "Bahria Town, Phase 7 Box Park, Rawalpindi, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Khayaban e Amin",
-          "address": "A Block Khayaban-e-Amin, Block A Khayaban E Ameen, Lahore, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - BHERA",
-          "address": "FV3P+FC7 Thatti Walana, Bhera."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Dolman mall",
-          "address": "FC8P+R9W Dolman mall, Sector A DHA Phase 6, Lahore, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Lahore Bahria Town",
-          "address": "Ground Floor 95-A Sector C Chammeli, C, Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Iqbal Town",
-          "address": "Lane 22, Gulshan Block Allama Iqbal Town, Block, Gulshan Block Gulshan, Lahore, 54000, Pakistan"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Gulberg",
-          "address": "5 L, BLOCK L, 2 L, Block Block L Gulberg, Lahore, 54660, Pakistan."
-        },
-        {
-          "outlet_name": "Daily Deli Co. - Emporium Mall",
-          "address": "Level 2, Zone 5, Emporium mall Branch, Johar Town, Lahore"
-        },
-        {
-          "outlet_name": "Daily Deli Co. - I8 Markaz",
-          "address": "Ground Floor, Pakland Vista, I-8 Markaz I 8 Markaz I-8, Islamabad, 44000, Pakistan"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31675?type=card&cityId=2"
-      ]
-    },
-    {
-      "city_id": 2,
-      "city": "Lahore",
-      "card_id": 3,
-      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Dil Ara",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30688?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -12878,6 +12534,80 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30616?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "SMASH",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 12,
+      "summary": "Enjoy a juicy burger...",
+      "phone": "0310 8887080",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Smash Burger - Gujranwala",
+          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Smash Burger - Askari 11",
+          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
+        },
+        {
+          "outlet_name": "Smash Burger - Bahria Town",
+          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 2",
+          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 6",
+          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Falcon Complex",
+          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Gulberg III",
+          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Johar Town",
+          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
+        },
+        {
+          "outlet_name": "Smash Burger - Model Town",
+          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Pine Avenue",
+          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
       ]
     },
     {
