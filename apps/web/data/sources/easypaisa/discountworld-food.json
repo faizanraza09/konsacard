@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-10T11:38:37",
+  "generatedAt": "2026-09-11T11:39:16",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -2052,6 +2052,100 @@
       "city": "Karachi",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Burger O&#039;Clock",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 17,
+      "summary": "Building a legacy ta...",
+      "phone": "(021) 111 432 532",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger O Clock - Phase 6",
+          "address": "DHA Branch: Plot # 19-C. khayaban-e-Seher phase 6 dha karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - S.M.C.H.S",
+          "address": "SMCHS Branch: Plot # 104-A, Ground floor, S.M.C.H.S, capt Fareed Bukhari Shaheed Road Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulshan",
+          "address": "Gulshan Branch: Shop no. 2 &amp; 3, Shazco Centre, Plot SB-3, Gulshan-e-Iqbal Block 4, near Disco Bakery, opposite to KFC Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - North Nazimabad",
+          "address": "North Nazimabad Branch- Shop no. 3, SAIMA PAARI CORNER, Block L, Near 5 star Chowrangi, Karachi."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Clifton",
+          "address": "Dolmen Mall Clifton Branch: FC-01, Food Court Dolmen Mall Clifton, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - I.I Chundrigar Rd",
+          "address": "II Chundrigar Branch: Shop # 2, Ground Floor Uni Tower Main I.I Chundrigar Road, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Lucky One",
+          "address": "Lucky One Mall Branch: FC-15, Food Court Lucky One Mall, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Bahria Town Khi",
+          "address": "Bahria Town Branch: Plot-20, Midway Commercial-B Phase 1, Bahria Town, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulberg III",
+          "address": "Gulberg Branch :Plot # 95 Mall 95, Block D1 Gulberg III, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O Clock - Emporium Mall",
+          "address": "Emporium Mall Food Court, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - DHA FF Branch",
+          "address": "DHA FF Branch: DHA Phase 4 Sector - FF, Lahore."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Packages Mall",
+          "address": "Packages Mall Food Court, Main Walton Rd, Shahrah-E-Roomi Nishtar Town, Lahore, 54750"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Lake City",
+          "address": "Plot # C 43-20 Main Boulevard, Lake City Downtown, Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Lahore",
+          "address": "Shop # FC-17, 2nd Floor, Dolmen Mall Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Johar town",
+          "address": "Plot # 447, All Streets, Block J3, Johar town, Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Caf\u00e9 Bleu",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30674?type=card&cityId=1",
       "headline_discount_pct": 20,
@@ -4468,6 +4562,100 @@
       "city": "Karachi",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Burger O&#039;Clock",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 17,
+      "summary": "Building a legacy ta...",
+      "phone": "(021) 111 432 532",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger O Clock - Phase 6",
+          "address": "DHA Branch: Plot # 19-C. khayaban-e-Seher phase 6 dha karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - S.M.C.H.S",
+          "address": "SMCHS Branch: Plot # 104-A, Ground floor, S.M.C.H.S, capt Fareed Bukhari Shaheed Road Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulshan",
+          "address": "Gulshan Branch: Shop no. 2 &amp; 3, Shazco Centre, Plot SB-3, Gulshan-e-Iqbal Block 4, near Disco Bakery, opposite to KFC Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - North Nazimabad",
+          "address": "North Nazimabad Branch- Shop no. 3, SAIMA PAARI CORNER, Block L, Near 5 star Chowrangi, Karachi."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Clifton",
+          "address": "Dolmen Mall Clifton Branch: FC-01, Food Court Dolmen Mall Clifton, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - I.I Chundrigar Rd",
+          "address": "II Chundrigar Branch: Shop # 2, Ground Floor Uni Tower Main I.I Chundrigar Road, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Lucky One",
+          "address": "Lucky One Mall Branch: FC-15, Food Court Lucky One Mall, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Bahria Town Khi",
+          "address": "Bahria Town Branch: Plot-20, Midway Commercial-B Phase 1, Bahria Town, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulberg III",
+          "address": "Gulberg Branch :Plot # 95 Mall 95, Block D1 Gulberg III, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O Clock - Emporium Mall",
+          "address": "Emporium Mall Food Court, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - DHA FF Branch",
+          "address": "DHA FF Branch: DHA Phase 4 Sector - FF, Lahore."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Packages Mall",
+          "address": "Packages Mall Food Court, Main Walton Rd, Shahrah-E-Roomi Nishtar Town, Lahore, 54750"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Lake City",
+          "address": "Plot # C 43-20 Main Boulevard, Lake City Downtown, Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Lahore",
+          "address": "Shop # FC-17, 2nd Floor, Dolmen Mall Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Johar town",
+          "address": "Plot # 447, All Streets, Block J3, Johar town, Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Caf\u00e9 Bleu",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30674?type=card&cityId=1",
       "headline_discount_pct": 20,
@@ -6884,6 +7072,100 @@
       "city": "Karachi",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Burger O&#039;Clock",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 17,
+      "summary": "Building a legacy ta...",
+      "phone": "(021) 111 432 532",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger O Clock - Phase 6",
+          "address": "DHA Branch: Plot # 19-C. khayaban-e-Seher phase 6 dha karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - S.M.C.H.S",
+          "address": "SMCHS Branch: Plot # 104-A, Ground floor, S.M.C.H.S, capt Fareed Bukhari Shaheed Road Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulshan",
+          "address": "Gulshan Branch: Shop no. 2 &amp; 3, Shazco Centre, Plot SB-3, Gulshan-e-Iqbal Block 4, near Disco Bakery, opposite to KFC Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - North Nazimabad",
+          "address": "North Nazimabad Branch- Shop no. 3, SAIMA PAARI CORNER, Block L, Near 5 star Chowrangi, Karachi."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Clifton",
+          "address": "Dolmen Mall Clifton Branch: FC-01, Food Court Dolmen Mall Clifton, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - I.I Chundrigar Rd",
+          "address": "II Chundrigar Branch: Shop # 2, Ground Floor Uni Tower Main I.I Chundrigar Road, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Lucky One",
+          "address": "Lucky One Mall Branch: FC-15, Food Court Lucky One Mall, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Bahria Town Khi",
+          "address": "Bahria Town Branch: Plot-20, Midway Commercial-B Phase 1, Bahria Town, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulberg III",
+          "address": "Gulberg Branch :Plot # 95 Mall 95, Block D1 Gulberg III, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O Clock - Emporium Mall",
+          "address": "Emporium Mall Food Court, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - DHA FF Branch",
+          "address": "DHA FF Branch: DHA Phase 4 Sector - FF, Lahore."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Packages Mall",
+          "address": "Packages Mall Food Court, Main Walton Rd, Shahrah-E-Roomi Nishtar Town, Lahore, 54750"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Lake City",
+          "address": "Plot # C 43-20 Main Boulevard, Lake City Downtown, Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Lahore",
+          "address": "Shop # FC-17, 2nd Floor, Dolmen Mall Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Johar town",
+          "address": "Plot # 447, All Streets, Block J3, Johar town, Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Caf\u00e9 Bleu",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30674?type=card&cityId=1",
       "headline_discount_pct": 20,
@@ -9150,6 +9432,100 @@
       "city": "Lahore",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Burger O&#039;Clock",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 17,
+      "summary": "Building a legacy ta...",
+      "phone": "(021) 111 432 532",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger O Clock - Phase 6",
+          "address": "DHA Branch: Plot # 19-C. khayaban-e-Seher phase 6 dha karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - S.M.C.H.S",
+          "address": "SMCHS Branch: Plot # 104-A, Ground floor, S.M.C.H.S, capt Fareed Bukhari Shaheed Road Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulshan",
+          "address": "Gulshan Branch: Shop no. 2 &amp; 3, Shazco Centre, Plot SB-3, Gulshan-e-Iqbal Block 4, near Disco Bakery, opposite to KFC Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - North Nazimabad",
+          "address": "North Nazimabad Branch- Shop no. 3, SAIMA PAARI CORNER, Block L, Near 5 star Chowrangi, Karachi."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Clifton",
+          "address": "Dolmen Mall Clifton Branch: FC-01, Food Court Dolmen Mall Clifton, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - I.I Chundrigar Rd",
+          "address": "II Chundrigar Branch: Shop # 2, Ground Floor Uni Tower Main I.I Chundrigar Road, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Lucky One",
+          "address": "Lucky One Mall Branch: FC-15, Food Court Lucky One Mall, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Bahria Town Khi",
+          "address": "Bahria Town Branch: Plot-20, Midway Commercial-B Phase 1, Bahria Town, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulberg III",
+          "address": "Gulberg Branch :Plot # 95 Mall 95, Block D1 Gulberg III, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O Clock - Emporium Mall",
+          "address": "Emporium Mall Food Court, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - DHA FF Branch",
+          "address": "DHA FF Branch: DHA Phase 4 Sector - FF, Lahore."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Packages Mall",
+          "address": "Packages Mall Food Court, Main Walton Rd, Shahrah-E-Roomi Nishtar Town, Lahore, 54750"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Lake City",
+          "address": "Plot # C 43-20 Main Boulevard, Lake City Downtown, Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Lahore",
+          "address": "Shop # FC-17, 2nd Floor, Dolmen Mall Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Johar town",
+          "address": "Plot # 447, All Streets, Block J3, Johar town, Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Cafe Ostyria",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31504?type=card&cityId=2",
       "headline_discount_pct": 15,
@@ -9848,80 +10224,6 @@
       "city": "Lahore",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
-      "merchant_name": "SMASH",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 12,
-      "summary": "Enjoy a juicy burger...",
-      "phone": "0310 8887080",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Smash Burger - Gujranwala",
-          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
-        },
-        {
-          "outlet_name": "Smash Burger - Askari 11",
-          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
-        },
-        {
-          "outlet_name": "Smash Burger - Bahria Town",
-          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - DHA Phase 2",
-          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
-        },
-        {
-          "outlet_name": "Smash Burger - DHA Phase 6",
-          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Falcon Complex",
-          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Gulberg III",
-          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Johar Town",
-          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
-        },
-        {
-          "outlet_name": "Smash Burger - Model Town",
-          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Pine Avenue",
-          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Wapda Town",
-          "address": "13- H2 Block Wapda Town Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Wapda Town",
-          "address": "13- H2 Block Wapda Town Lahore"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
-      ]
-    },
-    {
-      "city_id": 2,
-      "city": "Lahore",
-      "card_id": 1,
-      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Sarpinos pizza",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30577?type=card&cityId=2",
       "headline_discount_pct": 0,
@@ -10041,6 +10343,80 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30776?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Smash Burger",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 12,
+      "summary": "Enjoy a juicy burger...",
+      "phone": "0310 8887080",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Smash Burger - Gujranwala",
+          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Smash Burger - Askari 11",
+          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
+        },
+        {
+          "outlet_name": "Smash Burger - Bahria Town",
+          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 2",
+          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 6",
+          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Falcon Complex",
+          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Gulberg III",
+          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Johar Town",
+          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
+        },
+        {
+          "outlet_name": "Smash Burger - Model Town",
+          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Pine Avenue",
+          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
       ]
     },
     {
@@ -10504,6 +10880,100 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Burger O&#039;Clock",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 17,
+      "summary": "Building a legacy ta...",
+      "phone": "(021) 111 432 532",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger O Clock - Phase 6",
+          "address": "DHA Branch: Plot # 19-C. khayaban-e-Seher phase 6 dha karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - S.M.C.H.S",
+          "address": "SMCHS Branch: Plot # 104-A, Ground floor, S.M.C.H.S, capt Fareed Bukhari Shaheed Road Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulshan",
+          "address": "Gulshan Branch: Shop no. 2 &amp; 3, Shazco Centre, Plot SB-3, Gulshan-e-Iqbal Block 4, near Disco Bakery, opposite to KFC Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - North Nazimabad",
+          "address": "North Nazimabad Branch- Shop no. 3, SAIMA PAARI CORNER, Block L, Near 5 star Chowrangi, Karachi."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Clifton",
+          "address": "Dolmen Mall Clifton Branch: FC-01, Food Court Dolmen Mall Clifton, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - I.I Chundrigar Rd",
+          "address": "II Chundrigar Branch: Shop # 2, Ground Floor Uni Tower Main I.I Chundrigar Road, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Lucky One",
+          "address": "Lucky One Mall Branch: FC-15, Food Court Lucky One Mall, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Bahria Town Khi",
+          "address": "Bahria Town Branch: Plot-20, Midway Commercial-B Phase 1, Bahria Town, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulberg III",
+          "address": "Gulberg Branch :Plot # 95 Mall 95, Block D1 Gulberg III, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O Clock - Emporium Mall",
+          "address": "Emporium Mall Food Court, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - DHA FF Branch",
+          "address": "DHA FF Branch: DHA Phase 4 Sector - FF, Lahore."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Packages Mall",
+          "address": "Packages Mall Food Court, Main Walton Rd, Shahrah-E-Roomi Nishtar Town, Lahore, 54750"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Lake City",
+          "address": "Plot # C 43-20 Main Boulevard, Lake City Downtown, Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Lahore",
+          "address": "Shop # FC-17, 2nd Floor, Dolmen Mall Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Johar town",
+          "address": "Plot # 447, All Streets, Block J3, Johar town, Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=2"
       ]
     },
     {
@@ -11209,80 +11679,6 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
-      "merchant_name": "SMASH",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 12,
-      "summary": "Enjoy a juicy burger...",
-      "phone": "0310 8887080",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Smash Burger - Gujranwala",
-          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
-        },
-        {
-          "outlet_name": "Smash Burger - Askari 11",
-          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
-        },
-        {
-          "outlet_name": "Smash Burger - Bahria Town",
-          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - DHA Phase 2",
-          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
-        },
-        {
-          "outlet_name": "Smash Burger - DHA Phase 6",
-          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Falcon Complex",
-          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Gulberg III",
-          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Johar Town",
-          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
-        },
-        {
-          "outlet_name": "Smash Burger - Model Town",
-          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Pine Avenue",
-          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Wapda Town",
-          "address": "13- H2 Block Wapda Town Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Wapda Town",
-          "address": "13- H2 Block Wapda Town Lahore"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
-      ]
-    },
-    {
-      "city_id": 2,
-      "city": "Lahore",
-      "card_id": 2,
-      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Sarpinos pizza",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30577?type=card&cityId=2",
       "headline_discount_pct": 0,
@@ -11402,6 +11798,80 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30776?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Smash Burger",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 12,
+      "summary": "Enjoy a juicy burger...",
+      "phone": "0310 8887080",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Smash Burger - Gujranwala",
+          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Smash Burger - Askari 11",
+          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
+        },
+        {
+          "outlet_name": "Smash Burger - Bahria Town",
+          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 2",
+          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 6",
+          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Falcon Complex",
+          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Gulberg III",
+          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Johar Town",
+          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
+        },
+        {
+          "outlet_name": "Smash Burger - Model Town",
+          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Pine Avenue",
+          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
       ]
     },
     {
@@ -11865,6 +12335,100 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Burger O&#039;Clock",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 17,
+      "summary": "Building a legacy ta...",
+      "phone": "(021) 111 432 532",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger O Clock - Phase 6",
+          "address": "DHA Branch: Plot # 19-C. khayaban-e-Seher phase 6 dha karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - S.M.C.H.S",
+          "address": "SMCHS Branch: Plot # 104-A, Ground floor, S.M.C.H.S, capt Fareed Bukhari Shaheed Road Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulshan",
+          "address": "Gulshan Branch: Shop no. 2 &amp; 3, Shazco Centre, Plot SB-3, Gulshan-e-Iqbal Block 4, near Disco Bakery, opposite to KFC Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - North Nazimabad",
+          "address": "North Nazimabad Branch- Shop no. 3, SAIMA PAARI CORNER, Block L, Near 5 star Chowrangi, Karachi."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Clifton",
+          "address": "Dolmen Mall Clifton Branch: FC-01, Food Court Dolmen Mall Clifton, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - I.I Chundrigar Rd",
+          "address": "II Chundrigar Branch: Shop # 2, Ground Floor Uni Tower Main I.I Chundrigar Road, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Lucky One",
+          "address": "Lucky One Mall Branch: FC-15, Food Court Lucky One Mall, Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Bahria Town Khi",
+          "address": "Bahria Town Branch: Plot-20, Midway Commercial-B Phase 1, Bahria Town, Karachi"
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulistan E Johar",
+          "address": "Gulistan-e-Johar Branch: ISRA Residency SB-16 Scheme -36, Block 3-A Gulistan-e-Johar Karachi."
+        },
+        {
+          "outlet_name": "Burger O Clock - Gulberg III",
+          "address": "Gulberg Branch :Plot # 95 Mall 95, Block D1 Gulberg III, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O Clock - Emporium Mall",
+          "address": "Emporium Mall Food Court, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - DHA FF Branch",
+          "address": "DHA FF Branch: DHA Phase 4 Sector - FF, Lahore."
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Packages Mall",
+          "address": "Packages Mall Food Court, Main Walton Rd, Shahrah-E-Roomi Nishtar Town, Lahore, 54750"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Lake City",
+          "address": "Plot # C 43-20 Main Boulevard, Lake City Downtown, Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Dolmen Mall Lahore",
+          "address": "Shop # FC-17, 2nd Floor, Dolmen Mall Lahore"
+        },
+        {
+          "outlet_name": "Burger O&#039;Clock - Johar town",
+          "address": "Plot # 447, All Streets, Block J3, Johar town, Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31578?type=card&cityId=2"
       ]
     },
     {
@@ -12541,80 +13105,6 @@
       "city": "Lahore",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
-      "merchant_name": "SMASH",
-      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
-      "headline_discount_pct": 50,
-      "headline_discount_label": "50%",
-      "cap_pkr": null,
-      "card_deals_count": 3,
-      "branches_in_city": 12,
-      "summary": "Enjoy a juicy burger...",
-      "phone": "0310 8887080",
-      "cards_listed_on_detail": [
-        "Easy Paisa DebitCard",
-        "Easy Paisa Union Pay Debit Card",
-        "Easy Paisa Pay Pak Debit Card"
-      ],
-      "outlets": [
-        {
-          "outlet_name": "Smash Burger - Gujranwala",
-          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
-        },
-        {
-          "outlet_name": "Smash Burger - Askari 11",
-          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
-        },
-        {
-          "outlet_name": "Smash Burger - Bahria Town",
-          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - DHA Phase 2",
-          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
-        },
-        {
-          "outlet_name": "Smash Burger - DHA Phase 6",
-          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Falcon Complex",
-          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Gulberg III",
-          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Johar Town",
-          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
-        },
-        {
-          "outlet_name": "Smash Burger - Model Town",
-          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
-        },
-        {
-          "outlet_name": "Smash Burger - Pine Avenue",
-          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Wapda Town",
-          "address": "13- H2 Block Wapda Town Lahore"
-        },
-        {
-          "outlet_name": "Smash Burger - Wapda Town",
-          "address": "13- H2 Block Wapda Town Lahore"
-        }
-      ],
-      "terms": null,
-      "source_urls": [
-        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
-      ]
-    },
-    {
-      "city_id": 2,
-      "city": "Lahore",
-      "card_id": 3,
-      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Sarpinos pizza",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30577?type=card&cityId=2",
       "headline_discount_pct": 0,
@@ -12734,6 +13224,80 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30776?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Smash Burger",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 12,
+      "summary": "Enjoy a juicy burger...",
+      "phone": "0310 8887080",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Smash Burger - Gujranwala",
+          "address": "SMASH Burgers-Fries Mall of Gujranwala, Near Sialkot Bypass, Qazi Town, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Smash Burger - Askari 11",
+          "address": "Yousaf Complex Near Jamia Mosque, Sector B, Askari 11 Bedian"
+        },
+        {
+          "outlet_name": "Smash Burger - Bahria Town",
+          "address": "63-B SIDE SECTOR C COMMERCIAL MAIN BOULEVARD BAHRIA TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 2",
+          "address": "FCH5+MCW T, Plot 50, Civic Commercial Area Sector T DHA Phase 2, Lahore, 54000"
+        },
+        {
+          "outlet_name": "Smash Burger - DHA Phase 6",
+          "address": "Ground Floor, Plaza No. 155, Block MB, Phase, 6C, Sector J DHA Phase 6, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Falcon Complex",
+          "address": "11 BAGH ALI ROAD GIRJA CHOWK FALCON COMPLEX CANTT LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Gulberg III",
+          "address": "G4 COMMERCIAL COMPLEX 47-L GULBERG III LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Johar Town",
+          "address": "366 Service Rd, Block N Phase 2 Johar Town, Lahore, 56300"
+        },
+        {
+          "outlet_name": "Smash Burger - Model Town",
+          "address": "SHOWROOM 17 BANK SQUARE MODEL TOWN LAHORE"
+        },
+        {
+          "outlet_name": "Smash Burger - Pine Avenue",
+          "address": "Town, Pine Avenue, Green Acres Extension T T Aabpara Housing Society, Total Parco Petrol Pump, Valencia, Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        },
+        {
+          "outlet_name": "Smash Burger - Wapda Town",
+          "address": "13- H2 Block Wapda Town Lahore"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31682?type=card&cityId=2"
       ]
     },
     {
