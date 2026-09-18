@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-17T11:53:40",
+  "generatedAt": "2026-09-18T11:25:59",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -1817,6 +1817,36 @@
       "city": "Karachi",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "8oz Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31683?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Exclusive Premium Un...",
+      "phone": "0335 0809809",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "8oz - DHA Phase 6",
+          "address": "Ground floor plot 50-C, Main Khayaban-e-Shahbaz, D.H.A Phase 6 Karachi, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31683?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "AK Teez",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30704?type=card&cityId=1",
       "headline_discount_pct": 10,
@@ -4226,6 +4256,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30695?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "8oz Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31683?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Exclusive Premium Un...",
+      "phone": "0335 0809809",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "8oz - DHA Phase 6",
+          "address": "Ground floor plot 50-C, Main Khayaban-e-Shahbaz, D.H.A Phase 6 Karachi, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31683?type=card&cityId=1"
       ]
     },
     {
@@ -6642,6 +6702,36 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30695?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "8oz Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31683?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 1,
+      "summary": "Exclusive Premium Un...",
+      "phone": "0335 0809809",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "8oz - DHA Phase 6",
+          "address": "Ground floor plot 50-C, Main Khayaban-e-Shahbaz, D.H.A Phase 6 Karachi, Pakistan."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31683?type=card&cityId=1"
       ]
     },
     {
@@ -9463,6 +9553,88 @@
       "city": "Lahore",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Howdy Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31570?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "Howdy brings you the...",
+      "phone": "(042) 111 146 939",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Howdy - Gulberg",
+          "address": "Rooftop, 9c Building, MM Alam Rd, Block C2 Block C 2 Gulberg III, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Johar Town",
+          "address": "7 R3, near Shaukat Khanum Hospital Road, Block R3 Block R 3 Phase 2 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Model Town",
+          "address": "Model Town Circular Road, 11Q Model Town Link Road, Block G Model Town, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Packages Mall",
+          "address": "3rd floor, Packages Mall, Walton Rd, Nishtar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Emporium Mall",
+          "address": "Emporium, Abdul Haque Rd, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Pine Avenue",
+          "address": "Pine Ave, Wocland Villas Block N Valencia, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy DHA-Truck",
+          "address": "DHA Phase VI, Main Boulevard, Near Zakir Tikka Lahore"
+        },
+        {
+          "outlet_name": "Howdy - Cantt",
+          "address": "Shop # 11 PAF Market II Sarfraz Rafiqi Road Lahore Cantt"
+        },
+        {
+          "outlet_name": "Howdy - Multan",
+          "address": "Howdy Ritz Arcade Jinnah Aveneue DHA Multan"
+        },
+        {
+          "outlet_name": "Howdy F-7",
+          "address": "Howdy Islamabad Street 3, Gol Market, Shop 6 F 7/3 F-7, Islamabad"
+        },
+        {
+          "outlet_name": "Howdy - Giga Mall",
+          "address": "Howdy giga mall Howdy, Inside Giga Mall, WTC, GT Road, DHA Phase 2, Rawalpindi\u060c Islamabad, 44000"
+        },
+        {
+          "outlet_name": "Howdy - Centaurus Mall",
+          "address": "Howdy Centaurus Howdy, Inside Centaurus Mall, Sector F8\u060c Islamabad, 44000"
+        },
+        {
+          "outlet_name": "Howdy Tower - 12",
+          "address": "Howdy at Terrace Terrace on 5th Floor, Tower 12, New Blue Area, F9/G9, Islamabad"
+        },
+        {
+          "outlet_name": "Howdy - Peshawar",
+          "address": "Howdy HBK Arena, Ring Road, Peshawar."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31570?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Ibn Al Shaam",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30690?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -10750,6 +10922,88 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Howdy Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31570?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "Howdy brings you the...",
+      "phone": "(042) 111 146 939",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Howdy - Gulberg",
+          "address": "Rooftop, 9c Building, MM Alam Rd, Block C2 Block C 2 Gulberg III, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Johar Town",
+          "address": "7 R3, near Shaukat Khanum Hospital Road, Block R3 Block R 3 Phase 2 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Model Town",
+          "address": "Model Town Circular Road, 11Q Model Town Link Road, Block G Model Town, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Packages Mall",
+          "address": "3rd floor, Packages Mall, Walton Rd, Nishtar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Emporium Mall",
+          "address": "Emporium, Abdul Haque Rd, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Pine Avenue",
+          "address": "Pine Ave, Wocland Villas Block N Valencia, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy DHA-Truck",
+          "address": "DHA Phase VI, Main Boulevard, Near Zakir Tikka Lahore"
+        },
+        {
+          "outlet_name": "Howdy - Cantt",
+          "address": "Shop # 11 PAF Market II Sarfraz Rafiqi Road Lahore Cantt"
+        },
+        {
+          "outlet_name": "Howdy - Multan",
+          "address": "Howdy Ritz Arcade Jinnah Aveneue DHA Multan"
+        },
+        {
+          "outlet_name": "Howdy F-7",
+          "address": "Howdy Islamabad Street 3, Gol Market, Shop 6 F 7/3 F-7, Islamabad"
+        },
+        {
+          "outlet_name": "Howdy - Giga Mall",
+          "address": "Howdy giga mall Howdy, Inside Giga Mall, WTC, GT Road, DHA Phase 2, Rawalpindi\u060c Islamabad, 44000"
+        },
+        {
+          "outlet_name": "Howdy - Centaurus Mall",
+          "address": "Howdy Centaurus Howdy, Inside Centaurus Mall, Sector F8\u060c Islamabad, 44000"
+        },
+        {
+          "outlet_name": "Howdy Tower - 12",
+          "address": "Howdy at Terrace Terrace on 5th Floor, Tower 12, New Blue Area, F9/G9, Islamabad"
+        },
+        {
+          "outlet_name": "Howdy - Peshawar",
+          "address": "Howdy HBK Arena, Ring Road, Peshawar."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31570?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Ibn Al Shaam",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30690?type=card&cityId=2",
       "headline_discount_pct": 10,
@@ -12001,6 +12255,88 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30687?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Howdy Pakistan",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31570?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 14,
+      "summary": "Howdy brings you the...",
+      "phone": "(042) 111 146 939",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Howdy - Gulberg",
+          "address": "Rooftop, 9c Building, MM Alam Rd, Block C2 Block C 2 Gulberg III, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Johar Town",
+          "address": "7 R3, near Shaukat Khanum Hospital Road, Block R3 Block R 3 Phase 2 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Model Town",
+          "address": "Model Town Circular Road, 11Q Model Town Link Road, Block G Model Town, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Packages Mall",
+          "address": "3rd floor, Packages Mall, Walton Rd, Nishtar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Emporium Mall",
+          "address": "Emporium, Abdul Haque Rd, Trade Centre Commercial Area Phase 2 Johar Town, Lahore, 54000, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy - Pine Avenue",
+          "address": "Pine Ave, Wocland Villas Block N Valencia, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Howdy DHA-Truck",
+          "address": "DHA Phase VI, Main Boulevard, Near Zakir Tikka Lahore"
+        },
+        {
+          "outlet_name": "Howdy - Cantt",
+          "address": "Shop # 11 PAF Market II Sarfraz Rafiqi Road Lahore Cantt"
+        },
+        {
+          "outlet_name": "Howdy - Multan",
+          "address": "Howdy Ritz Arcade Jinnah Aveneue DHA Multan"
+        },
+        {
+          "outlet_name": "Howdy F-7",
+          "address": "Howdy Islamabad Street 3, Gol Market, Shop 6 F 7/3 F-7, Islamabad"
+        },
+        {
+          "outlet_name": "Howdy - Giga Mall",
+          "address": "Howdy giga mall Howdy, Inside Giga Mall, WTC, GT Road, DHA Phase 2, Rawalpindi\u060c Islamabad, 44000"
+        },
+        {
+          "outlet_name": "Howdy - Centaurus Mall",
+          "address": "Howdy Centaurus Howdy, Inside Centaurus Mall, Sector F8\u060c Islamabad, 44000"
+        },
+        {
+          "outlet_name": "Howdy Tower - 12",
+          "address": "Howdy at Terrace Terrace on 5th Floor, Tower 12, New Blue Area, F9/G9, Islamabad"
+        },
+        {
+          "outlet_name": "Howdy - Peshawar",
+          "address": "Howdy HBK Arena, Ring Road, Peshawar."
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31570?type=card&cityId=2"
       ]
     },
     {
