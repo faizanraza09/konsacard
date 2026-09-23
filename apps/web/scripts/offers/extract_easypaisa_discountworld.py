@@ -1,4 +1,5 @@
 import json
+import random
 import re
 import time
 from html import unescape
@@ -49,11 +50,38 @@ def slugify_name(value: str) -> str:
     return normalize_space(cleaned)
 
 
+# A single transient error used to abandon the whole source for the run and
+# fall back to stale data. Retry timeouts, connection errors, 429 and 5xx
+# (including Cloudflare's 520-524, since discountworld.net is behind
+# Cloudflare) with exponential backoff + jitter, as refresh_peekaboo.py does.
+MAX_ATTEMPTS = 5
+RETRYABLE_STATUS = {429, 500, 502, 503, 504, 520, 521, 522, 523, 524}
+
+
 def fetch(session: requests.Session, url: str) -> str:
-    response = session.get(url, headers=HEADERS, timeout=60)
-    response.raise_for_status()
-    time.sleep(0.5)
-    return response.text
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            response = session.get(url, headers=HEADERS, timeout=60)
+            if response.status_code in RETRYABLE_STATUS:
+                raise requests.exceptions.HTTPError(
+                    f"{response.status_code} Server Error for url: {url}", response=response
+                )
+            response.raise_for_status()
+            time.sleep(0.5)
+            return response.text
+        except requests.exceptions.RequestException as exc:
+            retryable = exc.response is None or exc.response.status_code in RETRYABLE_STATUS
+            if not retryable or attempt == MAX_ATTEMPTS:
+                raise
+            backoff = min(30.0, 2.0 ** (attempt - 1))
+            delay = backoff / 2 + random.uniform(0, backoff / 2)
+            print(
+                f"  [easypaisa] GET {url} failed (attempt {attempt}/{MAX_ATTEMPTS}): "
+                f"{exc!r} — retrying in {delay:.1f}s",
+                flush=True,
+            )
+            time.sleep(delay)
+    raise AssertionError("unreachable")
 
 
 def parse_cap_pkr(value: str | None) -> int | None:
