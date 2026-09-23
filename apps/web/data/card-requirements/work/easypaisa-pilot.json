@@ -1,7 +1,7 @@
 {
   "bank_slug": "easypaisa",
   "bank_name": "Easypaisa",
-  "retrieved_note": "Re-verified 2026-05-25 against the easypaisa Bank Ltd. Schedule of Bank Charges (Branchless Banking, Apr-Jun 2026 and Retail Banking, Jan-Jun 2026), the debit-cards landing page, and the Asaan Account and My Account pages on easypaisa.com.pk. All three cards (Visa, UnionPay, PayPak) are wallet-linked debit cards that inherit eligibility from the underlying easypaisa mobile / digital / Asaan account. Bank rebranded from Telenor Microfinance Bank to easypaisa Bank Ltd.",
+  "retrieved_note": "Re-verified 2026-09-23 against the easypaisa Bank Ltd. Schedule of Bank Charges - Branchless Banking (July 2026 to September 2026, quarterly edition, p.4) and Retail Banking (Jul 2026 to Dec 2026 amendment, marked 'Applicable from 1st October 2026'), both at the same public-information/Schedule-of-Bank-Charges/ URLs linked from easypaisa.com.pk/schedule-of-charges/, plus the live debit-cards, Asaan Account and My Account pages. Wallet debit-card issuance fees are unchanged (Visa PKR 1,000, UnionPay PKR 999, PayPak PKR 1,000, all incl. tax; no annual fee). All three cards (Visa, UnionPay, PayPak) are wallet-linked debit cards that inherit eligibility from the underlying easypaisa mobile / digital / Asaan account. The Branchless Banking SOBC expires 30 Sep 2026; an Oct-Dec 2026 edition should be checked when published.",
   "cards": [
     {
       "card_name": "Easy Paisa DebitCard",
@@ -12,7 +12,7 @@
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 0,
         "joining_fee_pkr": 1000,
-        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 1,000 (incl. tax) for the easypaisa Visa Debit Card per the Branchless Banking Schedule of Bank Charges, Apr-Jun 2026.",
+        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 1,000 (incl. tax) for the easypaisa Visa Debit Card per the Branchless Banking Schedule of Bank Charges, Jul-Sep 2026.",
         "minimum_age_years": 18,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -29,7 +29,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "Default Visa-branded debit card on easypaisa wallet / digital account. One-time issuance fee PKR 1,000 (incl. tax); no annual / renewal fee published in either the Branchless Banking SOC (Apr-Jun 2026, p.4) or the Retail Banking SOC (Jan-Jun 2026, p.4).",
+        "Re-verified 2026-09-23 against Branchless Banking SOBC Jul-Sep 2026 (p.4) and Retail Banking SOBC Jul-Dec 2026 amendment: issuance fee PKR 1,000 (incl. tax) and no annual fee, unchanged. Account eligibility on Asaan Account page (PKR 100 opening, CNIC, one Asaan account per CNIC) unchanged.",
+        "Default Visa-branded debit card on easypaisa wallet / digital account. One-time issuance fee PKR 1,000 (incl. tax); no annual / renewal fee published in either the Branchless Banking SOC (Jul-Sep 2026, p.4) or the Retail Banking SOC (Jul-Dec 2026 amendment).",
         "Card requires an easypaisa mobile / digital account. New mobile account opening fee PKR 0. Asaan Account opens with PKR 100; Digital Current / Savings accounts have no published minimum balance.",
         "CNIC is mandatory for account opening per Asaan Account page and easypaisa FAQ. NewGEN minor-account (12-17) holders are parent-supervised; standalone account holders are adults (18+).",
         "ATM card replacement is PKR 500; not relevant to issuance economics."
@@ -44,7 +45,7 @@
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 0,
         "joining_fee_pkr": 1000,
-        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 1,000 (incl. tax) for the easypaisa PayPak Debit Card per the Branchless Banking Schedule of Bank Charges, Apr-Jun 2026.",
+        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 1,000 (incl. tax) for the easypaisa PayPak Debit Card per the Branchless Banking Schedule of Bank Charges, Jul-Sep 2026.",
         "minimum_age_years": 18,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -60,7 +61,8 @@
       ],
       "confidence": "high",
       "notes": [
-        "PayPak (domestic scheme) variant of the easypaisa debit card. One-time issuance fee PKR 1,000 (incl. tax) per the Branchless Banking SOC Apr-Jun 2026, p.4 ('Debit Card Issuance' row); no annual fee.",
+        "Re-verified 2026-09-23 against Branchless Banking SOBC Jul-Sep 2026 (p.4) and Retail Banking SOBC Jul-Dec 2026 amendment: issuance fee PKR 1,000 (incl. tax) and no annual fee, unchanged. Account eligibility on Asaan Account page (PKR 100 opening, CNIC, one Asaan account per CNIC) unchanged.",
+        "PayPak (domestic scheme) variant of the easypaisa debit card. One-time issuance fee PKR 1,000 (incl. tax) per the Branchless Banking SOC Jul-Sep 2026, p.4 ('Debit Card Issuance' row); no annual fee.",
         "Eligibility inherited from the linked easypaisa mobile / digital account (CNIC required, no minimum balance for Digital accounts, PKR 100 for Asaan).",
         "Marketed on easypaisa.com.pk/debit-cards as 'local payments, zero stress'."
       ]
@@ -74,7 +76,7 @@
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 0,
         "joining_fee_pkr": 999,
-        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 999 (incl. tax) for the easypaisa UnionPay Debit Card per the Branchless Banking Schedule of Bank Charges, Apr-Jun 2026.",
+        "annual_fee_waiver_rule": "No annual fee; one-time issuance fee of PKR 999 (incl. tax) for the easypaisa UnionPay Debit Card per the Branchless Banking Schedule of Bank Charges, Jul-Sep 2026.",
         "minimum_age_years": 18,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -90,13 +92,15 @@
       ],
       "confidence": "high",
       "notes": [
-        "UnionPay variant. One-time issuance fee PKR 999 (incl. tax) per Branchless Banking SOC Apr-Jun 2026, p.4; no annual fee in either SOC. Marketed as 'travel easy, pay kaheen bhi'.",
+        "Re-verified 2026-09-23 against Branchless Banking SOBC Jul-Sep 2026 (p.4) and Retail Banking SOBC Jul-Dec 2026 amendment: issuance fee PKR 999 (incl. tax) and no annual fee, unchanged. Account eligibility on Asaan Account page (PKR 100 opening, CNIC, one Asaan account per CNIC) unchanged.",
+        "UnionPay variant. One-time issuance fee PKR 999 (incl. tax) per Branchless Banking SOC Jul-Sep 2026, p.4; no annual fee in either SOC. Marketed as 'travel easy, pay kaheen bhi'.",
         "Eligibility inherited from the linked easypaisa mobile / digital account."
       ]
     }
   ],
   "gaps": [
     "Neither SOC nor the debit-cards landing page publishes an explicit minimum monthly salary or income-document requirement; modeled as null (not published).",
-    "Minimum age is not stated explicitly on the debit-cards page; inferred at 18 from the Asaan Account / mobile-account framing (NewGEN 12-17 is parent-supervised, not a standalone card holder)."
+    "Minimum age is not stated explicitly on the debit-cards page; inferred at 18 from the Asaan Account / mobile-account framing (NewGEN 12-17 is parent-supervised, not a standalone card holder).",
+    "Retail Banking SOBC Jul-Dec 2026 amendment (applicable from 1 Oct 2026) repeats the PKR 1,000 / 999 / 1,000 / 500 wallet-card amounts under a row labelled 'Debit Card Insurance' (likely a labelling error for issuance), and separately lists a PKR 500 per-card issuance fee for branch-banking UPI (Normal/Silver/Gold/Platinum/Corporate Gold) and PayPak cards, which are not in this pilot. Both SOBCs also list an easypaisa Visa Online (virtual) Debit Card at PKR 500, not tracked here."
   ]
 }

@@ -1,7 +1,7 @@
 {
   "bank_slug": "mcb-bank",
   "bank_name": "MCB Bank Limited",
-  "retrieved_note": "Re-verified 2026-05-25 against the Jan-Jun 2026 Schedule of Bank Charges (SOBC), the Jan-Jun 2026 Credit Card Summary Box, the standalone credit-card fee-information notice, the March-2024 Signature Debit Card FAQ, the MCB Privilege segment eligibility page, and the individual card / account product pages on mcb.com.pk.",
+  "retrieved_note": "Re-verified 2026-09-23 against the Jul-Dec 2026 Schedule of Bank Charges (SOBC-July-December-2026-English.pdf, effective 1 July - 31 December 2026), the Jul-Dec 2026 Credit Card Summary Box (dated 16 Sep 2026), the Credit Card Fee Information notice dated 16-09-26, the Jul-Dec 2026 credit-card SOBC leaflet linked from the credit-card pages, and live re-checks of the Privilege Visa Platinum / Signature debit-card pages, the Privilege eligibility page, the Nayab and Fun Club account pages and the cards/debit-cards pages on mcb.com.pk. Previous pass 2026-05-25 used the Jan-Jun 2026 SOBC and Summary Box.",
   "cards": [
     {
       "card_name": "MCB Visa Platinum Debit Card",
@@ -12,7 +12,7 @@
         "minimum_account_balance_pkr": 2000000,
         "minimum_relationship_balance_pkr": 5000000,
         "annual_fee_pkr": 14000,
-        "supplementary_annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 6500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -24,17 +24,18 @@
       "sources": [
         "https://www.mcb.com.pk/privilege/privilege_cards/privilege_debit_card/mcb-visa-platinum-debit-card",
         "https://www.mcb.com.pk/privilege/relationship/eligibility",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf",
         "https://www.mcb.com.pk/personal/cards/"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual/issuance fee Rs. 14,000 unchanged; supplementary card fee Rs. 6,500 (was Rs. 5,500).",
         "Verified 2026-05-25 — fee unchanged at PKR 14,000.",
-        "Jan-Jun 2026 SOBC, p.23 (MCB DEBIT CARDS table): Issuance / Renewal / Replacement = Rs. 14,000 in the PLATINUM column; supplementary card = Rs. 5,500.",
-        "Privilege Visa Platinum Debit Card product page confirms PKR 14,000 issuance/annual and PKR 14,000 replacement (exclusive of FED/taxes).",
+        "Jul-Dec 2026 SOBC, p.21 (PDF p.23), Section B-1 MCB (VISA Debit Card) table: Issuance / Renewal / Replacement = Rs. 14,000 in the PLATINUM column; Supplementary Card (Issuance/Renewal/Annual) = Rs. 6,500.",
+        "Privilege Visa Platinum Debit Card product page (re-checked 2026-09-23) confirms PKR 14,000 issuance/annual and PKR 14,000 replacement (exclusive of FED/taxes).",
         "Balance fields added by inheritance from the MCB Privilege segment: Privilege Banking eligibility page publishes quarterly average balance of PKR 2,000,000 in a Current Account (LCY/FCY) or PKR 5,000,000 across total deposit relationship (CA + SA + TD, LCY/FCY combined).",
         "Salary corrected from 0 to null per methodology (silence on the page is not zero).",
-        "No supplementary issuance / annual / renewal fee discount is published for Platinum supplementary cards; PKR 5,500 stands."
+        "No supplementary issuance / annual / renewal fee discount is published for Platinum supplementary cards; PKR 6,500 stands (Jul-Dec 2026 SOBC)."
       ]
     },
     {
@@ -46,7 +47,7 @@
         "minimum_account_balance_pkr": 2000000,
         "minimum_relationship_balance_pkr": 5000000,
         "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": "No fee if the customer maintains a quarterly average balance of PKR 2,000,000 in a single Current Account or PKR 5,000,000 in total deposits across all accounts (incl. FCY); otherwise PKR 10,000 plus FED is charged per quarter (Jan-Jun 2026 SOBC).",
+        "annual_fee_waiver_rule": "No fee if the customer maintains a quarterly average balance of PKR 2,000,000 in a single Current Account or PKR 5,000,000 in total deposits across all accounts (incl. FCY); otherwise PKR 12,000 plus FED is charged per quarter (Jul-Dec 2026 SOBC).",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -57,15 +58,16 @@
       "sources": [
         "https://www.mcb.com.pk/privilege/privilege_cards/privilege_debit_card/mcb-visa-signature-debit-card",
         "https://www.mcb.com.pk/assets/documents/Signature-FAQs-6-March-2024-Green.pdf",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf",
         "https://www.mcb.com.pk/privilege/relationship/eligibility"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: quarterly debit card fee Rs. 12,000 per quarter (was Rs. 10,000); waiver thresholds (PKR 2M CA / PKR 5M total deposits) unchanged.",
         "Verified 2026-05-25 — balance thresholds and waiver model unchanged.",
-        "Privilege Visa Signature Debit Card product page (current): single-account threshold PKR 2 Million in a Current Account, or PKR 5 Million in total customer deposits across all accounts (incl. FCY); both at-application and quarterly-average maintenance.",
-        "Jan-Jun 2026 SOBC, p.23: Quarterly Debit Card Fee Rs. 10,000/- per quarter; waived for maintaining quarterly average total deposits relationship of Rs. 2M (CA) or Rs. 5M (total).",
-        "Note: the March-2024 FAQ PDF published a PKR 5,000/quarter fee — superseded by the Jan-Jun 2026 SOBC at PKR 10,000/quarter.",
+        "Privilege Visa Signature Debit Card product page (re-checked 2026-09-23): single-account threshold PKR 2 Million in a Current Account, or PKR 5 Million in total customer deposits across all accounts (incl. FCY); both at-application and quarterly-average maintenance.",
+        "Jul-Dec 2026 SOBC, p.21 (PDF p.23), Section B-2: Quarterly Debit Card Fee Rs. 12,000/- per quarter; waived for maintaining quarterly average total deposits relationship of Rs. 2M (CA) or Rs. 5M (total).",
+        "Note: the March-2024 FAQ PDF published a PKR 5,000/quarter fee — superseded by the SOBC (Rs. 10,000/quarter in Jan-Jun 2026, Rs. 12,000/quarter from Jul-Dec 2026). The live product page defers to the prevailing SOBC.",
         "Supplementary cards are explicitly not allowed (Signature FAQ Q9), so supplementary_annual_fee_pkr is intentionally omitted.",
         "Salary corrected from 0 to null per methodology; existing_account_required true (issued only against eligible LCY/FCY current/savings accounts; Photo, Joint-operated, Corporate, MCB Works accounts are explicitly excluded)."
       ]
@@ -78,7 +80,7 @@
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": null,
-        "annual_fee_waiver_rule": "Free issuance, annual & renewal of PayPak Classic and PayPak Gold for customers of MCB Salary Club, MCB Nayab Current (Premium/Affluent), MCB Freelancer, MCB Asaan Digital, and MCB Young Current accounts (Jan-Jun 2026 SOBC, account-product tables).",
+        "annual_fee_waiver_rule": "Free issuance, annual & renewal of PayPak Classic and PayPak Gold for customers of MCB Salary Club, MCB Nayab Current (Premium/Affluent), MCB Freelancer, MCB Asaan Digital, and MCB Young Current accounts (Jul-Dec 2026 SOBC, account-product tables).",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -88,12 +90,13 @@
       },
       "sources": [
         "https://www.mcb.com.pk/personal/cards/",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf"
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf"
       ],
       "confidence": "medium",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: PayPak Classic Rs. 2,200 (was Rs. 2,000); PayPak Gold Rs. 2,500 (was Rs. 2,300). annual_fee_pkr stays null on the generic record.",
         "Verified 2026-05-25 — generic PayPak record retained.",
-        "Jan-Jun 2026 SOBC, p.23, Section A: PayPak Classic Issuance / Annual / Replacement = Rs. 2,000/- each; PayPak Gold = Rs. 2,300/- each. annual_fee_pkr kept null on the generic record because the SOBC publishes two distinct variants and collapsing them into a single scalar would mis-represent at least one.",
+        "Jul-Dec 2026 SOBC, p.21 (PDF p.23), Section A: PayPak Classic Issuance / Renewal-Annual / Replacement = Rs. 2,200/- each; PayPak Gold = Rs. 2,500/- each. annual_fee_pkr kept null on the generic record because the SOBC publishes two distinct variants and collapsing them into a single scalar would mis-represent at least one.",
         "Account-linked: most MCB account product tables list free PayPak Classic/Gold for that account's customers (Salary Club, Nayab tiered, Freelancer, Asaan Digital, Young, Works affluent tiers).",
         "Salary / balance corrected from 0 to null per methodology — silence on the cards page is not a published zero."
       ]
@@ -119,8 +122,9 @@
         "https://www.mcb.com.pk/personal/cards/",
         "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf"
       ],
-      "confidence": "high",
+      "confidence": "low",
       "notes": [
+        "Re-verified 2026-09-23: the Jul-Dec 2026 SOBC no longer contains the MCB (Debit Mastercard - Classic) section (the Jan-Jun 2026 Section B-2 was removed; B-2 is now Visa Signature), and the Mastercard tab on the mcb.com.pk debit-cards page is commented out. The card appears discontinued for new issuance; PKR 3,000 values retained from the Jan-Jun 2026 SOBC only and confidence lowered to low.",
         "Verified 2026-05-25 — PKR 3,000 unchanged.",
         "Jan-Jun 2026 SOBC, p.23, Section B-2 (MCB Debit Mastercard - Classic): Issuance / Renewal / Supplementary / Replacement = Rs. 3,000/- each.",
         "Mastercard Classic is the entry-tier Mastercard variant on MCB Current Account / Salary Club current accounts; salary and balance corrected from 0 to null per methodology (no published threshold)."
@@ -133,8 +137,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 4000,
-        "annual_fee_waiver_rule": "Nayab Current Account Affluent tier (monthly avg. balance >= PKR 1,000,000) publishes free Issuance / Annual / Renewal on the Exclusive Nayab Visa Card; Mass tier (<= PKR 100,000) and Premium tier (PKR 100,000 - <1,000,000), plus Nayab Savings Account, publish only a 50% issuance discount with the full annual / renewal fee charged (Jan-Jun 2026 SOBC).",
+        "annual_fee_pkr": 4500,
+        "annual_fee_waiver_rule": "Nayab Current Account Affluent tier (monthly avg. balance >= PKR 1,000,000) publishes free Issuance / Annual / Renewal on the Exclusive Nayab Visa Card; Mass tier (<= PKR 100,000) and Premium tier (PKR 100,000 - <1,000,000), plus Nayab Savings Account, publish only a 50% issuance discount with the full annual / renewal fee charged (Jul-Dec 2026 SOBC).",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -144,14 +148,15 @@
       },
       "sources": [
         "https://www.mcb.com.pk/personal/women-financial-services/mcb-nayab-current-account",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf",
         "https://www.mcb.com.pk/personal/cards/"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual fee Rs. 4,500 (was Rs. 4,000), following the Visa Gold Plus column; tier waivers unchanged.",
         "Verified 2026-05-25 — PKR 4,000 unchanged.",
-        "Jan-Jun 2026 SOBC, Section P (MCB Nayab Current Account): the *Exclusive Nayab Visa Card* Issuance / Annual / Renewal / Replacement, where applicable, follows the Visa Gold Plus column on the debit-card fee table.",
-        "Jan-Jun 2026 SOBC, p.23, MCB Debit Cards table, GOLD PLUS column: Issuance / Renewal / Replacement = Rs. 4,000/-. Supplementary card for Gold Plus is the Silver Visa Card (Rs. 3,000/-).",
+        "Jul-Dec 2026 SOBC, Section P (MCB Nayab Current Account, p.16): the *MCB Nayab Visa Card* Issuance / Annual / Renewal / Replacement, where applicable, is charged as per the Visa Gold Plus price (ref. page 21).",
+        "Jul-Dec 2026 SOBC, p.21 (PDF p.23), MCB (VISA Debit Card) table, GOLD PLUS column: Issuance / Renewal / Supplementary / Replacement = Rs. 4,500/-. (The Jan-Jun 2026 footnote making the Gold Plus supplementary a Silver Visa Card at Rs. 3,000 has been removed.)",
         "Nayab account is for women; no salary or balance floor for account opening (MCB Nayab Current Account product page: \"no Account Activation Deposit requirement and no minimum balance requirement\"); tier-based fee waivers as described.",
         "Salary / balance corrected from 0 to null per methodology."
       ]
@@ -175,15 +180,16 @@
       },
       "sources": [
         "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
-        "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf",
-        "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf"
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-July-to-Dec-16-Sep-2026-Font-11-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-16-09-26.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (Section F, p.23), Jul-Dec 2026 Credit Card Summary Box and the 16-09-26 Credit Card Fee Information notice: basic-card annual fee PKR 7,000, supplementary fee and waiver spend PKR 50,000 all unchanged.",
         "Verified 2026-05-25 — basic-card annual fee PKR 7,000 and waiver spend PKR 50,000 unchanged.",
-        "Jan-Jun 2026 SOBC, Section F (MCB Visa Credit Card): Basic Card Issuance / Annual Rs. 7,000 p.a.; Supplementary Rs. 3,500 p.a.; Card Replacement Rs. 1,200 (Classic & Gold).",
-        "Credit Card Summary Box Jan-Jun 2026: spending thresholds for waiver are Basic PKR 50,000 / Supplementary PKR 10,000 within 60 days; no cross-eligibility between basic and supplementary.",
+        "Jul-Dec 2026 SOBC, Section F (p.23) (MCB Visa Credit Card): Basic Card Issuance / Annual Rs. 7,000 p.a.; Supplementary Rs. 3,500 p.a.; Card Replacement Rs. 1,200 (Classic & Gold).",
+        "Credit Card Summary Box Jul-Dec 2026 (and 16-09-26 Fee Information notice): spending thresholds for waiver are Basic PKR 50,000 / Supplementary PKR 10,000 within 60 days; no cross-eligibility between basic and supplementary.",
         "No public income or balance threshold on the classic-gold credit-card product page; salary and balance therefore remain null (do not infer)."
       ]
     },
@@ -206,15 +212,16 @@
       },
       "sources": [
         "https://www.mcb.com.pk/personal/cards/credit-cards/classic-gold-credit-card",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
-        "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf",
-        "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf"
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-July-to-Dec-16-Sep-2026-Font-11-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-16-09-26.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (Section F, p.23), Jul-Dec 2026 Credit Card Summary Box and the 16-09-26 Credit Card Fee Information notice: basic-card annual fee PKR 14,000, supplementary fee and waiver spend PKR 150,000 all unchanged.",
         "Verified 2026-05-25 — basic-card annual fee PKR 14,000 and waiver spend PKR 150,000 unchanged.",
-        "Jan-Jun 2026 SOBC, Section F: Basic Card Issuance / Annual Rs. 14,000 p.a.; Supplementary Rs. 7,000 p.a.",
-        "Credit Card Summary Box Jan-Jun 2026: spending thresholds for waiver are Basic PKR 150,000 / Supplementary PKR 25,000 within 60 days.",
+        "Jul-Dec 2026 SOBC, Section F (p.23): Basic Card Issuance / Annual Rs. 14,000 p.a.; Supplementary Rs. 7,000 p.a.",
+        "Credit Card Summary Box Jul-Dec 2026 (and 16-09-26 Fee Information notice): spending thresholds for waiver are Basic PKR 150,000 / Supplementary PKR 25,000 within 60 days.",
         "Card Limits (Summary Box): Gold credit limit PKR 150,000 - PKR 1,000,000. No public income / balance threshold."
       ]
     },
@@ -237,16 +244,17 @@
       },
       "sources": [
         "https://www.mcb.com.pk/personal/cards/credit-cards/platinum-credit-card",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf",
-        "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-January-to-June-22-Jan-2026.pdf",
-        "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-5-7-24.pdf"
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/Credit-card-Summary-Box-1-July-to-Dec-16-Sep-2026-Font-11-English.pdf",
+        "https://www.mcb.com.pk/assets/documents/MCB_CreditCardFeeInfo-16-09-26.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (Section F, p.23), Jul-Dec 2026 Credit Card Summary Box and the 16-09-26 Credit Card Fee Information notice: basic-card annual fee PKR 22,000, supplementary fee and waiver spend PKR 250,000 all unchanged.",
         "Verified 2026-05-25 — basic-card annual fee PKR 22,000 and waiver spend PKR 250,000 unchanged.",
-        "Jan-Jun 2026 SOBC, Section F: Basic Card Issuance / Annual Rs. 22,000 p.a.; Supplementary Rs. 11,000 p.a.; Card Replacement Rs. 2,400 (Platinum).",
-        "Credit Card Summary Box Jan-Jun 2026: spending thresholds for waiver are Basic PKR 250,000 / Supplementary PKR 50,000 within 60 days.",
-        "Card Limits (Summary Box): Platinum credit limit PKR 400,000 - PKR 7,000,000. No public income / balance threshold published by MCB on the Platinum credit-card product page or on the Privilege Visa Platinum Credit Card page (both checked 2026-05-25)."
+        "Jul-Dec 2026 SOBC, Section F (p.23): Basic Card Issuance / Annual Rs. 22,000 p.a.; Supplementary Rs. 11,000 p.a.; Card Replacement Rs. 2,400 (Platinum).",
+        "Credit Card Summary Box Jul-Dec 2026 (and 16-09-26 Fee Information notice): spending thresholds for waiver are Basic PKR 250,000 / Supplementary PKR 50,000 within 60 days.",
+        "Card Limits (Summary Box): Platinum credit limit PKR 400,000 - PKR 7,000,000. No public income / balance threshold published by MCB on the Platinum credit-card product page or on the Privilege Visa Platinum Credit Card page (both checked 2026-05-25; re-checked 2026-09-23, still none)."
       ]
     },
     {
@@ -256,8 +264,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 4000,
-        "supplementary_annual_fee_pkr": 3000,
+        "annual_fee_pkr": 4500,
+        "supplementary_annual_fee_pkr": 4500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -268,13 +276,14 @@
       },
       "sources": [
         "https://www.mcb.com.pk/personal/cards/",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf"
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual fee Rs. 4,500 (was Rs. 4,000); supplementary card fee Rs. 4,500 (was Rs. 3,000 via Silver supplementary).",
         "Verified 2026-05-25 — PKR 4,000 unchanged.",
-        "Jan-Jun 2026 SOBC, p.23, MCB Debit Cards table, GOLD column: Issuance / Renewal / Replacement = Rs. 4,000/-.",
-        "Supplementary card for Visa Gold and Visa Gold Plus is issued as a Silver Visa Card with fee Rs. 3,000 (SOBC footnote, p.23).",
+        "Jul-Dec 2026 SOBC, p.21 (PDF p.23), MCB (VISA Debit Card) table, GOLD column (also GOLD LOCAL): Issuance / Renewal / Supplementary / Replacement = Rs. 4,500/-.",
+        "The Jan-Jun 2026 footnote (supplementary for Visa Gold / Gold Plus issued as a Silver Visa Card at Rs. 3,000) no longer appears in the Jul-Dec 2026 SOBC; the table now lists a Gold supplementary at Rs. 4,500.",
         "Salary / balance corrected from null/null retained; the standard MCB Current Account product page publishes \"no minimum balance maintenance requirement\", so no balance floor inherited."
       ]
     },
@@ -285,9 +294,9 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 3000,
-        "supplementary_annual_fee_pkr": 3000,
-        "annual_fee_waiver_rule": "First issuance of Visa Silver Debit Card is free for customers of the MCB Asaan Digital Current / Saving / Asaan Digital Remittances accounts; subsequent annual fee charged as per SOBC (Jan-Jun 2026 SOBC, Section X).",
+        "annual_fee_pkr": 3300,
+        "supplementary_annual_fee_pkr": 3300,
+        "annual_fee_waiver_rule": "First issuance of Visa Silver Debit Card is free for customers of the MCB Asaan Digital Current / Saving / Asaan Digital Remittances accounts; subsequent annual fee charged as per SOBC (Jul-Dec 2026 SOBC, Section X).",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -297,12 +306,13 @@
       },
       "sources": [
         "https://www.mcb.com.pk/personal/cards/",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf"
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual fee Rs. 3,300 (was Rs. 3,000); supplementary Rs. 3,300 (was Rs. 3,000).",
         "Verified 2026-05-25 — PKR 3,000 unchanged.",
-        "Jan-Jun 2026 SOBC, p.23, MCB Debit Cards table, SILVER column: Issuance / Renewal / Supplementary / Replacement = Rs. 3,000/- each.",
+        "Jul-Dec 2026 SOBC, p.21 (PDF p.23), MCB (VISA Debit Card) table, SILVER column: Issuance / Renewal / Supplementary / Replacement = Rs. 3,300/- each.",
         "Section X (MCB Direct / Asaan Digital): first issuance of Visa Silver Debit Card is free; subsequent annual fee charged as per SOBC.",
         "Salary / balance corrected from 0 to null per methodology."
       ]
@@ -316,7 +326,7 @@
         "minimum_account_balance_pkr": null,
         "minimum_average_balance_pkr": 50000,
         "annual_fee_pkr": 1000,
-        "annual_fee_waiver_rule": "Issuance fee is waived if the Fun Club current-account customer maintains an average account balance of PKR 50,000 in the month of issuance; annual fee is waived if PKR 50,000 average balance is maintained in the month prior to when the annual fee falls due (Jan-Jun 2026 SOBC, Section B-4 note).",
+        "annual_fee_waiver_rule": "Issuance fee is waived if the Fun Club current-account customer maintains an average account balance of PKR 50,000 in the month of issuance; annual fee is waived if PKR 50,000 average balance is maintained in the month prior to when the annual fee falls due (Jul-Dec 2026 SOBC, Section B-3 note).",
         "minimum_age_years": null,
         "maximum_age_years": 18,
         "income_document_required": false,
@@ -327,12 +337,13 @@
       "sources": [
         "https://www.mcb.com.pk/personal/deposit-accounts/current-deposit/fun-club-banking-for-kids",
         "https://www.mcb.com.pk/personal/cards/",
-        "https://www.mcb.com.pk/assets/documents/SOBC-Jan-June-2026-English.pdf"
+        "https://www.mcb.com.pk/assets/documents/SOBC-July-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: Rs. 1,000 issuance / annual / replacement and PKR 50,000 ABM waivers unchanged (section renumbered B-4 -> B-3). Fun Club account page age criteria unchanged.",
         "Verified 2026-05-25 — PKR 1,000 issuance / annual / replacement unchanged.",
-        "Jan-Jun 2026 SOBC, p.23, Section B-4: Annual / Issuance Fee Rs. 1000/-; Replacement Rs. 1000/-. Issuance fee waived on PKR 50,000 month-of-issuance ABM; annual fee waived on PKR 50,000 month-prior-to-due-date ABM.",
+        "Jul-Dec 2026 SOBC, p.21 (PDF p.23), Section B-3: Annual / Issuance Fee Rs. 1000/-; Replacement Rs. 1000/-. Issuance fee waived on PKR 50,000 month-of-issuance ABM; annual fee waived on PKR 50,000 month-prior-to-due-date ABM.",
         "minimum_average_balance_pkr = 50000 captures the published ABM that unlocks the fee waiver (the account itself has no minimum balance requirement).",
         "Maximum age 18 inherited from the Fun Club current account product page: \"Less than 18 years old in case of natural Guardian, or Less than 21 years old in case of court appointed Guardian.\" 18 used as the conservative (natural-guardian) cap.",
         "pakistani_cnic_required true (parent/guardian CNIC mandatory under SBP minors rules); existing_account_required true (issued only against Fun Club current account)."
@@ -340,10 +351,12 @@
     }
   ],
   "gaps": [
-    "MCB credit-card public pages (classic-gold-credit-card, platinum-credit-card, mcb-visa-credit-card, the Privilege variants, and the Credit Card Summary Box PDF) do not publish income / salary / age thresholds for any of the three credit-card tiers. Re-check on 2026 H2 SOBC.",
-    "Generic PayPak Debit Card record collapses two SOBC fee lines (PayPak Classic Rs. 2,000 and PayPak Gold Rs. 2,300); annual_fee_pkr remains null on the generic record to avoid silently committing to one variant. If the catalogue is later split into two cards, fill the fee per variant.",
+    "MCB credit-card public pages (classic-gold-credit-card, platinum-credit-card, mcb-visa-credit-card, the Privilege variants, and the Credit Card Summary Box PDF) do not publish income / salary / age thresholds for any of the three credit-card tiers. Re-checked 2026-09-23 against the Jul-Dec 2026 SOBC and Summary Box: still none published.",
+    "Generic PayPak Debit Card record collapses two SOBC fee lines (Jul-Dec 2026: PayPak Classic Rs. 2,200 and PayPak Gold Rs. 2,500); annual_fee_pkr remains null on the generic record to avoid silently committing to one variant. If the catalogue is later split into two cards, fill the fee per variant.",
     "MCB Visa Signature Debit Card uses a quarterly non-maintenance-fee model rather than a flat annual fee; annual_fee_pkr is intentionally null and the rule is captured in annual_fee_waiver_rule.",
     "Minimum age on the Fun Club card is not explicitly published; only the maximum side is.",
-    "No publicly downloadable credit-card KFS exists on mcb.com.pk — the Key Fact Statements index page only lists deposit and lending KFS, not card KFS."
+    "No publicly downloadable credit-card KFS exists on mcb.com.pk — the Key Fact Statements index page only lists deposit and lending KFS, not card KFS.",
+    "Mastercard Classic Debit Card is absent from the Jul-Dec 2026 SOBC and hidden on the debit-cards page; record kept with Jan-Jun 2026 values at low confidence pending confirmation of discontinuation.",
+    "The mcb.com.pk compare-card page still shows older annual charges (e.g. PKR 10,000 / 3,000 / 2,300) that do not match the Jul-Dec 2026 SOBC; SOBC treated as authoritative."
   ]
 }

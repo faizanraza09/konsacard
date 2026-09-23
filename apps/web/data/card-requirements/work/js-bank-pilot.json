@@ -1,7 +1,7 @@
 {
   "bank_slug": "js-bank",
   "bank_name": "JS Bank",
-  "retrieved_note": "Re-verified 2026-05-25 against the Jan-Jun 2026 Schedule of Charges (SOC), the Jan-Jun 2026 Credit Card KFS, the Jul-Dec 2025 JS Signature (Private Banking) KFS, and current jsbl.com product pages.",
+  "retrieved_note": "Re-verified 2026-09-23 against the Jul-Dec 2026 Schedule of Charges (jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf), the Jul-Dec 2026 JS Credit Cards KFS (bilingual, covers Classic/Gold/Platinum/Signature; uploads/2026/07), and current jsbl.com product pages (credit card, Priority Banking, HER, Inclusive, Asaan, PLS Savings, Platinum Business). All card fee, waiver, salary and balance values unchanged vs the 2026-05-25 Jan-Jun 2026 verification. Previous: 2026-05-25 against the Jan-Jun 2026 SOC, Jan-Jun 2026 CC KFS and Jul-Dec 2025 Signature KFS.",
   "cards": [
     {
       "card_name": "JS Credit Card Classic",
@@ -24,8 +24,8 @@
       "sources": [
         "https://www.jsbl.com/js-credit-card/",
         "https://www.jsbl.com/personal/credit-card/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf",
-        "https://www.jsbl.com/wp-content/uploads/2026/01/CC-KFS-Jan-Jun-2026.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf",
+        "https://www.jsbl.com/wp-content/uploads/2026/07/JS-Bank-Credit-Card-Key-Fact-Statement-Bilingual.pdf"
       ],
       "confidence": "high",
       "notes": [
@@ -33,7 +33,9 @@
         "Supplementary card annual fee Rs. 2,000 (reduced Rs. 1,000 on Rs. 25,000 spend) per Jan-Jun 2026 SOC.",
         "Joining fee: 'No Card Issuance or Joining Fee' per KFS.",
         "Salary PKR 70,000 sourced from the comparison table on jsbl.com/personal/credit-card/ and jsbl.com/js-credit-card/.",
-        "Age 18 inferred as standard credit-card minimum; no published maximum age."
+        "Age 18 inferred as standard credit-card minimum; no published maximum age.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC (Consumer Lending A, JS Bank Credit Card VISA) and Jul-Dec 2026 Credit Card KFS: annual fee Rs. 5,000 (reduced Rs. 1,200 on Rs. 25,000 first-month spend), supplementary Rs. 2,000 (reduced Rs. 1,000), joining fee Nil: unchanged. jsbl.com credit-card page still states 'Minimum Salary Required PKR 70,000 per month': unchanged.",
+        "Jul-Dec 2026 KFS adds: for Employee Banking customers the first-year annual fee is reversed without any spend criteria, subject to card activation and the first month's salary being credited to the JS Bank account within three months of issuance."
       ]
     },
     {
@@ -57,14 +59,16 @@
       "sources": [
         "https://www.jsbl.com/js-credit-card/",
         "https://www.jsbl.com/personal/credit-card/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf",
-        "https://www.jsbl.com/wp-content/uploads/2026/01/CC-KFS-Jan-Jun-2026.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf",
+        "https://www.jsbl.com/wp-content/uploads/2026/07/JS-Bank-Credit-Card-Key-Fact-Statement-Bilingual.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Verified against Jan-Jun 2026 SOC (Section A, JS Bank Credit Card VISA, Platinum) and Jan-Jun 2026 KFS: annual fee Rs. 15,000 with reduced Rs. 3,100 on Rs. 100,000 spend in first month.",
         "Supplementary card annual fee Rs. 6,500 (reduced Rs. 2,700 on Rs. 100,000 spend).",
-        "Salary PKR 70,000 sourced from the product comparison table on jsbl.com."
+        "Salary PKR 70,000 sourced from the product comparison table on jsbl.com.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC and Jul-Dec 2026 Credit Card KFS: annual fee Rs. 15,000 (reduced Rs. 3,100 on Rs. 100,000 first-month spend), supplementary Rs. 6,500 (reduced Rs. 2,700): unchanged. Product-page salary PKR 70,000: unchanged.",
+        "Jul-Dec 2026 KFS adds: for Employee Banking customers the first-year annual fee is reversed without any spend criteria, subject to card activation and the first month's salary being credited to the JS Bank account within three months of issuance."
       ]
     },
     {
@@ -89,14 +93,15 @@
       "sources": [
         "https://www.jsbl.com/personal/accounts/current-accounts/js-asaan/",
         "https://www.jsbl.com/js-inclusive-current-account/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Annual fee corrected to Rs. 1,500 per Jan-Jun 2026 SOC (Section A.xiii PayPak Debit Card); supplementary Rs. 750; one-time issuance Rs. 1,000.",
         "JS Asaan Current Account is the lowest-friction route: PKR 100 initial deposit, no minimum monthly average balance.",
         "JS Inclusive Current Account explicitly grants PayPak debit annual-fee waiver.",
-        "Account-linked debit card; no separate salary or balance threshold for the card itself."
+        "Account-linked debit card; no separate salary or balance threshold for the card itself.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC (General Banking A.xiii PayPak Debit Card): issuance Rs. 1,000, annual Rs. 1,500, supplementary Rs. 750: unchanged. JS Inclusive Current Account (PayPak annual-fee waiver) and JS Elite Current Account (PayPak annual fee free) waivers still listed; JS Asaan page still shows PKR 100 initial deposit, no minimum average balance."
       ]
     },
     {
@@ -120,14 +125,15 @@
       },
       "sources": [
         "https://www.jsbl.com/personal/accounts/savings-account/js-pls-savings-account/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Annual fee corrected from Rs. 1,650 (Jul-Dec 2025 SOC) to Rs. 2,500 per Jan-Jun 2026 SOC (Section A.iii Mastercard Gold). Annual retention fee Rs. 250.",
         "Issuance fee Rs. 1,000 (per Mastercard Debit Card Issuance Fee row).",
-        "Waiver pivoted: the Jan-Jun 2026 SOC ties the cleanest published Gold-debit waiver to JS Premier Raabta (PKR 150,000 avg balance). JS PLS Savings page still advertises 'Free MasterCard Gold debit card annual fee' but the SOC doesn't surface a numeric threshold for PLS specifically.",
-        "Account-linked debit card."
+        "Waiver pivoted: the Jan-Jun 2026 SOC ties the cleanest published Gold-debit waiver to JS Premier Raabta (PKR 150,000 avg balance). (Superseded 2026-09-23: the JS PLS Savings page no longer advertises a free Gold debit annual fee.)",
+        "Account-linked debit card.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC: Gold debit issuance Rs. 1,000, annual Rs. 2,500, supplementary Rs. 1,250, retention Rs. 250: unchanged. The SOC now labels the row 'Gold Debit Card' under 'International Scheme (Mastercard/Visa) Debit Card' and JS Premier Raabta still lists a free Gold debit annual fee; the JS PLS Savings page now lists a 'Visa Gold debit card' among services charged 'as per Bank's SOC' (it no longer advertises a free Gold debit annual fee), so the PLS waiver note below is superseded. JS appears to be moving debit cards to Visa; the card name is kept as-is."
       ]
     },
     {
@@ -151,14 +157,15 @@
       },
       "sources": [
         "https://www.jsbl.com/js-priority-banking/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Annual fee Rs. 17,000 verified against Jan-Jun 2026 SOC (Mastercard World row and Private Banking section).",
         "Supplementary Rs. 8,500; principal-card replacement Rs. 12,500.",
         "JS Priority Banking proposition page lists the relationship threshold as PKR 3 million for current account or PKR 8 million for savings account, 3-month average. Modeled here as the current-account floor (PKR 3,000,000).",
-        "No published fee waiver in the SOC for World Mastercard; the card is positioned as a Private Banking / Priority Banking benefit."
+        "No published fee waiver in the SOC for World Mastercard; the card is positioned as a Private Banking / Priority Banking benefit.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC: World debit annual Rs. 17,000 (also in Private Banking section), supplementary Rs. 8,500, principal replacement Rs. 12,500: unchanged. JS Priority Banking page still lists PKR 3 million (current) / PKR 8 million (savings) 3-month average: unchanged."
       ]
     },
     {
@@ -180,12 +187,13 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Annual fee corrected from Rs. 1,200 (Jul-Dec 2025 SOC) to Rs. 1,500 per Jan-Jun 2026 SOC (Section A.xiii PayPak Debit Card).",
-        "Likely a duplicate listing of the PayPak Classic Debit Card; the SOC only describes one PayPak debit product line."
+        "Likely a duplicate listing of the PayPak Classic Debit Card; the SOC only describes one PayPak debit product line.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC (A.xiii PayPak Debit Card): annual Rs. 1,500, issuance Rs. 1,000, supplementary Rs. 750: unchanged."
       ]
     },
     {
@@ -209,13 +217,14 @@
       },
       "sources": [
         "https://www.jsbl.com/her-finances/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Annual fee corrected from Rs. 0 (account-fee modelling) to Rs. 3,500 standalone per Jan-Jun 2026 SOC (Mastercard Titanium row); fee becomes free under the JS HER waiver.",
         "JS HER Current Account requires PKR 50,000 monthly average balance to unlock the Titanium debit annual-fee waiver (SOC Section iii JS HER Current Account; her-finances page confirms).",
-        "Women-targeted card; treated as a tier variant of Mastercard Titanium under the HER proposition."
+        "Women-targeted card; treated as a tier variant of Mastercard Titanium under the HER proposition.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC: Titanium debit annual Rs. 3,500, supplementary Rs. 1,750, issuance Rs. 1,000; JS HER Current Account waiver (Titanium Debit Card free on PKR 50,000 average balance) unchanged; her-finances page still shows PKR 50,000."
       ]
     },
     {
@@ -239,13 +248,14 @@
       },
       "sources": [
         "https://www.jsbl.com/personal/accounts/current-accounts/js-platinum-business-current-account/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Annual fee corrected from Rs. 3,000 (Jul-Dec 2025 SOC) to Rs. 7,000 per Jan-Jun 2026 SOC (Mastercard Platinum row).",
         "Annual retention fee Rs. 350; supplementary Rs. 3,500; replacement Rs. 3,500.",
-        "Waiver verified: JS Platinum Business Current Account, previous 3 months' average balance Rs. 150,000 & above (SOC Fee Waivers Section i)."
+        "Waiver verified: JS Platinum Business Current Account, previous 3 months' average balance Rs. 150,000 & above (SOC Fee Waivers Section i).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC: Platinum debit annual Rs. 7,000, supplementary Rs. 3,500, retention Rs. 350; JS Platinum Business Current Account waiver (previous 3 months' average Rs. 150,000 & above) unchanged. The product page now calls the waived card a 'Visa Platinum debit card' and the SOC row is scheme-neutral ('Platinum Debit Card')."
       ]
     },
     {
@@ -267,12 +277,13 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Annual fee corrected from Rs. 1,200 (Jul-Dec 2025 SOC) to Rs. 3,500 per Jan-Jun 2026 SOC (Mastercard Titanium row). Annual retention fee Rs. 300.",
-        "No standalone product-level salary or balance threshold published; eligibility flows through the linked account."
+        "No standalone product-level salary or balance threshold published; eligibility flows through the linked account.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC (Titanium Debit Card row): annual Rs. 3,500, supplementary Rs. 1,750, retention Rs. 300, issuance Rs. 1,000: unchanged."
       ]
     },
     {
@@ -295,8 +306,8 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf",
-        "https://www.jsbl.com/wp-content/uploads/2025/07/Signature-KFS-Jul-Dec%202025-FINAL-18-Jul.pdf",
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf",
+        "https://www.jsbl.com/wp-content/uploads/2026/07/JS-Bank-Credit-Card-Key-Fact-Statement-Bilingual.pdf",
         "https://www.jsbl.com/js-priority-banking/"
       ],
       "confidence": "high",
@@ -304,7 +315,9 @@
         "Verified against Jan-Jun 2026 SOC (Section F Private Banking, PB Signature Credit Card row) and the JS Signature KFS: annual fee Rs. 20,000 with reduced Rs. 7,700 on Rs. 150,000 spend in first month.",
         "Supplementary card annual fee Rs. 8,000 (reduced Rs. 7,200 on Rs. 150,000 spend) per KFS.",
         "Bank-retained reduced fee of PKR 7,700 even after spend target is met; this is not a true waiver.",
-        "Card positioned under JS Private Banking / Priority Banking; relationship threshold inherited from Priority Banking (PKR 3 million current or PKR 8 million savings, 3-month average)."
+        "Card positioned under JS Private Banking / Priority Banking; relationship threshold inherited from Priority Banking (PKR 3 million current or PKR 8 million savings, 3-month average).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC (Private Banking, PB Signature Credit Card: Rs. 20,000 + FED, reduced Rs. 7,700 on Rs. 150,000 first-month spend) and the Jul-Dec 2026 JS Credit Cards KFS, which now covers Signature alongside Classic/Gold/Platinum (supplementary Rs. 8,000, reduced Rs. 7,200): unchanged. Replaced the Jul-Dec 2025 Signature KFS source with the Jul-Dec 2026 combined KFS.",
+        "Jul-Dec 2026 KFS adds: for Employee Banking customers the first-year annual fee is reversed without any spend criteria, subject to card activation and the first month's salary being credited to the JS Bank account within three months of issuance."
       ]
     },
     {
@@ -328,8 +341,8 @@
       "sources": [
         "https://www.jsbl.com/personal/credit-card/",
         "https://www.jsbl.com/js-credit-card/",
-        "https://www.jsbl.com/wp-content/uploads/2025/12/SOC-Jan-Jun-2026-Final-Eng.pdf",
-        "https://www.jsbl.com/wp-content/uploads/2026/01/CC-KFS-Jan-Jun-2026.pdf"
+        "https://www.jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf",
+        "https://www.jsbl.com/wp-content/uploads/2026/07/JS-Bank-Credit-Card-Key-Fact-Statement-Bilingual.pdf"
       ],
       "confidence": "high",
       "notes": [
@@ -337,14 +350,16 @@
         "Reduced fee corrected from Rs. 2,000 to Rs. 1,800 on Rs. 50,000 first-month spend per SOC/KFS.",
         "Supplementary card annual fee Rs. 3,500 (reduced Rs. 1,500 on Rs. 50,000 spend).",
         "The product page lists this as 'JS Gold' under JS Bank Credit Card VISA; 'Visa Gold Credit Card' is the same card.",
-        "Salary PKR 70,000 sourced from the shared comparison table on jsbl.com."
+        "Salary PKR 70,000 sourced from the shared comparison table on jsbl.com.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC and Jul-Dec 2026 Credit Card KFS: annual fee Rs. 8,500 (reduced Rs. 1,800 on Rs. 50,000 first-month spend), supplementary Rs. 3,500 (reduced Rs. 1,500): unchanged. Product-page salary PKR 70,000: unchanged.",
+        "Jul-Dec 2026 KFS adds: for Employee Banking customers the first-year annual fee is reversed without any spend criteria, subject to card activation and the first month's salary being credited to the JS Bank account within three months of issuance."
       ]
     }
   ],
   "gaps": [
     "JS Bank does not publish a salary threshold for any debit card; debit-card salary remains null and the linked-account balance is the eligibility lever.",
     "Maximum age is not published on any card or KFS page.",
-    "JS PLS Savings page still advertises a free Mastercard Gold debit annual fee, but the current SOC does not state a numeric average-balance threshold for PLS specifically; the cleanest published Gold-debit waiver path is JS Premier Raabta (PKR 150,000).",
+    "As of 2026-09-23 the JS PLS Savings page lists a 'Visa Gold debit card' charged as per SOC (no free annual fee advertised); the cleanest published Gold-debit waiver path remains JS Premier Raabta (PKR 150,000). JS product pages and the Jul-Dec 2026 SOC suggest debit cards are migrating from Mastercard to Visa branding; card names were not changed.",
     "Document requirements (CNIC, salary slip, bank statement) are not explicitly enumerated for credit cards on the product page; modelled as true based on standard Pakistani credit-card practice and the KFS reference to 'proof of income'."
   ]
 }
