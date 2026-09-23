@@ -151,7 +151,9 @@ session.mount("http://", adapter)
 # publishing a partial dataset.
 DEFAULT_TIMEOUT = (15, 90)  # (connect, read) seconds
 MAX_ATTEMPTS = 6
-RETRYABLE_STATUS = {429, 500, 502, 503, 504}
+# 520-524 are Cloudflare's own origin-failure codes (peekaboo.guru is behind
+# Cloudflare); they are as transient as a 502/504 and worth the same retries.
+RETRYABLE_STATUS = {429, 500, 502, 503, 504, 520, 521, 522, 523, 524}
 
 
 def request_with_retries(method: str, url: str, **kwargs):
