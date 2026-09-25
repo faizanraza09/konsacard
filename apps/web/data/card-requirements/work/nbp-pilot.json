@@ -1,7 +1,7 @@
 {
   "bank_slug": "nbp",
   "bank_name": "National Bank of Pakistan",
-  "retrieved_note": null,
+  "retrieved_note": "Re-verified 2026-09-23 against NBP's public Schedule of Bank Charges July to December 2026 (conventional; nbp.com.pk/rates-charges/Schedule-of-Bank-Charges-Jul-to-Dec-2026.pdf, effective 1 Jul-31 Dec 2026; scanned image PDF, section 14.5 'EMV Debit Card' on printed p.11 read visually) and the NBP Aitemaad (Islamic) Schedule of Bank Charges July to December 2026 (islamic/soc/Schedule-of-Charges- English-from-July-Dec-2026.pdf, sections 3.1.5-3.1.11 and 4.x). The Jan-Jun 2026 Aitemaad SOC (SOC-English-01-01-2026.pdf) was also checked and matches the bank-supplied xlsx template's fees, so the template reflects the Jan-Jun 2026 schedule. All four chargeable cards had annual-fee increases effective 1 Jul 2026; PayPak Pink stays free. Issuance fees added from the SOBC. Salary, balance and age values still come only from the bank-supplied xlsx; neither SOBC nor the nbp.com.pk EMV debit-card pages (incl. the PayPak Edge welcome PDF) publish card-level salary, balance or age thresholds.",
   "cards": [
     {
       "card_name": "PayPak Classic",
@@ -11,16 +11,24 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 1800,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_pkr": 2000,
+        "joining_fee_pkr": 760,
+        "annual_fee_waiver_rule": "Annual fee waived for the first year only on NBP Itmenan Current Account (SOBC Jul-Dec 2026, item 18.10). Debit card issuance/renewal free on NBP Choice Business / Individual Current Accounts (item 18.9); Aitemaad Income Support, Senior, Asaan Current/Saving, Foree Remittance, Merchant and Amirah accounts get debit card issuance and annual fee free (Aitemaad SOBC 4.2-4.10).",
         "minimum_age_years": 18,
         "maximum_age_years": null
       },
       "sources": [
-        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+        "https://www.nbp.com.pk/rates-charges/Schedule-of-Bank-Charges-Jul-to-Dec-2026.pdf",
+        "https://www.nbp.com.pk/islamic/soc/Schedule-of-Charges-%20English-from-July-Dec-2026.pdf"
       ],
-      "confidence": "low",
-      "notes": []
+      "confidence": "medium",
+      "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (conventional 14.5 row 1; Aitemaad 3.1.6): annual fee Rs. 2,000 (was Rs. 1,800); issuance/renewal Rs. 760 (newly recorded); replacement Rs. 1,000.",
+        "Jan-Jun 2026 Aitemaad SOC listed Rs. 1,800 annual / Rs. 760 issuance, matching the xlsx template.",
+        "Salary, balance and age values are from the bank-supplied xlsx template only (template leaves salary blank and balance as '-'); not confirmed by any public NBP document.",
+        "Confidence raised from low to medium: fees confirmed by the official SOBC; eligibility still template-only."
+      ]
     },
     {
       "card_name": "PayPak Pink",
@@ -31,15 +39,22 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
         "annual_fee_pkr": 0,
+        "joining_fee_pkr": 760,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 18,
         "maximum_age_years": null
       },
       "sources": [
-        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+        "https://www.nbp.com.pk/islamic/soc/Schedule-of-Charges-%20English-from-July-Dec-2026.pdf"
       ],
-      "confidence": "low",
-      "notes": []
+      "confidence": "medium",
+      "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Aitemaad SOBC 3.1.7 'PayPak Pink Classic EMV Debit Card': annual fee FREE (unchanged, 0); issuance/renewal Rs. 760 (newly recorded); replacement Rs. 1,000.",
+        "Card appears only in the Aitemaad (Islamic) SOBC, not in the conventional SOBC table. It is the NBP Amirah PayPak Pink card for women holding an Aitemaad Amirah Account; Aitemaad SOBC 4.10 lists 'Debit Card (Issuance & annual Fee)' as an all-time free benefit for Amirah account holders, so issuance is effectively free for that account.",
+        "Salary, balance and age values are from the bank-supplied xlsx template only (template leaves salary blank and balance as '-'); not confirmed by any public NBP document.",
+        "Confidence raised from low to medium: fees confirmed by the official Aitemaad SOBC; eligibility still template-only (women-only restriction is from NBP launch press release, Aug 2025)."
+      ]
     },
     {
       "card_name": "PayPak Edge co-badge Mastercard",
@@ -49,16 +64,25 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 500000,
-        "annual_fee_pkr": 4000,
+        "annual_fee_pkr": 5000,
+        "joining_fee_pkr": 800,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 18,
         "maximum_age_years": null
       },
       "sources": [
-        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+        "https://www.nbp.com.pk/rates-charges/Schedule-of-Bank-Charges-Jul-to-Dec-2026.pdf",
+        "https://www.nbp.com.pk/islamic/soc/Schedule-of-Charges-%20English-from-July-Dec-2026.pdf",
+        "https://www.nbp.com.pk/EMV-Debit-Card/PayPak_Edge-Debit-Mastercard.aspx"
       ],
-      "confidence": "low",
-      "notes": []
+      "confidence": "medium",
+      "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (conventional 14.5 row 4 'Mastercard Cobadge-PayPak Edge'; Aitemaad 3.1.9): annual fee Rs. 5,000 (was Rs. 4,000); issuance/renewal Rs. 800 (newly recorded); replacement Rs. 2,500.",
+        "The PKR 500,000 minimum balance is from the xlsx template only; the SOBC, the nbp.com.pk Edge page and the Edge welcome PDF (EMV-Debit-Card/files/PayPak_Master_Debit_Card.pdf) publish no balance threshold.",
+        "Salary, balance and age values are from the bank-supplied xlsx template only (template leaves salary blank and balance as '-'); not confirmed by any public NBP document.",
+        "Confidence raised from low to medium: fees confirmed by the official SOBC; eligibility still template-only."
+      ]
     },
     {
       "card_name": "UPI Classic",
@@ -68,16 +92,23 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2250,
+        "annual_fee_pkr": 2500,
+        "joining_fee_pkr": 600,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 18,
         "maximum_age_years": null
       },
       "sources": [
-        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+        "https://www.nbp.com.pk/rates-charges/Schedule-of-Bank-Charges-Jul-to-Dec-2026.pdf",
+        "https://www.nbp.com.pk/islamic/soc/Schedule-of-Charges-%20English-from-July-Dec-2026.pdf"
       ],
-      "confidence": "low",
-      "notes": []
+      "confidence": "medium",
+      "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (conventional 14.5 row 2; Aitemaad 3.1.5): annual fee Rs. 2,500 (was Rs. 2,250); issuance/renewal Rs. 600 (newly recorded); replacement Rs. 1,250.",
+        "Salary, balance and age values are from the bank-supplied xlsx template only (template leaves salary blank and balance as '-'); not confirmed by any public NBP document.",
+        "Confidence raised from low to medium: fees confirmed by the official SOBC; eligibility still template-only."
+      ]
     },
     {
       "card_name": "UPI Gold",
@@ -87,17 +118,29 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 100000,
-        "annual_fee_pkr": 3000,
+        "annual_fee_pkr": 3500,
+        "joining_fee_pkr": 600,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": 18,
         "maximum_age_years": null
       },
       "sources": [
-        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx"
+        "data/card-requirements/raw/nbp/nbp_card_details_template.xlsx",
+        "https://www.nbp.com.pk/rates-charges/Schedule-of-Bank-Charges-Jul-to-Dec-2026.pdf",
+        "https://www.nbp.com.pk/islamic/soc/Schedule-of-Charges-%20English-from-July-Dec-2026.pdf"
       ],
-      "confidence": "low",
-      "notes": []
+      "confidence": "medium",
+      "notes": [
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (conventional 14.5 row 3; Aitemaad 3.1.8): annual fee Rs. 3,500 (was Rs. 3,000); issuance/renewal Rs. 600 (newly recorded); replacement Rs. 1,750.",
+        "The PKR 100,000 minimum balance is from the xlsx template only; no public NBP document restates it.",
+        "Salary, balance and age values are from the bank-supplied xlsx template only (template leaves salary blank and balance as '-'); not confirmed by any public NBP document.",
+        "Confidence raised from low to medium: fees confirmed by the official SOBC; eligibility still template-only."
+      ]
     }
   ],
-  "gaps": []
+  "gaps": [
+    "Salary (recorded as 0), balance and age thresholds for all five cards come only from the bank-supplied xlsx; the template leaves salary blank, so 0 may overstate certainty (methodology: silence is not zero).",
+    "Jul-Dec 2026 SOBC also lists a 'PayPak-UPI Co-Badge' debit card (issuance Rs. 800, annual Rs. 2,700; marked 'applicable when available') and the Aitemaad SOBC lists a 'UPI Women (EMV) Contactless Classic Debit Card' (Rs. 600 / Rs. 2,500). Neither is in the pilot set.",
+    "The conventional SOBC PDF is a scanned image with unreliable OCR text; card fees were read from the rendered page image."
+  ]
 }

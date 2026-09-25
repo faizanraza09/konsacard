@@ -1,7 +1,7 @@
 {
   "bank_slug": "askari-bank",
   "bank_name": "Askari Bank Limited",
-  "retrieved_note": "Verification pass 2026-05-25. Schedule of Bank Charges effective 1 January 2026 is now stored locally at data/card-requirements/raw/askari-bank/SOC-Jan-Jun-2026.pdf and was extracted directly via pdfplumber. All fee fields on credit and debit cards are taken verbatim from that PDF (Section E for debit, Section H for credit). Card pages on askaribank.com remain Cloudflare-WAF-blocked, so salary and relationship-balance thresholds still rely on the prior pilot extraction; the SOC itself does not publish per-card salary thresholds.",
+  "retrieved_note": "Re-verified 2026-09-23. Credit-card fees and waiver rules updated from the public Jul-Dec 2026 credit-card SOC addendum (https://askaribank.com/gallery/Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026.pdf, headed 'Effective July 10, 2026'), read via its 2026-07-17 Wayback capture because askaribank.com returns Cloudflare 403 to curl/WebFetch. No full Jul-Dec 2026 conventional SOC was found (tried the live site, web search, and Wayback CDX of askaribank.com/gallery), so debit-card fees still come from the Jan 2026 SOC stored at data/card-requirements/raw/askari-bank/SOC-Jan-Jun-2026.pdf (no public URL for that edition located either). The Ikhlas Islamic SOC effective July 01, 2026 (https://askaribank.com/gallery/SOC-Islamic-Draft-in-English-effective-from-July-01-2026.pdf, scanned) was reviewed for context only. Product pages remain WAF-blocked; salary/balance/age thresholds carried over from the prior pass.",
   "cards": [
     {
       "card_name": "Askari Mastercard Classic Credit Card",
@@ -10,10 +10,10 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": 150000,
-        "annual_fee_pkr": 5000,
-        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 3000,
         "joining_fee_pkr": null,
-        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "annual_fee_waiver_rule": "50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
         "income_document_required": true,
@@ -23,17 +23,18 @@
       },
       "sources": [
         "https://askaribank.com/personal/cards/mastercard-credit-cards",
-        "data/card-requirements/raw/askari-bank/SOC-Jan-Jun-2026.pdf"
+        "https://askaribank.com/gallery/Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Annual fee Rs. 5,000 verified directly from Askari Bank SOC effective 1 Jan 2026, Section H.1.a.",
         "Supplementary annual fee Rs. 2,500 verified from SOC Section H.1.g (Supplementary Card - Classic).",
-        "70% waiver wording is verbatim from SOC H.1.a.",
+        "70% waiver wording was verbatim from Jan 2026 SOC H.1.a (superseded 2026-07-10 by the 50%/2-month rule).",
         "Card replacement fee Rs. 900 (SOC H.7) is not stored on the requirements record but is the canonical replacement-fee source.",
         "Shared public eligibility grid across Classic, Gold, and Platinum on the bank's Mastercard page (not in the SOC). Salaried-income threshold PKR 35,000 is the lowest band (GOP / Semi-Govt. / Autonomous permanent employees); approved-company and non-approved-company applicants sit at higher salary bands per the same page.",
         "PKR 150,000 corresponds to the published SEB/SEP average-balance criterion shown alongside the salaried grid (product page, not SOC).",
-        "Maximum age 70 is the broadest envelope; FAQ on the bank's page splits the cap as 60 for permanent salaried, 65 for contractual salaried / pensioners, and 70 for SEB/SEP."
+        "Maximum age 70 is the broadest envelope; FAQ on the bank's page splits the cap as 60 for permanent salaried, 65 for contractual salaried / pensioners, and 70 for SEB/SEP.",
+        "Re-verified 2026-09-23 against the Jul-Dec 2026 credit-card SOC addendum ('Schedule of Bank Charges Effective July 10, 2026', file 'Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026'; read via Wayback capture of 2026-07-17 because askaribank.com is Cloudflare-blocked): annual fee Rs. 5,500 (was Rs. 5,000, item 1.a); supplementary Rs. 3,000 (was Rs. 2,500, item 1.g); waiver changed from '70% waiver on 50% utilization within 3 months' to '50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.'. Salary/balance/age thresholds not re-verifiable (product pages still WAF-blocked; no post-June Wayback capture)."
       ]
     },
     {
@@ -43,10 +44,10 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": 150000,
-        "annual_fee_pkr": 11000,
-        "supplementary_annual_fee_pkr": 5500,
+        "annual_fee_pkr": 12000,
+        "supplementary_annual_fee_pkr": 6500,
         "joining_fee_pkr": null,
-        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "annual_fee_waiver_rule": "50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
         "income_document_required": true,
@@ -56,7 +57,7 @@
       },
       "sources": [
         "https://askaribank.com/personal/cards/mastercard-credit-cards",
-        "data/card-requirements/raw/askari-bank/SOC-Jan-Jun-2026.pdf"
+        "https://askaribank.com/gallery/Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026.pdf"
       ],
       "confidence": "high",
       "notes": [
@@ -64,7 +65,8 @@
         "Supplementary annual fee Rs. 5,500 verified from SOC Section H.1.h (Supplementary Card - Gold).",
         "Eligibility is the shared Mastercard credit-card grid (product page, not SOC); there is no Gold-only product page.",
         "Lowest published salaried threshold on that page is PKR 35,000 for GOP/Semi-Govt./Autonomous permanent employees; other salaried categories are higher.",
-        "SEB/SEP applicants qualify on PKR 150,000 average-balance criterion shown alongside the salary grid."
+        "SEB/SEP applicants qualify on PKR 150,000 average-balance criterion shown alongside the salary grid.",
+        "Re-verified 2026-09-23 against the Jul-Dec 2026 credit-card SOC addendum ('Schedule of Bank Charges Effective July 10, 2026', file 'Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026'; read via Wayback capture of 2026-07-17 because askaribank.com is Cloudflare-blocked): annual fee Rs. 12,000 (was Rs. 11,000, item 1.b); supplementary Rs. 6,500 (was Rs. 5,500, item 1.h); waiver changed from '70% waiver on 50% utilization within 3 months' to '50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.'. Salary/balance/age thresholds not re-verifiable (product pages still WAF-blocked; no post-June Wayback capture)."
       ]
     },
     {
@@ -74,10 +76,10 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 35000,
         "minimum_relationship_balance_pkr": 150000,
-        "annual_fee_pkr": 19500,
-        "supplementary_annual_fee_pkr": 10000,
+        "annual_fee_pkr": 20500,
+        "supplementary_annual_fee_pkr": 11000,
         "joining_fee_pkr": null,
-        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "annual_fee_waiver_rule": "50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
         "income_document_required": true,
@@ -87,7 +89,7 @@
       },
       "sources": [
         "https://askaribank.com/personal/cards/mastercard-credit-cards",
-        "data/card-requirements/raw/askari-bank/SOC-Jan-Jun-2026.pdf"
+        "https://askaribank.com/gallery/Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026.pdf"
       ],
       "confidence": "high",
       "notes": [
@@ -95,7 +97,8 @@
         "Supplementary annual fee Rs. 10,000 verified from SOC Section H.1.i (Supplementary Card - Platinum).",
         "Eligibility is the shared Mastercard credit-card grid (product page, not SOC); there is no Platinum-only product page.",
         "PKR 35,000 salaried band is the lowest published row (GOP/Semi-Govt./Autonomous permanent); other salaried categories are higher.",
-        "PKR 150,000 balance applies to the SEB/SEP track of the same grid."
+        "PKR 150,000 balance applies to the SEB/SEP track of the same grid.",
+        "Re-verified 2026-09-23 against the Jul-Dec 2026 credit-card SOC addendum ('Schedule of Bank Charges Effective July 10, 2026', file 'Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026'; read via Wayback capture of 2026-07-17 because askaribank.com is Cloudflare-blocked): annual fee Rs. 20,500 (was Rs. 19,500, item 1.c); supplementary Rs. 11,000 (was Rs. 10,000, item 1.i); waiver changed from '70% waiver on 50% utilization within 3 months' to '50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.'. Salary/balance/age thresholds not re-verifiable (product pages still WAF-blocked; no post-June Wayback capture)."
       ]
     },
     {
@@ -105,10 +108,10 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 1000000,
         "minimum_relationship_balance_pkr": null,
-        "annual_fee_pkr": 23000,
-        "supplementary_annual_fee_pkr": 12500,
+        "annual_fee_pkr": 25000,
+        "supplementary_annual_fee_pkr": 14000,
         "joining_fee_pkr": null,
-        "annual_fee_waiver_rule": "70% waiver on 50% utilization of total limit within 3 months of issuance or renewal.",
+        "annual_fee_waiver_rule": "No waiver of annual fee on the basic World card; supplementary World card gets a 50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
         "income_document_required": true,
@@ -118,15 +121,16 @@
       },
       "sources": [
         "https://askaribank.com/personal/cards/askari-world-mastercard-credit-card",
-        "data/card-requirements/raw/askari-bank/SOC-Jan-Jun-2026.pdf"
+        "https://askaribank.com/gallery/Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Annual fee Rs. 23,000 verified directly from Askari Bank SOC effective 1 Jan 2026, Section H.1.d. The 70% waiver wording is explicit in the SOC for the World tier (it applies, contrary to the 2024 SOC where World was charged flat).",
+        "Jan 2026 SOC H.1.d listed Rs. 23,000 with the 70% waiver applying to World; superseded by the Jul 2026 addendum (see below).",
         "Supplementary annual fee Rs. 12,500 verified from SOC Section H.1.j (Supplementary Card - World).",
         "PKR 1,000,000 monthly salary floor confirmed by the data owner on 2026-05-25 — this is correct as a monthly salary threshold for the World tier. The SOC itself does not publish per-card salary thresholds, so this comes from the bank's product page.",
         "SEB/SEP track on the same World product page publishes PKR 2.0 million annual income.",
-        "No separate public deposit-relationship threshold was found on the World card page."
+        "No separate public deposit-relationship threshold was found on the World card page.",
+        "Re-verified 2026-09-23 against the Jul-Dec 2026 credit-card SOC addendum ('Schedule of Bank Charges Effective July 10, 2026', file 'Adendum-Schedule-of-Bank-Charges-H2-Effective-July-01-2026'; read via Wayback capture of 2026-07-17 because askaribank.com is Cloudflare-blocked): annual fee Rs. 25,000 (was Rs. 23,000, item 1.d); supplementary Rs. 14,000 (was Rs. 12,500, item 1.j); waiver changed from '70% waiver on 50% utilization within 3 months' to 'no waiver of annual fee on the basic World card; supplementary World card gets a 50% waiver on 50% utilization of total limit within 2 months of issuance or renewal.'. World basic card reverts to 'no waiver of Annual Fee' (as in the 2024 SOC); only the supplementary World card retains the 50% waiver. Service charge on World cards is 3.7% per month (44.40% APR). Salary/balance/age thresholds not re-verifiable (product pages still WAF-blocked; no post-June Wayback capture)."
       ]
     },
     {
@@ -159,7 +163,8 @@
         "Replacement fee Rs. 3,000 (SOC E.1.c.i) is not stored on the requirements record.",
         "Card page states no minimum balance requirement for issuance or retention of the Visa Debit Card Classic.",
         "salary field corrected from `0` to `null` per the methodology rule that silence on the bank page does not equal 'no requirement'.",
-        "Existing-account-required set to true because a debit card is issued against an existing Askari deposit account."
+        "Existing-account-required set to true because a debit card is issued against an existing Askari deposit account.",
+        "Re-verification 2026-09-23: no Jul-Dec 2026 conventional SOC covering debit cards was found (the only conventional H2-2026 document located is the credit-card addendum; askaribank.com/gallery/SOC-Conv-English.pdf's latest Wayback capture is the Jul 2025 edition). Values left as per the Jan 2026 SOC. Caution: the Ikhlas Islamic Banking SOC effective July 01, 2026 lists higher Islamic debit fees (Visa Classic Rs. 3,500, Signature Rs. 22,000, PayPak Gold Rs. 2,750 issuance/annual/replacement); these apply to Islamic accounts and were not transferred to this conventional record."
       ]
     },
     {
@@ -191,7 +196,8 @@
         "Annual service fee Rs. 18,000 verified from SOC Section E.1.b.iv.",
         "SOC Section E.1 header explicitly states '(Basic & Supplementary)' for Visa Chip Debit Cards — supplementary annual fee uses the same Rs. 18,000 figure as basic.",
         "Replacement fee Rs. 18,000 (SOC E.1.c.iv) is not stored on the requirements record.",
-        "Eligibility is relationship-balance based, not salary based. PKR 5,000,000 minimum average quarterly current-account relationship for conventional banking comes from askaribank.com/ascend-priority. The Visa Signature Debit Card is the Ascend Priority debit card."
+        "Eligibility is relationship-balance based, not salary based. PKR 5,000,000 minimum average quarterly current-account relationship for conventional banking comes from askaribank.com/ascend-priority. The Visa Signature Debit Card is the Ascend Priority debit card.",
+        "Re-verification 2026-09-23: no Jul-Dec 2026 conventional SOC covering debit cards was found (the only conventional H2-2026 document located is the credit-card addendum; askaribank.com/gallery/SOC-Conv-English.pdf's latest Wayback capture is the Jul 2025 edition). Values left as per the Jan 2026 SOC. Caution: the Ikhlas Islamic Banking SOC effective July 01, 2026 lists higher Islamic debit fees (Visa Classic Rs. 3,500, Signature Rs. 22,000, PayPak Gold Rs. 2,750 issuance/annual/replacement); these apply to Islamic accounts and were not transferred to this conventional record."
       ]
     },
     {
@@ -226,7 +232,8 @@
         "Replacement fee Rs. 2,400 (SOC E.3.c.ii) is not stored on the requirements record.",
         "PayPak Gold debit issuance is account-linked rather than salary-gated; the public card page does not publish a salary or balance requirement of its own.",
         "Linked-account inheritance: Askari Asaan Current and Asaan Saving accounts both advertise PKR 100 opening amount and no minimum-balance requirement, and both expose PayPak debit card issuance on their official product pages.",
-        "salary field corrected from `0` to `null` per the methodology rule."
+        "salary field corrected from `0` to `null` per the methodology rule.",
+        "Re-verification 2026-09-23: no Jul-Dec 2026 conventional SOC covering debit cards was found (the only conventional H2-2026 document located is the credit-card addendum; askaribank.com/gallery/SOC-Conv-English.pdf's latest Wayback capture is the Jul 2025 edition). Values left as per the Jan 2026 SOC. Caution: the Ikhlas Islamic Banking SOC effective July 01, 2026 lists higher Islamic debit fees (Visa Classic Rs. 3,500, Signature Rs. 22,000, PayPak Gold Rs. 2,750 issuance/annual/replacement); these apply to Islamic accounts and were not transferred to this conventional record."
       ]
     }
   ],
@@ -234,7 +241,7 @@
     "Debit-card pages do not publish age criteria; age fields remain null.",
     "Account-linked debit cards inherit their effective eligibility from the linked account product, but the card page itself does not state a salary requirement.",
     "Mastercard credit-card eligibility on the bank's page is published as a per-applicant-category grid; the pilot collapses the grid to a single lowest-band threshold (GOP/Semi-Govt./Autonomous permanent at PKR 35,000 / SEB/SEP at PKR 150,000 average balance) — refinement by applicant category is still outstanding.",
-    "Per-card salary and balance thresholds come from product pages (still Cloudflare-WAF-blocked); the Jan 2026 SOC is now in repo and authoritative for all fee fields.",
-    "SOC contains additional card variants not yet in the pilot: Visa Chip Debit Gold (Rs. 3,500) and Platinum (Rs. 8,000); UnionPay Chip Debit Classic (Rs. 2,200) and Gold (Rs. 2,400); PayPak Silver (Rs. 1,700); FCY Debit Card (USD 15); Corporate Mastercard Credit (Rs. 4,800); Awami Mastercard Credit (Rs. 2,300, existing portfolio only); Askari PIA Co-Brand Classic/Gold/Platinum (Rs. 5,000 / 8,000 / 10,000)."
+    "Per-card salary and balance thresholds come from product pages (still Cloudflare-WAF-blocked as of 2026-09-23); credit-card fees now come from the public Jul 2026 addendum, debit-card fees from the Jan 2026 SOC pending a full H2-2026 conventional SOC.",
+    "SOC contains additional card variants not yet in the pilot: Visa Chip Debit Gold (Rs. 3,500) and Platinum (Rs. 8,000); UnionPay Chip Debit Classic (Rs. 2,200) and Gold (Rs. 2,400); PayPak Silver (Rs. 1,700); FCY Debit Card (USD 15) [Jan 2026 conventional SOC]; and, per the Jul 2026 credit-card addendum, Corporate Mastercard Credit (Rs. 5,500, no waiver), Awami Mastercard Credit (Rs. 2,700, existing portfolio only), Askari PIA Co-Brand Classic/Gold/Platinum (Rs. 6,000 / 9,000 / 11,000, no waiver)."
   ]
 }

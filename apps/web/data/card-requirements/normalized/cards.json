@@ -330,6 +330,17 @@
     "pilot_position": 2
   },
   {
+    "card_id": "bank-al-habib--al-habib-platinum-credit-card",
+    "bank_slug": "bank-al-habib",
+    "bank_name": "Bank AL Habib",
+    "card_name": "AL Habib Platinum Credit Card",
+    "card_slug": "al-habib-platinum-credit-card",
+    "card_type": "credit",
+    "tier": "platinum",
+    "confidence": "medium",
+    "pilot_position": 3
+  },
+  {
     "card_id": "bank-al-habib--al-habib-digital-account-classic-debit-card",
     "bank_slug": "bank-al-habib",
     "bank_name": "Bank AL Habib",
@@ -338,7 +349,7 @@
     "card_type": "debit",
     "tier": "digital-classic",
     "confidence": "high",
-    "pilot_position": 8
+    "pilot_position": 9
   },
   {
     "card_id": "bank-al-habib--al-habib-digital-account-gold-debit-card",
@@ -349,7 +360,7 @@
     "card_type": "debit",
     "tier": "digital-gold",
     "confidence": "high",
-    "pilot_position": 7
+    "pilot_position": 8
   },
   {
     "card_id": "bank-al-habib--al-habib-remit-debit-card",
@@ -360,7 +371,7 @@
     "card_type": "debit",
     "tier": "remit",
     "confidence": "medium",
-    "pilot_position": 9
+    "pilot_position": 10
   },
   {
     "card_id": "bank-al-habib--al-habib-woman-debit-card",
@@ -371,7 +382,7 @@
     "card_type": "debit",
     "tier": "woman",
     "confidence": "medium",
-    "pilot_position": 10
+    "pilot_position": 11
   },
   {
     "card_id": "bank-al-habib--bahl-unionpay-apna-debit-card",
@@ -382,7 +393,7 @@
     "card_type": "debit",
     "tier": "unionpay-apna",
     "confidence": "high",
-    "pilot_position": 11
+    "pilot_position": 12
   },
   {
     "card_id": "bank-al-habib--bahl-unionpay-debit-card",
@@ -393,7 +404,7 @@
     "card_type": "debit",
     "tier": "unionpay",
     "confidence": "high",
-    "pilot_position": 12
+    "pilot_position": 13
   },
   {
     "card_id": "bank-al-habib--paypak-debit-card",
@@ -404,7 +415,7 @@
     "card_type": "debit",
     "tier": "paypak",
     "confidence": "high",
-    "pilot_position": 13
+    "pilot_position": 14
   },
   {
     "card_id": "bank-al-habib--signature-debit-card",
@@ -415,7 +426,7 @@
     "card_type": "debit",
     "tier": "signature",
     "confidence": "high",
-    "pilot_position": 3
+    "pilot_position": 4
   },
   {
     "card_id": "bank-al-habib--visa-gold-debit-card",
@@ -426,7 +437,7 @@
     "card_type": "debit",
     "tier": "gold",
     "confidence": "high",
-    "pilot_position": 5
+    "pilot_position": 6
   },
   {
     "card_id": "bank-al-habib--visa-platinum-debit-card",
@@ -437,7 +448,7 @@
     "card_type": "debit",
     "tier": "platinum",
     "confidence": "high",
-    "pilot_position": 4
+    "pilot_position": 5
   },
   {
     "card_id": "bank-al-habib--visa-silver-debit-card",
@@ -448,18 +459,7 @@
     "card_type": "debit",
     "tier": "silver",
     "confidence": "high",
-    "pilot_position": 6
-  },
-  {
-    "card_id": "bank-al-habib--al-habib-platinum-credit-card",
-    "bank_slug": "bank-al-habib",
-    "bank_name": "Bank AL Habib",
-    "card_name": "AL Habib Platinum Credit Card",
-    "card_slug": "al-habib-platinum-credit-card",
-    "card_type": "credit",
-    "tier": "platinum",
-    "confidence": "high",
-    "pilot_position": 14
+    "pilot_position": 7
   },
   {
     "card_id": "bank-alfalah--bank-alfalah-american-express-gold-credit-card",
@@ -601,7 +601,7 @@
     "card_slug": "bank-alfalah-islamic-premier-visa-signature-debit-card",
     "card_type": "debit",
     "tier": "islamic-premier-signature",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 22
   },
   {
@@ -869,6 +869,17 @@
     "pilot_position": 13
   },
   {
+    "card_id": "bank-of-punjab--bop-paypak-debit-card",
+    "bank_slug": "bank-of-punjab",
+    "bank_name": "Bank of Punjab",
+    "card_name": "BOP PayPak Debit Card",
+    "card_slug": "bop-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "medium",
+    "pilot_position": 15
+  },
+  {
     "card_id": "bank-of-punjab--bop-taqwa-khaas-platinum-islamic-debit-card",
     "bank_slug": "bank-of-punjab",
     "bank_name": "Bank of Punjab",
@@ -911,17 +922,6 @@
     "tier": "world",
     "confidence": "high",
     "pilot_position": 3
-  },
-  {
-    "card_id": "bank-of-punjab--bop-paypak-debit-card",
-    "bank_slug": "bank-of-punjab",
-    "bank_name": "Bank of Punjab",
-    "card_name": "BOP PayPak Debit Card",
-    "card_slug": "bop-paypak-debit-card",
-    "card_type": "debit",
-    "tier": "paypak",
-    "confidence": "medium",
-    "pilot_position": 15
   },
   {
     "card_id": "bankislami--classic-debit-mastercard",
@@ -1056,6 +1056,28 @@
     "pilot_position": 1
   },
   {
+    "card_id": "faysal-bank--faysal-bank-business-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Bank Business Debit Card",
+    "card_slug": "faysal-bank-business-debit-card",
+    "card_type": "debit",
+    "tier": "business",
+    "confidence": "medium",
+    "pilot_position": 15
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami Co-Badged Mastercard PayPak Debit Card",
+    "card_slug": "faysal-islami-co-badged-mastercard-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 14
+  },
+  {
     "card_id": "faysal-bank--faysal-islami-mastercard-amal-gold-debit-card",
     "bank_slug": "faysal-bank",
     "bank_name": "Faysal Bank Limited",
@@ -1100,6 +1122,28 @@
     "pilot_position": 12
   },
   {
+    "card_id": "faysal-bank--faysal-islami-paypak-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami PayPak Debit Card",
+    "card_slug": "faysal-islami-paypak-debit-card",
+    "card_type": "debit",
+    "tier": "classic",
+    "confidence": "high",
+    "pilot_position": 13
+  },
+  {
+    "card_id": "faysal-bank--faysal-islami-paypak-unionpay-co-badged-debit-card",
+    "bank_slug": "faysal-bank",
+    "bank_name": "Faysal Bank Limited",
+    "card_name": "Faysal Islami PayPak UnionPay Co-Badged Debit Card",
+    "card_slug": "faysal-islami-paypak-unionpay-co-badged-debit-card",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "medium",
+    "pilot_position": 16
+  },
+  {
     "card_id": "faysal-bank--faysal-islami-priority-platinum-debit-card",
     "bank_slug": "faysal-bank",
     "bank_name": "Faysal Bank Limited",
@@ -1120,50 +1164,6 @@
     "tier": "world",
     "confidence": "high",
     "pilot_position": 7
-  },
-  {
-    "card_id": "faysal-bank--faysal-islami-paypak-debit-card",
-    "bank_slug": "faysal-bank",
-    "bank_name": "Faysal Bank Limited",
-    "card_name": "Faysal Islami PayPak Debit Card",
-    "card_slug": "faysal-islami-paypak-debit-card",
-    "card_type": "debit",
-    "tier": "classic",
-    "confidence": "high",
-    "pilot_position": 13
-  },
-  {
-    "card_id": "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card",
-    "bank_slug": "faysal-bank",
-    "bank_name": "Faysal Bank Limited",
-    "card_name": "Faysal Islami Co-Badged Mastercard PayPak Debit Card",
-    "card_slug": "faysal-islami-co-badged-mastercard-paypak-debit-card",
-    "card_type": "debit",
-    "tier": "classic",
-    "confidence": "high",
-    "pilot_position": 14
-  },
-  {
-    "card_id": "faysal-bank--faysal-bank-business-debit-card",
-    "bank_slug": "faysal-bank",
-    "bank_name": "Faysal Bank Limited",
-    "card_name": "Faysal Bank Business Debit Card",
-    "card_slug": "faysal-bank-business-debit-card",
-    "card_type": "debit",
-    "tier": "business",
-    "confidence": "medium",
-    "pilot_position": 15
-  },
-  {
-    "card_id": "faysal-bank--faysal-islami-paypak-unionpay-co-badged-debit-card",
-    "bank_slug": "faysal-bank",
-    "bank_name": "Faysal Bank Limited",
-    "card_name": "Faysal Islami PayPak UnionPay Co-Badged Debit Card",
-    "card_slug": "faysal-islami-paypak-unionpay-co-badged-debit-card",
-    "card_type": "debit",
-    "tier": "paypak",
-    "confidence": "medium",
-    "pilot_position": 16
   },
   {
     "card_id": "hbl--hbl-fuelsaver-gold-creditcard",
@@ -1265,6 +1265,17 @@
     "pilot_position": 13
   },
   {
+    "card_id": "hbl--hbl-paypak-debitcard",
+    "bank_slug": "hbl",
+    "bank_name": "HBL",
+    "card_name": "HBL PayPak DebitCard",
+    "card_slug": "hbl-paypak-debitcard",
+    "card_type": "debit",
+    "tier": "paypak",
+    "confidence": "high",
+    "pilot_position": 17
+  },
+  {
     "card_id": "hbl--hbl-prestige-world-elite-debitcard",
     "bank_slug": "hbl",
     "bank_name": "HBL",
@@ -1340,17 +1351,6 @@
     "tier": "world",
     "confidence": "medium",
     "pilot_position": 11
-  },
-  {
-    "card_id": "hbl--hbl-paypak-debitcard",
-    "bank_slug": "hbl",
-    "bank_name": "HBL",
-    "card_name": "HBL PayPak DebitCard",
-    "card_slug": "hbl-paypak-debitcard",
-    "card_type": "debit",
-    "tier": "paypak",
-    "confidence": "high",
-    "pilot_position": 17
   },
   {
     "card_id": "hbl-islamic--hbl-islamic-business-debitcard",
@@ -1745,7 +1745,7 @@
     "card_slug": "mastercard-classic-debit-card",
     "card_type": "debit",
     "tier": "classic",
-    "confidence": "high",
+    "confidence": "low",
     "pilot_position": 4
   },
   {
@@ -2053,7 +2053,7 @@
     "card_slug": "paypak-classic",
     "card_type": "debit",
     "tier": "classic",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 1,
     "benefits": "Golootlo discounts through app"
   },
@@ -2065,7 +2065,7 @@
     "card_slug": "paypak-edge-co-badge-mastercard",
     "card_type": "debit",
     "tier": "premium",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 3,
     "benefits": "Golootlo discounts through app"
   },
@@ -2077,7 +2077,7 @@
     "card_slug": "paypak-pink",
     "card_type": "debit",
     "tier": "classic",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 2,
     "benefits": "Golootlo discounts through app"
   },
@@ -2089,7 +2089,7 @@
     "card_slug": "upi-classic",
     "card_type": "debit",
     "tier": "classic",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 4,
     "benefits": "Golootlo discounts direct on card"
   },
@@ -2101,7 +2101,7 @@
     "card_slug": "upi-gold",
     "card_type": "debit",
     "tier": "gold",
-    "confidence": "low",
+    "confidence": "medium",
     "pilot_position": 5,
     "benefits": "Golootlo discounts direct on card"
   },
@@ -2146,7 +2146,7 @@
     "card_slug": "mastercard-titanium-credit-card",
     "card_type": "credit",
     "tier": "titanium",
-    "confidence": "medium",
+    "confidence": "high",
     "pilot_position": 3
   },
   {

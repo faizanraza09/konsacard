@@ -1,7 +1,7 @@
 {
   "bank_slug": "bankislami",
   "bank_name": "BankIslami",
-  "retrieved_note": "Re-verified 2026-05-25 against bankislami.com.pk product pages, the Jan-Jun 2026 Schedule of Charges PDF, and Titanium Debit Mastercard FAQ/T&C PDFs. Public pages publish no salary, age, or per-card balance thresholds for standard debit cards; the 2026 SOC is authoritative for fees.",
+  "retrieved_note": "Re-verified 2026-09-23 against the Jul-Dec 2026 Schedule of Bank Charges (bankislami.com.pk/wp-content/uploads/2026/05/Schedule-of-Charges-July-December-2026-English.pdf, 1st July to 31st December 2026), plus current debit-card, Priority Banking and Mashal pages. Card fees rose (Classic Rs. 3,200, Titanium Rs. 5,000, PayPak Rs. 2,200) and the Priority fee waiver now covers any debit card. Public pages still publish no salary, age, or per-card balance thresholds for standard debit cards. Previous: 2026-05-25 against the Jan-Jun 2026 SOC and Titanium FAQ/T&C PDFs.",
   "cards": [
     {
       "card_name": "Classic Debit Mastercard",
@@ -10,8 +10,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 2900,
-        "annual_fee_waiver_rule": "Free for BIPL staff salary accounts (per Jan-Jun 2026 SOC, section 11).",
+        "annual_fee_pkr": 3200,
+        "annual_fee_waiver_rule": "Free for BIPL staff salary accounts (Jul-Dec 2026 SOC, section 11); free issuance/annual fee and replacement for Priority Banking customers (PKR 3 million combined quarterly-average relationship balance) per Jul-Dec 2026 SOC, section 12.B, which now covers 'any Debit Cards offered by the bank'.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -22,17 +22,16 @@
       "sources": [
         "https://bankislami.com.pk/digital-channel/debitcards/classic-debit-mastercard/",
         "https://bankislami.com.pk/schedule-of-charges/",
-        "https://bankislami.com.pk/wp-content/uploads/2025/12/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
-        "https://bankislami.com.pk/wp-content/uploads/2026/01/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
+        "https://bankislami.com.pk/wp-content/uploads/2026/05/Schedule-of-Charges-July-December-2026-English.pdf",
         "https://bankislami.com.pk/mashal-women-/"
       ],
       "confidence": "high",
       "notes": [
-        "Verified PKR 2,900 issuance / annual subscription / replacement on Jan-Jun 2026 SOC, section 4.A (Digital Delivery Channels), p.7.",
         "Product page (https://bankislami.com.pk/digital-channel/debitcards/classic-debit-mastercard/) is descriptive only — publishes no salary, balance, age, or fee figures.",
         "Card is account-linked: T&C definitions reference a 'Linked Account' (Current, PLS Savings, or Roshan Digital). Balance threshold therefore inherits from the underlying account, which varies — most BankIslami accounts have no minimum opening balance per the Digital Onboarding product brief.",
         "Mashal Women Banking offers 50% discount on Classic / PayPak debit issuance and annual subscription on Mashal Asaan, and FREE Classic / PayPak issuance + annual subscription on Mashal Saving with PKR 100,000 average balance (SOC Jan-Jun 2026, section 13).",
-        "Gen Z Account holders get Classic Debit Mastercard free (SOC section 15)."
+        "Gen Z Account holders get Classic Debit Mastercard free (SOC section 15).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC, section 4.A (p.7): issuance / annual subscription / replacement Rs. 3,200 (was Rs. 2,900). Staff (section 11), Mashal (section 13: 50% off on Mashal Asaan, free on Mashal Saving with PKR 100,000 average balance) and Gen Z (section 15: Classic free) waivers unchanged. Priority Banking fee waiver (section 12.B) now covers any debit card, so it was added to the waiver rule."
       ]
     },
     {
@@ -42,8 +41,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 1800,
-        "annual_fee_waiver_rule": "Free for BIPL staff salary accounts (per Jan-Jun 2026 SOC, section 11).",
+        "annual_fee_pkr": 2200,
+        "annual_fee_waiver_rule": "Free for BIPL staff salary accounts (Jul-Dec 2026 SOC, section 11); free issuance/annual fee and replacement for Priority Banking customers (PKR 3 million combined quarterly-average relationship balance) per Jul-Dec 2026 SOC, section 12.B, which now covers 'any Debit Cards offered by the bank'.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -54,16 +53,15 @@
       "sources": [
         "https://bankislami.com.pk/digital-channel/debitcards/paypak-debit-card/",
         "https://bankislami.com.pk/schedule-of-charges/",
-        "https://bankislami.com.pk/wp-content/uploads/2025/12/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
-        "https://bankislami.com.pk/wp-content/uploads/2026/01/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
+        "https://bankislami.com.pk/wp-content/uploads/2026/05/Schedule-of-Charges-July-December-2026-English.pdf",
         "https://bankislami.com.pk/mashal-women-/"
       ],
       "confidence": "high",
       "notes": [
-        "Verified PKR 1,800 issuance / annual subscription / replacement on Jan-Jun 2026 SOC, section 4.A, p.7.",
         "Product page (https://bankislami.com.pk/digital-channel/debitcards/paypak-debit-card/) is descriptive only — publishes no salary, balance, age, or fee figures.",
         "Card is account-linked; balance threshold inherits from underlying account, which varies. Most BankIslami accounts have no minimum maintenance balance.",
-        "Mashal Women Banking offers 50% discount on PayPak issuance/annual subscription, and free PayPak with PKR 100,000 average balance on Mashal Saving."
+        "Mashal Women Banking offers 50% discount on PayPak issuance/annual subscription, and free PayPak with PKR 100,000 average balance on Mashal Saving.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC, section 4.A (p.7): issuance / annual subscription / replacement Rs. 2,200 (was Rs. 1,800). Staff and Mashal waivers unchanged; Priority Banking waiver (section 12.B, any debit card) added to the waiver rule."
       ]
     },
     {
@@ -73,8 +71,8 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 4000,
-        "annual_fee_waiver_rule": "Free issuance and replacement for Priority Banking customers (PKR 3 million combined quarterly-average relationship balance) per Jan-Jun 2026 SOC, section 12.",
+        "annual_fee_pkr": 5000,
+        "annual_fee_waiver_rule": "Free issuance/annual fee and replacement for Priority Banking customers (PKR 3 million combined quarterly-average relationship balance) per Jul-Dec 2026 SOC, section 12.B ('any Debit Cards offered by the bank').",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -86,24 +84,24 @@
         "https://bankislami.com.pk/digital-channel/debitcards/titanium-debit-mastercard/",
         "https://bankislami.com.pk/wp-content/uploads/2022/07/FAQs-Titanium-Debit-Mastercard.pdf",
         "https://bankislami.com.pk/wp-content/uploads/2022/07/Terms-Condition-Titanium-Debit-Mastercard.pdf",
-        "https://bankislami.com.pk/wp-content/uploads/2025/12/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
-        "https://bankislami.com.pk/wp-content/uploads/2026/01/Schedule-of-Charges-SOC-Jan-June-2026.pdf",
+        "https://bankislami.com.pk/wp-content/uploads/2026/05/Schedule-of-Charges-July-December-2026-English.pdf",
         "https://bankislami.com.pk/prioritybanking/",
         "https://onboard.bankislami.com.pk/static/media/Products%20Brief%20Description%20-%20Digital%20Onboarding%20Final.f03233bc.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Verified PKR 4,000 issuance / annual subscription / replacement on Jan-Jun 2026 SOC, section 4.A, p.7.",
         "Corrected: prior pilot recorded a PKR 25,000 average-balance fee waiver, but the SOC, the Titanium FAQ PDF, and the Titanium T&C PDF contain no such waiver. The PKR 25,000 average balance figure in BankIslami's Digital Onboarding brief is the Islami Sahulat Account 'free services' threshold (free chequebook / pay orders / online banking / e-statement etc.), not a Titanium card fee waiver.",
         "T&C clause 10 explicitly states the cardholder 'undertakes to pay all bank charges in respect of annual subscription, renewal/replacement fee of the CARD ... in accordance with Bank's Schedule of Charges'.",
         "Priority Titanium Debit Mastercard (a separate Priority Banking variant) is FREE for issuance and replacement, gated by PKR 3 million combined quarterly-average balance per SOC section 12. Modeled here as the Titanium card's published waiver since it is the same Mastercard tier under a different relationship segment.",
-        "Card is account-linked: T&C definitions reference a 'Linked Account' (Current, PLS Savings, or Roshan Digital). No standalone salary or balance threshold for the ordinary Titanium card is publicly disclosed."
+        "Card is account-linked: T&C definitions reference a 'Linked Account' (Current, PLS Savings, or Roshan Digital). No standalone salary or balance threshold for the ordinary Titanium card is publicly disclosed.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOC, section 4.A (p.7): issuance / annual subscription / replacement Rs. 5,000 (was Rs. 4,000). Priority Banking criteria unchanged (PKR 3 million quarterly average, section 12.A; prioritybanking page agrees); the section 12.B waiver now reads 'Free Issuance / Annual Fees of any Debit Cards offered by the bank' instead of naming only the Priority Titanium card."
       ]
     }
   ],
   "gaps": [
     "No clear public consumer credit-card catalogue was found in this pass — BankIslami appears to publish only debit cards on its public site.",
     "Public product pages do not publish salary, age, or per-card balance thresholds for any debit card. The SOC is the only authoritative public source for fees.",
-    "Income document, salary transfer, CNIC, and existing account flags are derived from account-opening conventions (BankIslami requires a linked Rupee current / savings or Roshan Digital account, which itself requires a CNIC); they are not stated card-by-card on the product pages."
+    "Income document, salary transfer, CNIC, and existing account flags are derived from account-opening conventions (BankIslami requires a linked Rupee current / savings or Roshan Digital account, which itself requires a CNIC); they are not stated card-by-card on the product pages.",
+    "The Jul-Dec 2026 SOC (section 4.A) adds Gold (Rs. 4,000), Platinum (Rs. 7,000), World (Rs. 20,000) and World Elite (Rs. 40,000) Debit Mastercard rows, but as of 2026-09-23 bankislami.com.pk/digital-channel/debitcards/ lists only Classic, PayPak and Titanium, so the new tiers were not added."
   ]
 }

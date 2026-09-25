@@ -1,7 +1,7 @@
 {
   "bank_slug": "mcb-islamic",
   "bank_name": "MCB Islamic Bank Ltd",
-  "retrieved_note": "Re-verified 2026-05-25 against MCB Islamic Jan-Jun 2026 Schedule of Bank Charges (Section O, Digital Banking) and the official UnionPay/PayPak and Visa debit-card product pages, plus the Shandaar and Prime account-package pages in the same SOBC.",
+  "retrieved_note": "Re-verified 2026-09-23 against the MCB Islamic Jul-Dec 2026 Schedule of Bank Charges (MCB-ISLAMIC-SOBC-July-Dec-2026.pdf, covering 1 July - 31 December 2026; Shari'ah certificate MCBIB/SB/SV-94/26 dated 19-June-2026), Section O (Digital Banking, p.25) plus the Prime, Shandaar and PayFlex account-package pages in the same SOBC, and live re-checks of the UnionPay/PayPak and Visa debit-card pages and the Shandaar / Asaan account pages. Previous pass 2026-05-25 used the Jan-Jun 2026 SOBC.",
   "cards": [
     {
       "card_name": "MCB Islamic Qadar Classic Debit Card",
@@ -10,7 +10,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 3250,
+        "annual_fee_pkr": 3400,
         "annual_fee_waiver_rule": "Shandaar Account waives first issuance for PayPak / UPI Classic / UPI Gold variants (replacement and annual/renewal still charged); PayFlex Premier/Grand/Executive packages waive new and annual/renewal fees for UPI Classic when the published salary/Employee-Banking criteria are met.",
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -21,12 +21,14 @@
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
-        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-January-June%202026.pdf",
+        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-July-Dec-2026.pdf",
         "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
       "confidence": "high",
       "notes": [
-        "Annual / Issuance / Replacement fee is PKR 3,250 + FED per the Jan-Jun 2026 SOBC (Section O.4, MCB Islamic UnionPay Debit Card table). Corrected from previous value of PKR 2,600.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual / issuance / replacement fee Rs. 3,400 + FED (was Rs. 3,250). Source: Section O, UnionPay Debit Card table, CLASSIC column (p.25).",
+        "Shandaar / PayFlex debit-card waiver wording unchanged in the Jul-Dec 2026 SOBC (new disclaimer: the Bank may change the type/variant of free debit cards at its discretion).",
+        "Annual / Issuance / Replacement fee was PKR 3,250 + FED per the Jan-Jun 2026 SOBC (superseded by Rs. 3,400 in Jul-Dec 2026) (Section O.4, MCB Islamic UnionPay Debit Card table). Corrected from previous value of PKR 2,600.",
         "Shandaar Account page and SOBC entry 22 confirm first issuance is free for PayPak / UPI Classic / UPI Gold for individuals only; annual/renewal still charged at SOBC rate.",
         "Public debit-card pages publish no salary or minimum-balance requirement, and the SOBC does not impose one for non-Platinum variants; salary/balance left null (not 0) per methodology.",
         "Card is account-linked: requires a singly operated MCB Islamic PKR account."
@@ -39,7 +41,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 4000,
+        "annual_fee_pkr": 4300,
         "annual_fee_waiver_rule": "Shandaar Account waives first issuance for PayPak / UPI Classic / UPI Gold variants (replacement and annual/renewal still charged); PayFlex Premier/Grand/Executive packages waive new and annual/renewal fees for UPI Gold when the published salary/Employee-Banking criteria are met.",
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -50,12 +52,14 @@
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
-        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-January-June%202026.pdf",
+        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-July-Dec-2026.pdf",
         "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
       "confidence": "high",
       "notes": [
-        "Annual / Issuance / Replacement fee is PKR 4,000 + FED per the Jan-Jun 2026 SOBC (Section O.4, MCB Islamic UnionPay Debit Card table). Corrected from previous value of PKR 3,200.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual / issuance / replacement fee Rs. 4,300 + FED (was Rs. 4,000). Source: Section O, UnionPay Debit Card table, GOLD column (p.25).",
+        "Shandaar / PayFlex debit-card waiver wording unchanged in the Jul-Dec 2026 SOBC (new disclaimer: the Bank may change the type/variant of free debit cards at its discretion).",
+        "Annual / Issuance / Replacement fee was PKR 4,000 + FED per the Jan-Jun 2026 SOBC (superseded by Rs. 4,300 in Jul-Dec 2026) (Section O.4, MCB Islamic UnionPay Debit Card table). Corrected from previous value of PKR 3,200.",
         "Shandaar Account page and SOBC entry 22 confirm first issuance is free for PayPak / UPI Classic / UPI Gold for individuals only; annual/renewal still charged at SOBC rate.",
         "Public debit-card pages publish no salary or minimum-balance requirement; salary/balance left null per methodology.",
         "Card is account-linked: requires a singly operated MCB Islamic PKR account."
@@ -68,7 +72,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": 1000000,
-        "annual_fee_pkr": 9600,
+        "annual_fee_pkr": 12000,
         "annual_fee_waiver_rule": "Prime accountholders receive 12 months of free UPI Platinum annual/renewal if a PKR 3,000,000 monthly average deposit balance is maintained in 6 of the previous 12 months; otherwise charged per SOBC.",
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -79,14 +83,16 @@
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
-        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-January-June%202026.pdf"
+        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-July-Dec-2026.pdf"
       ],
       "confidence": "high",
       "notes": [
-        "Annual / Issuance / Replacement fee is PKR 9,600 + FED per the Jan-Jun 2026 SOBC (Section O.4, MCB Islamic UnionPay Debit Card table). Corrected from previous value of PKR 7,750.",
-        "SOBC Platinum Debit Card Renewal Criteria require a minimum account balance of PKR 1,000,000 to be issued and a 90-day average of PKR 1,000,000 to continue; if not maintained the card is downgraded.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual / issuance / replacement fee Rs. 12,000 + FED (was Rs. 9,600). Source: Section O, UnionPay Debit Card table, PLATINUM column (p.25).",
+        "Annual / Issuance / Replacement fee was PKR 9,600 + FED per the Jan-Jun 2026 SOBC (superseded by Rs. 12,000 in Jul-Dec 2026) (Section O.4, MCB Islamic UnionPay Debit Card table). Corrected from previous value of PKR 7,750.",
+        "Jul-Dec 2026 SOBC (Section O.1 note and Prime package): UPI Platinum Debit Card issuance only if account balance is minimum PKR 1M. The Jan-Jun 2026 clause requiring a 90-day average of PKR 1M to continue (with downgrade on failure) is no longer printed; renewal-fee waiver for Prime accountholders at PKR 3M in 6 of the previous 12 months is unchanged.",
         "Shandaar Account waiver explicitly excludes Platinum; Prime-account waiver applies as captured in the waiver rule.",
-        "Card is account-linked: requires a singly operated MCB Islamic PKR account meeting the PKR 1M balance threshold."
+        "Card is account-linked: requires a singly operated MCB Islamic PKR account meeting the PKR 1M balance threshold.",
+        "Jul-Dec 2026 SOBC also sets a separate Visa Platinum Debit Card (Rs. 6,000 + FED; NTB/ETB minimum balance PKR 3 million for issuance, fees waived while maintained). That Visa variant is not the UnionPay Platinum tracked in this record."
       ]
     },
     {
@@ -97,7 +103,7 @@
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "minimum_deposit_pkr": 100,
-        "annual_fee_pkr": 2750,
+        "annual_fee_pkr": 3000,
         "annual_fee_waiver_rule": "Shandaar Account waives first issuance for PayPak / UPI Classic / UPI Gold variants for individuals (replacement and annual/renewal still charged); PayFlex Regular/Premier/Grand/Executive packages waive new and annual/renewal fees for PayPak when the published salary/Employee-Banking criteria are met.",
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -108,14 +114,16 @@
       },
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/unionpay-cards/",
-        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-January-June%202026.pdf",
+        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-July-Dec-2026.pdf",
         "https://www.mcbislamicbank.com/personal/products/current-accounts/asaan-current-account/",
         "https://www.mcbislamicbank.com/personal/products/personal-digital-account/mcb-islamic-asaan-digital-current-account/",
         "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
       "confidence": "high",
       "notes": [
-        "Annual / Issuance / Replacement fee is PKR 2,750 + FED per the Jan-Jun 2026 SOBC (Section O.4, MCB Islamic PayPak Debit Card table). Corrected from previous value of PKR 2,200.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual / issuance / replacement fee Rs. 3,000 + FED (was Rs. 2,750). Source: Section O, PayPak Debit Card table (p.25).",
+        "Shandaar / PayFlex debit-card waiver wording unchanged in the Jul-Dec 2026 SOBC (new disclaimer: the Bank may change the type/variant of free debit cards at its discretion).",
+        "Annual / Issuance / Replacement fee was PKR 2,750 + FED per the Jan-Jun 2026 SOBC (superseded by Rs. 3,000 in Jul-Dec 2026) (Section O.4, MCB Islamic PayPak Debit Card table). Corrected from previous value of PKR 2,200.",
         "PayPak is typically issued against Asaan-tier accounts; Asaan Current and Asaan Digital Current pages show PKR 100 initial deposit and no minimum balance.",
         "Shandaar Account waiver covers PayPak first issuance only (individuals); annual/renewal still charged.",
         "Card is account-linked: requires an MCB Islamic PKR account (Asaan-tier accounts most common)."
@@ -128,7 +136,7 @@
       "requirements": {
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
-        "annual_fee_pkr": 3400,
+        "annual_fee_pkr": 3500,
         "annual_fee_waiver_rule": "Shandaar accountholders can have the Visa Classic issuance fee reversed if a PKR 100,000 monthly average balance is maintained in the three months following card issuance; the reversal applies to first issuance only — replacement and annual/renewal are charged per SOBC.",
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -140,12 +148,15 @@
       "sources": [
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/visa-cards/visa-classic/",
         "https://www.mcbislamicbank.com/personal/digital-banking/debit-cards/visa-cards/",
-        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-January-June%202026.pdf",
+        "https://www.mcbislamicbank.com/Documents/MCB-ISLAMIC-SOBC-July-Dec-2026.pdf",
         "https://www.mcbislamicbank.com/personal/products/saving-accounts/shandaar-account/"
       ],
       "confidence": "high",
       "notes": [
-        "Annual / Issuance / Renewal / Replacement fee is PKR 3,400 + FED per the Jan-Jun 2026 SOBC (Section O.4, MCB Islamic VISA Debit Card table). Corrected from previous value of PKR 2,950.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC: annual / issuance / replacement fee Rs. 3,500 + FED (was Rs. 3,400). Source: Section O, VISA Debit Card table, Classic column (p.25).",
+        "Shandaar / PayFlex debit-card waiver wording unchanged in the Jul-Dec 2026 SOBC (new disclaimer: the Bank may change the type/variant of free debit cards at its discretion).",
+        "Visa Classic product page (re-checked 2026-09-23) shows Issuance / Annual / Replacement Fee 3,500 + FED, consistent with the Jul-Dec 2026 SOBC.",
+        "Annual / Issuance / Renewal / Replacement fee was PKR 3,400 + FED per the Jan-Jun 2026 SOBC (superseded by Rs. 3,500 in Jul-Dec 2026) (Section O.4, MCB Islamic VISA Debit Card table). Corrected from previous value of PKR 2,950.",
         "Visa Classic page eligibility: all singly operated PKR accounts for individual / joint (primary) / sole proprietor customers.",
         "Shandaar VDC reversal is explicit in SOBC entry 22 (Visa Classic and Gold only): PKR 100K monthly average balance for 3 months from card issuance; existing Shandaar customers must have maintained PKR 100K in the prior 3 months.",
         "Card is account-linked: requires a singly operated MCB Islamic PKR account."

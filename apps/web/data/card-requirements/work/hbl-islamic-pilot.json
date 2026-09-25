@@ -1,7 +1,7 @@
 {
   "bank_slug": "hbl-islamic",
   "bank_name": "HBL Islamic Bank Limited",
-  "retrieved_note": "Verified 2026-05-25 against HBL Islamic public product pages and the Jan-Jun 2026 Islamic Schedule of Bank Charges (ISOBC). HBL Islamic does not publish a salary or minimum balance threshold for consumer Islamic debit cards — cards are issued to existing Islamic account holders and inherit any account eligibility from the linked Islamic account. The linked Islamic Current and PLS Saving accounts themselves carry no minimum balance, so the card-level balance field is intentionally null (not zero) for consumer tiers.",
+  "retrieved_note": "Verified 2026-05-25 against HBL Islamic public product pages and the Jan-Jun 2026 Islamic Schedule of Bank Charges (ISOBC). Re-verified 2026-09-23 against the Jul-Dec 2026 ISOBC (Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_-_English.pdf, effective 1 Jul-31 Dec 2026; debit-card table p.16, footnotes p.17, Islamic Prestige Part T p.23-25, Islamic Premium Part U p.25, Islamic Preferred Part V p.26) and the live HBL Islamic debit-card and Islamic Prestige pages. No separate Jul-Dec 2026 Islamic Premium addendum is listed on the SOBC resources page. HBL Islamic does not publish a salary or minimum balance threshold for consumer Islamic debit cards — cards are issued to existing Islamic account holders and inherit any account eligibility from the linked Islamic account. The linked Islamic Current and PLS Saving accounts themselves carry no minimum balance, so the card-level balance field is intentionally null (not zero) for consumer tiers.",
   "cards": [
     {
       "card_name": "HBL Islamic PayPak Debit Card",
@@ -12,7 +12,7 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2000,
         "supplementary_annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "First-year free issuance for HBL Uraan, HBL Islamic Rutba, all Islamic Asaan accounts, HBL Islamic Mahana Amdan, and Freelancer Digital Account. Second year onwards annual fees apply.",
+        "annual_fee_waiver_rule": "First-year free issuance for all Islamic Asaan accounts, HBL Islamic Mahana Amdan, and Freelancer Digital Account; second year onwards annual fees apply (Jul-Dec 2026 ISOBC note iii). HBL Uraan customers now get a free HBL Uraan Debit Card (note vii) and HBL iD / HBL Rutba a first-year-free Classic variant (note iv) instead of the PayPak first-year waiver.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -21,13 +21,14 @@
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-paypak-debitcard",
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "ISOBC Jan-Jun 2026 (page 17, Part M, HBL Debit Card section): PayPak Chip primary annual fee Rs. 2,000; supplementary annual fee Nil; replacement fee Rs. 600.",
         "Card is issued through Islamic account opening form or an additional request form — no separate salary or balance threshold is published for the card itself.",
-        "Salary and minimum balance left null because the bank does not publish either threshold for this product (per verification methodology, null != 0)."
+        "Salary and minimum balance left null because the bank does not publish either threshold for this product (per verification methodology, null != 0).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): PayPak Chip primary annual fee Rs. 2,000, supplementary Nil, replacement Rs. 600 - unchanged. Waiver footnote (iii) narrowed: HBL Uraan and HBL Islamic Rutba were removed from the PayPak first-year-free list."
       ]
     },
     {
@@ -39,7 +40,7 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 2700,
         "supplementary_annual_fee_pkr": 550,
-        "annual_fee_waiver_rule": "First-year free issuance of the PayPak debit card for HBL Uraan, HBL Islamic Rutba, all Islamic Asaan accounts, and HBL Islamic Mahana Amdan; second year onwards annual fees apply (ISOBC Jan-Jun 2026, note iii).",
+        "annual_fee_waiver_rule": "First-year free issuance of the PayPak debit card for all Islamic Asaan accounts, HBL Islamic Mahana Amdan and Freelancer Digital Account; second year onwards annual fees apply (Jul-Dec 2026 ISOBC, note iii). HBL Uraan and HBL Islamic Rutba were removed from this list.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -48,14 +49,15 @@
       "sources": [
         "https://www.hbl.com/news-and-media/hbl-to-launch-unionpay-paypak-co-badge-debit-card",
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Co-badge Islamic debit card combining UnionPay International (UPI) global acceptance with the domestic PayPak scheme (HBL UnionPay PayPak Co-Badge Debit Card launch).",
         "ISOBC Jan-Jun 2026 (HBL Islamic Debit Card section) bills by chip type: UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850. The co-badge card carries the UnionPay (classic) chip, so it is billed at the UnionPay Chip rate; PayPak Chip alone is Rs. 2,000.",
         "HBL Islamic does not publish a salary or minimum-balance threshold for consumer Islamic debit cards; both left null per methodology (null != 0).",
-        "Issued against an existing HBL Islamic account; inherits the linked account's eligibility."
+        "Issued against an existing HBL Islamic account; inherits the linked account's eligibility.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): the ISOBC now carries a dedicated 'UnionPay & PayPak Co-Badge' row - primary annual fee Rs. 2,700, replacement Rs. 850 - unchanged. No co-badge line appears under Annual fee (Supplementary); the Rs. 550 supplementary value is still inherited from the UnionPay Chip row (inference)."
       ]
     },
     {
@@ -67,7 +69,7 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3000,
         "supplementary_annual_fee_pkr": 550,
-        "annual_fee_waiver_rule": "Issuance charges of Mastercard Standard for Islamic Nisa Tawfir variants are waived for the first year. Free Mastercard Standard debit card for HBL @ Work Islamic Premium customers.",
+        "annual_fee_waiver_rule": "Issuance charges of Mastercard Standard for Islamic Nisa Tawfir variants are waived for the first year (note i). For HBL iD and HBL Rutba the Classic variant is free for the first year (note iv). Free Classic debit card for HBL @Work Islamic Premium customers (note v). 50% waiver for Nisa Asaan Classic customers (note viii). (Jul-Dec 2026 ISOBC p.17.)",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -76,13 +78,14 @@
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-classic-debitcard-mastercard-visa-unionpay",
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "ISOBC Jan-Jun 2026 (page 17): Mastercard Standard primary annual fee Rs. 3,000; supplementary annual fee Rs. 550.",
         "Public product page defers fee details to the ISOBC — no card-level salary or balance threshold is disclosed.",
-        "Footnote (i) on page 18 confirms Nisa Tawfir first-year waiver; footnote (iv) confirms free Mastercard Standard for HBL @ Work Islamic Premium customers."
+        "Footnote (i) on page 18 confirms Nisa Tawfir first-year waiver; footnote (iv) confirms free Mastercard Standard for HBL @ Work Islamic Premium customers.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): Mastercard Standard primary annual fee Rs. 3,000, supplementary Rs. 550 - unchanged. Footnotes on p.17 revised: @Work Islamic Premium benefit now reads 'Free Classic Debit Card'; new first-year-free Classic variant for HBL iD / HBL Rutba (iv) and 50% waiver for Nisa Asaan Classic (viii)."
       ]
     },
     {
@@ -94,7 +97,7 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3800,
         "supplementary_annual_fee_pkr": null,
-        "annual_fee_waiver_rule": "HBL Nisa Plus Current Account and Nisa Saving Account customers may choose either HBL Classic (Master) Debit Card or HBL Gold (Master) Debit Card at account opening with issuance waived for the first year; second year onwards, annual fees apply per ISOBC.",
+        "annual_fee_waiver_rule": "HBL Nisa Plus Current Account and Nisa Saving Account customers may choose either HBL Classic (Master) Debit Card or HBL Gold (Master) Debit Card at account opening with issuance waived for the first year; second year onwards, annual fees apply per ISOBC. HBL Islamic Preferred customers (PKR 500,000-1,999,999 quarterly average in Islamic Current or Saving accounts) receive a 50% waiver on issuance charges, annual fee and replacement charge of the Master Gold Debit Card (Jul-Dec 2026 ISOBC Part V).",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -103,13 +106,14 @@
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-gold-debitcard",
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "ISOBC Jan-Jun 2026 (page 17): Mastercard Gold primary annual fee Rs. 3,800; supplementary annual fee N/A.",
         "Footnote (ii) on page 18 confirms the Nisa-Plus / Nisa-Saving first-year waiver option.",
-        "Salary and minimum balance left null because the bank does not publish either threshold for this product."
+        "Salary and minimum balance left null because the bank does not publish either threshold for this product.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): Mastercard Gold primary annual fee Rs. 3,800, supplementary N/A - unchanged. New in this edition: Part V 'HBL Islamic Preferred' (p.26) gives a 50% waiver on issuance, annual and replacement charges of the Master Gold Debit Card for PKR 500,000-1,999,999 quarterly-average Islamic Current/Saving relationships."
       ]
     },
     {
@@ -121,7 +125,7 @@
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 20000,
         "supplementary_annual_fee_pkr": null,
-        "annual_fee_waiver_rule": null,
+        "annual_fee_waiver_rule": "For qualified HBL Islamic Premium customers (PKR 2,000,000-4,999,999 quarterly average in Islamic Current or Saving accounts, or qualifying investments), the Jul-Dec 2026 ISOBC Part U waives issuance and annual fee 100% in year 1 and 50% from year 2 onward for the Master World Debit Card; replacement is charged.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -130,13 +134,14 @@
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-world-debitcard",
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "ISOBC Jan-Jun 2026 (page 17): Mastercard World primary annual fee Rs. 20,000; supplementary annual fee N/A.",
         "Public product page lists card limits and lounge benefits but no fee or eligibility table.",
-        "No card-level salary or balance threshold is published — left null per methodology."
+        "No card-level salary or balance threshold is published — left null per methodology.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): Mastercard World primary annual fee Rs. 20,000, supplementary N/A - unchanged. annual_fee_waiver_rule null -> Islamic Premium waiver per Part U (p.25): 100% issuance + annual fee in year 1, 50% from year 2 (the Jan-Jun 2026 ISOBC Part U already carried a 50% Premium waiver that had not been captured). The card is not exclusive to Premium, so no relationship-balance threshold is recorded."
       ]
     },
     {
@@ -147,7 +152,7 @@
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "ISOBC Jan-Jun 2026 footnote (v): Mastercard Business Classic issuance and annual fee are 100% waived for business customers. Product page confirms 'Business Classic Debit Card: Free for life'.",
+        "annual_fee_waiver_rule": "Jul-Dec 2026 ISOBC footnote (vi): Mastercard Business Classic issuance and annual fee are 100% waived for business customers. Product page confirms 'Business Classic Debit Card: Free for life'.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -155,13 +160,14 @@
       },
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-islamic-business-debitcard",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "ISOBC Jan-Jun 2026 (page 17): Mastercard Business Classic standard annual fee is Rs. 8,000, but footnote (v) on page 18 reads 'Master Business Classic: The Issuance and Annual fee is 100% waived'.",
         "Eligibility: card is issued only to non-individual business customers holding PKR Islamic business accounts (Proprietorships / Single Member Companies); personal accounts are not eligible.",
-        "Effective annual fee is zero per the published waiver."
+        "Effective annual fee is zero per the published waiver.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16-17): Mastercard Business Classic schedule fee Rs. 8,000, still 100% waived (footnote renumbered v -> vi) - effective annual fee 0, unchanged."
       ]
     },
     {
@@ -172,7 +178,7 @@
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 22000,
-        "annual_fee_waiver_rule": "ISOBC Jan-Jun 2026 footnote (v): Mastercard Business World issuance is 100% waived and annual fee is charged at 50% of the schedule (effective Rs. 11,000). Product page mentions first year free with PKR 22,000 from year two, subject to partial waivers.",
+        "annual_fee_waiver_rule": "Jul-Dec 2026 ISOBC footnote (vi): Mastercard Business World issuance is 100% waived and annual fee is charged at 50% of the schedule (effective Rs. 11,000). Product page mentions first year free with PKR 22,000 from year two, subject to partial waivers.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "pakistani_cnic_required": true,
@@ -180,13 +186,14 @@
       },
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/hbl-world-islamic-business-debitcard",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
-        "ISOBC Jan-Jun 2026 (page 17): Mastercard Business World schedule annual fee Rs. 22,000; supplementary annual fee Rs. 2,500.",
+        "ISOBC Jan-Jun 2026 (page 17): Mastercard Business World schedule annual fee Rs. 22,000.",
         "Footnote (v) on page 18 reads 'Master Business World: The Issuance is 100% waived and Annual fees is 50% charged'.",
-        "Card restricted to non-individual business customers (Proprietorships / Single Member Companies) holding PKR Islamic business accounts."
+        "Card restricted to non-individual business customers (Proprietorships / Single Member Companies) holding PKR Islamic business accounts.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16-17): Mastercard Business World schedule annual fee Rs. 22,000, issuance 100% waived / annual 50% charged (footnote vi) - unchanged. Correction to earlier note: Rs. 2,500 is the Business World replacement fee, not a supplementary fee; the ISOBC lists no supplementary fee for this card."
       ]
     },
     {
@@ -205,13 +212,15 @@
       },
       "sources": [
         "https://www.hbl.com/prestige/prestige-experience",
-        "https://www.hbl.com/prestige/islamic-prestige/islamic-prestige-cards/hbl-islamic-world-elite-debitcard"
+        "https://www.hbl.com/prestige/islamic-prestige/islamic-prestige-cards/hbl-islamic-world-elite-debitcard",
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "high",
       "notes": [
         "HBL Prestige Experience page lists Islamic Prestige eligibility as PKR 5,000,000 quarterly-average AUM in Islamic Current or Saving accounts (or equivalent foreign currency); RDA route is USD 50,000 equivalent.",
         "Balance is published at the Prestige proposition / linked-account level, not on the card itself — recorded under minimum_relationship_balance_pkr.",
-        "Product page states 'Free issuance and renewal' and 'Free card replacements' for Islamic Prestige members — no card-level salary threshold is published."
+        "Product page states 'Free issuance and renewal' and 'Free card replacements' for Islamic Prestige members — no card-level salary threshold is published.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC Part T (p.23-24): Islamic Prestige eligibility PKR 5,000,000 quarterly average in Islamic Current or Islamic Savings account (or equivalent FCY), USD 50,000 RDA; Prestige World Elite Debit Card annual/issuance fee and replacement fee Free - unchanged. Product page still states free issuance, renewal and replacements."
       ]
     },
     {
@@ -222,7 +231,7 @@
         "minimum_monthly_salary_pkr": null,
         "minimum_account_balance_pkr": null,
         "annual_fee_pkr": 3000,
-        "supplementary_annual_fee_pkr": 700,
+        "supplementary_annual_fee_pkr": 900,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null,
@@ -230,13 +239,14 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "low",
       "notes": [
-        "ISOBC Jan-Jun 2026 (page 17): Mastercard Titanium primary annual fee Rs. 3,000; supplementary annual fee Rs. 700; replacement fee Rs. 900.",
+        "ISOBC Jan-Jun 2026 (page 17): Mastercard Titanium primary annual fee Rs. 3,000.",
         "There is no public HBL Islamic Titanium debit-card product page on hbl.com — the tier appears only in the ISOBC fee schedule. Confidence lowered accordingly.",
-        "Salary and balance left null because the bank does not publish either threshold for this product."
+        "Salary and balance left null because the bank does not publish either threshold for this product.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): Mastercard Titanium primary annual fee Rs. 3,000 - unchanged. Correction: supplementary_annual_fee_pkr Rs. 700 -> Rs. 900. The ISOBC (both Jan-Jun and Jul-Dec 2026 editions) lists Titanium supplementary Rs. 900 and replacement Rs. 700; the earlier values were swapped."
       ]
     },
     {
@@ -256,14 +266,15 @@
       },
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "UnionPay (classic-chip) variant of the HBL Islamic debit card; surfaced in the Peekaboo feed in June 2026.",
         "ISOBC Jan-Jun 2026 (HBL Islamic Debit Card section) bills debit cards by chip type: UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850.",
         "HBL Islamic does not publish a salary or minimum-balance threshold for consumer Islamic debit cards; both left null per methodology (null != 0).",
-        "Issued against an existing HBL Islamic account; inherits the linked account's eligibility."
+        "Issued against an existing HBL Islamic account; inherits the linked account's eligibility.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): UnionPay Chip primary annual fee Rs. 2,700, supplementary Rs. 550, replacement Rs. 850 - unchanged."
       ]
     },
     {
@@ -283,14 +294,15 @@
       },
       "sources": [
         "https://www.hbl.com/islamic/islamic-cards/islamic-debit-card/debitcards-overview",
-        "https://www.hbl.com/assets/documents/ISOBC_January_to_June_2026_-_English_Web.pdf"
+        "https://www.hbl.com/assets/documents/Islamic_Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "UnionPay Gold-chip variant of the HBL Islamic debit card; surfaced in the Peekaboo feed in June 2026.",
         "ISOBC Jan-Jun 2026 (HBL Islamic Debit Card section): UnionPay Chip Gold primary annual fee Rs. 3,500, supplementary N/A, replacement Rs. 1,000.",
         "HBL Islamic does not publish a salary or minimum-balance threshold for consumer Islamic debit cards; both left null per methodology (null != 0).",
-        "Issued against an existing HBL Islamic account; inherits the linked account's eligibility."
+        "Issued against an existing HBL Islamic account; inherits the linked account's eligibility.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 ISOBC (p.16): UnionPay Chip Gold primary annual fee Rs. 3,500, supplementary N/A, replacement Rs. 1,000 - unchanged."
       ]
     }
   ],

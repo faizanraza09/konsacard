@@ -1,7 +1,7 @@
 {
   "bank_slug": "bank-alfalah",
   "bank_name": "Bank Alfalah",
-  "retrieved_note": "Verified against Jan-Jun 2026 KFS, conventional and Islamic SOC PDFs, AFRC, AMEX and Corporate KFS, and product pages on bankalfalah.com (verification pass 2026-05-25).",
+  "retrieved_note": "Re-verified 2026-09-23 against the Jul-Dec 2026 editions: conventional SOC ('Schedule of Charges July - Dec 2026 (conventional)'), Islamic SOC English (Jul-Dec 2026, dated 29-05-26), Credit Card Summary Box/KFS (Jul 26-Dec 26), AMEX Summary Box/KFS (Jul 26-Dec 26), Corporate Card Summary Box (Jul to Dec 2026), AFRC (still effective 1 Jan 2026), plus live product/eligibility pages on bankalfalah.com. Debit fees rose ~8-10% across conventional and Islamic; Gold/Optimus/AMEX/Ultra credit fees rose; Classic/Platinum/Corporate credit unchanged. Previous pass 2026-05-25 used the Jan-Jun 2026 documents.",
   "cards": [
     {
       "card_name": "Visa Classic Debit Card",
@@ -10,20 +10,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 3500,
-        "supplementary_annual_fee_pkr": 1750,
+        "annual_fee_pkr": 3800,
+        "supplementary_annual_fee_pkr": 2100,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/digital-banking/debit-cards/visa-classic-debit-card",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "Card page: 'No minimum income requirement. No minimum balance requirement.'",
-        "SOC Jan-Jun 2026 Sec A Pt 5 Debit Card i: PKR 3,500/year basic, PKR 1,750/year supplementary (corrected from PKR 2,900)."
+        "SOC Jan-Jun 2026 Sec A Pt 5 Debit Card i: PKR 3,500/year basic, PKR 1,750/year supplementary (corrected from PKR 2,900).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC (Consumer Banking Sec A Pt 3 Debit Card, i-ii): annual fee Rs. 3,800 (was Rs. 3,500); supplementary Rs. 2,100 (was Rs. 1,750). Product page still states no minimum income or balance requirement."
       ]
     },
     {
@@ -33,20 +34,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 5000,
-        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 3100,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/digital-banking/debit-cards/visa-gold-debit",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "Product page: 'No minimum income required for issuance.'",
-        "SOC Jan-Jun 2026: PKR 5,000/year basic, PKR 2,500/year supplementary."
+        "SOC Jan-Jun 2026: PKR 5,000/year basic, PKR 2,500/year supplementary.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC (Sec A Pt 3 Debit Card, iii-iv): annual fee Rs. 5,500 (was Rs. 5,000); supplementary Rs. 3,100 (was Rs. 2,500). Product page still states no minimum income required."
       ]
     },
     {
@@ -56,20 +58,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 10000,
-        "supplementary_annual_fee_pkr": 5000,
+        "annual_fee_pkr": 11000,
+        "supplementary_annual_fee_pkr": 5500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/digital-banking/debit-cards/visa-platinum-debit-card",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "SOC Jan-Jun 2026 Sec A Pt 5 Debit Card i: PKR 10,000/year basic, PKR 5,000/year supplementary (corrected from PKR 2,900 which was clearly stale).",
-        "Public product page does not publish minimum income or balance threshold."
+        "Public product page does not publish minimum income or balance threshold.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC (Sec A Pt 3 Debit Card, vii-viii): annual fee Rs. 11,000 (was Rs. 10,000); supplementary Rs. 5,500 (was Rs. 5,000)."
       ]
     },
     {
@@ -80,8 +83,8 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 1000000,
         "minimum_deposit_pkr": 1000000,
-        "annual_fee_pkr": 22000,
-        "supplementary_annual_fee_pkr": 11000,
+        "annual_fee_pkr": 23000,
+        "supplementary_annual_fee_pkr": 11500,
         "annual_fee_waiver_rule": "Free for Bank Alfalah Premier customers (PKR 3M+ relationship balance) and for Bank Alfalah Infinite customers (PKR 150M AUM).",
         "minimum_age_years": null,
         "maximum_age_years": null
@@ -89,14 +92,15 @@
       "sources": [
         "https://www.bankalfalah.com/personal-banking/cards/debit-cards/signature-debit-card/",
         "https://www.bankalfalah.com/digital-banking/debit-cards/visa-signature-debit",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf",
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf",
         "https://www.bankalfalah.com/premier/eligibility-criteria/"
       ],
       "confidence": "high",
       "notes": [
         "SOC Jan-Jun 2026: 'Rs. 22,000/- per Signature Debit Card Per Year', supplementary Rs. 11,000/- (corrected from PKR 18,000 which was stale).",
         "New customers route: PKR 1,000,000 deposit; existing customers: 12-month average balance of PKR 1,000,000.",
-        "Premier and Infinite tier customers get the card fee-free under the dedicated Premier / Infinite sections of the SOC."
+        "Premier and Infinite tier customers get the card fee-free under the dedicated Premier / Infinite sections of the SOC.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC (Sec A Pt 3 Debit Card, ix-x): annual fee Rs. 23,000 (was Rs. 22,000); supplementary Rs. 11,500 (was Rs. 11,000). SOC debit section still states 'Bank Alfalah Infinite: All Cards are free'. The live digital-banking Signature page no longer displays the PKR 1M deposit/12-month balance text (its Eligibility tab is hidden) and the personal-banking/.../signature-debit-card/ URL now returns 404; PKR 1M threshold retained from the prior pass and still published on the Islamic Signature equivalent page."
       ]
     },
     {
@@ -117,16 +121,17 @@
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/cards/credit-cards/eligibility-criteria-credit-cards/",
-        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf",
+        "https://prodbaf.blob.core.windows.net/data/KFS%20-%20Credit%20Card%20Summary%20Box%20(Jul%2026-Dec%2026).pdf",
         "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "Salaried min income PKR 50,000; self-employed PKR 75,000. Age 21-60 salaried; 21-70 self-employed/supplementary (we record the wider envelope).",
         "Jan-Jun 2026 KFS: PKR 7,000 basic, PKR 3,500 supplementary annual fee.",
         "Annual fee reversal criteria (AFRC, effective 2026-01-01): basic PKR 70,000 / supplementary PKR 35,000 in 2 months.",
-        "Removed prior 'PKR 75,000 minimum relationship balance' value: the Bank Alfalah credit card eligibility page does not publish a balance threshold (75,000 was the self-employed gross-income figure)."
+        "Removed prior 'PKR 75,000 minimum relationship balance' value: the Bank Alfalah credit card eligibility page does not publish a balance threshold (75,000 was the self-employed gross-income figure).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Credit Card Summary Box/KFS and conventional SOC: basic Rs. 7,000 / supplementary Rs. 3,500 and PKR 70,000 / 35,000 reversal: unchanged. AFRC PDF (re-uploaded Aug 2026, still 'Effective 1st January 2026') unchanged. Eligibility page unchanged (PKR 50,000 salaried / 75,000 self-employed; 21-60 / 21-70)."
       ]
     },
     {
@@ -135,8 +140,8 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
-        "annual_fee_pkr": 13000,
-        "supplementary_annual_fee_pkr": 6500,
+        "annual_fee_pkr": 14000,
+        "supplementary_annual_fee_pkr": 7000,
         "annual_fee_waiver_rule": "Basic card annual-fee reversal on PKR 200,000 eligible retail spend within 2 months; supplementary on PKR 100,000 within 2 months.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
@@ -148,14 +153,16 @@
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/visa-gold-credit-card",
         "https://www.bankalfalah.com/personal-banking/cards/credit-cards/eligibility-criteria-credit-cards/",
-        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf",
-        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf"
+        "https://prodbaf.blob.core.windows.net/data/KFS%20-%20Credit%20Card%20Summary%20Box%20(Jul%2026-Dec%2026).pdf",
+        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf",
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "Shared eligibility grid across mainstream consumer credit cards: salaried PKR 50,000, self-employed PKR 75,000.",
         "Jan-Jun 2026 KFS: PKR 13,000 basic / PKR 6,500 supplementary.",
-        "Removed prior 'PKR 75,000 minimum relationship balance' — same correction as Classic Credit."
+        "Removed prior 'PKR 75,000 minimum relationship balance' — same correction as Classic Credit.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Credit Card Summary Box/KFS and conventional SOC (Sec A Pt 1 vii-viii): annual fee Rs. 14,000 (was Rs. 13,000); supplementary Rs. 7,000 (was Rs. 6,500). Reversal threshold PKR 200,000 / 100,000 unchanged."
       ]
     },
     {
@@ -164,8 +171,8 @@
       "tier": "gold",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
-        "annual_fee_pkr": 13000,
-        "supplementary_annual_fee_pkr": 6500,
+        "annual_fee_pkr": 13500,
+        "supplementary_annual_fee_pkr": 7000,
         "annual_fee_waiver_rule": "First-year annual fee waived for Bank Alfalah Premier Banking customers only; AMEX is explicitly NOT eligible for the standard spend-based reversal.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
@@ -176,14 +183,16 @@
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/american-express-gold-credit-card",
-        "https://prodbaf.blob.core.windows.net/data/AMEX%20Credit%20Card%20Summary%20Box%20%28Jan%20to%20June%202026%29.pdf",
-        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf"
+        "https://prodbaf.blob.core.windows.net/data/KFS%20-%20AMEX%20Credit%20Card%20Summary%20Box%20(Jul%2026%20-%20Dec%2026).pdf",
+        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf",
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "AMEX KFS Jan-Jun 2026: 'PKR 13,000' basic, 'PKR 6,500' supplementary. '1st year's annual fee is waived for Premier Banking customers only.'",
         "AFRC explicitly excludes AMEX: 'Bank Alfalah American Express Cardholders are not eligible for reversal under these criteria.'",
-        "Eligibility uses the shared consumer credit card grid: PKR 50,000 salaried / PKR 75,000 self-employed; ages 21-60 salaried / 21-70 self-employed."
+        "Eligibility uses the shared consumer credit card grid: PKR 50,000 salaried / PKR 75,000 self-employed; ages 21-60 salaried / 21-70 self-employed.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 AMEX Summary Box/KFS and conventional SOC (Sec A Pt 1 xiii-xiv): annual fee PKR 13,500 (was PKR 13,000); supplementary PKR 7,000 (was PKR 6,500). '1st year's annual fee is waived for Premier Banking customers only' unchanged; AFRC still excludes AMEX."
       ]
     },
     {
@@ -192,8 +201,8 @@
       "tier": "optimus",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
-        "annual_fee_pkr": 16000,
-        "supplementary_annual_fee_pkr": 8000,
+        "annual_fee_pkr": 17000,
+        "supplementary_annual_fee_pkr": 8500,
         "annual_fee_waiver_rule": "Basic card annual-fee reversal on PKR 300,000 eligible retail spend within 2 months; supplementary on PKR 150,000 within 2 months.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
@@ -204,12 +213,14 @@
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/mastercard-optimus-credit-card",
-        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf",
-        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf"
+        "https://prodbaf.blob.core.windows.net/data/KFS%20-%20Credit%20Card%20Summary%20Box%20(Jul%2026-Dec%2026).pdf",
+        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf",
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
-        "KFS Jan-Jun 2026: PKR 16,000 basic / PKR 8,000 supplementary; reversal at PKR 300,000 basic / PKR 150,000 supplementary in 2 months."
+        "KFS Jan-Jun 2026: PKR 16,000 basic / PKR 8,000 supplementary; reversal at PKR 300,000 basic / PKR 150,000 supplementary in 2 months.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Credit Card Summary Box/KFS and conventional SOC (Sec A Pt 1 xi-xii): annual fee PKR 17,000 (was PKR 16,000); supplementary PKR 8,500 (was PKR 8,000). Reversal PKR 300,000 / 150,000 unchanged."
       ]
     },
     {
@@ -230,12 +241,14 @@
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/visa-platinum-credit-card",
-        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf",
-        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf"
+        "https://prodbaf.blob.core.windows.net/data/KFS%20-%20Credit%20Card%20Summary%20Box%20(Jul%2026-Dec%2026).pdf",
+        "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf",
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
-        "KFS: PKR 23,000 basic / PKR 11,500 supplementary; reversal at PKR 475,000 / PKR 237,500 in 2 months."
+        "KFS: PKR 23,000 basic / PKR 11,500 supplementary; reversal at PKR 475,000 / PKR 237,500 in 2 months.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Credit Card Summary Box/KFS and conventional SOC (Sec A Pt 1 ix-x): PKR 23,000 / PKR 11,500 and PKR 475,000 / 237,500 reversal: unchanged."
       ]
     },
     {
@@ -247,7 +260,7 @@
         "minimum_relationship_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "supplementary_annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Zero annual and issuance fee exclusively for Premier clients; standard credit-card AFRC does not apply.",
+        "annual_fee_waiver_rule": "Zero annual and issuance fee exclusively for Premier clients; standard credit-card AFRC does not apply. A quarterly fee of PKR 5,750 + FED/Sales Tax is levied if the required Premier quarterly average balance is not maintained.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
         "income_document_required": false,
@@ -258,15 +271,16 @@
       "sources": [
         "https://www.bankalfalah.com/premier/credit-card/premier-visa-platinum-credit-card/",
         "https://www.bankalfalah.com/premier/eligibility-criteria/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf",
-        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf",
+        "https://prodbaf.blob.core.windows.net/data/KFS%20-%20Credit%20Card%20Summary%20Box%20(Jul%2026-Dec%2026).pdf"
       ],
       "confidence": "high",
       "notes": [
         "Premier eligibility page: PKR 3 Million in CASA (or PKR 2M CASA + PKR 1M Bancatakaful, or PKR 10M AUM incl PKR 2M CASA) on quarterly average balance.",
         "Card page: 'Zero annual and issuance fee exclusively for Premier clients.'",
         "KFS lists Premier Platinum with a footnote: '*To be offered to Premier Account holders.' Confirms the card is Premier-segment.",
-        "Premier-segment card; not subject to the spend-based AFRC since base annual fee is zero."
+        "Premier-segment card; not subject to the spend-based AFRC since base annual fee is zero.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC and Credit Card Summary Box: KFS still lists 'Premier Platinum*' with '*To be offered to Premier Account holders' and no fee; product page still says zero annual and issuance fee. The Jul-Dec SOC Premier section keeps the same eligibility grid (PKR 3M CA / 7M SA / 2M CA + 1M Bancassurance / 10M AUM incl 2M CA) but replaces the old card-waiver list with 'Quarterly Premier VISA Signature Debit Card / Premier Platinum Credit Card fee of PKR 5,750+FED/Sales Tax will be levied in case of non-maintenance of required quarterly average balance' (added to waiver rule)."
       ]
     },
     {
@@ -286,12 +300,13 @@
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/visa-corporate-card",
-        "https://prodbaf.blob.core.windows.net/data/Corporate%20Card%20Summary%20Box%20%28Jan%20to%20June%202026%29.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Corporate%20Card%20Summary%20Box%20(Jul%20to%20Dec%202026)%2009-06-26.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Corporate KFS Jan-Jun 2026: 'Rs. 6,000/- per card from second year onwards' (i.e., year-one free).",
-        "Eligibility uses the same consumer credit card grid: PKR 50,000 salaried / PKR 75,000 self-employed; age 21-60 salaried, 21-70 self-employed."
+        "Eligibility uses the same consumer credit card grid: PKR 50,000 salaried / PKR 75,000 self-employed; age 21-60 salaried, 21-70 self-employed.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Corporate Card Summary Box/KFS: 'Rs. 6,000/- per card from second year onwards': unchanged."
       ]
     },
     {
@@ -301,21 +316,22 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2800,
-        "supplementary_annual_fee_pkr": 1400,
+        "annual_fee_pkr": 3000,
+        "supplementary_annual_fee_pkr": 1600,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/cards/debit-cards/compare-debit-cards",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "SOC Jan-Jun 2026: 'Rs. 2,800/- per PayPak Debit Card Per Year', supplementary PKR 1,400.",
         "Free under the Bank Alfalah Infinite tier (waiver of issuance, annual and replacement fee per SOC Bank Alfalah Infinite section).",
-        "Dedicated product page URL on alfalah-paypak-debit-card returned 404 at verification time."
+        "Dedicated product page URL on alfalah-paypak-debit-card returned 404 at verification time.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC (Sec A Pt 3 Debit Card, xx-xxi): annual fee Rs. 3,000 (was Rs. 2,800); supplementary Rs. 1,600 (was Rs. 1,400). SOC still lists PayPak debit as free for Premier and all cards free for Infinite. compare-debit-cards URL now returns 404."
       ]
     },
     {
@@ -325,21 +341,22 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 5000,
-        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 3100,
         "annual_fee_waiver_rule": "Free under the Bank Alfalah Infinite tier (PKR 150M AUM).",
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/deposit-accounts/alfalah-pehchaan-current-account/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "SOC Jan-Jun 2026: 'Rs. 5,000/- per Pehchaan Debit Card Per Year', supplementary Rs. 2,500/- (corrected from PKR 4,000).",
         "Linked Pehchaan Current Account is for women and has no minimum balance requirement per the account product page.",
-        "Card-product page URL alfalah-pehchaan-debit-card returned 404 at verification time; data sourced from linked account page + SOC."
+        "Card-product page URL alfalah-pehchaan-debit-card returned 404 at verification time; data sourced from linked account page + SOC.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC (Sec A Pt 3 Debit Card, xii-xiii): annual fee Rs. 5,500 (was Rs. 5,000); supplementary Rs. 3,100 (was Rs. 2,500). Pehchaan account page still states no minimum balance requirement."
       ]
     },
     {
@@ -349,20 +366,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 3500,
-        "supplementary_annual_fee_pkr": 1750,
+        "annual_fee_pkr": 3800,
+        "supplementary_annual_fee_pkr": 2100,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-classic-debit-card/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Islamic SOC Jan-Jun 2026 Sec I Pt 1a: 'PKR 3,500/- per Classic VISA Debit Card per year'; supplementary PKR 1,750.",
-        "No income or balance threshold per card product page."
+        "No income or balance threshold per card product page.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Sec I Pt 1 a/f): 'PKR 3,800/- per Classic VISA Debit Card per year' (was PKR 3,500); supplementary PKR 2,100 (was PKR 1,750). Product page still states no income/balance requirement."
       ]
     },
     {
@@ -372,20 +390,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 5000,
-        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 3100,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-gold-debit-card/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Islamic SOC Jan-Jun 2026: 'PKR 5,000/- per Gold VISA Debit Card per year', supplementary PKR 2,500.",
-        "Product page explicitly states no minimum income requirement."
+        "Product page explicitly states no minimum income requirement.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Sec I Pt 1 a/f): 'PKR 5,500/- per Gold VISA Debit Card per year' (was PKR 5,000); supplementary PKR 3,100 (was PKR 2,500)."
       ]
     },
     {
@@ -396,20 +415,21 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 1000000,
         "minimum_deposit_pkr": 1000000,
-        "annual_fee_pkr": 22000,
-        "supplementary_annual_fee_pkr": 11000,
+        "annual_fee_pkr": 23000,
+        "supplementary_annual_fee_pkr": 11500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/islamic/debit-card/alfalah-visa-islamic-signature-debit-card/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Islamic SOC Jan-Jun 2026 Sec I Pt 2: 'PKR 22,000/-' Signature / Power Pack Signature basic; supplementary PKR 11,000 (corrected from PKR 9,000 which was stale).",
-        "Product page: new customers PKR 1M minimum deposit; existing customers PKR 1M average 12-month balance."
+        "Product page: new customers PKR 1M minimum deposit; existing customers PKR 1M average 12-month balance.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Sec I Pt 2 Signature / Power Pack Signature): basic PKR 23,000 (was PKR 22,000); supplementary PKR 11,500 (was PKR 11,000). Product page still states PKR 1M deposit (new) / PKR 1M 12-month average balance (existing)."
       ]
     },
     {
@@ -420,21 +440,22 @@
         "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 250000,
         "minimum_deposit_pkr": 250000,
-        "annual_fee_pkr": 22000,
-        "supplementary_annual_fee_pkr": 11000,
+        "annual_fee_pkr": 23000,
+        "supplementary_annual_fee_pkr": 11500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/islamic/debit-card/alfalah-islamic-power-pack-signature-debit-card/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Islamic SOC Jan-Jun 2026 Sec I Pt 2: Signature / Power Pack Signature both PKR 22,000 basic, PKR 11,000 supplementary (corrected from PKR 9,000 which referenced an outdated SOBC).",
         "Product page: PKR 250,000 minimum deposit for new customers, or PKR 250,000 monthly average balance for existing customers.",
-        "Stale 'fee becomes payable if customer falls below Power Pack balance' waiver-rule line removed: the card now carries the full PKR 22,000 fee per the live SOC."
+        "Stale 'fee becomes payable if customer falls below Power Pack balance' waiver-rule line removed: the card now carries the full PKR 22,000 fee per the live SOC.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Sec I Pt 2 Signature / Power Pack Signature): basic PKR 23,000 (was PKR 22,000); supplementary PKR 11,500 (was PKR 11,000). Product page still states PKR 250,000 deposit / monthly average balance."
       ]
     },
     {
@@ -444,20 +465,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 2800,
-        "supplementary_annual_fee_pkr": 1400,
+        "annual_fee_pkr": 3000,
+        "supplementary_annual_fee_pkr": 1600,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/islamic/debit-card/alfalah-paypak-islamic-classic-debit-card/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Islamic SOC Jan-Jun 2026: 'PKR 2,800/- per Islamic PayPak Classic Debit Card per year'; supplementary PKR 1,400.",
-        "Removed previous 'Free for Alfa Payroll account holders' waiver rule: it is not present on the current product page or the Jan-Jun 2026 Islamic SOC."
+        "Removed previous 'Free for Alfa Payroll account holders' waiver rule: it is not present on the current product page or the Jan-Jun 2026 Islamic SOC.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Sec I Pt 1 a/f): 'PKR 3,000/- per Islamic PayPak Classic Debit Card' (was PKR 2,800); supplementary PKR 1,600 (was PKR 1,400). Product page still states no minimum income or balance."
       ]
     },
     {
@@ -467,20 +489,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_account_balance_pkr": 0,
-        "annual_fee_pkr": 5000,
-        "supplementary_annual_fee_pkr": 2500,
+        "annual_fee_pkr": 5500,
+        "supplementary_annual_fee_pkr": 3100,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/islamic/debit-card/bank-alfalah-islamic-gold-women-debit-card/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Islamic SOC Jan-Jun 2026: 'PKR 5,000/- per Islamic Gold Women Debit Card per year'; supplementary PKR 2,500 (corrected from PKR 4,400 which was stale).",
-        "Product page: 'No minimum income required'. Tied to Islamic Women account which has no minimum balance."
+        "Product page: 'No minimum income required'. Tied to Islamic Women account which has no minimum balance.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Sec I Pt 1 a/f): 'PKR 5,500/- per Islamic Gold Women Debit Card per year' (was PKR 5,000); supplementary PKR 3,100 (was PKR 2,500)."
       ]
     },
     {
@@ -490,20 +513,21 @@
       "requirements": {
         "minimum_monthly_salary_pkr": 0,
         "minimum_average_balance_pkr": 250000,
-        "annual_fee_pkr": 22000,
-        "supplementary_annual_fee_pkr": 11000,
+        "annual_fee_pkr": 23000,
+        "supplementary_annual_fee_pkr": 11500,
         "annual_fee_waiver_rule": null,
         "minimum_age_years": null,
         "maximum_age_years": null
       },
       "sources": [
         "https://www.bankalfalah.com/islamic/debit-card/bank-alfalah-islamic-power-pack-women-debit-card/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "high",
       "notes": [
         "Islamic SOC Jan-Jun 2026 Sec I Pt 3: 'PKR 22,000/-' Islamic Power Pack Women basic; supplementary PKR 11,000 (corrected from PKR 20,500 which was sourced from an older Islamic SOBC).",
-        "Product page: must maintain PKR 250,000 monthly average balance and hold an Islamic Women Account."
+        "Product page: must maintain PKR 250,000 monthly average balance and hold an Islamic Women Account.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Sec I Pt 3 Islamic Power Pack Women): basic PKR 23,000 (was PKR 22,000); supplementary PKR 11,500 (was PKR 11,000). Product page still states PKR 250,000 monthly average balance + Islamic Women Account."
       ]
     },
     {
@@ -515,7 +539,7 @@
         "minimum_relationship_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "supplementary_annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Zero annual and issuance fee for Bank Alfalah Premier customers while Premier criteria are maintained.",
+        "annual_fee_waiver_rule": "Zero annual and issuance fee for Bank Alfalah Premier customers while Premier criteria are maintained; a quarterly fee of PKR 5,750 + FED/Sales Tax is levied if the required quarterly average balance is not maintained.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -526,13 +550,14 @@
       "sources": [
         "https://www.bankalfalah.com/premier/debit-card/premier-visa-signature-debit-card/",
         "https://www.bankalfalah.com/premier/eligibility-criteria/",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "Premier eligibility: PKR 3 Million CASA (or PKR 2M CASA + PKR 1M Bancatakaful, or PKR 10M AUM incl 2M CASA) on quarterly average balance.",
         "Card page: 'Zero annual and issuance fee.'",
-        "SOC 'Bank Alfalah Premier' section explicitly lists 'Premier Debit Cards' under fee waivers."
+        "Jan-Jun 2026 SOC 'Bank Alfalah Premier' section listed 'Premier Debit Cards' under fee waivers; the Jul-Dec 2026 SOC drops that waiver list and instead lists the card as offered to Premier customers with a non-maintenance fee.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC: Premier eligibility grid unchanged (PKR 3M CA / 7M SA / 2M CA + 1M Bancassurance / 10M AUM incl 2M CA); card listed under 'Following Debit Cards are offered to Premier Customers'. New/explicit: quarterly Premier VISA Signature Debit Card fee of PKR 5,750 + FED/Sales Tax on non-maintenance of the required quarterly average balance (added to waiver rule). Product page still says 'Zero annual and issuance fee.'"
       ]
     },
     {
@@ -544,7 +569,7 @@
         "minimum_relationship_balance_pkr": 3000000,
         "annual_fee_pkr": 0,
         "supplementary_annual_fee_pkr": 0,
-        "annual_fee_waiver_rule": "Zero annual, issuance and replacement fee for Bank Alfalah Islamic Premier customers while Premier criteria are maintained.",
+        "annual_fee_waiver_rule": "Zero annual, issuance and replacement fee for Bank Alfalah Islamic Premier customers while Premier criteria are maintained; a quarterly fee of PKR 5,750 + FED/Sales Tax is levied if the required quarterly average balance is not maintained.",
         "minimum_age_years": null,
         "maximum_age_years": null,
         "income_document_required": false,
@@ -554,13 +579,14 @@
       },
       "sources": [
         "https://www.bankalfalah.com/premier/debit-card/islamic-premier-visa-signature-debit-card/",
-        "https://www.bankalfalah.com/premier/eligibility-criteria/"
+        "https://www.bankalfalah.com/premier/eligibility-criteria/",
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
-      "confidence": "medium",
+      "confidence": "high",
       "notes": [
         "Islamic Premier card page lists no fee and requires an 'Islamic Premier Account (mandatory to apply)'. Card is fee-free for Islamic Premier customers.",
         "Islamic Premier eligibility mirrors the conventional Premier 3M CASA / 10M AUM grid per the bankalfalah.com/premier/eligibility-criteria page (which surfaces Islamic Premier criteria); a dedicated islamic-premier/eligibility-criteria/ URL returns 404 at verification time.",
-        "Older 2022 SOBC-IB cited PKR 5M TDR alternative — kept as low-confidence note since the current Jan-Jun 2026 Islamic SOC does not republish a dedicated Islamic Premier eligibility table."
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Bank Alfalah Islamic Premier section, p.45): now publishes a dedicated Islamic Premier eligibility table (quarterly average balance): PKR 3M CASA, or PKR 2M CASA + PKR 1M Banca Takaful, or PKR 10M AUM incl at least PKR 2M CASA; lists 'Islamic Premier VISA Signature Debit Card' as offered to Islamic Premier customers with a quarterly fee of PKR 5,750 + FED/Sales Tax on non-maintenance (added to waiver rule). premier/eligibility-criteria page shows the same Islamic Premier grid. PKR 3,000,000 relationship balance confirmed; confidence raised to high."
       ]
     },
     {
@@ -569,9 +595,9 @@
       "tier": "ultra-cashback",
       "requirements": {
         "minimum_monthly_salary_pkr": 50000,
-        "annual_fee_pkr": 10000,
-        "supplementary_annual_fee_pkr": 5000,
-        "joining_fee_pkr": 10000,
+        "annual_fee_pkr": 11000,
+        "supplementary_annual_fee_pkr": 5500,
+        "joining_fee_pkr": 11000,
         "annual_fee_waiver_rule": "First-year annual fee waiver only, on PKR 75,000 eligible spend within 2 months; not eligible for the standard ongoing spend-based reversal.",
         "minimum_age_years": 21,
         "maximum_age_years": 70,
@@ -582,15 +608,16 @@
       },
       "sources": [
         "https://www.bankalfalah.com/personal-banking/credit-cards/visa-ultra-cashback-card",
-        "https://prodbaf.blob.core.windows.net/data/KFS%20for%20Credit%20Card%20Summary%20Box%20%28Jan-Jun%202026%29.pdf",
+        "https://prodbaf.blob.core.windows.net/data/KFS%20-%20Credit%20Card%20Summary%20Box%20(Jul%2026-Dec%2026).pdf",
         "https://bafblob.blob.core.windows.net/data/annual-fee-reversal-criteria.pdf",
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "SOC Jan-Jun 2026: 'Visa Ultra Cash Back Credit Card (Issuance Fee) Rs. 10,000/-' and '(Annual Fee) Rs. 10,000/-'; supplementary PKR 5,000.",
         "KFS Jan-Jun 2026 footnote: 'Bank Alfalah Visa Ultra Cashback Cardholders are only eligible for 1st Year Annual Fee Waivers upon spending PKR 75,000 within 2 months.'",
-        "Salaried min income PKR 50,000 (self-employed PKR 75,000); age 21-60 salaried / 21-70 self-employed."
+        "Salaried min income PKR 50,000 (self-employed PKR 75,000); age 21-60 salaried / 21-70 self-employed.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Credit Card Summary Box/KFS and conventional SOC (Sec A Pt 1 iv-vi): issuance fee Rs. 11,000 (was Rs. 10,000); annual fee Rs. 11,000 (was Rs. 10,000); supplementary Rs. 5,500 (was Rs. 5,000). First-year waiver on PKR 75,000 spend within 2 months of activation unchanged."
       ]
     },
     {
@@ -612,14 +639,15 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "high",
       "notes": [
         "Renamed from 'Bank Alfalah Islamic Premier Visa Infinite Debit Card'.",
         "SOC 'Bank Alfalah Infinite' section: eligibility is 'PKR 150 Million AUM' quarterly average balance; 'Visa Infinite Debit Card*** - No Annual, Issuance and Replacement fee'.",
         "Prior PKR 1,500,000 balance value was incorrect (off by 100x); prior PKR 22,000 annual fee was incorrect (Infinite tier customers pay zero).",
-        "This card is the conventional Visa Infinite debit, available to all Bank Alfalah Infinite customers regardless of Islamic/conventional flavour."
+        "This card is the conventional Visa Infinite debit, available to all Bank Alfalah Infinite customers regardless of Islamic/conventional flavour.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC: 'Bank Alfalah Infinite' eligibility still '150 Million AUM'; Visa Infinite Debit Card listed among card variants Infinite clients can avail, and the debit-card fee section states 'Bank Alfalah Infinite: All Cards are free': unchanged. (The Jul-Dec Infinite section no longer repeats per-card 'No Annual, Issuance and Replacement fee' lines.)"
       ]
     },
     {
@@ -641,14 +669,15 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/SOC%20Islamic%20English%20(Black%20Text)%20(Jul-Dec%202026)%2029-05-26%20copy.pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Islamic Infinite tier proposition — separate from the Islamic Premier tier.",
         "Islamic SOC Jan-Jun 2026 p.46 'Bank Alfalah Islamic Infinite' section: eligibility 'PKR 150 Million AUM (or FCY equivalent)' where AUM = CA + SA + Term Deposits + Islamic Mutual Fund + Sukuk/COI. The Visa Infinite Islamic Debit Card carries no annual, issuance, replacement, or upgrade fee.",
         "Mirrors the conventional Bank Alfalah Visa Infinite Debit Card on the Islamic side. Deal-side name 'Bank Alfalah Islamic Premier Visa Infinite Debit Card' is the same Premier-vs-Infinite conflation that was caught and fixed on the conventional side; routes here, not to the Islamic Premier Visa Signature Debit Card.",
-        "Added 2026-05-25 from BAFL Islamic SOC investigation; no dedicated marketing product page exists on bankalfalah.com (parallel to conventional Infinite)."
+        "Added 2026-05-25 from BAFL Islamic SOC investigation; no dedicated marketing product page exists on bankalfalah.com (parallel to conventional Infinite).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 Islamic SOC (Bank Alfalah Islamic Infinite, p.46): eligibility 'PKR 150 Million AUM (or Equivalent FCY)' unchanged; 'Visa Infinite Islamic Debit Card' listed as a variant Infinite clients can avail. Caveat: the Jul-Dec Islamic SOC no longer carries the explicit 'No Annual, Issuance and Replacement fee / No card upgrade fee' line; zero-fee values retained from Jan-Jun 2026 pending a contrary statement."
       ]
     },
     {
@@ -669,13 +698,14 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Renamed from 'Bank Alfalah Premier Visa Infinite Debit Card' (was incorrectly labelled).",
         "SOC 'Bank Alfalah Premier > Consumer Finance' section: 'Premier Visa Top Tier Debit Card*** - Eligibility criteria for availing this card is PKR 25 Million in Current Account or equivalent in foreign currency.'",
-        "Prior PKR 1,500,000 balance and PKR 22,000 annual fee were both wrong: this is the Premier top-tier card and is fee-free for qualifying Premier customers."
+        "Prior PKR 1,500,000 balance and PKR 22,000 annual fee were both wrong: this is the Premier top-tier card and is fee-free for qualifying Premier customers.",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC Premier section: 'Premier Visa Top Tier Debit Card - Eligibility criteria for availing this card is PKR 25 Million in Current Account or equivalent in foreign currency': unchanged. Jul-Dec SOC no longer carries the explicit Premier card-waiver list; zero-fee values retained."
       ]
     },
     {
@@ -696,19 +726,21 @@
         "existing_account_required": true
       },
       "sources": [
-        "https://prodbaf.blob.core.windows.net/data/SOC%20Conventional%20English%20Black%20(Jan-Jun%202026)%2002-12-25.pdf"
+        "https://prodbaf.blob.core.windows.net/data/Schedule%20of%20Charges%20July%20-%20Dec%202026%20(conventional).pdf"
       ],
       "confidence": "medium",
       "notes": [
         "Renamed from 'Bank Alfalah Premier Visa Infinite Credit Card' (was incorrectly labelled — there is no Premier Visa Infinite credit card in the SOC).",
         "SOC 'Bank Alfalah Premier > Consumer Finance' section: 'Premier VISA Signature Credit Card*** - Eligibility criteria for availing this card is PKR 25 Million in Current Account or equivalent in foreign currency.'",
-        "Annual fee PKR 30,000 / supplementary PKR 15,000 appears in Section A under Signature Card — but the Premier section overrides this with a full waiver for qualifying Premier customers (the only way to obtain the card)."
+        "Annual fee PKR 30,000 / supplementary PKR 15,000 appears in Section A under Signature Card — but the Premier section overrides this with a full waiver for qualifying Premier customers (the only way to obtain the card).",
+        "Re-verified 2026-09-23 against Jul-Dec 2026 conventional SOC Premier section: 'Premier VISA Signature Credit Card - Eligibility ... PKR 25 Million in Current Account': unchanged. Standard Signature credit card in SOC Sec A Pt 1 xv-xvi and the Jul-Dec KFS (newly listed there) is Rs. 30,000 basic / Rs. 15,000 supplementary, reduced to Rs. 5,000 / Rs. 2,500 after meeting PKR 1,000,000 / 500,000 spend in 2 months; Premier qualifiers retain the zero-fee treatment (explicit waiver list dropped from Jul-Dec SOC)."
       ]
     }
   ],
   "gaps": [
     "Mastercard Titanium credit card was discontinued and the record was removed from this pilot on 2026-05-25. Probable historical replacement: Mastercard Optimus.",
-    "Islamic Premier Visa Signature Debit Card: no dedicated Islamic Premier eligibility URL is currently live; conventional Premier eligibility criteria (3M CASA / 10M AUM) are used as the Islamic Premier equivalent based on the parent Premier eligibility page.",
-    "Debit-card age requirements are not published by Bank Alfalah for the standard debit family; salary/age age-bracket data is only published for the credit card eligibility table."
+    "Islamic Premier Visa Signature Debit Card: resolved 2026-09-23 - the Jul-Dec 2026 Islamic SOC and the premier/eligibility-criteria page now publish a dedicated Islamic Premier grid (PKR 3M CASA / 2M CASA + 1M Banca Takaful / 10M AUM incl 2M CASA).",
+    "Debit-card age requirements are not published by Bank Alfalah for the standard debit family; salary/age age-bracket data is only published for the credit card eligibility table.",
+    "Not yet in pilot: Bank Alfalah Visa Infinite Credit Card (invitation-only, Infinite clients; annual/supplementary fee waived per its Jul-Dec 2026 Summary Box) and the standard (non-Premier) Visa Signature Credit Card (Rs. 30,000 / Rs. 15,000, reduced to Rs. 5,000 / 2,500 on PKR 1M / 500K spend in 2 months per Jul-Dec 2026 KFS). Both also appeared in the Jan-Jun 2026 SOC, so they are not new launches."
   ]
 }

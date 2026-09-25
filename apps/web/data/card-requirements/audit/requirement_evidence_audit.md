@@ -1,6 +1,6 @@
 # Requirement Evidence Audit
 
-Audit date: 2026-05-25
+Audit date: 2026-09-23
 
 This report classifies filled requirement fields into direct evidence versus inferred/account-relationship fills.
 
@@ -8,24 +8,23 @@ This report classifies filled requirement fields into direct evidence versus inf
 
 ### minimum_monthly_salary_pkr
 - explicit_apply_flow: 2
-- explicit_card_page: 24
-- inferred_account_relationship: 25
-- missing: 116
-- other_explicit_source: 1
+- explicit_card_page: 34
+- inferred_account_relationship: 17
+- missing: 122
+- other_explicit_source: 9
 
 ### minimum_account_balance_pkr
 - explicit_card_page: 2
-- explicit_soc_or_summary_pdf: 29
+- explicit_soc_or_summary_pdf: 37
 - inferred_account_relationship: 10
-- missing: 78
-- normalized_from_alt_balance_key: 49
+- missing: 88
+- normalized_from_alt_balance_key: 47
 
 ### annual_fee_pkr
-- explicit_card_page: 15
-- explicit_soc_or_summary_pdf: 117
-- inferred_account_relationship: 28
+- explicit_card_page: 2
+- explicit_soc_or_summary_pdf: 170
+- inferred_account_relationship: 9
 - missing: 3
-- other_explicit_source: 5
 
 ## Manual Review Buckets
 
@@ -39,33 +38,31 @@ This report classifies filled requirement fields into direct evidence versus inf
 - Allied Bank | Cash+Shop Sapphire Visa Debit Card | 0 | explicit_card_page | low
 - Allied Bank | Islamic Banking VISA DebitCard | 0 | explicit_card_page | low
 - Askari Bank Limited | Askari World Mastercard Credit Card | 1000000 | inferred_account_relationship | high
-- Bank AL Habib | Signature Debit Card | 750000 | inferred_account_relationship | high
 - Bank AL Habib | Visa Platinum Debit Card | 150000 | inferred_account_relationship | high
-- Bank Alfalah | Bank Alfalah American Express Gold Credit Card | 50000 | inferred_account_relationship | high
-- Bank Alfalah | Bank Alfalah Mastercard Optimus Credit Card | 50000 | inferred_account_relationship | high
 - Bank Alfalah | Bank Alfalah Pehchaan Debit Card | 0 | inferred_account_relationship | high
-- Bank Alfalah | Bank Alfalah Visa Corporate Credit Card | 50000 | inferred_account_relationship | high
-- Bank Alfalah | Bank Alfalah Visa Platinum Credit Card | 50000 | inferred_account_relationship | high
-- Bank Alfalah | Bank Alfalah Visa Ultra Cashback Card | 50000 | inferred_account_relationship | high
-- Bank Alfalah | Visa Classic Credit Card | 50000 | inferred_account_relationship | high
-- Bank Alfalah | Visa Gold Credit Card | 50000 | inferred_account_relationship | high
 - Bank of Punjab | BOP KHAAS Platinum Debit Card | 500000 | inferred_account_relationship | medium
+- Bank of Punjab | BOP Mastercard Gold Credit Card | 20000 | other_explicit_source | high
+- Bank of Punjab | BOP Mastercard Lahore Qalandar Business Credit Card | 20000 | other_explicit_source | high
+- Bank of Punjab | BOP Mastercard Platinum Credit Card | 20000 | other_explicit_source | high
+- Bank of Punjab | BOP Mastercard World Credit Card | 20000 | other_explicit_source | high
 - Bank of Punjab | BOP Taqwa KHAAS Platinum Islamic Debit Card | 500000 | inferred_account_relationship | medium
-- Faysal Bank Limited | Faysal Islami Noor Gold Card | 30000 | inferred_account_relationship | high
-- Faysal Bank Limited | Faysal Islami Noor Titanium Card | 50000 | inferred_account_relationship | high
-- Faysal Bank Limited | Faysal Islami Noor Velocity Card | 30000 | inferred_account_relationship | high
-- Faysal Bank Limited | Faysal Islami Priority World Debit Card | 500000 | inferred_account_relationship | high
+- Faysal Bank Limited | Faysal Islami Noor Gold Card | 40000 | inferred_account_relationship | high
+- Faysal Bank Limited | Faysal Islami Noor Titanium Card | 40000 | inferred_account_relationship | high
+- Faysal Bank Limited | Faysal Islami Noor Velocity Card | 40000 | inferred_account_relationship | high
+- Faysal Bank Limited | Faysal Islami Priority World Debit Card | 1000000 | inferred_account_relationship | high
 - HBL | HBL Platinum CreditCard | 400000 | inferred_account_relationship | high
 - HBL Islamic Bank Limited | HBL Islamic Titanium DebitCard | None | missing | low
 - JS Bank | JS Credit Card Classic | 70000 | inferred_account_relationship | high
 - JS Bank | JS Credit Card Platinum | 70000 | inferred_account_relationship | high
 - JS Bank | Visa Gold Credit Card | 70000 | inferred_account_relationship | high
 - Meezan Bank | Meezan PayPak Debit Card | None | missing | low
+- National Bank of Pakistan | PayPak Classic | 0 | other_explicit_source | medium
+- National Bank of Pakistan | PayPak Pink | 0 | other_explicit_source | medium
+- National Bank of Pakistan | UPI Classic | 0 | other_explicit_source | medium
+- National Bank of Pakistan | UPI Gold | 0 | other_explicit_source | medium
 
 ### balance
-- flagged rows: 62
-- Al Baraka Bank | Mastercard Gold Debit Card | 100000 | normalized_from_alt_balance_key | high
-- Al Baraka Bank | UnionPay Gold Debit Card | 100000 | normalized_from_alt_balance_key | high
+- flagged rows: 60
 - Allied Bank | Allied Visa Premium Debit Card | 2000000 | normalized_from_alt_balance_key | medium
 - Allied Bank | Cash+Shop Sapphire Visa Debit Card | 1000 | explicit_soc_or_summary_pdf | low
 - Allied Bank | Islamic Banking VISA DebitCard | 1000 | explicit_soc_or_summary_pdf | low
@@ -83,7 +80,7 @@ This report classifies filled requirement fields into direct evidence versus inf
 - Bank AL Habib | Visa Platinum Debit Card | 200000 | normalized_from_alt_balance_key | high
 - Bank Alfalah | Bank Alfalah Islamic Power Pack Signature Debit Card | 250000 | normalized_from_alt_balance_key | high
 - Bank Alfalah | Bank Alfalah Islamic Power Pack Women Debit Card | 250000 | normalized_from_alt_balance_key | high
-- Bank Alfalah | Bank Alfalah Islamic Premier Visa Signature Debit Card | 3000000 | normalized_from_alt_balance_key | medium
+- Bank Alfalah | Bank Alfalah Islamic Premier Visa Signature Debit Card | 3000000 | normalized_from_alt_balance_key | high
 - Bank Alfalah | Bank Alfalah Premier Visa Platinum Credit Card | 3000000 | normalized_from_alt_balance_key | high
 - Bank Alfalah | Bank Alfalah Premier Visa Signature Credit Card | 25000000 | normalized_from_alt_balance_key | medium
 - Bank Alfalah | Bank Alfalah Premier Visa Signature Debit Card | 3000000 | normalized_from_alt_balance_key | high
@@ -104,44 +101,23 @@ This report classifies filled requirement fields into direct evidence versus inf
 - HBL | HBL Prestige World Elite DebitCard | 5000000 | normalized_from_alt_balance_key | high
 - HBL | HBL Titanium DebitCard | 40000 | normalized_from_alt_balance_key | medium
 - HBL | HBL World DebitCard | 2000000 | normalized_from_alt_balance_key | medium
-- ... 22 more rows omitted from markdown; see JSON.
+- HBL Islamic Bank Limited | HBL Islamic Prestige World Elite DebitCard | 5000000 | normalized_from_alt_balance_key | high
+- HBL Islamic Bank Limited | HBL Islamic Titanium DebitCard | None | missing | low
+- ... 20 more rows omitted from markdown; see JSON.
 
 ### annual_fee
-- flagged rows: 36
-- Allied Bank | Cash+Shop Sapphire Visa Debit Card | 3000 | explicit_soc_or_summary_pdf | low
-- Allied Bank | Islamic Banking VISA DebitCard | 2900 | explicit_soc_or_summary_pdf | low
-- Bank Alfalah | Bank Alfalah American Express Gold Credit Card | 13000 | inferred_account_relationship | high
-- Bank Alfalah | Bank Alfalah Mastercard Optimus Credit Card | 16000 | inferred_account_relationship | high
+- flagged rows: 13
+- Allied Bank | Cash+Shop Sapphire Visa Debit Card | 3200 | explicit_soc_or_summary_pdf | low
+- Allied Bank | Islamic Banking VISA DebitCard | 3000 | explicit_soc_or_summary_pdf | low
 - Bank Alfalah | Bank Alfalah Visa Corporate Credit Card | 6000 | inferred_account_relationship | high
-- Bank Alfalah | Bank Alfalah Visa Platinum Credit Card | 23000 | inferred_account_relationship | high
-- Bank Alfalah | Visa Gold Credit Card | 13000 | inferred_account_relationship | high
-- Bank of Punjab | BOP KHAAS Platinum Debit Card | 0 | inferred_account_relationship | medium
-- Bank of Punjab | BOP Lahore Qalandars Debit Card | 3000 | inferred_account_relationship | high
-- Bank of Punjab | BOP Mastercard Classic Debit Card | 2800 | inferred_account_relationship | high
-- Bank of Punjab | BOP Mastercard Gold Credit Card | 6250 | other_explicit_source | high
-- Bank of Punjab | BOP Mastercard Gold Debit Card | 3600 | inferred_account_relationship | high
-- Bank of Punjab | BOP Mastercard Lahore Qalandar Business Credit Card | 5000 | other_explicit_source | high
-- Bank of Punjab | BOP Mastercard Platinum Credit Card | 12500 | other_explicit_source | high
-- Bank of Punjab | BOP Mastercard Platinum Debit Card | 6000 | inferred_account_relationship | high
-- Bank of Punjab | BOP Mastercard World Credit Card | 25000 | other_explicit_source | high
-- Bank of Punjab | BOP Naaz Debit Card | 2400 | inferred_account_relationship | high
-- Bank of Punjab | BOP Taqwa KHAAS Platinum Islamic Debit Card | 0 | inferred_account_relationship | medium
-- Bank of Punjab | BOP Taqwa Platinum Islamic Debit Card | 6000 | inferred_account_relationship | high
-- Bank of Punjab | BOP Taqwa World Islamic Debit Card | 18000 | inferred_account_relationship | high
-- Bank of Punjab | BOP World Debit Card | 18000 | inferred_account_relationship | high
-- HBL | HBL Nisa DebitCard | 3000 | inferred_account_relationship | medium
-- HBL | HBL Platinum CreditCard | 22000 | inferred_account_relationship | high
-- HBL | HBL World DebitCard | 20000 | inferred_account_relationship | medium
-- HBL Islamic Bank Limited | HBL Islamic Mastercard Standard Debit Card | 3000 | inferred_account_relationship | medium
-- HBL Islamic Bank Limited | HBL Islamic Prestige World Elite DebitCard | 0 | inferred_account_relationship | high
-- HBL Islamic Bank Limited | HBL Islamic Titanium DebitCard | 3000 | other_explicit_source | low
+- HBL Islamic Bank Limited | HBL Islamic Titanium DebitCard | 3000 | explicit_soc_or_summary_pdf | low
 - MCB Bank Limited | MCB Visa Platinum Debit Card | 14000 | inferred_account_relationship | high
-- MCB Bank Limited | Nayab Visa Debit Card | 4000 | inferred_account_relationship | high
+- MCB Bank Limited | Nayab Visa Debit Card | 4500 | inferred_account_relationship | high
 - MCB Bank Limited | Visa Fun Club Debit Card | 1000 | inferred_account_relationship | high
-- MCB Islamic Bank Ltd | MCB Islamic PayPak Classic Debit Card | 2750 | inferred_account_relationship | high
-- MCB Islamic Bank Ltd | MCB Islamic Platinum Debit Card | 9600 | inferred_account_relationship | high
-- MCB Islamic Bank Ltd | MCB Islamic Qadar Classic Debit Card | 3250 | inferred_account_relationship | high
-- MCB Islamic Bank Ltd | MCB Islamic Qadar Gold Debit Card | 4000 | inferred_account_relationship | high
-- MCB Islamic Bank Ltd | MCB Islamic Visa Classic Debit Card | 3400 | inferred_account_relationship | high
+- MCB Islamic Bank Ltd | MCB Islamic PayPak Classic Debit Card | 3000 | inferred_account_relationship | high
+- MCB Islamic Bank Ltd | MCB Islamic Platinum Debit Card | 12000 | inferred_account_relationship | high
+- MCB Islamic Bank Ltd | MCB Islamic Qadar Classic Debit Card | 3400 | inferred_account_relationship | high
+- MCB Islamic Bank Ltd | MCB Islamic Qadar Gold Debit Card | 4300 | inferred_account_relationship | high
+- MCB Islamic Bank Ltd | MCB Islamic Visa Classic Debit Card | 3500 | inferred_account_relationship | high
 - Meezan Bank | Meezan PayPak Debit Card | 2500 | explicit_soc_or_summary_pdf | low
 

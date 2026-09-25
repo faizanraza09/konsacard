@@ -1,7 +1,7 @@
 {
   "bank_slug": "habib-metro",
   "bank_name": "Habib Metro Bank",
-  "retrieved_note": "Re-verified 2026-05-25 against habibmetro.com product pages and the Schedule of Charges 1 Jan to 30 Jun 2026 (English) PDF.",
+  "retrieved_note": "Re-verified 2026-09-23 against the Schedule of Charges 1st July to 31st December 2026 (English) PDF (SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf, linked from habibmetro.com/schedule-of-charges/) and the live habibmetro.com debit-card product pages (visa-debit-card, visa-infinite-debit-card, paypak-debit-card, fcy-debit-card, business-debit-card). All debit-card fees, the Platinum 3M/3-month eligibility footnote and the supplementary-equals-primary rule are unchanged from the Jan-Jun 2026 SOC. Previously verified 2026-05-25 against the SOC 1 Jan to 30 Jun 2026.",
   "cards": [
     {
       "card_name": "Visa Platinum Debit Card",
@@ -22,10 +22,11 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. Platinum Rs. 7,500 (section 8), 3M average balance for last 3 months eligibility footnote and supplementary = primary rule unchanged; product page still shows 'PKR 3mn last 3 months average balance'.",
         "SOC Jan-Jun 2026 p.18 (section 8) confirms Platinum issuance/annual/re-issuance fee PKR 7,500.",
         "SOC eligibility footnote: 'ELIGIBILITY CRITERIA FOR PLATINUM DEBIT CARD: 3 MILLION AVERAGE BALANCE FOR LAST 3 MONTHS'.",
         "Supplementary card fee 'will be the same as those of primary cards' per SOC section 8.",
@@ -51,10 +52,11 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. Gold Rs. 4,400 (section 8) unchanged; product page still shows 'No minimum balance'.",
         "SOC Jan-Jun 2026 p.18 (section 8) confirms Gold issuance/annual/re-issuance fee PKR 4,400.",
         "Product page lists 'no minimum balance' for Gold; no salary threshold published.",
         "Account-linked debit card; eligibility inherited from the linked HABIBMETRO account."
@@ -79,10 +81,11 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. Premium/Classic Rs. 3,300 (section 8) unchanged.",
         "SOC Jan-Jun 2026 p.18 (section 8) lists Premium/Classic issuance/annual/re-issuance fee PKR 3,300.",
         "Account-linked debit card; eligibility inherited from the linked HABIBMETRO account; no published salary threshold."
       ]
@@ -107,10 +110,11 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/visa-infinite-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. Visa Infinite Rs. 35,000 (section 8) unchanged; product page still states PKR 100 MN relationship balance, invitation only, and the Priority Banking spouse-card annual-fee waiver.",
         "SOC Jan-Jun 2026 p.18 (section 8) lists Visa Infinite Metal Debit Card issuance/annual/re-issuance fee PKR 35,000.",
         "Product page states 'Card will be offered on invitation basis only' to 'Account holders maintaining a relationship balance of PKR 100 MN and above'.",
         "Supplementary cards fee per SOC: same as primary."
@@ -135,10 +139,11 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/paypak-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. PayPak Rs. 2,200 (section 7) unchanged; product page still shows 'Balance Required: None'.",
         "SOC Jan-Jun 2026 p.17 (section 7) confirms PayPak issuance/annual/re-issuance fee PKR 2,200.",
         "Product page states 'Balance required: None'. No salary threshold published.",
         "Local-only card; cannot be used internationally or for e-commerce per product page."
@@ -163,10 +168,11 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/fcy-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "medium",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. FCY Premium/Classic Rs. 3,300 / Gold Rs. 4,400 / Platinum Rs. 7,500 (section 9) unchanged; product page fee table matches.",
         "SOC Jan-Jun 2026 p.18-19 (section 9) lists FCY Premium/Classic PKR 3,300, FCY Gold PKR 4,400, FCY Platinum PKR 7,500. Same Platinum 3M-3-months balance eligibility footnote applies.",
         "FCY Classic fee used here as the default tier; if a customer takes Gold/Platinum the fee scales up.",
         "Card is available with Freelancer and Exporters Special Foreign Currency Account (ESFCA); no public salary or FCY balance threshold."
@@ -191,13 +197,13 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/visa-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. section 12 HABIBMETRO Ladies Debit Card still 'FREE (FOR THE 1ST YEAR) / RS. 3,300/- (FOR SUBSEQUENT YEARS)'. The /visa-debit-card/ comparison table now also shows 'Free (For the 1st year) Rs. 3,300/- (For Subsequent Years)' for Ladies (the Rs. 2,200 figure is in the adjacent PayPak column), so the earlier product-page conflict no longer applies.",
         "SOC Jan-Jun 2026 p.20 (section 12) HABIBMETRO LADIES DEBIT CARD: 'FREE (FOR THE 1ST YEAR) / RS. 3,300/- (FOR SUBSEQUENT YEARS)'.",
-        "Women-targeted card; inherits from the HABIBMETRO Ladies current account on the customer side.",
-        "Note: product debit-card marketing page mentions Rs. 2,200/year for Ladies; SOC is the authoritative fee schedule and is used here."
+        "Women-targeted card; inherits from the HABIBMETRO Ladies current account on the customer side."
       ]
     },
     {
@@ -219,10 +225,11 @@
       },
       "sources": [
         "https://www.habibmetro.com/digital-banking/cards/business-debit-card/",
-        "https://www.habibmetro.com/habibmetro/2026/01/SOC-Jan-to-Jun-Eng-2026-Dec-30.pdf"
+        "https://www.habibmetro.com/habibmetro/2026/06/SOC-Jul-to-Dec-Eng-2026-HABIBMETRO.pdf"
       ],
       "confidence": "high",
       "notes": [
+        "Re-verified 2026-09-23 against the SOC 1st July to 31st December 2026 (English): unchanged. Business Debit Card Rs. 16,000 (section 8) unchanged; product page still shows Rs. 16,000 issuance/annual and the same eligible-account wording.",
         "Renamed from 'Visa Signature Debit Card' to 'Business Debit Card' (the Visa Signature Business variant) — this is the same card the previous pilot mis-classified as a consumer Signature card.",
         "SOC Jan-Jun 2026 p.18 (section 8) lists BUSINESS DEBIT CARD issuance/annual/re-issuance fee PKR 16,000.",
         "Eligibility per product page: 'Business Entity / Company Account (Private & Public Limited) excluding corporate customers availing Running Facility/Debit Balance' and Partnership Accounts. No consumer salary/balance threshold.",
