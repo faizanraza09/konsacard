@@ -139,7 +139,7 @@
       ],
       "confidence": "high",
       "notes": [
-        "Card page states 'Mastercard Gold Debit Card limits will apply' and that new customers 'can open an account in the nearest BOP branch and apply for LQDC' — account-linked, no published salary or balance threshold.",
+        "Card page states 'Mastercard Gold Debit Card limits will apply' and that new customers 'can open an account in the nearest BOP branch and apply for LQDC' \u2014 account-linked, no published salary or balance threshold.",
         "Salary/balance kept null (page is silent; treating silence as 'not published' per methodology).",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (Section M-1) and the current BOP Current Account KFS: annual fee Rs. 3,500 (was Rs. 3,000); supplementary Rs. 1,750 (was Rs. 1,400). Issuance and replacement also Rs. 3,500."
       ]
@@ -165,7 +165,7 @@
       ],
       "confidence": "high",
       "notes": [
-        "Generic account-linked tier — no standalone salary or balance threshold is published on a card-specific page. (The old BOP@Work PKR 100,000–300,000 salary band for free issuance was removed in the Jul-Dec 2026 SOBC; see note below.)",
+        "Generic account-linked tier \u2014 no standalone salary or balance threshold is published on a card-specific page. (The old BOP@Work PKR 100,000\u2013300,000 salary band for free issuance was removed in the Jul-Dec 2026 SOBC; see note below.)",
         "Pilot value of 0 for salary/balance corrected to null per methodology (silence is not a 0 threshold).",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (Section M-1) and the current BOP Current Account KFS: annual fee Rs. 4,000 (was Rs. 3,600); supplementary Rs. 2,000 (was Rs. 1,500). BOP@Work waiver changed: the Jul-Dec 2026 SOBC drops the salary tiers and lists PayPak, Classic, Gold and Platinum debit cards as free issuance (renewal also free) for BOP@Work accounts; the old PKR 100,000-300,000 salary band no longer applies."
       ]
@@ -345,7 +345,7 @@
       ],
       "confidence": "high",
       "notes": [
-        "Women-account-linked product; the previously cited 'PKR 1,000' figure (from Taqwa Naaz Saving) was a saving-account opening figure, not a Naaz Debit Card eligibility threshold — removed from balance field.",
+        "Women-account-linked product; the previously cited 'PKR 1,000' figure (from Taqwa Naaz Saving) was a saving-account opening figure, not a Naaz Debit Card eligibility threshold \u2014 removed from balance field.",
         "Removed Taqwa Naaz Saving KFS from sources because that PDF speaks to the Islamic Naaz saving account, not the conventional Naaz debit card. Naaz Saving Account KFS retained only via BOPNaaz proposition page coverage.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (Section M-1 BOP Naaz Debit Card) and the current Naaz Current Account KFS (same URL, now showing H2-2026 figures): annual/renewal fee Rs. 2,700 (was Rs. 2,400); supplementary Rs. 1,350 (was Rs. 1,100). Issuance still free with the Naaz Current Account."
       ]
@@ -375,6 +375,39 @@
         "Co-branded card; spend-based fee reversal verbatim from view.aspx?id=3373.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (Section O) and view.aspx?id=3373 fee table: annual fee Rs. 6,250 (was Rs. 5,000); supplementary Rs. 3,125 (was Rs. 2,500). Rs. 70,000/60-day reversal unchanged. Salary Rs. 20,000 (was null), minimum age 18 (was null), maximum age 70 (was null) from the newly published eligibility grid.",
         "bop.com.pk/view.aspx?id=3373 now publishes an 'Eligibility criteria' grid for BOP credit cards (as of 2026-09-23): minimum age 18 for all categories; maximum age 60 (self-employed) / 70 (salaried); minimum income PKR 50,000 self-employed, PKR 20,000 salaried with salary transfer, PKR 25,000 salaried 'Category B', PKR 30,000 salaried 'Category Unapproved'; job length 1 year (self-employed) / 1-6 months (salaried); debt burden 40%; cities Lahore, Karachi, Islamabad/Rawalpindi, Multan, Faisalabad. Modelled as the lowest published floor (PKR 20,000, salary-transfer route) and the salaried maximum age (70); the grid is not broken out per card tier."
+      ]
+    },
+    {
+      "card_name": "BOP PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2000,
+        "annual_fee_pkr_note": "The SOBC prices this card flat: Issuance PKR 2,000, Annual PKR 2,000 per annum (applicable after the 1st year of card issuance and on activated cards only), Replacement PKR 2,000. No supplementary card fee is published for the PayPak row.",
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.bop.com.pk/Documents/Resource_Center/Half%20Year%20Schedule%20of%20Bank%20Charges%20English%20Version%20(Latest%20%E2%80%93%20w.e.f%2001-07-2026).pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/Combined%20KFS%20conventional.pdf",
+        "https://www.bop.com.pk/Documents/Resource_Center/Revised%20Debit%20Card%20Application%20Form%20%28Conventional%29.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "SOBC effective 01.07.2026 to 31.12.2026, Section M-1 BOP DEBIT CARDS, row 2 PayPak Debit Card (GL 102060724): Issuance PKR 2,000, Annual PKR 2,000 per annum, Replacement PKR 2,000. The row carries no supplementary line, unlike every Mastercard row, so no supplementary fee is published for this card. Supersedes the PKR 1,850 figure carried by the Combined KFS.",
+        "BOP PayPak Debit Card. The Combined KFS (conventional) prices PayPak at PKR 1,850 for issuance/renewal/replacement with supplementary 'NA' - the same KFS line that supplies the Classic (2,800), Gold (3,600), Platinum (6,000) and World (18,000) figures used by the other BOP records in this dataset, so this card is on the same verified vintage as its siblings.",
+        "PayPak is a distinct product at BOP, not a Mastercard variant: the Debit Card Application Form (Conventional) offers 'Domestic Payment Scheme (PayPak)' and 'International Payment Scheme (MasterCard)' as mutually exclusive selections, and states that the PayPak card is a domestic scheme card usable only in Pakistan.",
+        "Account-linked product; no standalone salary or balance threshold is published, consistent with every other BOP record.",
+        "BOP does not publish a minimum monthly salary, minimum balance, or minimum/maximum age for its debit cards on any public page, the FAQs, or the SOBC.",
+        "No PayPak-specific supplementary card fee is published; the KFS shows 'NA' for this card.",
+        "No supplementary card fee is published for the PayPak row of Section M-1, unlike every Mastercard row; supplementary_annual_fee_pkr is therefore left unset rather than inferred.",
+        "bop.com.pk is behind Imperva/Incapsula and returns a JS challenge to plain HTTP clients; the SOBC PDFs must be fetched through a real browser session. The PDFs' text layer also separates the card-name column from the charges column, so the tables must be read from a page render rather than extracted text.",
+        "Provenance: Re-verified 2026-09-08 against the current half-year Schedule of Bank Charges, read directly from the PDF published on bop.com.pk (page rendered and read visually, because the document's text layer splits the card-name column from the charges column and cannot be paired reliably). bop.com.pk serves an Imperva/Incapsula challenge to plain HTTP clients, so the document was retrieved through a real browser session. Salary, balance and age remain null where BOP publishes nothing."
       ]
     }
   ],

@@ -32,7 +32,7 @@
         "Salary/age changed per the official Noor product pages (/faysal-islami-noor-cards/*, same eligibility block on every Noor card page): 'Age: Basic Card Holder Min 18 years old - Max 70 years old'; 'Income Requirement: Salaried Approved PKR 40,000; Salaried Unapproved PKR 50,000; Self-Employed Businessman/Professionals PKR 100,000'. minimum_monthly_salary_pkr set to the PKR 40,000 salaried-approved floor. Was PKR 500,000 / max age 65, which came from third-party KFS distillations (TechJuice/ProPakistani) and is not stated on any official Faysal page; the bank assigns the card variant at its discretion, so a higher effective income may be needed for this tier.",
         "SOC Jan-Jun 2026 (Section 10 Noor Card) lists primary annual fee Rs. 26,000 and supplementary Rs. 12,500 with reduced fee Rs. 2,500 on spend-based reversal.",
         "Unsecured income-based card; no minimum account balance disclosed.",
-        "Audit-flagged on balance inference — confirmed as income-based, balance left null."
+        "Audit-flagged on balance inference \u2014 confirmed as income-based, balance left null."
       ]
     },
     {
@@ -62,8 +62,8 @@
       "notes": [
         "Re-verified 2026-09-23 against the Jul-Dec 2026 SOC (SOC-Eng-Jul-Dec-2026.pdf, valid 1 July-31 December 2026) and Noor Card KFS Jul-Dec 2026: fees unchanged (Rs. 19,000 / Rs. 6,000 / reduced Rs. 2,100); the KFS now read directly confirms the exact spend-reversal thresholds used in annual_fee_waiver_rule.",
         "Salary/age changed per the official Noor product pages (/faysal-islami-noor-cards/*, same eligibility block on every Noor card page): 'Age: Basic Card Holder Min 18 years old - Max 70 years old'; 'Income Requirement: Salaried Approved PKR 40,000; Salaried Unapproved PKR 50,000; Self-Employed Businessman/Professionals PKR 100,000'. minimum_monthly_salary_pkr set to the PKR 40,000 salaried-approved floor. Was PKR 200,000 / max age 65, which came from third-party KFS distillations (TechJuice/ProPakistani) and is not stated on any official Faysal page; the bank assigns the card variant at its discretion, so a higher effective income may be needed for this tier.",
-        "SOC Jan-Jun 2026 lists primary Rs. 19,000 / supplementary Rs. 6,000 / reduced Rs. 2,100 — verified.",
-        "Audit-flagged on fee — confirmed Rs. 19,000 matches SOC."
+        "SOC Jan-Jun 2026 lists primary Rs. 19,000 / supplementary Rs. 6,000 / reduced Rs. 2,100 \u2014 verified.",
+        "Audit-flagged on fee \u2014 confirmed Rs. 19,000 matches SOC."
       ]
     },
     {
@@ -92,7 +92,7 @@
       "notes": [
         "Re-verified 2026-09-23 against the Jul-Dec 2026 SOC (SOC-Eng-Jul-Dec-2026.pdf, valid 1 July-31 December 2026) and Noor Card KFS Jul-Dec 2026: fees unchanged (Rs. 13,000 / Rs. 4,000 / reduced Rs. 1,100); the KFS now read directly confirms the exact spend-reversal thresholds used in annual_fee_waiver_rule.",
         "Salary/age changed per the official Noor product pages (/faysal-islami-noor-cards/*, same eligibility block on every Noor card page): 'Age: Basic Card Holder Min 18 years old - Max 70 years old'; 'Income Requirement: Salaried Approved PKR 40,000; Salaried Unapproved PKR 50,000; Self-Employed Businessman/Professionals PKR 100,000'. minimum_monthly_salary_pkr set to the PKR 40,000 salaried-approved floor. Was PKR 50,000 / max age 65, which came from third-party KFS distillations (TechJuice/ProPakistani) and is not stated on any official Faysal page; the bank assigns the card variant at its discretion, so a higher effective income may be needed for this tier.",
-        "SOC Jan-Jun 2026 lists primary Rs. 13,000 / supplementary Rs. 4,000 / reduced Rs. 1,100 — verified."
+        "SOC Jan-Jun 2026 lists primary Rs. 13,000 / supplementary Rs. 4,000 / reduced Rs. 1,100 \u2014 verified."
       ]
     },
     {
@@ -121,7 +121,7 @@
       "notes": [
         "Re-verified 2026-09-23 against the Jul-Dec 2026 SOC (SOC-Eng-Jul-Dec-2026.pdf, valid 1 July-31 December 2026) and Noor Card KFS Jul-Dec 2026: fees unchanged (Rs. 11,000 / Rs. 2,000 / reduced Rs. 900); the KFS now read directly confirms the exact spend-reversal thresholds used in annual_fee_waiver_rule.",
         "Salary/age changed per the official Noor product pages (/faysal-islami-noor-cards/*, same eligibility block on every Noor card page): 'Age: Basic Card Holder Min 18 years old - Max 70 years old'; 'Income Requirement: Salaried Approved PKR 40,000; Salaried Unapproved PKR 50,000; Self-Employed Businessman/Professionals PKR 100,000'. minimum_monthly_salary_pkr set to the PKR 40,000 salaried-approved floor. Was PKR 30,000 / max age 65, which came from third-party KFS distillations (TechJuice/ProPakistani) and is not stated on any official Faysal page; the bank assigns the card variant at its discretion, so a higher effective income may be needed for this tier.",
-        "SOC Jan-Jun 2026 lists primary Rs. 11,000 / supplementary Rs. 2,000 / reduced Rs. 900 — verified."
+        "SOC Jan-Jun 2026 lists primary Rs. 11,000 / supplementary Rs. 2,000 / reduced Rs. 900 \u2014 verified."
       ]
     },
     {
@@ -150,7 +150,7 @@
       "notes": [
         "Re-verified 2026-09-23 against the Jul-Dec 2026 SOC (SOC-Eng-Jul-Dec-2026.pdf, valid 1 July-31 December 2026) and Noor Card KFS Jul-Dec 2026: fees unchanged (Rs. 6,500 / Rs. 1,600 / reduced Rs. 600); the KFS now read directly confirms the exact spend-reversal thresholds used in annual_fee_waiver_rule.",
         "Salary/age changed per the official Noor product pages (/faysal-islami-noor-cards/*, same eligibility block on every Noor card page): 'Age: Basic Card Holder Min 18 years old - Max 70 years old'; 'Income Requirement: Salaried Approved PKR 40,000; Salaried Unapproved PKR 50,000; Self-Employed Businessman/Professionals PKR 100,000'. minimum_monthly_salary_pkr set to the PKR 40,000 salaried-approved floor. Was PKR 30,000 / max age 65, which came from third-party KFS distillations (TechJuice/ProPakistani) and is not stated on any official Faysal page; the bank assigns the card variant at its discretion, so a higher effective income may be needed for this tier.",
-        "Audit-flagged on fee — SOC Jan-Jun 2026 confirms primary Rs. 6,500 / supplementary Rs. 1,600 / reduced Rs. 600.",
+        "Audit-flagged on fee \u2014 SOC Jan-Jun 2026 confirms primary Rs. 6,500 / supplementary Rs. 1,600 / reduced Rs. 600.",
         "card_type corrected from null to credit. Velocity is a credit/Tawarruq card in the Noor family."
       ]
     },
@@ -180,9 +180,9 @@
       "confidence": "high",
       "notes": [
         "Re-verified 2026-09-23 against the Jul-Dec 2026 SOC (SOC-Eng-Jul-Dec-2026.pdf, valid 1 July-31 December 2026) and Noor Flexi KFS Jul-Dec 2026: unchanged. Processing fee Rs. 5,000 (non-reversible), annual fee Rs. 9,000, supplementary Rs. 3,500 (SOC section 13 Noor Flexi Card). The Noor Flexi product page carries no eligibility block, so salary/age are left as-is.",
-        "Audit-flagged on fee — earlier pilot listed PKR 6,500. CORRECTED to PKR 9,000 primary / Rs. 3,500 supplementary per Jan-Jun 2026 SOC Section 12 (Noor Flexi Card, distinct from Noor Card section).",
+        "Audit-flagged on fee \u2014 earlier pilot listed PKR 6,500. CORRECTED to PKR 9,000 primary / Rs. 3,500 supplementary per Jan-Jun 2026 SOC Section 12 (Noor Flexi Card, distinct from Noor Card section).",
         "Joining/processing fee Rs. 5,000 non-reversible per SOC.",
-        "Noor Flexi is an instalment-style credit card (Musawamah, limit enhancement fee Rs. 3,000) — distinct from Velocity. No spend-based annual fee reversal published.",
+        "Noor Flexi is an instalment-style credit card (Musawamah, limit enhancement fee Rs. 3,000) \u2014 distinct from Velocity. No spend-based annual fee reversal published.",
         "card_type corrected from null to credit. Salary floor not published separately for Flexi; left null."
       ]
     },
@@ -248,7 +248,7 @@
         "Re-verified 2026-09-23 against the Jul-Dec 2026 SOC (SOC-Eng-Jul-Dec-2026.pdf, valid 1 July-31 December 2026) Faysal Islamic Priority Banking section 3: quarterly non-maintenance fee Rs. 2,125 primary (was Rs. 1,750) / Rs. 1,625 supplementary (was Rs. 1,500). Eligibility thresholds (PKR 3Mn CA/SA, PKR 5Mn TD, AUM PKR 10Mn + 1.5Mn CASA, PKR 500,000 gross salary) unchanged.",
         "SOC Jan-Jun 2026 Section 3 (Faysal Islamic Priority Banking eligibility) lists Priority Platinum Debit threshold: NTB CA/SA PKR 3Mn / TD PKR 5Mn; ETB CASA PKR 3Mn avg quarterly.",
         "Salary route to Priority status: PKR 500,000 gross salary per month (Employee Banking).",
-        "Earlier pilot used PKR 3Mn account balance and PKR 5Mn deposit — verified."
+        "Earlier pilot used PKR 3Mn account balance and PKR 5Mn deposit \u2014 verified."
       ]
     },
     {
@@ -366,6 +366,134 @@
         "Re-verified 2026-09-23 against the Jul-Dec 2026 SOC (SOC-Eng-Jul-Dec-2026.pdf, valid 1 July-31 December 2026): unchanged. Mastercard Gold Rs. 3,300 primary / Rs. 2,300 supplementary.",
         "SOC Jan-Jun 2026 Section 1.a.vi (Mastercard Gold) primary Rs. 3,300; supplementary Rs. 2,300.",
         "Open to all Faysal Bank account holders; no public balance or salary threshold for the base card."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2300,
+        "supplementary_annual_fee_pkr": 1700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "joining_fee_pkr": 2100
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/FBL-English-SOC.pdf",
+        "https://www.faysalbank.com/personal/cards/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Faysal Islami PayPak Debit Card (domestic PayPak scheme). Primary membership fee PKR 2,300; supplementary PKR 1,700; card replacement PKR 1,500 per the Faysal Islami Banking Schedule of Charges Jan-Jun 2026, section '1. Debit Cards: Membership fee in advance' (i) PayPak.",
+        "Available to Faysal Bank account holders; no minimum balance or salary published for the base debit card. CNIC required; age 18+.",
+        "Re-verified 2026-09-25 against the Schedule of Charges at faysalbank.com/assets/documents/FBL-English-SOC.pdf (effective 1 Jul 2026 - 31 Dec 2026, issued Aug 2026), Debit Cards: 'PayPak' primary issuance Rs. 2,100 (1.a(i)), primary annual Rs. 2,300 (1.c(i)), supplementary annual Rs. 1,700 (1.d(i)), replacement Rs. 1,500 (1.e(i)). Source re-pointed from the superseded Jan-Jun 2026 edition; the annual and supplementary figures are unchanged.",
+        "Faysal product pages (faysalbank.com/debit-cards/...) return HTTP 403 to programmatic fetchers; fees taken directly from the SOC PDF, which is fetchable with a browser user agent.",
+        "Provenance: Verified 2026-07-07 against the Faysal Islami Banking Schedule of Charges (Jan-Jun 2026) debit-card membership fee table. Added to bridge the 'Faysal Islami Paypak Debit Card' pair appearing in the offers feed (previously aliased to the Classic Debit record; now given its own SOC-sourced record)."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami Co-Badged Mastercard PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2300,
+        "supplementary_annual_fee_pkr": 1600,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": false,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "joining_fee_pkr": 2100
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/FBL-English-SOC.pdf",
+        "https://www.faysalbank.com/personal/cards/"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Faysal Islami Co-Badged Mastercard PayPak Debit Card (PayPak domestic + Mastercard international co-badge). Primary membership fee PKR 2,300; card replacement PKR 1,500 per the Faysal Islami Banking Schedule of Charges Jan-Jun 2026, section '1. Debit Cards: Membership fee in advance' (xv) Mastercard PayPak CoBadge.",
+        "Available to Faysal Bank account holders; no minimum balance or salary published for the base debit card. CNIC required; age 18+.",
+        "Re-verified 2026-09-25 against the Schedule of Charges at faysalbank.com/assets/documents/FBL-English-SOC.pdf (Faysal Bank Limited - Islamic Banking, effective 1 Jul 2026 - 31 Dec 2026, issued Aug 2026), Debit Cards: 'Mastercard PayPak CoBadge' primary issuance Rs. 2,100 (1.a(xv)), primary annual Rs. 2,300 (1.c(xv)), supplementary annual Rs. 1,600 (1.d(x)), replacement Rs. 1,500 (1.e(xv)). The supplementary annual fee was previously left null because the Jan-Jun 2026 edition did not list this card in its supplementary table; the current edition does, so it is now recorded.",
+        "Faysal product pages return HTTP 403 to programmatic fetchers; fees taken directly from the SOC PDF (fetchable with a browser user agent).",
+        "Provenance: Verified 2026-07-07 against the Faysal Islami Banking Schedule of Charges (Jan-Jun 2026) debit-card membership fee table. Added to bridge the 'Faysal Islami Co-Badged Mastercard Paypak Debit Card' pair appearing in the offers feed (previously aliased to the Classic Debit record; now given its own SOC-sourced record)."
+      ]
+    },
+    {
+      "card_name": "Faysal Bank Business Debit Card",
+      "card_type": "debit",
+      "tier": "business",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2300,
+        "joining_fee_pkr": 2100,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/FBL-English-SOC.pdf",
+        "https://www.faysalbank.com/business-debit-cards/business-debit-card"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Faysal Bank business debit card, mapped to the 'Mastercard Business Standard' line of the Schedule of Charges effective 1 Jul 2026 - 31 Dec 2026: primary issuance Rs. 2,100 (Debit Cards 1.a(ix)), primary annual Rs. 2,300 (1.c(ix)), replacement Rs. 1,500 (1.e(ix)).",
+        "The SOC publishes exactly two business debit lines - Mastercard Business Standard (2,100 / 2,300 / 1,500) and Mastercard Business World (16,800 / 17,000 / 4,000) - and Faysal's catalogue lists exactly two matching products, 'Business Debit Card' and 'World Business Debit Card'. The feed's card name carries no 'World', so it maps to the Business Standard line.",
+        "Corroborated 2026-09-08 by loading the live Faysal Islami debit-card catalogue in a real browser: it lists exactly two business products, 'Business Debit Card' and 'World Business Debit Card', matching the SOC's two business lines one-for-one.",
+        "The annual fee is charged on activated cards only, after completion of one year from card issuance (SOC section 1.c footer).",
+        "The SOC names scheme/tier ('Mastercard Business Standard') while the website names the product ('Business Debit Card'); no official document states the equivalence in words. The mapping rests on the SOC's two business lines matching the catalogue's two business products one-for-one, with the World / non-World split fixing which is which (verified against the live catalogue on 2026-09-08), but it remains an inference rather than a published statement.",
+        "No supplementary card fee is published for Business Standard - it is absent from both the supplementary issuance (1.b) and supplementary annual (1.d) tables.",
+        "faysalbank.com HTML pages return HTTP 403 to programmatic fetchers, so no card-level CNIC or eligibility statement could be verified this round; pakistani_cnic_required is left unset rather than inherited. The SOC PDF under /assets/documents/ remains directly fetchable.",
+        "No minimum balance, minimum salary, age, income-document or salary-transfer requirement is published for this card.",
+        "Provenance: Verified 2026-09-08 directly against the Faysal Bank Schedule of Charges PDF at faysalbank.com/assets/documents/FBL-English-SOC.pdf (effective 1 Jul 2026 - 31 Dec 2026), 'Consumer Financing Products' section 1 Debit Cards, where Mastercard Business Standard is priced at Rs. 2,100 primary issuance (1.a(ix)), Rs. 2,300 primary annual (1.c(ix)) and Rs. 1,500 replacement (1.e(ix)), against Mastercard Business World at Rs. 16,800 / 17,000 / 4,000. Added to bridge the 'Faysal Bank Limited || Faysal Bank Business Debit Card' pair newly appearing in the offers feed; the product-name-to-SOC-line mapping is documented in bank_gaps as an inference."
+      ]
+    },
+    {
+      "card_name": "Faysal Islami PayPak UnionPay Co-Badged Debit Card",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2300,
+        "joining_fee_pkr": 2100,
+        "supplementary_annual_fee_pkr": 1700,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.faysalbank.com/assets/documents/FBL-English-SOC.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Faysal Islami UnionPay + PayPak co-badged debit card. Schedule of Charges effective 1 Jul 2026 - 31 Dec 2026, Debit Cards: 'UnionPay PayPak Cobadge' primary issuance Rs. 2,100 (1.a(iv)), supplementary issuance Rs. 1,500 (1.b(iii)), primary annual Rs. 2,300 (1.c(iv)), supplementary annual Rs. 1,700 (1.d(iii)), replacement Rs. 1,500 (1.e(iv)).",
+        "Recorded separately from the existing Faysal Islami Co-Badged Mastercard PayPak Debit Card rather than aliased to it: the SOC lists 'Mastercard PayPak CoBadge' as its own item with a different supplementary annual fee (Rs. 1,600 vs Rs. 1,700), and the acceptance networks differ (UnionPay international vs PayPak domestic). The SOC also prices a separate 'UnionPay PayPak Cobadge Amal' women's variant at the same figures.",
+        "Its five fee lines happen to equal the plain Faysal Islami PayPak Debit Card exactly, but it is a distinct SOC item on a different network, so it gets its own record.",
+        "The annual fee is charged on activated cards only, after completion of one year from card issuance (SOC section 1.c footer).",
+        "Confirmed 2026-09-08 through a real browser session (faysalbank.com blocks plain HTTP clients): the card's product page redirects to faysalbank.com/404, and the live Faysal Islami debit-card catalogue lists sixteen entries with no UnionPay + PayPak co-badge card - its only co-badge product is the 'Faysal Islami Debit Card Co-Badged PayPak & Mastercard'. The card is nonetheless still priced as its own line in the live Jul-Dec 2026 SOC, so it appears retired from marketing while existing cards are serviced. A human should confirm whether it remains open to new issuance; if the dataset is meant to carry only currently-marketed cards, this record and the feed pair behind it should be revisited.",
+        "faysalbank.com HTML pages return HTTP 403 to programmatic fetchers, so no card-level CNIC or eligibility statement could be verified; pakistani_cnic_required is left unset.",
+        "No minimum balance, minimum salary, age, income-document or salary-transfer requirement is published for this card.",
+        "Provenance: Verified 2026-09-08 directly against the Faysal Bank Schedule of Charges PDF at faysalbank.com/assets/documents/FBL-English-SOC.pdf (effective 1 Jul 2026 - 31 Dec 2026), where 'UnionPay PayPak Cobadge' appears as its own item in all five debit-card fee tables (issuance 2,100; supplementary issuance 1,500; annual 2,300; supplementary annual 1,700; replacement 1,500) and 'Mastercard PayPak CoBadge' carries a different supplementary annual fee of Rs. 1,600, which is why the two are kept as separate records. Added to bridge the 'Faysal Bank Limited || Faysal Islami Paypak Unionpay Co-Badged Debit Card' pair newly appearing in the offers feed; the card's apparent retirement from Faysal's marketed catalogue is recorded in bank_gaps."
       ]
     }
   ],

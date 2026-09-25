@@ -176,6 +176,42 @@
         "Salaried 21+, self-employed 25+ per product page.",
         "Maximum card limit Rs. 6,000,000 per Saadiq MID."
       ]
+    },
+    {
+      "card_name": "PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 2800,
+        "annual_fee_pkr_note": "The SOC line is a single combined 'Annual/Issuance Fee - Rs 2,800', so there is no separate joining fee; replacement is Rs 1,800.",
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.sc.com/pk/debit-cards/pay-pak-debit-card/",
+        "https://av.sc.com/pk/content/docs/pk-conventional-schedule-of-charges-english-h2-2026.pdf",
+        "https://av.sc.com/pk/content/docs/pk-key-fact-statement-deposit-account.pdf",
+        "https://av.sc.com/pk/content/docs/pk-debit-card-leaflet.pdf"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "Standard Chartered Bank (Pakistan) PayPak Debit Card, marketed as the 'Pay PAK Debit Card'. Conventional SOC H2 2026 (pp.12-13): 'PayPak Debit Card - Annual/Issuance Fee Rs 2,800 / Replacement Fee Rs 1,800'; the Premium Banking section (p.22) repeats the same pair.",
+        "The offers feed's card name 'Paypak Standard Debit Card' is not a real SCB product name \u2014 SCB Pakistan has no 'Standard' debit tier. Its published debit lineup is PayPak (2,800), Classic (3,500), Platinum/Titanium (4,500), Priority Platinum (9,000), Mastercard World (18,500) and FCY (USD 50). The feed name is aliased to this record in build_deal_requirement_card_map.py.",
+        "PayPak at SCB is domestic-only: the debit card Terms and Conditions state the Saadiq PayPak Debit Card 'does not allow international and internet transactions' and is 'limited for cash withdrawals and POS transactions within Pakistan only'.",
+        "Per-product context from the Key Fact Statement for Deposit Accounts: the SC Sahar Women's Saving Account gets free issuance with a Rs 2,800 annual fee, and on business/Tijarat current accounts the PayPak card is marked 'Rs 2,800 (Sole Prop only)'.",
+        "The minimum balance of 0 is account-level, not card-level: SOC note (h) states that regular current and saving accounts are free of charge, opened with a minimum Rs 100 initial deposit, and 'Have no condition of maintaining a minimum balance.'",
+        "SCB publishes no card-level minimum or maximum age, minimum salary, CNIC, income-document or salary-transfer requirement for this card; the debit card Terms and Conditions and Product Guide contain no age or CNIC clause, so those fields are left unset. Confidence is therefore medium overall despite the fees being directly sourced.",
+        "The feed supplies a card name ('Paypak Standard Debit Card') that does not exist in SCB's lineup; if the feed later emits a genuine new SCB debit tier it will need its own record rather than this alias.",
+        "Provenance: Verified 2026-09-08. Standard Chartered Bank (Pakistan) Limited does issue a PayPak debit card (sc.com/pk/debit-cards/pay-pak-debit-card/), named 'PayPak Debit Card' in its Schedule of Charges. Fees read directly from the Conventional Schedule of Charges effective 1 Jul 2026 - 31 Dec 2026, debit card pages 12-13 ('Annual/Issuance Fee Rs 2,800', 'Replacement Fee Rs 1,800'), repeated in the Premium Banking section and in the Key Fact Statement for Deposit Accounts; the same page confirms the lineup contains no 'Standard' debit tier, so the feed's name is treated as an alias. The linked-account requirement comes from the Debit Card Product Guide and the KFS, and the no-minimum-balance position from SOC note (h). No age, CNIC, salary or income-document requirement is published for this card, so those fields are left unset rather than estimated. Added to bridge the 'Standard Chartered Bank || Paypak Standard Debit Card' pair appearing in the offers feed on 2026-09-08."
+      ]
     }
   ],
   "gaps": [

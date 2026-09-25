@@ -1,0 +1,44 @@
+{
+  "bank_slug": "soneri-bank",
+  "bank_name": "Soneri Bank Limited",
+  "retrieved_note": "Verified 2026-09-08 against Soneri Bank's own sources. Product existence from soneribank.com/personal/soneri-cards/paypak; fees read directly from the Schedule of Bank Charges effective 1 Jul 2026 - 31 Dec 2026 (p.16 debit card table, Paypak column: annual fee primary 3,000, supplementary '-', replacement 2,550), corroborated by the Key Fact Statement for Current deposit products effective 01 Jul 2026, which labels the charge 'Issuance and/or Annual Fee' with supplementary 'N/A' and states the PKR 25,000 average-balance waiver. Eligibility, CNIC and qualifying/excluded account categories from the product-page FAQ; minimum age 18 from the linked debit card Terms and Conditions. No minimum salary, maximum age or salary-transfer requirement is published, so those fields are left unset. Added to bridge the 'Soneri Bank Limited || PayPak Debit Card' pair appearing in the offers feed on 2026-09-08.",
+  "gaps": [
+    "The minimum age of 18 comes from the debit card Terms and Conditions PDF linked from the PayPak product page, whose own definitions refer to 'the Soneri Visa Debit Card' rather than naming the PayPak card; treated as bank-wide debit card eligibility.",
+    "No minimum salary, maximum age, or salary-transfer requirement is published for this card.",
+    "The bank's www host blocks programmatic fetchers (HTTP 403 via Cloudflare); the apex host soneribank.com serves the same pages and the SOC/KFS PDFs are on the bank's CDN."
+  ],
+  "cards": [
+    {
+      "card_name": "Soneri PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 3000,
+        "annual_fee_pkr_note": "The KFS labels this row 'Issuance and/or Annual Fee' (Primary PKR 3,000), so there is no separate issuance fee. The SOC figure is exclusive of FED and sales tax.",
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "Waived where the customer's account balance is PKR 25,000 or above at the time of PayPak card issuance; for renewals/subsequent years, waived where the annual average account balance is PKR 25,000 or above (KFS Deposit Products - Current, effective 01 Jul 2026).",
+        "minimum_age_years": 18,
+        "maximum_age_years": null,
+        "income_document_required": false,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://soneribank.com/personal/soneri-cards/paypak",
+        "https://soneri-bank.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2026/05/29135907/SBL-Conventional-SOC-July-to-Dec-2026-Final.pdf",
+        "https://soneri-bank.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2026/07/01094524/3-Page-Deposit-Products-Current-effective-01-July-2026-English.pdf",
+        "https://soneri-bank.nyc3.cdn.digitaloceanspaces.com/wp-content/uploads/2026/07/07065444/Visa-Debit-Card-TCs.pdf"
+      ],
+      "confidence": "high",
+      "notes": [
+        "Soneri PayPak Debit Card. SOC Jul-Dec 2026 p.16, table 'i. Soneri Debit Card (Mastercard/PayPak)', Paypak column: annual fee - primary PKR 3,000, supplementary '-' (not offered), card replacement PKR 3,000 primary tier / PKR 2,550 Paypak. Columns run Standard (4,000) / Gold (5,000) / Plat (10,000) / Paypak (3,000).",
+        "The PKR 25,000 figure is a fee-waiver threshold only, NOT a minimum balance requirement to hold the card. Account-level minimums per the KFS are PKR 100 to open a current account and PKR 0 to maintain it.",
+        "Eligibility per the product-page FAQ: individuals maintaining a deposit account with the bank (PLS Savings, Soneri Savings, Basic Banking, Current, Ikhtiar Current, Soneri Sahara, Asaan), resident in Pakistan. Excluded: non-personal accounts (except sole proprietorship), joint-operation, dormant/blocked, partnership, NIL-balance and thumb-impression accounts. Mandatory application fields include CNIC/NICOP/POC (passport only for resident foreign nationals) and date of birth; no income document is listed.",
+        "The product page's own FAQ fee table still shows the older PKR 2,700 issuance/annual and PKR 2,250 replacement figures; both 2026 SOCs and the 01-Jul-2026 KFS say 3,000 / 2,550 and supersede it."
+      ]
+    }
+  ]
+}

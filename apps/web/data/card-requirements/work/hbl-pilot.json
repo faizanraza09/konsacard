@@ -106,7 +106,7 @@
         "Re-verified 2026-05-25: FuelSaver shares the Gold-tier credit-card eligibility from the overview page (salaried PKR 100,000 / self-employed PKR 300,000 balance, age 21-60 salaried / 21-65 self-employed).",
         "Product-page annual fee table shows PKR 7,200 (Gold). Supplementary annual is PKR 4,200 (12 x Rs. 350/mo supplementary).",
         "SOBC Jan-Jun 2026 line 1084-1087 frames FuelSaver fees as monthly: Rs. 700/mo basic, Rs. 350/mo supplementary. Annualized = PKR 8,400; the product page's PKR 7,200 number is retained as the public branded fee.",
-        "Conflict between SOBC monthly framing (8,400/yr) and product-page disclosed annual (7,200) — confidence kept high but conflict logged.",
+        "Conflict between SOBC monthly framing (8,400/yr) and product-page disclosed annual (7,200) \u2014 confidence kept high but conflict logged.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (p.15): FuelSaver still billed monthly at Rs. 700 basic / Rs. 350 supplementary; FuelSaver product page still shows PKR 7,200 annual fee - unchanged, conflict persists."
       ]
     },
@@ -135,7 +135,7 @@
         "Re-verified 2026-05-25: FuelSaver shares the Green-tier credit-card eligibility (salaried PKR 35,000 / self-employed PKR 105,000 balance, age 21-60 salaried / 21-65 self-employed).",
         "Product-page annual fee table shows PKR 3,600 (Green). Supplementary annual is PKR 2,100 (12 x Rs. 175/mo supplementary).",
         "SOBC Jan-Jun 2026 line 1084-1087 frames FuelSaver fees as monthly: Rs. 350/mo basic, Rs. 175/mo supplementary. Annualized = PKR 4,200; the product page's PKR 3,600 number is retained as the public branded fee.",
-        "Conflict between SOBC monthly framing (4,200/yr) and product-page disclosed annual (3,600) — confidence kept high but conflict logged.",
+        "Conflict between SOBC monthly framing (4,200/yr) and product-page disclosed annual (3,600) \u2014 confidence kept high but conflict logged.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC (p.15): FuelSaver still billed monthly at Rs. 350 basic / Rs. 175 supplementary; FuelSaver product page still shows PKR 3,600 annual fee - unchanged, conflict persists."
       ]
     },
@@ -256,7 +256,7 @@
       "notes": [
         "Re-verified 2026-05-25: Product page now publicly states 'Business Classic: Free for life'. Eligibility restricted to non-individual business customers (Proprietorships CD and Single Member Companies CI) holding PKR business accounts.",
         "SOBC Jan-Jun 2026 Part M Mastercard Business Classic primary annual fee Rs. 8,000 (line 1463), waived 100% under Part M note line 1551.",
-        "Minimum average balance PKR 40,000 inherited from HBL Conventional Current Account (business CA balance assumption — caveat).",
+        "Minimum average balance PKR 40,000 inherited from HBL Conventional Current Account (business CA balance assumption \u2014 caveat).",
         "Personal accounts not eligible per the product page.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC Part M (p.20): Mastercard Business Classic schedule fee Rs. 8,000, still 100% waived (note vii) - effective annual fee 0, unchanged. Product page still states 'Business Classic Debit Card: Free for life'."
       ]
@@ -344,7 +344,7 @@
         "Exclusive to HBL Prestige members.",
         "Prestige eligibility (Part T) requires PKR 5,000,000 quarterly average in Conventional Current Account (or equivalent FCY); thresholds also accept Savings Rs. 15M, RDA $50K, or qualifying investments.",
         "Sole Proprietor Prestige eligibility is PKR 10,000,000 quarterly average Conventional CA.",
-        "Membership retention fee Rs. 8,000/quarter applies if Prestige balance not maintained — accounts downgrade.",
+        "Membership retention fee Rs. 8,000/quarter applies if Prestige balance not maintained \u2014 accounts downgrade.",
         "Issued instantly from Prestige lounges per the public page.",
         "Limit enhancement PDF: daily withdrawal PKR 1,000,000; purchase/e-commerce/funds-transfer PKR 5,000,000.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC Part T (p.28-30): Prestige World Elite Debit Card annual/issuance/replacement fee Free; Prestige eligibility (PKR 5M CA / PKR 15M savings / USD 50K RDA quarterly average; PKR 10M sole proprietor) and Rs. 8,000/quarter retention fee - unchanged."
@@ -374,7 +374,7 @@
         "Re-verified 2026-05-25: Women-only debit proposition.",
         "SOBC Jan-Jun 2026 Part M note (ii) (line 1543-1545): HBL Nisa Plus Current and Nisa Saving customers may choose Classic (Master) or Gold (Master) debit card with first-year issuance waived; subsequent years per SOBC card-type rates.",
         "KFS_HBL_Conventional_Current_Account confirms Mastercard Gold issuance also waived for Nisa Plus Current if PKR 25,000+ maintained at account opening.",
-        "No standalone 'Nisa-branded' fee table — fees inherit Mastercard Standard (Rs. 3,000) or Gold (Rs. 3,800) by chosen variant. The Standard fee (Rs. 3,000) is recorded as the default Nisa baseline.",
+        "No standalone 'Nisa-branded' fee table \u2014 fees inherit Mastercard Standard (Rs. 3,000) or Gold (Rs. 3,800) by chosen variant. The Standard fee (Rs. 3,000) is recorded as the default Nisa baseline.",
         "No publicly disclosed salary or age threshold.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC Part M (p.20-21): Nisa Plus Current / Nisa Saving first-year issuance waiver on Classic (Master) or Gold (Master) (note ii) unchanged; Mastercard Standard Rs. 3,000 / Gold Rs. 3,800 unchanged. New note (ix): 50% waiver for Nisa Asaan Classic customers."
       ]
@@ -464,11 +464,42 @@
         "Issued against an existing HBL account; inherits the linked account's eligibility.",
         "Re-verified 2026-09-23 against Jul-Dec 2026 SOBC Part M (p.20): UnionPay Chip Gold primary annual fee Rs. 3,500, supplementary N/A, replacement Rs. 1,000 - unchanged."
       ]
+    },
+    {
+      "card_name": "HBL PayPak DebitCard",
+      "card_type": "debit",
+      "tier": "paypak",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 2000,
+        "supplementary_annual_fee_pkr": 0,
+        "annual_fee_waiver_rule": "First-year free issuance of the PayPak Debit Card for HBL Mahana Amdan, HBL Haryali, all Asaan variants and the Freelancer Digital Account; from the second year onwards the annual fee applies (SOBC Jul-Dec 2026, Part M note (iii)).",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://www.hbl.com/assets/documents/Schedule_of_Bank_Charges_for_July_to_December_2026_%E2%80%93_English.pdf",
+        "https://www.hbl.com/personal/cards/debit-cards/hbl-paypak-debit-card"
+      ],
+      "confidence": "high",
+      "notes": [
+        "HBL PayPak DebitCard (standalone domestic PayPak card). Schedule of Bank Charges effective 1 Jul 2026 - 31 Dec 2026, Part M 'HBL DEBIT CARD (ATM CARD)': annual fee (primary) 'PayPak Chip - Rs. 2,000/-', annual fee (supplementary) 'PayPak Chip - Nil', card replacement 'PayPak Chip - Rs. 600/-', POS transaction fee NIL.",
+        "This is NOT the co-badge card: the same Part M table prices 'UnionPay & PayPak Co-Badge' separately at Rs. 2,700 primary annual and Rs. 850 replacement, and HBL's site lists the two as distinct products.",
+        "Domestic-only proposition per the product page ('24/7 access to your bank account within Pakistan', positioned as a basic card at a lower annual fee). Published daily limits: PKR 50,000 cash withdrawal, PKR 100,000 POS/e-commerce, PKR 150,000 funds transfer.",
+        "Requested against an HBL account - new customers select the card on the Account Opening Form, existing customers file an Additional Request Form.",
+        "The Jul-Dec 2026 SOBC publishes no separate debit-card issuance fee row (item 1a reads only 'Same charges applicable on Supplementary Cards except where mentioned'), so joining_fee_pkr is left unset rather than assumed equal to the annual fee.",
+        "No minimum salary, minimum balance, minimum/maximum age, income-document or salary-transfer requirement is published for HBL's debit card tier.",
+        "Provenance: Verified 2026-09-08 directly against HBL's Schedule of Bank Charges for July to December 2026 (hbl.com/assets/documents), Part M 'HBL DEBIT CARD (ATM CARD)', where 'PayPak Chip - Rs. 2,000/-' and 'UnionPay & PayPak Co-Badge - Rs. 2,700/-' appear as separate primary annual-fee lines, supplementary is 'PayPak Chip - Nil', and replacement is Rs. 600 (vs Rs. 850 for the co-badge); the first-year waiver list comes from Part M note (iii) of the same document. Card positioning, daily limits and the how-to-apply route come from the official product page at hbl.com/personal/cards/debit-cards/hbl-paypak-debit-card. Added to bridge the 'Habib Bank Limited || HBL Paypak DebitCard' pair newly appearing in the offers feed."
+      ]
     }
   ],
   "gaps": [
     "Most HBL debit-card pages still do not expose clean public age or card-specific balance thresholds (age inherited from credit-card overview where applicable; debit pages omit it entirely).",
-    "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced — fees inherit chosen Mastercard Standard / Gold variant.",
+    "HBL Nisa is publicly documented through account and SOBC materials, but a standalone current Nisa fee table was not surfaced \u2014 fees inherit chosen Mastercard Standard / Gold variant.",
     "Dedicated Titanium and Nisa debit-card product pages returned HTTP 404 on 2026-05-25; relying on overview, lounge-access, account, and SOBC sources.",
     "FuelSaver fees are presented as a monthly schedule in SOBC (Rs. 350/700 per month) but as an annual figure (Rs. 3,600/7,200) on the FuelSaver product page; the gap (PKR 600/1,200 per year) is unresolved.",
     "Jul-Dec 2026 SOBC Part M lists no supplementary annual fee for the UnionPay & PayPak Co-Badge or Mastercard Business World cards (the block header says 'Same charges applicable on Supplementary Cards except where mentioned'); co-badge supplementary is kept at the UnionPay Chip Rs. 550 by inference and Business World supplementary is null.",

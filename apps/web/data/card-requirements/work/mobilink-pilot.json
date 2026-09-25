@@ -1,0 +1,180 @@
+{
+  "bank_slug": "mobilink-bank",
+  "bank_name": "Mobilink Microfinance Bank Limited",
+  "retrieved_note": "Verified 2026-09-08 against Mobilink Microfinance Bank's own sources; restored to this pilot file 2026-09-25. Card existence from the ATM/Debit Card product page (mobilinkbank.com/atm-debit-card/atm-debit-cards), which lists exactly five debit cards (Classic, Gold, Bint-e-Hawwa, JazzCash Mastercard, JazzCash PayPak), and the JazzCash cards page. Branch-banking card fees from the REVISED Schedule of Bank Charges (Instruction Circular Inst./37/2026 dated 7 August 2026, effective 7 Aug 2026 to 31 Dec 2026), p.4, read from a page render because the PDF is a scan with no text layer. Branchless (JazzCash) card fees from the Branchless Banking Schedule of Charges (Inst Circular/30/2026 dated 30 June 2026, effective 1 Jul 2026 to 30 Sep 2026), p.2 consumer M-Wallet table, fees excluding tax.",
+  "gaps": [
+    "No minimum or maximum age, minimum salary, income-document or salary-transfer requirement is published for this card on any Mobilink Bank or JazzCash source; those fields are left unset rather than estimated.",
+    "No minimum balance is published for the JazzCash wallet cards. The wallet's published L0/L1/L2 figures (PKR 200,000 / 1,200,000 / 1,500,000) are MAXIMUM balance caps per wallet level and must not be read as minimum requirements.",
+    "The branch-banking SOC is a scanned PDF with no extractable text layer; the card-fee rows were read from a page render of p.4."
+  ],
+  "cards": [
+    {
+      "card_name": "PayPak Classic Debit Card",
+      "card_type": "debit",
+      "tier": "classic",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 1300,
+        "annual_fee_pkr_note": "The SOC prices this card as a single line, 'PAY PAK Classic- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,300/- Plus FED/ST', and publishes no separate annual fee; the renewal interval is not stated, so this is the per-issuance/renewal card fee rather than a bank-stated annual charge. Exclusive of FED/ST.",
+        "joining_fee_pkr": 1300,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "minimum_average_balance_pkr": 0
+      },
+      "sources": [
+        "https://mobilinkbank.com/atm-debit-card/atm-debit-cards",
+        "https://mobilinkbank.com/assets/documents/SOC_2nd_Half_2026.pdf",
+        "https://mobilinkbank.com/terms-and-conditions",
+        "https://mobilinkbank.com/deposits/sahulat-current-account"
+      ],
+      "confidence": "high",
+      "notes": [
+        "PayPak Classic Debit Card (branch-banking PayPak card). SOC row: 'PAY PAK Classic- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,300/- Plus FED/ST'.",
+        "Published transaction limits: cash withdrawal PKR 50,000/day, POS purchase PKR 100,000/day, in-bank transfer PKR 1,000,000/day, IBFT PKR 250,000/day.",
+        "Supersedes the Jan-Jun 2026 branch SOBC, which priced this card at PKR 900.",
+        "Provenance: Verified 2026-09-08 against Mobilink Microfinance Bank's own sources: the ATM/Debit Card product page (mobilinkbank.com/atm-debit-card/atm-debit-cards), which lists exactly five debit cards (Classic, Gold, Bint-e-Hawwa, JazzCash Mastercard, JazzCash PayPak), and the REVISED Schedule of Bank Charges (Instruction Circular Inst./37/2026 dated 7 August 2026, effective 7 Aug 2026 to 31 Dec 2026), p.4 section 'ATM, VISA, SMS & E-Statement'. Minimum-balance treatment comes from the linked Sahulat Current Account page ('No minimum or average monthly balance requirements'; opening deposit Rs.100). CNIC/BVS and account prerequisites come from the bank's Terms and Conditions PDF. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+      ]
+    },
+    {
+      "card_name": "PayPak Gold Debit Card",
+      "card_type": "debit",
+      "tier": "gold",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": 0,
+        "annual_fee_pkr": 1700,
+        "annual_fee_pkr_note": "The SOC prices this card as a single line, 'PAY PAK Gold- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,700/- Plus FED/ST', and publishes no separate annual fee; the renewal interval is not stated, so this is the per-issuance/renewal card fee rather than a bank-stated annual charge. Exclusive of FED/ST.",
+        "joining_fee_pkr": 1700,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "minimum_average_balance_pkr": 0
+      },
+      "sources": [
+        "https://mobilinkbank.com/atm-debit-card/atm-debit-cards",
+        "https://mobilinkbank.com/assets/documents/SOC_2nd_Half_2026.pdf",
+        "https://mobilinkbank.com/terms-and-conditions",
+        "https://mobilinkbank.com/deposits/sahulat-current-account"
+      ],
+      "confidence": "high",
+      "notes": [
+        "PayPak Gold Debit Card (branch-banking PayPak card). SOC row: 'PAY PAK Gold- ATM Card Issuance/ Re-Issuance/ Renewal - PKR. 1,700/- Plus FED/ST'.",
+        "Published transaction limits: cash withdrawal PKR 200,000/day, POS purchase, in-bank transfer and IBFT PKR 1,500,000/day each.",
+        "Supersedes the Jan-Jun 2026 branch SOBC, which priced this card at PKR 1,150.",
+        "Provenance: Verified 2026-09-08 against Mobilink Microfinance Bank's own sources: the ATM/Debit Card product page (mobilinkbank.com/atm-debit-card/atm-debit-cards), which lists exactly five debit cards (Classic, Gold, Bint-e-Hawwa, JazzCash Mastercard, JazzCash PayPak), and the REVISED Schedule of Bank Charges (Instruction Circular Inst./37/2026 dated 7 August 2026, effective 7 Aug 2026 to 31 Dec 2026), p.4 section 'ATM, VISA, SMS & E-Statement'. Minimum-balance treatment comes from the linked Sahulat Current Account page ('No minimum or average monthly balance requirements'; opening deposit Rs.100). CNIC/BVS and account prerequisites come from the bank's Terms and Conditions PDF. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+      ]
+    },
+    {
+      "card_name": "PayPak Bint-e-Hawwa Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 0,
+        "annual_fee_pkr_note": "The SOC prices this card as a single line, 'PAY PAK BINT-E- HAWA ATM Card Issuance - 1st ATM Card Free / PAY PAK BINT-E- HAWA ATM Card Renewal - Nil', and publishes no separate annual fee; the renewal interval is not stated, so this is the per-issuance/renewal card fee rather than a bank-stated annual charge. Exclusive of FED/ST.",
+        "joining_fee_pkr": 0,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": "First card issuance is free and renewal is Nil per the SOC \u2014 no fee to waive.",
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true,
+        "minimum_deposit_pkr": 100
+      },
+      "sources": [
+        "https://mobilinkbank.com/atm-debit-card/atm-debit-cards",
+        "https://mobilinkbank.com/assets/documents/SOC_2nd_Half_2026.pdf",
+        "https://mobilinkbank.com/terms-and-conditions",
+        "https://mobilinkbank.com/deposits/bint-e-hawwa"
+      ],
+      "confidence": "high",
+      "notes": [
+        "PayPak Bint-e-Hawwa Debit Card (branch-banking PayPak card). SOC row: 'PAY PAK BINT-E- HAWA ATM Card Issuance - 1st ATM Card Free / PAY PAK BINT-E- HAWA ATM Card Renewal - Nil'.",
+        "Published transaction limits: cash withdrawal PKR 100,000/day, POS purchase PKR 100,000/day, in-bank transfer PKR 1,000,000/day, IBFT PKR 500,000/day.",
+        "Supersedes the Jan-Jun 2026 branch SOBC, which charged PKR 1,150 for re-issuance/renewal of this card.",
+        "Eligibility is restricted: 'Binte Hawwa account can be opened by Pakistani Female Residents only' (mobilinkbank.com/deposits/bint-e-hawwa), which also advertises a 'Free Customized ATM Card' and a PKR 100 initial deposit.",
+        "Provenance: Verified 2026-09-08 against Mobilink Microfinance Bank's own sources: the ATM/Debit Card product page (mobilinkbank.com/atm-debit-card/atm-debit-cards), which lists exactly five debit cards (Classic, Gold, Bint-e-Hawwa, JazzCash Mastercard, JazzCash PayPak), and the REVISED Schedule of Bank Charges (Instruction Circular Inst./37/2026 dated 7 August 2026, effective 7 Aug 2026 to 31 Dec 2026), p.4 section 'ATM, VISA, SMS & E-Statement'. Minimum-balance treatment comes from the linked Sahulat Current Account page ('No minimum or average monthly balance requirements'; opening deposit Rs.100). CNIC/BVS and account prerequisites come from the bank's Terms and Conditions PDF. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+      ]
+    },
+    {
+      "card_name": "JazzCash Mastercard Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 99,
+        "joining_fee_pkr": 999,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://mobilinkbank.com/atm-debit-card/atm-debit-cards",
+        "https://mobilinkbank.com/assets/documents/SOC_Q3_2026_-_Final.pdf",
+        "https://mobilinkbank.com/terms-and-conditions",
+        "https://www.jazzcash.com.pk/move-money/cards"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "JazzCash (branchless banking) Mastercard debit card. Branchless SOC rows: 'Master Card Physical Card Issuance - 999', 'Master Card Physical Card Annual Fee - 99', replacement 799. All figures exclude tax per the table header.",
+        "The SOC also lists 'Master Card Supplementary Card - 999' with no basis stated (issuance vs annual is not specified), so supplementary_annual_fee_pkr is left unset rather than assumed.",
+        "Context from the same SOC: the virtual variant is 300 issuance / 0 annual, and the annual fee is 'Free' for Merchants, Freelancers, Employees and Corporate Customers (p.6).",
+        "The 'Master Card Supplementary Card - 999' line does not state whether it is an issuance or an annual charge, so it is recorded in notes only.",
+        "Provenance: Verified 2026-09-08 against Mobilink Microfinance Bank's own sources. Card existence and wallet limits from the ATM/Debit Card product page and the JazzCash cards page (jazzcash.com.pk/move-money/cards); fees from the Branchless Banking Schedule of Charges (Inst Circular/30/2026 dated 30 June 2026, effective 1 Jul 2026 to 30 Sep 2026), p.2 consumer M-Wallet table, fees excluding tax. Ordered by existing JazzCash wallet holders through the JazzCash app/website; the bank's Terms and Conditions require the wallet's mobile number to be registered on the holder's CNIC and state that 'Only BVS verified customers will be able to perform card transactions'. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+      ]
+    },
+    {
+      "card_name": "JazzCash PayPak Debit Card",
+      "card_type": "debit",
+      "tier": "other",
+      "requirements": {
+        "minimum_monthly_salary_pkr": null,
+        "minimum_account_balance_pkr": null,
+        "annual_fee_pkr": 299,
+        "joining_fee_pkr": 999,
+        "supplementary_annual_fee_pkr": null,
+        "annual_fee_waiver_rule": null,
+        "minimum_age_years": null,
+        "maximum_age_years": null,
+        "income_document_required": null,
+        "salary_transfer_required": null,
+        "pakistani_cnic_required": true,
+        "existing_account_required": true
+      },
+      "sources": [
+        "https://mobilinkbank.com/atm-debit-card/atm-debit-cards",
+        "https://mobilinkbank.com/assets/documents/SOC_Q3_2026_-_Final.pdf",
+        "https://mobilinkbank.com/terms-and-conditions",
+        "https://www.jazzcash.com.pk/move-money/cards"
+      ],
+      "confidence": "medium",
+      "notes": [
+        "JazzCash (branchless banking) PayPak debit card. Branchless SOC rows: 'PayPak Debit Card Issuance - 999' and 'PayPak Debit Card Annual Fee - 299'; physical card replacement 999. All figures exclude tax per the table header.",
+        "Priced separately from the branch-banking PAY PAK Classic card (PKR 1,300 issuance/renewal) \u2014 they are different products on different rails, not the same card.",
+        "SOC footnote: 'Only permanent block cards are exempted from annual Cards fee'. The merchant table on p.6 carries the same 999/999/299 figures.",
+        "Provenance: Verified 2026-09-08 against Mobilink Microfinance Bank's own sources. Card existence and wallet limits from the ATM/Debit Card product page and the JazzCash cards page (jazzcash.com.pk/move-money/cards); fees from the Branchless Banking Schedule of Charges (Inst Circular/30/2026 dated 30 June 2026, effective 1 Jul 2026 to 30 Sep 2026), p.2 consumer M-Wallet table, fees excluding tax. Ordered by existing JazzCash wallet holders through the JazzCash app/website; the bank's Terms and Conditions require the wallet's mobile number to be registered on the holder's CNIC and state that 'Only BVS verified customers will be able to perform card transactions'. Added to bridge the new (bank, card) pair appearing in the offers feed on 2026-09-08."
+      ]
+    }
+  ]
+}

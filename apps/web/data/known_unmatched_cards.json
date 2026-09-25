@@ -1,9 +1,20 @@
 {
   "description": "(bank, card) pairs present in offers.json that have NO requirements record in data/card-requirements/normalized/deal_requirement_card_map.json (i.e. matched=false). These are the known orphans as of the cron-safety rollout. The validator fails if a *new* unmatched pair appears that is not in this list.",
   "policy": "To allow a new pair, either (1) add the card to data/card-requirements/normalized/card_requirements.json so the matcher can pick it up, OR (2) add a MANUAL_ALIASES entry in scripts/card_requirements/build_deal_requirement_card_map.py, OR (3) if intentional, append the pair here with a note. Removing entries here is encouraged once the underlying card is bridged.",
-  "source_of_truth": "data/card-requirements/normalized/deal_requirement_card_map.json — entries where matched=false",
+  "source_of_truth": "data/card-requirements/normalized/deal_requirement_card_map.json \u2014 entries where matched=false",
   "pairs": [
-    { "bank": "Bank Alfalah", "card": "Bank Alfalah Mastercard Titanium Credit Card" },
-    { "bank": "BankIslami", "card": "Priority Mastercard Debit Card" }
+    {
+      "bank": "Bank Alfalah",
+      "card": "Bank Alfalah Mastercard Titanium Credit Card"
+    },
+    {
+      "bank": "BankIslami",
+      "card": "Priority Mastercard Debit Card"
+    },
+    {
+      "bank": "JS Bank",
+      "card": "Visa Infinite Credit Card",
+      "note": "Added 2026-09-25. JS Bank publishes no Visa Infinite credit card: the Jul-Dec 2026 Schedule of Charges (jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf, Consumer Lending section A 'JS Bank Credit Card VISA') prices exactly four tiers - Classic, Gold, Platinum and Signature - and contains no occurrence of 'Infinite'; jsbl.com/js-credit-card/ lists the same four. Not aliased to the Signature record because Visa Infinite is a distinct Visa tier and no bank document states the equivalence - aliasing would attach Signature's PKR 20,000 annual fee to a card the bank does not publish. Needs a human to confirm with JS Bank whether this is a new product or a feed error; if it is real, it needs its own sourced record."
+    }
   ]
 }

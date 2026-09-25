@@ -858,10 +858,10 @@
     "deal_bank_name": "Bank of Punjab",
     "requirement_bank_name": "Bank of Punjab",
     "deal_card_name": "PayPak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-of-punjab--bop-paypak-debit-card",
+    "requirement_card_name": "BOP PayPak Debit Card"
   },
   {
     "deal_bank_name": "BankIslami",
@@ -948,19 +948,19 @@
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Bank Business Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-bank-business-debit-card",
+    "requirement_card_name": "Faysal Bank Business Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Co-Badged Mastercard Paypak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-co-badged-mastercard-paypak-debit-card",
+    "requirement_card_name": "Faysal Islami Co-Badged Mastercard PayPak Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -1038,19 +1038,19 @@
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Paypak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "faysal-bank--faysal-islami-paypak-debit-card",
+    "requirement_card_name": "Faysal Islami PayPak Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
     "requirement_bank_name": "Faysal Bank Limited",
     "deal_card_name": "Faysal Islami Paypak Unionpay Co-Badged Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "faysal-bank--faysal-islami-paypak-unionpay-co-badged-debit-card",
+    "requirement_card_name": "Faysal Islami PayPak UnionPay Co-Badged Debit Card"
   },
   {
     "deal_bank_name": "Faysal Bank Limited",
@@ -1236,10 +1236,10 @@
     "deal_bank_name": "Habib Bank Limited",
     "requirement_bank_name": "HBL",
     "deal_card_name": "HBL Paypak DebitCard",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "hbl--hbl-paypak-debitcard",
+    "requirement_card_name": "HBL PayPak DebitCard"
   },
   {
     "deal_bank_name": "Habib Bank Limited",
@@ -1776,46 +1776,46 @@
     "deal_bank_name": "Mobilink Microfinance Bank Limited",
     "requirement_bank_name": "Mobilink Microfinance Bank Limited",
     "deal_card_name": "JazzCash Mastercard Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--jazzcash-mastercard-debit-card",
+    "requirement_card_name": "JazzCash Mastercard Debit Card"
   },
   {
     "deal_bank_name": "Mobilink Microfinance Bank Limited",
     "requirement_bank_name": "Mobilink Microfinance Bank Limited",
     "deal_card_name": "JazzCash PayPak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--jazzcash-paypak-debit-card",
+    "requirement_card_name": "JazzCash PayPak Debit Card"
   },
   {
     "deal_bank_name": "Mobilink Microfinance Bank Limited",
     "requirement_bank_name": "Mobilink Microfinance Bank Limited",
     "deal_card_name": "Paypak Bint-e-Hawwa Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--paypak-bint-e-hawwa-debit-card",
+    "requirement_card_name": "PayPak Bint-e-Hawwa Debit Card"
   },
   {
     "deal_bank_name": "Mobilink Microfinance Bank Limited",
     "requirement_bank_name": "Mobilink Microfinance Bank Limited",
     "deal_card_name": "Paypak Classic Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--paypak-classic-debit-card",
+    "requirement_card_name": "PayPak Classic Debit Card"
   },
   {
     "deal_bank_name": "Mobilink Microfinance Bank Limited",
     "requirement_bank_name": "Mobilink Microfinance Bank Limited",
     "deal_card_name": "Paypak Gold Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "mobilink-bank--paypak-gold-debit-card",
+    "requirement_card_name": "PayPak Gold Debit Card"
   },
   {
     "deal_bank_name": "National Bank of Pakistan",
@@ -1866,19 +1866,19 @@
     "deal_bank_name": "Soneri Bank Limited",
     "requirement_bank_name": "Soneri Bank Limited",
     "deal_card_name": "PayPak Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "soneri-bank--soneri-paypak-debit-card",
+    "requirement_card_name": "Soneri PayPak Debit Card"
   },
   {
     "deal_bank_name": "Standard Chartered Bank",
     "requirement_bank_name": "Standard Chartered Bank Pakistan",
     "deal_card_name": "Paypak Standard Debit Card",
-    "matched": false,
-    "match_method": null,
-    "requirement_card_id": null,
-    "requirement_card_name": null
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "standard-chartered--paypak-debit-card",
+    "requirement_card_name": "PayPak Debit Card"
   },
   {
     "deal_bank_name": "United Bank Limited (UBL)",
