@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T12:04:05",
+  "generatedAt": "2026-09-25T12:24:47",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -23,6 +23,40 @@
       "city": "Islamabad",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Anatummy",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31685?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 2,
+      "summary": "Burgers with a touch...",
+      "phone": "0313 1778866",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Anatummy - Bahria Town",
+          "address": "Unit B Box Park, 7 Bahria Food St, Phase Bahria Town Intellectual Village, Rawalpindi, 44000, Pakistan."
+        },
+        {
+          "outlet_name": "Anatummy - Blue Area",
+          "address": "Ground Floor, skyline tower, New, G 9/2 Blue Area, Islamabad, 46000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31685?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "Angeethi Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30715?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -71,6 +105,120 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30622?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=3"
       ]
     },
     {
@@ -611,6 +759,40 @@
       "city": "Islamabad",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Anatummy",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31685?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 2,
+      "summary": "Burgers with a touch...",
+      "phone": "0313 1778866",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Anatummy - Bahria Town",
+          "address": "Unit B Box Park, 7 Bahria Food St, Phase Bahria Town Intellectual Village, Rawalpindi, 44000, Pakistan."
+        },
+        {
+          "outlet_name": "Anatummy - Blue Area",
+          "address": "Ground Floor, skyline tower, New, G 9/2 Blue Area, Islamabad, 46000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31685?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Angeethi Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30715?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -659,6 +841,120 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30622?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=3"
       ]
     },
     {
@@ -1199,6 +1495,40 @@
       "city": "Islamabad",
       "card_id": 3,
       "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Anatummy",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31685?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 2,
+      "summary": "Burgers with a touch...",
+      "phone": "0313 1778866",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Anatummy - Bahria Town",
+          "address": "Unit B Box Park, 7 Bahria Food St, Phase Bahria Town Intellectual Village, Rawalpindi, 44000, Pakistan."
+        },
+        {
+          "outlet_name": "Anatummy - Blue Area",
+          "address": "Ground Floor, skyline tower, New, G 9/2 Blue Area, Islamabad, 46000, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31685?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
       "merchant_name": "Angeethi Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30715?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -1247,6 +1577,120 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30622?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=3",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=3"
       ]
     },
     {
@@ -2045,6 +2489,120 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30740?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=1"
       ]
     },
     {
@@ -4468,6 +5026,120 @@
       "city": "Karachi",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Caf\u00e9 Bleu",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30674?type=card&cityId=1",
       "headline_discount_pct": 20,
@@ -6877,6 +7549,120 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30740?type=card&cityId=1"
+      ]
+    },
+    {
+      "city_id": 1,
+      "city": "Karachi",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=1",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=1"
       ]
     },
     {
@@ -9143,6 +9929,120 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=2"
       ]
     },
     {
@@ -10437,6 +11337,120 @@
       "city": "Lahore",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "Cafe Ostyria",
       "detail_url": "https://discovery.discountworld.net/brand-detail/31504?type=card&cityId=2",
       "headline_discount_pct": 15,
@@ -11717,6 +12731,120 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/31598?type=card&cityId=2"
+      ]
+    },
+    {
+      "city_id": 2,
+      "city": "Lahore",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Burger Lab",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=2",
+      "headline_discount_pct": 50,
+      "headline_discount_label": "50%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 22,
+      "summary": "Indulge in mouthwate...",
+      "phone": "021 111 112 522",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [
+        {
+          "outlet_name": "Burger Lab - Box Park",
+          "address": "Shop #2 ground Floor, Box Park Plaza, phase 7 Bahria Town Intellectual Village, Rawalpindi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - North Nazimabad",
+          "address": "Shop no 2\u060c Plot b-73, Block L North Nazimabad Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab Johar Town",
+          "address": "10-A Abdul Haque Rd, Block G Phase 1 Johar Town, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Maskan Gulshan-e-Iqbal",
+          "address": "FL-5, Commercial Shop no. B-3, Ground Floor, Block 4 Gulshan-e-Iqbal, Karachi, 75300, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Malir Cantt",
+          "address": "MM Alam Road, Main Jinnah Avenue near Check Post # 6, Malir Cantonment, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Dolmen Mall",
+          "address": "Dolmen Mall, 4rth Floor, Food Court, Tariq Rd, Delhi CHS P.E.C.H.S., Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Lucky one",
+          "address": "Lucky One Mall Food Court, Federal B Area Block 21 Gulberg Town, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Faisalabad",
+          "address": "Galleria, W Canal Rd, Saeed Colony Nasar Ullah Khan Town, Faisalabad, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Kharian",
+          "address": "RV49+H43, GT Rd, Kharian, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab- Gulistan-e- Johar",
+          "address": "Farhan Classic\u060c, Block 12 Gulistan-e-Johar, Karachi, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Citi Housing",
+          "address": "3579+7W4 Citi Food, Street, near Citi Dancing Fountain, Phase 1 Citi Housing, Gujranwala, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Gulberg Panda Kitchen",
+          "address": "chowk, 219 Kalma Chowk Flyover, Block L Block E 2 Gulberg III, Lahore, 54000 Kalma, road, Block E 2 Gulberg, Lahore, 54660, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Enclave",
+          "address": "Panorama Plaza, Sector A Bahria Enclave, Islamabad, 44000, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Sehar",
+          "address": "plot no, 29 C Khayaban-e-Seher, D.H.A Phase 6 Shahbaz Commercial Area Phase 6 Defence Housing Authority, Karachi, 75500, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "Plot# 2 theme, park Commercial, Bahria Town Karachi, Karachi, 75340, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Prisma Mall",
+          "address": "Shop no 32-G, Prisma Mall, DC Colony, Rahwali, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Bahria Town",
+          "address": "35-c, commercial Commercial Area Sector C Bahria Town, Lahore, 53720, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Tipu",
+          "address": "97/7, Commercial area, Tipu Sultan Rd, Adamjee Nagar Society Block B Shabbirabad, Karachi, 75400, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 3 Z Block",
+          "address": "Z Sector Parking Area\u060c 14Z, Sector Z DHA Phase 3, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - DHA Phase 6",
+          "address": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "38 CCA Commercial Center, Sector C DHA Phase 6, Lahore, Pakistan",
+          "address": "Panda Kitchen, Plot # 509, Moza Sadhoki, Defence Road, Valencia Lahore, 00000, Lahore, Pakistan"
+        },
+        {
+          "outlet_name": "Burger Lab - Jhelum",
+          "address": "XMQ2+H5, Satellite Town Jhelum, Pakistan"
+        }
+      ],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31684?type=card&cityId=2"
       ]
     },
     {
