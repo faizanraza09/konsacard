@@ -1442,6 +1442,15 @@
   {
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Infinite Credit Card",
+    "matched": false,
+    "match_method": null,
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
     "deal_card_name": "Visa Platinum Credit Card",
     "matched": true,
     "match_method": "manual_alias",
