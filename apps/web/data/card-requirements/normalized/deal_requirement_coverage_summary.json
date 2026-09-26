@@ -103,9 +103,11 @@
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
     "matched_cards": 9,
-    "total_deal_cards": 9,
-    "coverage_pct": 100.0,
-    "unmatched_deal_cards": []
+    "total_deal_cards": 10,
+    "coverage_pct": 90.0,
+    "unmatched_deal_cards": [
+      "Visa Infinite Credit Card"
+    ]
   },
   {
     "deal_bank_name": "MCB Bank Limited",
