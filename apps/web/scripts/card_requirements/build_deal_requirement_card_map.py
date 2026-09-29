@@ -167,7 +167,13 @@ MANUAL_ALIASES = {
     },
     "JS Bank": {
         "Visa Classic Credit Card": "JS Credit Card Classic",
+        # JS Bank is re-carding its debit portfolio from Mastercard to Visa;
+        # jsbl.com/visa-migration/ publishes the equivalences used below.
+        "Visa Gold Debit Card": "Mastercard Gold Debit Card",
+        "Visa Her Platinum Debit Card": "Mastercard Her Titanium Debit Card",
         "Visa Platinum Credit Card": "JS Credit Card Platinum",
+        "Visa Platinum Debit Card": "Mastercard Platinum Debit Card",
+        "Visa Signature Debit Card": "Mastercard World Debit Card",
     },
     "MCB Bank Limited": {
         "PayPak Classic Debit Card": "PayPak Debit Card",

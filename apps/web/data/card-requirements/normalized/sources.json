@@ -2055,6 +2055,20 @@
     ]
   },
   {
+    "source_id": "js-bank-src-f9ff097a2b",
+    "bank_slug": "js-bank",
+    "bank_name": "JS Bank",
+    "url": "https://www.jsbl.com/visa-migration/",
+    "source_type": "html",
+    "used_by_card_ids": [
+      "js-bank--mastercard-gold-debit-card",
+      "js-bank--mastercard-her-titanium-debit-card",
+      "js-bank--mastercard-platinum-debit-card",
+      "js-bank--mastercard-titanium-debit-card",
+      "js-bank--mastercard-world-debit-card"
+    ]
+  },
+  {
     "source_id": "js-bank-src-04f7f3eda5",
     "bank_slug": "js-bank",
     "bank_name": "JS Bank",
