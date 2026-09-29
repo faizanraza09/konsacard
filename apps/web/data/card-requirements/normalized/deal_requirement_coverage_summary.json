@@ -102,9 +102,9 @@
   {
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
-    "matched_cards": 9,
-    "total_deal_cards": 10,
-    "coverage_pct": 90.0,
+    "matched_cards": 13,
+    "total_deal_cards": 14,
+    "coverage_pct": 92.9,
     "unmatched_deal_cards": [
       "Visa Infinite Credit Card"
     ]

@@ -1442,6 +1442,24 @@
   {
     "deal_bank_name": "JS Bank",
     "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Gold Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "js-bank--mastercard-gold-debit-card",
+    "requirement_card_name": "Mastercard Gold Debit Card"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Her Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "js-bank--mastercard-her-titanium-debit-card",
+    "requirement_card_name": "Mastercard Her Titanium Debit Card"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
     "deal_card_name": "Visa Infinite Credit Card",
     "matched": false,
     "match_method": null,
@@ -1456,6 +1474,24 @@
     "match_method": "manual_alias",
     "requirement_card_id": "js-bank--js-credit-card-platinum",
     "requirement_card_name": "JS Credit Card Platinum"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "js-bank--mastercard-platinum-debit-card",
+    "requirement_card_name": "Mastercard Platinum Debit Card"
+  },
+  {
+    "deal_bank_name": "JS Bank",
+    "requirement_bank_name": "JS Bank",
+    "deal_card_name": "Visa Signature Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "js-bank--mastercard-world-debit-card",
+    "requirement_card_name": "Mastercard World Debit Card"
   },
   {
     "deal_bank_name": "MCB Bank Limited",
