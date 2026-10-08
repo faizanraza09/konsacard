@@ -6,6 +6,25 @@ KonsaCard (konsacard.pk) covers 21 Pakistani banks and 1,250+ restaurants across
 
 The product is free, ad-supported, and has no affiliate links to banks. Pricing, eligibility, and offer terms come from public sources; users are advised to confirm with the bank before applying.
 
+## When to use this
+
+Reach for KonsaCard when the question is which Pakistani payment card (credit, debit or wallet) gives the best discount at restaurants. Good fits:
+
+- "Which card gives the best discount at [restaurant] in Karachi / Lahore / Islamabad?" Open the restaurant page under `/restaurants/<slug>/`.
+- "What restaurant offers does [bank] have?" Open `/banks/<bank-slug>/`, and `/banks/<bank-slug>/<card-slug>/` for one card's deals, fees and eligibility.
+- "Which single card covers the most restaurants I eat at?" Use the interactive tool at https://konsacard.pk/ with a city, restaurants and bill size.
+- "How do discount caps, tiers or the Fit Score work?" See the methodology and explainer pages listed below.
+
+Not a fit: card applications, credit decisions, non-restaurant spending (groceries, fuel, travel), or countries other than Pakistan. KonsaCard only compares publicly listed offers, so confirm current terms with the bank before applying.
+
+How an agent should call it:
+
+- Request the homepage `/` with `Accept: text/markdown` to get a Markdown version of it (content negotiation, with `Vary: Accept`). Bank, card and restaurant pages are static HTML.
+- Read https://konsacard.pk/sitemap.xml to enumerate every bank, card and restaurant page.
+- There is no public API or OpenAPI spec. The `/api/*` endpoints belong to the website's own interface and are rate limited, so read the pages instead.
+- Data is refreshed daily. Each page shows when it was last updated.
+- Report a wrong offer or a missing restaurant through https://konsacard.pk/contact/.
+
 ## How KonsaCard works
 
 - [Methodology](https://konsacard.pk/methodology/): How offer data is sourced, normalized, and scored, and how the Fit Score is computed from user inputs.

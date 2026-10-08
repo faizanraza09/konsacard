@@ -3,6 +3,11 @@
 # and the homepage canonicalizes filtered states to / via the canonical meta
 # tag in index.html, so /?banks=...&rests=... URLs are kept as-is.
 
+# Common alias for the privacy policy. Agents and trust checks probe /privacy
+# (and /about, /contact), but the real page lives at /privacy-policy/.
+/privacy    /privacy-policy/  301
+/privacy/   /privacy-policy/  301
+
 # 404 fallback: any path that doesn't match a real file falls through to
 # 404.html with HTTP 404. Cloudflare Pages serves 404.html by default for
 # missing routes, but stating it explicitly survives wrangler-dev and any

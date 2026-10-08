@@ -30,6 +30,13 @@
 // keeps things fresh through daily-refresh commits (the URL doesn't change
 // but the underlying offers.json does after a deploy).
 
+import {
+  buildHomepageMarkdown,
+  markdownResponse,
+  prefersMarkdown,
+  withVaryAccept,
+} from "../lib/markdown-negotiation.mjs";
+
 const SSR_MARKER = "<!-- SSR_RANKINGS_INJECT_HERE -->";
 const SCHEMA_MARKER = "<!-- SSR_SCHEMA_INJECT_HERE -->";
 const SITE_URL = "https://konsacard.pk";
@@ -157,8 +164,26 @@ async function fetchAsset(env, url, path) {
   return res;
 }
 
+// Markdown rendition of "/" for clients that send `Accept: text/markdown`.
+// Never throws: if the ranking data can't be loaded it still returns the
+// static sections, so the body is always non-empty Markdown.
+async function renderMarkdown(context, url) {
+  const { env } = context;
+  const cityKey = pickCityKey(url.searchParams.get("city"));
+  let ranked = [];
+  let orderValue = DEFAULT_BILL;
+  try {
+    const summary = await (await fetchAsset(env, url, "/data/summary.json")).json();
+    orderValue = Number.isFinite(summary.orderValue) ? summary.orderValue : DEFAULT_BILL;
+    ranked = (summary.scopes?.[cityKey] || []).slice(0, 10);
+  } catch (err) {
+    console.error("[ssr-index] markdown without rankings:", err && err.message);
+  }
+  return markdownResponse(buildHomepageMarkdown({ ranked, scopeLabel: cityLabel(cityKey), orderValue }));
+}
+
 export async function onRequest(context) {
-  const { request, env, next } = context;
+  const { request, next } = context;
   const url = new URL(request.url);
 
   // Only intercept the bare homepage. Bank/restaurant pages have their own
@@ -167,10 +192,21 @@ export async function onRequest(context) {
     return next();
   }
 
-  // Non-GET (HEAD, OPTIONS, etc.) → just serve the static asset.
-  if (request.method !== "GET") {
+  // Non-GET/HEAD (OPTIONS, etc.) → just serve the static asset.
+  if (request.method !== "GET" && request.method !== "HEAD") {
     return next();
   }
+
+  // Content negotiation on the same URL: Markdown for agents that ask for it,
+  // HTML for everyone else. Both carry `Vary: Accept` so caches keep them apart.
+  const res = prefersMarkdown(request.headers.get("Accept"))
+    ? await renderMarkdown(context, url)
+    : await renderHtml(context, url);
+  return withVaryAccept(res);
+}
+
+async function renderHtml(context, url) {
+  const { env, next } = context;
 
   try {
     const cityKey = pickCityKey(url.searchParams.get("city"));
