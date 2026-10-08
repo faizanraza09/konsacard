@@ -1905,7 +1905,7 @@ function closeCompareModal() {
 
 
 /* ══════════════════════════════════════════════════════
-   CHAT — Gemini 2.5 Flash with streaming (via /api/chat proxy)
+   CHAT — DeepSeek with streaming (via /api/chat proxy)
    ══════════════════════════════════════════════════════ */
 
 /* ── CHAT PANEL + AI TOOLS ── moved to assets/chat.js */

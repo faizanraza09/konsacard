@@ -13,6 +13,8 @@ import {
   guardChatRequest,
   monthKey,
   originAllowed,
+  sanitizeSseLine,
+  stripVendorFields,
   validateChatBody,
 } from "../../lib/chat-guard.mjs";
 
@@ -294,4 +296,80 @@ test("endpoint: guard decisions, JSON errors, and upstream is only called when a
   } finally {
     globalThis.fetch = realFetch;
   }
+});
+
+/* ── vendor fields + logging ── */
+
+test("sanitizeSseLine drops vendor fields and leaves everything else alone", () => {
+  const out = sanitizeSseLine('data: {"id":"1","model":"deepseek-flash","system_fingerprint":"fp","choices":[{"delta":{"content":"hi"}}]}');
+  assert.deepEqual(JSON.parse(out.slice(6)), { id: "1", choices: [{ delta: { content: "hi" } }] });
+  for (const line of ["", "data: [DONE]", "data:", ": keep-alive", "event: ping", "data: {not json"]) {
+    assert.equal(sanitizeSseLine(line), line);
+  }
+  assert.deepEqual(stripVendorFields({ model: "x", a: 1 }), { a: 1 });
+  assert.equal(stripVendorFields(null), null);
+});
+
+test("endpoint: no vendor fields in JSON or streamed responses, and no question text in logs", async () => {
+  const { onRequestPost } = await loadHandler();
+  const realFetch = globalThis.fetch;
+  const realLog = console.log;
+  const logged = [];
+  console.log = (...a) => logged.push(a.join(" "));
+  const env = { DEEPSEEK_API_KEY: "k", RATE_LIMITS: fakeKv() };
+  const secret = "my salary is 123456 rupees";
+  const req = (stream) => post({ messages: [{ role: "user", content: secret }], stream, maxTokens: 300 });
+
+  try {
+    // Non-stream
+    globalThis.fetch = async () =>
+      Response.json({ id: "x", model: "deepseek-flash", system_fingerprint: "fp_1", choices: [{ message: { content: "ok" } }], usage: { prompt_tokens: 5 } });
+    let res = await onRequestPost({ request: req(false), env });
+    const json = await res.json();
+    assert.equal(json.choices[0].message.content, "ok");
+    assert.equal(json.usage.prompt_tokens, 5);
+    assert.ok(!("model" in json) && !("system_fingerprint" in json));
+
+    // Stream, with chunk boundaries that split lines and a JSON payload in half
+    const sse =
+      'data: {"id":"1","model":"deepseek-flash","choices":[{"delta":{"content":"Hel"}}]}\n\n' +
+      'data: {"id":"1","model":"deepseek-flash","system_fingerprint":"fp","choices":[{"delta":{"content":"lo"}}]}\n\n' +
+      "data: [DONE]\n\n";
+    const bytes = new TextEncoder().encode(sse);
+    globalThis.fetch = async () =>
+      new Response(
+        new ReadableStream({
+          start(c) {
+            for (const [a, b] of [[0, 40], [40, 130], [130, bytes.length]]) c.enqueue(bytes.slice(a, b));
+            c.close();
+          },
+        }),
+        { headers: { "content-type": "text/event-stream" } }
+      );
+    res = await onRequestPost({ request: req(true), env });
+    const text = await res.text();
+    assert.ok(!/deepseek|system_fingerprint|"model"/i.test(text), text);
+    const content = text
+      .split("\n")
+      .filter((l) => l.startsWith("data: ") && !l.includes("[DONE]"))
+      .map((l) => JSON.parse(l.slice(6)).choices[0].delta.content)
+      .join("");
+    assert.equal(content, "Hello");
+    assert.ok(text.includes("data: [DONE]"));
+
+    assert.ok(logged.length > 0);
+    assert.ok(!logged.join("\n").includes("salary"), "question text must not be logged");
+  } finally {
+    globalThis.fetch = realFetch;
+    console.log = realLog;
+  }
+});
+
+test("privacy policy names the real chat vendor and discloses where data goes", async () => {
+  const fs = await import("node:fs");
+  const html = fs.readFileSync(path.join(here, "../../privacy-policy/index.html"), "utf8");
+  assert.ok(!/gemini/i.test(html), "policy must not name a vendor chat no longer uses");
+  assert.match(html, /DeepSeek/);
+  assert.match(html, /People's Republic of China/);
+  assert.match(html, /<h2>Last updated<\/h2>\s*<p>October 2026<\/p>/);
 });

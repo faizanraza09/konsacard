@@ -154,7 +154,7 @@
                   </tr>
                   <tr>
                     <td>Chat query text</td>
-                    <td>Sent to Google Gemini API on each message</td>
+                    <td>Sent to DeepSeek's API (through our server) on each message</td>
                     <td>Required to generate AI responses. See the AI chat section below.</td>
                   </tr>
                   <tr>
@@ -180,17 +180,17 @@
           <article class="content-card">
             <h2>The AI chat feature (KonsaCard AI)</h2>
             <p>
-              The "Ask AI" feature in the tool is powered by Google's Gemini API. When you
+              The "Ask AI" feature in the tool is powered by DeepSeek's API. When you
               send a message in the chat:
             </p>
             <ul>
               <li><strong>What is sent.</strong> Your message text, the current filter state (city, card types, bill size), and the top ranked cards from your current search. No personal information is included unless you type it yourself.</li>
-              <li><strong>Where it goes.</strong> Directly to Google's Gemini API over HTTPS. The query is processed by Google's AI infrastructure according to <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener">Google's Gemini API Terms of Service</a>.</li>
-              <li><strong>What is stored.</strong> Chat history lives in browser memory only for the duration of your session. It is not stored on konsacard.pk servers. Clearing the chat or closing the tab clears the history.</li>
+              <li><strong>Where it goes.</strong> Your browser sends it to a konsacard.pk server function, which forwards it over HTTPS to DeepSeek's API. DeepSeek is a company based in China, and its privacy policy states that it processes and stores personal data in the People's Republic of China. Your message is handled under <a href="https://cdn.deepseek.com/policies/en-US/deepseek-privacy-policy.html" target="_blank" rel="noopener">DeepSeek's Privacy Policy</a> and <a href="https://cdn.deepseek.com/policies/en-US/deepseek-open-platform-terms-of-service.html" target="_blank" rel="noopener">Open Platform Terms of Service</a>.</li>
+              <li><strong>What is stored.</strong> Chat history lives in browser memory only for the duration of your session. Our servers do not keep your messages or write them to our logs. To limit abuse we do keep short-lived request counters tied to your IP address (counts only, never message content), which expire within about a day. We do not control how long DeepSeek keeps what it receives. Clearing the chat or closing the tab clears the history in your browser.</li>
               <li><strong>How to opt out.</strong> Simply don't use the chat feature. The comparison tool works fully without it.</li>
             </ul>
             <div class="tip-box amber">
-              <strong>Note:</strong> Please do not type sensitive personal information into the chat (such as salary figures, CNIC numbers, or account details). The AI does not need any of this to give useful recommendations, and the message goes straight to Google's servers.
+              <strong>Note:</strong> Please do not type sensitive personal information into the chat (such as salary figures, CNIC numbers, or account details). The AI does not need any of this to give useful recommendations, and the message is sent to DeepSeek's servers, which are located in China.
             </div>
           </article>
 
@@ -305,7 +305,7 @@
               </div>
               <div class="meta-item">
                 <strong>AI chat queries</strong>
-                <span>Sent to Google Gemini API per message.</span>
+                <span>Sent to DeepSeek's API (through our server) per message.</span>
               </div>
               <div class="meta-item">
                 <strong>Analytics</strong>
@@ -345,7 +345,7 @@
 
           <section class="content-card">
             <h2>Last updated</h2>
-            <p>May 2026</p>
+            <p>October 2026</p>
             <p>
               For questions, use the <a href="/contact/">contact page</a>.
             </p>

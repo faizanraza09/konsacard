@@ -229,3 +229,24 @@ function unavailable(why) {
     retryAfter: 300,
   };
 }
+
+// Response hygiene: the upstream payload names the vendor's model, which the
+// client never needs (and this site deliberately doesn't advertise).
+const VENDOR_FIELDS = ["model", "system_fingerprint"];
+
+export function stripVendorFields(obj) {
+  if (obj && typeof obj === "object") for (const f of VENDOR_FIELDS) delete obj[f];
+  return obj;
+}
+
+/** Rewrite one SSE line, dropping vendor fields from `data: {json}` lines. */
+export function sanitizeSseLine(line) {
+  if (!line.startsWith("data:")) return line;
+  const data = line.slice(5).trim();
+  if (!data || data === "[DONE]") return line;
+  try {
+    return `data: ${JSON.stringify(stripVendorFields(JSON.parse(data)))}`;
+  } catch {
+    return line;
+  }
+}

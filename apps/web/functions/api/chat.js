@@ -11,6 +11,8 @@ import {
   estimateCostMicros,
   guardChatRequest,
   originAllowed,
+  sanitizeSseLine,
+  stripVendorFields,
   validateChatBody,
 } from "../../lib/chat-guard.mjs";
 
@@ -244,8 +246,9 @@ export async function onRequestPost(context) {
   const resolvedPhase = phase || (stream ? "final" : "tool");
   const temperature = resolvedPhase === "tool" ? 0.1 : 0.5;
 
-  const userQuery = (inputMessages[inputMessages.length - 1]?.content || "").slice(0, 60);
-  console.log(`[CHAT] Query | phase: ${resolvedPhase} | temp: ${temperature} | query: "${userQuery}..." | inTokens: ${inputTokensEstimate} | maxOut: ${resolvedMaxTokens}`);
+  // Deliberately no question text in the logs: the privacy policy says chat
+  // content isn't stored on our servers, and Cloudflare logs would store it.
+  console.log(`[CHAT] Query | phase: ${resolvedPhase} | temp: ${temperature} | inTokens: ${inputTokensEstimate} | maxOut: ${resolvedMaxTokens}`);
 
   // Build OpenAI-format messages: prepend system prompt, leave the rest as-is.
   // The frontend already sends role/content/tool_calls/tool_call_id in OpenAI shape.
@@ -288,10 +291,11 @@ export async function onRequestPost(context) {
   }
 
   if (stream) {
-    // Pass through the SSE stream unmodified — DeepSeek emits OpenAI-format
-    // SSE which the frontend already knows how to parse.
+    // Relay the SSE stream (DeepSeek emits OpenAI-format SSE, which the frontend
+    // already parses), dropping vendor-identifying fields from each data line.
     const reader = upstream.body.getReader();
     const outputChunks = [];
+    const encoder = new TextEncoder();
 
     const newStream = new ReadableStream({
       async start(controller) {
@@ -299,9 +303,23 @@ export async function onRequestPost(context) {
           const decoder = new TextDecoder();
           let buffer = "";
 
+          const relay = (line) => {
+            if (line.startsWith("data: ")) {
+              const data = line.slice(6).trim();
+              if (data && data !== "[DONE]") {
+                try {
+                  const c = JSON.parse(data)?.choices?.[0]?.delta?.content;
+                  if (c) outputChunks.push(c);
+                } catch { /* ignore */ }
+              }
+            }
+            return sanitizeSseLine(line);
+          };
+
           while (true) {
             const { done, value } = await reader.read();
             if (done) {
+              if (buffer) controller.enqueue(encoder.encode(relay(buffer)));
               const totalOutput = outputChunks.join("").length;
               const outputTokensEstimate = estimateTokens(totalOutput);
               console.log(`[CHAT] Done | tokens in/out: ${inputTokensEstimate}/${outputTokensEstimate} | ${Date.now() - startTime}ms`);
@@ -309,24 +327,10 @@ export async function onRequestPost(context) {
               break;
             }
 
-            const text = decoder.decode(value, { stream: true });
-            buffer += text;
-
-            // Scrape content for token logging — don't modify the stream.
+            buffer += decoder.decode(value, { stream: true });
             const lines = buffer.split("\n");
             buffer = lines.pop() || "";
-            for (const line of lines) {
-              if (!line.startsWith("data: ")) continue;
-              const data = line.slice(6).trim();
-              if (!data || data === "[DONE]") continue;
-              try {
-                const json = JSON.parse(data);
-                const c = json?.choices?.[0]?.delta?.content;
-                if (c) outputChunks.push(c);
-              } catch { /* ignore */ }
-            }
-
-            controller.enqueue(value);
+            if (lines.length) controller.enqueue(encoder.encode(lines.map(relay).join("\n") + "\n"));
           }
         } catch (err) {
           console.error(`[CHAT] Stream error: ${err.message}`);
@@ -352,8 +356,8 @@ export async function onRequestPost(context) {
 
   console.log(`[CHAT] Done (non-stream) | tokens in/out: ${inputTokensEstimate}/${outputTokensEstimate} | ${Date.now() - startTime}ms`);
 
-  // Pass through the OpenAI-shape response unchanged — frontend already
-  // reads choices[0].message.tool_calls / .content. We intentionally omit
-  // any vendor/model identifier so the client never sees who's upstream.
-  return Response.json(responseData);
+  // OpenAI-shape response — the frontend reads choices[0].message.tool_calls /
+  // .content. Vendor/model identifiers are removed so the client never sees
+  // who's upstream.
+  return Response.json(stripVendorFields(responseData));
 }
