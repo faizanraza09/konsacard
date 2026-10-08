@@ -5,40 +5,20 @@
 const DEEPSEEK_MODEL = "deepseek-chat"; // V4 Flash non-thinking — strong tool calling, cheap.
 const DEEPSEEK_BASE = "https://api.deepseek.com/v1";
 
-/* ── Rate limiting (token-budgeted) ── */
-const HOURLY_TOKEN_BUDGET = 60_000;
-const DAILY_TOKEN_BUDGET  = 200_000;
-const MIN_TOKENS_PER_TURN = 800;
+import {
+  LIMITS,
+  clampMaxTokens,
+  estimateCostMicros,
+  guardChatRequest,
+  originAllowed,
+  validateChatBody,
+} from "../../lib/chat-guard.mjs";
 
-async function checkRateLimit(kv, ip, tokensThisCall) {
-  if (!kv || !ip) return null;
-
-  const now      = Date.now();
-  const hourKey  = `rlt:h:${ip}:${Math.floor(now / 3_600_000)}`;
-  const dayKey   = `rlt:d:${ip}:${Math.floor(now / 86_400_000)}`;
-
-  const [hourlyRaw, dailyRaw] = await Promise.all([kv.get(hourKey), kv.get(dayKey)]);
-  const hourly = Number(hourlyRaw) || 0;
-  const daily  = Number(dailyRaw)  || 0;
-
-  if (hourly >= HOURLY_TOKEN_BUDGET) {
-    return { limited: true, retryAfter: 3600 - (Math.floor(now / 1000) % 3600), reason: "hourly" };
-  }
-  if (daily >= DAILY_TOKEN_BUDGET) {
-    return { limited: true, retryAfter: 86400 - (Math.floor(now / 1000) % 86400), reason: "daily" };
-  }
-
-  const charge = Math.max(MIN_TOKENS_PER_TURN, Math.round(tokensThisCall || 0));
-  Promise.all([
-    kv.put(hourKey, String(hourly + charge), { expirationTtl: 7_200 }),
-    kv.put(dayKey,  String(daily  + charge), { expirationTtl: 90_000 }),
-  ]).catch(() => {});
-
-  return {
-    limited: false,
-    remainingHourly: Math.max(0, HOURLY_TOKEN_BUDGET - hourly - charge),
-    remainingDaily:  Math.max(0, DAILY_TOKEN_BUDGET  - daily  - charge),
-  };
+function errorResponse({ status, code, error, hint, reason, retryAfter }) {
+  return Response.json(
+    { error, code, ...(reason ? { reason } : {}), ...(hint ? { hint } : {}) },
+    { status, headers: retryAfter ? { "Retry-After": String(retryAfter) } : {} }
+  );
 }
 
 /* ── Token estimation for logging ── */
@@ -214,28 +194,33 @@ const TOOLS = [
 ];
 
 export async function onRequestPost(context) {
+  if (!originAllowed(context.request)) {
+    return errorResponse({ status: 403, code: "origin_not_allowed", error: "Forbidden.", hint: "Call this endpoint from konsacard.pk." });
+  }
+
   // Accept either common env var name so the user doesn't have to think about it.
   const key = (context.env.DEEPSEEK_API_KEY || context.env.DEEPSEEK_KEY || "").trim();
   if (!key) {
-    return Response.json({ error: "Chat service is not configured." }, { status: 503 });
+    return errorResponse({ status: 503, code: "chat_not_configured", error: "Chat service is not configured." });
   }
 
   let body;
   try {
-    body = await context.request.json();
+    const raw = await context.request.text();
+    if (raw.length > LIMITS.maxBodyBytes) {
+      return errorResponse({ status: 413, code: "body_too_large", error: "Request body is too large.", hint: "Shorten the conversation." });
+    }
+    body = JSON.parse(raw);
   } catch {
-    return Response.json({ error: "Invalid request body." }, { status: 400 });
+    return errorResponse({ status: 400, code: "invalid_json", error: "Invalid request body.", hint: "Send a JSON object with a messages array." });
   }
 
-  const inputMessages = body.messages || [];
-  const { systemPrompt, stream = true, maxTokens, phase } = body;
-  if (!Array.isArray(inputMessages) || !inputMessages.length) {
-    return Response.json({ error: "Missing messages." }, { status: 400 });
-  }
+  const invalid = validateChatBody(body);
+  if (invalid) return errorResponse({ ...invalid, hint: "Send {messages:[{role,content}], systemPrompt?, stream?, maxTokens?}." });
 
-  const resolvedMaxTokens = Number.isFinite(Number(maxTokens))
-    ? Math.max(256, Math.min(8192, Number(maxTokens)))
-    : 2000;
+  const inputMessages = body.messages;
+  const { systemPrompt, stream = true, phase } = body;
+  const resolvedMaxTokens = clampMaxTokens(body.maxTokens, 2000);
 
   // Token estimation
   const systemPromptTokens = estimateTokens(systemPrompt);
@@ -243,16 +228,15 @@ export async function onRequestPost(context) {
   const toolDefinitionsTokens = estimateTokens(JSON.stringify(TOOLS));
   const inputTokensEstimate = systemPromptTokens + messagesTokens + toolDefinitionsTokens + 50;
 
-  // Token-budgeted rate limit
+  // Rate limits + the monthly/daily spend cap. Fails closed when KV is down
+  // or unbound. Spend is reserved before the upstream call.
   const ip = context.request.headers.get("CF-Connecting-IP") || "";
   const tokenCharge = inputTokensEstimate + Math.floor(resolvedMaxTokens / 2);
-  const rl = await checkRateLimit(context.env.RATE_LIMITS, ip, tokenCharge);
-  if (rl?.limited) {
-    console.log(`[CHAT] Rate limited | IP: ${ip} | reason: ${rl.reason} | charge: ${tokenCharge}`);
-    return Response.json(
-      { error: "Token budget reached for this window.", reason: rl.reason },
-      { status: 429, headers: { "Retry-After": String(rl.retryAfter) } }
-    );
+  const costMicros = estimateCostMicros(inputTokensEstimate, Math.floor(resolvedMaxTokens / 2));
+  const rl = await guardChatRequest({ kv: context.env.RATE_LIMITS, ip, tokens: tokenCharge, costMicros });
+  if (!rl.ok) {
+    console.log(`[CHAT] Blocked | IP: ${ip} | ${rl.code}/${rl.reason}${rl.scope ? `/${rl.scope}` : ""} | charge: ${tokenCharge}`);
+    return errorResponse(rl);
   }
 
   // Tool turns get colder temperature (more deterministic routing); final answer
@@ -289,13 +273,18 @@ export async function onRequestPost(context) {
   });
 
   if (!upstream.ok) {
-    let errMsg = `AI service error ${upstream.status}`;
+    // Log the vendor's message server-side only. Passing it through leaked
+    // key fragments ("Your api key ****abcd is invalid") and billing state.
+    let detail = `status ${upstream.status}`;
     try {
       const errBody = await upstream.json();
-      errMsg = errBody?.error?.message || errBody?.message || errMsg;
+      detail = errBody?.error?.message || errBody?.message || detail;
     } catch { /* ignore */ }
-    console.error(`[CHAT] Error: ${errMsg}`);
-    return Response.json({ error: errMsg }, { status: upstream.status });
+    console.error(`[CHAT] Upstream error ${upstream.status}: ${detail}`);
+    if (upstream.status === 429) {
+      return errorResponse({ status: 429, code: "upstream_rate_limited", reason: "minute", error: "Chat is busy right now.", hint: "Retry in a few seconds.", retryAfter: 10 });
+    }
+    return errorResponse({ status: 502, code: "upstream_error", error: "Chat service is temporarily unavailable.", hint: "Try again later.", retryAfter: 60 });
   }
 
   if (stream) {
@@ -351,8 +340,8 @@ export async function onRequestPost(context) {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
         "X-Accel-Buffering": "no",
-        "X-Rate-Hourly-Remaining": String(rl?.remainingHourly ?? ""),
-        "X-Rate-Daily-Remaining":  String(rl?.remainingDaily ?? ""),
+        "X-Rate-Hourly-Remaining": String(rl.remaining.tokensPerHour),
+        "X-Rate-Daily-Remaining":  String(rl.remaining.tokensPerDay),
       },
     });
   }

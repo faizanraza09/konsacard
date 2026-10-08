@@ -748,7 +748,7 @@ async function withRetry(fn, { maxAttempts = 3, signal } = {}) {
     } catch (err) {
       if (err.name === "AbortError") throw err;
       lastErr = err;
-      const retryable = !(err instanceof ChatError) || err.status === 429 || err.status >= 500;
+      const retryable = !(err instanceof ChatError) || err.status === 429 || (err.status >= 500 && err.reason !== "budget");
       if (!retryable || attempt === maxAttempts - 1) throw err;
       const delay = err instanceof ChatError && err.status === 429 ? 3000 : 1000 * (attempt + 1);
       await new Promise((res) => setTimeout(res, delay));
@@ -1129,7 +1129,11 @@ async function sendChatMessage(text) {
     } else if (err instanceof ChatError && err.status === 429) {
       streamingMsg.text = err.reason === "daily"
         ? "I've answered a lot of questions today — try again tomorrow when the daily budget resets."
-        : "Hourly budget reached — try again in a bit.";
+        : err.reason === "minute"
+          ? "You're sending messages quickly — wait a few seconds and try again."
+          : "Hourly budget reached — try again in a bit.";
+    } else if (err instanceof ChatError && err.status === 503 && err.reason === "budget") {
+      streamingMsg.text = "Chat is paused for now because its usage budget has been reached. The rankings and filters still work — chat will be back soon.";
     } else if (err instanceof ChatError && err.status >= 500) {
       streamingMsg.text = "⚠️ Chat service is temporarily unavailable. Please try again shortly.";
     } else {

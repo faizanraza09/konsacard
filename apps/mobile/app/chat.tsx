@@ -278,7 +278,11 @@ export default function ChatScreen() {
         } else if (error.status === 429) {
           userMsg = error.reason === "daily"
             ? "I've answered a lot of questions today — try again tomorrow when the daily budget resets."
-            : "Hourly budget reached — try again in a bit.";
+            : error.reason === "minute"
+              ? "You're sending messages quickly — wait a few seconds and try again."
+              : "Hourly budget reached — try again in a bit.";
+        } else if (error.status === 503 && error.reason === "budget") {
+          userMsg = "Chat is paused for now because its usage budget has been reached. The rankings and filters still work — chat will be back soon.";
         } else if (error.status && error.status >= 500) {
           userMsg = "⚠️ Chat service is temporarily unavailable. Please try again shortly.";
         } else if (error.status === 400 || error.status === 403) {

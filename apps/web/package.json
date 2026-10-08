@@ -17,6 +17,7 @@
     "refresh:requirements": "python3 scripts/card_requirements/build_card_requirements_normalized.py && python3 scripts/card_requirements/build_deal_requirement_card_map.py",
     "refresh:all": "npm run refresh:offers && npm run refresh:requirements && npm run generate:seo",
     "test": "npm run build:assets && playwright test",
+    "test:unit": "node --test tests/unit/*.unit.mjs",
     "test:ui": "npm run build:assets && playwright test --ui",
     "test:headed": "npm run build:assets && playwright test --headed"
   },
