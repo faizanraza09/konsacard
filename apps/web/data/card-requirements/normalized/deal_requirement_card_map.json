@@ -362,7 +362,16 @@
   {
     "deal_bank_name": "Bank AL Habib",
     "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "AL Habib Digital Visa Gold Debit Card",
+    "deal_card_name": "AL Habib Classic Credit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--al-habib-green-credit-card",
+    "requirement_card_name": "AL Habib Green Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Digital Gold Debit Card",
     "matched": true,
     "match_method": "manual_alias",
     "requirement_card_id": "bank-al-habib--al-habib-digital-account-gold-debit-card",
@@ -380,79 +389,16 @@
   {
     "deal_bank_name": "Bank AL Habib",
     "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "AL Habib Remit Visa Silver Debit Card",
+    "deal_card_name": "AL Habib Gold Credit Card",
     "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "bank-al-habib--al-habib-remit-debit-card",
-    "requirement_card_name": "AL Habib Remit Debit Card"
-  },
-  {
-    "deal_bank_name": "Bank AL Habib",
-    "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "AL Habib Woman Visa Silver Debit Card",
-    "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "bank-al-habib--al-habib-woman-debit-card",
-    "requirement_card_name": "AL Habib Woman Debit Card"
-  },
-  {
-    "deal_bank_name": "Bank AL Habib",
-    "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "BAHL UnionPay Apna Debit Card",
-    "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "bank-al-habib--bahl-unionpay-apna-debit-card",
-    "requirement_card_name": "BAHL UnionPay Apna Debit Card"
-  },
-  {
-    "deal_bank_name": "Bank AL Habib",
-    "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "BAHL UnionPay Debit Card",
-    "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "bank-al-habib--bahl-unionpay-debit-card",
-    "requirement_card_name": "BAHL UnionPay Debit Card"
-  },
-  {
-    "deal_bank_name": "Bank AL Habib",
-    "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "Mastercard Gold Credit Card",
-    "matched": true,
-    "match_method": "manual_alias",
+    "match_method": "canonical_exact",
     "requirement_card_id": "bank-al-habib--al-habib-gold-credit-card",
     "requirement_card_name": "AL Habib Gold Credit Card"
   },
   {
     "deal_bank_name": "Bank AL Habib",
     "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "Mastercard Green Credit Card",
-    "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "bank-al-habib--al-habib-green-credit-card",
-    "requirement_card_name": "AL Habib Green Credit Card"
-  },
-  {
-    "deal_bank_name": "Bank AL Habib",
-    "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "Mastercard Platinum Credit Card",
-    "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "bank-al-habib--al-habib-platinum-credit-card",
-    "requirement_card_name": "AL Habib Platinum Credit Card"
-  },
-  {
-    "deal_bank_name": "Bank AL Habib",
-    "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "PayPak Debit Card",
-    "matched": true,
-    "match_method": "manual_alias",
-    "requirement_card_id": "bank-al-habib--paypak-debit-card",
-    "requirement_card_name": "PayPak Debit Card"
-  },
-  {
-    "deal_bank_name": "Bank AL Habib",
-    "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "Visa Gold Debit Card",
+    "deal_card_name": "AL Habib Gold Debit Card",
     "matched": true,
     "match_method": "manual_alias",
     "requirement_card_id": "bank-al-habib--visa-gold-debit-card",
@@ -461,16 +407,43 @@
   {
     "deal_bank_name": "Bank AL Habib",
     "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "Visa Platinum Debit Card",
+    "deal_card_name": "AL Habib PayPak Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--paypak-debit-card",
+    "requirement_card_name": "PayPak Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Platinum Credit Card",
     "matched": true,
     "match_method": "canonical_exact",
+    "requirement_card_id": "bank-al-habib--al-habib-platinum-credit-card",
+    "requirement_card_name": "AL Habib Platinum Credit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Platinum Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
     "requirement_card_id": "bank-al-habib--visa-platinum-debit-card",
     "requirement_card_name": "Visa Platinum Debit Card"
   },
   {
     "deal_bank_name": "Bank AL Habib",
     "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "Visa Signature Debit Card",
+    "deal_card_name": "AL Habib Remit Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-al-habib--al-habib-remit-debit-card",
+    "requirement_card_name": "AL Habib Remit Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Signature Debit Card",
     "matched": true,
     "match_method": "manual_alias",
     "requirement_card_id": "bank-al-habib--signature-debit-card",
@@ -479,11 +452,38 @@
   {
     "deal_bank_name": "Bank AL Habib",
     "requirement_bank_name": "Bank AL Habib",
-    "deal_card_name": "Visa Silver Debit Card",
+    "deal_card_name": "AL Habib Silver Debit Card",
     "matched": true,
     "match_method": "manual_alias",
     "requirement_card_id": "bank-al-habib--visa-silver-debit-card",
     "requirement_card_name": "Visa Silver Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib UnionPay Apna Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--bahl-unionpay-apna-debit-card",
+    "requirement_card_name": "BAHL UnionPay Apna Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib UnionPay Debit Card",
+    "matched": true,
+    "match_method": "manual_alias",
+    "requirement_card_id": "bank-al-habib--bahl-unionpay-debit-card",
+    "requirement_card_name": "BAHL UnionPay Debit Card"
+  },
+  {
+    "deal_bank_name": "Bank AL Habib",
+    "requirement_bank_name": "Bank AL Habib",
+    "deal_card_name": "AL Habib Woman Debit Card",
+    "matched": true,
+    "match_method": "canonical_exact",
+    "requirement_card_id": "bank-al-habib--al-habib-woman-debit-card",
+    "requirement_card_name": "AL Habib Woman Debit Card"
   },
   {
     "deal_bank_name": "Bank Alfalah",
