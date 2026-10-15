@@ -71,9 +71,25 @@ MANUAL_ALIASES = {
         "Askari Visa Platinum Debit Card": "Askari Visa Signature Debit Card",
     },
     "Bank AL Habib": {
+        # 2026-10-15: the feed re-prefixed BAHL's lineup with "AL Habib" and dropped the
+        # network token, which matches the bank's own current naming on /debit-cards
+        # (Signature PKR 23,000 / Platinum 10,000 / Gold 4,500 / Silver 3,700). Same
+        # products, new strings - the pre-rename keys below are kept in case it reverts.
+        # "AL Habib Classic Credit Card" is a feed invention: BAHL publishes only Green,
+        # Gold and Platinum credit cards (/credit-cards, "a choice of Green, Gold and
+        # Platinum Credit Cards"), so the entry tier maps to the Green record.
+        "AL Habib Classic Credit Card": "AL Habib Green Credit Card",
+        "AL Habib Digital Gold Debit Card": "AL Habib Digital Account Gold Debit Card",
         "AL Habib Digital Visa Gold Debit Card": "AL Habib Digital Account Gold Debit Card",
         "AL Habib Digital Visa Silver Debit Card": "AL Habib Digital Account Classic Debit Card",
+        "AL Habib Gold Debit Card": "Visa Gold Debit Card",
+        "AL Habib PayPak Debit Card": "PayPak Debit Card",
+        "AL Habib Platinum Debit Card": "Visa Platinum Debit Card",
         "AL Habib Remit Visa Silver Debit Card": "AL Habib Remit Debit Card",
+        "AL Habib Signature Debit Card": "Signature Debit Card",
+        "AL Habib Silver Debit Card": "Visa Silver Debit Card",
+        "AL Habib UnionPay Apna Debit Card": "BAHL UnionPay Apna Debit Card",
+        "AL Habib UnionPay Debit Card": "BAHL UnionPay Debit Card",
         "AL Habib Woman Visa Silver Debit Card": "AL Habib Woman Debit Card",
         "BAHL UnionPay Apna Debit Card": "BAHL UnionPay Apna Debit Card",
         "BAHL UnionPay Debit Card": "BAHL UnionPay Debit Card",
