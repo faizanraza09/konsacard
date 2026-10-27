@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T13:15:20",
+  "generatedAt": "2026-10-27T12:25:31",
   "source": {
     "catalog": "https://discovery.discountworld.net",
     "coffeePartners": "https://easypaisa.com.pk/coffee-house-partners/"
@@ -252,6 +252,31 @@
       "city": "Islamabad",
       "card_id": 1,
       "card_name": "Easy Paisa DebitCard",
+      "merchant_name": "Gimme",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31686?type=card&cityId=3",
+      "headline_discount_pct": 15,
+      "headline_discount_label": "15%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Taste it once. Crave...",
+      "phone": "051-4436666",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31686?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 1,
+      "card_name": "Easy Paisa DebitCard",
       "merchant_name": "High-End Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30714?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -840,6 +865,31 @@
       "city": "Islamabad",
       "card_id": 2,
       "card_name": "Easy Paisa Union Pay Debit Card",
+      "merchant_name": "Gimme",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31686?type=card&cityId=3",
+      "headline_discount_pct": 15,
+      "headline_discount_label": "15%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Taste it once. Crave...",
+      "phone": "051-4436666",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31686?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 2,
+      "card_name": "Easy Paisa Union Pay Debit Card",
       "merchant_name": "High-End Restaurant (Legend Hotel)",
       "detail_url": "https://discovery.discountworld.net/brand-detail/30714?type=card&cityId=3",
       "headline_discount_pct": 50,
@@ -1421,6 +1471,31 @@
       "terms": null,
       "source_urls": [
         "https://discovery.discountworld.net/brand-detail/30573?type=card&cityId=3"
+      ]
+    },
+    {
+      "city_id": 3,
+      "city": "Islamabad",
+      "card_id": 3,
+      "card_name": "Easy Paisa Pay Pak Debit Card",
+      "merchant_name": "Gimme",
+      "detail_url": "https://discovery.discountworld.net/brand-detail/31686?type=card&cityId=3",
+      "headline_discount_pct": 15,
+      "headline_discount_label": "15%",
+      "cap_pkr": null,
+      "card_deals_count": 3,
+      "branches_in_city": 0,
+      "summary": "Taste it once. Crave...",
+      "phone": "051-4436666",
+      "cards_listed_on_detail": [
+        "Easy Paisa DebitCard",
+        "Easy Paisa Union Pay Debit Card",
+        "Easy Paisa Pay Pak Debit Card"
+      ],
+      "outlets": [],
+      "terms": null,
+      "source_urls": [
+        "https://discovery.discountworld.net/brand-detail/31686?type=card&cityId=3"
       ]
     },
     {
