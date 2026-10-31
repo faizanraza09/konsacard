@@ -1476,6 +1476,78 @@
     "requirement_card_name": "Mastercard World Debit Card"
   },
   {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Challenge Reward Card",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Gold Card",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Platinum Card",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Saffron Card",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Saffron Gold",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Saffron Platinum",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Saffron Silver",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "deal_card_name": "Silver Card",
+    "matched": false,
+    "match_method": "unmapped_bank",
+    "requirement_card_id": null,
+    "requirement_card_name": null
+  },
+  {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "deal_card_name": "Nayab Visa Debit Card",

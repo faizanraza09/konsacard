@@ -110,6 +110,23 @@
     ]
   },
   {
+    "deal_bank_name": "Jubilee Life Insurance",
+    "requirement_bank_name": null,
+    "matched_cards": 0,
+    "total_deal_cards": 8,
+    "coverage_pct": 0.0,
+    "unmatched_deal_cards": [
+      "Challenge Reward Card",
+      "Gold Card",
+      "Platinum Card",
+      "Saffron Card",
+      "Saffron Gold",
+      "Saffron Platinum",
+      "Saffron Silver",
+      "Silver Card"
+    ]
+  },
+  {
     "deal_bank_name": "MCB Bank Limited",
     "requirement_bank_name": "MCB Bank Limited",
     "matched_cards": 11,
