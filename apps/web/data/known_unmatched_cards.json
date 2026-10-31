@@ -15,6 +15,46 @@
       "bank": "JS Bank",
       "card": "Visa Infinite Credit Card",
       "note": "Added 2026-09-25. JS Bank publishes no Visa Infinite credit card: the Jul-Dec 2026 Schedule of Charges (jsbl.com/wp-content/uploads/2026/05/Schedule-of-Charges-July-to-December-2026-English.pdf, Consumer Lending section A 'JS Bank Credit Card VISA') prices exactly four tiers - Classic, Gold, Platinum and Signature - and contains no occurrence of 'Infinite'; jsbl.com/js-credit-card/ lists the same four. Not aliased to the Signature record because Visa Infinite is a distinct Visa tier and no bank document states the equivalence - aliasing would attach Signature's PKR 20,000 annual fee to a card the bank does not publish. Needs a human to confirm with JS Bank whether this is a new product or a feed error; if it is real, it needs its own sourced record."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Challenge Reward Card",
+      "note": "Added 2026-10-31. Not a payment card, and unlike the Saffron entries it could not be sourced on jubileelife.com at all - the name appears only in the Peekaboo feed (peekaboo.guru/karachi/detail/47/jubilee-life-insurance) and may belong to the separate Jubilee Active wellness rewards programme (active.jubileelife.com), which is JS-rendered and published nothing confirming the name. No record written because nothing about this card is attested by an official document. See the note on \"Jubilee Life Insurance || Saffron Card\" in this file."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Gold Card",
+      "note": "Added 2026-10-31. Jubilee Life loyalty card, not a payment card. jubileelife.com does not publish Saffron tier names, so this one is attested only by the Peekaboo feed. See the note on \"Jubilee Life Insurance || Saffron Card\" in this file."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Platinum Card",
+      "note": "Added 2026-10-31. Jubilee Life loyalty card, not a payment card. jubileelife.com does not publish Saffron tier names, so this one is attested only by the Peekaboo feed. See the note on \"Jubilee Life Insurance || Saffron Card\" in this file."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Saffron Card",
+      "note": "Added 2026-10-31. Jubilee Life Insurance is a life insurer, not a bank, and Saffron is its policyholder loyalty programme rather than a payment card, so there is no bank-style requirements record to write. Jubilee's own Saffron FAQs (jubileelife.com/existing-clients/saffron/saffron-faqs) state 'No, this card does not allow any kind of credit facility; it is just a loyalty card' and 'There are no charges applicable on Saffron membership'; the Saffron terms (jubileelife.com/existing-clients/saffron/terms-condition) state 'Bill payments cannot be made through Saffron card; it's only to avail discount and offers'; and the overview (jubileelife.com/existing-clients/saffron/overview-saffron) gives the only entry condition as a life policy of PKR 250,000 or more premium on annual mode. No record was created deliberately: annual fee, minimum salary and minimum balance are all genuinely absent, and a record carrying nulls would be tier-median filled by buildEstimatesByTier in lib/eligibility-core.mjs - a card whose name contains 'Platinum' would be shown PKR 91,666 minimum monthly salary and PKR 2,000,000 minimum balance drawn from 29 unrelated bank Platinum cards, which would be an invented figure. Left unmatched, the app shows 'Requirements unclear', which is accurate. Needs a human product decision: whether Konsacard should list non-bank loyalty cards at all, and if so what card_type they take outside debit/credit. Root cause is get_banks() in scripts/offers/refresh_peekaboo.py, which admits any Peekaboo sourceEntity tagged with the category 'banks', and Peekaboo tags this insurer that way (peekaboo.guru/karachi/detail/47/jubilee-life-insurance)."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Saffron Gold",
+      "note": "Added 2026-10-31. Jubilee Life Saffron loyalty card, not a payment card. jubileelife.com does not publish Saffron tier names, so this one is attested only by the Peekaboo feed. See the note on \"Jubilee Life Insurance || Saffron Card\" in this file."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Saffron Platinum",
+      "note": "Added 2026-10-31. Jubilee Life Saffron loyalty card, not a payment card. jubileelife.com does not publish Saffron tier names, so this one is attested only by the Peekaboo feed. See the note on \"Jubilee Life Insurance || Saffron Card\" in this file."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Saffron Silver",
+      "note": "Added 2026-10-31. Jubilee Life Saffron loyalty card, not a payment card. jubileelife.com does not publish Saffron tier names, so this one is attested only by the Peekaboo feed. See the note on \"Jubilee Life Insurance || Saffron Card\" in this file."
+    },
+    {
+      "bank": "Jubilee Life Insurance",
+      "card": "Silver Card",
+      "note": "Added 2026-10-31. Jubilee Life loyalty card, not a payment card. jubileelife.com does not publish Saffron tier names, so this one is attested only by the Peekaboo feed. See the note on \"Jubilee Life Insurance || Saffron Card\" in this file."
     }
   ]
 }
